@@ -11,8 +11,12 @@
     "P000003": {
       "blurb": "add anchored full-text search and advancement round workspace",
       "created_at": "2026-07-12T20:16:58+00:00"
+    },
+    "P000004": {
+      "blurb": "normalize advancement work paths in search index",
+      "created_at": "2026-07-12T20:17:38+00:00"
     }
   },
-  "next_id": 4,
+  "next_id": 5,
   "version": 1
 }
