@@ -7,18 +7,21 @@ misspelling, phrase, paraphrase, raw-source recovery, and comma-anchor context.
 Record MRR, recall at 5/10, latency, and failure class. Ablate field weighting,
 character correction, source prior, phrase bonus, and graph distance separately.
 
-## Sequence sketch
+## ConeDAG follow-ups
 
-Test these hypotheses across at least 10 hash seeds:
+The present benchmark supports local deformation and order discrimination, but
+the next round should:
 
-1. one-character edits move less than unrelated replacements;
-2. one-token append distance decreases in expectation as prefix length grows;
-3. reorder distance remains greater than append distance at matched length;
-4. collision rate stays below a declared threshold for the target corpus;
-5. candidate recall improves over character n-grams at equal memory.
+1. expand the 12-query semantic set to at least 100 independently judged queries;
+2. run at least 10 seeds and report confidence intervals;
+3. design a deletion-stable position channel without losing order resolution;
+4. measure approximate-neighbor latency and recall at 10k, 100k, and 1m records;
+5. measure collision and near-collision rates at each width;
+6. test fusion with BM25F and graph anchors instead of standalone replacement;
+7. compare learned or external semantic embeddings only if they can be stored and
+   reproduced locally.
 
-Vary character versus word units, normalization, edge width, path depth, and
-absolute-position phase. Report distributions, not hand-picked pairs.
+Keep exact anchors. Report distributions and failure classes, not selected pairs.
 
 ## Training prototype
 
@@ -30,6 +33,6 @@ measure whether any benefit survives removal of target leakage.
 
 ## Adoption gate
 
-Do not add a continuous sketch to production MIND unless it improves judged recall
+Do not add ConeDAG to production MIND unless a fused search improves judged recall
 or latency over the exact index at a stated resource budget. Any returned candidate
 must still be verified against the exact stored record and graph.

@@ -1,0 +1,14 @@
+[
+  {"query": "Schoenberg says the bilateral transform of a Polya frequency function is the inverse of a Laguerre Polya entire function", "expected": "F000005"},
+  {"query": "a rigorously enclosed negative fifth order Toeplitz determinant", "expected": "F000014"},
+  {"query": "does failure of total positivity prove that RH is false or independent", "expected": "F000018"},
+  {"query": "the PF2 manuscript curvature estimate is not rigorous as written", "expected": "F000021"},
+  {"query": "an even smooth PF2 kernel can still have complex Fourier zeros", "expected": "F000046"},
+  {"query": "who proved the de Bruijn Newman constant cannot be negative", "expected": "F000060"},
+  {"query": "RH puts the heat flow transition exactly at zero", "expected": "F000061"},
+  {"query": "the two complex variable xi extension recovers completed zeta when w equals one", "expected": "F000063"},
+  {"query": "boundary modulus one is weaker than being meromorphic inner in the upper half plane", "expected": "F000067"},
+  {"query": "the logarithmic coordinate change turns Suzuki's multiplicative Hankel kernel into additive convolution", "expected": "F000069"},
+  {"query": "DIP code data and plots were described but are absent from this repository", "expected": "F000034"},
+  {"query": "a negative five by five minor cannot establish global PF4", "expected": "F000013"}
+]
