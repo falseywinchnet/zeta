@@ -363,8 +363,46 @@
         "T000040"
       ],
       "updated_at": "2026-07-12T23:08:35+00:00"
+    },
+    "C000019": {
+      "artifacts": [
+        {
+          "path": "sources/semantic-sense-bridge-note-2026-07-12.md",
+          "sha256": "5eb94d6a62e48957aa7b9ed8d572caf3ce444e356ed4479939e54e1781617f55"
+        }
+      ],
+      "author": "Repository contributor",
+      "body": "Transformer sense-bridge correspondence, 2026-07-12. Proposal for a small learned word- and term-equivalence translation layer.",
+      "created_at": "2026-07-12T23:15:38+00:00",
+      "paper": null,
+      "source_url": null,
+      "topics": [
+        "T000038",
+        "T000041",
+        "T000040"
+      ],
+      "updated_at": "2026-07-12T23:15:38+00:00"
+    },
+    "C000020": {
+      "artifacts": [
+        {
+          "path": "search_engine_experimental/research/sense_bridge.md",
+          "sha256": "4ffec51edd98029a03b20bd4b2e57ed5e97ad14b3909e6ef21e0079b10293604"
+        }
+      ],
+      "author": "Sydney, OpenAI Codex",
+      "body": "Local Semantic Sense Bridge, refinement design, 2026-07-12. Versioned concept identities, contextual candidate mapping, contrastive equivalence training, and local reproducibility boundary.",
+      "created_at": "2026-07-12T23:15:38+00:00",
+      "paper": null,
+      "source_url": null,
+      "topics": [
+        "T000038",
+        "T000041",
+        "T000040"
+      ],
+      "updated_at": "2026-07-12T23:15:38+00:00"
     }
   },
-  "next_id": 19,
+  "next_id": 21,
   "version": 1
 }
