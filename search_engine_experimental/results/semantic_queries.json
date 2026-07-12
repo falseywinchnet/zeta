@@ -1,0 +1,169 @@
+{
+  "details": [
+    {
+      "expected": "F000005",
+      "query": "Schoenberg says the bilateral transform of a Polya frequency function is the inverse of a Laguerre Polya entire function",
+      "ranks": {
+        "bag": 1,
+        "char": 1,
+        "cone_dag": 1,
+        "mind_search": 1,
+        "prior": 1
+      }
+    },
+    {
+      "expected": "F000014",
+      "query": "a rigorously enclosed negative fifth order Toeplitz determinant",
+      "ranks": {
+        "bag": 1,
+        "char": 1,
+        "cone_dag": 3,
+        "mind_search": 1,
+        "prior": 41
+      }
+    },
+    {
+      "expected": "F000018",
+      "query": "does failure of total positivity prove that RH is false or independent",
+      "ranks": {
+        "bag": 1,
+        "char": 1,
+        "cone_dag": 1,
+        "mind_search": 1,
+        "prior": 3
+      }
+    },
+    {
+      "expected": "F000021",
+      "query": "the PF2 manuscript curvature estimate is not rigorous as written",
+      "ranks": {
+        "bag": 2,
+        "char": 3,
+        "cone_dag": 5,
+        "mind_search": 2,
+        "prior": 3
+      }
+    },
+    {
+      "expected": "F000046",
+      "query": "an even smooth PF2 kernel can still have complex Fourier zeros",
+      "ranks": {
+        "bag": 1,
+        "char": 1,
+        "cone_dag": 2,
+        "mind_search": 1,
+        "prior": 12
+      }
+    },
+    {
+      "expected": "F000060",
+      "query": "who proved the de Bruijn Newman constant cannot be negative",
+      "ranks": {
+        "bag": 64,
+        "char": 3,
+        "cone_dag": 53,
+        "mind_search": 74,
+        "prior": 45
+      }
+    },
+    {
+      "expected": "F000061",
+      "query": "RH puts the heat flow transition exactly at zero",
+      "ranks": {
+        "bag": 27,
+        "char": 66,
+        "cone_dag": 58,
+        "mind_search": 7,
+        "prior": 2
+      }
+    },
+    {
+      "expected": "F000063",
+      "query": "the two complex variable xi extension recovers completed zeta when w equals one",
+      "ranks": {
+        "bag": 1,
+        "char": 1,
+        "cone_dag": 1,
+        "mind_search": 1,
+        "prior": 2
+      }
+    },
+    {
+      "expected": "F000067",
+      "query": "boundary modulus one is weaker than being meromorphic inner in the upper half plane",
+      "ranks": {
+        "bag": 1,
+        "char": 1,
+        "cone_dag": 1,
+        "mind_search": 1,
+        "prior": 1
+      }
+    },
+    {
+      "expected": "F000069",
+      "query": "the logarithmic coordinate change turns Suzuki's multiplicative Hankel kernel into additive convolution",
+      "ranks": {
+        "bag": 1,
+        "char": 1,
+        "cone_dag": 1,
+        "mind_search": 1,
+        "prior": 1
+      }
+    },
+    {
+      "expected": "F000034",
+      "query": "DIP code data and plots were described but are absent from this repository",
+      "ranks": {
+        "bag": 1,
+        "char": 1,
+        "cone_dag": 1,
+        "mind_search": 1,
+        "prior": 1
+      }
+    },
+    {
+      "expected": "F000013",
+      "query": "a negative five by five minor cannot establish global PF4",
+      "ranks": {
+        "bag": 2,
+        "char": 3,
+        "cone_dag": 1,
+        "mind_search": 1,
+        "prior": 3
+      }
+    }
+  ],
+  "metrics": {
+    "bag": {
+      "mrr": 0.7543885030864197,
+      "recall_at_1": 0.6666666666666666,
+      "recall_at_10": 0.8333333333333334,
+      "recall_at_5": 0.8333333333333334
+    },
+    "char": {
+      "mrr": 0.7512626262626263,
+      "recall_at_1": 0.6666666666666666,
+      "recall_at_10": 0.9166666666666666,
+      "recall_at_5": 0.9166666666666666
+    },
+    "cone_dag": {
+      "mrr": 0.672453553097665,
+      "recall_at_1": 0.5833333333333334,
+      "recall_at_10": 0.8333333333333334,
+      "recall_at_5": 0.8333333333333334
+    },
+    "mind_search": {
+      "mrr": 0.8046975546975547,
+      "recall_at_1": 0.75,
+      "recall_at_10": 0.9166666666666666,
+      "recall_at_5": 0.8333333333333334
+    },
+    "prior": {
+      "mrr": 0.5108288166214995,
+      "recall_at_1": 0.3333333333333333,
+      "recall_at_10": 0.75,
+      "recall_at_5": 0.75
+    }
+  },
+  "queries": 12
+}

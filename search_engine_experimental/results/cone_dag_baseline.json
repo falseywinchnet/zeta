@@ -1,0 +1,214 @@
+{
+  "cases": 1080,
+  "config": {
+    "char_max": 5,
+    "char_min": 3,
+    "content_weight": 1.0,
+    "max_ngram": 4,
+    "path_weight": 1.0,
+    "position_levels": 4,
+    "position_weight": 1.0,
+    "seed": 42,
+    "shape_weight": 0.3,
+    "width": 128
+  },
+  "methods": {
+    "bag": {
+      "build_seconds": 0.00936183298472315,
+      "dimensions": 390,
+      "overall": {
+        "mrr": 1.0,
+        "recall_at_1": 1.0,
+        "recall_at_10": 1.0,
+        "recall_at_5": 1.0
+      },
+      "query_seconds_per_case": 6.882846856670868e-05,
+      "relations": {
+        "append": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_10": 1.0,
+          "recall_at_5": 1.0
+        },
+        "crop": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_10": 1.0,
+          "recall_at_5": 1.0
+        },
+        "delete": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_10": 1.0,
+          "recall_at_5": 1.0
+        },
+        "insert": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_10": 1.0,
+          "recall_at_5": 1.0
+        },
+        "swap": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_10": 1.0,
+          "recall_at_5": 1.0
+        },
+        "typo": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_10": 1.0,
+          "recall_at_5": 1.0
+        }
+      }
+    },
+    "char": {
+      "build_seconds": 0.1713180830120109,
+      "dimensions": 390,
+      "overall": {
+        "mrr": 1.0,
+        "recall_at_1": 1.0,
+        "recall_at_10": 1.0,
+        "recall_at_5": 1.0
+      },
+      "query_seconds_per_case": 0.0009342353995264232,
+      "relations": {
+        "append": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_10": 1.0,
+          "recall_at_5": 1.0
+        },
+        "crop": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_10": 1.0,
+          "recall_at_5": 1.0
+        },
+        "delete": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_10": 1.0,
+          "recall_at_5": 1.0
+        },
+        "insert": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_10": 1.0,
+          "recall_at_5": 1.0
+        },
+        "swap": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_10": 1.0,
+          "recall_at_5": 1.0
+        },
+        "typo": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_10": 1.0,
+          "recall_at_5": 1.0
+        }
+      }
+    },
+    "cone_dag": {
+      "build_seconds": 0.4591197079862468,
+      "dimensions": 390,
+      "overall": {
+        "mrr": 1.0,
+        "recall_at_1": 1.0,
+        "recall_at_10": 1.0,
+        "recall_at_5": 1.0
+      },
+      "query_seconds_per_case": 0.0024282268712542848,
+      "relations": {
+        "append": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_10": 1.0,
+          "recall_at_5": 1.0
+        },
+        "crop": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_10": 1.0,
+          "recall_at_5": 1.0
+        },
+        "delete": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_10": 1.0,
+          "recall_at_5": 1.0
+        },
+        "insert": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_10": 1.0,
+          "recall_at_5": 1.0
+        },
+        "swap": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_10": 1.0,
+          "recall_at_5": 1.0
+        },
+        "typo": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_10": 1.0,
+          "recall_at_5": 1.0
+        }
+      }
+    },
+    "prior": {
+      "build_seconds": 0.030605042004026473,
+      "dimensions": 384,
+      "overall": {
+        "mrr": 0.9941358024691359,
+        "recall_at_1": 0.9907407407407407,
+        "recall_at_10": 0.9990740740740741,
+        "recall_at_5": 0.9990740740740741
+      },
+      "query_seconds_per_case": 0.00017856671825197904,
+      "relations": {
+        "append": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_10": 1.0,
+          "recall_at_5": 1.0
+        },
+        "crop": {
+          "mrr": 0.9675925925925927,
+          "recall_at_1": 0.95,
+          "recall_at_10": 0.9944444444444445,
+          "recall_at_5": 0.9944444444444445
+        },
+        "delete": {
+          "mrr": 0.9972222222222222,
+          "recall_at_1": 0.9944444444444445,
+          "recall_at_10": 1.0,
+          "recall_at_5": 1.0
+        },
+        "insert": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_10": 1.0,
+          "recall_at_5": 1.0
+        },
+        "swap": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_10": 1.0,
+          "recall_at_5": 1.0
+        },
+        "typo": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_10": 1.0,
+          "recall_at_5": 1.0
+        }
+      }
+    }
+  },
+  "records": 180
+}
