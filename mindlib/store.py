@@ -176,12 +176,13 @@ class Store:
             self.save("taxonomy")
         return removed
 
-    def add_citation(self, author, body, topics, paper=None, source_url=None):
+    def add_citation(self, author, body, topics, paper=None, source_url=None, artifacts=None):
         paper_record = self._copy_paper(paper) if paper else None
         cid = self.allocate("citations", "C")
         self.citations[cid] = {
             "author": author.strip(), "body": body.strip(), "topics": self._topic_ids(topics),
-            "paper": paper_record, "source_url": source_url, "created_at": now(), "updated_at": now(),
+            "paper": paper_record, "artifacts": self._artifact_records(artifacts or []),
+            "source_url": source_url, "created_at": now(), "updated_at": now(),
         }
         self.save("citations")
         return cid
@@ -196,6 +197,21 @@ class Store:
             shutil.copy2(source, target)
         return {"path": str(target.relative_to(self.root)), "sha256": hashlib.sha256(target.read_bytes()).hexdigest()}
 
+    def _artifact_records(self, artifacts):
+        records = []
+        for artifact in artifacts:
+            path = Path(artifact).expanduser()
+            path = path if path.is_absolute() else self.root / path
+            path = path.resolve()
+            try:
+                relative = path.relative_to(self.root.resolve())
+            except ValueError as exc:
+                raise MindError(f"artifact must already be inside the repository: {path}") from exc
+            if not path.is_file():
+                raise MindError(f"artifact does not exist: {path}")
+            records.append({"path": str(relative), "sha256": hashlib.sha256(path.read_bytes()).hexdigest()})
+        return records
+
     def remove_citation(self, cid):
         cid = cid.upper()
         if cid not in self.citations:
@@ -206,7 +222,7 @@ class Store:
         del self.citations[cid]
         self.save("citations")
 
-    def change_citation(self, cid, author=None, body=None, topics=None, paper=None, source_url=None):
+    def change_citation(self, cid, author=None, body=None, topics=None, paper=None, source_url=None, artifacts=None):
         cid = cid.upper()
         if cid not in self.citations:
             raise MindError(f"unknown citation: {cid}")
@@ -218,6 +234,8 @@ class Store:
             item["topics"] = self._topic_ids(topics)
         if paper is not None:
             item["paper"] = self._copy_paper(paper)
+        if artifacts is not None:
+            item["artifacts"] = self._artifact_records(artifacts)
         item["updated_at"] = now()
         self.save("citations")
 
@@ -417,6 +435,12 @@ class Store:
                     errors.append(f"{cid}: missing local paper {paper['path']}")
                 elif hashlib.sha256(path.read_bytes()).hexdigest() != paper["sha256"]:
                     errors.append(f"{cid}: paper checksum mismatch")
+            for artifact in cite.get("artifacts", []):
+                path = self.root / artifact["path"]
+                if not path.is_file():
+                    errors.append(f"{cid}: missing local artifact {artifact['path']}")
+                elif hashlib.sha256(path.read_bytes()).hexdigest() != artifact["sha256"]:
+                    errors.append(f"{cid}: artifact checksum mismatch for {artifact['path']}")
         return errors
 
     def run_commit(self):

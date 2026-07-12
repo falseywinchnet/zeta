@@ -48,12 +48,16 @@ def main():
     def cite(author, body, topic_keys, paper=None, url=None):
         return store.add_citation(author, body, [topics[k] for k in topic_keys], paper, url)
 
-    c_convo = cite(
+    c_convo = store.add_citation(
         "Anonymous and ChatGPT",
         "Jacobian Conjecture Epistemics conversation, 2026-06-11 through 2026-07-11. "
         "Complete local export: sources/chatgpt-jacobian-conjecture-epistemics.txt; "
         "lossless 278-record index: sources/chatgpt-jacobian-conjecture-epistemics.turns.json.",
-        ["zeta", "jacobian", "epistemics"],
+        [topics["zeta"], topics["jacobian"], topics["epistemics"]],
+        artifacts=[
+            ROOT / "sources" / "chatgpt-jacobian-conjecture-epistemics.txt",
+            ROOT / "sources" / "chatgpt-jacobian-conjecture-epistemics.turns.json",
+        ],
     )
     c_user_pf5 = cite(
         "Rainstar",

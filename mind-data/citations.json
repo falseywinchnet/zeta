@@ -1,6 +1,16 @@
 {
   "items": {
     "C000001": {
+      "artifacts": [
+        {
+          "path": "sources/chatgpt-jacobian-conjecture-epistemics.txt",
+          "sha256": "14043e53df1c25afb103ac714ccd0ef7c9ef2d6cd76276d450a05bfa8bbbab66"
+        },
+        {
+          "path": "sources/chatgpt-jacobian-conjecture-epistemics.turns.json",
+          "sha256": "5ec7e65d883e41fec92ba4ed489b005657b442f1b3cc952164695026c5de4842"
+        }
+      ],
       "author": "Anonymous and ChatGPT",
       "body": "Jacobian Conjecture Epistemics conversation, 2026-06-11 through 2026-07-11. Complete local export: sources/chatgpt-jacobian-conjecture-epistemics.txt; lossless 278-record index: sources/chatgpt-jacobian-conjecture-epistemics.turns.json.",
       "created_at": "2026-07-12T19:19:06+00:00",
@@ -11,7 +21,7 @@
         "T000025",
         "T000021"
       ],
-      "updated_at": "2026-07-12T19:19:06+00:00"
+      "updated_at": "2026-07-12T19:24:02+00:00"
     },
     "C000002": {
       "author": "Rainstar",
