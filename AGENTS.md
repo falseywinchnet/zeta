@@ -13,6 +13,14 @@ Start every research round with:
 ./MIND RETRIEVE math/zeta/riemann-hypothesis
 ```
 
+For zeta work, then read `ZETA_PATHWAY.md` and retrieve its live targets:
+
+```sh
+./MIND SEARCH R101
+./MIND SEARCH R83
+./MIND SEARCH R94
+```
+
 Run `./MIND EXPLAIN ALL` before changing the graph. Retrieve before establishing.
 Store one claim per factoid. A claim supported by another claim uses that factoid;
 a claim taken directly from a source uses a citation boundary. Preserve conflicting

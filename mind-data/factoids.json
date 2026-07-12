@@ -1244,8 +1244,548 @@
       ],
       "status": "todo",
       "updated_at": "2026-07-12T19:22:05+00:00"
+    },
+    "F000074": {
+      "because": [
+        {
+          "id": "C000007",
+          "type": "citation"
+        }
+      ],
+      "content": "For every real omega>0, Suzuki's arithmetic kernel h_omega is supported on [1,infinity), is locally L1, is locally L2 exactly when omega>1/2, and has Mellin transform Theta_omega in its absolute-convergence half-plane.",
+      "created_at": "2026-07-12T21:48:47+00:00",
+      "relates_to": [
+        "T000017"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-12T21:48:47+00:00"
+    },
+    "F000075": {
+      "because": [
+        {
+          "id": "C000007",
+          "type": "citation"
+        }
+      ],
+      "content": "For omega>0, Suzuki's Theorem 2.2 makes meromorphic innerness of Theta_omega equivalent to the condition that h_omega convolved with every L2 function supported on (1,infinity) belongs to L2 on (0,infinity).",
+      "created_at": "2026-07-12T21:48:47+00:00",
+      "relates_to": [
+        "T000017",
+        "T000031"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-12T21:48:47+00:00"
+    },
+    "F000076": {
+      "because": [
+        {
+          "id": "C000007",
+          "type": "citation"
+        }
+      ],
+      "content": "For omega0>=0, zeta is zero-free in Re(s)>1/2+omega0 if and only if Theta_omega is meromorphic inner for every omega>omega0; hence RH is equivalent to innerness for every omega>0.",
+      "created_at": "2026-07-12T21:48:47+00:00",
+      "relates_to": [
+        "T000003",
+        "T000017",
+        "T000031"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-12T21:48:47+00:00"
+    },
+    "F000077": {
+      "because": [
+        {
+          "id": "C000007",
+          "type": "citation"
+        }
+      ],
+      "content": "For omega>1/2, Suzuki proves that each finite H_omega,a is self-adjoint Hilbert-Schmidt with norm below one and I plus or minus H_omega,a invertible; the continuous Fredholm canonical-system formula is proved only for omega>1.",
+      "created_at": "2026-07-12T21:48:47+00:00",
+      "relates_to": [
+        "T000017"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-12T21:48:47+00:00"
+    },
+    "F000078": {
+      "because": [
+        {
+          "id": "C000012",
+          "type": "citation"
+        }
+      ],
+      "content": "RH is equivalent to nonnegative definiteness of the Weil distribution, while Suzuki's whole-line Weil Hilbert space and its de Branges-space identification are constructed under RH rather than as an unconditional source of that positivity.",
+      "created_at": "2026-07-12T21:48:47+00:00",
+      "relates_to": [
+        "T000034",
+        "T000016",
+        "T000003"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-12T21:48:47+00:00"
+    },
+    "F000079": {
+      "because": [
+        {
+          "id": "C000013",
+          "type": "citation"
+        }
+      ],
+      "content": "RH is equivalent to nonnegativity of every Li coefficient and also to Suzuki's norm identity lambda_n=(2*pi)^(-1)||G_n||_2^2 for every positive integer n; the functions G_n are L2 unconditionally, but the identities are not.",
+      "created_at": "2026-07-12T21:48:47+00:00",
+      "relates_to": [
+        "T000035",
+        "T000034",
+        "T000003"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-12T21:48:47+00:00"
+    },
+    "F000080": {
+      "because": [
+        {
+          "id": "F000033",
+          "type": "factoid"
+        },
+        {
+          "id": "F000034",
+          "type": "factoid"
+        },
+        {
+          "id": "F000070",
+          "type": "factoid"
+        }
+      ],
+      "content": "The reported DIP phase-tree route does not currently support the canonical-system bridge: it failed its own convergence/compression criterion, finite factorization was excluded as evidence, and the computational artifacts are absent.",
+      "created_at": "2026-07-12T21:49:42+00:00",
+      "relates_to": [
+        "T000019",
+        "T000016",
+        "T000022"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-12T21:49:42+00:00"
+    },
+    "F000081": {
+      "because": [
+        {
+          "id": "F000018",
+          "type": "factoid"
+        },
+        {
+          "id": "F000025",
+          "type": "factoid"
+        },
+        {
+          "id": "F000027",
+          "type": "factoid"
+        }
+      ],
+      "content": "Determining the Riemann kernel's exact PF3/PF4 status remains a valid classification problem, but the repository contains no proved PF3/PF4 ribbon mechanism or implication from that classification to RH.",
+      "created_at": "2026-07-12T21:49:42+00:00",
+      "relates_to": [
+        "T000011",
+        "T000012",
+        "T000023"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-12T21:49:42+00:00"
+    },
+    "F000082": {
+      "because": [
+        {
+          "id": "F000076",
+          "type": "factoid"
+        },
+        {
+          "id": "F000077",
+          "type": "factoid"
+        }
+      ],
+      "content": "Extending Suzuki's continuous Fredholm canonical-system formula from omega>1 to omega>1/2 is an unconditional calibration problem, not an RH proof step, because innerness and finite-operator invertibility are already unconditional in that range.",
+      "created_at": "2026-07-12T21:49:42+00:00",
+      "relates_to": [
+        "T000017",
+        "T000023"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-12T21:49:42+00:00"
+    },
+    "F000083": {
+      "because": [
+        {
+          "id": "F000075",
+          "type": "factoid"
+        },
+        {
+          "id": "F000076",
+          "type": "factoid"
+        }
+      ],
+      "content": "RH is equivalent to the statement that, for every 0<omega<1/2, h_omega convolved with every L2 function supported on (1,infinity) belongs to L2 on (0,infinity).",
+      "created_at": "2026-07-12T21:49:42+00:00",
+      "relates_to": [
+        "T000003",
+        "T000017",
+        "T000031"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-12T21:49:42+00:00"
+    },
+    "F000084": {
+      "because": [
+        {
+          "id": "F000078",
+          "type": "factoid"
+        }
+      ],
+      "content": "Suzuki's Weil Hilbert space cannot serve as noncircular construction input for RH because its positive Hilbert completion and de Branges identification assume RH.",
+      "created_at": "2026-07-12T21:49:42+00:00",
+      "relates_to": [
+        "T000034",
+        "T000016",
+        "T000023"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-12T21:49:42+00:00"
+    },
+    "F000085": {
+      "because": [
+        {
+          "id": "F000078",
+          "type": "factoid"
+        },
+        {
+          "id": "F000079",
+          "type": "factoid"
+        }
+      ],
+      "content": "Weil positivity and Li norm identities are exact RH coordinates over unbounded test families, not presently an independently positive finite mechanism.",
+      "created_at": "2026-07-12T21:49:42+00:00",
+      "relates_to": [
+        "T000034",
+        "T000035",
+        "T000023"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-12T21:49:42+00:00"
+    },
+    "F000086": {
+      "because": [
+        {
+          "id": "F000080",
+          "type": "factoid"
+        },
+        {
+          "id": "F000081",
+          "type": "factoid"
+        },
+        {
+          "id": "F000083",
+          "type": "factoid"
+        },
+        {
+          "id": "F000084",
+          "type": "factoid"
+        },
+        {
+          "id": "F000085",
+          "type": "factoid"
+        },
+        {
+          "id": "F000092",
+          "type": "factoid"
+        },
+        {
+          "id": "F000095",
+          "type": "factoid"
+        },
+        {
+          "id": "F000097",
+          "type": "factoid"
+        },
+        {
+          "id": "F000101",
+          "type": "factoid"
+        }
+      ],
+      "content": "The primary secured zeta target is the nonnegative large-scale limit of Suzuki's monotone localized Weil ground-state curve lambda_a. The exact backup target is Suzuki's arithmetic L2-convolution criterion below omega=1/2. The 2026 characteristic-function limit is clarification-gated; PF-order and reported DIP work are secondary diagnostics.",
+      "created_at": "2026-07-12T21:49:42+00:00",
+      "relates_to": [
+        "T000003",
+        "T000017",
+        "T000023"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-12T21:54:09+00:00"
+    },
+    "F000087": {
+      "because": [],
+      "content": "Extend Suzuki's continuous determinant/canonical-system construction from omega>1 to the full calibration range omega>1/2 using singularity-aware operator analysis.",
+      "created_at": "2026-07-12T21:49:42+00:00",
+      "relates_to": [
+        "T000017",
+        "T000022"
+      ],
+      "status": "todo",
+      "updated_at": "2026-07-12T21:49:42+00:00"
+    },
+    "F000088": {
+      "because": [],
+      "content": "Prove or disprove Suzuki's L2-convolution condition directly from the arithmetic kernel h_omega for every 0<omega<1/2, without assuming Theta_omega is inner or using zeta zeros.",
+      "created_at": "2026-07-12T21:49:42+00:00",
+      "relates_to": [
+        "T000003",
+        "T000017",
+        "T000022"
+      ],
+      "status": "todo",
+      "updated_at": "2026-07-12T21:49:42+00:00"
+    },
+    "F000089": {
+      "because": [
+        {
+          "id": "C000014",
+          "type": "citation"
+        }
+      ],
+      "content": "For every finite a>0, Suzuki's 2026 screw-function framework constructs the localized Weil quadratic form's lower-bounded self-adjoint operator A_a, and its lowest eigenvalue lambda_a varies continuously with a, all without assuming RH.",
+      "created_at": "2026-07-12T21:51:35+00:00",
+      "relates_to": [
+        "T000034",
+        "T000016"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-12T21:51:35+00:00"
+    },
+    "F000090": {
+      "because": [
+        {
+          "id": "C000014",
+          "type": "citation"
+        }
+      ],
+      "content": "For each finite a and lambda below lambda_a, Suzuki constructs self-adjoint extensions of a first-order differential operator whose characteristic function W(a,theta;z) is entire and has only real zeros, unconditionally.",
+      "created_at": "2026-07-12T21:51:35+00:00",
+      "relates_to": [
+        "T000034",
+        "T000016"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-12T21:51:35+00:00"
+    },
+    "F000091": {
+      "because": [
+        {
+          "id": "C000014",
+          "type": "citation"
+        }
+      ],
+      "content": "Suzuki's Corollary 1.6 states that RH follows if normalized W(a,theta(a);z) converge locally uniformly on every compact subset of C to xi(1/2-iz)/(z^2 xi'(1/2-iz)) as a tends to infinity.",
+      "created_at": "2026-07-12T21:51:35+00:00",
+      "relates_to": [
+        "T000003",
+        "T000034",
+        "T000016"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-12T21:51:35+00:00"
+    },
+    "F000092": {
+      "because": [
+        {
+          "id": "F000090",
+          "type": "factoid"
+        },
+        {
+          "id": "F000091",
+          "type": "factoid"
+        }
+      ],
+      "content": "The 2026 screw-function route remains conjectural precisely at its normalization and infinite-interval limit; unconditional real-rootedness of every finite-a characteristic function does not establish that zeta-specific limit.",
+      "created_at": "2026-07-12T21:51:35+00:00",
+      "relates_to": [
+        "T000034",
+        "T000016",
+        "T000023"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-12T21:51:35+00:00"
+    },
+    "F000093": {
+      "because": [],
+      "content": "Audit and prove or refute the normalization and locally uniform limit in Suzuki's 2026 Corollary 1.6 directly from the continuous screw kernel and finite-interval operators, without assuming RH.",
+      "created_at": "2026-07-12T21:51:35+00:00",
+      "relates_to": [
+        "T000003",
+        "T000034",
+        "T000016",
+        "T000022"
+      ],
+      "status": "todo",
+      "updated_at": "2026-07-12T21:51:35+00:00"
+    },
+    "F000094": {
+      "because": [
+        {
+          "id": "C000014",
+          "type": "citation"
+        }
+      ],
+      "content": "Suzuki's stated Corollary 1.6 does not specify the analytic class of the normalization phi(a,z), while its displayed reciprocal-logarithmic-derivative target is generally meromorphic; the domain, convergence topology, and zero-preserving role of the normalization therefore require clarification.",
+      "created_at": "2026-07-12T21:52:11+00:00",
+      "relates_to": [
+        "T000034",
+        "T000016",
+        "T000022"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-12T21:52:11+00:00"
+    },
+    "F000095": {
+      "because": [
+        {
+          "id": "F000092",
+          "type": "factoid"
+        },
+        {
+          "id": "F000094",
+          "type": "factoid"
+        }
+      ],
+      "content": "Until the normalization and meromorphic-limit issue is resolved, the 2026 finite-section construction is an exploratory spectral route rather than a secured RH implication beyond its conditional corollary.",
+      "created_at": "2026-07-12T21:52:11+00:00",
+      "relates_to": [
+        "T000003",
+        "T000034",
+        "T000023"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-12T21:52:11+00:00"
+    },
+    "F000096": {
+      "because": [
+        {
+          "id": "C000014",
+          "type": "citation"
+        }
+      ],
+      "content": "For the localized Weil operator A_a, Suzuki proves that the lowest eigenvalue lambda_a is continuous in a and positive for sufficiently small a; if RH is false then lambda_a<0 for some finite a, so continuity forces a finite zero crossing.",
+      "created_at": "2026-07-12T21:53:33+00:00",
+      "relates_to": [
+        "T000003",
+        "T000034",
+        "T000016"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-12T21:53:33+00:00"
+    },
+    "F000097": {
+      "because": [
+        {
+          "id": "F000078",
+          "type": "factoid"
+        },
+        {
+          "id": "F000089",
+          "type": "factoid"
+        },
+        {
+          "id": "F000096",
+          "type": "factoid"
+        }
+      ],
+      "content": "The localized Weil ground-state curve lambda_a is an exact one-parameter RH boundary: proving lambda_a>=0 for every a is Weil positivity, while a certified negative value disproves RH.",
+      "created_at": "2026-07-12T21:53:33+00:00",
+      "relates_to": [
+        "T000003",
+        "T000034",
+        "T000016"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-12T21:53:33+00:00"
+    },
+    "F000098": {
+      "because": [],
+      "content": "Derive computable certified lower bounds, variational monotonicity or comparison principles, and large-a asymptotics for the localized Weil ground-state eigenvalue lambda_a from Suzuki's continuous screw kernel.",
+      "created_at": "2026-07-12T21:53:33+00:00",
+      "relates_to": [
+        "T000003",
+        "T000034",
+        "T000016",
+        "T000022"
+      ],
+      "status": "todo",
+      "updated_at": "2026-07-12T21:53:33+00:00"
+    },
+    "F000099": {
+      "because": [
+        {
+          "id": "C000014",
+          "type": "citation"
+        }
+      ],
+      "content": "Suzuki identifies lambda_a as the infimum of the localized Weil Rayleigh quotient Q_W(v)/||v||_2^2 over nonzero smooth compactly supported functions in (-a,a).",
+      "created_at": "2026-07-12T21:54:09+00:00",
+      "relates_to": [
+        "T000034",
+        "T000016"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-12T21:54:09+00:00"
+    },
+    "F000100": {
+      "because": [
+        {
+          "id": "F000099",
+          "type": "factoid"
+        }
+      ],
+      "content": "The localized Weil ground-state curve is nonincreasing: if 0<a<b then lambda_b<=lambda_a, because the Rayleigh-quotient test space for (-a,a) is contained in that for (-b,b).",
+      "created_at": "2026-07-12T21:54:09+00:00",
+      "relates_to": [
+        "T000034",
+        "T000016"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-12T21:54:09+00:00"
+    },
+    "F000101": {
+      "because": [
+        {
+          "id": "F000097",
+          "type": "factoid"
+        },
+        {
+          "id": "F000100",
+          "type": "factoid"
+        }
+      ],
+      "content": "RH is equivalent to the extended limit of the nonincreasing localized Weil ground-state curve lambda_a being nonnegative as a tends to infinity.",
+      "created_at": "2026-07-12T21:54:09+00:00",
+      "relates_to": [
+        "T000003",
+        "T000034",
+        "T000016"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-12T21:54:09+00:00"
+    },
+    "F000102": {
+      "because": [],
+      "content": "Prove a uniform nonnegative lower bound, or equivalently a nonnegative large-a limit, for Suzuki's localized Weil ground-state curve using the explicit continuous screw kernel and prime terms.",
+      "created_at": "2026-07-12T21:54:09+00:00",
+      "relates_to": [
+        "T000003",
+        "T000034",
+        "T000016",
+        "T000022"
+      ],
+      "status": "todo",
+      "updated_at": "2026-07-12T21:54:09+00:00"
     }
   },
-  "next_id": 74,
+  "next_id": 103,
   "version": 1
 }

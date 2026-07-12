@@ -177,8 +177,60 @@
         "T000003"
       ],
       "updated_at": "2026-07-12T19:22:05+00:00"
+    },
+    "C000012": {
+      "artifacts": [],
+      "author": "Masatoshi Suzuki",
+      "body": "On the Hilbert Space Derived from the Weil Distribution, arXiv:2301.00421, version 2026-03-22.",
+      "created_at": "2026-07-12T21:47:52+00:00",
+      "paper": {
+        "path": "papers/suzuki-weil-space.pdf",
+        "sha256": "e4100e529d74cdc4dfa855aa24bcf34a88562d9facebefd70de6e529f9a1ce2e"
+      },
+      "source_url": null,
+      "topics": [
+        "T000034",
+        "T000016",
+        "T000003"
+      ],
+      "updated_at": "2026-07-12T21:47:52+00:00"
+    },
+    "C000013": {
+      "artifacts": [],
+      "author": "Masatoshi Suzuki",
+      "body": "Li Coefficients as Norms of Functions in a Model Space, arXiv:2301.05779, version 2026-03-22.",
+      "created_at": "2026-07-12T21:47:52+00:00",
+      "paper": {
+        "path": "papers/suzuki-li-norms.pdf",
+        "sha256": "264e7f9bb2db1dd8c5321bcfe54a66c82174f9b017d445a5bbe4c18537bcc3ce"
+      },
+      "source_url": null,
+      "topics": [
+        "T000035",
+        "T000034",
+        "T000031",
+        "T000003"
+      ],
+      "updated_at": "2026-07-12T21:47:52+00:00"
+    },
+    "C000014": {
+      "artifacts": [],
+      "author": "Masatoshi Suzuki",
+      "body": "Weil's Quadratic Form via the Screw Function, arXiv:2606.09096v1, 2026-06-08.",
+      "created_at": "2026-07-12T21:51:09+00:00",
+      "paper": {
+        "path": "papers/suzuki-weil-screw.pdf",
+        "sha256": "06e2abeb778d9414f98589d8654ecf06a7f6d9d0b9914961e88365a6b48b91b2"
+      },
+      "source_url": null,
+      "topics": [
+        "T000034",
+        "T000016",
+        "T000003"
+      ],
+      "updated_at": "2026-07-12T21:51:09+00:00"
     }
   },
-  "next_id": 12,
+  "next_id": 15,
   "version": 1
 }
