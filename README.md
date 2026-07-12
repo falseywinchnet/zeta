@@ -38,3 +38,5 @@ promoted through `mindlib/similarity.py`; experimental claims still do not enter
 zeta factoids by implication.
 
 See [AGENTS.md](AGENTS.md) for repository discipline.
+The current mathematical route, proof chain, gates, and next work packages are
+in [ZETA_PATHWAY.md](ZETA_PATHWAY.md).
