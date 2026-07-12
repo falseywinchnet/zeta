@@ -24,6 +24,11 @@ For zeta work, then read `ZETA_PATHWAY.md` and retrieve its live targets:
 ./MIND SEARCH R94
 ```
 
+For search-engine refinement, retrieve `math/epistemics/semantic-retrieval` and
+read `search_engine_experimental/research/semantic_identity_architecture.md`.
+Semantic relations are proposed unless a cited experiment or proof establishes
+them; exact records remain the evidence boundary.
+
 Run `./MIND EXPLAIN ALL` before changing the graph. Retrieve before establishing.
 Store one claim per factoid. A claim supported by another claim uses that factoid;
 a claim taken directly from a source uses a citation boundary. Preserve conflicting

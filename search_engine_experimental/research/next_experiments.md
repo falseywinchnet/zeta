@@ -25,6 +25,16 @@ the next round should:
 
 Keep exact anchors. Report distributions and failure classes, not selected pairs.
 
+## Interpretation-DAG experiment
+
+Test `semantic_identity_architecture.md` as a separate advancement. Build a
+locally stored labeled set covering paraphrase, entailment, contradiction,
+polysemy, event-role alignment, provenance, and context revision. Compare the
+lexical baseline with typed-graph reranking and fused retrieval; ablate ontology,
+roles, discourse, and provenance. Do not call vector proximity semantic
+equivalence. Promote only if fusion improves judged retrieval while preserving
+ambiguity and exact-record verification.
+
 ## Training prototype
 
 Before training, define the alignment exactly: which context prefix produces which

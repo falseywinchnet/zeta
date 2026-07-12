@@ -1962,44 +1962,326 @@
         {
           "id": "F000110",
           "type": "factoid"
+        },
+        {
+          "id": "F000114",
+          "type": "factoid"
+        },
+        {
+          "id": "F000117",
+          "type": "factoid"
         }
       ],
-      "content": "Work Package A now has a source-normalized operator model and an exact one-dimensional trial-matrix reduction, but it is not certified because the adaptive integrals and infinite-dimensional complement remain unenclosed; its numerical signs do not advance RH.",
+      "content": "Work Package A has a source-normalized operator model, an exact one-dimensional trial-matrix reduction, and directed N=8 projected-matrix enclosures at a=0.3, 0.5, and 1; no full-operator lower bound exists because the infinite-dimensional complement remains unenclosed.",
       "created_at": "2026-07-12T22:27:00+00:00",
       "relates_to": [
+        "T000003",
         "T000034",
-        "T000036",
-        "T000037",
         "T000022"
       ],
       "status": "established",
-      "updated_at": "2026-07-12T22:27:00+00:00"
+      "updated_at": "2026-07-12T23:09:06+00:00"
     },
     "F000112": {
-      "because": [],
-      "content": "Replace the adaptive floating-point localized-Weil matrix entries by directed interval enclosures on every prime-power integration piece, including a stable enclosure of the archimedean kernel near zero.",
-      "created_at": "2026-07-12T22:27:00+00:00",
-      "relates_to": [
-        "T000037",
-        "T000036",
-        "T000022"
+      "because": [
+        {
+          "id": "C000016",
+          "type": "citation"
+        }
       ],
-      "status": "todo",
-      "updated_at": "2026-07-12T22:27:00+00:00"
-    },
-    "F000113": {
-      "because": [],
-      "content": "Construct an L-adapted trial basis and certify the complement, off-diagonal, and tail estimates needed to turn projected localized-Weil matrices into full-operator lower bounds.",
+      "content": "For N=8 at a=0.3, 0.5, and 1, P000011 replaces the adaptive floating-point localized-Weil matrix entries by directed interval enclosures on every prime-power piece, including an analytic archimedean origin enclosure; this finite-projection gate is complete at the tested parameters.",
       "created_at": "2026-07-12T22:27:00+00:00",
       "relates_to": [
-        "T000037",
+        "T000003",
         "T000034",
         "T000022"
       ],
+      "status": "established",
+      "updated_at": "2026-07-12T23:10:00+00:00"
+    },
+    "F000113": {
+      "because": [],
+      "content": "Construct a structure-preserving complement certificate for the localized-Weil form beyond the failed naive low-L one-block scheme, controlling retained-to-tail coupling and the infinite tail strongly enough to turn projected matrices into full-operator lower bounds.",
+      "created_at": "2026-07-12T22:27:00+00:00",
+      "relates_to": [
+        "T000003",
+        "T000034",
+        "T000023"
+      ],
       "status": "todo",
-      "updated_at": "2026-07-12T22:27:00+00:00"
+      "updated_at": "2026-07-12T23:09:06+00:00"
+    },
+    "F000114": {
+      "because": [
+        {
+          "id": "C000016",
+          "type": "citation"
+        }
+      ],
+      "content": "At N=8 and a=0.3, 0.5, and 1, P000011 gives directed Arb enclosures for every localized-Weil projected-matrix entry and eigenvalue; the certified smallest-eigenvalue lower endpoints are positive.",
+      "created_at": "2026-07-12T23:08:49+00:00",
+      "relates_to": [
+        "T000003",
+        "T000034",
+        "T000022"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-12T23:08:49+00:00"
+    },
+    "F000115": {
+      "because": [
+        {
+          "id": "C000016",
+          "type": "citation"
+        }
+      ],
+      "content": "P000011 certifies its finite projected matrices by exact prime-power partitioning, an analytic origin remainder bound, exact parity zeros, validated Acb integration, and Weyl widening by the interval-matrix row-radius norm.",
+      "created_at": "2026-07-12T23:08:49+00:00",
+      "relates_to": [
+        "T000034",
+        "T000022"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-12T23:08:49+00:00"
+    },
+    "F000116": {
+      "because": [
+        {
+          "id": "C000016",
+          "type": "citation"
+        }
+      ],
+      "content": "In the uncertified P000011 64-mode probe, coupling between low L-adapted modes and one global tail block did not decay over the tested cutoffs, so that naive one-block Schur architecture did not approach the certified ground-state scale.",
+      "created_at": "2026-07-12T23:08:49+00:00",
+      "relates_to": [
+        "T000003",
+        "T000034",
+        "T000023"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-12T23:08:49+00:00"
+    },
+    "F000117": {
+      "because": [
+        {
+          "id": "F000109",
+          "type": "factoid"
+        },
+        {
+          "id": "F000114",
+          "type": "factoid"
+        }
+      ],
+      "content": "The positive P000011 N=8 eigenvalue intervals certify only conforming finite Ritz matrices and remain upper bounds for lambda_a; without a complement lower bound they neither certify full-operator positivity nor advance RH.",
+      "created_at": "2026-07-12T23:08:49+00:00",
+      "relates_to": [
+        "T000003",
+        "T000034",
+        "T000022"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-12T23:08:49+00:00"
+    },
+    "F000118": {
+      "because": [
+        {
+          "id": "C000017",
+          "type": "citation"
+        }
+      ],
+      "content": "Repository contributor proposes that semantic identity combine fragment content with contextual intent and directional relational roles, while ambiguous surface forms fork into multiple possible meanings rather than being forced into one identity.",
+      "created_at": "2026-07-12T23:09:18+00:00",
+      "relates_to": [
+        "T000038",
+        "T000039",
+        "T000040"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-12T23:09:18+00:00"
+    },
+    "F000119": {
+      "because": [
+        {
+          "id": "C000018",
+          "type": "citation"
+        }
+      ],
+      "content": "MIND and ConeDAG already preserve collision-free evidence identity through exact record IDs and stored bytes; fixed-dimensional sketches propose candidates and are not authoritative evidence.",
+      "created_at": "2026-07-12T23:09:18+00:00",
+      "relates_to": [
+        "T000038",
+        "T000022"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-12T23:09:18+00:00"
+    },
+    "F000120": {
+      "because": [
+        {
+          "id": "F000118",
+          "type": "factoid"
+        },
+        {
+          "id": "F000119",
+          "type": "factoid"
+        },
+        {
+          "id": "C000018",
+          "type": "citation"
+        }
+      ],
+      "content": "Semantic equivalence should be represented as a typed and scoped relation between interpretation graphs under a declared ontology and context, not as equality of fixed-dimensional vectors.",
+      "created_at": "2026-07-12T23:09:18+00:00",
+      "relates_to": [
+        "T000038",
+        "T000039"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-12T23:09:18+00:00"
+    },
+    "F000121": {
+      "because": [
+        {
+          "id": "F000118",
+          "type": "factoid"
+        },
+        {
+          "id": "C000018",
+          "type": "citation"
+        }
+      ],
+      "content": "A semantic interpretation layer requires distinct but linked structures for lexical senses, ontology, event roles, discourse and coreference, time, and epistemic provenance; multiple inheritance and polysemy make the aggregate a typed multigraph or DAG rather than one tree.",
+      "created_at": "2026-07-12T23:09:18+00:00",
+      "relates_to": [
+        "T000038",
+        "T000039",
+        "T000040"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-12T23:09:18+00:00"
+    },
+    "F000122": {
+      "because": [
+        {
+          "id": "C000018",
+          "type": "citation"
+        }
+      ],
+      "content": "Huffman codes, CRT-style addressing, compact postings, and perceptual hashes can compress or index established semantic objects, but they cannot infer senses, roles, entailment, or equivalence.",
+      "created_at": "2026-07-12T23:09:30+00:00",
+      "relates_to": [
+        "T000038",
+        "T000039"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-12T23:09:30+00:00"
+    },
+    "F000123": {
+      "because": [
+        {
+          "id": "F000119",
+          "type": "factoid"
+        },
+        {
+          "id": "C000018",
+          "type": "citation"
+        }
+      ],
+      "content": "Lossless fixed-dimensional compression of arbitrary unbounded exact strings remains impossible; the viable architecture is a fixed-dimensional lossy candidate index paired with a growing lossless exact store and interpretation graph.",
+      "created_at": "2026-07-12T23:09:30+00:00",
+      "relates_to": [
+        "T000038",
+        "T000022"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-12T23:09:30+00:00"
+    },
+    "F000124": {
+      "because": [
+        {
+          "id": "C000018",
+          "type": "citation"
+        }
+      ],
+      "content": "Additional context cannot guarantee monotone semantic stabilization because later context can reverse an earlier reading; the testable target is calibrated ambiguity refinement with measured revision and convergence.",
+      "created_at": "2026-07-12T23:09:30+00:00",
+      "relates_to": [
+        "T000038",
+        "T000040"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-12T23:09:30+00:00"
+    },
+    "F000125": {
+      "because": [
+        {
+          "id": "C000018",
+          "type": "citation"
+        }
+      ],
+      "content": "Nonuniform semantic importance of edits explains why semantic relevance should not be identified with raw edit distance, but it does not establish a bi-Lipschitz comparison between ConeDAG distance and edit distance.",
+      "created_at": "2026-07-12T23:09:30+00:00",
+      "relates_to": [
+        "T000038",
+        "T000022"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-12T23:09:30+00:00"
+    },
+    "F000126": {
+      "because": [
+        {
+          "id": "F000119",
+          "type": "factoid"
+        },
+        {
+          "id": "F000120",
+          "type": "factoid"
+        },
+        {
+          "id": "F000121",
+          "type": "factoid"
+        },
+        {
+          "id": "F000122",
+          "type": "factoid"
+        },
+        {
+          "id": "F000123",
+          "type": "factoid"
+        },
+        {
+          "id": "F000124",
+          "type": "factoid"
+        },
+        {
+          "id": "F000125",
+          "type": "factoid"
+        }
+      ],
+      "content": "The next semantic-retrieval candidate is a typed interpretation DAG over exact anchors, using lexical ConeDAG for candidate generation and graph alignment for reranking while returning surviving ambiguity classes.",
+      "created_at": "2026-07-12T23:09:30+00:00",
+      "relates_to": [
+        "T000038",
+        "T000039",
+        "T000040"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-12T23:09:30+00:00"
+    },
+    "F000127": {
+      "because": [],
+      "content": "Build and ablate a locally reproducible labeled benchmark for the interpretation-DAG proposal, covering paraphrase, entailment, contradiction, polysemy, event roles, provenance, and context revision before production promotion.",
+      "created_at": "2026-07-12T23:09:30+00:00",
+      "relates_to": [
+        "T000038",
+        "T000039",
+        "T000040"
+      ],
+      "status": "todo",
+      "updated_at": "2026-07-12T23:09:30+00:00"
     }
   },
-  "next_id": 114,
+  "next_id": 128,
   "version": 1
 }
