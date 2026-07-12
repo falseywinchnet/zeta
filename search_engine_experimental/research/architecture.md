@@ -30,9 +30,10 @@ similarity sketch; a source digest rejects stale indices.
 
 References, citations, topics, work, and raw sources share one candidate pool.
 Exact `R<num>` and `CITE<num>` identities bypass ranking. Ordinary ranked output
-uses an adjacent relevance-ratio boundary: stop before the first next item whose
-score is at most 0.36 of its predecessor. Exact scanning is retained at this
-corpus size.
+uses a hybrid secretary boundary. If at least eight candidates score `1/e` or
+higher, return that complete prefix. If fewer than eight do, stop before the
+first adjacent score drop greater than `1-1/e` (equivalently, retention below
+`1/e`). Exact scanning is retained at this corpus size.
 
 Huffman codes can compress postings but do not improve relevance. Bloom filters
 can avoid negative disk lookups but add no value while the index is memory-sized.

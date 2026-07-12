@@ -1,5 +1,6 @@
 import json
 import io
+import math
 import tempfile
 import unittest
 from contextlib import redirect_stdout
@@ -119,7 +120,9 @@ class MindStoreTest(unittest.TestCase):
         fact = self.store.establish("Spectral determinant evidence.", [kernel])
         cite = self.store.add_citation("Kernel Author", "Spectral source boundary.", [kernel])
         build_index(self.store)
-        results = SearchEngine(self.store).search("spectral kernel", limit=25, cutoff_ratio=0.0)
+        results = SearchEngine(self.store).search(
+            "spectral kernel", limit=25, score_floor=0.0, secretary_count=1
+        )
         kinds = {result["document"]["kind"] for result in results}
         identities = {result["document"]["id"] for result in results}
         self.assertIn(fact, identities)
@@ -128,11 +131,35 @@ class MindStoreTest(unittest.TestCase):
         self.assertIn("citation", kinds)
         self.assertIn("topic", kinds)
 
-    def test_dynamic_cutoff_uses_thirty_six_percent_boundary(self):
-        ranked = [{"score": 1.0}, {"score": 0.8}, {"score": 0.288}, {"score": 0.2}]
-        selected = dynamic_cutoff(ranked, limit=25, cutoff_ratio=0.36)
-        self.assertEqual(len(selected), 2)
-        self.assertAlmostEqual(selected[-1]["cutoff"]["ratio"], 0.36)
+    def test_dynamic_cutoff_uses_one_over_e_floor_after_eight_results(self):
+        floor = math.exp(-1)
+        ranked = [{"score": score} for score in (0.9, 0.8, 0.7, 0.6, 0.5, 0.4, 0.38, floor, 0.367, 0.2)]
+        selected = dynamic_cutoff(ranked, limit=25)
+        self.assertEqual(len(selected), 8)
+        self.assertEqual(selected[-1]["cutoff"]["mode"], "score-floor")
+        self.assertEqual(selected[-1]["cutoff"]["qualifying_count"], 8)
+        self.assertAlmostEqual(selected[-1]["cutoff"]["threshold"], floor)
+
+    def test_dynamic_cutoff_uses_adjacent_one_over_e_fallback_below_eight(self):
+        ranked = [{"score": score} for score in (0.9, 0.7, 0.5, 0.4, 0.38, 0.35, 0.34, 0.12, 0.1)]
+        selected = dynamic_cutoff(ranked, limit=25)
+        self.assertEqual(len(selected), 7)
+        cutoff = selected[-1]["cutoff"]
+        self.assertEqual(cutoff["mode"], "adjacent-fallback")
+        self.assertEqual(cutoff["qualifying_count"], 5)
+        self.assertLess(cutoff["ratio"], math.exp(-1))
+
+    def test_dynamic_cutoff_fallback_respects_safety_limit(self):
+        ranked = [{"score": score} for score in (0.9, 0.7, 0.5, 0.35, 0.3, 0.25, 0.2, 0.18, 0.16)]
+        selected = dynamic_cutoff(ranked, limit=8)
+        self.assertEqual(len(selected), 8)
+        self.assertNotIn("cutoff", selected[-1])
+
+    def test_dynamic_cutoff_fallback_drop_is_strict(self):
+        floor = math.exp(-1)
+        ranked = [{"score": 0.9}, {"score": 0.5}, {"score": 0.5 * floor}, {"score": 0.05}]
+        selected = dynamic_cutoff(ranked, limit=25)
+        self.assertEqual(len(selected), 3)
 
     def test_search_exact_public_id_returns_full_object(self):
         cite = self.store.add_citation("Author", "Boundary body.", [self.zeta])

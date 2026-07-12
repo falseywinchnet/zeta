@@ -229,8 +229,53 @@
         "T000003"
       ],
       "updated_at": "2026-07-12T21:51:09+00:00"
+    },
+    "C000015": {
+      "artifacts": [
+        {
+          "path": "work/2026-07-12-localized-weil-foundation/ROUND.md",
+          "sha256": "888a26bd75aca4244d6322ddc557ff045744576206ba49e739d69aa5165270db"
+        },
+        {
+          "path": "work/2026-07-12-localized-weil-foundation/operator_notes.md",
+          "sha256": "0ca858f0ff832840b10c7482ade018f54d2708845a2f8692b19247e1312fef4d"
+        },
+        {
+          "path": "work/2026-07-12-localized-weil-foundation/weil_operator.py",
+          "sha256": "fe096f8a38e2d698facdc5e06f6fe1fbec0e7b62622d3b0e6f619059fd4b67a7"
+        },
+        {
+          "path": "work/2026-07-12-localized-weil-foundation/spectral_crosscheck.py",
+          "sha256": "97e592aaaa78e21aee91f894c33414c82e53b9f3805615d306313780d3512604"
+        },
+        {
+          "path": "work/2026-07-12-localized-weil-foundation/test_prototype.py",
+          "sha256": "2fe1b8b8dec40ac6f1aeb90f0076d6271874b38163f3e49e3bcdc3058b4919f4"
+        },
+        {
+          "path": "work/2026-07-12-localized-weil-foundation/RESULTS.md",
+          "sha256": "a286ceb095496a801856abfe40e4a8eb0786a2b8a345781db3e8b7927a11906c"
+        },
+        {
+          "path": "work/2026-07-12-localized-weil-foundation/NEXT.md",
+          "sha256": "773a87e9a90dcfc506904b2045686e50268554a28e67d91c308ed408153f2457"
+        }
+      ],
+      "author": "Sydney, OpenAI Codex",
+      "body": "Localized Weil Foundation advancement round, P000009, 2026-07-12. Source-keyed operator normalization, derivations, reproducible prototypes, regression tests, numerical results, failures, and certification handoff.",
+      "created_at": "2026-07-12T22:24:33+00:00",
+      "paper": null,
+      "source_url": null,
+      "topics": [
+        "T000034",
+        "T000016",
+        "T000018",
+        "T000015",
+        "T000022"
+      ],
+      "updated_at": "2026-07-12T22:24:33+00:00"
     }
   },
-  "next_id": 15,
+  "next_id": 16,
   "version": 1
 }

@@ -61,6 +61,20 @@ Gate A is a checked mathematical note plus convergent numerical reproduction.
 Numerics alone do not establish a lower bound for the infinite-dimensional
 operator.
 
+### Integrated status
+
+P000009 is audited in `R103`--`R111`. The fixed-interval form normalization and
+the closed-domain nesting argument survive audit. Translation invariance reduces
+each Dirichlet sine-basis matrix element exactly to piecewise one-dimensional
+integrals (`R104`). The adaptive implementation reproduces the small-interval
+scale and the finite-zero diagnostic, but its values are observations rather than
+enclosures (`R105`--`R107`). In particular, the reported `a=1` value is smaller
+than its scalar quadrature-error estimate (`R106`).
+
+Gate A is normalized but not certified. `R112` is the live gate: directed
+interval enclosure of every prime-power integration piece and of the
+archimedean kernel near zero.
+
 ## Work package B: certified ground-state reconnaissance
 
 Construct conforming variational approximations on nested intervals.
@@ -79,6 +93,11 @@ L(a)\le\lambda_a\le U(a),
 \]
 
 not a plot of floating-point eigenvalues.
+
+`R109` records the variational direction: conforming Ritz minima are upper
+bounds. `R110` records the required lower-bound architecture. `R113` is the live
+Package B task: construct an `L`-adapted basis and certify complement,
+off-diagonal, and tail blocks before applying a Schur complement.
 
 ## Work package C: large-scale lower bound
 
@@ -150,6 +169,9 @@ Before any new zeta round:
 ```sh
 ./MIND SEARCH "localized Weil ground state lambda"
 ./MIND SEARCH R101
+./MIND SEARCH R111
+./MIND SEARCH R112
+./MIND SEARCH R113
 ./MIND SEARCH R83
 ./MIND SEARCH R94
 ```
