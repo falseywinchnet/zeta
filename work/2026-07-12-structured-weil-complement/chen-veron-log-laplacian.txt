@@ -1,0 +1,1137 @@
+                                                                    Bounds for eigenvalues of the Dirichlet problem
+                                                                                   for the logarithmic Laplacian
+
+                                                                                             Huyuan Chen1
+                                                                  Department of Mathematics, Jiangxi Normal University, Nanchang,
+                                                                                    Jiangxi 330022, PR China
+
+                                                                                             Laurent Véron2
+                                                              Laboratoire de Mathématiques et Physique Théorique, Université de Tours,
+                                                                                        37200 Tours, France
+
+
+
+
+arXiv:2011.05692v2 [math.AP] 13 Mar 2021
+                                                                                                Abstract
+                                                        We provide bounds for the sequence of eigenvalues {λi (Ω)}i of the Dirichlet problem
+
+                                                                                   L∆u = λu in Ω,        u = 0 in RN \ Ω,
+
+                                                     where L∆ is the logarithmic Laplacian operator with Fourier transform symbol 2 ln |ζ|. The
+                                                     logarithmic Laplacian operator is not positively definitive if the volume of the domain is large
+                                                     enough. In this article, we obtain the upper and lower bounds for the sum of the first k
+                                                     eigenvalues by extending the Li-Yau method and Kröger’s method respectively. Moreover, we
+                                                     show the limit of the sum of the first k eigenvalues, which is independent of the volume of the
+                                                     domain. Finally, we discuss the lower and upper bounds of the k-th principle eigenvalue, the
+                                                     asymptotic behavior of the limit of eigenvalues.
+
+                                           Keywords: Dirichlet eigenvalues; Logarithmic Laplacian.
+                                           MSC2010: 35P15; 35R09.
+
+
+                                           1        Introduction and main results
+                                           Let L∆ be the logarthmic Laplacian in RN , N ≥ 1, defined by
+                                                                              Z
+                                                                                  u(x)1B1 (x) (y) − u(y)
+                                                                 L∆u(x) = cN                             dy + ρN u(x),                                  (1.1)
+                                                                               RN       |x − y|N
+
+                                           where
+                                                                                                2
+                                                                    cN := π −N/2 Γ(N/2) =            ,     ρN := 2 ln 2 + ψ( N2 ) − γ,                  (1.2)
+                                                                                              ωN−1
+                                                                          R                                                                        ′
+                                           ωN−1 := H N −1 (S N −1 ) =              dS, γ = −Γ′ (1) is the Euler Mascheroni constant and ψ = ΓΓ is the
+                                                                           S N−1
+                                           Digamma function.
+                                              The aim of this article is to provide estimates of the eigenvalues of the operator L∆ in a bounded
+                                           domain Ω ⊂ RN , which are the real numbers λ such that there exists a solution to the Dirichlet
+                                           problem                              (
+                                                                                  L∆u = λu in Ω,
+                                                                                                                                            (1.3)
+                                                                                     u=0       in RN \ Ω.
+                                               In recent years, there has been a renewed and increasing interest in the study of boundary
+                                           value problems involving linear and nonlinear integro-differential operators. This growing interest
+                                           is justified both seminal advances in the understanding of nonlocal phenomena from a PDE or
+                                           a probabilistic point of view, see e.g. [3–6, 14, 15, 21, 33, 36, 37] and the references therein, and
+                                               1
+                                                   chenhuyuan@yeah.net
+                                               2
+                                                   veronl@univ-tours.fr
+
+
+                                                                                                     1
+by important applications. Among nonlocal differential order operators, the simplest and most
+studied examples, are the fractional powers of the Laplacian which exhibit many phenomenological
+properties. Recall that for s ∈ (0, 1) the fractional Laplacian of a function u ∈ Cc∞ (RN ) is defined
+by
+                           F((−∆)s u)(ξ) = |ξ|2s u b(ξ)    for all ξ ∈ RN ,
+where and in the sequel both F and ·b denote the Fourier transform. Equivalently, (−∆)s can be
+written as a singular integral operator under the following form
+                                                 Z
+                                s                            u(x) − u(y)
+                          (−∆) u(x) = cN,s lim                      N +2s
+                                                                          dy,             (1.4)
+                                                  RN \Bǫ (x) |x − y|
+                                           ǫ→0 +
+
+
+                    N   Γ( N+2s )
+where cN,s = 22s π − 2 s Γ(1−s)
+                            2
+                                and Γ is the Gamma function, see e.g. [37].
+   The fractional Laplacian has the following limiting properties when s approaches the values 0
+and 1:
+          lim (−∆)s u(x) = −∆u(x) and              lim (−∆)s u(x) = u(x)       for u ∈ Cc2 (RN ),
+          s→1−                                     s→0+
+
+see e.g. [14]. Recently, [8] shows a further expansion at s = 0 that for u ∈ Cc2 (RN ) and x ∈ RN ,
+                          (−∆)s u(x) = u(x) + sL∆u(x) + o(s)        as s → 0+
+where, formally, the operator
+                                                    d
+                                          L∆ :=            (−∆)s                                    (1.5)
+                                                    ds s=0
+is given as a logarithmic Laplacian; indeed,
+                                                           s
+  (i) for 1 < p ≤ ∞, we have L∆u ∈ Lp (RN ) and (−∆)s u−u → L∆u in Lp (RN ) as s → 0+ ;
+                           b(ξ) for a.e. ξ ∈ RN .
+ (ii) F(L∆u)(ξ) = 2 ln |ξ| u
+    Note that the problems with integral-differential operators given by kernels with a singularity of
+order −N have received growing interest recently, as they give rise to interesting limiting regularity
+properties and Harnack inequalities without scaling invariance, see e.g. [25]. Another important
+domain of study consists in understanding the eigenvalues of the Dirichlet problem with zero exterior
+value [8]. We refer to [19, 24] for more topics related to the logarithmic Laplacian and also [16, 23]
+for general nonlocal operator and related embedding results. Let H(Ω) denote the space of all
+measurable functions u : RN → R with u ≡ 0 in RN \ Ω and
+                                 ZZ
+                                                (u(x) − u(y))2
+                                            N                  dxdy < +∞.
+                                     x,y∈R
+                                    |x − y| ≤ 1    |x − y|N
+As we shall see it, H(Ω) is a Hilbert space under the inner product
+                                   ZZ
+                               cN                 (u(x) − u(y))(w(x) − w(y))
+                     E(u, w) =         x,y∈RN
+                                                                                   dxdy,
+                                2     |x − y| ≤ 1           |x − y|N
+                                                                      p
+where cN is given in (1.2), with associated norm kukH(Ω) = E(u, u). By [13, Theorem 2.1], the
+embedding H(Ω) ֒→ L2 (Ω) is compact. Throughout this article we identify L2 (Ω) with the space
+of functions in L2 (RN ) which vanish a.e. in RN \ Ω. The quadratic form associated with L∆ is
+well-defined on H(Ω) by
+                                                           ZZ                                 Z
+                                                                          u(x)w(y)
+   EL : H(Ω) × H(Ω) → R, EL (u, w) = E(u, w) − cN              x,y∈RN            N
+                                                                                    dxdy + ρN     uw dx,
+                                                              |x − y| ≥ 1 |x − y|              RN
+
+where ρN is defined in (1.2). A function u ∈ H(Ω) is an eigenfunction of (1.3) corresponding to the
+eigenvalue λ if                          Z
+                              EL (u, φ) = λ       uφ dx    for all φ ∈ H(Ω).
+                                              Ω
+
+
+                                                      2
+Proposition 1.1. [8, Theorem 1.4] Let Ω be a bounded domain in RN . Then problem (1.3) admits
+a sequence of eigenvalues
+
+                           λ1 (Ω) < λ2 (Ω) ≤ · · · ≤ λi (Ω) ≤ λi+1 (Ω) ≤ · · ·
+
+and corresponding eigenfunctions φi , i ∈ N such that the following holds:
+
+ (a) λi (Ω) = min{EL (u, u) : u ∈ Hi (Ω) : kukL2 (Ω) = 1}, where
+                                                     Z
+      H1 (Ω) := H(Ω) and Hi (Ω) := {u ∈ H(Ω) :          uφi dx = 0 for i = 1, . . . i − 1}   for i > 1;
+                                                          Ω
+
+
+ (b) {φi : i ∈ N} is an orthonormal basis of L2 (Ω);
+
+ (c) φ1 is positive in Ω. Moreover, λ1 (Ω) is simple, i.e., if u ∈ H(Ω) satisfies (1.3) in weak sense
+     with λ = λ1 (Ω), then u = tφ1 for some t ∈ R;
+
+ (d) lim λi (Ω) = +∞.
+      i→∞
+
+    Due to lack of the homogenous property for the logarithmic Laplacian operator, the effect of the
+domain for the principle eigenvalue can’t be expected as the Laplacian or fractional Laplacian, just
+by scaling the domain by their homogeneous property of such operators. Secondly, the logarithmic
+Laplacian operator is no longer positively definitive if |Ω| is to large, since it is proved in [8] that
+the positivity of the principle eigenvalue is equivalent to the comparison principle, which does not
+hold for balls with large radius. These properties of the logarithmic Laplacian operator enrich
+the asymptotics of the Dirichlet eigenvalues as we will see below, but also make more difficult the
+obtention of bounds for eigenvalues.
+    It is well-known that the Hilbert-Pólya conjecture is to associate the zero of the Riemann Zeta
+function with the eigenvalue of a Hermitian operator. This quest initiated the mathematical interest
+for estimating the sum of Dirichlet eigenvalues of the Laplacian while in physics the question is
+related to count the number of bound states of a one body Schrödinger operator and to study their
+asymptotic distribution. In 1912, Weyl in [38] shows that the k-th eigenvalue µk (Ω) of Dirichlet
+problem with the Laplacian operator
+                                     (
+                                       −∆u = µu in Ω,
+                                                                                                   (1.6)
+                                          u=0        in RN \ Ω
+                                                    2                                         2
+has the asymptotic behavior µk (Ω) ∼ CN (k|Ω|) N as k → +∞, where CN = (2π)2 |B1 |− N . Later,
+Pólya [34] (in 1960) proved that
+                                                  2
+                                                   k N
+                                     µk (Ω) ≥ C                                          (1.7)
+                                                  |Ω|
+holds for C = CN and any ”plane-covering domain” D in R2 , (his proof also works in dimension
+N ≥ 3) and he also conjectured that (1.7) holds with C = CN for any bounded domain in RN .
+Rozenbljium [35] and independently Lieb [30] proved (1.7) with a positive constant C for general
+bounded domain. Li-Yau [29] improved the constant C = NN+2 CN , and with that constant (1.7) is
+also called Berezin-Li-Yau inequality because this constant is achieved with the help of Legendre
+transform as in the Berezin’s earlier paper [2]. The Berezin-Li-Yau inequality then is generalized
+in [11–13,26,30,32], for degenerate elliptic operators in [9,22,39] for the fractional Laplacian (−∆)s
+defined in (1.4) and the inequality reads
+                                                                     2s
+                                                N               k      N
+                                   µs,k (Ω) ≥        CN                     .                     (1.8)
+                                              N + 2s           |Ω|
+
+
+
+                                                    3
+Due to the expression of the Fourier symbol of L∆, Berezin-Li-Yau method can not be applied to
+our problem (1.3). Our results are based on the appropriate estimates for the solutions of equations:
+                                                                             r
+                                           r ln r = c      and                        = t.
+                                                                       ln r − ln ln r
+The estimates that we obtain provide a uniform lower bound of the sum of the first k-eigenvalues,
+independently of k, an estimate which has a particular interest when these eigenvalues are negative.
+More precisely, we have the following inequalities:
+
+Theorem 1.2. Let Ω ⊂ RN be a bounded domain, {λi (Ω)}i∈N be the sequence of eigenvalues of
+problem (1.3) obtained in Proposition 1.1 and define
+                                                                   2ωN−1
+                                                        dN =                                         (1.9)
+                                                                  N 2 (2π)N
+
+Then there holds
+(i) for any k ∈ N∗ ,
+                                                     k
+                                                     X
+                                                           λi (Ω) ≥ −dN |Ω|;
+                                                     i=1
+
+(ii) if k > eN2dN |Ω|,
+                                                           k
+                                                           X
+                                                                 λi (Ω) > 0;
+                                                           i=1
+               ee+1 N dN
+(iii) if k ≥       2         |Ω|,
+
+                           k
+                           X              2k
+                                                               2                  2k     
+                                 λi (Ω) ≥          ln k + ln             − ln ln                .   (1.10)
+                                          N                  eN dN |Ω|             eN dN |Ω|
+                           i=1
+
+    Our second interest is to give an upper bound for the first k eigenvalues. Motivated by Kröger’s
+result for the Laplacian [26], we shall build an upper bound by calculating the related Rayleigh
+quotient via a particular complex valued function. Together with the lower bound (1.10), we can
+derive the limit of the sum of the first k eigenvalues as k → +∞. The results state as following.
+
+Theorem 1.3. Let Ω ⊂ RN be a bounded domain and {λi (Ω)}i∈N be the sequence of eigenvalues
+of problem (1.3). Then for k > eN2dN |Ω|,
+                                                                                          !
+                       k
+                       X              2k                           p 
+                                                                 ωN−1         p (k + 1) 
+                                                                       N        N
+                             λi (Ω) ≤        ln(k + 1) + ln     +p     ln ln                        (1.11)
+                                      N                     |Ω|    |Ω|            |Ω|
+                       i=1
+
+and
+                                                                    k
+                                                                    X                 2
+                                               lim (k ln k)−1              λi (Ω) =     ,           (1.12)
+                                             k→+∞                                     N
+                                                                     i=1
+                       N
+where pN = 2(2π)
+             ω
+                 N
+                   .
+                   N−1
+
+
+   Note that the assumption that k > eN2dN |Ω| is required to make sure that λk0 > 0, here k0 is
+the smallest positive integer k0 ≥ eN2dN |Ω|.
+   From the bounds of sum of eigenvalues from our main results, we can provide the following the
+Wely’s formula for the logarithmic Laplacian.
+
+
+
+
+                                                                   4
+Corollary 1.4. Let Ω ⊂ RN be a bounded domain and {λi (Ω)}i∈N be the sequence of eigenvalues
+of problem (1.3). Then (i)
+                                         λk (Ω)   2
+                                    lim         = .                                   (1.13)
+                                   k→+∞ ln k     N
+(ii)
+                   2               2                 2                       2      |B1 |
+                      ln k + ln             ≤ λk (Ω) ≤   ln k + c0 ln ln(k + e) + 2 ln       .            (1.14)
+                   N            eN dN |Ω|              N                                |Ω|
+where c0 > 0 is independent of k and Ω.
+                                                                                  Pk
+Remark 1.5. (a) The limit of λln k (Ω)
+                                    k and the one of (k ln k)
+                                                             −1
+                                                                                   i=1 λi (Ω) as k → +∞ have the
+           2
+same value N , which is independent of Ω;
+       (b) The Weyl formula (1.13) also could be proved by
+
+                                                    λ                 |Ω|ωN−1
+                                          lim e− 2 N N (λ) =                  ,
+                                         λ→+∞                         N (2π)N
+
+which is shown [28, Corollary 6.2], where N is the counting function of eigenvalues,
+                                 X                       X
+                        N (t) =      sgn+ (t − λj (Ω)) =   (t − λj (Ω))0+ .
+                                        j∈N                            j∈N
+
+Here sgn+ (r) = 1 if r > 0, sgn+ (r) = 0 if r ≤ 0 and r± = (|r| ± r)/2 denote the positive and
+negative part of x ∈ R. More estimates for N see [28].
+   (c) The limit (1.13) is proved by showing the inequalities
+
+                           2                2k      N                                    2
+           ln k + ln             − ln ln           ≤ λk (Ω) ≤ ln k + 2 + c̃0 ln ln(k + 1)                 (1.15)
+                       eN dN |Ω|         eN dN |Ω|  2
+             e+1
+for k ≥ e 2N dN |Ω|, where c̃0 > 0 is independent of k, but dependent of |Ω|. Here the first and
+second inequalities follow by (1.10) and (1.11) respectively, along with the monotonicity of the
+sequence of eigenvalues.
+    The inequalities (1.14) provide sharper bounds for λk (Ω), by the aid of a scaling property and
+some estimates of N in [28];
+
+    The rest of this paper is organized as follows. Section 2 is devoted to proving the lower bound
+by developing Li-Yau’s method, and then we prove Theorem 1.2. In Section 3, we show the upper
+bounds for the first k-eigenvalues in Theorem 1.3. Finally, we prove the Wely’s limit of eigenvalues
+in Corollary 1.4 and obtain the more bounds for λk (Ω) in Section 4.
+
+
+2       Lower bounds
+Let
+                                              g(r) = r ln r     for r > 0,
+then g(e) = e, g(1) = 0 and g( 1e ) = − 1e .
+
+Lemma 2.1. For c ≥ − 1e , there exists a unique point rc ≥ 1e such that
+
+                                                        g(rc ) = c,
+
+and we have that rc ≤ 1 + c. Furthermore,
+(i) for − 1e ≤ c ≤ 0,
+                                                                  1
+                                               rc ≥ 1 + (e − 1)c ≥ ;
+                                                                  e
+
+                                                            5
+(ii) for 0 ≤ c ≤ e,
+                                                                      e−1
+                                                         rc ≥ 1 +         c;
+                                                                       e
+(iii) for c ≥ e,
+                                                                      e−1
+                                                         rc ≥ 1 +         c
+                                                                       e
+and
+                                                 c                c
+                                                     ≤ rc ≤                .                                          (2.1)
+                                                ln c        ln c − ln ln c
+Proof. The function g is increasing in [ 1e , +∞) with value in [− 1e , +∞). Hence rc is uniquely
+determined if c ≥ − 1e , c 7→ rc is increasing from [− 1e , +∞) onto [ 1e , +∞), and g is convex.
+     For a > 0, we define ψa (x) = (1 + ax) ln(1 + ax) − x for x > − a1 . Then ψa (x) > 0 (resp.
+ψa (x) < 0) is equivalent to 1 + ax > rx (resp. 1 + ax < rx ). Note that ψa′ (x) = a(1 + ln(1 + ax)) − 1.
+Since ψa′ (− a1 ) = −∞ and ψa′ is increasing, ψa′ (0) = a − 1 is the maximal (resp. minimal) value of ψa′
+on (− a1 , 0] (resp. on [0, ∞)). Therefore, if a > 1, ψa is positive on (− a1 , ra∗ ) for some ra∗ ∈ (− a1 , 0),
+negative on (ra∗ , 0) and positive on (0, ∞). If 0 < a < 1, ψa is positive on (− a1 , 0), negative on
+(0, ra∗ ) for some ra∗ > 0 and positive on (ra∗ , ∞). If a = 1, ψ1 is positive on [− 1e , 0) ∪ (0, ∞) and
+vanishes only at 0. Then ψ1 ≥ 0 implies the first assertion.
+     Since e − 1 > 1 and ψe−1 (− 1e ) = 0, ψe−1 (x) < 0 for x ∈ (− 1e , 0). This gives (i).
+     Since 0 < e−1                                   ∗                        ∗
+                   e < 1, ψ e−1 is negative on (0, r e−1 ) and positive on (r e−1 , ∞). Since ψ e−1 (e) = 0,
+                                   e                              e                              e                e
+r ∗e−1 = e and we get (ii) and (iii).
+  e
+       Since g is increasing on [e, ∞), (2.1) is equivalent to
+                                                                    
+                      ln c              c                   c             ln c − ln(ln c − ln ln c)
+                c−          ≤c≤                  ln                    =c                           .
+                    ln ln c       ln c − ln ln c      ln c − ln ln c            ln c − ln ln c
+Set C = ln c, then
+                             ln c − ln(ln c − ln ln c)   C − ln(C − ln C)
+                                                       =                  >1                  for C > 1
+                                   ln c − ln ln c           C − ln C
+and (2.1) follows.                                                                                                      
+
+Lemma 2.2. Let f be a real-valued function defined in RN with 0 ≤ f ≤ M1 and
+                                    Z
+                                  2     ln |z| f (z)dx = M2 .
+                                                     RN
+
+Then (i)
+                                                                 2ωN−1
+                                                     M2 ≥ −            M1 ;
+                                                                  N2
+(ii)                     Z                                                   
+                                      M1 ωN−1                    N 2 M2               eωN−1     N
+                            f (z)dz ≤                        e+                   =         M1 + M2 ;
+                         RN             N                       2M1 ωN−1                N       2
+                         M2                2e2 ωN−1
+(iii) assuming more that M 1
+                             ≥                N2
+                                                    , there holds
+                     Z                                                                             −1
+                                    N M2                       N 2 M2                        N 2 M2
+                          f (z)dz ≤                 ln                       − ln ln                          .
+                       RN             2                      2eM1 ωN−1                     2eM1 ωN−1
+Proof. We have
+                                       Z                  Z
+                               M2
+                                  =      ln |z|f (z)dz +        ln |z|f (z)dz
+                               2      B1                    B1c
+                                        Z               Z
+                                                                               ω
+                                   ≥ M1      ln |z|dz +       ln |z|f (z)dz ≥ − N−1 M1 .
+                                          B1              B1c                   N2
+
+                                                                  6
+Hence (i) holds.
+   For R > 0 we have that
+                                            (ln |z| − ln R)(f (z) − M1 1BR ) ≥ 0.
+By integration over RN we get
+                                                                                 Z
+                                          M2 M1 ωN−1 RN
+                                            +           ≥ ln R                            f (z)dz.
+                                          2      N2                                  RN
+                                      R
+The estimate from above of                RN f (z)dz is obtained by
+            Z                n                                                   o
+                                         M2 M1 ωN−1 RN
+                f (z)dz ≤ inf A > 0 s.t.   +           − A ln R ≥ 0 for all R > 0  .                                                (2.2)
+             RN                          2      N2
+
+Set
+                                                       M2 M1 ωN−1 RN
+                                          ΘA (R) =       +           − A ln R,
+                                                       2      N2
+then ΘA achieves the minimum if
+                                                                                                    1
+                                M1 ωN−1 RN                                                  NA           N
+                                           = A ⇐⇒ R = RA :=                                                  .
+                                    N                                                     ωN−1 M1
+
+Hence                                                                                           
+                                                 M2   A   A                            NA
+                                      ΘA (RA ) =    +   −   ln                                       .                              (2.3)
+                                                 2    N   N                          ωN−1 M1
+Put r = M1NωA          , then
+                 N−1
+
+
+                                                                   N 2 M2       r      N 2 M2
+                       ΘA (RA ) ≥ 0 ⇐⇒ r ln r − r ≤                        ⇐⇒ g      ≤           .                                  (2.4)
+                                                                  2M1 ωN−1       e     2eM1 ωN−1
+
+                        N M2      2
+Then re ≤ rc with c = 2eM 1ω
+                             , inequality rc ≤ 1 + c in Lemma 2.1 yields
+                                      N−1
+
+                                                                 Z                                                         
+                NA          N 2 M2                                              M1 ωN−1                      N 2 M2
+            r=         ≤e+          =⇒                                f (z)dz ≤                          e+                     ,
+               M1 ωN−1     2M1 ωN−1                               R N             N                         2M1 ωN−1
+
+which is (ii).
+                                          2e2 ωN−1
+      Assuming now that M
+                        M1 ≥
+                          2
+                                             N2
+                                                   , we can apply Lemma 2.1-(iii) and get
+                       Z                                                                                     −1
+                                           N M2                  N 2 M2                          N 2 M2
+                             f (z)dz ≤                ln                        − ln ln                                 ,
+                        RN                   2                 2eM1 ωN−1                       2eM1 ωN−1
+
+which is (iii) and ends the proof.                                                                                                    
+
+Lemma 2.3. Let
+                                                                 r
+                                             g̃(r) =                            for r > e.
+                                                           ln r − ln ln r
+              e    e
+Then for t > e−1 , there exists a unique point rt > e such that g̃(rt ) = t. Furthermore,
+
+                                                t(ln t − ln ln t) ≤ rt < t ln t.                                                    (2.5)
+
+
+
+
+                                                                     7
+Proof. Since
+                                                1           1 − (ln r)−1
+                                g̃′ (r) =                −
+                                          ln r − ln ln r (ln r − ln ln r)2
+                                                1                 1        
+                                        ≥                 1−                  > 0,
+                                          ln r − ln ln r     ln r − ln ln r
+                                                   e                   e
+the function g̃ is increasing from (e, +∞) onto ( e−1 , +∞). Setting rt∗ = t(ln t − ln ln t), then
+                                                          t(ln t − ln ln t)
+                           g̃(rt∗ ) =
+                                     ln t + ln(ln t − ln ln t) − ln ln(t(ln t − ln ln t))
+                                                  t(ln t − ln ln t)
+                                   ≤
+                                     ln t + ln(ln t − ln ln t) − ln ln(t ln t)
+                                        ln t − ln ln t
+                                   =                         t
+                                     ln t − ln lnln(t ln t)
+                                                  t−ln ln t
+                                   ≤ t,
+where the last inequality holds if
+                                                          ln(t ln t)
+                                                                       ≤ ln t,
+                                                        ln t − ln ln t
+which is equivalent to
+                               h̃(τ ) := τ 2 − (ln τ + 1)τ − ln τ ≥ 0,                  τ = ln t.
+Freezing the coefficient ln τ , h̃(τ ) = (τ − τ1 )(τ − τ2 ), where the τ1 , τ2 depend of τ , but τ1 < 0 < τ2 ,
+since τ1 τ2 = − ln τ < 0. Because h̃(e) = e2 − 2e − 1 = 0.9584 ± 10−4 , we have e > τ1 . Hence τ > e
+implies τ > τ1 which in turn implies h̃(τ ) > 0. Hence rt∗ ≤ rt using the monotonicity of g̃.
+    Let st = t ln t, then
+                                                         t ln t
+                                   g̃(st ) =                                <t
+                                             ln t + ln ln t − ln ln(t ln t)
+by the fact that
+                                        ln ln t − ln ln(t ln t) < 0             for t > e.
+Hence st ≥ rt , which ends the proof.                                                                       
+Proof of Theorem 1.2. Denote
+                                                k
+                                                X
+                               Φk (x, y) =               φj (x)φj (y),          (x, y) ∈ Ω × Ω,
+                                                j=1
+
+and                                                                Z
+                                    b k (z, y) = (2π)− N2
+                                    Φ                                       Φk (x, y)eix·z dx,
+                                                                       RN
+      b k is the Fourier transform with respect to x. Hence we have that
+where Φ
+                        Z Z                        Z Z
+                                 b         2
+                                |Φk (z, y)| dzdy =     |Φk (x, y)|2 dxdy = k
+                              RN   Ω                        Ω Ω
+by the orthonormality of the {φj }i∈N               2
+                                                in L (Ω). Furthermore, we note that
+                                                                                             
+                    Z                           Z           k
+                                                            X                   Xk
+                           b k (z, y)|2 dy =
+                          |Φ                                   φbj (z)φj (y)    φbj (z)φj (y) dy
+                      Ω                             Ω
+                                                         j=1                    j=1
+                                                                                        
+                                                Z         Xk
+                                            =                φbj (z)φbℓ (z)φj (y)φℓ (y) dy            (2.6)
+                                                 Ω        j,ℓ=1
+                                                k
+                                                X
+                                            =           |φbj (z)|2 .
+                                                j=1
+
+
+                                                                   8
+Using again the orthonormality of the {φj }i∈N in L2 (Ω), we infer by the k-dim Pythagore theorem,
+
+                                                                                                                  2
+                   Z                                           Z       k Z
+                                                                       X
+                          b k (z, y)|2 dy = (2π)−N
+                         |Φ                                                            eix.z φj (x)dx φj (y) dy
+                     Ω                                         Ω j=1               Ω
+
+                                                               X Z
+                                                               k                                   2                   (2.7)
+                                                       −N                      ix.z
+                                           = (2π)                              e      φj (x)dx
+                                                               j=1         Ω
+
+                                           ≤ (2π)−N |Ω|.
+
+   We have, from the Fourier expression of L∆,
+                               k
+                               X                     Z Z
+                                     λj (Ω) =                  Φk (x, y)L∆Φk (x, y)dydx
+                               j=1                    Ω    Ω
+
+                                                      k Z
+                                                      X
+                                                =2                     |φbj (z)|2 ln |z|dz
+                                                      j=1       RN
+                                                      Z        Z                          
+                                                =2                          b k (z, y)|2 dy ln |z|dz.
+                                                                           |Φ
+                                                          RN           Ω
+
+Now we apply Lemma 2.2 to the function
+                                                               Z
+                                                    f (z) =             b k (z, y)|2 dy
+                                                                       |Φ
+                                                                   Ω
+
+with
+                                                                                            k
+                                                                                            X
+                                                     −N
+                                 M1 = (2π)                |Ω| and                  M2 =           λj (Ω).
+                                                                                            j=1
+
+
+Part (i): By Lemma 2.2 (i),
+                                     k
+                                     X                          2ωN−1
+                                           λj (Ω) ≥ −                    |Ω| = −dN |Ω|,
+                                                               N 2 (2π)N
+                                     j=1
+
+where dN is the constant defined in (1.9).
+Part (ii):
+                                      Z                                                       k
+                                                                   eωN−1 |Ω| N X
+                                k=              f (z)dz ≤                   +    λj (Ω),
+                                          RN                       N (2π)N    2
+                                                                                             j=1
+
+which implies that
+                                           k
+                                           X                       2k 2eωN−1 |Ω|
+                                                    λj (Ω) ≥         − 2         .
+                                                                   N  N (2π)N
+                                            j=1
+
+Part (iii): for k ∈ N, if
+                                                k
+                                                X                          2e2 ωN−1
+                                                      λj (Ω) ≥                      |Ω|,
+                                                                             N2
+                                                j=1
+
+then
+                                                                                                        −1
+                            N M2                      N 2 M2                                  N 2 M2
+                         k≤                ln                               − ln ln                                .
+                              2                     2eM1 ωN−1                               2eM1 ωN−1
+
+
+                                                                       9
+Setting
+                                  N 2 M2                                  Nk       (2π)N N k
+                          r=                       and           t=              =           ,
+                                2eM1 ωN−1                               eM1 ωN−1   eωN−1 |Ω|
+we have from (2.5) that
+                                              r ≥ rt ≥ t (ln t − ln ln t)                                      (2.8)
+for any t > ee , i.e.
+                                          ee+1 ωN−1 |Ω|   ee+1 N dN
+                                    k>                  =           |Ω|.
+                                            (2π)N N           2
+This implies
+                      N 2 M2    (2π)N N k
+                                                                (2π)N N k               (2π)N N k 
+                              ≥                            ln                   − ln ln                    ,
+                    2eM1 ωN−1   eωN−1 |Ω|                        eωN−1 |Ω|                 eωN−1 |Ω|
+from what we infer
+                        k
+                        X                2k
+                                                            2k                  2k     
+                              λj (Ω) ≥            ln                   − ln ln                ,                (2.9)
+                                         N                 eN dN |Ω|             eN dN |Ω|
+                        j=1
+
+which completes the proof.                                                                                        
+
+Remark 2.4. By the nondecreasing monotonicity of k 7→ λk (Ω), we have that for k ≥ eN2dN |Ω|
+
+                                                                   k
+                                                                1X
+                                          λk (Ω) ≥                 λi (Ω) > 0.
+                                                                k
+                                                                  i=1
+
+
+3      Upper bound
+For any bounded complex valued functions u, v defined on Ω, there holds
+                                                  Z
+                                                          u(x) − u(ζ)
+                   L∆(uv)(x) = u(x)L∆v(x) + cN                    N
+                                                                      v(ζ)dζ.                                  (3.1)
+                                                    B1 (x) |x − ζ|
+
+Lemma 3.1. For z ∈ RN , we denote
+
+                                          µz (x) = eix·z ,              ∀ x ∈ RN ,
+
+then
+                                  L∆µz (x) = (2 ln |z|)µz (x),                  ∀ x ∈ RN .                     (3.2)
+
+Proof. Step 1: we claim that for
+
+                                  (−∆)s µz (x) = |z|2s µz (x),                  ∀ x ∈ RN .                     (3.3)
+
+    Without loss of generality, it is enough to prove (3.3) with z = te1 , where t > 0 and e1 =
+(1, 0, · · · , 0) ∈ RN . For this, we write
+
+                          vt (x) = µz (x1 ) = eitx1 ,              x = (x1 , x′ ) ∈ R × RN −1 .
+
+For N ≥ 2 it implies by [7, Lemma 3.1] that
+
+                                     (−∆)s vt (x) = (−∆)sR vt (x1 ).
+
+Now we claim that
+                                  (−∆)sR vt (x1 ) = t2s vt (x1 ),               ∀ x1 ∈ R.                      (3.4)
+
+
+                                                                  10
+Indeed, observe that −∆R := −(vt )x1 x1 = t2 vt in R and then
+                                                                     
+                           (|ξ1 |2 − t2 )vbt (ξ1 ) = F −∆R vt − t2 vt (ξ1 ) = 0,
+
+which implies that
+                                             supp(vbt ) ⊂ {±t},
+which in turn implies
+                                                                             
+                         (|ξ1 |2s − t2s )vbt (ξ1 ) = 0 = F (−∆)sR vt − t2s vt (ξ1 ).
+
+and finally                                           
+                                    (−∆)sR vt − t2s vt (ξ1 ) = 0 in R,
+which yields
+
+                           (−∆)s vt (x) = (−∆)sR vt = t2s vt (x),     ∀ x ∈ RN ,
+
+Step 2: we show (3.2). From the property (1.5) of L∆ since µz is bounded,
+
+                               (−∆)s µz (x) − |z|2s µz (x)
+                            0=
+                                           s
+                               (−∆)s µz (x) − µz (x) |z|2s − 1
+                             =                        −        µz (x)
+                                         s                 s
+                             → L∆µz (x) − (2 ln |z|)µz (x)   as s → 0+ ,
+
+hence,
+                                 L∆µz (x) = (2 ln |z|)µz (x),     ∀ x ∈ RN ,
+which is the claim.                                                                                  
+   Next, let η0 ∈ C 1 (R) be a nondecreasing real value function such that kη0′ kL∞ ≤ 2 satisfying
+
+                             η0 (t) = 1 if t ≥ 1,         η0 (t) = 0 if t ≤ 0.
+
+Since Ω is a bounded domain, there exists a C 1 domain O ⊂ Ω such that |O| ≥ 34 |Ω|. For σ > 0,
+we set again
+                              wσ (x) = η0 (σ −1 ρ̄(x)), ∀ x ∈ RN .                        (3.5)
+where ρ̄(x) = dist(x, ∂O). Observe that wσ ∈ H0 (Ω) and
+
+                                      wσ → 1 in O as σ → 0+ .
+
+Thus, there exists σ1 > 0 such that for σ ∈ (0, σ1 ],
+                                      Z              Z
+                                                                 |Ω|
+                                |Ω| >     wσ dx ≥       wσ2 dx >     .
+                                        Ω             Ω           2
+
+Lemma 3.2. Let                               Z
+                                                     wσ (x) − wσ (ζ) iζ·z
+                               Lz wσ (x) =                          e dζ,
+                                              B1 (x)    |x − ζ|N
+then there holds
+                                                   2ωN−1
+                                    Lz wσ (x) ≤              for x ∈ Ω.
+                                                     σ
+
+
+
+
+                                                     11
+Proof. Actually, if x ∈ Ω, we have that
+
+                                |wσ (x) − wσ (ζ)| ≤ kDwσ kL∞ |x − ζ| ≤ σ −1 kη0′ kL∞ |x − ζ|,
+
+then
+                         Z                                                                 Z
+                                    wσ (x) − wσ (ζ) iζ·z      kη0′ kL∞                                 dζ        2ωN−1
+                                                   e     dζ ≤                                                  ≤       ,
+                             B1 (x)    |x − ζ|N                   σ                         B1 (x) |ζ − x|
+                                                                                                          N −1     σ
+
+since kη0′ kL∞ ≤ 2. This ends the proof.                                                                                                        
+Proof of Theorem 1.3. We recall that Φk (x, y) and Φ b k (z, y) have been defined in the proof of
+Theorem 1.2. If we denote
+                          ṽσ,z (x) := vσ (x, z) = wσ (x)eix·z ,
+the projection of vσ onto the subspace of L2 (Ω) spanned by the φj for 1 ≤ j ≤ k can be written in
+terms of the Fourier transform of wσ Φk with respect to the x-variable:
+                          Z
+                             vσ (x, z)Φk (x, y)dx = (2π)N/2 Fx (wσ Φk )(z, y).
+                                       Ω
+
+Put
+                                       vσ,k (z, y) = vσ (z, y) − (2π)N/2 Fx (wσ Φk )(z, y)
+and the Rayleigh-Ritz formula shows that
+                            Z                   Z
+                                          2
+                    λk+1 (Ω) |vσ,k (z, y)| dy ≤   vσ,k (z, y)L∆,y vσ,k (z, y)dy
+                                              Ω                               Ω
+
+for any z ∈ RN and σ > 0, where the right hand side is a real value
+    Z                                  Z                                 Z                                                                2
+       vσ,k (z, y)L∆,y vσ,k (z, y)dy =   vσ,k (z, y)L∆,y vσ,k (z, y)dy =                                         2 ln |ξ| F(vσ,k )(z, ξ) dξ,
+       Ω                                               RN                                                   RN
+
+although vσ,k is complex valued function. Then, integrating this last inequality with respect to z
+in Br \ B1 , for r > 1, we obtain
+                                        Z       Z
+                                                  vσ,k (z, y)L∆,y vσ,k (z, y)dydz
+                                         Br \B1 Ω
+                         λk+1 (Ω) ≤ inf       Z      Z                            .
+                                    σ>0                               2
+                                                         |vσ,k (z, y)| dydz
+                                                                  Br \B1          Ω
+
+By Pythagore’s theorem, we have that
+                Z                             Z                                            Z X
+                                                                                             k
+                        |vσ,k (z, y)|2 dy =           |vσ (z, y)|2 dy − (2π)N                          |Fx (wσ φi )(z)|2 φi (y)2 dy,
+                    Ω                             Ω                                            Ω j=1
+
+
+integrating over Br \ B1 implies that
+        Z           Z                                           Z                                       k Z
+                                                                                                        X
+                                      2       ω    rN
+                          |vσ,k (z, y)| dydz ≥ N−1                      wσ2 (y)dy − (2π)N                               |Fx (wσ φi )(z)|2 dz.
+           Br \B1       Ω                       N                   Ω                                          Br \B1
+                                                                                                         j=1
+
+On the other hand,
+  Z      Z                                     Z                              Z
+             vσ,k (z, y)L∆,y vσ,k (z, y)dydz =                                        vσ (z, y)L∆,y vσ (z, y)dydz
+       Br \B1   Ω                                                 Br \B1      Ω
+                                                                  Z               Z
+                                                              N
+                                                       − (2π)                             Fx (wσ Φk )(z, y)L∆,y Fx (wσ Φk )(z, y)dydz,
+                                                                    Br \B1            Ω
+
+
+
+                                                                         12
+where
+       Z            Z                                                                 k
+                                                                                      X                 Z
+                            Fx (wσ Φk )(z, y)L∆,y Fx (wσ Φk )(z, y)dydz =                      λj (Ω)                |Fx (wσ φj )(z)|2 dz
+        Br \B1          Ω                                                             j=1                   Br \B1
+
+
+and
+           Z            Z
+                                vσ (z, y)L∆,y vσ (z, y)dydz
+               Br \B1       Ω
+                                            Z        Z                           Z        Z
+                                                          2             iy.z
+                                         ≤              wσ (y)|L∆,y e |dydz +                wσ (y)|Lz wσ (y)|dydz
+                                              Br \B1 Ω                             Br \B1 Ω
+                                            Z        Z                              Z       Z
+                                                                             2ω
+                                         ≤              wσ2 (y) ln |z|dydz + N−1                wσ (y)dydz
+                                              Br \B1 Ω                         σ      Br \B1 Ω
+
+                                            ω                        1         ω2                   
+                                         = N−1 ̺2,σ r N ln r − (r N − 1) + N−1 ̺1,σ r N − 1
+                                              N                      N              Nσ
+                                                                    ω 2
+                                            ωN−1
+                                         ≤         ̺ r N ln r + N−1 ̺1,σ r N
+                                              N 2,σ                  Nσ
+with                                                   Z                               Z
+                                             ̺1,σ =            wσ (y)dy   and ̺2,σ =           wσ2 (y)dy.
+                                                           Ω                               Ω
+Because of Parseval’s identity, there holds
+                           Z                             Z
+                                   |Fx (wσ φi )(z)|2 dz ≤ (wσ φi )2 dx ≤ 1.
+                                              Br \B1                            Ω
+
+
+   Let k0 be the smallest positive integer such that k0 ≥ eN2dN |Ω| and then λk0 (Ω) ≥ 0.
+   For k ≥ k0 , we choose r > 1 such that
+
+                        2ωN−1 N        ωN−1 r N         N                               ωN−1 r N
+                           2
+                             r  ln r ≥          ⇐⇒ r ≥ e 2                      and              |Ω| > 2(2π)N k,
+                         N               N                                                N
+then we have that
+                                ωN−1 r N
+                                                       N         ω
+                                                                                P           R
+                                  N         ̺2,σ N2 ln re + ̺1,σ N−1σ    − (2π)N kj=1 λj (Ω) Br |Fx (wσ φj )(z)|2 dz
+       λk+1 (Ω) ≤                                  ωN−1 r N              P     R
+                                                      N     ̺2,σ − (2π)N kj=1 Br |Fx (wσ φj )(z)|2 dz
+
+Denote                                                                         
+                            ω    rN                    2   rN       ω                                        ωN−1 r N
+                        A1 = N−1                   ̺2,σ ln    + ̺1,σ N−1               and A2 =                       ̺2,σ ,
+                              N                        N    e         σ                                        N
+then
+                                            Pk                  R       2
+                        A1 − (2π)N        j=1 λj (Ω) Br |Fx (wσ φj )(z)| dz
+                0≤                         P      R                         − λk+1 (Ω)
+                                A2 − (2π)N kj=1 Br |Fx (wσ φj )(z)|2 dz
+                                            P                      R
+                    A1 − A2 λk+1 (Ω) + (2π)N kj=1 λk+1 (Ω) − λj (Ω) Br |Fx (wσ φj )(z)|2 dz
+                  =                            P     R
+                                    A2 − (2π)N kj=1 Br |Fx (wσ φj )(z)|2 dz
+                                            P                      
+                    A1 − A2 λk+1 (Ω) + (2π)N kj=1 λk+1 (Ω) − λj (Ω)
+                  ≤
+                                      A2 − (2π)N k
+
+
+
+                                                                          13
+                                                R
+since λk+1 (Ω) ≥ λj (Ω) for j < k + 1 and Br |Fx (wσ φj )(z)|2 dz ∈ (0, 1). As a consequence, we
+obtain that
+                           ωN−1 r N
+                                                 N          ω
+                                                                           P
+                              N       ̺2,σ N2 ln re + ̺1,σ N−1 σ     − (2π)N kj=1 λj (Ω)
+                λk+1 (Ω) ≤                      ωN−1 r N
+                                                                                         ,  (3.6)
+                                                         ̺    −  (2π)Nk
+                                                   N      2,σ
+
+where
+                        ωN−1 r N                 ω    r N |Ω|
+                                 ̺2,σ − (2π)N k > N−1         − (2π)N k > 0.
+                          N                        N       2
+We fix σ = σ1 and first impose k, r > 1 such that
+                                          ωN−1 r N
+                                                   ̺2,σ = (2π)N (k + 1),
+                                            N
+                 1
+and take r = k N for k ≥ k0 , then we recall that
+                                                        λk 0 ≥ 0
+and
+                 k+1
+                 X                                       2
+                               2ωN−1             rN    ωN−1          1√
+         (2π)N
+                       λj (Ω) ≤    2
+                                     ̺2,σ r N
+                                              ln     +      σ −1 |Ω| 2 ̺2,σ r N
+                                 N                e     N
+                 j=1
+                                     2(k + 1)                  pN     ω          pN (k + 1) 
+                             ≤ (2π)N             ln(k + 1) + ln       + N−1 ln ln
+                                        N                       ̺2,σ    ̺2,σ         ̺2,σ
+                                     2(k + 1)                  2pN     2ω         2pN (k + 1) 
+                             ≤ (2π)N             ln(k + 1) + ln       + pN−1 ln ln              ,
+                                        N                       |Ω|        |Ω|          |Ω|
+where
+                                          2(2π)N N                 |Ω|
+                                   pN =                  and           ≤ ̺2,σ ≤ |Ω|.
+                                            ωN−1                    2
+    Moreover, (1.12) follows by the lower bound (1.10) and the upper bound (1.11) directly.             
+
+
+4       Further discussion
+Proof of Corollary 1.4 (i).          On the one hand, it follows by the nondecreasing monotonicity of
+k 7→ λk (Ω) and (1.10) that
+
+                         1X
+                              k
+                                     2
+                                                                2                  2k     
+                λk (Ω) ≥    λi (Ω) ≥                ln k + ln             − ln ln                .   (4.1)
+                         k           N                        eN dN |Ω|             eN dN |Ω|
+                             i=1
+                                        k
+    On the other hand, we take m = [ ln ln k ] + 1 and obtain
+
+                       1X
+                         k+m          k
+                                      X       
+        λk+1 (Ω) ≤           λj (Ω) −   λj (Ω)
+                       m
+                           j=1            j=1
+                                                                                                !
+                      2                                 p  ω                  p (k + 1 + m) 
+                                                            N                     N
+                  ≤       (k + m) ln(k + m) + 1 + ln            + pN−1 ln ln
+                    Nm                                    |Ω|        |Ω|                 |Ω|
+                                                                        
+                         2                    2                    2k
+                    −       k ln k + ln               − ln ln
+                       Nm                 eN dN |Ω|             eN dN |Ω|
+                     2               2                     1    
+                  ≤     ln(k + m) + (ln ln k) ln 1 +              + c1 ln ln k + c2 (ln ln k)2
+                    N               N                   ln ln k
+                     2              4                    2
+                  ≤     ln(k + 1) +    + c3 ln ln(k + 1) ,                                           (4.2)
+                    N               N
+
+                                                          14
+where c1 , c2 , c3 > 0 is independent of k. Thus, (1.15) holds true and we have that
+                                                   λk (Ω)  2
+                                             lim          = .
+                                           k→+∞     ln k   N
+We complete the proof.                                                                        
+
+4.1    Proof of Corollary 1.4 (ii)
+With the help of some estimates in [28], we can prove the bounds (1.14) for λk (Ω).
+Proposition 4.1. Let Ω be a bounded domain in RN and λk (Ω) be the k-th eigenvalue of Dirichlet
+problem (1.3). Then we have that for k ≥ 1
+                                        2                       2     1
+                            λk (Ω) ≤      ln k + c3 ln ln(k + e) + 2 ln ,
+                                        N                              R
+           |Ω|
+where R = |B 1|
+                . Particularly,
+                                                           1
+                                           λ1 (Ω) ≤ 2 ln     + c3 ,
+                                                           R
+where c3 ∈ R is independent of Ω.
+Proof. Note that the constant c0 in the second inequality (1.15) could is dependent of |Ω|, but
+independent of the shape of Ω. Let
+                                                     1
+                                         ΩR = {R− N x : x ∈ Ω}.
+
+From (1.15) we can get that
+
+                                   2                       2               ee+1 N dN
+                     λk (ΩR ) ≤      ln k + c4 ln ln(k + e) ,         k≥              |B1 |
+                                   N                                            2
+where c4 is independent of k and ΩR . The above inequality holds for k ≥ 1 only by adjusting the
+constant c4 . It is shown a scaling property for logarithmic Laplacian [28, Lemma 2.5] that
+                                                                1
+                                         λk (Ω) = λk (tΩ) − 2 ln ,
+                                                                t
+where tΩ = {tx : x ∈ Ω}. From the assumption that ΩR = R−1 Ω, we have that
+                                                                      1
+                                        λk (Ω) = λk (ΩR ) + 2 ln        .
+                                                                      R
+We omit the left proof.                                                                       
+Proposition 4.2. Let Ω be a bounded domain in RN and λk (Ω) be the k-th eigenvalue of Dirichlet
+problem (1.3). Then we have that for k ≥ 1
+                                          2                2     
+                                 λk (Ω) ≥     ln k + ln            .
+                                          N             eN dN |Ω|
+                                      
+Particularly, λ1 (Ω) ≥ N2 − ln |Ω| + c5 , where c5 = ln eN2dN .
+
+Proof. It follows by [28, Lemma 2.5] that
+                                                   |Ω|ωN−1 λ N +1
+                                         N (λ) ≤           e2     .
+                                                   N (2π)N
+Note that
+                                  λk (Ω) ≥ λ is equivalent to N (λ) ≤ k,
+
+                                                     15
+and then
+                                           2    N (2π)N k   2    2k
+                                λk (Ω) ≥     ln           =   ln        .
+                                           N    |Ω|ωN−1     N eN dN |Ω|
+Then all inequalities follow.                                                                                 
+
+
+Acknowledgements: Chen is is supported by NNSF of China, No: 12071189 and 12001252, by the Jiangxi
+Provincial Natural Science Foundation, No: 20202BAB201005, 20202ACBL201001.
+
+
+References
+ [1] W. Beckner, Pitt’s inequality and the uncertainty principle, Proc. AMS 123(6), 1897-1905 (1995).
+ [2] F. A. Berezin, Covariant and contravariant symbols of operators. Izv. Akad. Nauk SSSR Ser. Mat. 36,
+     1134-1167 (1972).
+ [3] L. Caffarelli, S. Salsa and L. Silvestre, Regularity estimates for the solution and the free boundary to
+     the obstacle problem for the fractional Laplacian, Invent. Math. 171, 425-461 (2008).
+ [4] L. Caffarelli and L. Silvestre, Regularity theory for fully nonlinear integro-differential equations, Comm.
+     Pure Appl. Math. 62(5), 597-638 (2009).
+ [5] L. Caffarelli and L. Silvestre, Regularity results for nonlocal equations by approximation, Arch. Ration.
+     Mech. Anal. 200(1), 59-88 (2011).
+ [6] H-Y. Chen, P. Felmer and A. Quaas, Large solution to elliptic equations involving fractional Laplacian,
+     Annales de l’Institut Henri Poincaré-AN 32, 1199-1228 (2015).
+ [7] H-Y. Chen and L. Véron, Initial trace of positive solutions to fractional diffusion equations with ab-
+     sorption, J. Funct. Anal. 276, 1145-1200 (2019).
+ [8] H-Y. Chen and T. Weth, The Dirichlet Problem for the Logarithmic Laplacian, Comm. Part. Diff. Eq.
+     44, 1100-1139 (2019).
+ [9] H. Chen and A. Zeng, Universal inequality and upper bounds of eigenvalues for non-integer poly-
+     Laplacian on a bounded domain, Calc.Var. Part. Diff. Eq. 56(5) (2017).
+[10] H. Chen and P. Luo, Lower bounds of Dirichlet eigenvalues for some degenerate elliptic operators,
+     Calc.Var. Part. Diff. Eq. 54(3), 2831-2852 (2015).
+[11] Q. Cheng and H. Yang, Bounds on eigenvalues of Dirichlet Laplacian, Math. Ann. 337, 159-175 (2007).
+[12] Q. Cheng and G. Wei, A lower bound for eigenvalues of a clamped plate problem, Calc.Var. Part. Diff.
+     Eq. 42(3/4), 579-590 (2011).
+[13] E. Correa and A. De Pablo, Nonlocal operators of order near zero, J. Math. Anal. Appl. 461, 837-867
+     (2018).
+[14] E. Di Nezza, G. Palatucci and E. Valdinoci, Hitchhiker’s guide to the fractional Sobolev spaces, Bull.
+     Sci. Math. 136(5), 521-573 (2012).
+[15] P. Felmer and A. Quaas, Fundamental solutions and Liouville type theorems for nonlinear integral
+     operators, Adv. Math. 226, 2712-2738 (2011).
+[16] M. Felsinger, M. Kassmann and P. Voigt, The Dirichlet problem for nonlocal operators, Math. Zeit.
+     279, 779–809 (2015).
+[17] R. L. Frank and L. Geisinger, Refined semiclassical asymptotics for fractional powers of the Laplace
+     operator, Crelle’s Journal 712, 1-37 (2016).
+[18] R. L. Frank and L. Geisinger, Two-term spectral asymptotics for the Dirichlet Laplacian on a bounded
+     domain, Mathematical results in quantum physics, World Sci. Publ., Hackensack, NJ, 2011, pp. 138–147.
+[19] RL. Frank, T. Konig and H. Tang, Classification of solutions of an equation related to a conformal log
+     Sobolev inequality, arXiv: 2003.08135 (2020).
+[20] L. Geisinger, A short proof of Weyl’s law for fractional differential operators, J. Math. Phys. 55, 011504
+     (2014).
+
+                                                      16
+[21] S. Goyal and K. Sreenadh, On the Fučik spectrum of non-local elliptic operators, Nonlinear Diff. Eq.
+     Appl. 21(4), 567-588 (2014).
+[22] E. M. Harrell II and S. Y. Yolcu, Eigenvalue inequalities for Klein-Gordon operators, J. Funct. Anal.
+     256(12), 3977-3995 (2009).
+[23] S. Jarohs and T. Weth, Local compactness and nonvanishing for weakly singular nonlocal quadratic
+     forms, Nonlinear Analysis, Doi: 10.1016/j.na.2019.01.021 (2020).
+[24] S. Jarohs, A. Saldana, T. Weth, A new look at the fractional Poisson problem via the logarithmic
+     Laplacian, J. Funct. Anal. 279(11), 108732, 50 pp (2020).
+[25] M. Kassmann and A. Mimica, Intrinsic scaling properties for nonlocal operators, J. Eur. Math. Soc.
+     19(4), 983-1011 (2013).
+[26] P. Kröger, Estimates for sums of eigenvalues of the Laplacian, J. Funct. Anal. 126(1), 217-227 (1994).
+[27] A. Laptev, Dirichlet and Neumann eigenvalue problems on domains in Euclidean spaces, J. Funct. Anal.
+     151(2), 531-545 (1997).
+[28] A. Laptev and T. Weth, Spectral properties the Logarithmic Laplacian, Arxiv: 2009.03395.
+[29] P. Li and S.-T.Yau, On the Schrödinger equation and the eigenvalue problem. Commun. Math. Phys.
+     88(3), 309-318 (1983).
+[30] E. Lieb, The number of bound states of one-body Schrödinger operators and the Weyl problem, Proc.
+     Sym. Pure Math. 36, 241-252 (1980).
+[31] E. Lieb and M. Loss, Analysis, second ed., Graduate Studies in Mathematics, vol. 14, American Math-
+     ematical Society, Providence, RI, 2001.
+[32] A. Melas, A lower bound for sums of eigenvalues of the Laplacian, Proc. Am. Math. Soc. 131(2), 631-636
+     (2003).
+[33] R. Musina and A.I. Nazarov, On fractional Laplacians. Comm. Part. Diff. Eq. 39, 1780-1790 (2014).
+[34] G. Pólya, On the Eigenvalues of Vibrating Membranes (In Memoriam Hermann Weyl), Proc. Lond.
+     Math. Soc. 3(1), 419-433 (1961).
+[35] G.V. Rozenbljum, Distribution of the discrete spectrum of singular operator. Dokl. Akad. Nauk SSSR
+     202, 1012-1015 (1972).
+[36] X. Ros-Oton and J. Serra, The Dirichlet problem for the fractional laplacian: regularity up to the
+     boundary, J. Math. Pures Appl. 101, 275-302 (2014).
+[37] X. Ros-Oton and J. Serra, The Pohozaev identity for the fractional Laplacian, Arch. Ration. Mech.
+     Anal. 213, 587-628 (2014).
+[38] H. Weyl, Das asymptotische Verteilungsgesetz der Eigenwerte linearer partieller Differentialgleichungen
+     (mit einer Anwendung auf die Theorie der Hohlraumstrahlung). Math. Ann. 71(4), 441-479 (1912).
+[39] S.Y. Yolcu and T. Yolcu, Estimates for the sums of eigenvalues of the fractional Laplacian on a bounded
+     domain, Commun. Contemp. Math. 15(3), 1250048 (2013).
+
+
+
+
+                                                    17
+
