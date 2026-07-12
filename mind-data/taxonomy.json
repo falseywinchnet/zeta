@@ -1,0 +1,171 @@
+{
+  "items": {
+    "T000001": {
+      "created_at": "2026-07-12T19:18:57+00:00",
+      "label": "math",
+      "parent": null
+    },
+    "T000002": {
+      "created_at": "2026-07-12T19:19:06+00:00",
+      "label": "zeta",
+      "parent": "T000001"
+    },
+    "T000003": {
+      "created_at": "2026-07-12T19:19:06+00:00",
+      "label": "riemann-hypothesis",
+      "parent": "T000002"
+    },
+    "T000004": {
+      "created_at": "2026-07-12T19:19:06+00:00",
+      "label": "xi-function",
+      "parent": "T000002"
+    },
+    "T000005": {
+      "created_at": "2026-07-12T19:19:06+00:00",
+      "label": "riemann-kernel",
+      "parent": "T000002"
+    },
+    "T000006": {
+      "created_at": "2026-07-12T19:19:06+00:00",
+      "label": "fourier-analysis",
+      "parent": "T000002"
+    },
+    "T000007": {
+      "created_at": "2026-07-12T19:19:06+00:00",
+      "label": "polya-frequency",
+      "parent": "T000005"
+    },
+    "T000008": {
+      "created_at": "2026-07-12T19:19:06+00:00",
+      "label": "total-positivity",
+      "parent": "T000005"
+    },
+    "T000009": {
+      "created_at": "2026-07-12T19:19:06+00:00",
+      "label": "log-concavity",
+      "parent": "T000005"
+    },
+    "T000010": {
+      "created_at": "2026-07-12T19:19:06+00:00",
+      "label": "pf2",
+      "parent": "T000007"
+    },
+    "T000011": {
+      "created_at": "2026-07-12T19:19:06+00:00",
+      "label": "pf3",
+      "parent": "T000007"
+    },
+    "T000012": {
+      "created_at": "2026-07-12T19:19:06+00:00",
+      "label": "pf4",
+      "parent": "T000007"
+    },
+    "T000013": {
+      "created_at": "2026-07-12T19:19:06+00:00",
+      "label": "pf5",
+      "parent": "T000007"
+    },
+    "T000014": {
+      "created_at": "2026-07-12T19:19:06+00:00",
+      "label": "pf-infinity",
+      "parent": "T000007"
+    },
+    "T000015": {
+      "created_at": "2026-07-12T19:19:06+00:00",
+      "label": "interval-arithmetic",
+      "parent": "T000002"
+    },
+    "T000016": {
+      "created_at": "2026-07-12T19:19:06+00:00",
+      "label": "canonical-systems",
+      "parent": "T000002"
+    },
+    "T000017": {
+      "created_at": "2026-07-12T19:19:06+00:00",
+      "label": "suzuki-operator",
+      "parent": "T000016"
+    },
+    "T000018": {
+      "created_at": "2026-07-12T19:19:06+00:00",
+      "label": "computational-experiments",
+      "parent": "T000002"
+    },
+    "T000019": {
+      "created_at": "2026-07-12T19:19:06+00:00",
+      "label": "dip-armature",
+      "parent": "T000018"
+    },
+    "T000020": {
+      "created_at": "2026-07-12T19:19:06+00:00",
+      "label": "phase-law",
+      "parent": "T000018"
+    },
+    "T000021": {
+      "created_at": "2026-07-12T19:19:06+00:00",
+      "label": "epistemics",
+      "parent": "T000001"
+    },
+    "T000022": {
+      "created_at": "2026-07-12T19:19:06+00:00",
+      "label": "evidence-status",
+      "parent": "T000021"
+    },
+    "T000023": {
+      "created_at": "2026-07-12T19:19:06+00:00",
+      "label": "method-barriers",
+      "parent": "T000021"
+    },
+    "T000024": {
+      "created_at": "2026-07-12T19:19:06+00:00",
+      "label": "unprovability",
+      "parent": "T000021"
+    },
+    "T000025": {
+      "created_at": "2026-07-12T19:19:06+00:00",
+      "label": "jacobian-conjecture",
+      "parent": "T000001"
+    },
+    "T000026": {
+      "created_at": "2026-07-12T19:19:06+00:00",
+      "label": "escape-at-infinity",
+      "parent": "T000025"
+    },
+    "T000027": {
+      "created_at": "2026-07-12T19:22:05+00:00",
+      "label": "debruijn-newman-flow",
+      "parent": "T000002"
+    },
+    "T000028": {
+      "created_at": "2026-07-12T19:22:05+00:00",
+      "label": "jensen-polynomials",
+      "parent": "T000002"
+    },
+    "T000029": {
+      "created_at": "2026-07-12T19:22:05+00:00",
+      "label": "two-variable-zeta",
+      "parent": "T000002"
+    },
+    "T000030": {
+      "created_at": "2026-07-12T19:22:05+00:00",
+      "label": "phase-geometry",
+      "parent": "T000002"
+    },
+    "T000031": {
+      "created_at": "2026-07-12T19:22:05+00:00",
+      "label": "meromorphic-inner-functions",
+      "parent": "T000030"
+    },
+    "T000032": {
+      "created_at": "2026-07-12T19:22:05+00:00",
+      "label": "ribbon-method",
+      "parent": "T000023"
+    },
+    "T000033": {
+      "created_at": "2026-07-12T19:22:05+00:00",
+      "label": "conditioning",
+      "parent": "T000023"
+    }
+  },
+  "next_id": 34,
+  "version": 1
+}
