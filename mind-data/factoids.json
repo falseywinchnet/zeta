@@ -125,14 +125,14 @@
           "type": "factoid"
         }
       ],
-      "content": "The manuscripts' stated Fourier-real-zero iff original-kernel-PF_infinity equivalence is not the Schoenberg theorem recorded in F000005.",
+      "content": "The manuscripts' stated Fourier-real-zero iff original-kernel-PF_infinity equivalence is not the Schoenberg theorem recorded in R5.",
       "created_at": "2026-07-12T19:19:06+00:00",
       "relates_to": [
         "T000014",
         "T000022"
       ],
       "status": "established",
-      "updated_at": "2026-07-12T19:19:06+00:00"
+      "updated_at": "2026-07-12T21:41:23+00:00"
     },
     "F000008": {
       "because": [

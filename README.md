@@ -10,6 +10,8 @@ commit epochs.
 ./MIND EXPLAIN ALL
 ./MIND RETRIEVE math/zeta/riemann-hypothesis
 ./MIND SEARCH "Schoenberg, reciprocal transform"
+./MIND SEARCH R14
+./MIND SEARCH CITE4
 ```
 
 Factoids have four research-facing parts: generated label, atomic content,
@@ -18,14 +20,21 @@ TODOs and appear on every retrieval. Retrieval walks from the newest standalone
 conclusions toward older support and then prints all citation boundaries.
 
 Data lives in `mind-data/`. Original inputs live in `sources/`; cited documents
-live in `papers/`. Exact RETRIEVE resolves factoid IDs and topics. SEARCH uses a
-static positional index over MIND and `work/`, with field-weighted ranking, typo
-recovery, phrase matching, and causal/taxonomic graph anchors. `PROGRESS RECORD`
-rebuilds the index and `PROGRESS COMMIT` rejects it if later changes made it stale.
+live in `papers/`. Public references are `R<num>` and citation boundaries are
+`CITE<num>`; legacy JSON identities remain accepted. Exact identities retrieve
+the full trace or citation object. Ordinary SEARCH merges references, citations,
+topic leaves, work, and raw sources using BM25F-like lexical relevance, graph
+anchors, ConeDAG similarity, and shorter-query containment. Dynamic top-k stops
+when the next item has at most 36% of the preceding item's relevance.
+
+`PROGRESS RECORD` rebuilds the static index and `PROGRESS COMMIT` rejects it if
+later indexed data changed.
 
 New research is isolated by round mode. Advancement rounds preserve everything in
 `work/YYYY-MM-DD-name/`; later refine rounds audit and integrate it. Retrieval
 research and the original context-cone prototype live in
-`search_engine_experimental/` and do not enter zeta factoids by implication.
+`search_engine_experimental/`. The validated ConeDAG retrieval component is
+promoted through `mindlib/similarity.py`; experimental claims still do not enter
+zeta factoids by implication.
 
 See [AGENTS.md](AGENTS.md) for repository discipline.

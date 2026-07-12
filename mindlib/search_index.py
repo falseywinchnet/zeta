@@ -8,10 +8,12 @@ import unicodedata
 from collections import Counter, deque
 from pathlib import Path
 
+from .identities import public_id
+from .similarity import SimilarityEncoder
 from .store import MindError, atomic_json
 
 
-INDEX_VERSION = 2
+INDEX_VERSION = 3
 INDEX_NAME = "search-index.json"
 MATH_NAMES = str.maketrans({
     "∞": " infinity ", "ω": " omega ", "Ω": " omega ", "φ": " phi ",
@@ -109,10 +111,11 @@ def _documents(store):
     docs = []
     for fid, fact in sorted(store.factoids.items()):
         docs.append({
-            "id": fid, "kind": "factoid", "title": fid,
+            "id": fid, "public_id": public_id(fid), "kind": "factoid",
+            "title": public_id(fid),
             "body": fact["content"],
             "topics": " ".join(store.topic_path(tid) for tid in fact["relates_to"]),
-            "links": " ".join(ref["id"] for ref in fact["because"]),
+            "links": " ".join(f"{public_id(ref['id'])} {ref['id']}" for ref in fact["because"]),
             "status": fact["status"],
         })
     for cid, cite in sorted(store.citations.items()):
@@ -120,7 +123,8 @@ def _documents(store):
         if cite.get("paper"):
             artifacts.append(cite["paper"]["path"])
         docs.append({
-            "id": cid, "kind": "citation", "title": cite["author"],
+            "id": cid, "public_id": public_id(cid), "kind": "citation",
+            "title": cite["author"],
             "body": cite["body"],
             "topics": " ".join(store.topic_path(tid) for tid in cite["topics"]),
             "links": " ".join(artifacts + ([cite["source_url"]] if cite.get("source_url") else [])),
@@ -129,14 +133,14 @@ def _documents(store):
     for tid in sorted(store.topics):
         item = store.topics[tid]
         docs.append({
-            "id": tid, "kind": "topic", "title": item["label"],
+            "id": tid, "public_id": tid, "kind": "topic", "title": item["label"],
             "body": store.topic_path(tid), "topics": store.topic_path(tid),
             "links": item["parent"] or "", "status": "taxonomy",
         })
     commits = store.progress_commit_map()
     for pid, item in sorted(store.progress.items()):
         docs.append({
-            "id": pid, "kind": "progress", "title": pid, "body": item["blurb"],
+            "id": pid, "public_id": pid, "kind": "progress", "title": pid, "body": item["blurb"],
             "topics": "progress", "links": commits.get(pid, "pending"),
             "status": "recorded",
         })
@@ -149,6 +153,7 @@ def _documents(store):
             continue
         docs.append({
             "id": "W" + hashlib.sha256(relative.encode()).hexdigest()[:12].upper(),
+            "public_id": "W" + hashlib.sha256(relative.encode()).hexdigest()[:12].upper(),
             "kind": "work", "title": relative,
             "body": body, "topics": "work " + " ".join(relative_path.parts[1:-1]),
             "links": relative, "status": "raw",
@@ -165,6 +170,7 @@ def _documents(store):
             stable = hashlib.sha256(f"{relative}:{sequence}".encode()).hexdigest()[:12].upper()
             docs.append({
                 "id": "S" + stable, "kind": "source",
+                "public_id": "S" + stable,
                 "title": f"{relative}#{sequence} {role}",
                 "body": record.get("body", ""), "topics": "source conversation raw",
                 "links": f"{relative}#{sequence}", "status": "raw",
@@ -196,6 +202,7 @@ def _graph(store, docs):
 
 def build_index(store):
     documents = _documents(store)
+    similarity = SimilarityEncoder()
     postings = {}
     totals = {field: 0 for field in FIELDS}
     vocabulary = set()
@@ -212,6 +219,7 @@ def build_index(store):
                 postings.setdefault(term, []).append(doc_index)
                 vocabulary.add(term)
         doc["stream"] = stream
+        doc["similarity"] = similarity.encode(" ".join(doc[field] for field in FIELDS))
     count = max(1, len(documents))
     averages = {field: totals[field] / count for field in FIELDS}
     trigram_map = {}
@@ -259,12 +267,31 @@ def index_is_current(store):
         return False
 
 
+def dynamic_cutoff(ranked, limit=25, cutoff_ratio=0.36):
+    """Stop before the first result whose relevance is <= ratio of its predecessor."""
+    selected = list(ranked[:max(1, limit)])
+    for index in range(len(selected) - 1):
+        current = selected[index]["score"]
+        following = selected[index + 1]["score"]
+        ratio = following / current if current > 0 else 0.0
+        if ratio <= cutoff_ratio:
+            selected = selected[:index + 1]
+            selected[-1]["cutoff"] = {
+                "next_score": following,
+                "ratio": ratio,
+                "threshold": cutoff_ratio,
+            }
+            break
+    return selected
+
+
 class SearchEngine:
     def __init__(self, store):
         self.store = store
         self.index = load_index(store)
         self.docs = self.index["documents"]
         self.N = max(1, len(self.docs))
+        self.similarity = SimilarityEncoder()
 
     def _expanded_terms(self, query_term):
         terms = {query_term: 1.0}
@@ -349,7 +376,7 @@ class SearchEngine:
                     queue.append(neighbor)
         return distance
 
-    def search(self, query, limit=10, kinds=None):
+    def search(self, query, limit=25, kinds=None, cutoff_ratio=0.36):
         segments = [part.strip() for part in query.split(",") if part.strip()]
         if not segments:
             raise MindError("SEARCH requires at least one term")
@@ -378,19 +405,38 @@ class SearchEngine:
                         "segment": segments[anchor_index], "distance": 0, "bonus": direct,
                     })
         allowed = set(kinds or [])
+        query_similarity = self.similarity.encode(segments[-1])
+        similarity_details = {
+            doc_index: self.similarity.compare(query_similarity, doc["similarity"])
+            for doc_index, doc in enumerate(self.docs)
+            if not allowed or doc["kind"] in allowed
+        }
+        maximum_lexical = max(
+            (score for doc_index, score in scores.items()
+             if not allowed or self.docs[doc_index]["kind"] in allowed),
+            default=0.0,
+        )
         ranked = []
-        for doc_index, score in scores.items():
+        for doc_index, similarity in similarity_details.items():
             doc = self.docs[doc_index]
-            if allowed and doc["kind"] not in allowed:
-                continue
+            lexical = scores.get(doc_index, 0.0)
+            lexical_normalized = lexical / maximum_lexical if maximum_lexical else 0.0
+            if lexical:
+                score = 0.78 * lexical_normalized + 0.22 * similarity["score"]
+            else:
+                score = 0.22 * similarity["score"]
             score *= KIND_PRIOR.get(doc["kind"], 1.0)
+            if score <= 0:
+                continue
             ranked.append({
                 "score": score, "document": doc,
                 "matches": target_details.get(doc_index, []),
-                "explain": explanations.get(doc_index, {"lexical": score, "anchors": []}),
+                "explain": explanations.get(doc_index, {"lexical": 0.0, "anchors": []}),
+                "lexical_normalized": lexical_normalized,
+                "similarity": similarity,
             })
         ranked.sort(key=lambda item: (-item["score"], item["document"]["id"]))
-        return ranked[:limit]
+        return dynamic_cutoff(ranked, limit, cutoff_ratio)
 
 
 def render_results(results, explain=False):
@@ -399,18 +445,31 @@ def render_results(results, explain=False):
     lines = []
     for number, result in enumerate(results, 1):
         doc = result["document"]
+        display_kind = "reference" if doc["kind"] == "factoid" else doc["kind"]
         body = " ".join(doc["body"].split())
         if len(body) > 220:
             body = body[:217] + "..."
-        lines.append(f"{number}. {doc['id']} [{doc['kind']}/{doc['status']}] score={result['score']:.4f}")
-        if doc["title"] != doc["id"]:
+        lines.append(f"{number}. {doc.get('public_id', doc['id'])} [{display_kind}/{doc['status']}] relevance={result['score']:.4f}")
+        if doc["title"] not in {doc["id"], doc.get("public_id")}:
             lines.append(f"   {doc['title']}")
         lines.append(f"   {body}")
         if doc["topics"]:
             lines.append(f"   in {doc['topics']}")
         if explain:
             matches = ", ".join(f"{raw}->{term}:{value:.2f}" for raw, term, value in result["matches"][:8]) or "none"
-            lines.append(f"   lexical {result['explain']['lexical']:.4f}; matches {matches}")
+            similarity = result.get("similarity", {})
+            containment = similarity.get("containment")
+            containment_text = "none" if containment is None else f"{containment:.4f}"
+            lines.append(
+                f"   lexical raw={result['explain']['lexical']:.4f} normalized={result.get('lexical_normalized', 0):.4f}; "
+                f"cone={similarity.get('cone', 0):.4f}; containment={containment_text}; matches {matches}"
+            )
             for anchor in result["explain"]["anchors"]:
                 lines.append(f"   anchor {anchor['segment']!r} distance={anchor['distance']} bonus={anchor['bonus']:.3f}")
+            if result.get("cutoff"):
+                cutoff = result["cutoff"]
+                lines.append(
+                    f"   cutoff next/current={cutoff['ratio']:.4f} <= {cutoff['threshold']:.4f} "
+                    f"(next={cutoff['next_score']:.4f})"
+                )
     return "\n".join(lines)

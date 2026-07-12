@@ -1,10 +1,14 @@
 import json
+import io
 import tempfile
 import unittest
+from contextlib import redirect_stdout
 from pathlib import Path
 
 from mindlib.search_backend import ExactTopicBackend
-from mindlib.search_index import SearchEngine, build_index, index_is_current
+from mindlib.identities import exact_identity, internal_id, public_id
+from mindlib.cli import cmd_search
+from mindlib.search_index import SearchEngine, build_index, dynamic_cutoff, index_is_current
 from mindlib.store import MindError, Store
 
 
@@ -99,6 +103,51 @@ class MindStoreTest(unittest.TestCase):
         build_index(self.store)
         result = SearchEngine(self.store).search("forgotten spectral armature", 1, ["source"])[0]
         self.assertEqual(result["document"]["kind"], "source")
+
+    def test_public_reference_and_citation_identities_are_reversible(self):
+        fact = self.store.establish("Reference identity.", [self.zeta])
+        cite = self.store.add_citation("Author", "Citation identity.", [self.zeta])
+        self.assertEqual(public_id(fact), "R1")
+        self.assertEqual(public_id(cite), "CITE1")
+        self.assertEqual(internal_id("r1"), fact)
+        self.assertEqual(internal_id("cite1"), cite)
+        self.assertEqual(exact_identity(self.store, "R1")["id"], fact)
+        self.assertEqual(exact_identity(self.store, "CITE1")["id"], cite)
+
+    def test_search_merges_references_citations_and_topics(self):
+        kernel, _ = self.store.add_topic(self.zeta, "spectral-kernel")
+        fact = self.store.establish("Spectral determinant evidence.", [kernel])
+        cite = self.store.add_citation("Kernel Author", "Spectral source boundary.", [kernel])
+        build_index(self.store)
+        results = SearchEngine(self.store).search("spectral kernel", limit=25, cutoff_ratio=0.0)
+        kinds = {result["document"]["kind"] for result in results}
+        identities = {result["document"]["id"] for result in results}
+        self.assertIn(fact, identities)
+        self.assertIn(cite, identities)
+        self.assertIn("factoid", kinds)
+        self.assertIn("citation", kinds)
+        self.assertIn("topic", kinds)
+
+    def test_dynamic_cutoff_uses_thirty_six_percent_boundary(self):
+        ranked = [{"score": 1.0}, {"score": 0.8}, {"score": 0.288}, {"score": 0.2}]
+        selected = dynamic_cutoff(ranked, limit=25, cutoff_ratio=0.36)
+        self.assertEqual(len(selected), 2)
+        self.assertAlmostEqual(selected[-1]["cutoff"]["ratio"], 0.36)
+
+    def test_search_exact_public_id_returns_full_object(self):
+        cite = self.store.add_citation("Author", "Boundary body.", [self.zeta])
+        fact = self.store.establish("Anchored reference.", [self.zeta])
+        self.store.update_fact(fact, "refer", [cite], citation=True)
+        output = io.StringIO()
+        with redirect_stdout(output):
+            cmd_search(self.store, ["R1"])
+        self.assertIn("TRACEMAP 1", output.getvalue())
+        self.assertIn("R1: Anchored reference.", output.getvalue())
+        output = io.StringIO()
+        with redirect_stdout(output):
+            cmd_search(self.store, ["CITE1"])
+        self.assertIn("CITATION: CITE1", output.getvalue())
+        self.assertIn("SUPPORTS: R1", output.getvalue())
 
 
 if __name__ == "__main__":

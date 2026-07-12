@@ -16,11 +16,11 @@ class ExactTopicBackend:
         key = detail.strip()
         upper = key.upper()
         if upper in store.factoids:
-            return {upper}, f"factoid {upper}"
+            return {upper}, f"reference {upper}"
         topic_id = store.resolve_topic(key)
         if topic_id is None:
             raise SearchBackendError(
-                f"unknown factoid or topic: {detail!r}; fuzzy search is reserved for a later backend"
+                f"unknown reference or topic: {detail!r}; use MIND SEARCH for similarity retrieval"
             )
         descendants = store.topic_descendants(topic_id) | {topic_id}
         matches = {
