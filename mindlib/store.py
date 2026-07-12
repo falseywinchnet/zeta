@@ -379,6 +379,14 @@ class Store:
         pid = self.allocate("progress", "P")
         self.progress[pid] = {"blurb": blurb, "created_at": now()}
         self.save("progress")
+        try:
+            from .search_index import build_index
+
+            build_index(self)
+        except Exception:
+            del self.progress[pid]
+            self.save("progress")
+            raise
         return pid
 
     def change_progress(self, pid, blurb):
@@ -392,6 +400,9 @@ class Store:
         self.progress[pid]["blurb"] = blurb.strip()
         self.progress[pid]["updated_at"] = now()
         self.save("progress")
+        from .search_index import build_index
+
+        build_index(self)
 
     def validate(self):
         errors = []
@@ -450,8 +461,12 @@ class Store:
         errors = self.validate()
         if errors:
             raise MindError("validation failed:\n  " + "\n  ".join(errors))
+        from .search_index import index_is_current
+
+        if not index_is_current(self):
+            raise MindError("search index is missing or stale; re-record progress after all changes")
         py = os.environ.get("PYTHON", "python3")
-        if subprocess.run([py, "-m", "compileall", "-q", "mindlib", "tests"], cwd=self.root).returncode:
+        if subprocess.run([py, "-m", "compileall", "-q", "mindlib", "tests", "search_engine_experimental"], cwd=self.root).returncode:
             raise MindError("Python compilation failed")
         if subprocess.run([py, "-m", "unittest", "discover", "-s", "tests", "-q"], cwd=self.root).returncode:
             raise MindError("tests failed")

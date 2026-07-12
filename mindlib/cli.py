@@ -11,16 +11,17 @@ HELP = """MIND - local epistemic graph
 
 Usage:
   MIND
-  MIND EXPLAIN <RETRIEVE|ESTABLISH|CITE|DISTINGUISH|PROGRESS|ALL>
+  MIND EXPLAIN <RETRIEVE|SEARCH|ESTABLISH|CITE|DISTINGUISH|PROGRESS|ALL>
   MIND RETRIEVE <topic-path|topic-id|factoid-id>
+  MIND SEARCH [--limit N] [--type KIND] [--explain] <terms>
   MIND ESTABLISH ...
   MIND CITE <ADD|REMOVE|LIST|CHANGE> ...
   MIND DISTINGUISH <TREE|BRANCH|PRUNE> ...
   MIND PROGRESS <RECORD|CHANGE|LIST|COMMIT> ...
 
 Run `MIND EXPLAIN ALL` for the complete grammar. Commands are case-insensitive.
-Retrieval currently accepts only exact topic paths/IDs and factoid IDs. A search
-backend boundary is present for the later search-engine mode.
+RETRIEVE is exact and causal. SEARCH is lexical, typo-tolerant, positional, and
+graph-contextual; comma-separated terms use earlier segments as context anchors.
 """
 
 
@@ -32,8 +33,27 @@ path. Retrieval first finds every current standalone conclusion whose causal
 closure contains a matching factoid. Each numbered TRACEMAP prints the newest
 conclusion, its concise direct `because` IDs, then its oldward causal closure.
 Citation supports are epistemic boundaries and are printed separately. Every
-orphan TODO is appended to every retrieval. Fuzzy/full-text search is not active;
-the resolver is isolated behind mindlib/search_backend.py for a later backend.
+orphan TODO is appended to every retrieval. Use SEARCH when the exact identity or
+topic is not yet known.
+""",
+    "SEARCH": """SEARCH <terms>
+
+Searches factoids, citations, topics, progress records, advancement files, and
+lossless source records.
+The static index uses weighted positional postings, BM25F-like saturation,
+character-trigram correction, aliases, exact IDs, and phrase proximity.
+
+  MIND SEARCH polya frequency order
+  MIND SEARCH "Schoenberg, reciprocal transform"
+  MIND SEARCH --type citation --explain author interval arithmetic
+
+Comma segments are asymmetric. Earlier segments locate context anchors; the last
+segment is the target. Targets are reranked by shortest causal or taxonomic graph
+distance from anchors. --type accepts factoid, citation, topic, progress, work, or
+source and may repeat. --reindex is a recovery command.
+
+SEARCH refuses a stale index. PROGRESS RECORD rebuilds it; PROGRESS COMMIT checks
+that no indexed source changed afterward. RETRIEVE SEARCH is a SEARCH alias.
 """,
     "ESTABLISH": """ESTABLISH creates or revises atomic factoids.
 
@@ -82,7 +102,7 @@ removes all currently unused leaves; repeat it to remove newly exposed leaves.
   MIND PROGRESS LIST [ALL|count]
   MIND PROGRESS COMMIT
 
-RECORD creates exactly one pending epoch. CHANGE edits only that uncommitted
+RECORD creates exactly one pending epoch and rebuilds the search index. CHANGE edits only that uncommitted
 record; committed history is immutable. COMMIT validates JSON, paper checksums,
 causal acyclicity, Python compilation, and tests, then stages all changes, commits
 with the progress ID, and pushes the current branch to origin. Direct git commit
@@ -94,7 +114,7 @@ and push are reserved for recovery; ordinary work uses PROGRESS COMMIT.
 def explain(name):
     name = name.upper()
     if name == "ALL":
-        print("\n".join(EXPLANATIONS[key].rstrip() for key in ("RETRIEVE", "ESTABLISH", "CITE", "DISTINGUISH", "PROGRESS")))
+        print("\n".join(EXPLANATIONS[key].rstrip() for key in ("RETRIEVE", "SEARCH", "ESTABLISH", "CITE", "DISTINGUISH", "PROGRESS")))
     elif name in EXPLANATIONS:
         print(EXPLANATIONS[name].rstrip())
     else:
@@ -186,6 +206,36 @@ def cmd_retrieve(store, detail):
             print(f"  {fid}: {store.factoids[fid]['content']}")
     else:
         print("  none")
+
+
+def cmd_search(store, args):
+    parser = argparse.ArgumentParser(prog="MIND SEARCH")
+    parser.add_argument("--limit", type=int, default=10)
+    parser.add_argument("--type", action="append", dest="kinds")
+    parser.add_argument("--explain", action="store_true")
+    parser.add_argument("--reindex", action="store_true")
+    parser.add_argument("query", nargs="*")
+    ns = parser.parse_args(args)
+    from .search_index import SearchEngine, build_index, render_results
+
+    if ns.reindex:
+        path, index = build_index(store)
+        print(f"indexed {len(index['documents'])} records at {path.relative_to(store.root)}")
+        if not ns.query:
+            return
+    query = " ".join(ns.query).strip()
+    if not query:
+        raise MindError("SEARCH requires terms unless --reindex is used")
+    kinds = []
+    for group in ns.kinds or []:
+        kinds.extend(item.strip().casefold() for item in group.split(",") if item.strip())
+    allowed = {"factoid", "citation", "topic", "progress", "work", "source"}
+    invalid = sorted(set(kinds) - allowed)
+    if invalid:
+        raise MindError(f"unknown search types: {', '.join(invalid)}")
+    engine = SearchEngine(store)
+    results = engine.search(query, limit=max(1, ns.limit), kinds=kinds)
+    print(render_results(results, ns.explain))
 
 
 def citation_parser(action):
@@ -306,7 +356,12 @@ def main(argv=None):
         if command == "RETRIEVE":
             if not args:
                 raise MindError("RETRIEVE requires one detail")
-            cmd_retrieve(store, " ".join(args))
+            if args[0].upper() == "SEARCH":
+                cmd_search(store, args[1:])
+            else:
+                cmd_retrieve(store, " ".join(args))
+        elif command == "SEARCH":
+            cmd_search(store, args)
         elif command == "ESTABLISH":
             cmd_establish(store, args)
         elif command == "CITE":

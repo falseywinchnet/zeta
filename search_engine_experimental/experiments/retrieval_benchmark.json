@@ -1,0 +1,9 @@
+[
+  {"query": "schoenberg reciprocal laplace", "expected_ids": ["F000005"], "at": 3},
+  {"query": "reimann kernal pf5", "expected_ids": ["F000014", "C000004"], "at": 5},
+  {"query": "schoenberg, manuscript equivalence", "expected_ids": ["F000007"], "at": 3},
+  {"query": "rodgers tao lambda", "expected_ids": ["F000060", "C000010"], "at": 3},
+  {"query": "dip source code artifacts", "expected_ids": ["F000034", "F000040"], "at": 4},
+  {"query": "advancement immutable evidence directory", "expected_kind": "work", "at": 5},
+  {"query": "F000018", "expected_ids": ["F000018"], "at": 1}
+]
