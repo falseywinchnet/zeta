@@ -14,12 +14,14 @@ the next round should:
 
 1. expand the 12-query semantic set to at least 100 independently judged queries;
 2. run at least 10 seeds and report confidence intervals;
-3. design a deletion-stable position channel without losing order resolution;
+3. return minimum-edit ambiguity classes and test graph-context tie-breaking;
 4. measure approximate-neighbor latency and recall at 10k, 100k, and 1m records;
 5. measure collision and near-collision rates at each width;
-6. test fusion with BM25F and graph anchors instead of standalone replacement;
+6. test directional containment fusion with BM25F and graph anchors;
 7. compare learned or external semantic embeddings only if they can be stored and
-   reproduced locally.
+   reproduced locally;
+8. replace cubic degree-3 enumeration with a streaming bottom-k construction and
+   prove that its sampling distribution is unchanged.
 
 Keep exact anchors. Report distributions and failure classes, not selected pairs.
 

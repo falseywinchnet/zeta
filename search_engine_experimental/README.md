@@ -17,6 +17,10 @@ implementation, reproducible benchmarks, ablations, and geometry audit are in
 `experiments/`; measured results and the adoption decision are in
 `results/cone_dag_report.md`.
 
+Deletion drift, asymmetric containment, and the underlying bounds are recorded
+in `research/cone_dag_mathematics.md` and
+`results/cone_dag_drift_report.md`.
+
 The original training-oriented sketch remains in
 `prototype/context_cone_prototype.py`. See `research/architecture.md` for the
 precursor design.

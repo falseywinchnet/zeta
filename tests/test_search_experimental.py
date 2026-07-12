@@ -9,6 +9,11 @@ from search_engine_experimental.experiments.cone_dag import (
     ConeIndex,
 )
 from search_engine_experimental.experiments.sequence_fingerprint import compare
+from search_engine_experimental.experiments.drift_retrieval import (
+    DriftAwareConeIndex,
+    SubsequenceContainment,
+    token_edit_distance,
+)
 
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -57,6 +62,38 @@ class ExperimentalSearchTest(unittest.TestCase):
     def test_cone_rejects_unknown_position_mode(self):
         with self.assertRaises(ValueError):
             ConeDAG(ConeConfig(position_mode="opaque"))
+
+    def test_order_containment_is_deletion_stable(self):
+        sketch = SubsequenceContainment(sample_size=128, order_weight=1.0)
+        source = "content position and combination preserve ordered sequence evidence"
+        deleted = "content position combination preserve ordered sequence evidence"
+        reversed_text = "evidence sequence ordered preserve combination and position content"
+        self.assertEqual(sketch.compare(source, deleted), 1.0)
+        self.assertLess(sketch.compare(source, reversed_text), 0.5)
+
+    def test_local_containment_preserves_crop_and_detects_move(self):
+        sketch = SubsequenceContainment(sample_size=128, order_weight=0.0)
+        source = "alpha beta gamma delta epsilon zeta eta theta iota kappa"
+        crop = "gamma delta epsilon zeta eta theta"
+        moved = "alpha beta gamma epsilon delta zeta eta theta iota kappa"
+        self.assertEqual(sketch.compare(source, crop), 1.0)
+        self.assertLess(sketch.compare(moved, crop), 1.0)
+
+    def test_token_edit_distance_exposes_erased_parent_ambiguity(self):
+        query = "alpha beta delta"
+        self.assertEqual(token_edit_distance(query, "alpha beta gamma delta"), 1)
+        self.assertEqual(token_edit_distance(query, "alpha gamma beta delta"), 1)
+
+    def test_drift_index_uses_containment_only_for_shorter_query(self):
+        index = DriftAwareConeIndex()
+        index.add("source", "alpha beta gamma delta epsilon zeta eta theta")
+        index.add("other", "monodromy jacobian polynomial boundary infinity kernel")
+        cropped = index.search("beta gamma delta epsilon zeta", limit=1)[0]
+        self.assertEqual(cropped["id"], "source")
+        self.assertTrue(cropped["directional"])
+        equal_length = index.search("alpha beta gamma delta epsilon zeta eta iota", limit=1)[0]
+        self.assertFalse(equal_length["directional"])
+        self.assertIsNone(equal_length["containment_score"])
 
 
 if __name__ == "__main__":

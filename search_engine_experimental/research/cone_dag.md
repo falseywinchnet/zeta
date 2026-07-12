@@ -41,6 +41,11 @@ exact scan. A scalable implementation may substitute an ANN structure, but must
 map results back to exact identities and text. Sketch equality never proves text
 identity.
 
+For a shorter query, the experimental drift reranker adds asymmetric bottom-k
+containment over global ordered subsequences and contiguous local paths. The
+direction matters: it asks how much query structure the longer record contains.
+See `cone_dag_mathematics.md` for the survival and estimator bounds.
+
 Index construction is linear in the emitted bounded features: approximately
 \(O(cK+n(N+L+G))\), where `c` is character count, `K` character-gram orders, `n`
 word count, `N` maximum n-gram, `L` position levels, and `G` maximum order-pair
@@ -61,3 +66,7 @@ collisions are inevitable. Paraphrases with different vocabulary remain hard.
 The construction is neither a cryptographic digest nor a lossless compression,
 and it does not evade Kolmogorov incompressibility: it deliberately preserves a
 task-selected neighborhood structure while discarding information.
+
+Deletion can erase source identity. When several records are equally close under
+token edit distance, evaluation must retain the ambiguity class rather than claim
+that the erased parent is reconstructible from the query alone.
