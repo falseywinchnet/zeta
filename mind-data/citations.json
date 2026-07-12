@@ -1,0 +1,174 @@
+{
+  "items": {
+    "C000001": {
+      "author": "Anonymous and ChatGPT",
+      "body": "Jacobian Conjecture Epistemics conversation, 2026-06-11 through 2026-07-11. Complete local export: sources/chatgpt-jacobian-conjecture-epistemics.txt; lossless 278-record index: sources/chatgpt-jacobian-conjecture-epistemics.turns.json.",
+      "created_at": "2026-07-12T19:19:06+00:00",
+      "paper": null,
+      "source_url": null,
+      "topics": [
+        "T000002",
+        "T000025",
+        "T000021"
+      ],
+      "updated_at": "2026-07-12T19:19:06+00:00"
+    },
+    "C000002": {
+      "author": "Rainstar",
+      "body": "The Riemann Kernel is Not a Polya Frequency Function of Infinite Order, 2025-12-22, supplied manuscript.",
+      "created_at": "2026-07-12T19:19:06+00:00",
+      "paper": {
+        "path": "papers/The Riemann Kernel is Not a Polya Frequency Function of Infinite Order.pdf",
+        "sha256": "0472706dbbf3c74d4ac195e58786ea5683a21dccbbcafef572aa7bb6e1a304ca"
+      },
+      "source_url": null,
+      "topics": [
+        "T000005",
+        "T000013",
+        "T000014"
+      ],
+      "updated_at": "2026-07-12T19:19:06+00:00"
+    },
+    "C000003": {
+      "author": "Rainstar",
+      "body": "Towards the Riemann Hypothesis: Establishing the PF2 Property of the Riemann Kernel, 2025-12-21, supplied manuscript.",
+      "created_at": "2026-07-12T19:19:06+00:00",
+      "paper": {
+        "path": "papers/RH is at least PF2.pdf",
+        "sha256": "12b553438b1a73f99b97ea9b9019bad26f7a0b769adf5c72e467c06ffbe950d7"
+      },
+      "source_url": null,
+      "topics": [
+        "T000005",
+        "T000010",
+        "T000009"
+      ],
+      "updated_at": "2026-07-12T19:19:06+00:00"
+    },
+    "C000004": {
+      "author": "Wojciech Michałowski",
+      "body": "On the Pólya Frequency Order of the de Bruijn-Newman Kernel: Certified Failure at Order Five and the Toeplitz Threshold Phenomenon, arXiv:2602.20313 (2026).",
+      "created_at": "2026-07-12T19:19:06+00:00",
+      "paper": {
+        "path": "papers/michalowski-pf5.pdf",
+        "sha256": "1c73cdab49e72792e518ed661a0a0373a15fcf6e3f708a9f9dda669fbcd99fda"
+      },
+      "source_url": "https://arxiv.org/abs/2602.20313",
+      "topics": [
+        "T000005",
+        "T000013",
+        "T000015"
+      ],
+      "updated_at": "2026-07-12T19:19:06+00:00"
+    },
+    "C000005": {
+      "author": "Alexander Belton, Dominique Guillot, Apoorva Khare, and Mihai Putinar",
+      "body": "Preservers of Totally Positive Kernels and Pólya Frequency Functions, arXiv:2110.08206; Theorem 2.2 restates Schoenberg's bilateral-Laplace-transform characterization.",
+      "created_at": "2026-07-12T19:19:06+00:00",
+      "paper": {
+        "path": "papers/belton-total-positivity.pdf",
+        "sha256": "354e90064f149335adf8cad753e752343180552faf220ea610cbe474e2ab016e"
+      },
+      "source_url": "https://arxiv.org/abs/2110.08206",
+      "topics": [
+        "T000007",
+        "T000014",
+        "T000008"
+      ],
+      "updated_at": "2026-07-12T19:19:06+00:00"
+    },
+    "C000006": {
+      "author": "George Csordas and Richard S. Varga",
+      "body": "Moment Inequalities and the Riemann Hypothesis, Constructive Approximation 4 (1988), 175-198, DOI 10.1007/BF02075457.",
+      "created_at": "2026-07-12T19:19:06+00:00",
+      "paper": {
+        "path": "papers/csordas-varga-moment-inequalities.pdf",
+        "sha256": "fd43597072010242ef5b8a75480e263a1538df0aba47755c47e137b140cf01ce"
+      },
+      "source_url": "https://doi.org/10.1007/BF02075457",
+      "topics": [
+        "T000005",
+        "T000009"
+      ],
+      "updated_at": "2026-07-12T19:19:06+00:00"
+    },
+    "C000007": {
+      "author": "Masatoshi Suzuki",
+      "body": "A Canonical System of Differential Equations Arising from the Riemann Zeta-Function, arXiv:1204.1827 (2012).",
+      "created_at": "2026-07-12T19:19:06+00:00",
+      "paper": {
+        "path": "papers/suzuki-canonical-system.pdf",
+        "sha256": "2c4cf2aa7a5bca731e0f1ac356deaa082eb6137a07c465fdfe09198acc82ef38"
+      },
+      "source_url": "https://arxiv.org/abs/1204.1827",
+      "topics": [
+        "T000003",
+        "T000016",
+        "T000017"
+      ],
+      "updated_at": "2026-07-12T19:19:06+00:00"
+    },
+    "C000008": {
+      "author": "Masatoshi Suzuki",
+      "body": "Integral Operators Arising from the Riemann Zeta Function, arXiv:1907.07302 (2019).",
+      "created_at": "2026-07-12T19:19:06+00:00",
+      "paper": {
+        "path": "papers/suzuki-integral-operators.pdf",
+        "sha256": "19678d2947bd250f061f1865c35020bed864ee9301dad8de47a6b0dbfb48126a"
+      },
+      "source_url": "https://arxiv.org/abs/1907.07302",
+      "topics": [
+        "T000016",
+        "T000017"
+      ],
+      "updated_at": "2026-07-12T19:19:06+00:00"
+    },
+    "C000009": {
+      "author": "Jeffrey C. Lagarias and Eric Rains",
+      "body": "On a Two-Variable Zeta Function for Number Fields, arXiv:math/0104176.",
+      "created_at": "2026-07-12T19:22:05+00:00",
+      "paper": {
+        "path": "papers/lagarias-rains-two-variable-zeta.pdf",
+        "sha256": "f064b1d71865b0a791388afdb7263e87359a44edea07a02b15cd32a74d612e4d"
+      },
+      "source_url": "https://arxiv.org/abs/math/0104176",
+      "topics": [
+        "T000029",
+        "T000003"
+      ],
+      "updated_at": "2026-07-12T19:22:05+00:00"
+    },
+    "C000010": {
+      "author": "Brad Rodgers and Terence Tao",
+      "body": "The De Bruijn-Newman Constant Is Non-Negative, arXiv:1801.05914.",
+      "created_at": "2026-07-12T19:22:05+00:00",
+      "paper": {
+        "path": "papers/rodgers-tao-debruijn-newman.pdf",
+        "sha256": "376bb2c1ab941cd5b035546835c5481f2d026767b8e830a48cd5565114a1ec91"
+      },
+      "source_url": "https://arxiv.org/abs/1801.05914",
+      "topics": [
+        "T000027",
+        "T000003"
+      ],
+      "updated_at": "2026-07-12T19:22:05+00:00"
+    },
+    "C000011": {
+      "author": "Michael Griffin, Ken Ono, Larry Rolen, Jesse Thorner, Zachary Tripp, and Ian Wagner",
+      "body": "Jensen Polynomials for the Riemann Xi Function, arXiv:1910.01227.",
+      "created_at": "2026-07-12T19:22:05+00:00",
+      "paper": {
+        "path": "papers/jensen-polynomials-xi.pdf",
+        "sha256": "f203487acc45a58808462e897240ce4929c998d9f0230d9a4bedb6d3841c3b2c"
+      },
+      "source_url": "https://arxiv.org/abs/1910.01227",
+      "topics": [
+        "T000028",
+        "T000003"
+      ],
+      "updated_at": "2026-07-12T19:22:05+00:00"
+    }
+  },
+  "next_id": 12,
+  "version": 1
+}
