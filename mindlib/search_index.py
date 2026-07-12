@@ -141,7 +141,8 @@ def _documents(store):
             "status": "recorded",
         })
     for path in work_files(store.root):
-        relative = str(path.relative_to(store.root))
+        relative_path = path.relative_to(store.root)
+        relative = str(relative_path)
         try:
             body = path.read_text(encoding="utf-8")
         except UnicodeDecodeError:
@@ -149,7 +150,7 @@ def _documents(store):
         docs.append({
             "id": "W" + hashlib.sha256(relative.encode()).hexdigest()[:12].upper(),
             "kind": "work", "title": relative,
-            "body": body, "topics": "work " + " ".join(path.parts[1:-1]),
+            "body": body, "topics": "work " + " ".join(relative_path.parts[1:-1]),
             "links": relative, "status": "raw",
         })
     for path in source_record_files(store.root):
