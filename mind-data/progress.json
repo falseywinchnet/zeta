@@ -55,8 +55,12 @@
     "P000014": {
       "blurb": "develop Fourier-symbol complement certificates for localized Weil forms",
       "created_at": "2026-07-12T23:37:44+00:00"
+    },
+    "P000015": {
+      "blurb": "certify a full localized Weil lower bound at a=0.3",
+      "created_at": "2026-07-12T23:48:50+00:00"
     }
   },
-  "next_id": 15,
+  "next_id": 16,
   "version": 1
 }
