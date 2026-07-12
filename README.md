@@ -9,6 +9,7 @@ commit epochs.
 ./MIND
 ./MIND EXPLAIN ALL
 ./MIND RETRIEVE math/zeta/riemann-hypothesis
+./MIND SEARCH "Schoenberg, reciprocal transform"
 ```
 
 Factoids have four research-facing parts: generated label, atomic content,
@@ -17,7 +18,14 @@ TODOs and appear on every retrieval. Retrieval walks from the newest standalone
 conclusions toward older support and then prints all citation boundaries.
 
 Data lives in `mind-data/`. Original inputs live in `sources/`; cited documents
-live in `papers/`. `mindlib/search_backend.py` is the explicit shim for the future
-search mode. The active backend resolves exact factoid IDs and exact topics only.
+live in `papers/`. Exact RETRIEVE resolves factoid IDs and topics. SEARCH uses a
+static positional index over MIND and `work/`, with field-weighted ranking, typo
+recovery, phrase matching, and causal/taxonomic graph anchors. `PROGRESS RECORD`
+rebuilds the index and `PROGRESS COMMIT` rejects it if later changes made it stale.
+
+New research is isolated by round mode. Advancement rounds preserve everything in
+`work/YYYY-MM-DD-name/`; later refine rounds audit and integrate it. Retrieval
+research and the original context-cone prototype live in
+`search_engine_experimental/` and do not enter zeta factoids by implication.
 
 See [AGENTS.md](AGENTS.md) for repository discipline.
