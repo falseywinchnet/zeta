@@ -40,6 +40,14 @@ class MindStoreTest(unittest.TestCase):
         self.assertEqual(self.store.factoids[fact]["status"], "established")
         self.assertEqual(self.store.validate(), [])
 
+    def test_local_artifact_checksum(self):
+        artifact = self.root / "source.txt"
+        artifact.write_text("source", encoding="utf-8")
+        cite = self.store.add_citation("A", "B", [self.zeta], artifacts=[artifact])
+        self.assertEqual(self.store.validate(), [])
+        artifact.write_text("changed", encoding="utf-8")
+        self.assertIn("artifact checksum mismatch", " ".join(self.store.validate()))
+
     def test_exact_topic_backend_includes_descendants(self):
         child, _ = self.store.add_topic(self.zeta, "kernel")
         fact = self.store.establish("Kernel fact.", [child])

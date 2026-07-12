@@ -55,13 +55,14 @@ the last support returns a factoid to TODO.
 """,
     "CITE": """CITE manages source identities at the epistemic boundary.
 
-  MIND CITE ADD --author A --body B --topic T [--paper FILE] [--url URL]
+  MIND CITE ADD --author A --body B --topic T [--paper FILE] [--artifact FILE] [--url URL]
   MIND CITE LIST [ALL|C000001]
   MIND CITE CHANGE C000001 [--author A] [--body B] [--topic T] [--paper FILE] [--url URL]
   MIND CITE REMOVE C000001
 
 ADD requires author, bibliographic body, and at least one existing topic. --paper
-copies the document into papers/ and records a SHA-256 checksum. REMOVE refuses
+copies the document into papers/ and records a SHA-256 checksum. --artifact records
+and checksums an existing repository file without moving it. REMOVE refuses
 to delete a citation still supporting a factoid.
 """,
     "DISTINGUISH": """DISTINGUISH manages the valid topic etymology.
@@ -196,6 +197,7 @@ def citation_parser(action):
         parser.add_argument("--body", required=action == "ADD")
         parser.add_argument("--topic", action="append", dest="topics", required=action == "ADD")
         parser.add_argument("--paper")
+        parser.add_argument("--artifact", action="append", dest="artifacts")
         parser.add_argument("--url")
     return parser
 
@@ -206,11 +208,11 @@ def cmd_cite(store, args):
     action, tail = args[0].upper(), args[1:]
     if action == "ADD":
         ns = citation_parser(action).parse_args(tail)
-        cid = store.add_citation(ns.author, ns.body, ns.topics, ns.paper, ns.url)
+        cid = store.add_citation(ns.author, ns.body, ns.topics, ns.paper, ns.url, ns.artifacts)
         print(cid)
     elif action == "CHANGE":
         ns = citation_parser(action).parse_args(tail)
-        store.change_citation(ns.id, ns.author, ns.body, ns.topics, ns.paper, ns.url)
+        store.change_citation(ns.id, ns.author, ns.body, ns.topics, ns.paper, ns.url, ns.artifacts)
         print(f"{ns.id.upper()} updated")
     elif action == "REMOVE":
         ns = citation_parser(action).parse_args(tail)
@@ -225,7 +227,8 @@ def cmd_cite(store, args):
             cite = store.citations[cid]
             paths = ", ".join(store.topic_path(tid) for tid in cite["topics"])
             local = cite.get("paper", {}).get("path") if cite.get("paper") else "none"
-            print(f"{cid} {cite['author']}\n  {cite['body']}\n  topics: {paths}\n  local: {local}")
+            artifacts = ", ".join(item["path"] for item in cite.get("artifacts", [])) or "none"
+            print(f"{cid} {cite['author']}\n  {cite['body']}\n  topics: {paths}\n  paper: {local}\n  artifacts: {artifacts}")
     else:
         raise MindError(f"unknown CITE action: {action}")
 
