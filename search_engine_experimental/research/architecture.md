@@ -67,3 +67,11 @@ Every context boost remains explainable as a graph distance between real records
 This implements the proposed worming behavior while retaining exact anchors. A
 continuous sketch may later propose additional neighbors, but must not replace the
 traceable graph path.
+
+## Proposed semantic layer
+
+Semantic identity is distinct from record identity. The proposed architecture in
+`semantic_identity_architecture.md` keeps exact anchors authoritative and adds a
+typed interpretation DAG for candidate senses, event roles, discourse,
+provenance, and uncertainty. Approximate-neighbor, Huffman, or CRT-like machinery
+may index an existing graph; it cannot supply the semantic relations.

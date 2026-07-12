@@ -71,9 +71,12 @@ scale and the finite-zero diagnostic, but its values are observations rather tha
 enclosures (`R105`--`R107`). In particular, the reported `a=1` value is smaller
 than its scalar quadrature-error estimate (`R106`).
 
-Gate A is normalized but not certified. `R112` is the live gate: directed
-interval enclosure of every prime-power integration piece and of the
-archimedean kernel near zero.
+P000011 closes the finite-projection portion of Gate A for `N=8` at
+`a=0.3,0.5,1`: Arb-directed entry and eigenvalue enclosures have positive lower
+endpoints. This certifies those displayed projected matrices only. It does not
+certify the full operator or advance RH. The reusable certification path splits
+at exact prime powers, removes the origin analytically, respects exact parity,
+and widens midpoint eigenvalues by a rigorous interval-matrix perturbation norm.
 
 ## Work package B: certified ground-state reconnaissance
 
@@ -95,9 +98,13 @@ L(a)\le\lambda_a\le U(a),
 not a plot of floating-point eigenvalues.
 
 `R109` records the variational direction: conforming Ritz minima are upper
-bounds. `R110` records the required lower-bound architecture. `R113` is the live
-Package B task: construct an `L`-adapted basis and certify complement,
-off-diagonal, and tail blocks before applying a Schur complement.
+bounds. `R110` records the required lower-bound architecture. The P000011
+64-mode exploratory probe found no coupling decay for a low-`L` subspace paired
+with one global tail block; that naïve version of `R113` is therefore retired.
+The live Package B task is a structure-preserving complement certificate, such
+as a multiblock prime-scale decomposition, a validated approximate invariant
+subspace, parity-separated higher-state bounds, or a threshold-renormalized
+comparison.
 
 ## Work package C: large-scale lower bound
 

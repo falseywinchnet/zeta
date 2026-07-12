@@ -274,8 +274,97 @@
         "T000022"
       ],
       "updated_at": "2026-07-12T22:24:33+00:00"
+    },
+    "C000016": {
+      "artifacts": [
+        {
+          "path": "work/2026-07-12-certified-weil-matrix/CERTIFICATION.md",
+          "sha256": "8a5d4c4b37f614d662189a802f3cf9cd6ac09b14d4f6bda269e775f53ca77a8e"
+        },
+        {
+          "path": "work/2026-07-12-certified-weil-matrix/RESULTS.md",
+          "sha256": "51683d75a450234df3af8a6b5b70869bc0b9cdfcd2be50e969bde2b32b010773"
+        },
+        {
+          "path": "work/2026-07-12-certified-weil-matrix/R113_FINDINGS.md",
+          "sha256": "e5fa0a81f30107ea640b715e94a223ab70ebd034fca5f604c92469d1f4b8cdee"
+        },
+        {
+          "path": "work/2026-07-12-certified-weil-matrix/certified_matrix.py",
+          "sha256": "c15d4f5b8ca98b40a7c0eede900e2b6b92d965cfb9bdb9647f5ad9e83f4e9d8d"
+        },
+        {
+          "path": "work/2026-07-12-certified-weil-matrix/test_certified_matrix.py",
+          "sha256": "00fe6c8d57415d2149bb1581c441739483288915035666fa22a0cca19d3debd7"
+        },
+        {
+          "path": "work/2026-07-12-certified-weil-matrix/complement_probe.py",
+          "sha256": "687ec3a5dbb5e18af4292ca911c346974f191e97293e62bea63e4e8d23fac323"
+        }
+      ],
+      "author": "Sydney, OpenAI Codex",
+      "body": "Certified localized-Weil matrix advancement round, P000011, 2026-07-12. Directed Arb enclosures for finite projected matrices and an uncertified complement-architecture probe.",
+      "created_at": "2026-07-12T23:08:28+00:00",
+      "paper": null,
+      "source_url": null,
+      "topics": [
+        "T000003",
+        "T000034",
+        "T000022"
+      ],
+      "updated_at": "2026-07-12T23:08:28+00:00"
+    },
+    "C000017": {
+      "artifacts": [
+        {
+          "path": "sources/conedag-semantic-identity-note-2026-07-12.md",
+          "sha256": "541f9ea68cb8bc933cf2f8fbe79d4a10feca0eaa4b62b896f114f083f1234619"
+        }
+      ],
+      "author": "Quentin Kuttenkuler",
+      "body": "ConeDAG semantic identity correspondence, 2026-07-12. User-supplied proposal relating content, intent, direction, polysemy, context, and dictionary or graph structure.",
+      "created_at": "2026-07-12T23:08:35+00:00",
+      "paper": null,
+      "source_url": null,
+      "topics": [
+        "T000038",
+        "T000039",
+        "T000040"
+      ],
+      "updated_at": "2026-07-12T23:08:35+00:00"
+    },
+    "C000018": {
+      "artifacts": [
+        {
+          "path": "search_engine_experimental/research/semantic_identity_architecture.md",
+          "sha256": "e9553553c9bf3b277c6a984cb1baafbd6b7475fab5521851b6dfd9eab824ee76"
+        },
+        {
+          "path": "search_engine_experimental/research/cone_dag_mathematics.md",
+          "sha256": "551d5d3f736934f6c84ce37f82eb3678bfffebaa5f5a8c890213c906c35be9a7"
+        },
+        {
+          "path": "search_engine_experimental/research/architecture.md",
+          "sha256": "83db646944f13952dd5fec3ac417ca10d478c15f20029635b794a7efe1b29744"
+        },
+        {
+          "path": "search_engine_experimental/research/next_experiments.md",
+          "sha256": "2b0e5fa551090ef9769bfef982b34beb84561e2d0d6d9687b22bdfa4dee848e8"
+        }
+      ],
+      "author": "Sydney, OpenAI Codex",
+      "body": "Semantic Identity above Exact Anchors, refinement architecture, 2026-07-12. Audit and proposed typed interpretation-DAG retrieval layer.",
+      "created_at": "2026-07-12T23:08:35+00:00",
+      "paper": null,
+      "source_url": null,
+      "topics": [
+        "T000038",
+        "T000039",
+        "T000040"
+      ],
+      "updated_at": "2026-07-12T23:08:35+00:00"
     }
   },
-  "next_id": 16,
+  "next_id": 19,
   "version": 1
 }
