@@ -401,8 +401,92 @@
         "T000040"
       ],
       "updated_at": "2026-07-12T23:15:38+00:00"
+    },
+    "C000021": {
+      "artifacts": [
+        {
+          "path": "work/2026-07-12-structured-weil-complement/ROUND.md",
+          "sha256": "54db0f757b26981b74bdd7ee994ebf651a783bf3968949a1c24ce27f4d9f54cf"
+        },
+        {
+          "path": "work/2026-07-12-structured-weil-complement/MATHEMATICS.md",
+          "sha256": "4b506bd0f262df56546baaccdc9cee8205c449cd13d44dc626d0727a3fa48e22"
+        },
+        {
+          "path": "work/2026-07-12-structured-weil-complement/RESULTS.md",
+          "sha256": "fbef6b80dcb16650cb238f65ec860ff796d20656e1ece466c7d0a915da025df3"
+        },
+        {
+          "path": "work/2026-07-12-structured-weil-complement/NEXT.md",
+          "sha256": "6f2d07f49c9e9b252b961e5be9c2bd86d098bc09e35aaf0d63a1cc01d8fe4d1d"
+        },
+        {
+          "path": "work/2026-07-12-structured-weil-complement/symbol_probe.py",
+          "sha256": "e358b99fd2d3fed44a0486c649252a7496d9fa3d39f12264d93d38d8988edbd0"
+        },
+        {
+          "path": "work/2026-07-12-structured-weil-complement/test_round.py",
+          "sha256": "282b259aae8370d12a34c790300e406a3112cd0fbeb05a505e9326dce6b14e40"
+        }
+      ],
+      "author": "Sydney, OpenAI Codex",
+      "body": "Structured localized-Weil complement advancement round, P000014, 2026-07-12. Exact Fourier multiplier, compact and relative complement architectures, domain-aligned basis tests, and retained failures.",
+      "created_at": "2026-07-12T23:49:50+00:00",
+      "paper": null,
+      "source_url": null,
+      "topics": [
+        "T000003",
+        "T000034",
+        "T000037",
+        "T000022"
+      ],
+      "updated_at": "2026-07-12T23:49:50+00:00"
+    },
+    "C000022": {
+      "artifacts": [
+        {
+          "path": "work/2026-07-12-compact-weil-certificate/ROUND.md",
+          "sha256": "6fef6cdd809d6ecd97974dc88cb19db18036e286867bed748befd4ae1477a386"
+        },
+        {
+          "path": "work/2026-07-12-compact-weil-certificate/CERTIFICATION.md",
+          "sha256": "4ebd8209e9ebd8ee35956a04cfa5acee532c3038d913e9cd8bb184cc5396520f"
+        },
+        {
+          "path": "work/2026-07-12-compact-weil-certificate/RESULTS.md",
+          "sha256": "c644eb87abd65bfa06d0a1b6a97351a7d8c062dcd738b873765faf9483b69b63"
+        },
+        {
+          "path": "work/2026-07-12-compact-weil-certificate/certify_compact.py",
+          "sha256": "6954e0aeff3effc3259968dad9d8c3c5fc365740214e0b28056c50b5b781d851"
+        },
+        {
+          "path": "work/2026-07-12-compact-weil-certificate/certificate-main.txt",
+          "sha256": "67363b83917a921a3a343c40a2679eb78996846ec19d9f94705e3df7b48570b7"
+        },
+        {
+          "path": "work/2026-07-12-compact-weil-certificate/certificate-coarse.txt",
+          "sha256": "158ac05c0fd9c11101f50892f8ce4d9dd184f803897f27432e21c49abf6218f2"
+        },
+        {
+          "path": "work/2026-07-12-compact-weil-certificate/test_certificate.py",
+          "sha256": "7c3f998682e880251413019cc6e874a795e441a53e7ab745dd9d8fd285b88345"
+        }
+      ],
+      "author": "Sydney, OpenAI Codex",
+      "body": "Compact localized-Weil full-operator certificate, P000015, 2026-07-12. Directed Arb range sums, Legendre compression, exact positive complement trace, coarse repeat, and certified lower bound at a=0.3.",
+      "created_at": "2026-07-12T23:49:50+00:00",
+      "paper": null,
+      "source_url": null,
+      "topics": [
+        "T000003",
+        "T000034",
+        "T000037",
+        "T000022"
+      ],
+      "updated_at": "2026-07-12T23:49:50+00:00"
     }
   },
-  "next_id": 21,
+  "next_id": 23,
   "version": 1
 }

@@ -20,6 +20,8 @@ For zeta work, then read `ZETA_PATHWAY.md` and retrieve its live targets:
 ./MIND SEARCH R111
 ./MIND SEARCH R112
 ./MIND SEARCH R113
+./MIND SEARCH R137
+./MIND SEARCH R138
 ./MIND SEARCH R83
 ./MIND SEARCH R94
 ```

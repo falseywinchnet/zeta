@@ -59,8 +59,12 @@
     "P000015": {
       "blurb": "certify a full localized Weil lower bound at a=0.3",
       "created_at": "2026-07-12T23:48:50+00:00"
+    },
+    "P000016": {
+      "blurb": "integrate the certified full localized Weil bracket at a=0.3",
+      "created_at": "2026-07-12T23:51:18+00:00"
     }
   },
-  "next_id": 16,
+  "next_id": 17,
   "version": 1
 }

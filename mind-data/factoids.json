@@ -1970,9 +1970,17 @@
         {
           "id": "F000117",
           "type": "factoid"
+        },
+        {
+          "id": "F000137",
+          "type": "factoid"
+        },
+        {
+          "id": "F000138",
+          "type": "factoid"
         }
       ],
-      "content": "Work Package A has a source-normalized operator model, an exact one-dimensional trial-matrix reduction, and directed N=8 projected-matrix enclosures at a=0.3, 0.5, and 1; no full-operator lower bound exists because the infinite-dimensional complement remains unenclosed.",
+      "content": "Work Package A has a source-normalized operator model and exact trial reductions; Work Package B now has directed projected enclosures at a=0.3, 0.5, and 1 plus a full-operator certified bracket at a=0.3, while the complement remains unenclosed at larger scales.",
       "created_at": "2026-07-12T22:27:00+00:00",
       "relates_to": [
         "T000003",
@@ -1980,7 +1988,7 @@
         "T000022"
       ],
       "status": "established",
-      "updated_at": "2026-07-12T23:09:06+00:00"
+      "updated_at": "2026-07-12T23:50:19+00:00"
     },
     "F000112": {
       "because": [
@@ -2001,15 +2009,16 @@
     },
     "F000113": {
       "because": [],
-      "content": "Construct a structure-preserving complement certificate for the localized-Weil form beyond the failed naive low-L one-block scheme, controlling retained-to-tail coupling and the infinite tail strongly enough to turn projected matrices into full-operator lower bounds.",
+      "content": "Extend full localized-Weil complement certification beyond a=0.3: certify the compact negative-part bound at a=0.5 if its small margin survives, and construct a relative near-one cluster certificate for a=1 and larger scales.",
       "created_at": "2026-07-12T22:27:00+00:00",
       "relates_to": [
         "T000003",
         "T000034",
+        "T000037",
         "T000023"
       ],
       "status": "todo",
-      "updated_at": "2026-07-12T23:09:06+00:00"
+      "updated_at": "2026-07-12T23:50:19+00:00"
     },
     "F000114": {
       "because": [
@@ -2400,8 +2409,141 @@
       ],
       "status": "todo",
       "updated_at": "2026-07-12T23:15:53+00:00"
+    },
+    "F000134": {
+      "because": [
+        {
+          "id": "C000014",
+          "type": "citation"
+        },
+        {
+          "id": "C000021",
+          "type": "citation"
+        }
+      ],
+      "content": "For v supported in (-a,a), Suzuki's localized Weil quadratic form has an exact Fourier-multiplier representation (2*pi)^(-1) integral m_a(z)|vhat(z)|^2 dz, where m_a contains the digamma term, the finite prime-power cosine sum, and the signed truncated polar remainder transform.",
+      "created_at": "2026-07-12T23:50:09+00:00",
+      "relates_to": [
+        "T000034",
+        "T000037"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-12T23:50:09+00:00"
+    },
+    "F000135": {
+      "because": [
+        {
+          "id": "F000099",
+          "type": "factoid"
+        },
+        {
+          "id": "F000134",
+          "type": "factoid"
+        },
+        {
+          "id": "C000022",
+          "type": "citation"
+        }
+      ],
+      "content": "For V=(mu-m_a)_+ and its positive convolution operator K on L2(-a,a), lambda_a is at least mu-||K||; for a finite orthogonal projection P, positivity gives ||K|| no greater than lambda_max(PKP)+tr((I-P)K(I-P)).",
+      "created_at": "2026-07-12T23:50:09+00:00",
+      "relates_to": [
+        "T000034",
+        "T000037"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-12T23:50:09+00:00"
+    },
+    "F000136": {
+      "because": [
+        {
+          "id": "F000135",
+          "type": "factoid"
+        },
+        {
+          "id": "C000022",
+          "type": "citation"
+        }
+      ],
+      "content": "At a=0.3 and mu=1, P000015 certifies with directed Arb ranges that V vanishes outside [-22,22], the eight-mode Legendre compression plus the exact infinite complement trace bounds ||K|| above by 0.9962971374103319278341277203122, and an independent coarser run also keeps ||K|| below one.",
+      "created_at": "2026-07-12T23:50:09+00:00",
+      "relates_to": [
+        "T000034",
+        "T000037",
+        "T000022"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-12T23:50:09+00:00"
+    },
+    "F000137": {
+      "because": [
+        {
+          "id": "F000134",
+          "type": "factoid"
+        },
+        {
+          "id": "F000135",
+          "type": "factoid"
+        },
+        {
+          "id": "F000136",
+          "type": "factoid"
+        }
+      ],
+      "content": "The directed compact-operator certificate proves the full localized-Weil ground-state bound lambda_0.3 >= 0.003702862589668072165872279687848.",
+      "created_at": "2026-07-12T23:50:09+00:00",
+      "relates_to": [
+        "T000003",
+        "T000034",
+        "T000037",
+        "T000022"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-12T23:50:09+00:00"
+    },
+    "F000138": {
+      "because": [
+        {
+          "id": "F000114",
+          "type": "factoid"
+        },
+        {
+          "id": "F000137",
+          "type": "factoid"
+        }
+      ],
+      "content": "Combining the full-operator lower certificate with the conforming P000011 Ritz enclosure gives 0.0037028625896680721 <= lambda_0.3 <= 0.0101117508912467834258.",
+      "created_at": "2026-07-12T23:50:09+00:00",
+      "relates_to": [
+        "T000003",
+        "T000034",
+        "T000037"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-12T23:50:09+00:00"
+    },
+    "F000139": {
+      "because": [
+        {
+          "id": "F000101",
+          "type": "factoid"
+        },
+        {
+          "id": "F000137",
+          "type": "factoid"
+        }
+      ],
+      "content": "The a=0.3 certificate proves one finite-scale positive lower bound only; it does not control lambda_a for a>=0.5, the nonincreasing large-a limit, or RH.",
+      "created_at": "2026-07-12T23:50:19+00:00",
+      "relates_to": [
+        "T000003",
+        "T000034",
+        "T000022"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-12T23:50:19+00:00"
     }
   },
-  "next_id": 134,
+  "next_id": 140,
   "version": 1
 }
