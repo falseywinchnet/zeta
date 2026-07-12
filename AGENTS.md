@@ -23,6 +23,12 @@ Every cited paper must exist under `papers/`. Citation records carry its checksu
 External URLs are locators, not substitutes for local evidence. Full supplied raw
 material belongs under `sources/` so normalization cannot destroy information.
 
+Use public identities in conversation and commands: references are `R<num>` and
+citations are `CITE<num>`. Legacy `F000001`/`C000001` identities remain internal
+and reversible. `MIND SEARCH` routes exact public identities to full retrieval;
+ordinary text searches references, citations, topic leaves, work, and sources as
+one collection.
+
 ## Round modes
 
 Refine mode cleans, audits, names, cites, indexes, or integrates existing work.
@@ -43,8 +49,9 @@ round and integrates it into MIND. After integration, keep the original work; do
 not replace the evidence with its summary.
 
 `search_engine_experimental/` is prerequisite retrieval research, separate from
-zeta advancement work. Its hypotheses and experiments remain experimental until
-a refine round promotes a validated mechanism into MIND tooling.
+zeta advancement work. ConeDAG and directional containment were promoted into
+MIND search at P000007; remaining hypotheses and experiments stay experimental
+until a refine round promotes them.
 
 Use only valid taxonomy nodes. Add the narrowest useful branch before adding facts.
 Topic paths move from general to specific. Names carry information; prose does not

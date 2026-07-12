@@ -21,12 +21,18 @@ input strings.
 
 ## Production choice
 
-For the current corpus, approximate-nearest-neighbor machinery is premature.
-Exact inverted postings are smaller, faster, inspectable, and complete. Production
-MIND search therefore uses Unicode/math-aware tokens, positional postings,
-BM25F-like field weights, character trigrams, phrase proximity, and the existing
-causal/taxonomic graph for comma-anchor reranking. A source digest rejects stale
-indices.
+For the current corpus, approximate-nearest-neighbor machinery remains premature.
+Production MIND keeps exact postings and exact record anchors. Its relevance score
+now combines Unicode/math-aware BM25F-like lexical evidence, character correction,
+phrase proximity, causal/taxonomic graph anchors, promoted ConeDAG similarity,
+and directional containment for shorter queries. The static index stores every
+similarity sketch; a source digest rejects stale indices.
+
+References, citations, topics, work, and raw sources share one candidate pool.
+Exact `R<num>` and `CITE<num>` identities bypass ranking. Ordinary ranked output
+uses an adjacent relevance-ratio boundary: stop before the first next item whose
+score is at most 0.36 of its predecessor. Exact scanning is retained at this
+corpus size.
 
 Huffman codes can compress postings but do not improve relevance. Bloom filters
 can avoid negative disk lookups but add no value while the index is memory-sized.

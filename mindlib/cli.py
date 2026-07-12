@@ -4,6 +4,7 @@ import argparse
 import sys
 
 from .search_backend import SearchBackendError, configured_backend
+from .identities import exact_identity, internal_id, public_id
 from .store import MindError, Store
 
 
@@ -12,7 +13,7 @@ HELP = """MIND - local epistemic graph
 Usage:
   MIND
   MIND EXPLAIN <RETRIEVE|SEARCH|ESTABLISH|CITE|DISTINGUISH|PROGRESS|ALL>
-  MIND RETRIEVE <topic-path|topic-id|factoid-id>
+  MIND RETRIEVE <topic-path|topic-id|R<num>|CITE<num>>
   MIND SEARCH [--limit N] [--type KIND] [--explain] <terms>
   MIND ESTABLISH ...
   MIND CITE <ADD|REMOVE|LIST|CHANGE> ...
@@ -20,15 +21,15 @@ Usage:
   MIND PROGRESS <RECORD|CHANGE|LIST|COMMIT> ...
 
 Run `MIND EXPLAIN ALL` for the complete grammar. Commands are case-insensitive.
-RETRIEVE is exact and causal. SEARCH is lexical, typo-tolerant, positional, and
-graph-contextual; comma-separated terms use earlier segments as context anchors.
+RETRIEVE is exact and causal. SEARCH accepts exact R<num>/CITE<num> identities or
+ordinary text across references, citations, topics, and content.
 """
 
 
 EXPLANATIONS = {
     "RETRIEVE": """RETRIEVE <detail>
 
-Detail must be one exact factoid ID, topic ID, unique topic label, or full topic
+Detail must be one exact R<num>, CITE<num>, legacy identity, topic ID, unique topic label, or full topic
 path. Retrieval first finds every current standalone conclusion whose causal
 closure contains a matching factoid. Each numbered TRACEMAP prints the newest
 conclusion, its concise direct `because` IDs, then its oldward causal closure.
@@ -38,18 +39,25 @@ topic is not yet known.
 """,
     "SEARCH": """SEARCH <terms>
 
-Searches factoids, citations, topics, progress records, advancement files, and
-lossless source records.
-The static index uses weighted positional postings, BM25F-like saturation,
-character-trigram correction, aliases, exact IDs, and phrase proximity.
+Searches references, citations, topic leaves, progress records, advancement files,
+and lossless source records as one collection. R<num> and CITE<num> are exact
+public identities and return the complete causal or citation object without
+ranking. Legacy F/C identities remain accepted.
+
+Ordinary text combines weighted positional postings, BM25F-like saturation,
+character correction, graph anchors, ConeDAG similarity, and directional
+subsequence containment. Results stop at the first adjacent relevance ratio at
+or below 0.36: if item n+1 has at most 36% of item n's relevance, n is the final
+result. --limit is a safety ceiling, not the definition of k.
 
   MIND SEARCH polya frequency order
   MIND SEARCH "Schoenberg, reciprocal transform"
+  MIND SEARCH CITE4
   MIND SEARCH --type citation --explain author interval arithmetic
 
 Comma segments are asymmetric. Earlier segments locate context anchors; the last
 segment is the target. Targets are reranked by shortest causal or taxonomic graph
-distance from anchors. --type accepts factoid, citation, topic, progress, work, or
+distance from anchors. --type accepts reference, citation, topic, progress, work, or
 source and may repeat. --reindex is a recovery command.
 
 SEARCH refuses a stale index. PROGRESS RECORD rebuilds it; PROGRESS COMMIT checks
@@ -59,15 +67,15 @@ that no indexed source changed afterward. RETRIEVE SEARCH is a SEARCH alias.
 
 New:
   MIND ESTABLISH "content" RELATES <topic...>
-  MIND ESTABLISH "content" BECAUSE <F...> RELATES <topic...>
+  MIND ESTABLISH "content" BECAUSE <R...> RELATES <topic...>
 
-An unsupported new factoid is TODO. BECAUSE accepts existing factoids only.
+An unsupported new factoid is TODO. BECAUSE accepts existing references only.
 
 Existing:
-  MIND ESTABLISH <F> REFER <F...>
-  MIND ESTABLISH <F> REFER CITATION <C...>
-  MIND ESTABLISH <F> PRUNE <direct-F...>
-  MIND ESTABLISH <F> PRUNE CITATION <direct-C...>
+  MIND ESTABLISH <R> REFER <R...>
+  MIND ESTABLISH <R> REFER CITATION <CITE...>
+  MIND ESTABLISH <R> PRUNE <direct-R...>
+  MIND ESTABLISH <R> PRUNE CITATION <direct-CITE...>
 
 CONTENT "replacement" and RELATES <topic...> may follow an existing update.
 All references must already exist. Cycles and self-support are rejected. Removing
@@ -76,9 +84,9 @@ the last support returns a factoid to TODO.
     "CITE": """CITE manages source identities at the epistemic boundary.
 
   MIND CITE ADD --author A --body B --topic T [--paper FILE] [--artifact FILE] [--url URL]
-  MIND CITE LIST [ALL|C000001]
-  MIND CITE CHANGE C000001 [--author A] [--body B] [--topic T] [--paper FILE] [--url URL]
-  MIND CITE REMOVE C000001
+  MIND CITE LIST [ALL|CITE1]
+  MIND CITE CHANGE CITE1 [--author A] [--body B] [--topic T] [--paper FILE] [--url URL]
+  MIND CITE REMOVE CITE1
 
 ADD requires author, bibliographic body, and at least one existing topic. --paper
 copies the document into papers/ and records a SHA-256 checksum. --artifact records
@@ -137,7 +145,7 @@ def split_markers(tokens, markers):
 def cmd_establish(store, args):
     if not args:
         raise MindError("ESTABLISH requires content or a factoid ID")
-    first = args[0].upper()
+    first = internal_id(args[0])
     if first in store.factoids:
         if len(args) < 3 or args[1].upper() not in ("REFER", "PRUNE"):
             raise MindError("existing factoid requires REFER or PRUNE")
@@ -147,48 +155,51 @@ def cmd_establish(store, args):
         if citation:
             tail = tail[1:]
         parts = split_markers(tail, {"CONTENT", "RELATES"})
-        refs = parts.get("_", [])
+        refs = [internal_id(ref) for ref in parts.get("_", [])]
         if not refs:
             raise MindError(f"{action.upper()} requires at least one reference")
         content = " ".join(parts["CONTENT"]) if "CONTENT" in parts else None
         topics = parts.get("RELATES")
         store.update_fact(first, action, refs, citation=citation, content=content, topics=topics)
-        print(f"{first} updated; status={store.factoids[first]['status']}")
+        print(f"{public_id(first)} updated; status={store.factoids[first]['status']}")
         return
     parts = split_markers(args, {"BECAUSE", "RELATES"})
     content = " ".join(parts.get("_", [])).strip()
     topics = parts.get("RELATES", [])
-    because = parts.get("BECAUSE", [])
+    because = [internal_id(ref) for ref in parts.get("BECAUSE", [])]
     fid = store.establish(content, topics, because)
-    print(f"{fid} {store.factoids[fid]['status']}")
+    print(f"{public_id(fid)} {store.factoids[fid]['status']}")
 
 
 def fact_line(store, fid):
     fact = store.factoids[fid]
-    refs = " ".join(ref["id"] for ref in fact["because"]) or "none"
+    refs = " ".join(public_id(ref["id"]) for ref in fact["because"]) or "none"
     topics = ", ".join(store.topic_path(tid) for tid in fact["relates_to"])
-    return f"{fid} [{fact['status']}] {fact['content']}\n    because {refs}\n    relates-to {topics}"
+    return f"{public_id(fid)} [{fact['status']}] {fact['content']}\n    because {refs}\n    relates-to {topics}"
 
 
 def cmd_retrieve(store, detail):
+    detail = internal_id(detail)
     backend = configured_backend(store)
     try:
         matches, resolved = backend.resolve(store, detail)
     except SearchBackendError as exc:
         raise MindError(str(exc)) from exc
     roots = store.retrieval_roots(matches)
+    if detail in store.factoids:
+        resolved = f"reference {public_id(detail)}"
     print(f"RETRIEVAL: {resolved}\nBACKEND: {backend.name}\nMATCHES: {len(matches)}\n")
     if not roots:
         print("TRACEMAPS: none")
     boundaries = set()
     for number, root in enumerate(roots, 1):
-        direct = " ".join(ref["id"] for ref in store.factoids[root]["because"]) or "none"
-        print(f"TRACEMAP {number}\n{root}: {store.factoids[root]['content']}\n  because {direct}")
+        direct = " ".join(public_id(ref["id"]) for ref in store.factoids[root]["because"]) or "none"
+        print(f"TRACEMAP {number}\n{public_id(root)}: {store.factoids[root]['content']}\n  because {direct}")
         print("  TRACE")
         for fid, depth in store.trace_closure(root):
             fact = store.factoids[fid]
-            refs = " ".join(ref["id"] for ref in fact["because"]) or "none"
-            print(f"    {'  ' * depth}{fid}: {fact['content']} (because {refs})")
+            refs = " ".join(public_id(ref["id"]) for ref in fact["because"]) or "none"
+            print(f"    {'  ' * depth}{public_id(fid)}: {fact['content']} (because {refs})")
             boundaries.update(ref["id"] for ref in fact["because"] if ref["type"] == "citation")
         print()
     print("EPISTEMIC BOUNDARIES")
@@ -196,21 +207,21 @@ def cmd_retrieve(store, detail):
         for cid in sorted(boundaries):
             cite = store.citations[cid]
             local = f"; local={cite['paper']['path']}" if cite.get("paper") else ""
-            print(f"  {cid}: {cite['author']}. {cite['body']}{local}")
+            print(f"  {public_id(cid)}: {cite['author']}. {cite['body']}{local}")
     else:
         print("  none")
     todos = sorted((fid for fid, fact in store.factoids.items() if fact["status"] == "todo"), reverse=True)
     print("\nOPEN TODOs")
     if todos:
         for fid in todos:
-            print(f"  {fid}: {store.factoids[fid]['content']}")
+            print(f"  {public_id(fid)}: {store.factoids[fid]['content']}")
     else:
         print("  none")
 
 
 def cmd_search(store, args):
     parser = argparse.ArgumentParser(prog="MIND SEARCH")
-    parser.add_argument("--limit", type=int, default=10)
+    parser.add_argument("--limit", type=int, default=25)
     parser.add_argument("--type", action="append", dest="kinds")
     parser.add_argument("--explain", action="store_true")
     parser.add_argument("--reindex", action="store_true")
@@ -226,9 +237,18 @@ def cmd_search(store, args):
     query = " ".join(ns.query).strip()
     if not query:
         raise MindError("SEARCH requires terms unless --reindex is used")
+    exact = exact_identity(store, query)
+    if exact:
+        if exact["kind"] == "factoid":
+            cmd_retrieve(store, exact["id"])
+        else:
+            cmd_retrieve_citation(store, exact["id"])
+        return
     kinds = []
     for group in ns.kinds or []:
         kinds.extend(item.strip().casefold() for item in group.split(",") if item.strip())
+    kind_aliases = {"ref": "factoid", "reference": "factoid", "cite": "citation"}
+    kinds = [kind_aliases.get(kind, kind) for kind in kinds]
     allowed = {"factoid", "citation", "topic", "progress", "work", "source"}
     invalid = sorted(set(kinds) - allowed)
     if invalid:
@@ -236,6 +256,29 @@ def cmd_search(store, args):
     engine = SearchEngine(store)
     results = engine.search(query, limit=max(1, ns.limit), kinds=kinds)
     print(render_results(results, ns.explain))
+
+
+def cmd_retrieve_citation(store, cid):
+    cite = store.citations[cid]
+    print(f"CITATION: {public_id(cid)}")
+    print(f"AUTHOR: {cite['author']}")
+    print(f"BODY: {cite['body']}")
+    print("TOPICS: " + ", ".join(store.topic_path(tid) for tid in cite["topics"]))
+    print("LOCAL EVIDENCE")
+    evidence = []
+    if cite.get("paper"):
+        evidence.append(cite["paper"])
+    evidence.extend(cite.get("artifacts", []))
+    if evidence:
+        for item in evidence:
+            print(f"  {item['path']} sha256={item['sha256']}")
+    else:
+        print("  none")
+    users = sorted(
+        public_id(fid) for fid, fact in store.factoids.items()
+        if {"type": "citation", "id": cid} in fact["because"]
+    )
+    print("SUPPORTS: " + (" ".join(users) if users else "none"))
 
 
 def citation_parser(action):
@@ -259,17 +302,20 @@ def cmd_cite(store, args):
     if action == "ADD":
         ns = citation_parser(action).parse_args(tail)
         cid = store.add_citation(ns.author, ns.body, ns.topics, ns.paper, ns.url, ns.artifacts)
-        print(cid)
+        print(public_id(cid))
     elif action == "CHANGE":
         ns = citation_parser(action).parse_args(tail)
-        store.change_citation(ns.id, ns.author, ns.body, ns.topics, ns.paper, ns.url, ns.artifacts)
-        print(f"{ns.id.upper()} updated")
+        cid = internal_id(ns.id)
+        store.change_citation(cid, ns.author, ns.body, ns.topics, ns.paper, ns.url, ns.artifacts)
+        print(f"{public_id(cid)} updated")
     elif action == "REMOVE":
         ns = citation_parser(action).parse_args(tail)
-        store.remove_citation(ns.id)
-        print(f"{ns.id.upper()} removed")
+        cid = internal_id(ns.id)
+        store.remove_citation(cid)
+        print(f"{public_id(cid)} removed")
     elif action == "LIST":
-        target = tail[0].upper() if tail else "ALL"
+        target = internal_id(tail[0]) if tail else "ALL"
+        target = target.upper() if target.upper() == "ALL" else target
         ids = sorted(store.citations) if target == "ALL" else [target]
         for cid in ids:
             if cid not in store.citations:
@@ -278,7 +324,7 @@ def cmd_cite(store, args):
             paths = ", ".join(store.topic_path(tid) for tid in cite["topics"])
             local = cite.get("paper", {}).get("path") if cite.get("paper") else "none"
             artifacts = ", ".join(item["path"] for item in cite.get("artifacts", [])) or "none"
-            print(f"{cid} {cite['author']}\n  {cite['body']}\n  topics: {paths}\n  paper: {local}\n  artifacts: {artifacts}")
+            print(f"{public_id(cid)} {cite['author']}\n  {cite['body']}\n  topics: {paths}\n  paper: {local}\n  artifacts: {artifacts}")
     else:
         raise MindError(f"unknown CITE action: {action}")
 
@@ -359,7 +405,12 @@ def main(argv=None):
             if args[0].upper() == "SEARCH":
                 cmd_search(store, args[1:])
             else:
-                cmd_retrieve(store, " ".join(args))
+                detail = " ".join(args)
+                exact = exact_identity(store, detail)
+                if exact and exact["kind"] == "citation":
+                    cmd_retrieve_citation(store, exact["id"])
+                else:
+                    cmd_retrieve(store, detail)
         elif command == "SEARCH":
             cmd_search(store, args)
         elif command == "ESTABLISH":
