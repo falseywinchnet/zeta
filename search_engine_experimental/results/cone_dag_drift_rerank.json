@@ -1,0 +1,571 @@
+{
+  "ambiguity": {
+    "append": {
+      "ambiguous_fraction": 0.0,
+      "mean_minimum_edit_candidates": 1.0,
+      "queries": 60
+    },
+    "crop": {
+      "ambiguous_fraction": 0.0,
+      "mean_minimum_edit_candidates": 1.0,
+      "queries": 60
+    },
+    "delete": {
+      "ambiguous_fraction": 1.0,
+      "mean_minimum_edit_candidates": 3.0,
+      "queries": 60
+    },
+    "insert": {
+      "ambiguous_fraction": 0.0,
+      "mean_minimum_edit_candidates": 1.0,
+      "queries": 60
+    },
+    "swap": {
+      "ambiguous_fraction": 0.0,
+      "mean_minimum_edit_candidates": 1.0,
+      "queries": 60
+    },
+    "typo": {
+      "ambiguous_fraction": 0.0,
+      "mean_minimum_edit_candidates": 1.0,
+      "queries": 60
+    }
+  },
+  "candidates": 418,
+  "records": 60,
+  "sample_size": 256,
+  "weights": {
+    "0.0": {
+      "edit_equivalent": {
+        "append": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        },
+        "crop": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        },
+        "delete": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        },
+        "insert": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        },
+        "overall": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        },
+        "swap": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        },
+        "typo": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        }
+      },
+      "strict": {
+        "append": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        },
+        "crop": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        },
+        "delete": {
+          "mrr": 0.7611111111111112,
+          "recall_at_1": 0.5666666666666667,
+          "recall_at_5": 1.0
+        },
+        "insert": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        },
+        "overall": {
+          "mrr": 0.9601851851851853,
+          "recall_at_1": 0.9277777777777778,
+          "recall_at_5": 1.0
+        },
+        "swap": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        },
+        "typo": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        }
+      }
+    },
+    "0.1": {
+      "edit_equivalent": {
+        "append": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        },
+        "crop": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        },
+        "delete": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        },
+        "insert": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        },
+        "overall": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        },
+        "swap": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        },
+        "typo": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        }
+      },
+      "strict": {
+        "append": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        },
+        "crop": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        },
+        "delete": {
+          "mrr": 0.7611111111111112,
+          "recall_at_1": 0.5666666666666667,
+          "recall_at_5": 1.0
+        },
+        "insert": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        },
+        "overall": {
+          "mrr": 0.9601851851851853,
+          "recall_at_1": 0.9277777777777778,
+          "recall_at_5": 1.0
+        },
+        "swap": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        },
+        "typo": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        }
+      }
+    },
+    "0.2": {
+      "edit_equivalent": {
+        "append": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        },
+        "crop": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        },
+        "delete": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        },
+        "insert": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        },
+        "overall": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        },
+        "swap": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        },
+        "typo": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        }
+      },
+      "strict": {
+        "append": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        },
+        "crop": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        },
+        "delete": {
+          "mrr": 0.7611111111111112,
+          "recall_at_1": 0.5666666666666667,
+          "recall_at_5": 1.0
+        },
+        "insert": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        },
+        "overall": {
+          "mrr": 0.9601851851851853,
+          "recall_at_1": 0.9277777777777778,
+          "recall_at_5": 1.0
+        },
+        "swap": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        },
+        "typo": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        }
+      }
+    },
+    "0.35": {
+      "edit_equivalent": {
+        "append": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        },
+        "crop": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        },
+        "delete": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        },
+        "insert": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        },
+        "overall": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        },
+        "swap": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        },
+        "typo": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        }
+      },
+      "strict": {
+        "append": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        },
+        "crop": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        },
+        "delete": {
+          "mrr": 0.7611111111111112,
+          "recall_at_1": 0.5666666666666667,
+          "recall_at_5": 1.0
+        },
+        "insert": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        },
+        "overall": {
+          "mrr": 0.9601851851851853,
+          "recall_at_1": 0.9277777777777778,
+          "recall_at_5": 1.0
+        },
+        "swap": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        },
+        "typo": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        }
+      }
+    },
+    "0.5": {
+      "edit_equivalent": {
+        "append": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        },
+        "crop": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        },
+        "delete": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        },
+        "insert": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        },
+        "overall": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        },
+        "swap": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        },
+        "typo": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        }
+      },
+      "strict": {
+        "append": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        },
+        "crop": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        },
+        "delete": {
+          "mrr": 0.7611111111111112,
+          "recall_at_1": 0.5666666666666667,
+          "recall_at_5": 1.0
+        },
+        "insert": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        },
+        "overall": {
+          "mrr": 0.9601851851851853,
+          "recall_at_1": 0.9277777777777778,
+          "recall_at_5": 1.0
+        },
+        "swap": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        },
+        "typo": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        }
+      }
+    },
+    "0.75": {
+      "edit_equivalent": {
+        "append": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        },
+        "crop": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        },
+        "delete": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        },
+        "insert": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        },
+        "overall": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        },
+        "swap": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        },
+        "typo": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        }
+      },
+      "strict": {
+        "append": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        },
+        "crop": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        },
+        "delete": {
+          "mrr": 0.7611111111111112,
+          "recall_at_1": 0.5666666666666667,
+          "recall_at_5": 1.0
+        },
+        "insert": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        },
+        "overall": {
+          "mrr": 0.9601851851851853,
+          "recall_at_1": 0.9277777777777778,
+          "recall_at_5": 1.0
+        },
+        "swap": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        },
+        "typo": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        }
+      }
+    },
+    "1.0": {
+      "edit_equivalent": {
+        "append": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        },
+        "crop": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        },
+        "delete": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        },
+        "insert": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        },
+        "overall": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        },
+        "swap": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        },
+        "typo": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        }
+      },
+      "strict": {
+        "append": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        },
+        "crop": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        },
+        "delete": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        },
+        "insert": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        },
+        "overall": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        },
+        "swap": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        },
+        "typo": {
+          "mrr": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0
+        }
+      }
+    }
+  }
+}

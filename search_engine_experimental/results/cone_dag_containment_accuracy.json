@@ -1,0 +1,267 @@
+{
+  "cases": [
+    {
+      "absolute_error": {
+        "count": 180,
+        "max": 0.16528735632183908,
+        "mean": 0.006299632398865749,
+        "median": 0.0011904761904761906,
+        "p95": 0.016560526929548326
+      },
+      "minimum_subset_estimate": 1.0,
+      "sample_size": 32,
+      "seed": 1,
+      "subset_exact_fraction": 1.0
+    },
+    {
+      "absolute_error": {
+        "count": 180,
+        "max": 0.06412041064903427,
+        "mean": 0.0037785246878225794,
+        "median": 0.0011904761904761906,
+        "p95": 0.01410801036969257
+      },
+      "minimum_subset_estimate": 1.0,
+      "sample_size": 32,
+      "seed": 7,
+      "subset_exact_fraction": 1.0
+    },
+    {
+      "absolute_error": {
+        "count": 180,
+        "max": 0.15441176470588233,
+        "mean": 0.0045847539595318424,
+        "median": 0.0011904761904761906,
+        "p95": 0.012702910807603924
+      },
+      "minimum_subset_estimate": 0.0,
+      "sample_size": 32,
+      "seed": 42,
+      "subset_exact_fraction": 0.9958333333333333
+    },
+    {
+      "absolute_error": {
+        "count": 180,
+        "max": 0.08544303797468354,
+        "mean": 0.004921936512914937,
+        "median": 0.0011904761904761906,
+        "p95": 0.01859797576881061
+      },
+      "minimum_subset_estimate": 1.0,
+      "sample_size": 32,
+      "seed": 101,
+      "subset_exact_fraction": 1.0
+    },
+    {
+      "absolute_error": {
+        "count": 180,
+        "max": 0.23601398601398602,
+        "mean": 0.005375838889013888,
+        "median": 0.0011904761904761906,
+        "p95": 0.012127896613190728
+      },
+      "minimum_subset_estimate": 1.0,
+      "sample_size": 32,
+      "seed": 997,
+      "subset_exact_fraction": 1.0
+    },
+    {
+      "absolute_error": {
+        "count": 180,
+        "max": 0.10627637130801687,
+        "mean": 0.006039347714305827,
+        "median": 0.0011904761904761906,
+        "p95": 0.03538583721633248
+      },
+      "minimum_subset_estimate": 1.0,
+      "sample_size": 64,
+      "seed": 1,
+      "subset_exact_fraction": 1.0
+    },
+    {
+      "absolute_error": {
+        "count": 180,
+        "max": 0.1878787878787879,
+        "mean": 0.004576294535677559,
+        "median": 0.0011904761904761906,
+        "p95": 0.019212312817940787
+      },
+      "minimum_subset_estimate": 1.0,
+      "sample_size": 64,
+      "seed": 7,
+      "subset_exact_fraction": 1.0
+    },
+    {
+      "absolute_error": {
+        "count": 180,
+        "max": 0.08928814482101538,
+        "mean": 0.004081607219808842,
+        "median": 0.0011904761904761906,
+        "p95": 0.01653317580902134
+      },
+      "minimum_subset_estimate": 1.0,
+      "sample_size": 64,
+      "seed": 42,
+      "subset_exact_fraction": 1.0
+    },
+    {
+      "absolute_error": {
+        "count": 180,
+        "max": 0.05728900255754475,
+        "mean": 0.004227056806154754,
+        "median": 0.0011904761904761906,
+        "p95": 0.02131914402116836
+      },
+      "minimum_subset_estimate": 1.0,
+      "sample_size": 64,
+      "seed": 101,
+      "subset_exact_fraction": 1.0
+    },
+    {
+      "absolute_error": {
+        "count": 180,
+        "max": 0.15268065268065267,
+        "mean": 0.004107582795086018,
+        "median": 0.0011904761904761906,
+        "p95": 0.012127896613190728
+      },
+      "minimum_subset_estimate": 1.0,
+      "sample_size": 64,
+      "seed": 997,
+      "subset_exact_fraction": 1.0
+    },
+    {
+      "absolute_error": {
+        "count": 180,
+        "max": 0.10320260081621359,
+        "mean": 0.004492162437803616,
+        "median": 0.0011904761904761906,
+        "p95": 0.019186432637571135
+      },
+      "minimum_subset_estimate": 1.0,
+      "sample_size": 128,
+      "seed": 1,
+      "subset_exact_fraction": 1.0
+    },
+    {
+      "absolute_error": {
+        "count": 180,
+        "max": 0.06480186480186481,
+        "mean": 0.0041227698125343255,
+        "median": 0.0011904761904761906,
+        "p95": 0.019183634992458502
+      },
+      "minimum_subset_estimate": 1.0,
+      "sample_size": 128,
+      "seed": 7,
+      "subset_exact_fraction": 1.0
+    },
+    {
+      "absolute_error": {
+        "count": 180,
+        "max": 0.06882617912029677,
+        "mean": 0.0035672337557335065,
+        "median": 0.0011904761904761906,
+        "p95": 0.015890588794913042
+      },
+      "minimum_subset_estimate": 1.0,
+      "sample_size": 128,
+      "seed": 42,
+      "subset_exact_fraction": 1.0
+    },
+    {
+      "absolute_error": {
+        "count": 180,
+        "max": 0.21500200561572402,
+        "mean": 0.006165263396780174,
+        "median": 0.0011904761904761906,
+        "p95": 0.023138376111623126
+      },
+      "minimum_subset_estimate": 1.0,
+      "sample_size": 128,
+      "seed": 101,
+      "subset_exact_fraction": 1.0
+    },
+    {
+      "absolute_error": {
+        "count": 180,
+        "max": 0.06293706293706294,
+        "mean": 0.00340276809539186,
+        "median": 0.0011904761904761906,
+        "p95": 0.01231646719290045
+      },
+      "minimum_subset_estimate": 1.0,
+      "sample_size": 128,
+      "seed": 997,
+      "subset_exact_fraction": 1.0
+    },
+    {
+      "absolute_error": {
+        "count": 180,
+        "max": 0.03787515006002401,
+        "mean": 0.0035887795787034704,
+        "median": 0.001207983193277311,
+        "p95": 0.01447894053022823
+      },
+      "minimum_subset_estimate": 1.0,
+      "sample_size": 256,
+      "seed": 1,
+      "subset_exact_fraction": 1.0
+    },
+    {
+      "absolute_error": {
+        "count": 180,
+        "max": 0.08030303030303029,
+        "mean": 0.004509573795416442,
+        "median": 0.0012254901960784314,
+        "p95": 0.02353490568565796
+      },
+      "minimum_subset_estimate": 1.0,
+      "sample_size": 256,
+      "seed": 7,
+      "subset_exact_fraction": 1.0
+    },
+    {
+      "absolute_error": {
+        "count": 180,
+        "max": 0.03480392156862745,
+        "mean": 0.0029871033325632426,
+        "median": 0.0011904761904761906,
+        "p95": 0.01264432215478794
+      },
+      "minimum_subset_estimate": 1.0,
+      "sample_size": 256,
+      "seed": 42,
+      "subset_exact_fraction": 1.0
+    },
+    {
+      "absolute_error": {
+        "count": 180,
+        "max": 0.08368887430259271,
+        "mean": 0.004386939457765801,
+        "median": 0.0011904761904761906,
+        "p95": 0.01553952046741044
+      },
+      "minimum_subset_estimate": 1.0,
+      "sample_size": 256,
+      "seed": 101,
+      "subset_exact_fraction": 1.0
+    },
+    {
+      "absolute_error": {
+        "count": 180,
+        "max": 0.02736462093862816,
+        "mean": 0.002865417400980039,
+        "median": 0.0011818630463526826,
+        "p95": 0.011782531194295894
+      },
+      "minimum_subset_estimate": 1.0,
+      "sample_size": 256,
+      "seed": 997,
+      "subset_exact_fraction": 1.0
+    }
+  ],
+  "random_pairs": 180,
+  "records": 60,
+  "subset_pairs": 240
+}

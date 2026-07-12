@@ -67,11 +67,16 @@ class ConeConfig:
     anagram_weight: float = 0.0
     position_mode: str = "soft"
     moment_orders: int = 5
+    stable_width: int = 0
+    stable_weight: float = 0.0
+    stable_mode: str = "both"
+    anchor_ngram: int = 2
+    anchor_window: int = 5
     seed: int = 42
 
     @property
     def dimensions(self):
-        return self.width * 3 + 6
+        return self.width * 3 + self.stable_width + 6
 
 
 @dataclass(frozen=True)
@@ -90,17 +95,48 @@ class ConeDAG:
             raise ValueError("max_ngram must be at least 2")
         if config.position_mode not in {"soft", "moment", "hybrid"}:
             raise ValueError("position_mode must be soft, moment, or hybrid")
+        if config.stable_mode not in {"pairs", "anchors", "both"}:
+            raise ValueError("stable_mode must be pairs, anchors, or both")
+        if config.stable_width and config.stable_width < 8:
+            raise ValueError("stable_width must be zero or at least 8")
+        if config.stable_weight and not config.stable_width:
+            raise ValueError("stable_width is required when stable_weight is nonzero")
+        if config.anchor_ngram < 1 or config.anchor_window < 1:
+            raise ValueError("anchor sizes must be positive")
         self.config = config
 
-    def _bucket(self, channel, feature):
+    def _bucket(self, channel, feature, width=None):
         material = f"{self.config.seed}\0{channel}\0{feature}".encode()
         digest = hashlib.blake2b(material, digest_size=16).digest()
         integer = int.from_bytes(digest, "big")
-        return integer % self.config.width, 1.0 if integer >> 127 == 0 else -1.0
+        return integer % (width or self.config.width), 1.0 if integer >> 127 == 0 else -1.0
 
-    def _add(self, vector, channel, feature, value=1.0):
-        bucket, sign = self._bucket(channel, feature)
+    def _add(self, vector, channel, feature, value=1.0, width=None):
+        bucket, sign = self._bucket(channel, feature, width)
         vector[bucket] += sign * value
+
+    def _anchor_hash(self, gram):
+        material = f"{self.config.seed}\0anchor-select\0{gram}".encode()
+        return int.from_bytes(hashlib.blake2b(material, digest_size=16).digest(), "big")
+
+    def _winnowed_anchors(self, words):
+        """Return rightmost minima of overlapping token-ngram hash windows."""
+        size = self.config.anchor_ngram
+        if len(words) < size:
+            return []
+        grams = ["|".join(words[start:start + size]) for start in range(len(words) - size + 1)]
+        hashes = [self._anchor_hash(gram) for gram in grams]
+        window = min(self.config.anchor_window, len(grams))
+        selected = []
+        for start in range(len(grams) - window + 1):
+            stop = start + window
+            minimum = min(hashes[start:stop])
+            # Rightmost tie-breaking makes consecutive windows select the same
+            # occurrence until it leaves the window.
+            index = max(i for i in range(start, stop) if hashes[i] == minimum)
+            if not selected or selected[-1] != index:
+                selected.append(index)
+        return [(index, grams[index]) for index in selected]
 
     @staticmethod
     def _soft_bins(position, bins):
@@ -135,6 +171,7 @@ class ConeDAG:
         content = [0.0] * self.config.width
         path = [0.0] * self.config.width
         position = [0.0] * self.config.width
+        stable = [0.0] * self.config.stable_width
 
         # Content: exact word counts plus overlapping character evidence. A single
         # spelling edit changes only a small number of character shingles.
@@ -175,6 +212,30 @@ class ConeDAG:
         for size in (4, 5):
             for start in range(max(0, len(compact) - size + 1)):
                 self._add(path, f"charpath-{size}", compact[start:start + size], 0.12)
+
+        # Edit-stable order channel. Every pair not incident to a deleted token
+        # survives with the same identity; unlike absolute position, no suffix is
+        # renumbered. Winnowed content anchors add local structure whose selection
+        # changes only in windows whose k-grams intersect an edit.
+        if self.config.stable_width and self.config.stable_weight:
+            stable_width = self.config.stable_width
+            if self.config.stable_mode in {"pairs", "both"}:
+                pair_weight = 1.0 / math.sqrt(max(1, len(words)))
+                for left in range(len(words)):
+                    for right in range(left + 1, len(words)):
+                        self._add(
+                            stable, "global-order", words[left] + "<" + words[right],
+                            pair_weight, stable_width,
+                        )
+            if self.config.stable_mode in {"anchors", "both"}:
+                radius = 3
+                for anchor, gram in self._winnowed_anchors(words):
+                    self._add(stable, "anchor", gram, 0.70, stable_width)
+                    for offset in range(-radius, radius + 1):
+                        index = anchor + offset
+                        if 0 <= index < len(words):
+                            relation = f"{gram}@{offset:+d}:{words[index]}"
+                            self._add(stable, "anchor-neighbor", relation, 0.45, stable_width)
 
         # Soft dyadic position: tokens and local paths vote into overlapping bins.
         # Relative position gives scale invariance; soft voting avoids hard boundary
@@ -224,6 +285,7 @@ class ConeDAG:
         content = [self.config.content_weight * value for value in _unit(content)]
         path = [self.config.path_weight * value for value in _unit(path)]
         position = [self.config.position_weight * value for value in _unit(position)]
+        stable = [self.config.stable_weight * value for value in _unit(stable)]
 
         characters = len(compact.strip())
         unique = len(set(words))
@@ -240,7 +302,7 @@ class ConeDAG:
             math.sin(math.pi * log_words),
         ])
         shape = [self.config.shape_weight * value for value in shape]
-        vector = tuple(_unit(content + path + position + shape))
+        vector = tuple(_unit(content + path + position + stable + shape))
         return ConeFingerprint(vector, math.log1p(characters), count, unique)
 
     def compare(self, left, right):
