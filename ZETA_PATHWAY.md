@@ -78,6 +78,20 @@ certify the full operator or advance RH. The reusable certification path splits
 at exact prime powers, removes the origin analytically, respects exact parity,
 and widens midpoint eigenvalues by a rigorous interval-matrix perturbation norm.
 
+P000015 supplies the first full-operator bracket. Suzuki's exact Fourier symbol
+is split as `m_a >= 1-(1-m_a)_+`. At `a=0.3` the prime sum is empty, the negative
+part has certified compact frequency support, and an eight-mode Legendre
+compression plus an exact directed complement trace gives (`R137`, `R138`)
+
+\[
+0.0037028625896680721
+\le \lambda_{0.3}
+\le 0.0101117508912467834258.
+\]
+
+The lower endpoint controls the complete form domain, not only a Galerkin
+matrix. It is one finite-scale result and has no direct RH implication.
+
 ## Work package B: certified ground-state reconnaissance
 
 Construct conforming variational approximations on nested intervals.
@@ -98,13 +112,10 @@ L(a)\le\lambda_a\le U(a),
 not a plot of floating-point eigenvalues.
 
 `R109` records the variational direction: conforming Ritz minima are upper
-bounds. `R110` records the required lower-bound architecture. The P000011
-64-mode exploratory probe found no coupling decay for a low-`L` subspace paired
-with one global tail block; that naïve version of `R113` is therefore retired.
-The live Package B task is a structure-preserving complement certificate, such
-as a multiblock prime-scale decomposition, a validated approximate invariant
-subspace, parity-separated higher-state bounds, or a threshold-renormalized
-comparison.
+bounds. `R135` records the successful positive compact-operator bound. The
+P000011 one-block absolute-norm scheme remains retired. `R113` now asks for the
+next scales: certify the small observed compact margin at `a=0.5`, then replace
+that sufficient bound at `a=1` by a relative near-one cluster certificate.
 
 ## Work package C: large-scale lower bound
 
