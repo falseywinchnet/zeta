@@ -2280,8 +2280,128 @@
       ],
       "status": "todo",
       "updated_at": "2026-07-12T23:09:30+00:00"
+    },
+    "F000128": {
+      "because": [
+        {
+          "id": "C000019",
+          "type": "citation"
+        }
+      ],
+      "content": "Kuttenkuler proposes using a small learned transformer-like encoder as a semantic translation layer whose perceptual projection brings equivalent words and terms to common candidate addresses.",
+      "created_at": "2026-07-12T23:15:53+00:00",
+      "relates_to": [
+        "T000038",
+        "T000041"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-12T23:15:53+00:00"
+    },
+    "F000129": {
+      "because": [
+        {
+          "id": "F000121",
+          "type": "factoid"
+        },
+        {
+          "id": "F000128",
+          "type": "factoid"
+        },
+        {
+          "id": "C000020",
+          "type": "citation"
+        }
+      ],
+      "content": "The stable discrete object for a learned semantic bridge should be a versioned canonical sense or concept ID, not a bare word vector, because one spelling can have several senses and one sense can have several spellings or translations.",
+      "created_at": "2026-07-12T23:15:53+00:00",
+      "relates_to": [
+        "T000038",
+        "T000041",
+        "T000040"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-12T23:15:53+00:00"
+    },
+    "F000130": {
+      "because": [
+        {
+          "id": "C000020",
+          "type": "citation"
+        }
+      ],
+      "content": "A learned embedding bridge must distinguish equivalence from association: antonyms, causes, properties, and co-occurring terms may be geometrically close without being semantically equivalent.",
+      "created_at": "2026-07-12T23:15:53+00:00",
+      "relates_to": [
+        "T000038",
+        "T000041",
+        "T000022"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-12T23:15:53+00:00"
+    },
+    "F000131": {
+      "because": [
+        {
+          "id": "C000020",
+          "type": "citation"
+        }
+      ],
+      "content": "A reproducible local sense bridge requires locally stored and checksummed model weights, tokenizer, vocabulary, concept registry, prototype vectors, training evidence, license, and versioned migrations.",
+      "created_at": "2026-07-12T23:15:53+00:00",
+      "relates_to": [
+        "T000038",
+        "T000041",
+        "T000022"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-12T23:15:53+00:00"
+    },
+    "F000132": {
+      "because": [
+        {
+          "id": "F000119",
+          "type": "factoid"
+        },
+        {
+          "id": "F000126",
+          "type": "factoid"
+        },
+        {
+          "id": "F000129",
+          "type": "factoid"
+        },
+        {
+          "id": "F000130",
+          "type": "factoid"
+        },
+        {
+          "id": "F000131",
+          "type": "factoid"
+        }
+      ],
+      "content": "The proposed fused retrieval stack uses exact search for identity, ConeDAG for structural deformation, a frozen learned encoder for candidate sense translation, and the typed interpretation DAG for contextual and epistemic verification.",
+      "created_at": "2026-07-12T23:15:53+00:00",
+      "relates_to": [
+        "T000038",
+        "T000041",
+        "T000039"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-12T23:15:53+00:00"
+    },
+    "F000133": {
+      "because": [],
+      "content": "Select or train and ablate a tiny locally reproducible sense encoder against exact lexical search and ConeDAG, measuring sense recall, calibration, rejection, antonym false positives, latency, and fused retrieval gain before promotion.",
+      "created_at": "2026-07-12T23:15:53+00:00",
+      "relates_to": [
+        "T000038",
+        "T000041",
+        "T000040"
+      ],
+      "status": "todo",
+      "updated_at": "2026-07-12T23:15:53+00:00"
     }
   },
-  "next_id": 128,
+  "next_id": 134,
   "version": 1
 }
