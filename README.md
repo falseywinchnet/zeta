@@ -24,8 +24,9 @@ live in `papers/`. Public references are `R<num>` and citation boundaries are
 `CITE<num>`; legacy JSON identities remain accepted. Exact identities retrieve
 the full trace or citation object. Ordinary SEARCH merges references, citations,
 topic leaves, work, and raw sources using BM25F-like lexical relevance, graph
-anchors, ConeDAG similarity, and shorter-query containment. Dynamic top-k stops
-when the next item has at most 36% of the preceding item's relevance.
+anchors, ConeDAG similarity, and shorter-query containment. Dynamic top-k keeps
+the score-at-least-`1/e` prefix when it contains at least eight results; otherwise
+it stops at the first adjacent score drop greater than `1-1/e`.
 
 `PROGRESS RECORD` rebuilds the static index and `PROGRESS COMMIT` rejects it if
 later indexed data changed.

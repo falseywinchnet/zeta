@@ -267,19 +267,45 @@ def index_is_current(store):
         return False
 
 
-def dynamic_cutoff(ranked, limit=25, cutoff_ratio=0.36):
-    """Stop before the first result whose relevance is <= ratio of its predecessor."""
-    selected = list(ranked[:max(1, limit)])
+def dynamic_cutoff(
+    ranked,
+    limit=25,
+    score_floor=math.exp(-1),
+    secretary_count=8,
+    fallback_ratio=math.exp(-1),
+):
+    """Use a populated 1/e floor, otherwise the first adjacent drop over 1-1/e."""
+    ranked = list(ranked)
+    ceiling = max(1, limit)
+    qualifying_count = sum(item["score"] >= score_floor for item in ranked)
+    if qualifying_count >= secretary_count:
+        keep = min(qualifying_count, ceiling)
+        selected = ranked[:keep]
+        if selected and keep == qualifying_count and keep < len(ranked):
+            selected[-1]["cutoff"] = {
+                "mode": "score-floor",
+                "next_score": ranked[keep]["score"],
+                "threshold": score_floor,
+                "qualifying_count": qualifying_count,
+                "secretary_count": secretary_count,
+            }
+        return selected
+
+    selected = ranked[:ceiling]
     for index in range(len(selected) - 1):
         current = selected[index]["score"]
         following = selected[index + 1]["score"]
         ratio = following / current if current > 0 else 0.0
-        if ratio <= cutoff_ratio:
+        if ratio < fallback_ratio:
             selected = selected[:index + 1]
             selected[-1]["cutoff"] = {
+                "mode": "adjacent-fallback",
                 "next_score": following,
                 "ratio": ratio,
-                "threshold": cutoff_ratio,
+                "threshold": fallback_ratio,
+                "qualifying_count": qualifying_count,
+                "score_floor": score_floor,
+                "secretary_count": secretary_count,
             }
             break
     return selected
@@ -376,7 +402,15 @@ class SearchEngine:
                     queue.append(neighbor)
         return distance
 
-    def search(self, query, limit=25, kinds=None, cutoff_ratio=0.36):
+    def search(
+        self,
+        query,
+        limit=25,
+        kinds=None,
+        score_floor=math.exp(-1),
+        secretary_count=8,
+        fallback_ratio=math.exp(-1),
+    ):
         segments = [part.strip() for part in query.split(",") if part.strip()]
         if not segments:
             raise MindError("SEARCH requires at least one term")
@@ -436,7 +470,13 @@ class SearchEngine:
                 "similarity": similarity,
             })
         ranked.sort(key=lambda item: (-item["score"], item["document"]["id"]))
-        return dynamic_cutoff(ranked, limit, cutoff_ratio)
+        return dynamic_cutoff(
+            ranked,
+            limit,
+            score_floor=score_floor,
+            secretary_count=secretary_count,
+            fallback_ratio=fallback_ratio,
+        )
 
 
 def render_results(results, explain=False):
@@ -468,8 +508,18 @@ def render_results(results, explain=False):
                 lines.append(f"   anchor {anchor['segment']!r} distance={anchor['distance']} bonus={anchor['bonus']:.3f}")
             if result.get("cutoff"):
                 cutoff = result["cutoff"]
-                lines.append(
-                    f"   cutoff next/current={cutoff['ratio']:.4f} <= {cutoff['threshold']:.4f} "
-                    f"(next={cutoff['next_score']:.4f})"
-                )
+                if cutoff["mode"] == "score-floor":
+                    lines.append(
+                        f"   cutoff score floor={cutoff['threshold']:.4f}; "
+                        f"qualifying={cutoff['qualifying_count']} >= {cutoff['secretary_count']} "
+                        f"(next={cutoff['next_score']:.4f})"
+                    )
+                else:
+                    lines.append(
+                        f"   cutoff fallback next/current={cutoff['ratio']:.4f} "
+                        f"< 1/e={cutoff['threshold']:.4f}; "
+                        f"qualifying={cutoff['qualifying_count']} < {cutoff['secretary_count']} "
+                        f"at floor={cutoff['score_floor']:.4f} "
+                        f"(next={cutoff['next_score']:.4f})"
+                    )
     return "\n".join(lines)

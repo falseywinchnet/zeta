@@ -1508,6 +1508,10 @@
         {
           "id": "F000101",
           "type": "factoid"
+        },
+        {
+          "id": "F000111",
+          "type": "factoid"
         }
       ],
       "content": "The primary secured zeta target is the nonnegative large-scale limit of Suzuki's monotone localized Weil ground-state curve lambda_a. The exact backup target is Suzuki's arithmetic L2-convolution criterion below omega=1/2. The 2026 characteristic-function limit is clarification-gated; PF-order and reported DIP work are secondary diagnostics.",
@@ -1518,7 +1522,7 @@
         "T000023"
       ],
       "status": "established",
-      "updated_at": "2026-07-12T21:54:09+00:00"
+      "updated_at": "2026-07-12T22:27:00+00:00"
     },
     "F000087": {
       "because": [],
@@ -1740,6 +1744,10 @@
         {
           "id": "F000099",
           "type": "factoid"
+        },
+        {
+          "id": "F000108",
+          "type": "factoid"
         }
       ],
       "content": "The localized Weil ground-state curve is nonincreasing: if 0<a<b then lambda_b<=lambda_a, because the Rayleigh-quotient test space for (-a,a) is contained in that for (-b,b).",
@@ -1749,7 +1757,7 @@
         "T000016"
       ],
       "status": "established",
-      "updated_at": "2026-07-12T21:54:09+00:00"
+      "updated_at": "2026-07-12T22:27:00+00:00"
     },
     "F000101": {
       "because": [
@@ -1784,8 +1792,214 @@
       ],
       "status": "todo",
       "updated_at": "2026-07-12T21:54:09+00:00"
+    },
+    "F000103": {
+      "because": [
+        {
+          "id": "C000014",
+          "type": "citation"
+        }
+      ],
+      "content": "Under the fixed-interval scaling w(t)=v(at), Suzuki's localized Weil form is q_a(w)=a^(-1) integral integral g(a(x-y)) w'(x) conjugate(w'(y)) dx dy, and its Rayleigh quotient equals the original quotient on (-a,a).",
+      "created_at": "2026-07-12T22:26:39+00:00",
+      "relates_to": [
+        "T000034",
+        "T000017"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-12T22:26:39+00:00"
+    },
+    "F000104": {
+      "because": [
+        {
+          "id": "F000103",
+          "type": "factoid"
+        },
+        {
+          "id": "C000015",
+          "type": "citation"
+        }
+      ],
+      "content": "For the Dirichlet sine basis on (-1,1), translation invariance reduces each scaled localized-Weil matrix element exactly to a one-dimensional integral of g(at) against the sum of two analytic derivative-correlation functions; the integration pieces break at t=log(n)/a for prime powers n.",
+      "created_at": "2026-07-12T22:26:39+00:00",
+      "relates_to": [
+        "T000034",
+        "T000036"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-12T22:26:39+00:00"
+    },
+    "F000105": {
+      "because": [
+        {
+          "id": "C000015",
+          "type": "citation"
+        }
+      ],
+      "content": "The P000009 adaptive N=8 computation reports localized-Weil Ritz values 0.0101117508912 at a=0.3, 3.37951556796e-6 at a=0.5, and 1.41653696018e-12 at a=1; these are floating-point observations, not certified enclosures or lower bounds for lambda_a.",
+      "created_at": "2026-07-12T22:26:39+00:00",
+      "relates_to": [
+        "T000036",
+        "T000034",
+        "T000022"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-12T22:26:39+00:00"
+    },
+    "F000106": {
+      "because": [
+        {
+          "id": "C000015",
+          "type": "citation"
+        }
+      ],
+      "content": "At a=1, the P000009 N=8 adaptive Ritz value 1.41653696018e-12 is smaller than the reported maximum scalar quadrature-error estimate 5.50e-12, so even the computed finite-dimensional sign is not certified by that run.",
+      "created_at": "2026-07-12T22:26:39+00:00",
+      "relates_to": [
+        "T000036",
+        "T000037",
+        "T000022"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-12T22:26:39+00:00"
+    },
+    "F000107": {
+      "because": [
+        {
+          "id": "C000015",
+          "type": "citation"
+        }
+      ],
+      "content": "The P000009 small-interval N=20 computations are numerically consistent with Suzuki's logarithmic asymptotic and a two-point extrapolation mu_1 approximately 0.250, with an even simple computed ground state; the extrapolation, quadrature, and trial-space errors are not enclosed.",
+      "created_at": "2026-07-12T22:27:00+00:00",
+      "relates_to": [
+        "T000036",
+        "T000034",
+        "T000022"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-12T22:27:00+00:00"
+    },
+    "F000108": {
+      "because": [
+        {
+          "id": "F000099",
+          "type": "factoid"
+        },
+        {
+          "id": "C000015",
+          "type": "citation"
+        }
+      ],
+      "content": "For 0<a<b, zero extension sends the closed localized-Weil form domain D(q_a) into D(q_b) and preserves q and the L2 norm; this follows by core approximation because the two positive form norms differ only by an L2 term. No nesting of the operator domains D(A_a) is asserted.",
+      "created_at": "2026-07-12T22:27:00+00:00",
+      "relates_to": [
+        "T000034",
+        "T000017"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-12T22:27:00+00:00"
+    },
+    "F000109": {
+      "because": [
+        {
+          "id": "F000099",
+          "type": "factoid"
+        },
+        {
+          "id": "C000015",
+          "type": "citation"
+        }
+      ],
+      "content": "A conforming finite-dimensional Ritz minimum is an upper bound for lambda_a. Certifying a lower bound for the full localized-Weil form additionally requires control of the unresolved infinite-dimensional complement; positivity of a Galerkin matrix alone is insufficient.",
+      "created_at": "2026-07-12T22:27:00+00:00",
+      "relates_to": [
+        "T000034",
+        "T000037",
+        "T000022"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-12T22:27:00+00:00"
+    },
+    "F000110": {
+      "because": [
+        {
+          "id": "F000109",
+          "type": "factoid"
+        },
+        {
+          "id": "C000015",
+          "type": "citation"
+        }
+      ],
+      "content": "The P000009 certification design calls for an interval enclosure of the projected form matrix together with a coercive complement bound, off-diagonal block norm control, and a tail-block lower bound, combined through a Schur-complement estimate.",
+      "created_at": "2026-07-12T22:27:00+00:00",
+      "relates_to": [
+        "T000037",
+        "T000036"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-12T22:27:00+00:00"
+    },
+    "F000111": {
+      "because": [
+        {
+          "id": "F000104",
+          "type": "factoid"
+        },
+        {
+          "id": "F000106",
+          "type": "factoid"
+        },
+        {
+          "id": "F000107",
+          "type": "factoid"
+        },
+        {
+          "id": "F000109",
+          "type": "factoid"
+        },
+        {
+          "id": "F000110",
+          "type": "factoid"
+        }
+      ],
+      "content": "Work Package A now has a source-normalized operator model and an exact one-dimensional trial-matrix reduction, but it is not certified because the adaptive integrals and infinite-dimensional complement remain unenclosed; its numerical signs do not advance RH.",
+      "created_at": "2026-07-12T22:27:00+00:00",
+      "relates_to": [
+        "T000034",
+        "T000036",
+        "T000037",
+        "T000022"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-12T22:27:00+00:00"
+    },
+    "F000112": {
+      "because": [],
+      "content": "Replace the adaptive floating-point localized-Weil matrix entries by directed interval enclosures on every prime-power integration piece, including a stable enclosure of the archimedean kernel near zero.",
+      "created_at": "2026-07-12T22:27:00+00:00",
+      "relates_to": [
+        "T000037",
+        "T000036",
+        "T000022"
+      ],
+      "status": "todo",
+      "updated_at": "2026-07-12T22:27:00+00:00"
+    },
+    "F000113": {
+      "because": [],
+      "content": "Construct an L-adapted trial basis and certify the complement, off-diagonal, and tail estimates needed to turn projected localized-Weil matrices into full-operator lower bounds.",
+      "created_at": "2026-07-12T22:27:00+00:00",
+      "relates_to": [
+        "T000037",
+        "T000034",
+        "T000022"
+      ],
+      "status": "todo",
+      "updated_at": "2026-07-12T22:27:00+00:00"
     }
   },
-  "next_id": 103,
+  "next_id": 114,
   "version": 1
 }

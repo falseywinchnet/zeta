@@ -46,9 +46,11 @@ ranking. Legacy F/C identities remain accepted.
 
 Ordinary text combines weighted positional postings, BM25F-like saturation,
 character correction, graph anchors, ConeDAG similarity, and directional
-subsequence containment. Results stop at the first adjacent relevance ratio at
-or below 0.36: if item n+1 has at most 36% of item n's relevance, n is the final
-result. --limit is a safety ceiling, not the definition of k.
+subsequence containment. Ranked output uses a hybrid secretary cutoff. If at
+least eight candidates score 1/e or higher, the complete score-at-least-1/e
+prefix is returned. Otherwise output stops before the first adjacent score drop
+greater than 1-1/e, equivalently next/previous < 1/e. --limit remains a safety
+ceiling.
 
   MIND SEARCH polya frequency order
   MIND SEARCH "Schoenberg, reciprocal transform"

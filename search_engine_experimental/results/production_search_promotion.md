@@ -19,15 +19,27 @@ The production utility combines normalized lexical/graph relevance at weight
 priors remain explicit. Containment is activated only when the query is shorter
 than a candidate. Every component is emitted by `--explain`.
 
-After sorting, dynamic top-k stops before the first adjacent item satisfying
+The original P000007 policy stopped before the first adjacent item satisfying
 
 \[
 \frac{\operatorname{relevance}_{n+1}}
 {\operatorname{relevance}_{n}}\le 0.36.
 \]
 
-`--limit` is a safety ceiling, default 25. The boundary is inclusive and unit
-tested.
+Under that historical policy, `--limit` was a safety ceiling, default 25, and
+the ratio boundary was inclusive.
+
+The current hybrid secretary policy supersedes that boundary:
+
+1. Count the results with absolute relevance at least `1/e`.
+2. If the count is at least eight, return the complete `score >= 1/e` prefix.
+3. If the count is below eight, stop before the first adjacent result satisfying
+   `score[n+1] / score[n] < 1/e`, a drop greater than `1-1/e`.
+4. If neither boundary fires first, `--limit` remains the safety ceiling.
+
+The absolute branch prevents a gradual tail from overrunning a well-populated
+high-relevance set. The adjacent fallback avoids returning too little when a
+query has fewer than eight high-relevance candidates.
 
 ## Static index
 
@@ -58,5 +70,6 @@ complete expected objects.
 
 ConeDAG remains lexical/structural, not semantic. The 48-token structural bound
 means deep passages in long raw records rely on the untruncated inverted index.
-The 36% boundary often does not fire on gradually decaying result lists; the
-safety ceiling is therefore observable policy, not hidden behavior.
+The historical 36% adjacent boundary often did not fire on gradually decaying
+result lists. The current hybrid retains an explicit safety ceiling for the same
+case.
