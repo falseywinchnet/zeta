@@ -1,0 +1,1933 @@
+                                                                        WEIL’S QUADRATIC FORM
+                                                                       VIA THE SCREW FUNCTION
+
+                                                                                  MASATOSHI SUZUKI
+
+
+                                                  Abstract. We establish a unified framework for understanding the results on the
+                                                  Weil quadratic form obtained by Yoshida (1992), Bombieri (2001, 2003), Connes–
+                                                  Consani (2023), and Connes–Consani–Moscovici (2025+) from the perspective of the
+                                                  screw function introduced in Suzuki (2023). An advantage of the approach via the
+                                                  screw function is that it provides a method to study the Weil quadratic form, which is
+                                                  originally defined in terms of distributions, by means of continuous functions. Based
+
+
+
+
+arXiv:2606.09096v1 [math.NT] 8 Jun 2026
+                                                  on this framework, we formulate a conjecture stating that a self-adjoint operator whose
+                                                  eigenvalues are the imaginary parts of the nontrivial zeros of the Riemann zeta function
+                                                  can be obtained as the limit, as a → ∞, of self-adjoint operators arising from nonlocal
+                                                  realizations of the first-order differential operator on the finite interval [−a, a]. All
+                                                  these results are obtained without assuming the Riemann Hypothesis. This conjecture
+                                                  may be compared with the limit formula for the Riemann zeta function expressed in
+                                                  terms of zeta-regularized products proposed by Connes, Consani, and Moscovici, and
+                                                  it sheds new light on the spectral-theoretic interpretation of the nontrivial zeros of the
+                                                  Riemann zeta function.
+
+
+
+
+                                                                                   1. Introduction
+                                          1.1. Historical Background and Motivation. For test functions f , the Weil func-
+                                          tional f 7→ W (f ) is defined by
+                                                         Z ∞                             ∞                   ∞
+                                                                                        X    Λ(n)           X    Λ(n)
+                                               W (f ) :=       f (x)(ex/2 + e−x/2 )dx −      √ f (log n) −        √ f (− log n)
+                                                          −∞                            n=1
+                                                                                               n            n=1
+                                                                                                                    n
+                                                                                Z ∞n                                o ex/2 dx
+                                                        − (log 4π + C0 )f (0) −        f (x) + f (−x) − 2e−x/2 f (0) x        ,
+                                                                                   0                                  e − e−x
+                                          where Λ(n) denotes the von Mangoldt function, defined as Λ(n) = log p if n = pk with
+                                          k ∈ Z>0 , and Λ(n) = 0 otherwise, and C0 is the Euler–Mascheroni constant. Although
+                                          the precise class of test functions will be specified as needed later, our primary object
+                                          of interest is the symmetric (or Hermitian) quadratic form
+                                                                QW (v1 , v2 ) := W (v1 ∗ ve2 ),     QW (v) := QW (v, v),
+                                          where                             Z ∞
+                                                         (v1 ∗ v2 )(x) :=         v1 (y)v2 (x − y) dy     and ve(x) := v(−x).
+                                                                             −∞
+                                          The Riemann Hypothesis (RH) states that all nontrivial zeros of the Riemann zeta
+                                          function ζ(s) lie on the critical line ℜ(s) = 1/2. A fundamental result due to Weil [15]
+                                          states that RH is equivalent to the condition that
+                                                                           QW (v) ≥ 0      for all v ∈ Cc∞ (R),
+                                          a property known as Weil’s positivity criterion for RH (although Weil did not formulate
+                                          the criterion in terms of compactly supported smooth test functions; see [15, 16] and
+                                          [13, Section 3.2]). In the commentary to his Collected Works, Weil emphasized the
+                                             Date: Version of June 9, 2026.
+                                             2020 Mathematics Subject Classification. 11M26 42A82 46E22 47B25 .
+                                             Key words and phrases. Riemann Hypothesis; Weil quadratic form; screw function; de Branges
+                                          spaces; Hilbert–Pólya operator .
+                                                                                              1
+2                                        M. SUZUKI
+
+
+distributional nature of this criterion and suggested that it deserved further investigation
+by analysts. Despite this invitation, the functional W and the quadratic form QW have
+not been extensively studied, with notable exceptions such as the works of Yoshida [17],
+Bombieri [1, 2], Connes and Consani [3], and Connes, Consani, and Moscovici [4].
+   The study of the localization of the Weil quadratic form QW was pioneered by Yoshida
+[17], who established that RH is equivalent to the positive definiteness of QW on the
+space
+                     Cc∞ (−a, a) := {v ∈ Cc∞ (R) | supp(v) ⊂ [−a, a]}
+for every a > 0. In [17, Proposition 1], Yoshida further demonstrated that the condition
+QW (v) > 0 for all non-zero odd functions v ∈ Cc∞ (R) implies RH, while a similar condi-
+tion for all non-zero even functions implies RH except for possible real zeros. Crucially,
+he initiated the variational study of QW by considering the infimum of the Rayleigh
+quotient QW (v)/∥v∥2L2 on the localized space
+    K(a) := {v | v(x) = f (x)1[−a,a] (x) for some f ∈ C ∞ (R) which has period 2a},
+proving that it is positive for sufficiently small a > 0 [17, Lemma 2] or for appropriate
+subspaces KN (a) of finite codimension [17, Lemma 3]. The non-degeneracy of QW on the
+                [ (,→ L2 (−a, a)) was shown to be equivalent to RH in [17, Theorem
+“completion” K(a)
+                           [ does not denote the Fourier transform.
+2]. Note that the hat in K(a)
+   Building on this foundation, Bombieri [1, 2] addressed the minimization of the Rayleigh
+quotient on the Sobolev space H01 (−a, a) [1, Problem 1] (and [2, Problem B]) and on
+L2 (E) for a finite union of intervals E [1, Problem 2] (and [2, Problem A]). While the
+existence of a minimizer for the lower bound on L2 (E) was established in [1, Theorem 3]
+(and [2, Theorem 4.3]), the subsequent argument concerning the continuity of this lower
+bound with respect to a remains an analytically delicate issue. Specifically, although
+it was claimed in [1, Theorem 5] that the lower bound varies continuously when the
+minimization is restricted to the subspaces of either even or odd functions, this asser-
+tion calls for a more careful analysis. In view of Yoshida’s result, such continuity would
+essentially reproduce the equivalence between the failure of RH and the existence of a
+degenerating element v ∈ D(QW ) satisfying QW (v) = 0, offering a simplification of the
+original proof that relied on explicit formulas. See the discussion following Theorem 1.3
+for further details.
+   More recently, a rigorous operator-theoretic refinement has been provided by Connes
+and Consani [3] and Connes, Consani, and Moscovici [4]. They established that the
+localized closed symmetric form
+                                    a
+                                   QW := QW |L2 (−a,a)
+is lower bounded and lower semicontinuous [3, Section 2], leading to the construction of
+a canonical, densely defined self-adjoint operator Aa on L2 (−a, a) such that
+                                    a
+                                   QW (v) = ⟨Aa v, v⟩L2                                (1.1)
+for v ∈ D(Aa ) ⊂ D(QW   a ) ⊂ L2 (−a, a) [4, Section 3] (here we reformulate their results,
+
+originally stated on [1/λ, λ], in terms of the variable a = log λ), where the bracket is the
+standard L2 inner product
+                                              Z ∞
+                               ⟨v1 , v2 ⟩L2 =     v1 (x)v2 (x)dx.
+                                            −∞
+This operator Aa , which can be viewed as a refinement of Bombieri’s Lagrangian ([1,
+Lemma 1], [2, Sections 5–6]), possesses a discrete lower bounded spectrum [4, Theorem
+3.6] and a corresponding ground state [4, Corollary 3.7]. Furthermore, it was shown in
+[4, Theorem 5.10] that, when QW  a is restricted to a certain finite-dimensional subspace
+     2
+of L (−a, a), the Fourier transform of the eigenfunction corresponding to the lowest
+eigenvalue possesses only real zeros.
+                   WEIL’S QUADRATIC FORM VIA THE SCREW FUNCTION                               3
+
+
+   First, we aim to unify these various results through the framework of the screw func-
+tion associated with ζ(s), which was introduced in [13]. This approach not only provides
+transparent re-derivations of previous results, but also leads to more refined results pre-
+sented below. A key advantage of this screw function approach is that it enables us
+to understand Weil’s quadratic form through continuous (and well-behaved) functions,
+thereby avoiding the delicate distribution-theoretic aspects of Weil’s original formula-
+tion. The connection between the Weil quadratic form and the screw function, already
+emphasized in [13, Proposition 3.1], was expected to provide new insight into the study
+of the Weil quadratic form. Indeed, [13] reinterpreted some of the results by Yoshida [17],
+Bombieri [1, 2], and Connes–Consani [3] from the viewpoint of screw functions. How-
+ever, these earlier works had not yet been placed within a fully unified framework. Since
+then, the theoretical foundations of the screw-function approach to zeta functions have
+been substantially developed.
+   In particular, [14] established a completely new picture of the Hilbert space obtained
+as the completion of Cc∞ (R) with respect to QW under RH. This was made possible
+by the favorable analytic properties of the screw function as an integral kernel, such
+as positivity and smoothness. Our main objective is to understand what new insights
+about QW can be obtained by localizing the global framework of [14] to the interval
+[−a, a], thereby returning to Yoshida’s original viewpoint. This line of investigation was
+further motivated by recent results in [4, Theorem 5.10, Sections 7–8]. Let
+                              ξ(s) := s(s − 1)π −s/2 Γ(s/2)ζ(s)
+be the Riemann ξ-function, where Γ(s) is the usual gamma function. Let va be the
+eigenfunction corresponding to the lowest eigenvalue of Aa (denoted by ξλ with a = log λ
+in their notation). Denote by
+                                         Z ∞
+                                fb(z) :=     f (x) eizx dx
+                                            −∞
+the Fourier transform of f . Motivated by the Hilbert–Pólya operator constructed in [14,
+Section 6], we next formulate an analogue of the conjectural limiting formula discussed
+in [4, Section 7],
+                               lim ca vba (z) = ξ(1/2 + iz).                        (1.2)
+                                a→∞
+This line of investigation led to a unified perspective on the earlier works mentioned
+above and ultimately to Corollary 1.6, which constitutes the main conjectural statement
+of the present paper.
+1.2. Main Results. Before presenting the main results, we emphasize that none of
+them depends on RH. The first step in the study of the Weil quadratic form via screw
+functions is to obtain an explicit description of the self-adjoint operator Aa in (1.1).
+While the existence of Aa was established abstractly in [4, Section 3] via the theory of
+quadratic forms, the use of screw functions provides a constructive and explicit formula
+for Aa .
+  Let g(t) be a continuous real-valued even function on R, defined by
+                                     X Λ(n)
+     g(t) = −4(et/2 + e−t/2 − 2) +          √ (|t| − log n)
+                                              n
+                                      n≤exp(|t|)                                          (1.3)
+                |t|                     1                                          
+             − (ψ(1/4) − log π) −          Φ(1, 2, 1/4) − e−|t|/2 Φ(e−2|t| , 2, 1/4) ,
+                 2                      4
+where ψ(s) is the digamma function and Φ(z, s, a) = ∞                    −s n
+                                                          P
+                                                            n=0 (n + a) z is the Hurwitz–
+Lerch zeta function. A function g on R satisfying g(t) = g(−t) is called a screw function
+on the real line if the kernel g(t − u) − g(t) − g(−u) + g(0) is nonnegative for all t, u ∈ R.
+As shown in [13, Theorem 1.2], the above function g is a screw function in the sense of
+4                                        M. SUZUKI
+
+
+Krein–Langer [8, Section 5] if and only if RH holds. For this reason, we shall refer to it
+as the screw function associated with ζ(s). We define the integral operator G by
+                                       Z ∞
+                           (Gu)(x) :=       g(x − y)u(y) dy.                        (1.4)
+                                          −∞
+The integral on the right-hand side converges absolutely for u ∈ Cc∞ (R), since g is
+continuous. However, as noted immediately after Theorem 1.6 in [13], g(t) does not
+tend to zero as |t| → ∞, and hence the integral does not necessarily converge for a
+general u ∈ L2 (R). Within the theory of screw functions, it would be more natural
+to consider the integral operator G e with the kernel g(t − u) − g(t) − g(−u) + g(0) (cf.
+Section 8); nevertheless, for applications to QW , the simpler operator G is sufficient.
+    Throughout this paper, for each a > 0, we view L2 (−a, a) as a closed subspace of
+L (R) by extending functions to be zero outside (−a, a). Let L20 (−a,Ra) denote the closed
+  2
+                                                                      a
+subspace of L2 (−a, a) consisting of functions u satisfying ub(0) = −a u(x)dx = 0. We
+denote by Pa the orthogonal projection from L2 (R) onto L20 (−a, a) (see (2.1)), and define
+                         Ga := Pa GPa : L20 (−a, a) → L20 (−a, a).                    (1.5)
+The self-adjointness of the operator Ga follows immediately from the fact that g is real-
+valued and even. By [13, Proposition 3.1], the integral operator Ga associated with the
+screw function is directly related to Weil’s quadratic form QW via differentiation of test
+functions. Let D = i d/dx denote the differential operator on L2 (−a, a) with Dirichlet
+boundary conditions, and let D∗ be its adjoint. We then define
+            Ba := D∗ Ga D : L2 (−a, a) → L2 (−a, a),        D(Ba ) = H01 (−a, a).     (1.6)
+This operator is symmetric but fails to be self-adjoint. Then, the operator Aa in (1.1)
+can be characterized as follows.
+Theorem 1.1. For each a > 0, the self-adjoint operator Aa defined by (1.1) is the
+Friedrichs extension of the symmetric operator Ba defined by (1.6).
+   This result provides a concrete operator-theoretic realization of the spectral interpre-
+tation of QWa established in [4] through the use of screw functions, thereby clarifying the
+
+connection between this spectral interpretation and the classical variational approach of
+Yoshida [17].
+   Moreover, as shown in [4, Theorem 3.6], for each a > 0, the spectrum of the self-adjoint
+operator Aa is bounded from below and discrete, with +∞ as its only accumulation
+point. In particular, the largest lower bound of the spectrum of Aa , denoted by λa , is an
+eigenvalue. Therefore, there exists a nonzero function v ∈ D(Aa ) attaining the infimum
+                                                    a (v)
+                                                   QW
+                                λa =       inf a ) ∥v∥2
+                                                          .                           (1.7)
+                                       0̸=v∈D(QW
+                                                      L2
+Furthermore, the domain D(Aa ) is strictly larger than D(Ba ) = H01 (−a, a) and contains
+functions such as constants. As will be shown later (Lemma 3.1), we have
+                        a
+                       QW (v) = ⟨Ba v, v⟩L2      for   v ∈ H01 (−a, a).               (1.8)
+Since the form-norm closure of Cc∞ (−a, a) (⊂ H01 (−a, a)) with respect to QW a contains
+                                a
+the core of the quadratic form QW as in the proof of Theorem 1.1, we obtain the following
+result.
+Corollary 1.2. For each a > 0, any function attaining the infimum in (1.7) belongs
+to the closure of Cc∞ (−a, a) with respect to the form norm associated with QW
+                                                                             a . In
+
+particular, λa is the infimum of the Rayleigh quotient
+                                       ⟨Ba v, v⟩L2
+                                         ∥v∥2L2
+over Cc∞ (−a, a).
+                   WEIL’S QUADRATIC FORM VIA THE SCREW FUNCTION                               5
+
+
+  This is analogous to [1, Problem 2] (and [2, Problem A]) and [4, Theorem 3.6], but
+here the class over which the infimum is taken is made explicit. For the relation between
+the Rayleigh quotient in [1, Problem 1] (and [2, Problem B]) and the operator Ga , see
+Section 8.4.
+   One expects that the eigenvalues of the self-adjoint operator Aa vary continuously in
+a. However, because Aa is unbounded and its domain is difficult to describe explicitly,
+it is not straightforward to prove such continuity. Indeed, in [1, Theorem 5] (and [2,
+Theorem 4.4]), analogues of the infimum in (1.7) are considered on the spaces of even
+and odd functions, and their continuity with respect to a is asserted, but the details of
+the proof are not fully provided there.
+   In contrast, by exploiting the asymptotic expansion (2.2) of the screw function near
+the origin, which involves a logarithmic singularity, one can prove the continuity of the
+lowest eigenvalue λa without imposing any parity restriction.
+Theorem 1.3. The lowest eigenvalue λa is continuous in a.
+   Since the continuity of λa can be established without assuming RH, Theorem 1.3
+immediately yields, as a corollary, another proof of Yoshida’s result [17] that RH is
+equivalent to the nondegeneracy of QW  a for every a > 0. Indeed, the failure of RH is
+
+equivalent to the existence of some a > 0 for which λa < 0. Since λa > 0 for sufficiently
+                                                                 a must be degenerate
+small a > 0 [17, Lemma 2], it follows that if RH is false, then QW
+for some value of a by continuity of λa .
+   We now turn to the eigenfunction corresponding to the lowest eigenvalue, following
+the approach of [4]. Roughly speaking, [4, Theorem 5.10] (see also [4, Section 7]) shows
+that if the lowest eigenvalue λa is simple and its eigenfunction va ∈ D(Aa ) is even,
+then all zeros of the Fourier transform vba (z) (corresponding to ξbλ (z) in [4]) are real.
+More precisely, they study restrictions of QW a to suitable finite-dimensional subspaces
+
+of L2 (−a, a), obtaining the corresponding reality result at each finite-dimensional level.
+In our framework, however, the simplicity of λa and the evenness of the correspond-
+ing eigenfunction follow naturally for sufficiently small a by once again exploiting the
+asymptotic expansion (2.2) of the screw function.
+Theorem 1.4. For sufficiently small a > 0, the lowest eigenvalue λa is positive, simple,
+and satisfies
+                            1
+                    λa = log + µ1 − log(2π) + ψ(2) − 1 + O(a)
+                            a
+as a → 0+, for some constant µ1 > 0. Furthermore, the corresponding eigenfunction is
+even.
+   Let us return to the eigenfunction va corresponding to the lowest eigenvalue. The
+fact that all zeros of its Fourier transform vba (z) are real follows from the property that
+it serves as the characteristic function (given by a zeta-regularized product) of a self-
+adjoint perturbation of the differential operator d/dx with periodic boundary conditions
+[4, Theorem 5.10]. However, since such a differential operator cannot be defined directly
+as an operator on L2 (−a, a), the authors of [4] instead consider restrictions of QW      a to
+
+finite-dimensional subspaces V . Consequently, what is actually established there is not
+directly the reality of the zeros of vba (z) itself, but rather the reality of the zeros of the
+Fourier transform of a function minimizing the Rayleigh quotient of QW        a | .
+                                                                                 V
+
+  Instead of considering perturbations of the differential operator d/dx with periodic
+boundary conditions, we construct an analogue of vba (z) by considering self-adjoint ex-
+tensions of the minimal operator Da in a Hilbert space different from the usual L2 space.
+Choose λ such that λa > λ, and define Ta = Ta,λ := Aa − λI. Since Ta is positive,
+                          ∥v∥2Ta := ⟨Ta v, v⟩L2 = QW
+                                                   a
+                                                     (v) − λ∥v∥2L2                       (1.9)
+6                                         M. SUZUKI
+
+
+defines a norm on Cc∞ (−a, a). Let H(Ta ) denote the corresponding completion. Then
+Cc∞ (−a, a) embeds injectively into H(Ta ). We therefore consider the differential operator
+Da := i d/dx on H(Ta ) with domain
+                                    D(Da ) := Cc∞ (−a, a).                             (1.10)
+It turns out that Da is a symmetric operator with deficiency indices (1, 1) (Lemmas 6.1
+and 6.2). Hence Da admits a family of self-adjoint extensions D a,θ parametrized by
+θ ∈ [0, 2π). A function arising from the boundary form of the adjoint operator Da∗
+provides a counterpart to vba (z) in [4], as follows.
+Theorem 1.5. Let a > 0 and θ ∈ [0, 2π). Let v± (a, x) be eigenfunctions of the ad-
+joint operator Da∗ corresponding respectively to the eigenvalues ±i, normalized so that
+∥v+ (a, ·)∥Ta = ∥v− (a, ·)∥Ta . Then the function
+                              Z a                                Z a
+      W (a, θ; z) := (z − i)      v+ (a, x)eizx dx + eiθ (z + i)     v− (a, x)eizx dx (1.11)
+                             −a                               −a
+
+is entire in z. The eigenvalues of the self-adjoint operator D a,θ are precisely the zeros
+of W (a, θ; z). Furthermore, all zeros of W (a, θ; z) are real.
+    The equation W (a, θ; z) = 0 is equivalent to
+                            Z a                       Z a            
+            iθ                           izx                         izx
+           e = − (z − i)          v+ (x)e dx      (z + i)     v− (x)e dx .
+                               −a                             −a
+
+This is analogous to the equation eiθ = exp(iza)/ exp(−iza), which characterizes the
+eigenvalues of the self-adjoint extension ∂θ of the minimal operator ∂ = i d/dx on
+L2 (−a, a) through the boundary values of its eigenfunctions.
+   Let us compare Theorem 1.5 with [4, Theorem 5.10]. First, the two results are parallel
+in that both establish the reality of the zeros of a certain function through its relation to
+the self-adjointness of a differential operator. However, whereas the result in [4] requires
+strong assumptions, such as the simplicity of λa and the evenness of the corresponding
+eigenfunction, our Theorem 1.5 has the advantage of being proved unconditionally. In
+fact, its proof does not require detailed information on the arithmetic terms appearing
+in the Weil form QW   a . It relies essentially only on the fact that the prime contribution
+      a
+to QW involves only finitely many primes for fixed a > 0. Moreover, they obtain
+a determinant representation of vba (z) in terms of a zeta-regularized determinant (by
+restricting to finite-dimensional subspaces), thereby interpreting vba (z) as a characteristic
+function. By contrast, our expression (1.11) arises from a Lagrangian condition.
+   A further difference appears in the approach to RH, as discussed in [4, Sections 7 and
+8]. While their function vba (z) is expected to approximate ξ(1/2 − iz) in the limit a → ∞
+through the conjectural formula (1.2), our function W (a, θ; z) is expected, as explained
+below, to approximate the reciprocal of its logarithmic derivative.
+Corollary 1.6. If one can choose θ = θ(a) and ϕ(a, z) (̸= ∞ for any a > 0 and z ∈ C)
+such that
+                                                      ξ(1/2 − iz)
+                        lim eϕ(a,z) W (a, θ; z) = z 2 ′           ,            (1.12)
+                       a→∞                           ξ (1/2 − iz)
+holds uniformly on every compact subset K ⊂ C, then RH holds.
+  A direct computation of the eigenfunctions shows that every eigenvalue of D a,θ has
+multiplicity one. The right-hand side of (1.12) is consistent with this simplicity of
+the spectrum. The exponential factor exp(ϕ(a, z)) is included to allow for a possible
+normalization in the limit process. It is plausible that no such correction is actually
+needed, but we do not pursue this question here.
+  The reason why the limit formula (1.12) is expected to hold will be discussed in
+Section 7. Briefly speaking, it is motivated by the determination of the structure of
+                   WEIL’S QUADRATIC FORM VIA THE SCREW FUNCTION                            7
+
+
+H(A∞ ) := H(T∞,0 ) under RH in [14, Theorem 1.1], together with the construction of
+the Hilbert–Pólya operator described in [14, Section 6].
+   Under RH, one has Aa > 0, so that λ = 0 may be chosen in Ta for every a > 0. The
+limit formula (1.12) is formulated with the situation Ta = Aa (i.e. λ = 0) in mind, and
+indeed Section 7 proceeds under the assumption Aa > 0. Nevertheless, when Aa > 0,
+both H(Ta ) and H(Aa ) are defined and are isomorphic as Hilbert spaces. Hence the zeros
+of W (a, θ; z) are expected to be independent of the choice of λ used in the definition of
+Ta . However, in any attempt to prove the limit formula (1.12), control of λ (< λa ) will
+likely play an important role. Such control is expected to require a detailed analysis
+of the arithmetic contribution coming from the prime terms in QW    a , which lies beyond
+
+the arguments used in the proof of Theorem 1.5, where only the finiteness of the prime
+contribution for fixed a plays a role.
+   Since the reality of the zeros of W (a, θ; z) for each a > 0 has already been established
+in Theorem 1.5, it would suffice to prove (1.12) as an identity of complex functions in
+order to deduce RH. As explained in Section 8, the eigenfunctions v± (a, x) are solutions
+of Fredholm integral equations of the first kind associated with the integral operator
+Ga whose kernel is the continuous function g(x − y). Consequently, the conjectural
+limit formula (1.12) in Corollary 1.6 can be formulated as a purely analytic statement,
+independently of H(Ta ).
+   The organization of this paper is as follows. In Section 2, we study the asymptotic
+expansion of the screw function g near the origin and derive from it several formulas for
+the quadratic form ⟨Ba v, v⟩. The latter formulas will be used repeatedly in the proofs
+of the main results. Using the results of Section 2, we prove Theorem 1.1 in Section 3
+and Theorem 1.3 in Section 4. In both proofs, the compactness of the embedding
+D(QW a ) → L2 (−a, a) plays an essential role. Theorem 1.4 is proved in Section 5. In
+
+addition to the results of Section 2, the proof relies on the theory of Dirichlet forms. In
+Section 6, we prove Theorem 1.5 using von Neumann’s theory of self-adjoint extensions.
+Section 7 explains the motivation for the limit formula in Corollary 1.6 by relating it to
+the results of [14]. The main tool there is the theory of de Branges spaces. Finally, in
+                                                           a (v) = ⟨A v, v⟩
+Section 8, we relate the theory of the quadratic forms QW              a    L2 developed in
+this paper to the theory of the quadratic forms ⟨Ga u, u⟩L2 . While the former belongs to
+the theory of distributions and is analytically more delicate, the latter has the advantage
+of being treatable within the theory of integral operators with continuous kernels.
+
+                                    2. Preliminaries
+2.1. Precise definition of operators. Let
+                         L20 (−a, a) = {u ∈ L2 (−a, a) | u
+                                                         b(0) = 0},
+as in Section 1. Then D = i d/dx denotes the differentiation operator on L2 (−a, a)
+with Dirichlet boundary conditions v(±a) = 0, whose domain and range are D(D) =
+H01 (−a, a) and R(D) = L20 (−a, a), respectively. Let D∗ denote the adjoint of D with
+respect to the standard L2 inner product. While D∗ acts as the same differential op-
+erator i d/dx, its domain is D(D∗ ) = H 1 (−a, a) and its range is R(D∗ ) = L2 (−a, a).
+Consequently, D is not self-adjoint. Define the projection Pa : L2 (R) → L20 (−a, a) by
+                                                           Z a
+                                       1                 1
+                   (Pa u)(x) := u(x) − u b(0) = u(x) −         u(y) dy               (2.1)
+                                      2a                2a −a
+for x ∈ (−a, a), and (Pa u)(x) = 0 otherwise. Then,
+                                           Z a
+                                         1
+              (Pa Ku)(x) = (Ku)(x) −           (Ku)(t) dt,    x ∈ (−a, a).
+                                        2a −a
+This defines the operator Ga in (1.5). The kernel function g is continuous, and its
+first derivative is piecewise continuous with only a discrete set of discontinuities at
+8                                           M. SUZUKI
+
+
+which finite one-sided limits exist. It follows that for any u ∈ L20 (−a, a), we have
+Ga u ∈ D(D∗ ) = H 1 (−a, a). Consequently, the operator Ba on L2 (−a, a) with domain
+D(Ba ) := H01 (−a, a) is well-defined by (1.6). Since Ga is self-adjoint, the relation
+⟨Ba v, w⟩L2 = ⟨v, Ba w⟩L2 holds for all v, w ∈ D(Ba ). Thus, Ba is a symmetric operator,
+but it is not self-adjoint. Indeed, the domain of the adjoint operator, D(Ba∗ ), consists
+of all w such that the functional v 7→ ⟨Ba v, w⟩ is L2 -continuous, which also includes
+functions w ∈ H 1 (−a, a) that do not vanish on the boundary. That is, D(Ba ) ⊊ D(Ba∗ ).
+2.2. Expansion near the origin. We derive an asymptotic formula for the screw
+function g in a neighborhood of the origin. The resulting asymptotic formula will be
+used repeatedly throughout the paper. [6, 9.554] with z = e−2t , m = 2, and v = 1/4
+yields
+              e−t/2 Φ(e−2t , 2, 1/4) = 2t(log(2t) + ψ(1/4) − ψ(2))
+                                                          ∞
+                                                          X                     (−2t)n
+                                         + ζ(2, 1/4) +          ζ(2 − n, 1/4)
+                                                                                  n!
+                                                          n=2
+for t → 0+, where ζ(s, a) denotes the Hurwitz zeta function. By definition (1.3),
+        g(t) = −4(et/2 + e−t/2 − 2) − (|t|/2)(ψ(1/4) − log π) − (1/4)(F (0) − F (t))
+                   X Λ(n)
+               +          √ (|t| − log n),
+                            n
+                 n≤exp(|t|)
+
+where
+                                                                   ∞
+                                                                   X                     (−2|t|)n
+     F (t) := 2|t|(log(2|t|) + ψ(1/4) − ψ(2)) + ζ(2, 1/4) +              ζ(2 − n, 1/4)            .
+                                                                                           n!
+                                                                   n=2
+We have ψ(2) = 1 − C0 [6, (8.365), (8.366)] and ψ(1/4) = −(π/2) − 3 log 2 − C0 [6,
+(8.366)], where C0 denotes the Euler–Mascheroni constant. It follows from the defining
+series that Φ(1, 2, 1/4) = ζ(2, 1/4). Using also ζ(0, 1/4) = 1/4 [6, (9.523)], we obtain
+                       1                    X Λ(n)
+              g(t) = |t| log |t| + A|t| +          √ (|t| − log n) + r(t)             (2.2)
+                       2                              n
+                                             n≤exp(|t|)
+
+in a neighbourhood of t = 0, where r is an even C 2 -function satisfying r(t) = O(t2 ), and
+                 1                     1
+             A = (log(2π) − ψ(2)) = (log(2π) + C0 − 1) = 0.707546 . . . .
+                 2                     2
+The sum involving the von Mangoldt function in (2.2) is understood to be zero if |t| <
+(1/2) log 2.
+2.3. Quadratic form formulas. For the quadratic form
+                       QBa (v) := ⟨Ba v, v⟩L2 ,   v ∈ D(Ba ) = H01 (−a, a)
+we compute the quadratic forms corresponding to each term on the right-hand side of
+(2.2). First, for the first term on the right-hand side, we have
+                  Z aZ a
+                           |x − y|v ′ (y)v ′ (x)dxdy = −2∥v∥2L2 , v ∈ D(Ba ).
+                  −a    −a
+Next, for the second term on the right-hand side, if we define
+                1 a a |v(x) − v(y)|2            1 a
+                  Z Z                             Z
+      La (v) :=                         dx dy −        log(a2 − x2 )|v(x)|2 dx                        (2.3)
+                4 −a −a      |x − y|            2 −a
+for v ∈ D(Ba ) (to ensure the convergence of the second term), then we obtain
+     Z aZ a
+            |x − y| log |x − y|v ′ (y)v ′ (x)dxdy = 2La (v) − 2∥v∥2L2 , v ∈ D(Ba ).                   (2.4)
+      −a   −a
+                    WEIL’S QUADRATIC FORM VIA THE SCREW FUNCTION                              9
+
+
+We verify this relation. Let I(v) denote the left-hand side. Applying integration by
+parts with respect to y, we have
+        Z a                                Z a
+                                ′
+            |x − y| log |x − y|v (y)dy = −     sgn(y − x)(log |x − y| + 1)v(y)dy.
+          −a                                      −a
+Substituting this into I(v), we introduce an ϵ-cutoff to handle the singularity of the
+kernel rigorously:
+                      Z a         Z                                      !
+         I(v) = − lim     v ′ (x)       sgn(y − x)(log |x − y| + 1)v(y)dy dx.
+                    ϵ→0 −a              |y−x|>ϵ
+
+Let Fϵ (x) denote the inner integral inside the brackets. Differentiating it by Leibniz’s
+rule, we obtain
+                                                         Z
+                ′                                                  v(y)
+              Fϵ (x) = −(log ϵ + 1)v(x − ϵ) + v(x + ϵ) −                  dy.
+                                                          |y−x|>ϵ |x − y|
+Using this, we integrate by parts with respect to x. Taking into account the boundary
+conditions v(±a) = 0 and the fact that v(x ± ϵ) → v(x) as ϵ → 0, we find
+                         Z a"                       Z                  #
+                                                            v(x)v(y)
+            I(v) = − lim      2(log ϵ + 1)|v(x)|2 +                  dy dx.
+                     ϵ→0 −a                          |y−x|>ϵ |x − y|
+
+Here, we use the identity 2Re(v(x)v(y)) = |v(x)|2 + |v(y)|2 − |v(x) − v(y)|2 to convert the
+product into a difference of squares (the imaginary part vanishes due to the symmetry
+of the double integral). Evaluating the integral concerning |v(x)|2 yields
+                  Z
+                                        1
+                                             dy = −2 log ϵ + log(a2 − x2 ).
+                    y∈(−a,a),|y−x|>ϵ |x − y|
+
+Substituting this and simplifying the coefficient of |v(x)|2 , the contribution from the first
+term is 2 log ϵ + 2, while the contribution from the second term is −2 log ϵ + log(a2 − x2 ).
+Consequently, log ϵ is cancelled out, and we obtain
+                  Z a
+                                                       1 a a |v(x) − v(y)|2
+                                                        Z Z
+                             2          2     2
+                                                
+       I(v) = −        |v(x)| 2 + log(a − x ) dx +                               dxdy.
+                    −a                                 2 −a −a        |x − y|
+Rearranging the terms yields (2.4).
+                                                      −1/2 Λ(n) |t| − log n and calculating the
+                                      P                                    
+  Furthermore, setting g0 (t) =          n≤exp(|t|) n
+corresponding integral,
+   Z aZ a
+          g0 (x − y) v ′ (y)v ′ (x) dx dy
+    −a −a
+                                                                                            !
+          X Λ(n) Z a−log n                                     Z a
+   =−            √                    v(x + log n)v(x) dx +              v(x − log n)v(x) dx .
+                   n       −a                                   −a+log n
+        n≤exp(2a)
+
+Computing QBa (v) by using the asymptotic expansion (2.2), we get
+               QBa (v) = La (v) − (2A + 1)∥v∥2L2
+                              X Λ(n) Z a−log n
+                         −           √           v(x + log n)v(x) dx
+                                       n    −a
+                             n≤exp(2a)
+                                                      Z a                           !    (2.5)
+                                                  +               v(x − log n)v(x) dx
+                                                       −a+log n
+                             Z aZ a
+                         −              r′′ (x − y) v(y)v(x)dxdy
+                              −a   −a
+for v ∈ H01 (−a, a).
+10                                         M. SUZUKI
+
+
+2.4. Formulas in Fourier transforms. Expanding the numerator of
+                                        |v(x) − v(y)|2
+                       ZZ
+                     1
+                                                       dx dy.
+                     4 (−a,a)2 ,|x−y|>ϵ     |x − y|
+
+as |v(x)|2 + |v(y)|2 − 2 Re(v(x)v(y)) and using symmetry, it equals
+                                               !
+   1 a
+     Z            Z                                    ZZ
+               2                        1            1                    v(x)v(y)
+         |v(x)|                              dy dx −                               dx dy.
+   2 −a             (−a,a)\(x−ϵ,x+ϵ) |x − y|         2    (−a,a) , |x−y|>ϵ |x − y|
+                                                                2
+
+
+Since
+                 Z x−ϵ               Z a
+                           1                1
+                              dy +              dy = log(a2 − x2 ) − 2 log ϵ,
+                   −a     x−y         x+ϵ y − x
+we obtain
+                      "        Z a                  ZZ                                  #
+                                             1                            v(x)v(y)
+        La (v) = lim − log ϵ    |v(x)|2 dx −                                       dx dy .
+                 ϵ→0         −a              2           (−a,a)2 , |x−y|>ϵ |x − y|
+
+The second term may be rewritten, by Plancherel’s theorem, as the quadratic form
+associated with the convolution kernel Kϵ (x) = |x|−1 1{|x|>ϵ} (x). Its Fourier transform
+is
+                                                   Z ∞
+                                      e−izx
+                                Z
+                                                         cos u
+                       Kϵ (z) =
+                       c                    dx = 2             du.
+                                 |x|>ϵ |x|          ϵ|z|   u
+Using the asymptotic expansion of the cosine integral [6, (8.230)], we obtain
+              Z ∞
+                    cos u
+                          du = − log ϵ − log |z| − C0 + o(1)    (ϵ → 0).
+               ϵ|z|   u
+Substituting this into the Fourier representation yields
+                                     Z ∞
+                                  1
+                                                                 v (z)|2 dz
+                                                               
+                    La (v) = lim            −2 log ϵ − Kcϵ (z) |b
+                             ϵ→0 4π −∞
+                                 Z ∞                                                         (2.6)
+                              1
+                                                      v (z)|2 dz.
+                                                    
+                           =           log |z| + C0 |b
+                             2π −∞
+Using the Fourier transform vb of v (defined as the zero-extension of v outside (−a, a))
+                    Z ∞                         Z ∞
+                                              1
+                         v(x ∓ τ )v(x)dx =            v (z)|2 e±izτ dz,
+                                                     |b
+                      −∞                     2π  −∞
+
+which yields
+               Z a−log n                           Z a
+                           v(x + log n)v(x) dx +               v(x − log n)v(x) dx
+                 −a                                 −a+log n
+                                                     Z ∞
+                                                   1
+                                               =               v (z)|2 cos(z log n)dz.
+                                                              |b
+                                                   π     −∞
+
+Furthermore, noting that ∥v∥2L2 = (2π)−1 ∥b   v ∥2L2 , we obtain from (2.5) that
+                           Z ∞
+                        1
+             QBa (v) =          (log |z| − log(2π)) |b   v (z)|2 dz
+                       2π −∞
+                                                                          
+                             Z ∞
+                           1                      X       Λ(n)
+                       −          |v̂(z)|2                √ 2 cos(z log n) dz              (2.7)
+                          2π −∞                              n
+                                              n≤exp(2a)
+                             Z ∞
+                           1
+                       +                   v (z)|2 dz
+                                  rb′′ (z)|b
+                          2π −∞ a
+                    WEIL’S QUADRATIC FORM VIA THE SCREW FUNCTION                                 11
+
+
+for v ∈ H01 (−a, a). To interpret the term rba′′ (z), we decompose r(t) as r(t) = r0 (t)+r1 (t),
+where
+                                                                 ∞
+                                                               1X               (−2|t|)n
+         r0 (t) = −4(et/2 + e−t/2 − 2)      and     r1 (t) =      ζ(2 − n, 1/4)          .
+                                                               4                  n!
+                                                                n=2
+
+Since rb′′ (z) cannot be defined directly, we define rba′′ (z) by treating these two parts
+separately. For r0 , we take the Fourier transform of r0,a ′′ (x) := r ′′ (x)1
+                                                                      0        (−2a,2a) (x), whereas
+                                                               d (z)+ rb′′ (z). As shown below,
+for r1 we compute rb′′ (z) explicitly. We then set rb′′ (z) := r′′
+                      1                                 a            0,a    1
+all resulting terms except those arising from the polar factor s(s − 1) coincide with the
+explicit formula.
+   Using ζ(2 − n,Pa)  = −Bn−1 (a)/(n − 1) [10, (25.11.14)] and the generating series
+                    ∞
+ye /(e − 1) = n=0 Bn (a)y n /n! [6, (9.621)], we have
+   ay   y
+
+
+                                                  e−|t|/2   1
+                                   r1′′ (t) =             −     .
+                                                1 − e−2|t| 2|t|
+Hence, the Fourier transform is given by
+               Z ∞                 !              Z ∞              !
+     ′′                e−t/2     1                       e−u/4   1
+    r1 (z) = 2
+    b                         −      cos(zt) dt =              −     cos(zu/2) du
+                0    1 − e−2t 2t                   0    1 − e−u u
+                  "Z                             !                           #
+                          e−u/4 cos(zu/2) e−u
+                      R                                 Z R −u
+                                                            e − cos(zu/2)
+           = lim                          −        du +                    du .
+             ϵ→+0   ϵ        1 − e−u          u          ϵ        u
+              R→∞
+
+Differentiating [6, (8.341.3)] with respect to z, we obtain
+                             Z ∞  −u
+                                            e−su
+                                                   
+                                    e
+                     ψ(s) =             −            du (Re(s) > 0).
+                               0      u   1 − e−u
+By taking the real part for s = 1/4 + iz/2, we find
+               Z ∞                          !
+                     e−u/4 cos(zu/2) e−u
+                                                                 
+                                                             1 iz
+                                      −       du  = − Re  ψ    +
+                0         1 − e−u         u                  4   2
+
+for real z. On the other hand, we have
+      Z ∞ −u         Z ∞
+            e            cos(zu/2)
+                du −               du = E1 (ϵ) + Ci(|z/2|ϵ) = log |z| − log 2 + O(ϵ)
+       ϵ      u       ϵ      u
+for real z by E1 (ϵ) = −C0 − log ϵ + O(ϵ) [10, (6.6.2)] and Ci(z) = C0 + log z + O(|z|) [10,
+(6.6.6)]. Therefore,
+                                    
+                              1 iz
+             ′′
+            r1 (z) = − Re ψ
+            b                   +        + log |z| − log 2 = O(|z|−2 ) |z| → ∞.
+                              4     2
+It follows that
+                              Z ∞                           
+                          1                    1 iz
+               QBa (v) =             Re ψ         +                v (z)|2 dz
+                                                          − log π |b
+                         2π     −∞             4     2
+                                                                           
+                                 Z ∞
+                              1                    X      Λ(n)
+                           −         |v̂(z)|2            √ 2 cos(z log n) dz
+                             2π −∞                          n
+                                                n≤exp(2a)
+                                 Z ∞
+                              1
+                           +         r′′
+                                     d (z)|b  v (z)|2 dz.
+                             2π −∞ 0,a
+12                                           M. SUZUKI
+
+
+This formula precisely reflects the structure of the explicit formula. From the explicit
+formula [1, Lemma 3 and its proof], we have
+                        Z ∞                                   Z a
+                      1              1 iz
+             a
+           QW (v) =           ℜ ψ      +       |b     2
+                                                v (z)| dz − log π     |v(x)|2 dx
+                     2π −∞           4    2                        −a
+                       + O(a) · ∥v∥2L2 ,
+where O(a) denotes a bounded quantity depending on a. Since
+               Re [ψ(s/2)] = log |s| − log 2 + O(|s|−2 )      (ℜ(s) > 0)    |s| → ∞,
+we obtain
+                               Z ∞
+                a          1
+               QW (v) =                                   v (z)|2 dz + O(a) · ∥v∥2L2 .
+                                     (log |z| − log(2π)) |b                               (2.8)
+                          2π   −∞
+This perfectly matches the result obtained from (2.7).
+
+2.5. Distributional formulas. Since g is continuous, the distributional second deriv-
+ative −g ′′ is a tempered distribution. By (1.8) and integration by parts,
+                                 Z aZ a
+                       QWa
+                           (v) =         g(x − y)v ′ (y)v ′ (x) dx dy
+                                 Z−a  −a
+                                   a Z a                                        (2.9)
+                                            ′′
+                               =         (−g (x − y))v(y)v(x) dx dy
+                                −a −a
+         ∞
+for v ∈ Cc (−a, a). This was already observed in [13, Section 3.5]. Combining this with
+(1.1), we obtain                            Z a
+                             (Aa v)(x) =          (−g ′′ (x − y))v(y) dy                 (2.10)
+                                             −a
+for v ∈ Cc∞ (−a, a). Since g ′′ is a tempered distribution, the right-hand side is well-
+defined. Formula (2.10) provides an alternative representation of Bombieri’s Lagrangian
+([1, Lemma 1], [2, Sections 5–6]). Let us compute the right-hand side of (2.10). Since
+                            d2
+                                                    
+                                                     1
+                                (|t| log |t|) = Pf      + 2δ(t)
+                            dt2                     |t|
+in the sense of distributions, it follows from (2.2) that
+                                   
+                    ′′      1        1
+                −g (t) = − Pf            − (2A + 1)δ(t)
+                            2       |t|
+                            X Λ(n)
+                                   √ δ(t − log n) + δ(t + log n) − r′′ (t).
+                                                                
+                          −
+                                     n
+                               n≥2
+
+Hence
+        Z a                              Z a
+                ′′                  1           v(y)
+            (−g (x − y))v(y) dy = − Pf                dy − (2A + 1)v(x)
+         −a                         2     −a |x − y|
+                                     X Λ(n)                               
+                                  −         √ v(x − log n) + v(x + log n)                (2.11)
+                                              n
+                                    n≤e2a
+                                    Z a
+                                  −     r′′ (x − y)v(y) dy.
+                                           −a
+Here we note that
+         Z a Z a                 
+                         v(y)
+               Pf               dy v(x) dx
+              −a     −a |x − y|
+                                                   Z a
+                    1 a a |v(x) − v(y)|2
+                      Z Z
+                 =−                        dx dy +     log(a2 − x2 )|v(x)|2 dx
+                    2 −a −a       |x − y|           −a
+                  WEIL’S QUADRATIC FORM VIA THE SCREW FUNCTION                          13
+
+
+which follows by a direct symmetrization argument. Using this identity, one verifies that
+(2.9) follows from (2.5).
+   For a general element v ∈ D(Aa ) ⊂ D(QWa ), pointwise values need not be well defined,
+
+so an expression such as (2.11) is not meaningful. However, by (2.7), identity (2.9)
+remains valid for v ∈ D(Aa ) in the sense of limits of values on elements of Cc∞ (−a, a)
+with respect to the form norm of QW a .
+
+
+                              3. Proof of Theorem 1.1
+3.1. The Relation between Aa and Ba . To compare the operators Aa and Ba , we
+begin by recalling some basic facts concerning the quadratic form QW a . For general
+
+background on quadratic forms, we refer to Schmüdgen [12, Chapter 10].
+   Let Γ denote the set of all zeros of the function z 7→ ξ(1/2 − iz). For each γ ∈ Γ,
+let mγ be the multiplicity of γ as a zero of ξ(1/2 − iz). By the functional equations
+ξ(1 − s) = ξ(s) and ξ(s) = ξ(s̄), the set Γ is invariant under γ 7→ −γ and γ 7→ γ̄. It is
+customary to write the zeros of ξ(s) as ρ = β + iγ (β, γ ∈ R), but our notation differs
+from this convention. In particular, an element γ ∈ Γ may be non-real. RH is equivalent
+to the inclusion Γ ⊂ R. In this notation, the Weil explicit formula yields
+                                            X
+                            QW (v1 , v2 ) =     mγ vb1 (γ)vb2 (γ̄)                 (3.1)
+                                           γ∈Γ
+                                                                                  a is
+(cf. [14, (1.2), (3.3)]). The form domain of the closed symmetric quadratic form QW
+defined by
+                             a
+                         D(QW  ) := { v ∈ L2 (−a, a) | |QW
+                                                         a
+                                                           (v)| < ∞ },
+and becomes a Hilbert space with respect to the form norm
+                           ∥v∥2Q a := QW
+                                       a
+                                         (v) + (1 − λa )∥v∥2L2 ,
+                                W
+
+where λa is the constant defined in (1.7). By (2.6) and (2.8), if we define
+                                           Z ∞                             
+            log                  2                      +            2
+         H (−a, a) : = v ∈ L (−a, a)            (1 + log |z|)|bv (z)| dz < ∞
+                                              −∞
+                                    2
+                        ⊃ { v ∈ L (−a, a) | La (v) < ∞ },
+then
+                                       a
+                                  D(QW    ) ⊂ H log (−a, a).
+  In [2, Theorem 5.1], Bombieri appears to state implicitly that D(QW   a ) coincides with
+                    2
+the set of all v ∈ L (−a, a) such that
+                      Z aZ a                             Z a
+                               |v(x) − v(y)|2
+                                               dx dy +       |v(x)|2 dx
+                       −a −a       |x −  y|               −a
+is finite. However, taking into account the equivalence between (2.3) and (2.6), one finds
+that this space is in fact slightly larger than D(QWa ).
+
+   The fact that QW a (v) is lower bounded and lower semicontinuous on L2 (−a, a) was
+
+proved in [3, Proposition 2.1]. It is also mentioned in the proof of [1, Lemma 3] and is
+implicitly contained in [17, Section 2]. All of these arguments are based on the formula
+(2.8). The lower semicontinuity follows immediately from an application of Fatou’s
+lemma.
+   We now recall the self-adjoint operator Aa associated with QW   a through (1.1). Such
+
+a self-adjoint operator is uniquely determined. Moreover, v ∈ D(Aa ) ⊂ D(QW     a ) if and
+
+only if the map w 7−→ QW (v, w) is continuous on D(QW ) with respect to the L2 -norm.
+                          a                               a
+
+By the Riesz representation theorem, this is equivalent to [12, Definition 10.4]. In this
+                                           a (v, w) = ⟨A v, w⟩             a
+case, Aa v is uniquely characterized by QW               a     L2 (w ∈ D(QW )).
+
+Lemma 3.1. Ba ⊂ Aa . In particular, Aa is a self-adjoint extension of Ba .
+14                                        M. SUZUKI
+
+
+Proof. Let E ⊂ L2 (−a, a) be the linear subspace generated by
+                            en (x) = exp(iπnx/a),            n ∈ Z.
+The space E is a core for the quadratic form QW a [3, Proposition 2.3]. On the other
+
+hand, if v ∈ D(Ba ) = H0 (−a, a), then vb(z) = O(|z|−1 ) as |z| → ∞. Hence, by (3.1),
+                         1
+
+D(Ba ) ⊂ D(QW a ). Moreover,
+
+
+                                             2 sin(az + nπ)
+                                 ebn (z) =                  ,
+                                                z + nπ/a
+        w(z) = O(|z|−1 ) for every w ∈ E. If u = Dv, then vb(z) = z −1 u
+so that b                                                              b(z). Therefore,
+                            a                                    1
+by (3.1) and [13, (3.1)], QW (v, w) = ⟨Ba v, w⟩L2 for all v ∈ H0 (−a, a) = D(Ba ) and
+w ∈ E. It follows from [12, Proposition 10.5 (v)] that Ba ⊂ Aa .                     □
+
+3.2. Completion of the proof. For simplicity, we write A = Aa , B = Ba , QB (v) =
+⟨Bv, v⟩L2 , Q = QWa , and ∥v∥2 = Q(v)+(1−λ )∥v∥2 . Note that Q = Q on D(B ). The
+                             Q               a    L2                   B         a
+Friedrichs extension of the operator B is the uniquely determined self-adjoint extension
+associated with the closure QB of the quadratic form QB . The domain D(QB ) of QB is
+defined as the completion of the form domain D(QB ) := D(B) = H01 (−a, a) with respect
+to the form norm ∥ · ∥Q . Since B ⊂ A (Lemma 3.1), we have D(QB ) ⊂ D(QA ) = D(Q).
+Hence, D(QB ) is a closed subspace of D(Q) with respect to the form norm. On the
+other hand, the space E (in the proof of Lemma 3.1) is a core for the quadratic form Q
+       ∥·∥
+(i.e. E Q = D(Q)). Since Cc∞ (−a, a) ⊂ H01 (−a, a), if
+                                                      ∥·∥Q
+                                   E ⊂ Cc∞ (−a, a)           ,                         (3.2)
+then D(QB ) = D(Q). It follows that the Friedrichs extension of B coincides with A.
+Indeed, by [12, Corollary 10.8], on a given Hilbert space, lower bounded self-adjoint op-
+erators are in one-to-one correspondence with lower bounded closed symmetric quadratic
+forms having dense domains.
+    To prove the inclusion (3.2), it suffices to show that each function en ∈ E belongs
+to the closure of Cc∞ (−a, a) with respect to the form norm ∥ · ∥Q . In other words, we
+must construct a sequence vϵ ∈ Cc∞ (−a, a) such that ∥en − vϵ ∥Q → 0 as ϵ → 0. For a
+sufficiently small parameter ϵ > 0, we define a cutoff function ηϵ (x) which decays to 0
+near the boundary of the interval [−a, a]. More precisely, ηϵ (x) = 1 on [−a + ϵ, a − ϵ],
+and ηϵ (±a) = 0. On the boundary intervals [−a, −a + ϵ] and [a − ϵ, a], ηϵ is chosen as a
+smooth monotone cutoff interpolating between these values, with |ηϵ′ (x)| ≪ ϵ−1 . Define
+vϵ (x) := en (x)ηϵ (x). Then vϵ belongs to Cc∞ (−a, a). It therefore remains to show that
+the form norm of the error function wϵ (x) = en (x)(1 − ηϵ (x)) tends to zero as ϵ → 0.
+    The function wϵ is supported only on the two intervals [−a, −a + ϵ] and [a − ϵ, a], each
+of length ϵ. Moreover, |wϵ (x)| ≤ 1. Therefore,
+                                    Z −a+ϵ         Z a
+                               2
+                          ∥wϵ ∥L2 ≤         1 dx +      1 dx = 2ϵ.
+                                     −a               a−ϵ
+
+Hence ∥wϵ ∥L2 → 0 as ϵ → 0.
+  By (2.7) and Plancherel’s theorem, we have
+                        Z ∞
+                    2
+               ∥wϵ ∥Q =      (1 + log+ |z|) w
+                                           |cϵ (z)|2 dz + O(a) · ∥wϵ ∥2L2 .
+                            −∞
+
+Therefore, the principal term in ∥wϵ ∥2Q is
+                                 Z ∞
+                            Iϵ =                   wϵ (z)|2 dz.
+                                      log(3 + |z|)|c
+                                   −∞
+                       WEIL’S QUADRATIC FORM VIA THE SCREW FUNCTION                              15
+
+
+To estimate it, we examine the behavior of w  cϵ . First, it follows immediately from the
+definition of the Fourier transform that
+                                          Z
+                               |cϵ (z)| ≤
+                                w           |wϵ (x)| dx ≤ 2ϵ.                        (3.3)
+                                                R
+
+                    |cϵ (z)| = O(|z|−1 ) as |z| → ∞, uniformly in ϵ. Indeed, integrating
+On the other hand, Rw
+                     a
+            cϵ (z) = −a wϵ (x)eizx dx, we obtain
+by parts in w
+                                                a   Z a
+                                           eizx                  eizx
+                                   
+                           w
+                           cϵ (z) = wϵ (x)         −     wϵ′ (x)      dx.
+                                            iz −a     −a          iz
+
+Here, wϵ (a) = en (a) = (−1)n and wϵ (−a) = en (−a) = (−1)n . Moreover, wϵ′ (x) =
+eR′n (x)(1 − ηϵ (x)) − en (x)ηϵ′ (x). Since |ηϵ′ (x)| ≪ ϵ−1 on intervals of total length 2ϵ, we have
+    |ηϵ′ (x)| dx = O(1). Hence
+
+                                   ∥wϵ′ ∥L1 ≤ C1 ϵ + O(1) ≤ C2 ,
+
+where C2 is independent of ϵ. Consequently, there exists a constant M > 0 independent
+of ϵ such that
+                               |wϵ (a)| + |wϵ (−a)| + ∥wϵ′ ∥L1   M
+                    |cϵ (z)| ≤
+                     w                                         ≤     .           (3.4)
+                                              |z|                |z|
+   Finally, we show that Iϵ → 0. We split the domain of integration into two parts at
+|z| = 1/ϵ. For |z| ≤ 1/ϵ, (3.3) gives
+         Z                                       Z 1/ϵ
+                                     2         2
+                 log(3 + |z|)|c
+                              wϵ (z)| dz ≤ (2ϵ)        log(3 + |z|) dz ≪ ϵ log(1/ϵ).
+           |z|≤1/ϵ                                     −1/ϵ
+
+For |z| > 1/ϵ, (3.4) gives
+                                               Z ∞
+                                                              M2
+          Z
+                                       2
+                   log(3 + |z|)|c
+                                wϵ (z)| dz ≤ 2      log(3 + z) 2 dz ≪ ϵ log(1/ϵ).
+           |z|>1/ϵ                              1/ϵ           z
+
+Combining these estimates, we obtain
+
+                     ∥en − vϵ ∥2Q = Iϵ + ∥wϵ ∥2L2 ≪ ϵ log(1/ϵ) → 0      (ϵ → 0).
+
+Therefore, vϵ ∈ Cc∞ (−a, a) converges to en with respect to the form norm ∥ · ∥Q . Hence
+                                         ∥·∥Q
+every en ∈ E belongs to Cc∞ (−a, a)             (⊂ D(QB )), and the inclusion (3.2) follows. □
+
+
+                                  4. Proof of Theorem 1.3
+4.1. Compact embedding result. The following proposition is the main analytic
+ingredient in the proof of Theorem 1.3.
+
+Proposition 4.1. For a bounded interval I, the embedding H log (I) ,→ L2 (I) is compact.
+In other words, every bounded sequence in H log (I) admits a subsequence converging in
+L2 (I).
+
+Proof. The proof is essentially the same as that of [4, Theorem 3.6].                            □
+
+   This compact embedding is also the key ingredient in the proof of the discreteness of
+the spectrum of Aa in [4, Theorem 3.6]. By [12, Proposition 10.6], it suffices to prove
+that the embedding (D(QW  a ), ∥ · ∥ a ) ,→ (L2 (−1, 1), ∥ · ∥ ) is compact. This follows
+                                    QW                        L2
+readily from Proposition 4.1.
+16                                             M. SUZUKI
+
+
+4.2. Scaling transformation of the Rayleigh quotient. Using (1.8), we transfer
+the Rayleigh quotient in (1.7) to the fixed interval [−1, 1] by a scaling transformation.
+From definition (1.6), the Rayleigh quotient associated with Ba for v ∈ H01 (−a, a) is
+given by
+                                            Z aZ a
+                                                     g(x − y)v ′ (y)v ′ (x) dxdy
+           ⟨Ba v, v⟩L2   ⟨Ga Dv, Dv⟩L2
+                       =                 = −a −a Z a                             .
+              ∥v∥2L2          ∥v∥2L2                              2
+                                                          |v(x)| dx
+                                                                    −a
+
+Setting w(t) = v(at) on the fixed interval [−1, 1], we define
+                              Z 1Z 1
+                                      1
+                    qa (w) :=           g(a(x − y))w′ (x)w′ (y) dx dy.                           (4.1)
+                               −1 −1  a
+Then a change of variables gives
+                      ⟨Ba v, v⟩L2   qa (w)
+                             2    =        ,         w(t) = v(at) ∈ H01 (−1, 1).                 (4.2)
+                        ∥v∥L2       ∥w∥2L2
+We write
+                                                         qa (w)
+                                           R(a, w) :=           .                                (4.3)
+                                                         ∥w∥2L2
+     For the second term on the right-hand side of (2.3), we have
+           Z a                                        Z 1
+                     2     2   2           2
+               |v(x)| log(a − x ) dx = 2∥v∥L2 log a +     |v(ax)|2 log(1 − x2 ) dx.
+            −a                                                      −1
+
+Thus, defining
+                      Z 1Z 1                                     Z 1
+                  1            |w(x) − w(y)|2         1
+        L(w) :=                               dx dy −                  |w(x)|2 log(1 − x2 ) dx   (4.4)
+                  4    −1   −1     |x − y|            2           −1
+
+for v ∈ H01 (−1, 1) (which should not be confused with the case a = 1 of (2.3)), we
+deduce from (2.5) that
+                                              L(w)
+        R(a, w) = − log a − (2A + 1) +
+                                              ∥w∥2L2
+                                              Z 1− log n                  
+                      1    X Λ(n)                    a          log n
+                  −            √                           w t+                w(x) dx
+                    ∥w∥2L2  2a
+                                 n             −1                 a
+                               n≤e
+                                                    Z 1                         !              (4.5)
+                                                                   log n
+                                                  +           w x−         w(x) dx
+                                                    −1+ log n        a
+                                                             a
+                               Z 1Z 1
+                        a
+                  −                       r′′ (a(x − y))w(y)w(x) dxdy
+                      ∥w∥2L2    −1   −1
+
+for w ∈ H01 (−1, 1).
+   For the quadratic form L defined by (4.4) for w ∈ D(L) := H01 (−1, 1), one can show
+in the same way as in the proof of (2.6) that
+                                      Z ∞
+                                    1
+                                                          w(z)|2 dz.
+                                                        
+                          L(w) =            log |z| + C0 | b                          (4.6)
+                                   2π −∞
+                                                                R∞
+Hence the form norm ∥w∥2L := L(w)+∥w∥2L2 is equivalent to −∞ (1+log+ |z|)| b     w(z)|2 dz.
+Therefore, the completion of D(L) with respect to ∥·∥L can be identified with a subspace
+of H log (−1, 1). In particular, formula (4.6) is valid not only for w ∈ D(L), but also for
+w ∈ D(L).
+                     WEIL’S QUADRATIC FORM VIA THE SCREW FUNCTION                              17
+
+
+  To prove Theorem 1.3, it remains to establish the upper semicontinuity
+                                       lim sup λa ≤ λa0 .                                  (4.7)
+                                         a→a0
+and lower semicontinuity
+                                       lim inf λan ≥ λa0 .                                 (4.8)
+                                        n→∞
+From (4.2) and Theorem 1.1, we obtain for the Rayleigh quotient associated with the
+closure q̄a of qa that
+                       QaW (v)   q̄a (w)
+                               =         , v(at) = w(t) ∈ D(q̄a ).            (4.9)
+                       ∥v∥2L2    ∥w∥2L2
+By (4.5), (4.6), and the definition of H log (−1, 1), we obtain D(q̄a ) ⊂ H log (−1, 1) for
+every a > 0. Hence, by (1.7) and (4.9), it suffices to study the infimum of
+                                                    q̄a (w)
+                                      R̄(a, w) :=           .
+                                                    ∥w∥2L2
+4.3. Proof of upper semicontinuity. Let qa be the quadratic form defined in (4.1),
+and let R(a, w) be the Rayleigh quotient defined in (4.3). We choose w0 ∈ D(q̄a0 ) ⊂
+H log (−1, 1) such that λa0 = R̄(a0 , w0 ), and normalize it by ∥w0 ∥L2 = 1. To avoid
+referring to pointwise values of w0 and w   c0 , we choose a sequence wn ∈ Cc∞ (−1, 1)
+such that wn → w0 with respect to the form norm ∥ · ∥0 (the form norm associated
+with qa0 ), and ∥wn ∥L2 = 1. Such a sequence exists by the proof of Theorem 1.1. Since
+Cc∞ (−1, 1) ⊂ D(qa ), each wn belongs to D(qa ) for every a, and R(a, wn ) can be expressed
+in terms of wn and w cn .
+   Fix n. By the definition of the infimum λa ≤ R(a, wn ) for every a. Moreover, (4.5)
+implies that R(a, wn ) → R(a0 , wn ) as a → a0 . Since ∥wn ∥L2 = 1, we obtain
+                             lim sup λa ≤ R(a0 , wn ) = qa0 (wn ).
+                               a→a0
+Passing to the limit as n → ∞, we obtain
+                 lim sup λa ≤ lim qa0 (wn ) = q̄a0 (w0 ) = R̄(a0 , w0 ) = λa0 .
+                   a→a0         n→∞
+
+Thus, (4.7) holds.                                                                            □
+
+4.4. Proof of lower semicontinuity. By (4.5), we decompose q̄a = q̄ 0 + q̄a1 , where
+q̄ 0 (w) = L(w) − (2A + 1)∥w∥2L2 and q̄a1 denotes the remaining terms in (4.5). Let (an ) be
+a sequence with an → a0 , and let wn ∈ D(q̄an ) ⊂ H log (−1, 1) be a sequence such that
+λan = R̄(an , wn ) and ∥wn ∥L2 = 1. We first show that there exists a subsequence of (wn )
+which converges in L2 to some limit w∗ . Fix an arbitrary w ∈ H01 (−1, 1) ⊂ H log (−1, 1).
+Then λan ≤ R(an , w), and since R(a, w) is continuous in a by the formula (4.5), the
+sequence (λan ) is bounded above.
+     Since λan = q̄an (wn ) by λan = R̄(an , wn ) and ∥wn ∥L2 = 1, the sequence q̄an (wn )
+is bounded above. As (an ) remains in a compact neighborhood of a0 , the estimate
+q̄a1 (v) = O(∥v∥2L2 ) holds uniformly in a. It follows that the terms other than L(wn )
+in (4.5) are uniformly bounded. Consequently, L(wn ) is bounded above. Since L is
+bounded below by definition, the sequence L(wn ) is bounded. Together with (4.6), this
+shows that (wn ) is bounded in H log (−1, 1). Proposition 4.1 therefore implies that (wn )
+is relatively compact in L2 , and we may extract a subsequence converging in L2 . We
+relabel it again as (wn ) and denote its limit by w∗ .
+     The explicit expression for q̄a1 shows that it is a finite sum of quadratic forms associated
+with translation operators and integral operators with continuous kernels. Thus q̄a1 (w)
+depends continuously on (a, w) near (a0 , w∗ ), and therefore
+                                    lim q̄ 1 (wn ) = q̄a10 (w∗ ).
+                                   n→∞ an
+18                                                M. SUZUKI
+
+
+On the other hand, q̄ 0 is an a-independent lower bounded closed quadratic form on
+L2 (−1, 1). Hence, by [12, Proposition 10.1], it is lower semicontinuous with respect to
+L2 -convergence:
+                                      lim inf q̄ 0 (wn ) ≥ q̄ 0 (w∗ ).
+                                       n→∞
+Combining these estimates, we obtain
+         lim inf λan = lim inf q̄ 0 (wn ) + q̄a1n (wn ) ≥ q̄ 0 (w∗ ) + q̄a10 (w∗ ) = q̄a0 (w∗ ).
+                                                       
+          n→∞             n→∞
+
+Since wn → w∗     in L2 (−1, 1) and ∥w   n ∥L2 = 1 for all n, we have ∥w∗ ∥L2 = 1. Therefore,
+R̄(a0 , w∗ ) = q̄a0 (w∗ ), and by the definition of λa0 as the infimum of R̄(a0 , ·), q̄a0 (w∗ ) =
+R̄(a0 , w∗ ) ≥ λa0 . Consequently,
+                                    lim inf λan ≥ q̄a0 (w∗ ) ≥ λa0 ,
+                                     n→∞
+
+which proves (4.8).                                                                                   □
+
+
+4.5. A remark on the continuity of λa via parity decomposition. Since the kernel
+g(x − y) is even, Ga commutes with the parity operator (Ju)(x) = u(−x), i.e. Ga J =
+JGa . It follows that both Ba = D∗ Ga D and its Friedrichs extension Aa commute with
+J. In particular, each eigenspace E(λ) of Aa admits a decomposition into even and odd
+subspaces: E(λ) = E + (λ) ⊕ E − (λ). For the lowest eigenvalue space E(λa ) = E + (λa ) ⊕
+E − (λa ), the assumption in [4, Theorem 5.10] amounts to requiring that dim E + (λa ) = 1
+and E − (λa ) = {0}.
+   In view of the parity decomposition and Corollary 1.2, we define
+                                                  ⟨Ba v, v⟩L2
+                       λ•a :=        inf                      ,      • ∈ {+, −}.
+                                0̸=v∈H•1 (−a,a)     ∥v∥2L2
+Then the global infimum λa in (1.7) can be expressed as
+                                                          −
+                                           λa = min(λ+
+                                                     a , λa ).                                     (4.10)
+Thus the continuity of λa follows from that of λ±a , since the minimum of two continuous
+functions is continuous. The continuity of λ±  a is asserted in [1, Theorem 5], although
+the details of the proof are not fully provided there.
+   We now verify that (4.10) holds. Every v ∈ H01 (−a, a) admits a unique decomposition
+into even and odd components: v = v + + v − . Since differentiation reverses parity and
+Ga preserves it, Dv + and Ga (Dv + ) are odd, whereas Dv − and Ga (Dv − ) are even.
+Expanding the quadratic form in the numerator,
+                    ⟨Ga Dv, Dv⟩ = ⟨Ga (Dv + ), Dv + ⟩ + ⟨Ga (Dv − ), Dv − ⟩,
+since the cross terms vanish due to the orthogonality. Similarly, ∥v∥2L2 = ∥v + ∥2L2 +
+∥v − ∥2L2 for the denominator. Hence the Rayleigh quotient on H01 (−a, a) can be written
+as
+                    ⟨Ga Dv, Dv⟩   ⟨Ga (Dv + ), Dv + ⟩ + ⟨Ga (Dv − ), Dv − ⟩
+                                =                                           .
+                      ∥v∥2L2                  ∥v + ∥2 + ∥v − ∥2
+For each component we have ⟨Ga (Dv • ), Dv • ⟩ ≥ λ•a ∥v • ∥2 for • ∈ {+, −} by definition.
+Therefore,
+               ⟨Ga Dv, Dv⟩   λ+ ∥v + ∥2 + λ−      − 2
+                                              a ∥v ∥                   −
+                           ≥ a + 2                      ≥ min(λ+  a , λa ),
+                     2
+                  ∥v∥L2          ∥v ∥ + ∥v − ∥2
+which yields λa ≥ min(λ+    −                                                      1
+                       a , λa ). Conversely, restricting the Rayleigh quotient to H+ (−a, a)
+and H−1 (−a, a) immediately yields λ ≤ min(λ+ , λ− ). Thus, (4.10) is established.
+                                     a          a    a
+                   WEIL’S QUADRATIC FORM VIA THE SCREW FUNCTION                              19
+
+
+                                 5. Proof of Theorem 1.4
+5.1. Positivity of the lower bound. By (4.9), the behavior of λa for small a > 0 is
+determined by the asymptotics of the Rayleigh quotient R(a, w) in (4.3) as a → 0+.
+From (4.5), we have
+                                         1              L(v)
+                        R(a, v) = log      − (2A + 1) +      + O(a)                      (5.1)
+                                         a              ∥v∥2
+for 0 < a < (1/2) log 2 and v ∈ H01 (−1, 1), so it suffices to study L(v)/∥v∥2 . Note that
+this quantity is independent of a. In general, the infimum of L(v)/∥v∥2 need not coincide
+with that of R(a, v), and hence their minimizers need not agree, but this distinction will
+not be relevant in what follows. By (4.6), the domain D(L̄) of the closure L̄ is contained
+in H log (−1, 1). Furthermore, the self-adjoint operator T associated with L̄ has discrete
+spectrum. This can be proved by the same argument as in the proof of [4, Theorem
+3.6], using Proposition 4.1.
+   The term log(1/a) on the right-hand side of (5.1) diverges to +∞ as a → 0+. Since
+the closure L̄ is a lower bounded closed quadratic form, it is lower semicontinuous [12,
+Proposition 10.1]. We claim that inf ∥v∥=1 L̄(v) > 0. Indeed, it follows directly from the
+definition that L(v) ≥ 0. If there existed a sequence (vn ) such that L(vn ) → 0, then
+the first term in (4.4) would also tend to 0, hence a subsequence of (vn ) converges in
+L2 (−1, 1) to a constant function by (4.6) and Proposition 4.1. However, the second term
+in (4.4) is strictly positive for constant functions. Therefore, for sufficiently small a > 0,
+we obtain λa = inf w R(a, w) > 0.
+
+5.2. Positivity improving property. The positivity improving property of the semi-
+group associated with L̄ established in this subsection will play a key role in proving
+the simplicity of the lowest eigenvalue. From (4.4), it is easy to see that L(|v|) ≤ L(v)
+holds for all v ∈ D(L). Hence a minimizer v0 of the Rayleigh quotient L̄(v)/∥v∥2 may
+be chosen to be nonnegative.
+    To show that v0 is positive, rather than merely nonnegative, we apply the theory of
+Dirichlet forms [5]. A symmetric closed quadratic form E with domain F is called a
+Dirichlet form if it satisfies the Markov property. That is, for every v ∈ F , the function
+v ♯ := ϕ◦v = (0∨v)∧1, ϕ(t) := min(1, max(0, t)), belongs to F and satisfies E(v ♯ ) ≤ E(v).
+Note that ϕ is Lipschitz continuous.
+    We claim that v ♯ ∈ D(L̄) and L̄(v ♯ ) ≤ L̄(v) for every v ∈ D(L̄). As the domain
+D(L) is dense in D(L̄), it suffices to verify these properties on D(L) using the Beurling–
+Deny representation (4.4) of L̄ [5, Theorem 3.2.1]. For the jumping part, the Lipschitz
+continuity of ϕ yields
+                 |v ♯ (x) − v ♯ (y)|2 = |ϕ(v(x)) − ϕ(v(y))|2 ≤ |v(x) − v(y)|2 .
+Multiplying by the kernel |x − y|−1 and integrating, we obtain
+           1 1 1 |v ♯ (x) − v ♯ (y)|2         1 1 1 |v(x) − v(y)|2
+             Z Z                               Z Z
+                                      dx dy ≤                      dx dy.
+           2 −1 −1       |x − y|              2 −1 −1      |x − y|
+For the killing part, |v ♯ (x)|2 ≤ |v(x)|2 by |ϕ(a)| ≤ |a|, and κ(x) := − log(1 − x2 ) ≥ 0.
+Hence                     Z 1                    Z    1
+                                κ(x)|v ♯ (x)|2 dx ≤       κ(x)|v(x)|2 dx.
+                          −1                −1
+Combining these estimates, we obtain v ∈ D(L̄) and L̄(v ♯ ) ≤ L̄(v). Therefore (L̄, D(L̄))
+                                      ♯
+
+satisfies the Markov property and hence defines a Dirichlet form.
+   We next show that (L̄, D(L̄)) is irreducible. Recall that a Dirichlet form is called
+irreducible if every invariant set is trivial, that is, either it or its complement has measure
+zero. Let A ⊂ (−1, 1) be an L̄-invariant set. By the characterization of invariant sets in
+20                                         M. SUZUKI
+
+
+[9, p. 173], L̄(1A u, 1Ac u) = 0 for all u ∈ D(L̄), where Ac = (−1, 1) \ A. Since D(L) is a
+core of D(L̄), it suffices to test the condition on D(L). We have
+                                             Z Z
+                                           1        u(x)u(y)
+                        L(1A u, 1Ac u) = −                   dx dy = 0
+                                           2 A Ac |x − y|
+for all u ∈ D(L), since
+           1 1 1 (u(x) − u(y))(v(x) − v(y))         1 1
+             Z Z                                     Z
+L(u, v) =                                   dx dy −      u(x)v(x) log(1 − x2 ) dx.
+           4 −1 −1         |x − y|                  2 −1
+Because the jumping kernel |x − y|−1 is positive on (−1, 1)2 , the above identity cannot
+hold when both A and Ac have positive measure. Thus either A or Ac has measure zero,
+and L̄ is irreducible.
+   By [9, Theorem 1.4], the irreducibility implies that the associated semigroup {e−tT |
+t > 0} is positivity improving. In other words, for every nonnegative function f ∈
+L2 (−1, 1) with f ̸≡ 0, one has (e−tT f )(x) > 0 for a.e. x ∈ (−1, 1). In particular, the
+nonnegative eigenfunction v0 of T is positive almost everywhere.
+5.3. Simplicity of the lowest eigenvalue and parity of eigenfunctions. Suppose
+that the lowest eigenvalue of T admits two orthogonal eigenfunctions. Then, by the result
+of the previous subsection, eigenfunctions corresponding to the lowest eigenvalue may
+be chosen to be positive almost everywhere. However, two functions that are positive
+almost everywhere cannot be orthogonal to each other, which leads to a contradiction.
+Hence the eigenspace corresponding to the lowest eigenvalue of T is one-dimensional,
+and the lowest eigenvalue is simple.
+   Next, decompose the quadratic form q̄a (v) according to (5.1). The term (log(1/a) −
+(2A + 1))∥v∥2L2 merely shifts the spectrum, so the asymptotic behavior of λa is governed
+by the operator associated with L̄(v) + O(a)∥v∥2L2 . By [7, Chapter VIII, Section 3,
+Theorems 3.6 and 3.15], as a → 0+, this operator has the same multiplicity for its
+lowest eigenvalue as T . Therefore, the lowest eigenvalue of the perturbed operator, and
+hence λa , is simple for sufficiently small a > 0.
+   As discussed in Section 4.5, the eigenspaces of the self-adjoint operator associated
+with q̄a decompose into even and odd parts. In particular, since the lowest eigenvalue is
+simple, its eigenfunction must be either even or odd. However, since the eigenfunction
+corresponding to the lowest eigenvalue has a fixed sign, it must be even.
+
+                                6. Proof of Theorem 1.5
+6.1. Symmetry of the minimal operator. Choose λ < λa , and let H(Ta ) denote the
+Hilbert space obtained as the completion of Cc∞ (−a, a) with respect to the norm ∥ · ∥Ta
+defined by (1.9). Define
+                                 ⟨v1 , v2 ⟩Ta := ⟨Ta v1 , v2 ⟩L2
+so that ∥v∥Ta = ⟨v, v⟩Ta . Let Da be the operator on H(Ta ) with domain (1.10) acting as
+           2
+
+Da = i d/dx. Since the canonical map Cc∞ (−a, a) → H(Ta ) is injective and the image is
+dense, the operator Da is densely defined.
+Lemma 6.1. The operator Da is symmetric on H(Ta ).
+Proof. We show that ⟨Da u, v⟩Ta = ⟨u, Da v⟩Ta for all u, v ∈ D(Da ). By the definition of
+the inner product on H(Ta ) and the self-adjointness of Aa , we have
+          ⟨Da u, v⟩Ta = ⟨Aa (iu′ ), v⟩L2 − λ⟨iu′ , v⟩L2 = ⟨iu′ , Aa v⟩L2 − λ⟨iu′ , v⟩L2 .
+According to the distribution kernel representation (2.10), the function Aa v is the con-
+volution of v with the tempered distribution k := −g ′′ . Hence, by the general theory
+of tempered distributions, Aa v ∈ C ∞ (R) whenever v ∈ D(Da ). Using this fact to-
+gether with the boundary conditions u(a) = u(−a) = 0, integration by parts gives
+                     WEIL’S QUADRATIC FORM VIA THE SCREW FUNCTION                                      21
+
+
+⟨iu′ , Aa v⟩L2 = ⟨u, i(Aa v)′ ⟩L2 , and ⟨iu′ , v⟩L2 = ⟨u, iv ′ ⟩L2 . Furthermore, using (2.10) and
+the boundary conditions v(a) = v(−a) = 0, we obtain by integration by parts that
+                  Z a                            Z a                         Z a
+        ′       d                                     d
+(Aa v) (x) =           k(x − y)v(y) dy = −              k(x − y)v(y) dy =        k(x − y)v ′ (y) dy.
+               dx −a                              −a dy                       −a
+Therefore, ⟨u, i(Aa v)′ ⟩L2 = ⟨u, Aa (iv ′ )⟩L2 , and hence
+   ⟨Da u, v⟩Ta = ⟨u, Aa (iv ′ )⟩L2 − λ⟨u, iv ′ ⟩L2 = ⟨Aa u, iv ′ ⟩L2 − λ⟨u, iv ′ ⟩L2 = ⟨u, Da v⟩Ta .
+This proves the desired identity.                                                                      □
+6.2. Adjoint of the minimal operator. We now derive the adjoint operator Da∗ of
+Da on H(Ta ). For a vector v ∈ H(Ta ) to belong to the domain D(Da∗ ) of Da∗ , the linear
+functional u 7→ ⟨Da u, v⟩Ta must be continuous on D(Da ) with respect to the norm of
+H(Ta ). Since Da is symmetric, D(Da ) ⊂ D(Da∗ ). Moreover, by the calculation in the
+previous section, we have ⟨Da u, v⟩Ta = ⟨u, i(Aa v)′ ⟩L2 − λ⟨u, iv ′ ⟩L2 for u ∈ D(Da ). If
+this functional is continuous with respect to ∥ · ∥Ta , then it is in particular continuous
+with respect to the L2 -norm. Hence it is necessary that v ′ ∈ L2 (−a, a) and (Aa v)′ ∈
+L2 (−a, a). Therefore,
+               D(Da∗ ) ⊂ { v ∈ H(Ta ) | v ∈ H 1 (−a, a), Aa v ∈ H 1 (−a, a) }.
+The condition that v ∈ D(Da∗ ) and Da∗ v = g ∈ H(Ta ) means that
+                      ⟨Da u, v⟩Ta = ⟨u, g⟩Ta (= ⟨Ta u, g⟩L2 = ⟨u, Ta g⟩L2 )
+holds for every u ∈ D(Da ). By the calculation in the previous section, we have
+                                   ⟨Da u, v⟩Ta = ⟨u, i(Ta v)′ ⟩L2
+for u ∈ D(Da ). Since D(Da ) is dense in H(Ta ), it follows that
+                                        Ta (Da∗ v) = i(Ta v)′ .
+If v ∈ D(Da ), then this identity becomes
+                           Ta (Da∗ v) = i(Ta v)′ = Ta (iv ′ ) = Ta (Da v),
+and hence Da∗ agrees with Da . The eigenvalue equations Da∗ v = ±i v are equivalent to
+i(Ta v)′ = ±i(Ta v). Hence
+                          (Ta v)(x) = C+ ex ,        (Ta v)(x) = C− e−x ,
+and these functions span the eigenspaces corresponding to the eigenvalues ±i. Therefore
+we obtain the following result.
+Lemma 6.2. Da has the deficiency indices (1, 1).
+6.3. Self-adjoint extensions of the minimal operator. We compute the self-adjoint
+extensions of Da using von Neumann’s theory of deficiency indices ([11, Section X.1], [12,
+Section 3.2]). By the results of the previous subsection, the deficiency spaces Ker (Da∗ ∓i)
+are one-dimensional and are spanned by vectors v± satisfying (Ta v± )(x) = exp(±x). It is
+immediate that ∥v+ ∥Ta = ∥v− ∥Ta . Thus, every self-adjoint extension D a,θ parametrized
+by θ ∈ [0, 2π) has domain
+                D(D a,θ ) = {v0 + c(v+ + eiθ v− ) | v0 ∈ D(D a ), c ∈ C}
+                       ⊂ D(Da∗ ) = {v0 + av+ + bv− | v0 ∈ D(D a ), a, b ∈ C}.
+These domains are characterized by the boundary form
+                              W (u, v) = ⟨Da∗ u, v⟩Ta − ⟨u, Da∗ v⟩Ta ,
+namely, v ∈ D(Da∗ ) belongs to D(D a,θ ) if and only if W (v, wθ ) = 0 for wθ = v+ + eiθ v− .
+The action of D a,θ is given by
+                                           
+                  D a,θ v0 + c(v+ + eiθ v− ) := D a v0 + ic(v+ − eiθ v− ).
+22                                         M. SUZUKI
+
+
+6.4. Proof of Theorem 1.5. Let vz be an eigenfunction of Da∗ corresponding to an
+eigenvalue z ∈ R. The equation Da∗ vz = zvz implies that (Ta vz )(x) = exp(−izx). The
+basis vectors of the deficiency spaces satisfy Da∗ v± = ±iv± and (Ta v± )(x) = exp(±x).
+On the other hand, applying Da∗ to wθ = v+ + eiθ v− yields
+                                    Da∗ wθ = iv+ − ieiθ v− .
+Substituting these equalities into the boundary form W , we obtain
+                 W (vz , wθ ) = ⟨zvz , v+ + eiθ v− ⟩Ta − ⟨vz , iv+ − ieiθ v− ⟩Ta .
+Expanding the right-hand side by linearity of the inner product and collecting the terms
+involving the inner products with v+ and v− , we obtain
+                W (vz , wθ ) = (z + i)⟨vz , v+ ⟩Ta + (z − i)e−iθ ⟨vz , v− ⟩Ta = 0.     (6.1)
+Using the definition of the inner product on the space H(Ta ) and the identity (Ta vz )(x) =
+exp(−izx), we obtain
+                                                       Z a
+                      ⟨vz , v± ⟩Ta = ⟨Ta vz , v± ⟩L2 =     e−izx v± (x) dx.
+                                                        −a
+
+Because v± ∈ H(Ta ) ⊂ L2 (−a, a) ⊂ L1 (−a, a), the above Fourier integrals define entire
+functions of z. Consequently, upon rewriting the orthogonality condition (6.1), we find
+that the eigenvalue z must satisfy the equation W (a, θ; z) = 0, where W (a, θ; z) is defined
+in (1.11). This proves the first assertion of the theorem.
+  Next, we show that all zeros of W (a, θ; z) are real. Even when λ ∈ C is not real, the
+function (Ta vλ )(x) = exp(−iλx) is infinitely differentiable on the interval (−a, a) and
+belongs to H 1 (−a, a). Since Ta is injective, the relation (Ta vλ )(x) = exp(−iλx) uniquely
+determines an element vλ ∈ H(Ta ), which belongs to D(Da∗ ). Applying Da∗ to vλ , and
+then applying Ta to the result, we obtain
+          Ta (Da∗ vλ ) = i(Ta vλ )′ = i(−iλ exp(−iλx)) = λ exp(−iλx) = Ta (λvλ ).
+It follows that Da∗ vλ = λvλ . Thus, vλ serves as an eigenfunction of Da∗ even for λ ∈ C.
+   Suppose that a complex number λ0 ∈ C satisfies W (a, θ; λ0 ) = 0. By the character-
+ization established above, this means that the corresponding vλ0 is orthogonal to the
+deficiency vector wθ with respect to the boundary form, that is, W (vλ0 , wθ ) = 0. By
+definition, every element satisfying this condition belongs to D(D a,θ ). Consequently,
+vλ0 is a nonzero element of the domain of the self-adjoint extension D a,θ and satis-
+fies D a,θ vλ0 = λ0 vλ0 . Hence vλ0 is a genuine eigenvector of the self-adjoint operator
+D a,θ with eigenvalue λ0 . However, λ0 must be real, since every eigenvalue of a self-
+adjoint operator is real. This contradiction shows that any complex number λ satisfying
+W (a, θ; λ) = 0 must lie on the real axis.                                              □
+
+         7. Heuristic justification of the formula in Corollary 1.6
+   In this section, we assume RH. By Weil’s positivity criterion, we have QW ≥ 0 and
+hence Aa > 0 for all a > 0. Under this assumption, for each a > 0 we may take λ = 0
+in the definition (1.9) of Ta = Ta,λ . Hence we work with Aa in place of Ta , and consider
+the Hilbert spaces H(Aa ) := H(Ta,0 ).
+
+7.1. The Hilbert Space H(A∞ ). In order to study the behavior of the differential
+operator Da on the Hilbert space H(Aa ) as a → ∞, we first introduce the Hilbert space
+H(A∞ ) and the corresponding differential operator D∞ . Here A∞ is only a formal
+symbol and does not denote an actual operator.
+   Let D(QW ) denote the completion of Cc∞ (R) with respect to the form norm
+                                 ∥v∥2QW := QW (v) + ∥v∥2L2 .
+                    WEIL’S QUADRATIC FORM VIA THE SCREW FUNCTION                               23
+
+
+This space is a Hilbert space with respect to the form norm. N := {v ∈ D(QW ) |
+QW (v) = 0} is a closed subspace of D(QW ) with respect to the form norm. We then
+consider the quotient space
+                                  H(A∞ ) := D(QW )/N .
+For v ∈ D(QW ), we denote its equivalence class by [v] ∈ H(A∞ ). We define the norm
+of [v] by
+                                     ∥[v]∥2A∞ := QW (v).
+The Hilbert space H(A∞ ) can be identified with the completion HW of Cc∞ (R) with
+respect to QW (v) studied in [14].
+   Since QW (v) ̸= 0 for any nonzero v ∈ Cc∞ (R), the map v 7→ [v] embeds Cc∞ (R)
+injectively into H(A∞ ), and its image is dense. Hence, by fixing representatives on
+Cc∞ (R), we define a densely defined operator D∞ on H(A∞ ) by D∞ [v] := [D∞ v] = [iv ′ ].
+This is well-defined since [u] = [v] for u, v ∈ Cc∞ (R) implies u = v.
+   We now verify that D∞ is symmetric on H(A∞ ) and hence closable. If QW (w) = 0, it
+follows that QW (w, v) = 0 for all v by the assumption QW ≥ 0 and the Cauchy-Schwarz
+inequality |QW (u, v)|2 ≤ QW (u)QW (v). This implies QW (u + w, v) = QW (u, v) and
+QW (u, v + w) = QW (u, v). Hence the sesquilinear form
+                                          Z ∞Z ∞
+             QW ([u], [v]) = QW (u, v) =            (−g ′′ (x − y)) u(y) v(x) dxdy (7.1)
+                                                 −∞    −∞
+is well-defined (cf. (2.9)). Moreover, the translation operator τt (t ∈ R) defined by
+                             τt [u] := [τt u],    (τt u)(x) = u(x − t)
+is well-defined, since τt [u + w] = [τt (u + w)] = [τt u] + [τt w] and QW ([τt w]) = QW (τt w) =
+QW (w) = 0 if QW (w) = 0. Furthermore, by (7.1), the norm in H(A∞ ) is invariant
+under translations:
+                                     ∥[v]∥A∞ = ∥τt [v]∥A∞ .                                 (7.2)
+Since D∞ commutes with convolution, it follows from (7.1) that
+                             QW (D∞ [u], [v]) = QW ([u], D∞ [v])
+for u, v ∈ Cc∞ (R). Hence D∞ is symmetric with respect to ⟨·, ·⟩A∞ . Since every symmet-
+ric operator is closable, its closure will be denoted by D̄∞ . Thus, for [v] ∈ D(D̄∞ ), one
+can choose a sequence vn ∈ Cc∞ (R) such that [vn ] → [v] and D∞ [vn ] = [ivn′ ] → D̄∞ [v] in
+H(A∞ ).
+
+7.2. Isomorphism with a de Branges space. We now recall the isometric isomor-
+phism between H(A∞ ) (denoted by HW in [14]) and a certain de Branges space B
+established in [14]. Here it is sufficient to understand B as a reproducing kernel Hilbert
+space consisting of entire functions.
+   Let M be the operator of multiplication by an independent variable on B defined by
+D(M ) = {F ∈ B | zF (z) ∈ B} and (M F )(z) = zF (z). The operator M is a densely
+defined closed symmetric operator with deficiency indices (1, 1), and it admits a one-
+parameter family of self-adjoint extensions parametrized by ψ ∈ [0, π). In particular, the
+self-adjoint extension Mπ/2 has purely discrete spectrum Γ, the set of zeros of ξ(1/2−iz)
+in Section 3, and one can choose an orthonormal basis of B consisting of the correspond-
+ing eigenfunctions Fγ for γ ∈ Γ [14, Section 6]. In this setting, defining U : H(A∞ ) → B
+by                                          X√
+                                 U ([v]) :=      mγ vb(γ)Fγ                           (7.3)
+                                                 γ∈Γ
+yields an isometric isomorphism of Hilbert spaces [14, Theorems 1.1 and 1.4]:
+                              (QW (v) =) ∥[v]∥2A∞ = ∥U ([v])∥2B .                          (7.4)
+This U is precisely the operator denoted by π −1/2 Pc
+                                                    D =π
+                                                         −1/2 PD
+                                                              b in [14].
+24                                           M. SUZUKI
+
+
+7.3. Correspondence between D∞ and M . Via the isomorphism U : H(A∞ ) → B,
+the operator M induces a self-adjoint operator on H(A∞ ). However, its relation to
+the differential operator D̄∞ is not immediately clear. On the other hand, the relation
+between the differential operator D̄∞ and the self-adjoint extension Mπ/2 of M can be
+described in a simple way as follows.
+   If v ∈ Cc∞ (R), then vb is rapidly decreasing. Hence [v] belongs to the domain of Mπ/2 .
+For each γ ∈ Γ, Fγ is an eigenfunction of Mπ/2 with eigenvalue γ, and therefore
+                          X               X
+          Mπ/2 U ([v]) =       γb
+                                v (γ)Fγ =      d′ )(γ)Fγ = U ([iv ′ ]) = U (D∞ [v]).
+                                              (iv
+                           γ                  γ
+
+Let Dπ/2 := U −1 Mπ/2 U . Then the above computation shows that Dπ/2 [v] = [iv ′ ] =
+D∞ [v] for v ∈ Cc∞ (R). Since Dπ/2 is closed and extends D∞ , it follows that
+                                         Dπ/2 [v] = D̄∞ [v]
+for all [v] ∈ D(D̄∞ ). Thus, Dπ/2 is a self-adjoint extension of D̄∞ .
+Remark. More generally, for any self-adjoint extension Mψ of M , one may define Dψ :=
+U −1 Mψ U . Since Mψ is unitarily equivalent to Dψ , the operator Dψ is self-adjoint. It is
+natural to ask whether Dψ can be characterized directly as a self-adjoint extension of
+D̄∞ . We do not pursue this question here.
+
+7.4. An operator unitarily equivalent to M . We now consider the operator on
+H(A∞ ) induced by M through U . More precisely, we define
+                                          D := U −1 M U.
+By construction, D and M are unitarily equivalent via U , and have the same deficiency
+indices. In particular, the deficiency indices of D are (1, 1).
+   Writing the Fourier transform as Fv = vb, there exists a subspace V (0) ⊂ L2 (0, ∞)
+such that the maps B ∋ F 7→ vF := F −1 F ∈ V (0) and V (0) ∋ v 7→ [v] ∈ H(A∞ )
+are isomorphisms [14, Theorem 5.5]. In this setting, the operator on V (0) unitarily
+equivalent to M via F −1 : B → V (0) is denoted by D = F −1 M F . Then, via the
+isomorphism ι : V (0) → H(A∞ ), the operator corresponding to D is given by D = ιDι−1 .
+In particular, we have U = F ι−1 . If F ∈ D(M ) and F = F v, then
+                               Dv = F −1 (M F ) = F −1 (zF ) = iv ′ .
+Moreover, for v ∈ V (0),
+                                  D[v] = ι(Dv) = ι(iv ′ ) = [iv ′ ].
+We claim that for a given function u, the decomposition u = v + w with v ∈ V (0) and
+[w] = 0 is uniquely determined. Once this is established, we may define D[u] := D[v] by
+writing u = v + w with v ∈ V (0) for [u] ∈ D(D) (defined via the unitary correspondence
+with D(M )).
+   The uniqueness of v in the above decomposition is as follows. If u = v + w and
+u = ṽ + w̃ are two such decompositions, then v − ṽ = w̃ − w. Hence, if v0 := v − ṽ ̸= 0,
+then 0 ̸= v0 ∈ V (0) and [v0 ] = 0. It follows from (7.3) and (7.4) that vb0 (γ) = 0 for all
+γ. Since F : V (0) → B is an isomorphism, we obtain v0 = 0, a contradiction.
+     With this definition, the relation between
+                                      Cc∞ (R)     and    D(D)
+is not clear. Indeed, for u ∈ Cc∞ (R) decomposed as u = v + w with v ∈ V (0) and
+[w] = 0, it is not clear whether F v ∈ D(M ) holds.
+                   WEIL’S QUADRATIC FORM VIA THE SCREW FUNCTION                           25
+
+
+7.5. Infinitesimal generator of translations (a = ∞). The previously defined fam-
+ily (τt )t∈R forms a strongly continuous one-parameter unitary group. Indeed, τt τs = τt+s
+is clear from the definition, and each τt is a unitary operator by (7.2). It remains to ver-
+ify strong continuity, namely limt→0 ∥τt [v] − [v]∥A∞ = 0. To this end, using the isometric
+property of U , we estimate
+                                               X
+                        ∥U (τt [v] − [v])∥2B =   mγ |e−itγ − 1|2 |b
+                                                                  v (γ)|2 .
+                                           γ∈Γ
+
+Since A∞ > 0 implies RH, all elements of Γ are real. Since |e−itγ −1|2 ≤ 4, the dominated
+convergence theorem implies that the right-hand side tends to 0 as t → 0. Hence τt is
+strongly continuous with respect to the norm of H(A∞ ).
+   Therefore, there exists a self-adjoint operator D on H(A∞ ) such that
+                                     τt = eitD   (t ∈ R)
+by Stone’s theorem, where
+                                                
+                              τϵ [v] − [v]                              τϵ [v] − [v]
+       D(D) = [v] ∈ H∞ lim                 exists ,        D[v] = −i lim             .
+                          ϵ→0       ϵ                               ϵ→0       ϵ
+For [v] ∈ D(D), we have
+                                  D[v] = [iv ′ ] = D[v]
+by considering the action on the B side. Thus, the self-adjoint operator D extends the
+closed symmetric operator D, whose deficiency indices are (1, 1). Moreover,
+                                  U (D[v]) = Mπ/2 U ([v])
+holds, that is, D = Dπ/2 . Indeed,
+                                          (U τϵ [v])(z) − (U [v])(z)
+                    (U D[v])(z) = −i lim
+                                      ϵ→0              ϵ
+                                          X√         eiγϵ − 1
+                                 = −i lim        mγ           vb(γ)Fγ
+                                      ϵ→0                ϵ
+                                          γ∈Γ
+                                   X√
+                                 =       mγ γbv (γ)Fγ = (Mψ U [v])(z).
+                                     γ∈Γ
+
+Viewed on H(A∞ ), D is characterized as the unique self-adjoint extension of D that
+commutes with the (usual) translation. Moreover, the equality D = Dπ/2 asserts that a
+Hilbert–Pólya operator is realized as the infinitesimal generator of the translation group
+under the assumption A∞ > 0 (RH).
+  Since D acts as v 7→ iv ′ on Cc∞ (−a, a), to approximate the behavior as a → ∞, it is
+natural to consider the minimal operator Da for each a > 0. Considering the self-adjoint
+extensions Da,θ of Da , it is expected that by choosing θ = θ(a) appropriately,
+                                  D a,θ → D      (a → ∞)
+in the sense of strong resolvent convergence.
+
+7.6. Operator picture via embedding. We denote by H(Aa ) the completion of
+Cc∞ (−a, a) with respect to (QW |L2 (−a,a) )(v) = QW
+                                                   a (v) = ⟨A v, v⟩ . Since U (v) ̸= 0
+                                                              a    L2
+                          ∞                     ∞
+for every nonzero v ∈ Cc (−a, a), the space Cc (−a, a) embeds injectively into H(A∞ )
+via v 7→ [v] as in the case of Cc∞ (R). This embedding extends to an injective map
+                                     H(Aa ) ,→ H(A∞ ).
+Through this embedding, we may regard Da and D a,θ as operators on H(A∞ ), although
+they are no longer densely defined in H(A∞ ). However, we still have
+                                      Da = D∞ |H(Aa )
+26                                       M. SUZUKI
+
+
+                                    D̄∞ ⊂ Dπ/2 = D
+and thus, as a → ∞, it is natural to expect that D a,θ approximates the self-adjoint
+extension Dπ/2 = D of D̄∞ . Since the spectrum of Dπ/2 is given by Γ, one further
+expects that the eigenvalues of D a,θ approximate Γ as a → ∞.
+7.7. Factorization of A∞ . By (7.4),
+                   QW (v) = ⟨A∞ v, v⟩L2 = ⟨U v, U v⟩L2 = ⟨U ∗ U v, v⟩L2 .
+Using the notation of [14] and the factorization U = π −1/2 PD,
+                                                            b we obtain
+                                            b∗ b
+                       A∞ = U ∗ U = π −1 D∗ P PD,               b∗ P
+                                                       G = π −1 P  b
+under RH. Conversely, if one could show unconditionally that the kernel of U ∗ U coincides
+with −g ′′ (x − y), or equivalently that the kernel of π −1 P  b∗ P
+                                                                  b coincides with the kernel
+g(x−y)−g(x)−g(−y)+g(0) of G, then it would follow that A∞ > 0, and hence RH would
+follow immediately. More precisely, using the notation of [14], one has unconditionally
+                                             Z ∞
+                                        −1/2
+                           (U v)(z) = π          Sx (z̄) v ′ (x) dx,
+                                              −∞
+and therefore RH would follow if one could establish unconditionally that
+               Z ∞
+                   Sx (z)Sy (z) dz = g(x − y) − g(x) − g(−y) + g(0).
+                  −∞
+We note that, as in [14, (1.5), (1.6)], the function Sx (z) can also be represented without
+reference to Γ, just as g can.
+
+             8. From distribution kernels to continuous kernels
+8.1. Passing from Aa to Ga . So far, we have developed the theory of QW       a and A using
+                                                                                      a
+the screw function associated with ζ(s). However, in the theory of screw functions, as
+presented for example in [8, Section 5], it is more natural to consider the integral operator
+Ge defined by
+                             Z ∞
+                (e
+                 Gu)(x) :=       (g(x − y) − g(x) − g(−y) + g(0))u(y) dy                (8.1)
+                              −∞
+rather than the integral operator G in (1.4). As shown in [13, Theorem 1.3], if QGe (v) :=
+⟨Gv,
+  e v⟩L2 denotes the quadratic form associated with G,   e then the condition Q e (u) ≥ 0
+                                                                                 G
+               ∞         2
+for all u ∈ Cc (R) ∩ L0 (−a, a) is equivalent to RH. This follows from the relation
+QW (v) = QGe (Dv), v ∈ Cc∞ (R) [13, Proposition 3.1]. Note that if u = Dv with v ∈
+Cc∞ (R), then u ∈ L20 (−a, a). If QG (v) := ⟨Gv, v⟩L2 denotes the quadratic form associ-
+ated with the integral operator G in (1.4), then QGe (u) = QG (u) for every u ∈ L20 (−a, a),
+and hence QW (v) = QGe (Dv) = QG (Dv). Motivated by this relation, we chose to study
+QW through the quadratic form QG , whose kernel is considerably simpler.
+   To represent QW directly on the finite interval (−a, a), one must use the operator
+Aa as in (1.1). However, if one is interested only in the positivity of QW , there is no
+essential difference in working with Ga , since QW (v) = QG (Dv) and the restriction of
+QG to (−a, a) is represented by the operator Ga through (QG |L2 (−a,a) )(u) = ⟨Ga u, u⟩L2 .
+Moreover, Ga is an integral operator with a continuous kernel and is therefore much
+easier to handle than the unbounded operator Aa . As we shall see below, the Hilbert
+space obtained by completing with respect to ⟨Aa u, u⟩L2 and the Hilbert space obtained
+by completing with respect to ⟨Ga u, u⟩L2 are related through the identity QW (v) =
+QG (Dv), and Theorem 1.5 can be interpreted within the framework of Ga .
+   Although Aa and Ga are very different as operators, the former being an unbounded
+operator with discrete spectrum accumulating at +∞ and the latter being a compact
+operator with discrete spectrum accumulating at 0, the situation is analogous from the
+                    WEIL’S QUADRATIC FORM VIA THE SCREW FUNCTION                                     27
+
+
+viewpoint of positivity of quadratic forms, since in both cases the relevant quantity is the
+bottom of the spectrum. (There is, of course, the distinction that the infimum may or
+may not be attained.) Furthermore, as we shall see below, this difference does not affect
+the spectrum of the corresponding self-adjoint extensions of the differential operator.
+  To discuss these matters, we first review the relation between the norms arising
+through the differential operator D.
+
+8.2. The Inverse Neumann Laplacian. The operator D : H01 (−a, a) → L20 (−a, a) is
+bijective. Therefore, if u = Dv with v ∈ H01 (−a, a), then v = D−1 u, and hence
+                        ∥v∥2L2 = ⟨D−1 u, D−1 u⟩L2 = ⟨(DD∗ )−1 u, u⟩L2 .
+Note that −∆N = DD∗ coincides with the Neumann Laplacian, which is the operator
+acting as −∆N = −d2 /dx2 with domain D(−∆N ) = {u ∈ H 2 (−a, a) | u′ (a) = u′ (−a) =
+0}, and its range is L20 (−a, a). Its inverse (−∆N )−1 : L20 (−a, a) → L2 (−a, a) is a
+compact, self-adjoint, and positive integral operator with kernel
+                                           x2 + y 2 |x − y| a
+                              N (x, y) =           −       + .
+                                             4a        2    6
+                                                               Rx
+On the other hand, if u = Dv with v ∈ H01 (−a, a), then v(x) = −a u(t)dt, and therefore
+          Z a              Z a Z a             Z a              
+     2              2
+ ∥v∥L2 =      |v(x)| dx =           u(t)1t≤x dt         u(s)1s≤x ds dt
+           −a               −a   −a                  −a
+                               !
+          Z Z  a   a Z    a                       Z Z      a     a
+        =                           dx u(t)u(s)dtds =                 (a − max(t, s))u(t)u(s)dtds.
+            −a     −a    max(t,s)                         −a     −a
+
+Accordingly, defining
+                                           Z a
+                           (K
+                            e a u)(x) :=         (a − max(x, y))u(y)dy,
+                                            −a
+we obtain
+                                       ∥v∥2L2 = ⟨K
+                                                 e a u, u⟩L2 .
+
+The operator K
+             e a is compact, self-adjoint, and positive. Moreover, the identity
+                                     e a u, u⟩L2 = ⟨(−∆N )−1 u, u⟩L2
+                           ∥v∥2L2 = ⟨K                                                         (8.2)
+holds as an equality of quadratic forms on L20 (−a, a). Since the operator-theoretic prop-
+erties of (−∆N )−1 are more transparent, we shall henceforth write
+                                                                      x2 + y 2 |x − y| a
+       Ka := (−∆N )−1 ,       with integral kernel N (x, y) =                 −       + ,
+                                                                        4a        2    6
+and work with Ka rather than K
+                             ea.
+
+8.3. The Hilbert Space H(Sa ). Let λ < λa . Motivated by (8.2) and by the operator
+Ta = Aa − λI considered earlier, we define
+                                      Sa := Ga − λ(−∆N )−1 .
+Since both Ga and (−∆N )−1 are self-adjoint with respect to the L2 inner product, so is
+Sa , and
+            ∥u∥2Sa = ⟨Sa u, u⟩L2 = ⟨Ta v, v⟩L2 = ∥v∥2Ta ,        u = Dv ∈ L20 (−a, a).
+Furthermore,
+               h                                                                  i
+      H(Sa ) := the completion of Cc∞ (−a, a) ∩ L20 (−a, a) with respect to ∥u∥Sa
+28                                           M. SUZUKI
+
+
+is isometrically isomorphic to H(Ta ), since D : Cc∞ (−a, a) → Cc∞ (−a, a) ∩ L20 (−a, a) is
+bijective. The operator D therefore extends to an isometric isomorphism
+                                                   ∼
+                                  D̄ : H(Ta ) → H(Sa ).
+The operator Ga extends naturally to a bounded operator on H(Sa ). Using the same
+notation for this extension, we have
+                                        Aa = (D̄)∗ Ga D̄.
+Note that H(Ta ) ,→ L2 (−a, a), whereas H(Sa ) ̸⊂ L2 (−a, a). It should also be noted
+that 1(−a,a) ∈ H(Aa ) \ D(Da ), while D̄(1(−a,a) ) ̸= 0.
+  Through the isomorphism D̄, operators on H(Ta ) can be transferred to operators on
+H(Sa ). Accordingly, we define an operator D ea on H(Sa ) by
+                                        ea := DDa D−1
+                                        D
+with domain Cc∞ (−a, a) ∩ L20 (−a, a). For u ∈ Cc∞ (−a, a) ∩ L20 (−a, a),
+                                 Z x
+                  −1
+               (D u)(x) = −i          u(t) dt, DDa (D−1 u)(x) = iu′ (x),
+                                      −a
+
+and hence Dea may be regarded as the operator with domain C ∞ (−a, a) ∩ L2 (−a, a)
+                                                                    c             0
+acting by Da = id/dx. By construction, D
+          e                               ea on H(Sa ) is unitarily equivalent to Da on
+H(Ta ). Therefore, D
+                   ea has deficiency indices (1, 1), and its self-adjoint extensions have
+the same spectra as those of Da .
+     The eigenvalue equation for the adjoint D
+                                             e ∗ is determined by
+                                              a
+                                 e ∗ − z)v⟩S = ⟨u, Sa (D
+                        0 = ⟨u, (D                     e ∗ − z)v⟩L2
+                                  a         a           a
+
+for every u ∈ Cc∞ (−a, a) ∩ L20 (−a, a). Here u ranges not over all of Cc∞ (−a, a), but only
+over those functions satisfying u b(0) = 0. Since the orthogonal complement in L2 (−a, a)
+of the subspace of functions satisfying u b(0) = 0 is spanned by the constant function 1,
+it follows that
+                          1 = Sa (D e ∗ − z)v = i(Sa v)′ − z(Sa v).
+                                      a
+
+using Sa (D v) = i(Sa v) (which is derived exactly as in the case of Ta ). Hence
+           e ∗
+             a
+                        ′
+
+                                                1
+                            (Sa v)(x) = Ce−izx − ,          (z ̸= 0),
+                                                z
+and
+                              (Sa v)(x) = −ix + C,        (z = 0).
+On the other hand,
+                                      Z a
+                        (Sa v)(x) =         (g(x − y) − λr(x, y))v(y) dy.
+                                       −a
+
+Here r(x, y) may be taken to be either of the kernels considered in Section 8.2, since in
+either case                      Z a
+                              d2
+                           − 2        r(x, y)u(y)dy = u(x).
+                             dx −a
+Therefore,
+         Z a                                Z a
+      d2
+   − 2       (g(x − y) − λr(x, y))v(y) dy =     (−g ′′ (x − y))v(y) dy − λv(x) = Ta v.
+     dx −a                                   −a
+
+It follows from the injectivity of Sa (equivalently, of Ta ) that the eigenfunctions cor-
+responding to z = ±i coincide with those for Da∗ up to multiplication by the constant
+                   WEIL’S QUADRATIC FORM VIA THE SCREW FUNCTION                             29
+
+
+−λ2 . Consequently, the boundary form determining the eigenvalues should also be the
+same for D
+         e ∗ and D ∗ . Therefore, it may be advantageous to work with the equation
+          a         a
+                             Z a
+               (Sa v± (x) =)     (g(x − y) − λr(x, y))v± (y) dy = e±x ± i,
+                                −a
+whose kernel is an ordinary function rather than a distribution.
+   Assume RH. Then Ga > 0, so one may take λ = 0 and hence Sa = Ga . Extending
+va,± by zero outside [−a, a], we obtain Ga va,± = g ∗va,± , and the right-hand side extends
+naturally to a function on R. Thus the equation Sa va,± = e±x ± i may be written as
+g ∗ va,± = ha,± , where ha,± (x) = e±x ± i for x ∈ [−a, a]. Taking Fourier transforms
+yields
+                                                  hda,± (z)
+                                       vd
+                                        a,± (z) =           .
+                                                    gb(z)
+Since gb(z) = z −2 ξ ′ (1/2 − iz)/ξ(1/2 − iz) by [13, (1.2), (1.8)], we obtain
+                                ξ(1/2 − iz)                      iθ
+                                                                                  
+             W (a, θ; z) = z 2 ′              (z − i)vda,+ (z) + e (z + i)vd
+                                                                           a,− (z) .
+                                ξ (1/2 − iz)
+This suggests the limiting relation (1.12).
+
+8.4. Relation to Bombieri’s Problem 1. Using G
+                                             e in (8.1) and Pa in (2.1), define
+
+                          G        GPa : L20 (−a, a) → L20 (−a, a).
+                          e a := Pa e
+Recall that Ga = Pa GPa in (1.5), and Ba = D∗ Ga D in (1.6). Then
+      e a Dv, Dv⟩L2 = ⟨Ga Dv, Dv⟩L2 = ⟨Ba v, v⟩L2 = QW (v),
+     ⟨G                                                            v ∈ Cc∞ (−a, a),     (8.3)
+see [13, Proposition 3.1]. For finite a, the norm on H01 (−a, a) defined by ∥v∥L2 +∥v ′ ∥L2 is
+equivalent to that defined by ∥v ′ ∥L2 . Adopting the latter, the linear map H01 (−a, a) →
+L20 (−a, a) given by v 7→ Dv becomes an isometric isomorphism. Hence the Rayleigh
+quotient QW (v)/∥v∥2H 1 on H01 (−a, a) appearing in [1, Problem 1] (and [2, Problem B])
+can be rewritten as the Rayleigh quotient on L20 (−a, a)
+                              QW (v)   QG (u)
+                                 2   =        ,       u = Dv,
+                              ∥v∥H 1   ∥u∥2L2
+by [13, Proposition 3.1]. In other words, [1, Problem 1] (and [2, Problem B]) is nothing
+but the eigenvalue problem for Ga = Pa GPa = Pa GP      e a on L2 (−a, a). [1, Theorem
+                                                                  0
+4] asserts that if this infimum is negative, then it is attained in L2 (−a, a). From the
+viewpoint of the eigenvalue problem for Ga , this is immediate.
+   Since QW is bounded with respect to the H 1 -norm, the Riesz representation theorem
+implies that it is represented by a bounded operator. That operator is precisely G
+                                                                                 e a = Ga
+                      2
+(they coincide on L0 (−a, a)). Problem 1 in [1] corresponds to this formulation.
+
+8.5. Reformulation as a generalized eigenvalue problem. By (8.2),
+                                     ∥v∥2L2 = ⟨Ka u, u⟩L2
+with u = Dv and Ka = (−∆N )−1 . Combining this with (8.3), the Rayleigh quotient in
+(1.7) can be rewritten as
+                                a (v)
+                             QW         ⟨Ga u, u⟩L2
+                                  2   =                                       (8.4)
+                              ∥v∥L2     ⟨Ka u, u⟩L2
+for v ∈ H01 (−a, a) and u = Dv ∈ L20 (−a, a). The right-hand side of (8.4) leads to the
+generalized eigenvalue problem
+                               Ga u = λKa u,       u ∈ H(Sa ).
+30                                             M. SUZUKI
+
+
+The spectrum of this generalized eigenvalue problem coincides with that of Aa . Hence
+it is discrete, bounded from below, and accumulates only at +∞. (The case λ = 0 is
+exceptional: then the contribution of Ka disappears, and one is simply looking at the
+kernel (the 0-eigenspace) of Ga .)
+   Although Aa is unbounded, both Ga and Ka are compact operators with continuous
+integral kernels. In the generalized eigenvalue problem, one must analyze not only the
+spectra of Ga and Ka individually but also the interaction between them. Thus it
+cannot be said a priori that the spectral analysis of Aa becomes simpler. Nevertheless,
+the availability of compact-operator techniques may provide certain advantages.
+
+Acknowledgment
+This work was supported by JSPS KAKENHI Grant Number JP23K03050. This work
+was also supported by the Research Institute for Mathematical Sciences, an International
+Joint Usage/Research Center located in Kyoto University.
+
+                                            References
+ [1] E. Bombieri, Remarks on Weil’s quadratic functional in the theory of prime numbers. I, Atti Accad.
+     Naz. Lincei Cl. Sci. Fis. Mat. Natur. Rend. Lincei (9) Mat. Appl. 11 (2000), no. 3, 183–233 (2001).
+ [2] E. Bombieri, A variational approach to the explicit formula, Comm. Pure Appl. Math. 56 (2003),
+     no. 8, 1151–1164.
+ [3] A. Connes, C. Consani, Spectral triples and ζ-cycles, Enseign. Math. 69 (2023), no. 1-2, 93–148.
+ [4] A. Connes, C. Consani, H. Moscovici, Zeta spectral triples, https://arxiv.org/abs/2511.22755
+ [5] M. Fukushima, Y. Oshima, M. Takeda, Dirichlet forms and symmetric Markov processes, Second
+     revised and extended edition, De Gruyter Studies in Mathematics, 19, Walter de Gruyter & Co.,
+     Berlin, 2011.
+ [6] I. S. Gradshteyn, I. M. Ryzhik, Table of integrals, series, and products. Seventh edition, Else-
+     vier/Academic Press, Amsterdam, 2007.
+ [7] T. Kato, Perturbation theory for linear operators. Reprint of the 1980 edition. Classics in Mathe-
+     matics, Springer-Verlag, Berlin, 1995.
+ [8] M. G. Kreı̆n, H. Langer, Continuation of hermitian positive definite functions and related questions,
+     Integral Equations Operator Theory 78 (2014), no. 1, 1–69.
+ [9] D. Lenz, P. Stollmann, I. Veselić, The Allegretto-Piepenbrink theorem for strongly local Dirichlet
+     forms, Doc. Math. 14 (2009), 167–189.
+[10] F. Olver, D. Lozier, R. Boisvert, C. Clark (eds), NIST handbook of mathematical functions, Cam-
+     bridge University Press, Cambridge, 2010.
+[11] M. Reed, B. Simon, Methods of modern mathematical physics. II. Fourier analysis, self-adjointness,
+     Academic Press [Harcourt Brace Jovanovich, Publishers], New York-London, 1975.
+[12] K. Schmüdgen, Unbounded self-adjoint operators on Hilbert space, Graduate Texts in Mathematics
+     265, Springer, Dordrecht, 2012.
+[13] M. Suzuki, Aspects of the screw function corresponding to the Riemann zeta function, J. Lond.
+     Math. Soc. 108 (2023), no.4, 1448-1487.
+[14] M. Suzuki, On the Hilbert space derived from the Weil distribution, Canadian Journal of Mathe-
+     matics (FirstView).
+[15] A. Weil, Sur les “formules explicites” de la théorie des nombres premiers, Comm. Sém. Math. Univ.
+     Lund [Medd. Lunds Univ. Mat. Sem.], 1952 (1952), Tome Supplémentaire, 252–265.
+[16] A. Weil, Sur les formules explicites de la théorie des nombres, Izv. Akad. Nauk SSSR Ser. Mat., 36
+     (1972), 3–18..
+[17] H. Yoshida, On Hermitian forms attached to zeta functions, Zeta functions in geometry (Tokyo,
+     1990), 281–325, Adv. Stud. Pure Math., 21, Kinokuniya, Tokyo, 1992.
+
+Department of Mathematics,
+School of Science,
+Institute of Science Tokyo
+2-12-1 Ookayama, Meguro-ku,
+Tokyo 152-8551, Japan
+Email: msuzuki@math.sci.isct.ac.jp
+

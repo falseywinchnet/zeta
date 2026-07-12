@@ -1,0 +1,1277 @@
+                                               SPECTRAL PROPERTIES OF THE LOGARITHMIC LAPLACIAN
+
+                                                                         ARI LAPTEV AND TOBIAS WETH
+
+
+
+
+arXiv:2009.03395v2 [math.SP] 21 Sep 2020
+                                                     A BSTRACT. We obtain spectral inequalities and asymptotic formulae for the
+                                                     discrete spectrum of the operator 21 log(−∆) in an open set Ω ∈ Rd , d ≥
+                                                     2, of finite measure with Dirichlet boundary conditions. We also derive some
+                                                     results regarding lower bounds for the eigenvalue λ1 (Ω) and compare them with
+                                                     previously known inequalities.
+
+
+                                                                                1. I NTRODUCTION
+
+                                           In the present paper, we study spectral estimates for the logarithmic Laplacian
+                                           L∆ = log(−∆), which is a (weakly) singular integral operator with Fourier sym-
+                                           bol 2 log |η| and arises as formal derivative ∂s     (−∆)s of fractional Laplacians
+                                                                                            s=0
+                                           at s = 0. The study of L∆ has been initiated recently in [CW], where its rele-
+                                           vance for the study of asymptotic spectral properties of the family of fractional
+                                           Laplacians in the limit s → 0+ has been discussed. A further motivation for the
+                                           study of L∆ is given in [JSW], where it has been shown that this operator allows
+                                           to characterize the s-dependence of solution to fractional Poisson problems for the
+                                           full range of exponents s ∈ (0, 1). The logarithmic Laplacian also arises in the
+                                           geometric context of the 0-fractional perimeter, which has been studied recently in
+                                           [DNP].
+                                           For matters of convenience, we state our results for the operator H = 21 L∆ which
+                                           corresponds to the quadratic form
+                                                                                     Z
+                                                                                 1
+                                                            ϕ 7→ (ϕ, ϕ)log :=                       ϕ(ξ)|2 dξ.
+                                                                                          log(|ξ|) | b                  (1.1)
+                                                                               (2π)d Rd
+                                           Here and in the following, we let ϕ
+                                                                             b denote the Fourier transform
+                                                                                  Z
+                                                                    ξ 7→ bϕ(ξ) =      e−ixξ ϕ(x) dx
+                                                                                Rd
+                                           of a function ϕ ∈ L2 (Rd ). Let Ω ⊂ Rd be an open set of finite measure, and let
+                                           H(Ω) denote the closure of Cc∞ (Ω) with respect to the norm
+                                                                            Z
+                                                                       2
+                                                              ϕ 7→ kϕk∗ :=                     ϕ(ξ)|2 dξ.
+                                                                                log(e + |ξ|) | b                                         (1.2)
+                                                                                      Rd
+
+                                               Department of Mathematics, Imperial College London, Huxley Building, 180 Queen’s Gate Lon-
+                                           don SW7 2AZ, UK, a.laptev@imperial.ac.uk.
+                                               Institut für Mathematik, Goethe-Universität, Frankfurt, Robert-Mayer-Straße 10, D-60629 Frank-
+                                           furt, Germany, weth@math.uni-frankfurt.de.
+2                           ARI LAPTEV AND TOBIAS WETH
+
+Then (·, ·)log defines a closed, symmetric and semibounded quadratic form with
+domain H(Ω) ⊂ L2 (Ω), see Section 2 below. Here and in the following, we
+identify L2 (Ω) with the space of functions u ∈ L2 (Rd ) with u ≡ 0 on Rd \ Ω. Let
+                          H : D(H) ⊂ L2 (Ω) → L2 (Ω)
+be the unique self-adjoint operator associated with the quadratic form. The eigen-
+value problem for H then writes as
+                          (
+                            Hϕ = λϕ,           in Ω,
+                                                                             (1.3)
+                              ϕ = 0,           on Rd \ Ω.
+We understand (1.3) in weak sense, i.e.
+                                          Z
+      ϕ ∈ H(Ω)     and   (ϕ, ψ)log = λ        ϕ(x)ψ(x) dx   for all ψ ∈ H(Ω).
+                                          Ω
+As noted in [CW, Theorem 1.4], there exists a sequence of eigenvalues
+                  λ1 (Ω) < λ2 (Ω) ≤ . . . ,      lim λk (Ω) = ∞
+                                                 k→∞
+
+and a corresponding complete orthonormal system of eigenfunctions. We note that
+the discreteness of the spectrum is a consequence of the fact that the embedding
+H(Ω) ,→ L2 (Ω) is compact. In the case of bounded open sets, the compactness
+of this embedding follows easily by Pego’s criterion [P]. In the case of unbounded
+open sets of finite measure, the compactness can be deduced from [JW, Theorem
+1.2] and estimates for k · k∗ , see Corollary 2.3 below.
+In Section 2, using the results from [CW] and [FKV], we discuss properties of
+functions from D(H). In particular, we show that eixξ x∈Ω ∈ D(H), ξ ∈ Rd ,
+provided Ω is an open bounded sets with Lipschitz boundary.
+In Section 3 we obtain a sharp upper bound for the Riesz means and for the num-
+ber of eigenvalues N (λ) of the operator H below λ. Here we use technique de-
+veloped in papers [Bz1], [Bz2], [LY] and [L]. In [Lap] it was noticed that such
+technique could be applied for a class of pseudo-differential operators with Dirich-
+let boundary conditions in domains of finite measure without any requirements on
+the smoothness of the boundary.
+We discuss lower bounds for λ1 (Ω) in Section 4. In Theorem 4.1 we present an
+estimate that is valid for arbitrary open sets of finite measure. For sets with Lips-
+chitz boundaries, H.Chen and T.Weth [CW] have proved a Faber-Krahn inequality
+for the operator H that reduces the problem to the estimate of λ1 (B), where B is
+a ball satisfying |B| = |Ω|, see Corollary 4.3. In Theorem 4.4 we find an estimate
+for λ1 (Bd ), where Bd is the unit ball, that is better in lower dimensions than the
+one obtained in Theorem 4.1. We also compare our results with bounds resulting
+from previously known spectral inequalities obtained in [BK] and [B].
+In Section 5 we obtain asymptotic lower bounds using the coherent states trans-
+formation approach given in [G]. It allows us to derive, in Section 6, asymptotics
+for the Riesz means of eigenvalues in Theorem 6.1 and for N (λ) in Corollary 6.2.
+                 SPECTRAL PROPERTIES OF THE LOGARITHMIC LAPLACIAN                      3
+
+Here Ω ⊂ RN is an arbitrary open set of finite measure without any additional
+restrictions on the boundary.
+Finally in Section 7 we obtain uniform bounds on the Riesz means of the eigen-
+values using the fact that for bounded open sets with Lipschitz boundaries we have
+eixξ x∈Ω ∈ D(H).
+
+        2. P RELIMINARIES AND BASIC PROPERTIES OF EIGENVALUES
+
+As before, let (·, ·)log denote the quadratic form defined in (1.1), and let, for an
+open set Ω ⊂ Rd , H(Ω) denote the closure of Cc∞ (Ω) with respect to the norm
+k · k∗ defined in (1.2).
+Lemma 2.1. Let Ω ⊂ Rd be an open set of finite measure. Then (·, ·)log defines a
+closed, symmetric and semibounded quadratic form with domain H(Ω) ⊂ L2 (Ω).
+
+Proof. Obviously, the form (·, ·)log is symmetric. For functions ϕ ∈ Cc∞ (Ω), we
+have
+                          (2π)d kϕk22 = k bϕk22 ≤ kϕk2∗ .                  (2.1)
+Moreover, with c1 := log(e + 2) + sup log(e+t)
+                                        log t we have
+                                     t≥2
+
+           kϕk2∗
+                               Z
+                      ϕk22 +
+                   ≤ kb                  ϕ(ξ)|2 dξ
+                                  ln |ξ|| b
+            c1              |ξ|≥2
+                                                 Z
+                         d    2
+                                                                   ϕ(ξ)|2 dξ
+                                            
+                   ≤ (2π) kϕk2 + (ϕ, ϕ)log −                ln |ξ|| b
+                                                    |ξ|≤2
+
+                   ≤ (2π)d kϕk22 + (ϕ, ϕ)log + ln | · | L1 (B2 (0)) k b
+                                                                     ϕk2∞
+                                            
+                                                                                   (2.2)
+while
+                              ϕk2∞ ≤ kϕk21 ≤ |Ω| kϕk22 .
+                             kb                                                    (2.3)
+Consequently,
+                                                                       !
+                        kϕk2∗               |Ω| ln | · | L1 (B2 (0))
+           (ϕ, ϕ)log ≥          −      1+                                  kϕk22   (2.4)
+                       (2π)d c1                     (2π)d
+                                                                !
+                           1      |Ω| ln | · | L1 (B2 (0))
+                       ≥      −1−                                   kϕk22 .
+                           c1            (2π)d
+In particular, (ϕ, ϕ)log is semibounded. Moreover, it follows from (2.4) and the
+completeness of (H(Ω), k · k∗ ) that the form (ϕ, ϕ)log is closed on H(Ω).    
+Lemma 2.2. Let Ω ⊂ Rd be an open set of finite measure. Then
+                                        (ϕ(x) − ϕ(y))2
+                            ZZ
+                      2
+              ϕ 7→ kϕk∗∗ :=                              dxdy                      (2.5)
+                               |x−y|≤1      |x − y|d
+defines an equivalent norm to the norm k · k∗ defined in (1.2) on Cc∞ (Ω).
+4                            ARI LAPTEV AND TOBIAS WETH
+
+Proof. Let ϕ ∈ Cc∞ (Ω). By [FKV, Lemma 2.7], we have
+           kϕk2 ≤ c2 kϕk∗∗       with a constant c2 > 0 independent of ϕ.      (2.6)
+In particular, k · k∗∗ defines a norm on Cc∞ (Ω). Next we note that, by [CW, Theo-
+rem 1.1(ii) and Eq. (3.1)],
+                    Z                                  Z
+                 1                                2
+   (ϕ, ϕ)log =         [L∆ϕ(x)]ϕ(x) dx = κd kϕk∗∗ −         [j ∗ ϕ]ϕ dx + ζd kϕk22
+                 2 Rd                                    Rd
+
+with
+                          d
+                      π − 2 Γ(d/2)                    1
+               κd :=               ,    ζd := log 2 + (ψ (d/2) − γ)            (2.7)
+                            4                         2
+and
+                 j : Rd \ {0} → R,       j(z) = 2κd 1Rd \Bd (z)|z|−d .
+              0
+Here ψ := ΓΓ is the Digamma function and γ = −Γ0 (1) is the Euler-Mascheroni
+constant. Consequently, we have
+                  (ϕ, ϕ)log − κd kϕk2∗∗ ≤ kjk∞ kϕk21 + ζd kϕk22
+                                                        
+                                        ≤ kjk∞ |Ω| + ζd kϕk22 .                (2.8)
+As a consequence of (2.1) and (2.8), we find that
+                            1h                                    i
+                kϕk2∗∗ ≤        (ϕ, ϕ)log + kjk∞ |Ω| + ζd kϕk22
+                                                            
+                           κd
+                               1                         
+                                                              2
+                        ≤              1 + kjk ∞ |Ω| + ζ d kϕk∗ .
+                           (2π)d κd
+Moreover, by (2.2), (2.3), (2.6) and (2.8) we have
+ kϕk2∗
+        ≤ (2π)d kϕk22 + (ϕ, ϕ)log + ln | · | L1 (B2 (0)) |Ω|kϕk22
+                                    
+   c1
+                                                    
+  ≤ (2π)d κd kϕk2∗∗ + 1 + kjk∞ |Ω| + ζd kϕk22 + ln | · | L1 (B2 (0)) |Ω|kϕk22
+                                             
+
+    ≤ c3 kϕk2∗∗
+with c3 = (2π)d κd + c2 (2π)d 1 + kjk∞ |Ω| + ζd + ln | · | L1 (B2 (0)) |Ω| . Hence
+                                                                        
+
+the norms k · k∗ and k · k∗∗ are equivalent on Cc∞ (Ω).                         
+Corollary 2.3. Let Ω ⊂ Rd be an open set of finite measure. Then the embedding
+H(Ω) ,→ L2 (Ω) is compact.
+
+Proof. Let H̃(Ω) be defined as the space of functions ϕ ∈ L2 (Rd ) with ϕ ≡ 0 on
+Rd \ Ω and
+                                (ϕ(x) − ϕ(y))2
+                    ZZ
+                                                dxdy < ∞.
+                        |x−y|≤1     |x − y|d
+By [JW, Theorem 1.2], the Hilbert space (H̃(Ω), k · k∗∗ ) is compactly embedded in
+L2 (Ω). Since, by Lemma 2.2, the norms k ·k∗ and k ·k∗∗ are equivalent on Cc∞ (Ω),
+the space H(Ω) is embedded in H̃(Ω). Hence the claim follows.                   
+                SPECTRAL PROPERTIES OF THE LOGARITHMIC LAPLACIAN                    5
+
+Corollary 2.4. Let Ω ⊂ Rd be a bounded open set with Lipschitz boundary.
+    (i) The space H(Ω) is equivalently given as the set of functions ϕ ∈ L2 (Rd )
+        with ϕ ≡ 0 on Rd \ Ω and
+                               (ϕ(x) − ϕ(y))2
+                    ZZ
+                                               dxdy < ∞.                    (2.9)
+                       |x−y|≤1    |x − y|d
+    (ii) H(Ω) contains the characteristic function 1Ω of Ω and also the restrictions
+         of exponentials x 7→ 1Ω (x) eixξ , ξ ∈ Rd .
+
+Proof. (i) Let, as in the proof of Corollary 2.3, H̃(Ω) be the space of functions
+ϕ ∈ L2 (Rd ) with ϕ ≡ 0 on Rd \ Ω and with (2.9), endowed with the norm k · k∗∗ .
+Since Ω ⊂ Rd be a bounded open set with Lipschitz boundary, it follows from
+[CW, Theorem 3.1] that C0∞ (Ω) ⊂ H̃(Ω) is dense. Hence the claim follows from
+Lemma 2.2.
+(ii) follows from (i) and a straightforward computation.                            
+
+Next we note an observation regarding the scaling properties of the eigenvalues
+λk (Ω).
+Lemma 2.5. Let Ω ⊂ Rd be a bounded open set with Lipschitz boundary, and let
+                                RΩ := {Rx : x ∈ Ω}.
+Then we have
+                       λk (RΩ) = λk (Ω) − log R       for all k ∈ N.
+
+Proof. Since C0∞ (Ω) ⊂ H(Ω) is dense, it suffices to note that
+     (ϕR , ϕR )log = (ϕ, ϕ)log − log Rkϕk2L2 (Rd )       for ϕ ∈ Cc∞ (Rd )    (2.10)
+                                                     d
+with ϕR ∈ Cc∞ (Rd ) defined by ϕR (x) = R− 2 ϕ( R
+                                                x
+                                                  ), whereas kϕR kL2 (Rd ) =
+kϕkL2 (Rd ) . Since
+                                           d
+                                   ϕ        ϕ(R · )
+                                   cR = R 2 b
+we have
+   (ϕR , ϕR )log
+                                           Rd
+              Z                                 Z
+         1                        2
+    =            log(|ξ|) |ϕ
+                           cR (ξ)| dξ =                       ϕ(Rξ)|2 dξ
+                                                    log(|ξ|) | b
+      (2π)d Rd                           (2π)d Rd
+              Z
+         1
+                                      ϕ(ξ)|2 dξ = (ϕ, ϕ)log − log Rkϕk2L2 (Rd ) ,
+                                    
+    =      d
+                  log(|ξ|) − log R | b
+      (2π) Rd
+as stated in (2.10).
+                                                                                    
+6                           ARI LAPTEV AND TOBIAS WETH
+
+                           3. A N UPPER TRACE BOUND
+
+Throughout this section, we let Ω ⊂ Rd denote an open set of finite measure.
+Let {ϕk } and {λk } be the orthonormal in L2 (Ω) system of eigenfunctions and the
+eigenvalues of the operator H respectively. In what follows we denote
+                                    (
+                                      λ − t, if t < λ,
+                         (λ − t)+ =
+                                      0,       if t ≥ λ.
+Then we have
+Theorem 3.1. For the eigenvalues of the problem (1.3) and any λ ∈ R we have
+                   X                   1
+                      (λ − λk )+ ≤         |Ω| edλ |Bd | d−1 ,           (3.1)
+                                     (2π)d
+                       k
+
+where |Bd | is the measure of the unit ball in Rd .
+
+Proof. Extending the eigenfunction ϕk by zero outside Ω and using the Fourier
+transform we find
+   X               X
+      (λ − λk )+ =     (λ(ϕk , ϕk ) − (Hϕk , ϕk ))+
+    k                 k
+                                                                           !
+                     1       XZ
+                                                                      2
+                 =                      (λ − log(|ξ|)) ϕ
+                                                       |ck (ξ)| dξ
+                   (2π)d           Rd
+                               k                                               +
+                                               Z
+                                       1                                    X
+                                   ≤                    (λ − log(|ξ|))+            |ck (ξ)|2 dξ.
+                                                                                    ϕ
+                                     (2π)d     Rd                              k
+
+Using that {ϕk } is an orthonormal basis in L2 (Ω) and denoting eξ = e−i(·,ξ) we
+have           X                X
+                    |ck (ξ)|2 =
+                     ϕ            |(eξ , ϕk )|2 = keξ k2L2 (Ω) = |Ω|,
+                 k                 k
+and finally obtain
+                                               Z
+               X                     1
+                   (λ − λk )+ ≤          |Ω|            (λ − log(|ξ|))+
+                                   (2π)d           Rd
+                 k
+                                                        Z
+                                     1
+                               =         |Ω| edλ                 log(|ξ|−1 ) dξ.
+                                   (2π)d                 |ξ|≤1
+We complete the proof by computing the last integral.                                              
+
+Let η > λ and let us consider the function
+                                         1
+                            ψλ (t) =       (η − t)+ .
+                                      η−λ
+Denote by χ the step function
+                                    (
+                                      1,    if t < λ,
+                          χλ (t) =
+                                      0,    if t ≥ λ,
+                SPECTRAL PROPERTIES OF THE LOGARITHMIC LAPLACIAN                     7
+
+and let
+                           N (λ) = #{k : λk < λ},
+be the number of the eigenvalues below λ of the operator H.
+Then by using the previous statement we have
+                    1 X                    1     1
+        N (λ) ≤             (η − λk )+ ≤             |Ω| edη |Bd | d−1 .
+                  η−λ                    η − λ (2π)d
+                            k
+
+Minimising the right hand side w.r.t. η we find η = λ + d1 and thus obtain the
+following
+Corollary 3.2. For the number N (λ) of the eigenvalues of the operator H below
+λ we have
+                                         1
+                         N (λ) ≤ eλd+1        |Ω| |Bd |.                  (3.2)
+                                       (2π)d
+
+                         4. A LOWER BOUND FOR λ1 (Ω)
+
+In this section, we focus on lower bounds for the first eigenvalue λ1 = λ1 (Ω).
+From Corollary 3.2, we readily deduce the following bound.
+Theorem 4.1. Let Ω ⊂ Rd be an open set of finite measure. Then we have
+                                           1       (2π)d
+                                λ1 (Ω) ≥     log            .                   (4.1)
+                                           d     e|Ω| |Bd |
+                           d
+In particular, if |Ω| ≤ e(2π)
+                          |Bd | , then the operator H does not have negative eigenval-
+ues.
+                       (2π)d
+Proof. If λ < d1 log e|Ω| |Bd | , then N (λ) < 1 by (3.2), and therefore N (λ) = 0.
+                                                         (2π)      d
+Consequently, H does not have eigenvalues below d1 log e|Ω| |Bd | .                
+Remark 1. Note that the inequalities (3.1), (3.2) and (4.1) hold for any open set
+Ω of finite measure without any additional conditions on its boundary.
+
+In the following, we wish to improve the bound given in Theorem 4.1 in low di-
+mensions d for open boundary sets with Lipschitz boundary. We shall use the
+following Faber-Krahn type inequality.
+Theorem 4.2. ([CW, Corollary 1.6])
+ Let ρ > 0. Among all bounded open sets Ω with Lipschitz boundary and |Ω| = ρ,
+the ball B = Br (0) with |B| = ρ minimizes λ1 (Ω).
+Corollary 4.3. For every open bounded sets Ω with Lipschitz boundary we have
+                                                   1     |Bd |
+                          λ1 (Ω) ≥ λ1 (Bd ) +        log       ,                (4.2)
+                                                   d      |Ω|
+and equality holds if Ω is a ball.
+8                                     ARI LAPTEV AND TOBIAS WETH
+
+Proof. The result follows by combining Theorem 4.2 with the identity
+
+                                                                   1
+                    λ1 (Br (0)) = λ1 (Bd ) + log                           for r > 0,
+                                                                   r
+
+which follows from the scaling property of λ1 noted in Lemma 2.5.                                     
+
+
+Corollary 4.3 gives a sharp lower bound, but it contains the unknown quantity
+λ1 (Bd ). By Theorem 4.1, we have
+
+                             1     (2π)d               1              
+            λ1 (Bd ) ≥         log       2
+                                           = log(2π) − 1 + 2 log |Bd |
+                             d     e|Bd |              d
+                             2                       2   d 1
+                            = log Γ (d/2) + log 2 + log − .                                       (4.3)
+                             d                       d   2 d
+
+The following theorem improves this lower bound in low dimensions d ≥ 2.
+
+Theorem 4.4. For d ≥ 2, we have
+
+                                                                                        d
+                                 √      2d+1 |Bd |2 (d + 2) 2
+                 λ1 (Bd ) ≥ log 2 d + 2 −                      .                                  (4.4)
+                                               d(2π)2d
+
+
+Proof. Let u ∈ L2 (Bd ) be radial with kukL2 = 1. Then u
+                                                       b is also radial, and
+
+                                          Z 1
+                                      d                                d
+    |b        u(s)| = s1− 2
+     u(ξ)| = |b                                 u(r)J d −1 (rs)r 2 dr
+                                                        2
+                                           0
+                        Z 1                            1/2 Z 1                        1/2
+                1− d2                 d−1 2                                2
+           ≤s                     r       u (r) dr                     rJ d −1 (sr) dr
+                             0                                     0       2
+
+                   1− d2             Z s                   1/2
+             s
+           =p                     s−2     τ J 2d −1 (τ ) dτ
+             |S d−1 |                       0       2
+
+                        d                                    1/2
+             s− 2
+                                 Z s
+                                                2
+           =p                             τ J d −1 (τ ) dτ                 for ξ ∈ Rd with s = |ξ|.
+             |S d−1 |                 0         2
+
+
+
+
+Consequently,
+                                                             Z s
+                                     u(s)|2 ≤ s−d
+                            |S d−1 ||b                             τ J 2d −1 (τ ) dτ.
+                                                              0        2
+                           SPECTRAL PROPERTIES OF THE LOGARITHMIC LAPLACIAN                                        9
+
+In the case where, in addition, u is a radial eigenfunction of (1.3) corresponding to
+λ1 in Ω = Bd , it follows that, for every λ ∈ R,
+                      Z                               Z
+(2π)d [λ − λ1 ] =                        u(ξ)|2 dξ ≤
+                            (λ − ln |ξ|)|b                  (λ − ln |ξ|)+ |b   u(ξ)|2 dξ
+                        R d                             R d
+            Z ∞                                     Z ∞
+                                                            (λ − ln s)+ s 2
+                                                                              Z
+       d−1          d−1                      2
+ = |S |            s (λ − ln s)+ |b     u(s)| ds ≤                               τ J d −1 (τ ) dτ ds
+               0                                      0             s          0     2
+    Z ∞                 Z ∞                         Z eλ                   Z eλ
+                               (λ − ln s)+                                       λ − ln s
+ =       τ J 2d −1 (τ )                    dsdτ =           τ J 2d −1 (τ )                   dsdτ
+     0        2          τ          s                 0          2          τ          s
+    Z eλ                Z λ                    Z eλ                 Z λ−ln τ
+ =       τ J 2d −1 (τ )       (λ − s) dsdτ =        τ J 2d −1 (τ )             s dsdτ
+      0            2           ln τ                            0           2          0
+         Z eλ                                                 2λ Z 1
+     1                                      2              e
+ =                τ J 2d −1 (τ ) λ − ln τ        dτ =                     τ J 2d −1 (eλ τ ) ln2 τ dτ.
+     2    0            2                                     2        0        2
+
+We now use the following estimate for Bessel functions of the first kind:
+                   xν                 √                   p
+     Jν (x) ≤ ν              for ν > 3 − 2, 0 ≤ x < 2 2(ν + 2).                                                (4.5)
+              2 Γ(ν + 1)
+A proof of this elementary estimate is given in the Appendix. We wish to apply
+(4.5) with ν = d2 − 1. This gives
+                                           τ d−2         d2 |Bd |2 edλ d−2
+     e2λ J 2d −1 (r0 eλ τ ) ≤ edλ                      =              τ                        for τ ∈ [0, 1]
+              2                         2d−2 Γ2 ( d2 )      (2π)d
+                   √
+if d ≥ 2 and eλ ≤ 2 d + 2, i.e., if
+                                                                    √     
+                                      d≥2       and        λ ≤ log 2 d + 2 .                                   (4.6)
+                                            d
+Here we used that |Bd | = d2 Γ(d/2)
+                              π2
+                                    . Consequently, if (4.6) holds, we find that
+
+                                     d2 |Bd |2 edλ 1 d−1 2
+                                                  Z
+                     d
+                (2π) [λ − λ1 ] ≤                     τ     ln τ dτ,
+                                        (2π)d      0
+where
+           Z 1                                   Z 1                               Z 1
+                       d−1     2         2                 d−1             2                            2
+                   τ         ln τ dτ = −               τ         ln τ dτ = 2              τ d−1 dτ =       .
+              0                          d        0                       d          0                  d3
+Hence
+                            2|Bd |2 dλ                   2|Bd |2 dλ
+                (2π)d [λ − λ1 ] ≤  e   , i.e., λ1 ≥ λ −         e .
+                            d(2π)d                      d(2π)2d
+                             √       
+Inserting the value λ = log 2 d + 2 from (4.6), we deduce that
+                                                                                                 d
+                                                      √
+                                                     2d+1 |Bd |2 (d + 2) 2
+                                                                  
+                       λ1 = λ1 (Bd ) ≥ log 2 d + 2 −                       ,
+                                                           d(2π)2d
+as claimed.                                                                                                      
+10                              ARI LAPTEV AND TOBIAS WETH
+
+Remark 2. It seems instructive to compare the lower bounds given in (4.3) and
+(4.4) with other bounds obtained from spectral estimates which are already avail-
+able in the literature. We first mention Beckner’s logarithmic estimate of uncer-
+tainty [B, Theorem 1], which implies that1
+                  Z                      
+                                       2
+     (ϕ, ϕ)log ≥        ψ (d/4) + log       ϕ2 (x)dx ≥ [ψ (d/4) + log 2] kϕk22
+                    Rd                |x|
+for functions ϕ ∈ Cc∞ (Bd ) and therefore
+                                λ1 (Bd ) ≥ ψ (d/4) + log 2.                                 (4.7)
+                           Γ0
+Here, as before, ψ = Γ denotes the Digamma function. Next we state a further
+lower bound for (ϕ, ϕ)log which follows from [CW, Proposition 3.2 and Lemma
+4.11]. We have
+                       (ϕ, ϕ)log ≥ ζd kϕk22          for ϕ ∈ Cc∞ (Bd ),                     (4.8)
+where ζd is given in (2.7), i.e.,
+                                                      d−1
+                                              
+                                                      2
+                                                      X 1
+                                              
+                                                − γ +            ,               d odd,
+                                              
+                                              
+                                                          2k − 1
+                                              
+                                              
+                   1                          
+                                            k=1
+       ζd = log 2 + (ψ(d/2) − γ) =
+                   2                            d−2
+                                                  2
+                                   
+                                                X1
+                                     log 2 − γ +       ,                         d even.
+                                   
+                                   
+                                   
+                                                    k
+                                                                 k=1
+Inequality (4.8) implies that
+                                  λ1 (Bd ) ≥ ζd .                            (4.9)
+The latter inequality can also be derived from a lower bound of Bañuelos and
+Kulczycki for the first Dirichlet eigenvalue λα1 (Bd ) of the fractional Laplacian
+(−∆)α/2 in Bd . In [BK, Corollary 2.2], it is proved that
+                                   Γ(1 + α2 )Γ( d+α
+                                                 2 )
+                  λα1 (Bd ) ≥ 2α                              for α ∈ (0, 2).
+                                          Γ( d2 )
+Combining this inequality with the characterization of λ1 (Bd ) given in [CW, The-
+orem 1.5], we deduce that
+                           λα1 (Bd ) − 1    d        Γ(1 + α2 )Γ( d+α
+                                                                   2 )
+        λ1 (Bd ) = lim                   ≥        2α          d
+                                                                       = ζd ,
+                      α→0+       α         dα α=0         Γ( 2 )
+as stated in (4.9).
+We briefly comment on the quality of the lower bounds obtained here in low and
+high dimensions. In low dimensions d ≥ 2, (4.4) is better than the bounds (4.3),
+(4.7) and (4.9). In dimension d = 1 where the bound (4.4) is not available, the
+bound (4.3) yields the best value. The following table shows numerical values
+of the bounds b1 (d), b2 (d), b3 (d) resp. b4 (d) given by (4.3), (4.4), (4.7), (4.9),
+respectively.
+   1We note here that a different definition of Fourier transform is used in [B] and therefore the
+inequality looks slightly different
+                    SPECTRAL PROPERTIES OF THE LOGARITHMIC LAPLACIAN                                       11
+
+       d        1          2        3        4       5       6        7        8       9       10
+       b1 (d)   −0, 55     0, 19    0, 55    0, 79   0, 97   1, 12    1, 25    1, 36   1, 46   1, 55
+       b2 (d)       /      1, 28    1, 48    1, 59   1, 67   1, 73    1, 79    1, 84   1, 89   1, 94
+       b3 (d)   −3.53      −1, 27   −0, 39   0, 12   0, 47   0, 73    0, 94    1, 12   1, 27   1, 40
+       b4 (d)   −0, 58     0, 12    0, 42    0, 62   0, 76   0, 87    0, 96    1, 03   1, 10   1, 16
+
+
+To compare the bounds in high dimensions, we consider the asymptotics as d →
+∞. Since log tΓ(t) = log t − 1 + o(t) as t → ∞, the bound (4.3) yields
+                         λ1 (Bd ) ≥ log d − 1 + o(1)                 as d → ∞,                         (4.10)
+whereas (4.4) obviously gives
+                            √
+              λ1 (Bd ) ≥ log d + 2 + log 2 + o(1)                             as d → ∞,                (4.11)
+Moreover, from (4.7) and the fact that
+                                ψ(t) = log t + o(1)              as t → ∞,                             (4.12)
+we deduce that
+                        λ1 (Bd ) ≥ log d − log 2 + o(1)               as d → ∞,                        (4.13)
+Finally, (4.8) and (4.12) yield
+                              √           γ
+               λ1 (Bd ) ≥ log d + log 2 − + o(1)       as d → ∞.                                       (4.14)
+                                          2
+So (4.13) provides the best asymptotic bound as d → ∞.
+Numerical computations indicate that the bound (4.4) is better than the other
+bounds for 2 ≤ d ≤ 21, and (4.7) is the best among these bounds for d ≥ 22.
+
+                        5. A N ASYMPTOTIC LOWER TRACE BOUND
+
+Throughout this section, we let Ω ⊂ Rd denote an open set of finite measure. In
+this section we prove the following asymptotic lower bound. A similar statement
+was obtained in [G] for the Dirichlet boundary problem for a fractional Laplacian.
+Theorem 5.1. For the eigenvalues of the problem (1.3) and any λ ∈ R we have
+                           X                   1
+              lim inf e−dλ    (λ − λk )+ ≥         |Ω| |Bd | d−1 .       (5.1)
+               λ→∞                           (2π)d
+                                        k
+
+Proof. Let us fix δ > 0 and consider
+                               Ωδ = {x ∈ Ω : dist(x, Rd \ Ω) > δ}.
+Since δ is arbitrary it suffices to show the lower bound (5.1), where Ω is replaced by
+Ωδ . Let g ∈ C0∞ (Rd ) be a real-valued even function, kgkL2 (Rd ) = 1 with support
+in {x ∈ Rd : |x| ≤ δ/2}. For ξ ∈ Rd and x ∈ Ωδ we introduce the “coherent
+state”
+                                eξ,y (x) = e−iξx g(x − y).
+12                           ARI LAPTEV AND TOBIAS WETH
+
+Note that keξ,y kL2 (Rd ) = 1. Using the properties of coherent states [LL, Theorem
+12.8] we obtain
+                                   Z Z
+        X                      1
+            (λ − λk )+ ≥                   (eξ,y , (λ − H)+ eξ,y )L2 (Ω) dydξ.
+                            (2π)d Rd Ωδ
+              k
+
+Since t 7→ (λ − t)+ is convex then applying Jensen’s inequality to the spectral
+measure of H we obtain
+                            Z Z
+     X                  1                                     
+         (λ − λk )+ ≥     d
+                                     λ − (Heξ,y , eξ,y )L2 (Ω) + dydξ.    (5.2)
+                      (2π) Rd Ωδ
+         k
+
+Next we consider the quadratic form
+                                   Z Z Z
+                             1
+  (Heξ,y , eξ,y )L2 (Ω) =                    ei(x−z)(η−ξ) g(x−y)g(z−y) log(|η|) dzdxdη
+                           (2π)d Rd Ω Ω
+                   Z Z Z
+             1
+       =                       ei(x−z)ρ g(x − y)g(z − y) log(|ξ − ρ|) dzdxdρ
+           (2π)d Rd Ω Ω
+           Z Z Z
+     1
+=                       ei(x−z)ρ g(x−y)g(z−y) (log |ξ| + log (|ξ − ρ| /|ξ|)) dzdxdρ
+   (2π)d Rd Ω Ω
+                                                              = log |ξ| + R(y, ξ).
+
+Since g ∈ C0∞ (Rd ) we have for any M > 0
+
+     R(y, ξ) =
+            Z Z Z
+       1
+                       ei(x−y)ρ g(x − y)ei(y−z)ρ g(z − y) log (|ξ − ρ| /|ξ|) dzdxdρ
+     (2π)d Rd Ω Ω
+        Z                                    Z
+      =     |b  2
+             g | log (|ξ − ρ| /|ξ|) dρ ≤ CM       (1 + |ρ|)−M log (|ξ − ρ| /|ξ|) dρ
+         Rd                                      Rd
+                                                                       ≤ C |ξ|−1 .
+Therefore from (5.2) we find
+         X                           Z
+                              −d
+             (λ − λk )+ ≥ (2π) |Ωδ |   (λ − log |ξ| − C|ξ|−1 )+ dξ.             (5.3)
+                  k                         Rd
+
+Let us redefine the spectral parameter λ = ln µ. Then introducing polar coordinates
+we find
+  Z                                           Z ∞             
+                           −1            d−1            µ C
+       (λ − log |ξ| − C|ξ| )+ dξ = S                ln −           rd−1 dr
+    Rd                                         0        r    r   +
+                                               Z ∞              
+                                                          1   C
+                                  = µd Sd−1           ln −           rd−1 dr (5.4)
+                                                 0        r   µr   +
+
+The expression in the latter integral is positive if −r ln r > Cµ−1 . The function
+−r ln r is concave.
+                SPECTRAL PROPERTIES OF THE LOGARITHMIC LAPLACIAN                    13
+
+
+
+
+Its maximum is achieved at r = 1/e at the value 1/e. The equation −r ln r =
+Cµ−1 has two solutions r1 (µ) and r2 (µ) such that r1 (µ) → 0 and r2 (µ) → 1 as
+µ → ∞ Therefore
+   Z ∞                         Z r2 (µ)             
+           1    C      d−1                    1    C
+         ln −         r dr ≥                ln −         rd−1 dr
+    0      r µr +                  r1 (µ)     r µr
+    1        r2 (µ)      C          r2 (µ)   1    r2 (µ)   1
+ = − rd ln r        +          rd+1        + 2 rd        → 2          as   µ → ∞.
+    d        r1 (µ)   µ(d + 1)      r1 (µ)  d     r1 (µ)  d
+                                                                               (5.5)
+Putting together (5.3), (5.4) and (5.5) and using µ = eλ we obtain
+                              X                   1
+               lim inf e−dλ      (λ − λk )+ ≥         |Ωδ | |Bd | d−1 .
+                λ→∞                             (2π)d
+                               k
+Since δ > 0 is arbitrary we complete the proof of Theorem 5.1.
+                                                                                    
+
+                              6. W EYL ASYMPTOTICS
+
+Throughout this section, we let Ω ⊂ Rd denote an open set of finite measure.
+Combining Theorems 3.1 and 5.1 we have
+Theorem 6.1. The Riesz means of the eigenvalues of the Dirichlet boundary value
+problem (1.3) satisfy the following asymptotic formula
+                              X                  1
+                  lim e−dλ       (λ − λk )+ =       |Ω| |Bd | d−1 .        (6.1)
+                 λ→∞                          (2π)d
+                               k
+
+As a corollary we can obtain asymptotics of the number of the eigenvalues of the
+operator H.
+Corollary 6.2. The number of the eigenvalues N (λ) of the Dirichlet boundary
+value problem (1.3) below λ satisfies the following asymptotic formula
+                                               1
+                        lim e−dλ N (λ) =           |Ω| |Bd |.           (6.2)
+                       λ→∞                   (2π)d
+
+Proof. In order to prove (6.2) we use two simple inequalities. If h > 0, then
+                   (λ + h − λk )+ − (λ − λk )+
+                                                ≥ 1(−∞, λ) (λk )              (6.3)
+                                h
+14                            ARI LAPTEV AND TOBIAS WETH
+
+and
+                    (λ − λk )+ − (λ − h − λk )+
+                                                ≤ 1(−∞, λ) (λk )             (6.4)
+                                 h
+The inequality (6.3) implies, together with Theorems 3.1 and 5.1, that
+                                       X (λ + h − λk )+ − (λ − λk )+
+  lim sup e−dλ N (λ) ≤ lim sup e−dλ
+    λ→∞                   λ→∞                          h
+                                        k
+      1 h dh                   X                                X              i
+  ≤      e lim sup e−d(λ+h)       (λ + h − λk )+ − lim inf e−dλ     (λ − λk )+
+     h       λ→∞                                    λ→∞
+                                  k                                     k
+       |Ω||Bd | edh − 1
+     ≤                        for every h > 0
+       d(2π)d      h
+and thus
+                                       |Ω||Bd |     edh − 1   |Ω| |Bd |
+              lim sup e−dλ N (λ) ≤              lim         =           .    (6.5)
+                λ→∞                    d(2π)d h→0+     h       (2π)d
+Moreover, (6.3) implies, together with Theorems 3.1 and 5.1, that
+                                  X (λ − λk )+ − (λ − h − λk )+
+lim inf e−dλ N (λ) ≥ lim inf e−dλ
+ λ→∞                  λ→∞                          h
+                                    k
+   1 dh
+     h                 X                                       X                 i
+≥      e lim inf e−dλ      (λ − λk )+ − e−dh lim sup e−d(λ−h)     (λ − h − λk )+
+   h       λ→∞                                 λ→∞
+                          k                                         k
+  |Ω||Bd | 1 − e−dh
+≥                             for every h > 0
+  d(2π)d      h
+and therefore
+                                      |Ω||Bd |      1 − e−dh   |Ω| |Bd |
+             lim inf e−dλ N (λ) ≥          d
+                                               lim           =           .   (6.6)
+              λ→∞                     d(2π) h→0   +    h        (2π)d
+The claim follows by combining (6.5) and (6.6).                                    
+
+                      7. A N EXACT LOWER TRACE BOUND
+
+In this section we prove the following exact lower bound in the case of bounded
+open sets with Lipschitz boundary.
+Theorem 7.1. Let Ω ⊂ Rd , N ≥ 2 be an open bounded set with Lipschitz bound-
+ary, let τ ∈ (0, 1), and let
+                               Z
+                            1
+             CΩ,τ :=               (1 + |ρ|)τ log(1 + |ρ|)|1c     2
+                                                            Ω (ρ)| dρ,  (7.1)
+                       |Ω|(2π)d Rd
+where 1Ω denotes the indicator function of Ω.
+For any λ ≥ 2CΩ,τ , we have
+X              |Ω| |Bd | h dλ           (d−τ )λ       2   (d−2τ )λ
+                                                                           i
+    (λ−λk )+ ≥            e   − a C
+                                 τ Ω,τ e        − b C
+                                                   τ Ω,τ e         − (dλ+1)
+                (2π)d d
+ k
+                SPECTRAL PROPERTIES OF THE LOGARITHMIC LAPLACIAN                    15
+
+
+with aτ := d(d−τ
+              d−τ
+                 )−1
+                     and bτ := 4dτ .
+Remark 3. In the definition of CΩ,τ , we need τ < 1, otherwise the integral might
+not converge. In particular, if Ω = Bd is the unit ball in Rd , we have
+                                             d
+                                                  −d
+                                Ω (ρ) = (2π) 2 |ρ| 2 J d (|ρ|)
+                               1c
+                                                           2
+
+where J d (r) = O( √1r ) as r → ∞. Hence the integral defining CΩ,τ converges if
+        2
+τ < 1. A similar conclusion arises for cubes or rectangles, where
+                                Ω (ρ) = f1 (ρ1 ) · · · · · fd (ρd )
+                               1c
+and fj (s) = O( 1s ) as |s| → ∞, j = 1, . . . , d.
+On the other hand, if Ω ⊂ Rd is an open bounded set with Lipschitz boundary, we
+have
+                         CΩ,τ < ∞       for τ ∈ (0, 1).                   (7.2)
+Indeed, in this case, Ω has finite perimeter, i.e., 1Ω ∈ BV (Rd ). Therefore, as noted
+e.g. in [Lom, Theorem 2.14], Ω also has finite fractional perimeter
+                                                           (1Ω (x) − 1Ω (y))2
+              Z Z                                   ZZ
+                                 −d−τ            1
+    Pτ (Ω) =             |x − y|       dxdy =                                 dxdy
+                Ω Rd \Ω                          2     R2d     |x − y|d+τ
+for every τ ∈ (0, 1). Moreover, Pτ (Ω) coincides, up to a constant, with the integral
+                                Z
+                                    |ρ|τ |1c     2
+                                           Ω (ρ)| dρ
+                                      Rd
+which therefore is also finite for every τ ∈ (0, 1). Since moreover 1Ω and therefore
+also 1c                     2   d
+      Ω are functions in L (R ) and for every ε > 0 there exists Cε > 0 with
+
+            (1 + |ρ|)τ log(1 + |ρ|) ≤ Cε 1 + |ρ|τ +ε         for ρ ∈ Rd ,
+                                                        
+
+it follows that (7.2) holds.
+
+In the proof of Theorem 7.1, we will use the following elementary estimate.
+Lemma 7.2. For r ≥ 0, s > 0 and τ ∈ (0, 1), we have
+                         r 1
+                  log 1 +     ≤ log(1 + r)        if s ∈ (0, 1)             (7.3)
+                          s     s
+and
+                       r  (1 + r)τ
+               log 1 +      ≤           log(1 + r)      if s ≥ 1.           (7.4)
+                        s        sτ
+In particular,
+                                
+               r          1 1
+       log 1 +      ≤ max     ,     (1 + r)τ log(1 + r)       for r, s > 0.
+                s           s sτ
+Remark 4. The obvious bound log(1+ rs ) ≤ rs will not be enough for our purposes.
+We need an upper bound of the form g(s)h(r) where h grows less than linearly in
+r.
+16                                  ARI LAPTEV AND TOBIAS WETH
+
+Proof of Lemma 7.2. Let first s ∈ (0, 1). Since
+                             r                1
+                     log 1 +            = 0 = log(1 + r)
+                              s r=0             s            r=0
+and, for every r > 0,
+               d          r       1          1       d 1
+                  log 1 +      =         ≤          =       log(1 + r),
+              dr           s      s+r       s + sr     dr s
+inequality (7.3) follows. To see (7.4), we fix s > 1, and we note that
+                         r               (1 + r)τ
+                 log 1 +           =0=              log(1 + r)      .
+                          s r=0                sτ               r=0
+Moreover, for 0 < r ≤ s − 1, we have
+             d (1 + r)τ                (1 + r)τ −1
+                          log(1 + r) =             (1 + τ log(1 + r))
+            dr      sτ                      sτ
+                 (1 + r)τ −1    1     1        d           r
+             ≥               ≥    ≥        =     log   1  +    ,
+                     sτ         s    s+r      dr            s
+so the inequality holds for r ≤ s − 1. If, on the other hand, r ≥ s − 1, we have
+obviously
+                         r                  (1 + r)τ
+                log 1 +       ≤ log(1 + r) ≤             log(1 + r).
+                          s                      sτ
+                                                                              
+
+We may now complete the
+
+Proof of Theorem 7.1. For ξ ∈ Rd , we define fξ ∈ L2 (Rd ) by fξ (x) =
+√1 1Ω e−ixξ . Note that kfξ kL2 (Rd ) = 1 for any ξ ∈ Rd . We write
+     |Ω|
+ X                         X                                  1 X
+           (λ − λk )+ =         (λ − λk )+ kϕk k2L2 (Ω) =                     ϕk k2L2 (Rd )
+                                                                  (λ − λk )+ kc
+                                                            (2π)d
+     k                      k                                      k
+                           |Ω| X
+                                              Z
+                        =          (λ − λk )+      |hfξ , ϕk i|2 dξ
+                          (2π)d                Rd
+                                 k
+                           |Ω|
+                                Z X
+                        =              (λ − λk )+ |hfξ , ϕk i|2 dξ.
+                          (2π)d Rd
+                                          k
+
+                |hfξ , ϕk i|2 = kfξ k2L2 (Rd ) = 1 for ξ ∈ Rd , Jensen’s inequality gives
+           P
+Since
+            k
+                                 |Ω|
+         X                              Z  X                 X                 
+                (λ − λk )+ ≥               λ  |hfξ , ϕk i|2 −   λk |hfξ , ϕk i|2 dξ
+                                (2π)d    Rd                                          +
+           k                                   k                   k
+                              |Ω|
+                                  Z      X                    
+                                                             2
+                           =          λ −    λ k |hfξ , ϕk i|      dξ
+                             (2π)d Rd                            +
+                                           k
+                              |Ω|
+                                  Z                 
+                           =          λ − (Hf ,
+                                             ξ ξf  )     dξ.                                (7.5)
+                             (2π)d Rd                  +
+                SPECTRAL PROPERTIES OF THE LOGARITHMIC LAPLACIAN                         17
+
+Here, since
+                            Z                     Z
+                               −i(η−ξ)x −ixξ
+                                                    e−iηx dx = 1c
+        p
+           |Ω| fξ (η − ξ) =
+               b              e        e     dx =               Ω (η)
+                               Ω                             Ω
+
+for η, ξ ∈ Rd , we have
+                            Z                                Z
+|Ω|(2π)d (Hfξ , fξ ) = |Ω|       log |η||fbξ (η)|2 dη = |Ω|       log |η − ξ||fbξ (η − ξ)|2 dη
+                              Rd                               Rd
+   Z                                Z
+                            2                                                    2
+ =      log |η − ξ||1cΩ (η)| dη ≤        [log |ξ| + log(1 + |η|/|ξ|)] |1c Ω (η)| dη
+     Rd                               Rd
+           Z                                     Z
+                        2                1     1
+ ≤ log |ξ|      |1c
+                  Ω (η)| dη + max          , τ           (1 + |η|)τ (log(1 + |η|)|1c       2
+                                                                                     Ω (η)| dη
+            R d                        |ξ|    |ξ|     Rd
+                                          
+                                 1    1            
+ = |Ω|(2π)d log |ξ| + max           ,          CΩ,τ        for ξ ∈ Rd ,                (7.6)
+                                 |ξ| |ξ|τ
+where CΩ,τ is defined in (7.1). Here we used Lemma 7.2. Combining (7.5) and
+(7.6), we get
+                                                            
+                     |Ω|
+                          Z 
+   X                                                 1 1             
+       (λ − λk )+ ≥             λ − log |ξ| − max      ,       C Ω,τ     dξ. (7.7)
+                    (2π)d Rd                        |ξ| |ξ|τ           +
+    k
+
+Let us redefine the spectral parameter λ = log µ again. Then we find
+        Z                                 
+                                    1 1            
+             λ − log |ξ| − max        , τ CΩ,τ dξ
+         Rd                        |ξ| |ξ|           +
+                  Z ∞                                
+             d−1              µ           1 1
+        = S              log − max          ,     CΩ,τ      rd−1 dr
+                    0         r            r rτ          +
+                      Z ∞                                      
+                                                  1     1    CΩ,τ
+        =µ Sd   d−1
+                             − log r − max            ,             rd−1 dr
+                       0                        µ1−τ r rτ     µτ +
+                      Z ∞                       
+            d   d−1                      1 CΩ,τ
+        ≥µ S                 − log r − τ τ           rd−1 dr.               (7.8)
+                       1                r µ        +
+                          µ
+
+                                                 1
+For the last inequality, we used the fact that µ1−τ r
+                                                      ≤ r1τ for r ≥ µ1 .
+                                                                 CΩ,τ
+Next we note that the function r 7→ fµ (r) = − log r − r1τ        µτ satisfies
+
+              fµ (r) < 0 for r ≥ 1             and       lim fµ (r) = −∞.            (7.9)
+                                                        r→0+
+                                                                                     1
+Moreover, this function has two zeros r1 (µ), r2 (µ) with 0 < r1 (µ) <               µ   <
+r2 (µ) < 1 and
+                 fµ (r) ≥ 0         if and only if    r1 (µ) ≤ r ≤ r2 (µ).
+To see this, we write
+                        1                                    s       CΩ,τ
+             fµ (r) =      g(rτ )       with         g(s) = − log s − τ
+                        rτ                                   τ        µ
+18                              ARI LAPTEV AND TOBIAS WETH
+
+and note that g is strictly concave since s 7→ g 0 (s) = − τ1 − log s is strictly decreas-
+ing. Consequently, g has at most two zeros, and the same is true for f . Combining
+this with (7.9) and the fact that
+
+                                f (1/µ) = log µ − CΩ,τ > 0
+
+since λ ≥ 2CΩ,τ > CΩ,τ by assumption, the claim above follows. From (7.8), we
+thus obtain the lower bound
+            Z 
+                                      1 1           
+                  λ − log |ξ| − max        , τ CΩ,τ dξ                  (7.10)
+              Rd                        |ξ| |ξ|        +
+                               Z r2 (µ)                   
+                     d   d−1                        1 CΩ,τ
+                 ≥µ S                     − log r − τ τ        rd−1 dr.
+                                1                  r µ       +
+                                      µ
+
+
+
+Next, we claim that
+                                                         r
+                                                                  4τ CΩ,τ
+                                                                                
+                                                     1
+                                                    2τ
+                                                             1−      µτ
+                                                                            −1
+                         r2 (µ) ≥ r3 (µ) := e                                       .                      (7.11)
+
+                      4τ CΩ,τ       4τ CΩ,τ
+Here we note that        µτ     =     eτ λ
+                                               < 1 since λ ≥ 2CΩ,τ by assumption. To see
+(7.11), we write
+                                                                                 s
+                       C
+                    −cµ µΩ,τ
+                          τ
+                                                        µτ                                  4τ CΩ,τ 
+      r3 (µ) = e                    with         cµ =         1−                        1−             ,
+                                                      2τ CΩ,τ                                  µτ
+
+noting that
+                                    τ CΩ,τ 2
+                                          c − cµ + 1 = 0
+                                      µτ µ
+
+and therefore
+                     cµ CΩ,τ
+                 −      µτ
+                               cµ CΩ,τ        1      CΩ,τ
+f (r3 (µ)) = f (e              )=  τ
+                                       −     cµ CΩ,τ
+                                 µ         −τ µτ       µτ
+                                         e
+                          cµ C
+       CΩ,τ      
+                        −τ µτΩ,τ
+                                                CΩ,τ                cµ CΩ,τ      
+=        cµ CΩ,τ   cµ e           −1 h≥            cµ CΩ,τ   cµ 1 − τ           − 1   = 0.
+       −τ µτ                                    −τ µτ                   µτ
+  µτ e                                      µτ e
+                                                                            √                               2
+This proves (7.11). As a consequence of the inequality                          1 − a ≥ 1 − a2 − a2 for
+0 ≤ a ≤ 1, we also have
+                                                        2
+                                                    4τ CΩ,τ
+                                              CΩ,τ
+                                                              
+                                          −    µτ
+                                                   + 2τ
+                           r3 (µ) ≥ e                 µ           =: r4 (µ).
+                SPECTRAL PROPERTIES OF THE LOGARITHMIC LAPLACIAN                        19
+
+Consequently,
+  Z 
+                          1 1              
+      λ − log |ξ| − max        , τ CΩ,τ dξ
+   Rd                       |ξ| |ξ|           +
+                   Z r4 (µ)                      
+          d   d−1                         1 CΩ,τ
+      ≥µ S                    − log r − τ τ           rd−1 dr
+                     1                   r µ        +
+                    µ
+                   h rd             1           CΩ,τ        ir4 (µ)
+      = µd Sd−1 − log r + 2 rd − τ                      rd−τ 1
+                        d           d        µ (d − τ )       µ
+                   h r (µ)d                    1              CΩ,τ              i
+                          4
+      = µd Sd−1        −         log r4 (µ) + 2 r4 (µ)d − τ            r4 (µ)d−τ
+                            d                  d            µ (d − τ )
+        h µ−d           1             CΩ,τ         i
+      −       log µ + 2 µ−d − τ               µτ −d ,
+            d          d          µ (d − τ )
+which implies that
+ Z 
+                          1 1               
+       λ − log |ξ| − max       , τ CΩ,τ dξ
+   Rd                       |ξ| |ξ|            +
+                    1                 CΩ,τ                   µ−d          1 −d 
+      ≥ µd Sd−1         r4 (µ) d
+                                 −               r4 (µ)d−τ
+                                                           −      log µ −      µ
+                     d2             µτ (d − τ )                d           d2
+                                         2
+                                     4τ CΩ,τ                                    2
+                                                                            4τ CΩ,τ
+                              C                                       C
+                                                                                   
+          d    d−1
+                    1
+                          −d µΩ,ττ + µ2τ             CΩ,τ     −(d−τ ) µΩ,τ
+                                                                        τ + µ2τ
+      =µ S              e                      − τ           e
+                     d2                           µ (d − τ )
+         µ−d          1       
+      −      log µ − 2 µ−d .
+          d           d
+Since
+                                      2
+                                  4τ CΩ,τ                                  2
+                            CΩ,τ
+                                                                  4τ CΩ,τ 
+                                            
+                       −d    µτ
+                                 + 2τ                      CΩ,τ
+                   e                µ           ≥1−d          τ
+                                                                +
+                                                            µ       µ2τ
+and
+                                                          2
+                                                      4τ CΩ,τ
+                                                CΩ,τ
+                                                                
+                                 −(d−τ )         µτ
+                                                     + 2τ
+                                e                       µ           ≤ 1,
+we conclude that
+Z 
+                        1 1              
+     λ − log |ξ| − max       , τ CΩ,τ dξ
+ Rd                       |ξ| |ξ|           +
+            d−1                          2
+                                    4τ CΩ,τ 
+           S              CΩ,τ                      CΩ,τ         −d
+                                                                                   
+    ≥ µd            1 − d        +            −               − µ    (d log µ + 1)
+            d2              µτ        µ2τ         µτ (d − τ )
+       |Bd | d
+                                 1                                              
+    =         µ − CΩ,τ (d −          )µd−τ − 4dτ CΩ,τ 2
+                                                         µd−2τ − (d log µ + 1)
+        d                      d−τ
+       |Bd | dλ d(d − τ ) − 1
+                                                                                   
+    =         e −                   CΩ,τ e(d−τ )λ − 4dτ CΩ,τ
+                                                          2
+                                                              e(d−2τ )λ − (dλ + 1) .
+        d                d−τ
+Combining the last estimate with (7.7), we get the asserted lower bound.                
+20                           ARI LAPTEV AND TOBIAS WETH
+
+          8. A PPENDIX : N OTE ON A BOUND FOR B ESSEL FUNCTIONS
+
+The following elementary bound might be known but seems hard to find in this
+form.
+                    √                     p
+Lemma 8.1. For ν ≥ 3 − 2 and 0 ≤ x ≤ 2 2(ν + 2) we have
+                                         xν
+                           |Jν (x)| ≤ ν         .
+                                     2 Γ(ν + 1)
+
+Proof. We use the representation
+                                   ∞
+                            x ν X        (−1)m       x 2m
+                  Jν (x) =                                    .
+                             2        m!Γ(m + ν + 1) 2
+                                  m=0
+               p
+For 0 ≤ x ≤ 2 2(ν + 2) and m ≥ 1, we have
+             x 2                           (m + 1)Γ(m + ν + 2)
+                   ≤ (m + 1)(m + ν + 1) =
+               2                                 Γ(m + ν + 1)
+and therefore
+              Γ(ν + 1)         x 2(m+1)      Γ(ν + 1)       x 2m
+                                          ≤                          .    (8.1)
+      (m + 1)!Γ(m + ν + 2) 2                m!Γ(m + ν + 1) 2
+Consequently,
+                                ∞
+                  xν     h     X    (−1)m Γ(ν + 1)  x 2m i        xν
+    Jν (x) = ν             1+                                ≤ ν           .
+              2 Γ(ν + 1)            m!Γ(m + ν + 1) 2            2 Γ(ν + 1)
+                                m=1
+From (8.1) we also deduce that
+             xν      h    Γ(ν + 1)  x 2   Γ(ν + 1)  x 4   Γ(ν + 1)  x 6 i
+Jν (x) ≥ ν            1−                  +                 −
+         2 Γ(ν + 1)       Γ(ν + 2) 2        2Γ(ν + 3) 2       6Γ(ν + 4) 2
+             xν      h      1      x 2 i
+       = ν            1−       f
+         2 Γ(ν + 1)       ν+1      2
+                                      t   2      t   3
+with f : R → R given by f (t) = t − 2(ν+2) + 6(ν+2)(ν+3) . Since
+                  t         t2                                         1   t
+f 0 (t) = 1 −                                            f 00 (t) =
+                                                                                 
+                     +                ,       and                             −1
+                ν + 2 2(ν + 2)(ν + 3)                                 ν+2 ν+3
+we have
+                           ν+3    ν+3          1ν +3
+f 0 (t) ≥ f 0 (ν+3) = 1−        +         = 1−       ≥ 0 for t ∈ R if ν ≥ −1
+                           ν + 2 2(ν + 2)      2ν +2
+and therefore
+                                  [2(ν + 2)]2        [2(ν + 2)]3     4(ν + 2)2
+f (t) ≤ f (2(ν + 2)) = 2(ν + 2) −              +                  =
+                                   2(ν + 2)       6(ν + 2)(ν + 3)      3(ν + 3)
+                                  4(ν+2)2      2
+                                                           √
+for t ≤ 2(ν + 2) if ν ≥ −1. Since 3(ν+3) ≤ ν+1     for ν ≥ 3 − 2, we conclude
+that
+                        xν     h      1       x 2 i          xν
+          Jν (x) ≥ ν            1−        f           ≥− ν           .
+                    2 Γ(ν + 1)      ν+1       2           2 Γ(ν + 1)
+                  SPECTRAL PROPERTIES OF THE LOGARITHMIC LAPLACIAN                              21
+          √                         p
+for ν ≥       3 − 2 and 0 ≤ x ≤ 2    2(ν + 2). The claim thus follows.                          
+
+Acknowledgements. AL was supported by the RSF grant 19-71-30002.
+
+                                        R EFERENCES
+[BK]      R. Bañuelos and T. Kulczycki, The Cauchy process and the Steklov problem, Journal of
+          Functional Analysis, 211 (2004), 355–423.
+[B]       W. Beckner, Pitt’s inequality and the uncertainty principle, Proc. AMS, textbf123, (6)
+          (1995), 1897–1905.
+[Bz1]     F.A. Berezin, Convex functions of operators, Mat.sb., 88 (1972), 268–278.
+[Bz2]     F.A. Berezin, Covariant and contravariant symbols of operators, English transl. Math.
+          USSR Izvestija, 6 (1972), 1117–1151.
+[CW]      H. Chen and T. Weth, The Dirichlet Problem for the Logarithmic Laplacian, Comm.
+          Partial Differential Equations, 44 (2019),1100–1139.
+[DNP]     L. De Luca, M. Novaga, M. Ponsiglione, The 0-fractional perimeter between fractional
+          perimeters and Riesz potentials, Preprint, arXiv:1906.06303
+[FKV]     M. Felsinger, M. Kassmann and P. Voigt, The Dirichlet problem for nonlocal operators,
+          Math. Zeit., 279 (2015), 779–809.
+[G]       G. Geisinger A short proof of Weyl’s law for fractional operators, JMP, 55, 011504
+          (2014), doi: 10.1063/1.4861935.
+[JW]      S. Jarohs and T. Weth, Local compactness and nonvanishing for weakly singular nonlocal
+          quadratic forms, Nonlinear Analysis, 193 (2020), Article 111431
+[JSW]     S. Jarohs, A. Saldaña and T. Weth, A new look at the fractional Poisson
+          problem via the Logarithmic Laplacian, J. Funct. Anal., 279, 108732 (2020),
+          https://doi.org/10.1016/j.jfa.2020.108732
+[Lap]     A. Laptev, Dirichlet and Neumann Eigenvalue Problems on Domains in Euclidean
+          Spaces, J. Funct. Anal., 151 (1997), 531–545.
+[LY]      P. Li and S.-T. Yau, On the Schrödinger equation and the eigenvalue problem, Comm.
+          Math. Phys., 88 (1983), 309–318.
+[L]       E.H. Lieb, The classical limit of quantum spin systems, Comm. Math. Phys., 31 (1973),
+          327–340.
+[LL]      E.H. Lieb and M. Loss, Analysis, AMS, Graduate Studies in Mathematics, 14, 1997, 346
+          pages.
+[Lom]     L. Lombardini,         Fractional Perimeter and Nonlocal Minimal Surfaces,
+          https://arxiv.org/abs/1508.06241
+[P]       R.L. Pego. Compactness in L2 and the Fourier Transform, Proc. Amer. Math. Soc., 95
+          (1985), 252–254.
+[Roz]     G.V. Rozenblum, Distribution of the discrete spectrum of singular differential operators,
+          Dokl. AN SSSR, 202 (1972), 1012–1015, Izv. Vuzov, Matematika, 1 (1976), 75–86.
+
