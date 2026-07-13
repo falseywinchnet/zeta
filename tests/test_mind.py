@@ -8,7 +8,7 @@ from pathlib import Path
 
 from mindlib.search_backend import ExactTopicBackend
 from mindlib.identities import exact_identity, internal_id, public_id
-from mindlib.cli import cmd_search
+from mindlib.cli import cmd_certificate, cmd_search
 from mindlib.search_index import SearchEngine, build_index, dynamic_cutoff, index_is_current
 from mindlib.store import MindError, Store
 
@@ -34,6 +34,15 @@ class MindStoreTest(unittest.TestCase):
         self.store.update_fact(child, "refer", [cite], citation=True)
         self.assertEqual(self.store.factoids[child]["status"], "established")
         self.assertEqual(self.store.retrieval_roots({base}), [child])
+
+    def test_todo_child_does_not_hide_established_parent(self):
+        cite = self.store.add_citation(
+            "A", "B", [self.zeta], artifacts=[self._file("source.txt", "source")]
+        )
+        base = self.store.establish("Established base.", [self.zeta], [cite])
+        child = self.store.establish("Uncertified continuation.", [self.zeta], [base])
+        self.assertEqual(self.store.factoids[child]["status"], "todo")
+        self.assertEqual(self.store.retrieval_roots({base}), [base])
 
     def _file(self, name, content):
         path = self.root / name
@@ -158,6 +167,17 @@ class MindStoreTest(unittest.TestCase):
             second_file, "Dependent proof.", [self.zeta], dependencies=[first]
         )
         self.assertEqual(self.store.replay_certificates(second), [first, second])
+
+    def test_certificate_cli_resolves_public_dependency(self):
+        first_file = self._file("first.py", "print('first')\n")
+        second_file = self._file("second.py", "print('second')\n")
+        first = self.store.add_certificate(first_file, "First proof.", [self.zeta])
+        with redirect_stdout(io.StringIO()):
+            cmd_certificate(self.store, [
+                "ADD", str(second_file), "--description", "Dependent proof.",
+                "--topic", self.zeta, "--depends", public_id(first),
+            ])
+        self.assertEqual(self.store.certificates["K000002"]["dependencies"], [first])
 
     def test_lossless_source_records_are_searchable(self):
         sources = self.root / "sources"

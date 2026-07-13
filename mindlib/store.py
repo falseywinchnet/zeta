@@ -667,7 +667,11 @@ class Store:
                 if parent not in reachable:
                     reachable.add(parent)
                     frontier.append(parent)
-        standalone = [fid for fid in reachable if not reverse[fid] and self.factoids[fid]["status"] == "established"]
+        standalone = [
+            fid for fid in reachable
+            if self.factoids[fid]["status"] == "established"
+            and not any(self.factoids[parent]["status"] == "established" for parent in reverse[fid])
+        ]
         return sorted(standalone, key=lambda fid: (self.factoids[fid]["updated_at"], fid), reverse=True)
 
     def trace_closure(self, root):

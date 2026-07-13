@@ -285,6 +285,10 @@
         {
           "id": "F000014",
           "type": "factoid"
+        },
+        {
+          "id": "C000004",
+          "type": "citation"
         }
       ],
       "content": "The Riemann/de Bruijn-Newman kernel is not PF_infinity.",
@@ -293,8 +297,8 @@
         "T000014",
         "T000005"
       ],
-      "status": "todo",
-      "updated_at": "2026-07-12T19:19:06+00:00"
+      "status": "established",
+      "updated_at": "2026-07-13T20:36:33+00:00"
     },
     "F000017": {
       "because": [
@@ -2571,6 +2575,14 @@
         {
           "id": "F000016",
           "type": "factoid"
+        },
+        {
+          "id": "C000004",
+          "type": "citation"
+        },
+        {
+          "id": "K000002",
+          "type": "certificate"
         }
       ],
       "content": "The exact global Polya-frequency order of the Riemann kernel is three or four: global PF3 is established and PF5 fails by the certified negative Toeplitz 5x5 minor, so only global PF4 remains open.",
@@ -2579,8 +2591,8 @@
         "T000011",
         "T000012"
       ],
-      "status": "todo",
-      "updated_at": "2026-07-13T05:01:42+00:00"
+      "status": "established",
+      "updated_at": "2026-07-13T20:36:21+00:00"
     },
     "F000146": {
       "because": [
@@ -2735,27 +2747,89 @@
     "F000153": {
       "because": [
         {
-          "id": "F000145",
+          "id": "F000156",
           "type": "factoid"
-        },
-        {
-          "id": "F000152",
-          "type": "factoid"
-        },
-        {
-          "id": "K000003",
-          "type": "certificate"
         }
       ],
-      "content": "Global PF4 of the Riemann kernel remains open but unfalsified: the confluent boundary is certified positive, and the non-confluent surface shows no negative order-four minor across Wronskian-face, clustered, and generic Sobol scans of about 10^7 configurations. Certifying W3 > 0 and W4 > 0 over all translates would give global PF4 by the extended-complete-Chebyshev-system criterion.",
+      "content": "Prove partial_xi Psi(xi;m,r)<=0 for every xi<m<r; by R156 this is the exact remaining criterion for global PF4 of the Riemann kernel.",
       "created_at": "2026-07-13T17:18:32+00:00",
       "relates_to": [
         "T000012"
       ],
       "status": "todo",
-      "updated_at": "2026-07-13T19:58:45+00:00"
+      "updated_at": "2026-07-13T20:36:21+00:00"
+    },
+    "F000154": {
+      "because": [
+        {
+          "id": "K000005",
+          "type": "certificate"
+        }
+      ],
+      "content": "For a positive sufficiently smooth translation kernel, successive quotient differentiation and the generic iterated-integral identity reduce strict TP4 to positivity of v_j=(u_j/u_1)', w_j=(v_j/v_2)', and (w_4/w_3)' for every ordered translate tuple.",
+      "created_at": "2026-07-13T20:36:21+00:00",
+      "relates_to": [
+        "T000012"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-13T20:36:21+00:00"
+    },
+    "F000155": {
+      "because": [
+        {
+          "id": "F000141",
+          "type": "factoid"
+        },
+        {
+          "id": "F000142",
+          "type": "factoid"
+        },
+        {
+          "id": "F000143",
+          "type": "factoid"
+        },
+        {
+          "id": "K000005",
+          "type": "certificate"
+        }
+      ],
+      "content": "For the Riemann kernel, every order-three translate Wronskian W3 is strictly positive: its logarithmic quotient derivative is A(p3,p2) Lambda(p3;p2,p1)/A(p3,p1), whose factors are strictly positive by q>0 and the certified R141 bound.",
+      "created_at": "2026-07-13T20:36:21+00:00",
+      "relates_to": [
+        "T000011",
+        "T000012"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-13T20:36:21+00:00"
+    },
+    "F000156": {
+      "because": [
+        {
+          "id": "F000004",
+          "type": "factoid"
+        },
+        {
+          "id": "F000154",
+          "type": "factoid"
+        },
+        {
+          "id": "F000155",
+          "type": "factoid"
+        },
+        {
+          "id": "K000005",
+          "type": "certificate"
+        }
+      ],
+      "content": "For the Riemann kernel, with Psi(xi;m,r)=Lambda+T log Lambda, global PF4 is equivalent to partial_xi Psi(xi;m,r)<=0 for every xi<m<r; strict inequality implies strict TP4.",
+      "created_at": "2026-07-13T20:36:21+00:00",
+      "relates_to": [
+        "T000012"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-13T20:36:21+00:00"
     }
   },
-  "next_id": 154,
+  "next_id": 157,
   "version": 1
 }

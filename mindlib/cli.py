@@ -435,7 +435,8 @@ def cmd_certificate(store, args):
         ns = certificate_parser(action).parse_args(tail)
         kid = store.add_certificate(
             ns.file, ns.description, ns.topics, ns.command, ns.artifacts,
-            ns.requirements, ns.precision, ns.environment, ns.dependencies,
+            ns.requirements, ns.precision, ns.environment,
+            [internal_id(dep) for dep in ns.dependencies or []],
             ns.timeout_seconds or 300,
         )
         print(f"{public_id(kid)} added and replayed")
@@ -444,7 +445,8 @@ def cmd_certificate(store, args):
         kid = internal_id(ns.id)
         store.change_certificate(
             kid, ns.file, ns.description, ns.topics, ns.command, ns.artifacts,
-            ns.requirements, ns.precision, ns.environment, ns.dependencies,
+            ns.requirements, ns.precision, ns.environment,
+            None if ns.dependencies is None else [internal_id(dep) for dep in ns.dependencies],
             ns.timeout_seconds,
         )
         print(f"{public_id(kid)} updated and replayed")
