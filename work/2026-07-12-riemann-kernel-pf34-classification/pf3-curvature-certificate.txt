@@ -1,0 +1,5 @@
+status=certified range=[0,1] cells=7731 step=0.0005 terms=7 precision=192 max_bisection_depth=4
+q_certified_lower_bound=[18.72689462339518772971806185693274501307 +/- 3.74e-39]
+F1_certified_lower_bound=[0.1816753265224584367372440067089477858716 +/- 3.64e-41]
+F2_certified_lower_bound=[3889.215269876434622327300080166675876689 +/- 4.28e-37]
+derivative_tail_max=[2.0549095130597281547e-63 +/- 4.63e-83]
