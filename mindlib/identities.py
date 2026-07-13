@@ -5,8 +5,10 @@ import re
 
 REF_RE = re.compile(r"^R0*(\d+)$", re.IGNORECASE)
 CITE_RE = re.compile(r"^CITE0*(\d+)$", re.IGNORECASE)
+CERT_RE = re.compile(r"^CERT0*(\d+)$", re.IGNORECASE)
 INTERNAL_REF_RE = re.compile(r"^F(\d{6})$", re.IGNORECASE)
 INTERNAL_CITE_RE = re.compile(r"^C(\d{6})$", re.IGNORECASE)
+INTERNAL_CERT_RE = re.compile(r"^K(\d{6})$", re.IGNORECASE)
 
 
 def public_id(identity):
@@ -17,6 +19,9 @@ def public_id(identity):
     match = INTERNAL_CITE_RE.fullmatch(identity)
     if match:
         return f"CITE{int(match.group(1))}"
+    match = INTERNAL_CERT_RE.fullmatch(identity)
+    if match:
+        return f"CERT{int(match.group(1))}"
     return identity
 
 
@@ -28,7 +33,10 @@ def internal_id(alias):
     match = CITE_RE.fullmatch(alias)
     if match:
         return f"C{int(match.group(1)):06d}"
-    if INTERNAL_REF_RE.fullmatch(alias) or INTERNAL_CITE_RE.fullmatch(alias):
+    match = CERT_RE.fullmatch(alias)
+    if match:
+        return f"K{int(match.group(1)):06d}"
+    if INTERNAL_REF_RE.fullmatch(alias) or INTERNAL_CITE_RE.fullmatch(alias) or INTERNAL_CERT_RE.fullmatch(alias):
         return alias.upper()
     return alias
 
@@ -40,4 +48,6 @@ def exact_identity(store, query):
         return {"kind": "factoid", "id": internal, "public_id": public_id(internal)}
     if internal in store.citations:
         return {"kind": "citation", "id": internal, "public_id": public_id(internal)}
+    if internal in store.certificates:
+        return {"kind": "certificate", "id": internal, "public_id": public_id(internal)}
     return None

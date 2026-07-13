@@ -12,36 +12,37 @@ HELP = """MIND - local epistemic graph
 
 Usage:
   MIND
-  MIND EXPLAIN <RETRIEVE|SEARCH|ESTABLISH|CITE|DISTINGUISH|PROGRESS|ALL>
-  MIND RETRIEVE <topic-path|topic-id|R<num>|CITE<num>>
+  MIND EXPLAIN <RETRIEVE|SEARCH|ESTABLISH|CITE|CERTIFICATE|DISTINGUISH|PROGRESS|ALL>
+  MIND RETRIEVE <topic-path|topic-id|R<num>|CITE<num>|CERT<num>>
   MIND SEARCH [--limit N] [--type KIND] [--explain] <terms>
   MIND ESTABLISH ...
   MIND CITE <ADD|REMOVE|LIST|CHANGE> ...
+  MIND CERTIFICATE <ADD|DEL|MOD|LIST|RUN> ...
   MIND DISTINGUISH <TREE|BRANCH|PRUNE> ...
   MIND PROGRESS <RECORD|CHANGE|LIST|COMMIT> ...
 
 Run `MIND EXPLAIN ALL` for the complete grammar. Commands are case-insensitive.
-RETRIEVE is exact and causal. SEARCH accepts exact R<num>/CITE<num> identities or
-ordinary text across references, citations, topics, and content.
+RETRIEVE is exact and causal. SEARCH accepts exact R<num>/CITE<num>/CERT<num>
+identities or ordinary text across references, citations, certificates, topics, and content.
 """
 
 
 EXPLANATIONS = {
     "RETRIEVE": """RETRIEVE <detail>
 
-Detail must be one exact R<num>, CITE<num>, legacy identity, topic ID, unique topic label, or full topic
+Detail must be one exact R<num>, CITE<num>, CERT<num>, legacy identity, topic ID, unique topic label, or full topic
 path. Retrieval first finds every current standalone conclusion whose causal
 closure contains a matching factoid. Each numbered TRACEMAP prints the newest
 conclusion, its concise direct `because` IDs, then its oldward causal closure.
-Citation supports are epistemic boundaries and are printed separately. Every
+Citation and certificate supports are epistemic boundaries and are printed separately. Every
 orphan TODO is appended to every retrieval. Use SEARCH when the exact identity or
 topic is not yet known.
 """,
     "SEARCH": """SEARCH <terms>
 
-Searches references, citations, topic leaves, progress records, advancement files,
-and lossless source records as one collection. R<num> and CITE<num> are exact
-public identities and return the complete causal or citation object without
+Searches references, citations, certificates, topic leaves, progress records, advancement files,
+and lossless source records as one collection. R<num>, CITE<num>, and CERT<num> are exact
+public identities and return the complete causal, citation, or certificate object without
 ranking. Legacy F/C identities remain accepted.
 
 Ordinary text combines weighted positional postings, BM25F-like saturation,
@@ -59,41 +60,62 @@ ceiling.
 
 Comma segments are asymmetric. Earlier segments locate context anchors; the last
 segment is the target. Targets are reranked by shortest causal or taxonomic graph
-distance from anchors. --type accepts reference, citation, topic, progress, work, or
+distance from anchors. --type accepts reference, citation, certificate, topic, progress, work, or
 source and may repeat. --reindex is a recovery command.
 
-SEARCH refuses a stale index. PROGRESS RECORD rebuilds it; PROGRESS COMMIT checks
-that no indexed source changed afterward. RETRIEVE SEARCH is a SEARCH alias.
+The generated index is ignored by git and rebuilt automatically when missing or
+stale. PROGRESS COMMIT independently rebuilds and checks it. RETRIEVE SEARCH is a SEARCH alias.
 """,
     "ESTABLISH": """ESTABLISH creates or revises atomic factoids.
 
 New:
   MIND ESTABLISH "content" RELATES <topic...>
-  MIND ESTABLISH "content" BECAUSE <R...> RELATES <topic...>
+  MIND ESTABLISH "content" BECAUSE <R... CITE... CERT...> RELATES <topic...>
 
-An unsupported new factoid is TODO. BECAUSE accepts existing references only.
+An unsupported new factoid is TODO. A claim is established only when it has a
+direct CITE or CERT boundary and every referenced factoid is established.
 
 Existing:
   MIND ESTABLISH <R> REFER <R...>
   MIND ESTABLISH <R> REFER CITATION <CITE...>
+  MIND ESTABLISH <R> REFER CERTIFICATE <CERT...>
   MIND ESTABLISH <R> PRUNE <direct-R...>
   MIND ESTABLISH <R> PRUNE CITATION <direct-CITE...>
+  MIND ESTABLISH <R> PRUNE CERTIFICATE <direct-CERT...>
+  MIND ESTABLISH <R> MODIFY [CONTENT "replacement"] [RELATES <topic...>]
 
 CONTENT "replacement" and RELATES <topic...> may follow an existing update.
-All references must already exist. Cycles and self-support are rejected. Removing
-the last support returns a factoid to TODO.
+All supports must already exist. Cycles and self-support are rejected. Status
+changes propagate through descendants when evidence is added or removed.
 """,
-    "CITE": """CITE manages source identities at the epistemic boundary.
+    "CITE": """CITE manages independently authored external source identities.
 
   MIND CITE ADD --author A --body B --topic T [--paper FILE] [--artifact FILE] [--url URL]
   MIND CITE LIST [ALL|CITE1]
   MIND CITE CHANGE CITE1 [--author A] [--body B] [--topic T] [--paper FILE] [--url URL]
   MIND CITE REMOVE CITE1
 
-ADD requires author, bibliographic body, and at least one existing topic. --paper
+ADD requires author, bibliographic body, at least one existing topic, and local
+evidence through --paper or --artifact. --paper
 copies the document into papers/ and records a SHA-256 checksum. --artifact records
-and checksums an existing repository file without moving it. REMOVE refuses
+and checksums an existing repository file without moving it. Repository-local
+proofs belong in CERTIFICATE, not CITE. REMOVE refuses
 to delete a citation still supporting a factoid.
+""",
+    "CERTIFICATE": """CERTIFICATE manages replayable internal proof boundaries.
+
+  MIND CERTIFICATE ADD FILE --description TEXT --topic T [--command CMD]
+      [--artifact FILE] [--requirement PACKAGE==VERSION] [--depends CERT]
+      [--precision TEXT] [--environment DIGEST] [--timeout SECONDS]
+  MIND CERTIFICATE MOD CERT1 [the same optional fields]
+  MIND CERTIFICATE DEL CERT1
+  MIND CERTIFICATE LIST [ALL|CERT1]
+  MIND CERTIFICATE RUN [ALL|CERT1]
+
+ADD and MOD execute the shell-free verifier command and record checksums for the
+verifier, artifacts, stdout, and stderr. Python files default to
+`{python} FILE`. RUN replays dependencies first and verifies exact outputs.
+PROGRESS COMMIT replays every certificate before tests and commitment.
 """,
     "DISTINGUISH": """DISTINGUISH manages the valid topic etymology.
 
@@ -112,9 +134,10 @@ removes all currently unused leaves; repeat it to remove newly exposed leaves.
   MIND PROGRESS LIST [ALL|count]
   MIND PROGRESS COMMIT
 
-RECORD creates exactly one pending epoch and rebuilds the search index. CHANGE edits only that uncommitted
+RECORD creates exactly one pending epoch. CHANGE edits only that uncommitted
 record; committed history is immutable. COMMIT validates JSON, paper checksums,
-causal acyclicity, Python compilation, and tests, then stages all changes, commits
+causal acyclicity, replays all certificates, rebuilds the ignored search index,
+compiles Python, and runs tests, then stages all changes and commits
 with the progress ID, and pushes the current branch to origin. Direct git commit
 and push are reserved for recovery; ordinary work uses PROGRESS COMMIT.
 """,
@@ -124,7 +147,7 @@ and push are reserved for recovery; ordinary work uses PROGRESS COMMIT.
 def explain(name):
     name = name.upper()
     if name == "ALL":
-        print("\n".join(EXPLANATIONS[key].rstrip() for key in ("RETRIEVE", "SEARCH", "ESTABLISH", "CITE", "DISTINGUISH", "PROGRESS")))
+        print("\n".join(EXPLANATIONS[key].rstrip() for key in ("RETRIEVE", "SEARCH", "ESTABLISH", "CITE", "CERTIFICATE", "DISTINGUISH", "PROGRESS")))
     elif name in EXPLANATIONS:
         print(EXPLANATIONS[name].rstrip())
     else:
@@ -149,12 +172,22 @@ def cmd_establish(store, args):
         raise MindError("ESTABLISH requires content or a factoid ID")
     first = internal_id(args[0])
     if first in store.factoids:
+        if len(args) >= 2 and args[1].upper() == "MODIFY":
+            parts = split_markers(args[2:], {"CONTENT", "RELATES"})
+            if parts.get("_"):
+                raise MindError("MODIFY accepts only CONTENT and RELATES fields")
+            content = " ".join(parts["CONTENT"]) if "CONTENT" in parts else None
+            topics = parts.get("RELATES")
+            store.modify_fact(first, content=content, topics=topics)
+            print(f"{public_id(first)} updated; status={store.factoids[first]['status']}")
+            return
         if len(args) < 3 or args[1].upper() not in ("REFER", "PRUNE"):
-            raise MindError("existing factoid requires REFER or PRUNE")
+            raise MindError("existing factoid requires REFER, PRUNE, or MODIFY")
         action = args[1].lower()
         tail = args[2:]
-        citation = bool(tail and tail[0].upper() == "CITATION")
-        if citation:
+        support_type = "factoid"
+        if tail and tail[0].upper() in {"CITATION", "CERTIFICATE"}:
+            support_type = tail[0].casefold()
             tail = tail[1:]
         parts = split_markers(tail, {"CONTENT", "RELATES"})
         refs = [internal_id(ref) for ref in parts.get("_", [])]
@@ -162,7 +195,7 @@ def cmd_establish(store, args):
             raise MindError(f"{action.upper()} requires at least one reference")
         content = " ".join(parts["CONTENT"]) if "CONTENT" in parts else None
         topics = parts.get("RELATES")
-        store.update_fact(first, action, refs, citation=citation, content=content, topics=topics)
+        store.update_fact(first, action, refs, support_type=support_type, content=content, topics=topics)
         print(f"{public_id(first)} updated; status={store.factoids[first]['status']}")
         return
     parts = split_markers(args, {"BECAUSE", "RELATES"})
@@ -193,7 +226,8 @@ def cmd_retrieve(store, detail):
     print(f"RETRIEVAL: {resolved}\nBACKEND: {backend.name}\nMATCHES: {len(matches)}\n")
     if not roots:
         print("TRACEMAPS: none")
-    boundaries = set()
+    citation_boundaries = set()
+    certificate_boundaries = set()
     for number, root in enumerate(roots, 1):
         direct = " ".join(public_id(ref["id"]) for ref in store.factoids[root]["because"]) or "none"
         print(f"TRACEMAP {number}\n{public_id(root)}: {store.factoids[root]['content']}\n  because {direct}")
@@ -202,14 +236,21 @@ def cmd_retrieve(store, detail):
             fact = store.factoids[fid]
             refs = " ".join(public_id(ref["id"]) for ref in fact["because"]) or "none"
             print(f"    {'  ' * depth}{public_id(fid)}: {fact['content']} (because {refs})")
-            boundaries.update(ref["id"] for ref in fact["because"] if ref["type"] == "citation")
+            citation_boundaries.update(ref["id"] for ref in fact["because"] if ref["type"] == "citation")
+            certificate_boundaries.update(ref["id"] for ref in fact["because"] if ref["type"] == "certificate")
         print()
     print("EPISTEMIC BOUNDARIES")
-    if boundaries:
-        for cid in sorted(boundaries):
+    if citation_boundaries or certificate_boundaries:
+        for cid in sorted(citation_boundaries):
             cite = store.citations[cid]
             local = f"; local={cite['paper']['path']}" if cite.get("paper") else ""
             print(f"  {public_id(cid)}: {cite['author']}. {cite['body']}{local}")
+        for kid in sorted(certificate_boundaries):
+            certificate = store.certificates[kid]
+            print(
+                f"  {public_id(kid)}: {certificate['description']}; "
+                f"verifier={certificate['file']['path']}"
+            )
     else:
         print("  none")
     todos = sorted((fid for fid, fact in store.factoids.items() if fact["status"] == "todo"), reverse=True)
@@ -243,15 +284,19 @@ def cmd_search(store, args):
     if exact:
         if exact["kind"] == "factoid":
             cmd_retrieve(store, exact["id"])
-        else:
+        elif exact["kind"] == "citation":
             cmd_retrieve_citation(store, exact["id"])
+        else:
+            cmd_retrieve_certificate(store, exact["id"])
         return
     kinds = []
     for group in ns.kinds or []:
         kinds.extend(item.strip().casefold() for item in group.split(",") if item.strip())
-    kind_aliases = {"ref": "factoid", "reference": "factoid", "cite": "citation"}
+    kind_aliases = {
+        "ref": "factoid", "reference": "factoid", "cite": "citation", "cert": "certificate"
+    }
     kinds = [kind_aliases.get(kind, kind) for kind in kinds]
-    allowed = {"factoid", "citation", "topic", "progress", "work", "source"}
+    allowed = {"factoid", "citation", "certificate", "topic", "progress", "work", "source"}
     invalid = sorted(set(kinds) - allowed)
     if invalid:
         raise MindError(f"unknown search types: {', '.join(invalid)}")
@@ -279,6 +324,35 @@ def cmd_retrieve_citation(store, cid):
     users = sorted(
         public_id(fid) for fid, fact in store.factoids.items()
         if {"type": "citation", "id": cid} in fact["because"]
+    )
+    print("SUPPORTS: " + (" ".join(users) if users else "none"))
+
+
+def cmd_retrieve_certificate(store, kid):
+    certificate = store.certificates[kid]
+    print(f"CERTIFICATE: {public_id(kid)}")
+    print(f"DESCRIPTION: {certificate['description']}")
+    print("TOPICS: " + ", ".join(store.topic_path(tid) for tid in certificate["topics"]))
+    print(f"VERIFIER: {certificate['file']['path']} sha256={certificate['file']['sha256']}")
+    print("COMMAND: " + " ".join(certificate["runner"]["argv"]))
+    print(f"TIMEOUT: {certificate['runner']['timeout_seconds']} seconds")
+    print(f"STDOUT SHA256: {certificate['runner']['stdout_sha256']}")
+    print(f"STDERR SHA256: {certificate['runner']['stderr_sha256']}")
+    print("DEPENDENCIES: " + (
+        " ".join(public_id(dep) for dep in certificate.get("dependencies", [])) or "none"
+    ))
+    print("REQUIREMENTS: " + (", ".join(certificate.get("requirements", [])) or "none"))
+    print(f"PRECISION: {certificate.get('precision') or 'unspecified'}")
+    print(f"ENVIRONMENT: {certificate.get('environment') or 'unspecified'}")
+    print("ARTIFACTS")
+    if certificate.get("artifacts"):
+        for item in certificate["artifacts"]:
+            print(f"  {item['path']} sha256={item['sha256']}")
+    else:
+        print("  none")
+    users = sorted(
+        public_id(fid) for fid, fact in store.factoids.items()
+        if {"type": "certificate", "id": kid} in fact["because"]
     )
     print("SUPPORTS: " + (" ".join(users) if users else "none"))
 
@@ -329,6 +403,79 @@ def cmd_cite(store, args):
             print(f"{public_id(cid)} {cite['author']}\n  {cite['body']}\n  topics: {paths}\n  paper: {local}\n  artifacts: {artifacts}")
     else:
         raise MindError(f"unknown CITE action: {action}")
+
+
+def certificate_parser(action):
+    parser = argparse.ArgumentParser(prog=f"MIND CERTIFICATE {action}", add_help=True)
+    if action == "ADD":
+        parser.add_argument("file")
+    elif action == "MOD":
+        parser.add_argument("id")
+        parser.add_argument("--file")
+    if action in {"ADD", "MOD"}:
+        parser.add_argument("--description", required=action == "ADD")
+        parser.add_argument("--topic", action="append", dest="topics", required=action == "ADD")
+        parser.add_argument("--command")
+        parser.add_argument("--artifact", action="append", dest="artifacts")
+        parser.add_argument("--requirement", action="append", dest="requirements")
+        parser.add_argument("--depends", action="append", dest="dependencies")
+        parser.add_argument("--precision")
+        parser.add_argument("--environment")
+        parser.add_argument("--timeout", type=int, dest="timeout_seconds")
+    return parser
+
+
+def cmd_certificate(store, args):
+    if not args:
+        raise MindError("CERTIFICATE requires ADD, DEL, MOD, LIST, or RUN")
+    aliases = {"REMOVE": "DEL", "DELETE": "DEL", "CHANGE": "MOD", "MODIFY": "MOD"}
+    action = aliases.get(args[0].upper(), args[0].upper())
+    tail = args[1:]
+    if action == "ADD":
+        ns = certificate_parser(action).parse_args(tail)
+        kid = store.add_certificate(
+            ns.file, ns.description, ns.topics, ns.command, ns.artifacts,
+            ns.requirements, ns.precision, ns.environment, ns.dependencies,
+            ns.timeout_seconds or 300,
+        )
+        print(f"{public_id(kid)} added and replayed")
+    elif action == "MOD":
+        ns = certificate_parser(action).parse_args(tail)
+        kid = internal_id(ns.id)
+        store.change_certificate(
+            kid, ns.file, ns.description, ns.topics, ns.command, ns.artifacts,
+            ns.requirements, ns.precision, ns.environment, ns.dependencies,
+            ns.timeout_seconds,
+        )
+        print(f"{public_id(kid)} updated and replayed")
+    elif action == "DEL":
+        if len(tail) != 1:
+            raise MindError("CERTIFICATE DEL requires one certificate ID")
+        kid = internal_id(tail[0])
+        store.remove_certificate(kid)
+        print(f"{public_id(kid)} removed")
+    elif action == "LIST":
+        target = internal_id(tail[0]) if tail else "ALL"
+        target = target.upper()
+        ids = sorted(store.certificates) if target == "ALL" else [target]
+        for kid in ids:
+            if kid not in store.certificates:
+                raise MindError(f"unknown certificate: {kid}")
+            item = store.certificates[kid]
+            print(
+                f"{public_id(kid)} {item['description']}\n"
+                f"  verifier: {item['file']['path']}\n"
+                f"  command: {' '.join(item['runner']['argv'])}\n"
+                f"  dependencies: {' '.join(public_id(dep) for dep in item.get('dependencies', [])) or 'none'}"
+            )
+    elif action == "RUN":
+        if len(tail) > 1:
+            raise MindError("CERTIFICATE RUN accepts ALL or one certificate ID")
+        target = internal_id(tail[0]) if tail else "ALL"
+        replayed = store.replay_certificates(target)
+        print("replayed " + (" ".join(public_id(kid) for kid in replayed) or "none"))
+    else:
+        raise MindError(f"unknown CERTIFICATE action: {action}")
 
 
 def print_tree(store, root="T000001", indent=""):
@@ -382,8 +529,11 @@ def cmd_progress(store, args):
                 state = state[:12]
             print(f"{pid} [{state}] {store.progress[pid]['blurb']}")
     elif action == "COMMIT":
-        pid, commit, branch = store.run_commit()
-        print(f"{pid} committed {commit} and pushed origin/{branch}")
+        pid, commit, branch, replayed = store.run_commit()
+        print(
+            f"{pid} replayed {len(replayed)} certificates, committed {commit}, "
+            f"and pushed origin/{branch}"
+        )
     else:
         raise MindError(f"unknown PROGRESS action: {action}")
 
@@ -411,6 +561,8 @@ def main(argv=None):
                 exact = exact_identity(store, detail)
                 if exact and exact["kind"] == "citation":
                     cmd_retrieve_citation(store, exact["id"])
+                elif exact and exact["kind"] == "certificate":
+                    cmd_retrieve_certificate(store, exact["id"])
                 else:
                     cmd_retrieve(store, detail)
         elif command == "SEARCH":
@@ -419,6 +571,8 @@ def main(argv=None):
             cmd_establish(store, args)
         elif command == "CITE":
             cmd_cite(store, args)
+        elif command == "CERTIFICATE":
+            cmd_certificate(store, args)
         elif command == "DISTINGUISH":
             cmd_distinguish(store, args)
         elif command == "PROGRESS":

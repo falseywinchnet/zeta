@@ -13,7 +13,7 @@ from .similarity import SimilarityEncoder
 from .store import MindError, atomic_json
 
 
-INDEX_VERSION = 3
+INDEX_VERSION = 4
 INDEX_NAME = "search-index.json"
 MATH_NAMES = str.maketrans({
     "∞": " infinity ", "ω": " omega ", "Ω": " omega ", "φ": " phi ",
@@ -32,7 +32,10 @@ ALIASES = {
     "pfinfinity": ["pf", "infinity"],
     "xi": ["xi"],
 }
-KIND_PRIOR = {"factoid": 1.0, "citation": 0.96, "work": 0.90, "topic": 0.80, "progress": 0.72, "source": 0.58}
+KIND_PRIOR = {
+    "factoid": 1.0, "certificate": 0.98, "citation": 0.96, "work": 0.90,
+    "topic": 0.80, "progress": 0.72, "source": 0.58,
+}
 
 
 def normalize(text):
@@ -96,7 +99,7 @@ def source_record_files(root):
 def source_digest(store):
     digest = hashlib.sha256()
     digest.update(f"mind-search-v{INDEX_VERSION}\0".encode())
-    for name in ("factoids", "citations", "taxonomy", "progress"):
+    for name in ("factoids", "citations", "certificates", "taxonomy", "progress"):
         digest.update(name.encode() + b"\0" + _canonical_bytes(store.docs[name]) + b"\0")
     for path in work_files(store.root):
         digest.update(str(path.relative_to(store.root)).encode() + b"\0")
@@ -129,6 +132,22 @@ def _documents(store):
             "topics": " ".join(store.topic_path(tid) for tid in cite["topics"]),
             "links": " ".join(artifacts + ([cite["source_url"]] if cite.get("source_url") else [])),
             "status": "boundary",
+        })
+    for kid, certificate in sorted(store.certificates.items()):
+        files = [certificate["file"]["path"]]
+        files.extend(item["path"] for item in certificate.get("artifacts", []))
+        docs.append({
+            "id": kid, "public_id": public_id(kid), "kind": "certificate",
+            "title": public_id(kid),
+            "body": certificate["description"],
+            "topics": " ".join(store.topic_path(tid) for tid in certificate["topics"]),
+            "links": " ".join(
+                files
+                + certificate["runner"]["argv"]
+                + [public_id(dep) for dep in certificate.get("dependencies", [])]
+                + certificate.get("requirements", [])
+            ),
+            "status": "replayable",
         })
     for tid in sorted(store.topics):
         item = store.topics[tid]
@@ -194,6 +213,11 @@ def _graph(store, docs):
     for cid, cite in store.citations.items():
         for tid in cite["topics"]:
             edge(cid, tid)
+    for kid, certificate in store.certificates.items():
+        for tid in certificate["topics"]:
+            edge(kid, tid)
+        for dependency in certificate.get("dependencies", []):
+            edge(kid, dependency)
     for tid, item in store.topics.items():
         if item["parent"]:
             edge(tid, item["parent"])
@@ -244,24 +268,30 @@ def build_index(store):
     return path, index
 
 
-def load_index(store, require_current=True):
+def load_index(store, require_current=True, rebuild=True):
     path = store.data_dir / INDEX_NAME
     if not path.is_file():
-        raise MindError("search index missing; run MIND SEARCH --reindex or PROGRESS RECORD")
+        if rebuild:
+            return build_index(store)[1]
+        raise MindError("search index missing")
     try:
         index = json.loads(path.read_text(encoding="utf-8"))
     except (OSError, json.JSONDecodeError) as exc:
         raise MindError(f"cannot load search index: {exc}") from exc
     if index.get("version") != INDEX_VERSION:
-        raise MindError("search index version mismatch; rebuild it")
+        if rebuild:
+            return build_index(store)[1]
+        raise MindError("search index version mismatch")
     if require_current and index.get("source_digest") != source_digest(store):
-        raise MindError("search index is stale; record progress or explicitly reindex")
+        if rebuild:
+            return build_index(store)[1]
+        raise MindError("search index is stale")
     return index
 
 
 def index_is_current(store):
     try:
-        load_index(store, require_current=True)
+        load_index(store, require_current=True, rebuild=False)
         return True
     except MindError:
         return False
