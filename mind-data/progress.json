@@ -75,8 +75,12 @@
     "P000019": {
       "blurb": "Sharpen localized-Weil flow by centering the smooth kernel and isolating mean gain",
       "created_at": "2026-07-13T00:37:21+00:00"
+    },
+    "P000020": {
+      "blurb": "Reduce the RH-sensitive causal convolution to an arithmetic sign and pairing criterion",
+      "created_at": "2026-07-13T00:55:34+00:00"
     }
   },
-  "next_id": 20,
+  "next_id": 21,
   "version": 1
 }
