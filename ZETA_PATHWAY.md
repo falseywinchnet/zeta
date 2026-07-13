@@ -171,9 +171,12 @@ path until `R93` is resolved.
 
 - Original-kernel PF-infinity: closed (`R16`–`R18`).
 - PF3/PF4 membership: closed as a sufficient real-zero mechanism by the exact
-  PF4 separator (`R52`--`R54`). The Riemann kernel's own global PF3/PF4 status
-  remains a separate classification question; kernel-specific transition
-  invariants require their own formal definitions.
+  PF4 separator (`R52`--`R54`). The Riemann kernel itself is globally PF3
+  (`R140`--`R144`), so its exact global Polya-frequency order is three or four
+  and only global PF4 remains open (`R145`); by Khare's Theorem E a PF4
+  verification needs only the order-four minors (`R146`). This classification
+  is RH-neutral; kernel-specific transition invariants require their own
+  formal definitions.
 - Jensen and Li families: exact but unbounded coordinate tests (`R62`, `R79`,
   `R85`).
 - De Bruijn–Newman: exact transition boundary, but RH is the endpoint statement
