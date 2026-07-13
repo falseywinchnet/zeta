@@ -95,8 +95,12 @@
     "P000024": {
       "blurb": "Audit and integrate the global PF3 classification of the Riemann kernel",
       "created_at": "2026-07-13T05:02:29+00:00"
+    },
+    "P000025": {
+      "blurb": "Certify strict positivity of every confluent order-four minor and probe the full PF4 boundary",
+      "created_at": "2026-07-13T17:08:06+00:00"
     }
   },
-  "next_id": 25,
+  "next_id": 26,
   "version": 1
 }
