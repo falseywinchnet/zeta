@@ -2697,8 +2697,166 @@
       ],
       "status": "established",
       "updated_at": "2026-07-13T05:01:51+00:00"
+    },
+    "F000147": {
+      "because": [
+        {
+          "id": "F000004",
+          "type": "factoid"
+        },
+        {
+          "id": "C000026",
+          "type": "citation"
+        }
+      ],
+      "content": "The doubly confluent limit of the order-k translation minor of a smooth kernel is (-1)^{k(k-1)/2} det[Phi^{(i+j-2)}(t)] times positive Vandermonde factors; divided by Phi^k it equals the central-moment Hankel determinant in the cumulants ell_2..ell_{2k-2} of log Phi, so PF4 forces C4(t)>=0 for all t.",
+      "created_at": "2026-07-13T17:17:40+00:00",
+      "relates_to": [
+        "T000012"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-13T17:17:40+00:00"
+    },
+    "F000148": {
+      "because": [
+        {
+          "id": "F000147",
+          "type": "factoid"
+        },
+        {
+          "id": "F000142",
+          "type": "factoid"
+        },
+        {
+          "id": "F000143",
+          "type": "factoid"
+        },
+        {
+          "id": "F000144",
+          "type": "factoid"
+        },
+        {
+          "id": "C000026",
+          "type": "citation"
+        }
+      ],
+      "content": "The scaled confluent order-three minor of the Riemann kernel satisfies C3/Phi^3 = 2q^3-F1 = q^3+F2, so the certified global bounds q>0 and F2>=0 make every fully confluent order-three minor strictly positive on R.",
+      "created_at": "2026-07-13T17:17:47+00:00",
+      "relates_to": [
+        "T000011"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-13T17:17:47+00:00"
+    },
+    "F000149": {
+      "because": [
+        {
+          "id": "F000147",
+          "type": "factoid"
+        },
+        {
+          "id": "C000026",
+          "type": "citation"
+        }
+      ],
+      "content": "The confluent order-four invariant decomposes exactly in the audited PF3 invariants: C4 = 3(2q^3-F1)(2q^3-3F1) + 2(q^2 F1pp - 6 q qdot F1p + 9 qdot^2 F1) - det H3[q], where the 2x2 cumulant minors are F1, F1p=F1-prime, F1pp=F1-double-prime and H3[q] is the 3x3 Hankel of q-derivatives; C4 is weight-12 homogeneous with thirteen cumulant terms.",
+      "created_at": "2026-07-13T17:17:55+00:00",
+      "relates_to": [
+        "T000012"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-13T17:17:55+00:00"
+    },
+    "F000150": {
+      "because": [
+        {
+          "id": "C000026",
+          "type": "citation"
+        }
+      ],
+      "content": "Directed Arb interval computation certifies C4 >= 2.817e7 on [0,1] for the Riemann kernel, using 8050 adaptive second-order Taylor cells over division-free CSE forms of C4 and its first two derivatives in kappa_2..kappa_8; evenness extends the bound to [-1,1].",
+      "created_at": "2026-07-13T17:18:04+00:00",
+      "relates_to": [
+        "T000012",
+        "T000015"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-13T17:18:04+00:00"
+    },
+    "F000151": {
+      "because": [
+        {
+          "id": "C000026",
+          "type": "citation"
+        }
+      ],
+      "content": "For |u|>=1 and x=pi e^{2u}, the Stirling identity D^j psi = 2^j sum_k S(j,k) x^k psi^(k) gives kappa_j = -2^j x + O(E_j/x) with E = (19.8, 176, 2082, 30770, 545900); at the exact leading cumulants the moment Hankel collapses to 49152 x^6 identically, every perturbation monomial has x-degree at most four, and C4 >= 44392 x^6 > 0 follows for all x >= pi e^2.",
+      "created_at": "2026-07-13T17:18:12+00:00",
+      "relates_to": [
+        "T000012"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-13T17:18:12+00:00"
+    },
+    "F000152": {
+      "because": [
+        {
+          "id": "F000147",
+          "type": "factoid"
+        },
+        {
+          "id": "F000149",
+          "type": "factoid"
+        },
+        {
+          "id": "F000150",
+          "type": "factoid"
+        },
+        {
+          "id": "F000151",
+          "type": "factoid"
+        },
+        {
+          "id": "F000014",
+          "type": "factoid"
+        },
+        {
+          "id": "C000026",
+          "type": "citation"
+        }
+      ],
+      "content": "Every fully doubly-confluent order-four minor of the Riemann kernel is strictly positive: C4 > 0 on all of R by the compact certificate on [-1,1] and the tail bound for |u|>=1. The full-collision route on which PF5 fails is closed at order four; the reproduced R14 configuration has a certified positive order-four determinant 1.96e-8.",
+      "created_at": "2026-07-13T17:18:22+00:00",
+      "relates_to": [
+        "T000012"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-13T17:18:22+00:00"
+    },
+    "F000153": {
+      "because": [
+        {
+          "id": "F000145",
+          "type": "factoid"
+        },
+        {
+          "id": "F000152",
+          "type": "factoid"
+        },
+        {
+          "id": "C000026",
+          "type": "citation"
+        }
+      ],
+      "content": "Global PF4 of the Riemann kernel remains open but unfalsified: the confluent boundary is certified positive, and the non-confluent surface shows no negative order-four minor across Wronskian-face, clustered, and generic Sobol scans of about 10^7 configurations. Certifying W3 > 0 and W4 > 0 over all translates would give global PF4 by the extended-complete-Chebyshev-system criterion.",
+      "created_at": "2026-07-13T17:18:32+00:00",
+      "relates_to": [
+        "T000012"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-13T17:18:32+00:00"
     }
   },
-  "next_id": 147,
+  "next_id": 154,
   "version": 1
 }
