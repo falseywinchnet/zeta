@@ -1,0 +1,1650 @@
+                                                       ON VARIANTS OF CHEBYSHEV’S CONJECTURE
+
+                                                                                   MASATOSHI SUZUKI
+
+
+                                                   Abstract. We show that the sign constancy for the values of certain weighted sum-
+                                                   matory functions of the von Mangoldt function implies the Riemann hypothesis or the
+                                                   generalized Riemann hypothesis for Dirichlet L-functions. While such sign constancy
+                                                   is challenging to establish individually, we prove that the summatory functions under
+                                                   study have constant signs on average.
+
+
+
+
+arXiv:2411.07436v3 [math.NT] 10 Nov 2025
+                                                                                   1. Introduction
+                                           1.1. Results on the Riemann zeta function. Let π(x) be the number of prime num-
+                                           bers ≤ x. According to the prime number theorem, the leading     R x term in the asymptotic
+                                           behavior of π(x) as x → ∞ is the logarithmic integral li(x) = 0 dt/ log t. The difference
+                                           π(x) − li(x) had long been conjectured to be negative for all x > 2. This conjecture was
+                                           disproven in 1914 by Littlewood, who showed that it changes sign infinitely often [8].
+                                           However, Rubinstein and Sarnak [19] proved that the logarithmic density of x for which
+                                           π(x) − li(x) is negative is close to one assuming the Riemann Hypothesis (RH) holds –
+                                           that is, all nontrivial zeros of ζ(s) have real part 1/2 – and the set of positive imaginary
+                                           parts of the nontrivial zeros of the Riemann zeta function ζ(s) is linearly independent
+                                           over Q. Furthermore, as mentioned in Pintz [16] and as proved by Johnston [10], the
+                                           RH is equivalent to the negativity
+                                                                         Z x
+                                                                             (π(t) − li(t)) dt < 0 (x > 2).                         (1)
+                                                                           2
+
+                                           Johnston also shows that the RH is equivalent to the negativity
+                                                                       Z x
+                                                                           (ϑ(t) − t) dt < 0 (x > 2),                                      (2)
+                                                                               2
+                                                           P
+                                           where ϑ(x) = p≤x log p, the first Chebyshev function. Here and in what follows, the
+                                           letter p will always denote a prime number. In contrast, no such bias is observed in the
+                                           difference between the second Chebyshev function
+                                                                                      X′
+                                                                              ψ(x) :=     Λ(n)
+                                                                                             n≤x
+
+                                           and its leading term x as x → ∞, where Λ(n) is the von Mangoldt function defined by
+                                                                                                                  X′
+                                           Λ(n) = log p if n = pk with k ∈ Z>0 and Λ(n) = 0 otherwise, and               an means
+                                           P                                                 P                       n≤x
+                                             n≤x an − (1/2)ax when x is a prime power and      n≤x an otherwise.
+                                             On the other hand, a negative bias is observed in the difference between the weighted
+                                           Chebyshev function
+                                                                                       X′ Λ(n)
+                                                                           ψ1/2 (x) :=       √                                 (3)
+                                                                                               n
+                                                                                                n≤x
+
+
+                                              2020 Mathematics Subject Classification. 11M26 11N05 .
+                                              Key words and phrases. Chebyshev’s bias, Riemann Hypothesis, Generalized Riemann Hypothesis,
+                                           screw functions .
+                                                                                            1
+2                                        M. SUZUKI
+
+                       √
+and its leading term 2 x as x → ∞. Regarding this observation, using the explicit
+formula
+                               √      X xρ−1/2    ζ′ 1
+                                                     
+                   ψ1/2 (x) − 2 x = −           −       + o(1)               (4)
+                                      ρ
+                                        ρ − 1/2   ζ  2
+in (36) below, together with Littlewood’s result [8, Theorem 5.6]
+                              X xρ           √
+                                      = Ω± ( x log log log x),
+                               ρ
+                                   ρ
+                              √
+         P that ψ1/2 (x)−2 x changes sign infinitely often as well as π(x)−li(x), where
+we can show
+the sum ρ runs over all nontrivial zeros of ζ(s) counted with multiplicity, and is defined
+   P              P
+as ρ = limT →∞ |ℑ(ρ)|≤T . The Landau symbol f (x) = o(g(x)) means that |f (x)|/g(x)
+tends to zero as x → ∞. Furthermore, f (x) = Ω+ (g(x)) (resp. f (x) = Ω− (g(x))) means
+that lim supx→∞ f (x)/g(x) > 0 (resp. lim inf x→∞ f (x)/g(x) < 0), and f (x) = Ω± (g(x))
+means that both f (x) = Ω+ (g(x)) and f (x) = Ω− (g(x)) hold. By the second functional
+equation in (34), if ρ is a nontrivial zero of ζ(s), then so is ρ̄. Therefore, both ρ xρ /ρ
+                                                                                   P
+
+and ρ xρ−1/2 /(ρ − 1/2) are real valued.
+     P
+                                             √
+   However, assuming the RH, ψ1/2 (x) − 2 x is negative on average, because
+                                          ζ′ 1
+            Z x                                         X xρ−1/2
+                             √ dy
+                (ψ1/2 (y) − 2 y )    =−           log x −                  + o(1)
+             0                    y       ζ 2              ρ
+                                                               (ρ − 1/2)2
+holds, (ζ ′ /ζ)(1/2) = 2.68609 . . . (see
+                                        P(46) and (47) below), and the sum on the right-hand
+side is bounded under the RH by ρ |ρ|−2 < ∞ (see §2.2). This bias in the difference
+              √
+ψ1/2 (x) − 2 x is also a sufficient condition for the RH as in the case of π(x) − li(x) and
+ϑ(x) − x:
+Theorem 1. The following three statements are equivalent:
+  (1) The RH holds.
+  (2) There exists an x0 ≥ 2 such that
+                         Z x
+                                          √ dy
+                             (ψ1/2 (y) − 2 y )
+                          0                    y
+                                X Λ(n)        x  √                                      (5)
+                              =       √ log − 4 x ≤ 0
+                                        n     n
+                                  n≤x
+        holds for all x ≥ x0 .
+    (3) It holds that
+                                                  √
+                                                     
+                          X Λ(n)                           ′
+                                                              
+                                      log n     4   x     ζ    1
+                    lim       √   1−         −       =−         .                     (6)
+                   x→∞           n    log x     log x     ζ 2
+                         n≤x
+
+   The prime on the sum is unnecessary on the left-hand side of (5), since log(x/n)
+vanishes when n = x. Taking the average
+                      1 x1 x
+                        Z     r        r
+                                         x            1
+                                   log     du = 1 − √ (log x + 2)
+                      x 1 2 u            u          2 x
+into account, the inequality in (5) can be rewritten as an inequality for the sum of Λ(n)
+with a weight that is approximately one on average:
+                                        r       r
+                           X           1 x        x
+                               Λ(n) ·       log     − x ≤ 0.
+                                       2 n        n
+                           n≤x
+This representation is sometimes used for its apparent simplicity as in Theorem 4 below.
+  Considering [19], we are interested in the logarithmic density of x for which ψ1/2 (x) −
+ √
+2 x ≤ 0 holds, but we do not study that topic in this paper.
+                         ON VARIANTS OF CHEBYSHEV’S CONJECTURE                                   3
+
+
+   The equivalence between the first and second statements in Theorem 1 is quite similar
+to that between the RH and either (1) or (2). However, an analog of (6) for π(x) − li(x)
+or ϑ(x) − x does not appear to have been previously noted in the literature. Moreover,
+it should be mentioned that Theorem 1 was not discovered as an analog of (1); rather,
+it arose in connection with the screw functions discussed below.
+   Theorem 1 can be interpreted in terms of the screw function gζ (t) for ζ(s) studied in
+[21]. It is a function on R defined by
+                                      gζ (t) := g0 (t) + g∞ (t)
+with
+                   X        Λ(n)
+       g0 (t) :=             √ (|t| − log n) − 4(et/2 + e−t/2 − 2),
+                               n
+               n≤exp(|t|)
+                        ′                                                                   (7)
+                  |t| Γ 1                        1                                          
+     g∞ (t) := −                   − log π −        Φ(1, 2, 1/4) − e−|t|/2 Φ(e−2|t| , 2, 1/4) ,
+                   2 Γ 4                         4
+where Φ(z, s, a) = ∞            n         −s is the Hurwitz–Lerch zeta function for |z| < 1 and
+                        P
+                          n=0 z (n + a)
+a ̸= 0, −1, −2, · · · . It is known that −gζ (t) ≥ 0 for all t ∈ R if and only if the RH holds
+[21, Theorem 1.7]. The nonnegativity comes from the fact that gζ (t) is a screw function
+in the sense of [12, p. 189] under the RH. From the proof of the integral formula
+                                  Z ∞
+                                                      1 ξ′ 1
+                                                                    
+                                             izt
+                                      gζ (t)e dt = 2            − iz
+                                   0                  z ξ 2
+in [21, Section 2.1], the function g0 (t) corresponds to the non-archimedean factor s(s −
+1)ζ(s) and g∞ (t) corresponds to the archimedean factor π −s/2 Γ(s/2) of the Riemann
+xi-function
+                                     1
+                              ξ(s) := s(s − 1)π −s/2 Γ(s/2)ζ(s).                       (8)
+                                     2
+According to the Kreı̆n–Langer criterion [12, Satz 5.9], g0 (t) cannot be a screw function
+even assuming the RH, because the logarithmic derivative of s(s − 1)ζ(s) can never
+belong to the Nevanlinna class. However, if we note the relation
+                                                       √
+                                                                   
+                                   X Λ(n)       x             1
+                     g0 (log x) =      √ log − 4         x+ √ −2 ,                     (9)
+                                         n      n              x
+                                   n≤x
+
+then we find that the RH is equivalent to g0 (t) having a constant sign.
+Corollary 1. Let g0 (t) be the non-archimedean part of gζ (t) defined in (7). Then, the
+RH holds if and only if there exists t0 > 0 such that −g0 (t) ≥ 0 holds for all t ≥ t0 .
+                             √               P            √
+  Noting (4), if we replace 4 x in (5) with 2 n≤x Λ(n)/ n and express 2 as log exp(2),
+we obtain the following as an analog of Theorem 1.
+Theorem 2. Suppose that there exists an x0 ≥ 2 such that
+                              X Λ(n)        x
+                                    √ log      ≤ 0                                            (10)
+                                  2
+                                      n     n
+                                      n≤xe
+
+holds for all x ≥ x0 . Then, the RH holds. Furthermore, it holds that
+                              X Λ(n)                   ζ′ 1
+                                                           
+                                             log n
+                         lim       √     1−          =−                                       (11)
+                        x→∞
+                                 2
+                                     n       log x       ζ 2
+                               n≤xe
+
+if and only if the RH holds and the estimate
+                                 X xρ        √
+                                         = o( x log x)                                        (12)
+                                  ρ
+                                      ρ
+is valid as x → ∞.
+4                                                 M. SUZUKI
+
+
+  The right-hand side of (11) is negative (see (47) below). Therefore, (11) implies that
+there exists x0 ≥ 2 such that (10) holds for all x ≥ x0 ,
+    For the sum on the left-hand side of (12), the best known estimate under the RH is
+                            X xρ      √
+                                   ≪ x(log x)2 as x → ∞
+                             ρ
+                                ρ
+
+[9, pp. 82–85], but it is not enough to prove (10) for large x, where the Vinogradov
+symbol f (x) ≪ g(x) mean that there exists a positive constant M such that |f (x)| ≤
+M g(x) holds for a prescribed range of x. We use the the Landau symbol f (x) = O(g(x))
+in the same meaning. In the above sense, (10) and (11) may provide a condition stronger
+than the RH. For comparison, we note that Montgomery’s conjecture
+                     P ρ                                     P ρ
+                       ρ x /ρ          1                       ρ x /ρ           1
+        lim sup √                 2
+                                    =     and   lim inf √                 2
+                                                                            =−
+          x→∞     x(log log log x)    2π         x→∞      x(log log log x)     2π
+[14, p.16] implies the RH and the estimate (12). The equivalence of (11) and (12) can
+be viewed as analogous to Akatsuka [2, Theorem 1], which in turn parallels Conrad [5,
+Theorem 1.3] for ζ(s). Taking the logarithm of [2, Corollary 4.4] and using [2, Lemma
+2.1], Akatsuka’s result asserts that
+                                      Z 1−ε Z √x !
+                                                         
+                                                                    
+                 X Λ(n)                              du                 1
+           lim      √        − lim        +                = log −ζ
+          x→∞          n log n ε→0+    0       1+ε  log u                2
+                 n≤x
+
+is equivalent to the validity of the RH and (12), where −ζ(1/2) = 1.46035 · · · .√Recently,
+Akatsuka showed that the equation     pobtained by replacing the upper limit x of the
+integral on the left-hand side with ϑ(x) is equivalent to the RH ([3, Theorem 3]).
+   A sequence {an } is called Riesz summable of order k to a if
+                                                log n k
+                                   X                 
+                               lim     an 1 −           =a
+                              x→∞               log x
+                                   n≤x
+                                            √
+(cf. [15, p.158]). From (46) below, {Λ(n)/ n} cannot be Riesz summable of order one
+even if the RH is assumed. However, Theorem 2 asserts that if we suppose a condition
+stronger than the RH, then a slightly modified Riesz sum of order one has a limit, and
+conversely, the existence of such a limit implies the RH.
+    If we rewrite (10) as
+                                    r                                      r
+                      X                 x     x           X                    x     n
+                             Λ(n)         log       ≤               Λ(n)         log     (13)
+                                        n     n                                n     x
+                       n≤x                              x<n≤xe2
+
+it could be interpreted as a bias depending on the size of the weighted prime powers.
+1.2. Results related to Chebyshev’s conjecture. For any pair of integers q and a
+with (q, a) = 1, let π(x; q, a) denote the number of primes p ≤ x such that p ≡ a mod
+q. The leading term in the asymptotic behavior of π(x; q, a) as x → ∞ is li(x)/φ(q),
+where φ(q) is the Euler totient function. As in the case of the difference π(x) − li(x),
+Chebyshev’s conjecture that π(x; 4, 1) − π(x; 4, 3) is always nonpositive was disproved
+in [8], but it has been shown that the logarithmic density of the set of x > 2 for which
+π(x; 4, 1) − π(x; 4, 3) is negative is close to one [19].
+   Now, considering the similarity between π(x) − li(x) and π(x; 4, 1) − π(x; 4, 3), we
+introduce the weighted function
+                                                   X′ Λ(n)
+                                 ψ1/2 (x; q, a) :=        √
+                                                   n≤x
+                                                            n
+                                                        n≡a mod q
+                        ON VARIANTS OF CHEBYSHEV’S CONJECTURE                                  5
+
+
+for integers q and a with (q, a) = 1. This is a Chebyshev function version of the weighted
+counting function π1/2 (x; q, a) studied in Aoki and Koyama [1]. Then, a negative bias is
+observed in the difference
+                                                        X′ Λ(n)χ4 (n)
+                      ψ1/2 (x; 4, 1) − ψ1/2 (x; 4, 3) =       √       ,
+                                                                n
+                                                       n≤x
+where χ4 is the non-principal Dirichlet character modulo four. Furthermore, we find that
+ψ1/2 (x; 4, 1) − ψ1/2 (x; 4, 3) is negative on average if and only if all zeros of the Dirichlet
+L-function L(s, χ4 ) in the critical strip 0 ≤ ℜ(s) ≤ 1 lie on the line ℜ(s) = 1/2. The
+latter is nothing but the Generalized Riemann Hypothesis (GRH) for L(s, χ4 ).
+Theorem 3. The following three statements are equivalent:
+  (1) The GRH for L(s, χ4 ) holds.
+  (2) There exists an x0 ≥ 2 such that
+                    Z x
+                                                          dy
+                        (ψ1/2 (y; 4, 1) − ψ1/2 (y; 4, 3))
+                     0                                    y
+                                          X Λ(n)χ4 (n)           x                         (14)
+                                        =          √         log   ≤ 0
+                                                      n          n
+                                            n≤x
+        holds for all x ≥ x0 .
+    (3) It holds that
+                         X Λ(n)χ4 (n)               L′ 1
+                                                            
+                                          log n
+                     lim       √       1−         =−      , χ4 .                           (15)
+                    x→∞          n        log x      L 2
+                         n≤x
+
+   Unlike [5, Theorem 1.3], [2, Theorem 1], and Theorem 2, which include claims stronger
+than the GRH, it should be noted that (15) is equivalent to the GRH for L(s, χ4 ). On
+the other hand, similar to Theorem 1, the nonpositivity in (14) can be interpreted as
+a property of the non-archimedean part of the screw function associated with L(s, χ4 )
+studied in [22], but we omit the details, as they may be easily inferred.
+  Based on his observation of the negative bias in the difference π(x; 4, 1) − π(x; 4, 3),
+Chebyshev conjectured
+                              X
+                          lim     (−1)(p−1)/2 · e−p/x = −∞.                          (16)
+                             x→∞
+                                   p>2
+
+The sum on the left-hand side of (16) can be written as
+                            X                  X
+                                   e−p/x −           e−p/x .
+                             p≡1 mod 4            p≡3 mod 4
+
+Here e−p/x → 1 as x → ∞ termwise. Therefore, Chebyshev’s conjecture (16) suggests
+that there are “more” primes of the form p = 4n + 3 than those of the form p = 4n + 1.
+Subsequently, Hardy and Littlewood [8] and Landau [13] proved that (16) and
+                             X
+                         lim    (−1)(p−1)/2 log p · e−p/x = −∞                    (17)
+                          x→∞
+                                p>2
+
+are equivalent to the GRH for L(s, χ4 ). Knapowski and Turán [11] showed that replac-
+ing the weight function exp(−p/x) in (16) and (17) with exp(−(log(p/x))2 ) is likewise
+equivalent to the GRH for L(s, χp 4 ). Fujii [7] proved that when exp(−p/x) is replaced
+with exp(−(p/x)α ) (resp. 2K0 (2 p/x)), the result in (16) (resp. (17)) is equivalent
+to the GRH for L(s, χ4 ) if 0 < α < 4.19, and he conjectured that this would hold
+for general α > 0 as well. Platt and Trudgian [18] extend Fujii’s result for (16) to
+0 < α < 20.4. In addition, a few other weight functions were considered in the works of
+Hardy–Littlewood [8] and Fujii p[7]. Based on the above developments and Theorem 3,
+considering the weight function x/p log(x/p)1p≤x in (17) leads to the following result.
+6                                          M. SUZUKI
+
+
+Theorem 4. The GRH for L(s, χ4 ) holds if and only if
+                                               r
+                     X
+                               (p−1)/2           x    x
+                 lim     (−1)          log p ·     log = −∞.                          (18)
+                x→∞                              p    p
+                           2<p≤x
+
+    As a result comparable to Theorem 4, we note that the asymptotic formula
+                                           1√
+                                    r
+                    X                 x
+                        (−1)(p−1)/2     ∼     x log log x as x → ∞                    (19)
+                                      p    2
+                   2<p≤x
+
+holds if and only if the GRH for L(s, χ4 ) holds and (12) is satisfied for the nontrivial
+zeros of L(s, χ4 ) by combining [1, Theorem 1.1, (1.3)] and [5, Theorem 6.2]. According
+to the proof of Theorem 4, the GRH √   for L(s, χ4 ) is equivalent to the left-hand side of
+(18) being asymptotically equal to −( x/4)(log x)2 ; thus, unlike (19), it does not yield
+a result stronger than the GRH. However, an analog of Theorem 4 for ζ(s) yields a
+conclusion stronger than the RH, similar to Theorem 2.
+Theorem 5. The RH holds assuming
+                                        r
+                           X              x    x
+                      lim       log p ·     log = −∞.                                 (20)
+                     x→∞
+                              2
+                                          p    p
+                                   p≤xe
+
+Conversely, if the RH holds and (12) is valid as x → ∞, then (20) holds.
+1.3. Results on averages over Dirichlet characters. As naturally expected, The-
+orem 3 generalizes to a result for general Dirichlet L-functions, as stated in Theorem
+8 below. This generalization is also described by inequalities for oscillating sums. By
+considering the averages of these sums, we obtain the following result. As in (13), this
+average can be rewritten as the difference of two sums, each having a constant sign in the
+first and second halves. For the following results, for an imprimitive Dirichlet character
+χ, we define the GRH to hold for L(s, χ) as the GRH to hold for L(s, χ∗ ), where χ∗ is
+a primitive Dirichlet character inducing χ.
+Theorem 6. Let q be a positive integer, and let β = β(q) be a real number such that
+1/2 ≤ β < 1 and L(σ, χ) ̸= 0 for all σ > β and all Dirichlet character χ modulo q.
+   (1) Suppose that there exists x0 ≥ 2 such that either
+                                                      √
+                                X Λ(n)         x 4 x
+                                        √ log −                                    (21)
+                                 n≤x
+                                         n     n φ(q)
+                               n≡1 mod q
+
+        has a constant sign for all x ≥ x0 , or
+                                      X Λ(n)       x
+                                             √ log                                    (22)
+                                        2
+                                                n  n
+                                      n≤xe
+                                     n≡1 mod q
+
+         has a constant sign for all x ≥ x0 . Then L(s, χ) ̸= 0 in the right half-plane
+         ℜ(s) > β for all χ modulo q. In particular, if β = 1/2, the GRH for L(s, χ)
+         holds for all Dirichlet characters χ modulo q.
+     (2) Suppose that L(1/2, χ) ̸= 0 for all Dirichlet character χ modulo q. Then, we
+         have
+                                                                
+                                                        √
+                          X       Λ(n)      log n        4 x 
+                  lim            √     1−          −
+                      
+                                    n       log x     φ(q) log x
+                                                                 
+                 x→∞
+                           n≤x
+                        n≡1 mod q                                                  (23)
+                                                       1    X L′  1 
+                                                 =−                   ,χ
+                                                     φ(q)         L 2
+                                                         χ mod q
+
+        if and only if the GRH for L(s, χ) holds for all Dirichlet characters χ modulo q.
+                       ON VARIANTS OF CHEBYSHEV’S CONJECTURE                            7
+
+
+   (3) Suppose that L(1/2, χ) ̸= 0 for all Dirichlet character χ modulo q. Then, we
+       have
+                    X Λ(n)           log n
+                                            
+                                                    1   X L′  1 
+              lim          √     1−           =−                  ,χ           (24)
+             x→∞
+                       2
+                             n        log x       φ(q)        L 2
+                     n≤xe                                             χ mod q
+                    n≡1 mod q
+
+       if and only if the GRH for L(s, χ) holds for all Dirichlet characters χ modulo q
+       and
+                             X X xρχ∗            √
+                                            = o( x log x)                          (25)
+                                  ρ ∗
+                                       ρχ ∗
+                                 χ mod q        χ
+
+       holds as x → ∞ for nontrivial zeros of L(s, χ∗ ) for all χ modulo q,P
+                                                                           where χ∗ is a
+       primitive Dirichlet character that induces χ. As well as the sum ρ above, the
+       sum ρχ∗ runs over all nontrivial zeros of L(s, χ∗ ) counted with multiplicity,
+            P
+                         P                 P
+       and is defined as ρχ∗ = limT →∞ |ℑ(ρχ∗ )|≤T .
+   (4) Let mχ denote the order of the zero of L(s, χ) at s = 1/2. Then, we have
+                                                                       
+                                                              √
+                     1       X Λ(n)            log n          4 x
+                lim                  √     1−          −
+                                                                        
+                       log x n≤x        n       log x      φ(q)(log x)2
+                                                                        
+               x→∞
+                            n≡1 mod q                                              (26)
+                                                    1  X
+                                              =−             mχ
+                                                    2
+                                                                 χ mod q
+
+       if and only if the GRH for L(s, χ) holds for all Dirichlet characters χ modulo q.
+   (5) Under the notation of the third and fourth statements, we have
+                         1   X Λ(n)           log n
+                                                     
+                                                            1 X
+                 lim                √      1−           =−          mχ             (27)
+                x→∞ log x             n        log x        2
+                                2n≤xe                                      χ mod q
+                                n≡1 mod q
+
+       if and only if the GRH for L(s, χ) holds for all Dirichlet characters χ modulo q
+       and
+                            X X xρχ∗           √
+                                           = o( x(log x)2 )                        (28)
+                                 ρ ∗
+                                     ρχ∗
+                                χ mod q     χ
+
+       holds as x → ∞ for nontrivial zeros of L(s, χ∗ ) for all χ modulo q.
+   If L(1/2, χ) ̸= 0 for all Dirichlet character χ modulo q, then the right-hand sides of
+(26) and (27) vanish. Hence, the second and fourth claims of Theorem 6, as well as the
+third and fifth claims, are consistent.
+  As for (10), nonpositivity of (22) can be expressed as an inequality for nonnegative
+sums                          r                           r
+                   X             x     x        X            x    n
+                         Λ(n)      log     ≤          Λ(n)     log .
+                   n≤x
+                                 n     n            2
+                                                             n    x
+                                                          x<n≤xe
+                  n≡1 mod q                               n≡1 mod q
+
+The previous (13) corresponds to the case q = 1 of this inequality.
+  According to the second and third statements of Theorem 6, the sign of the sums
+(21) and (22) for sufficiently large x, which are assumed in the first statement, should
+be determined by the constant
+                                        X L′  1 
+                              C(q) :=              , χ ∈ R.
+                                             L 2
+                                                χ mod q
+
+For simplicity, let q be an odd prime. Then, taking into account that there are (q−1)/2−
+1 even primitive Dirichlet characters and (q − 1)/2 odd primitive Dirichlet characters,
+8                                            M. SUZUKI
+
+
+we obtain the formula
+                                q−1                  q−2          log q
+                    C(q) =          (log 8π + C0 ) −     log q + √
+                                 2                    2            q−1
+
+from (47), (65), and (66) below, where C0 is the Euler–Mascheroni constant. It follows
+that C(q) < 0 for all odd primes ≤ 47, while C(q) > 0 for all primes ≥ 53.
+   The sign constancy of (21) and (22) is conditional. However, we find that they are
+unconditionally negative on average for all sufficiently large x > 1.
+
+Theorem 7. We have
+                                                   
+                                                √
+         X        X                    Λ(n) x 4 x
+            φ(q)                       √ log −
+                                          n  n φ(q)
+                                                    
+           3≤q≤Q              n≤x
+                                                                                        (29)
+                            n≡1 mod q
+
+                                            √
+                                                                
+                                               1
+                                          =4 x   x (1 + o(1)) − Q     as x → ∞
+                                               9
+
+and
+            X               X         Λ(n) x   8    √
+                   φ(q)               √ log = − e3 x x (1 + o(1))      as x → ∞         (30)
+                                        n  n   9
+           3≤q≤Q           n≤xe2
+                          n≡1 mod q
+
+
+if Q ≥ x. In particular, the left-hand sides are negative for all sufficiently large x > 1.
+
+  The reason q = 1, 2 are excluded in both (29) and (30) is that, in those cases, the
+Dirichlet characters modulo q are only the principal character. While it is certainly
+desirable to obtain the negativity of the left-hand side of (29) or (30) for a large constant
+Q ≥ 3, we are also interested in what nontrivial conclusions can be derived when the
+negativity of the left-hand side of (29) or (30) is obtained under a condition weaker than
+Q ≥ x with respect to Q. This remains a subject for future study.
+
+   This paper is organized as follows. In Section 2, we review the basic properties of
+the Riemann zeta function and Dirichlet L-functions. In Section 3, we prove the results
+for the Riemann zeta function: Theorems 1 and 2 and Corollary 1. The key ingredients
+for the proof of Theorem 1 are an integral representation for a function involving the
+logarithmic derivative of the Riemann zeta function and a well-known result concerning
+the Laplace transform of a nonnegative valued function. Except for technical details,
+all results in this paper are shown using roughly the same approach as Theorem 1. In
+Section 4, we prove the results for Dirichlet L-functions: Theorems 3 and 4. Although
+Theorem 5 is a result for the Riemann zeta function, it follows a similar way to that
+of Theorem 4, so we include its proof in this section. Finally, in Section 5, we prove
+Theorems 6 and 7 by combining the discussions in Sections 3 and 4.
+
+Acknowledgments The author appreciates the referee’s valuable comments, which led
+to the corrections of Theorems 6, 8, and 9, and contributed to improving the presentation
+of the paper. This work was supported by JSPS KAKENHI Grant Number JP23K03050.
+
+
+                                         2. Preliminaries
+   In this section, we review a few elementary facts in number theory and the basic prop-
+erties of the Riemann zeta function and Dirichlet L-functions referencing Titchmarsh
+[23] and Montgomery and Vaughan [15]. In addition, we review a property of the Mellin
+transforms of nonnegative functions.
+                        ON VARIANTS OF CHEBYSHEV’S CONJECTURE                             9
+
+
+2.1. Facts on prime numbers. We use Mertens’ theorem [15, Theorem 2.7] in the
+form
+                     X log p
+                             = log x + O(1) as x → ∞,                    (31)
+                         p
+                             p≤x
+
+and the classical prime number theorem [15, Theorem 6.9]
+                            X xρ               p
+                 ψ(x) − x =       = O(x exp(−c log x)) as x → ∞,                      (32)
+                            ρ
+                                ρ
+      P               P
+where ρ = limT →∞ |ℑ(ρ)|≤T as before.
+
+2.2. Riemann zeta function.        The Riemann zeta function ζ(s) is defined by the abso-
+lutely convergent series ∞        −s if ℜ(s) > 1, and extends to a meromorphic function
+                         P
+                            n=1 n
+on C, which is analytic exceptQ  for a simple pole at s = 1 with residue one. Due to the
+Euler product formula ζ(s) = p (1 − p−s )−1 [23, (1.1.2)], the logarithmic derivative of
+ζ(s) has the Dirichlet series
+                                               ∞
+                                       ζ′     X    Λ(n)
+                                    − (s) =                                          (33)
+                                       ζ            ns
+                                                n=1
+for ℜ(s) > 1 [23, (1.1.8)]. The Riemann xi-function (8) is an entire function satisfying
+the functional equations
+                              ξ(s) = ξ(1 − s)   and     ξ(s) = ξ(s̄)                  (34)
+by [23, (2.6.4)] and ζ(σ) ∈ R for σ > 1. Zeros of ζ(s) in the critical strip 0 ≤ ℜ(s) ≤ 1
+are called nontrivial zeros and coincide with zeros of ξ(s). Because ξ(s) is an entire
+function of order one [23, Theorem 2.12],
+                               X
+                                   |ρ|−1−δ < ∞ if δ > 0,                             (35)
+                                   ρ
+
+where ρ runs over all nontrivial zeros of ζ(s) counted with multiplicity. We often use
+the explicit formula
+                                                                  ∞
+                  X′ Λ(n)       x1−s  ζ′     X xρ−s X x−2k−s
+                              =      − (s) −       +                                  (36)
+                        ns      1−s   ζ      ρ
+                                               ρ−s    2k + s
+                  n≤x                                           k=1
+
+for x > 1, s ̸= 1, ρ, −2k (k ∈ Z>0 ) [15, Exercises 12.1.1, 4].
+
+2.3. Dirichlet L-function. For a Dirichlet character χ modulo   P q > 1, the  Dirichlet L-
+function L(s, χ) is defined by the absolutely convergent series ∞ n=1 χ(n)n −s if ℜ(s) > 1.
+
+If χ is a principal character χ0 , then L(s, χ0 ) extends to a meromorphic function on C,
+which is analytic except for a simple pole at s = 1. If χ is not a principal character,
+then L(s, χ) extends to an entire function and
+                                         L(1, χ) ̸= 0                                 (37)
+[15, Theorem 4.9]. Due to the Euler product formula
+                                     Y
+                           L(s, χ) =   (1 − χ(p)p−s )−1                               (38)
+                                          p
+
+for ℜ(s) > 1 [15, (4.21)], the logarithmic derivative of L(s, χ) has the absolutely conver-
+gent Dirichlet series
+                                              ∞
+                                   L′        X   Λ(n)χ(n)
+                                 − (s, χ) =                                            (39)
+                                   L                 ns
+                                                n=1
+for ℜ(s) > 1 [15, (4.25)].
+10                                          M. SUZUKI
+
+
+     For a primitive Dirichlet character χ modulo q > 1, we set
+                                          (
+                                            0 if χ(−1) = 1,
+                              κ := κ(χ) =
+                                            1 if χ(−1) = −1,
+
+and                                                                
+                                        q (s+κ)/2           s+κ
+                         ξ(s, χ) :=                   Γ                 L(s, χ).               (40)
+                                        π                      2
+Then, it is an entire function satisfying the functional equation
+                                                                          τ (χ)
+                         ξ(s, χ) = ε(χ)ξ(1 − s, χ),            ε(χ) :=      √                  (41)
+                                                                          iκ q
+[15, (10.17) and Corollary 10.8], where τ (χ) is the Gauss sum of χ. Zeros of L(s, χ)
+in the critical strip 0 ≤ ℜ(s) ≤ 1 and s ̸= 0 are called nontrivial zeros and coincide
+with the zeros of ξ(s, χ). The Generalized Riemann Hypothesis (GRH) claims that all
+nontrivial zeros lie on the critical line ℜ(s) = 1/2. Because ξ(s, χ) is an entire function
+of order one by [15, (10.31)],
+                                X
+                                    |ρχ |−1−δ < ∞ if δ > 0,                            (42)
+                                  ρχ
+
+where ρχ runs over all nontrivial zeros of L(s, χ) counted with multiplicity. By an
+argument similar to the proof of (36), we obtain
+                                                              ∞
+                 X′ Λ(n)χ(n)           L′          X xρχ −s   X x−2k−κ−s
+                                  =−      (s, χ) −          +                                  (43)
+                         ns            L           ρ
+                                                     ρχ − s     2k + κ + s
+                 n≤x                                  χ                  k=0
+
+for x > 1, s ̸= ρχ , −2k − κ (k ∈ Z≥0 ) [26, (6)].
+   Suppose that L(s, χ) has a zero of order m ≥ 1 at s = 1/2. By isolating the term
+of ρχ = 1/2 in the second sum on the right-hand side of (43), then taking the limit
+s → 1/2, we obtain
+                                                      ′                  
+                 X′ Λ(n)χ(n)                          L              m
+                          √      = −m log x − lim        (s, χ) −
+                            n                   s→1/2 L           s − 1/2
+                 n≤x
+                                                         ∞                      (44)
+                                       X xρχ −1/2       X     x−2k−κ−1/2
+                                   −                  +                   .
+                                             ρχ − 1/2        2k + κ + 1/2
+                                        ρχ ̸=1/2                 k=0
+
+   If χ is imprimitive, it is induced from a primitive Dirichlet character χ∗ modulo q ∗ ,
+for some q ∗ | q, that is,
+                                       (
+                                         χ∗ (n) (n, q) = 1,
+                                χ(n) =
+                                         0       otherwise.
+Therefore,
+                                                    Y
+                              L(s, χ) = L(s, χ∗ )         (1 − χ∗ (p)p−s )                     (45)
+                                                    p|q
+                                                                                                 −s
+                                                                                   Q
+[15, (9.1), (9.2)]. For a principal character χ0 modulo q, L(s, χ0 ) = ζ(s)            p|q (1 − p ).
+We define the GRH to hold for L(s, χ) as the GRH to hold for L(s, χ∗ ).
+
+2.4. Mellin transforms of nonnegative functions. We state a well-known property
+of the Laplace transform of nonnegative functions in terms of the Mellin transform [25,
+Theorem 5b in Chap. II] (or [15, Lemma 15.1]). This is an analog of Landau’s Theorem
+concerning Dirichlet series with nonnegative coefficients.
+                        ON VARIANTS OF CHEBYSHEV’S CONJECTURE                            11
+
+
+Proposition 1. If f (x) is nonnegative, then the real point of the axis of convergence of
+                                       Z ∞
+                                                     dx
+                               F (s) =     f (x) x−s
+                                        1             x
+is a singularity of F (s).
+
+                             3. Proof of Theorems 1 and 2
+3.1. Proof of Theorem 1. The equality in (5) is obtained by integrating (3). First,
+we prove (5) and (6) assuming the RH. We set
+                                        X Λ(n)   x
+                               f (x) :=   √ log .
+                                            n    n
+                                         n≤x
+
+By applying [20, Lemma 1] to s = 1/2, we obtain
+                                                   ′ ′  
+                           √      ζ′ 1
+                                      
+                                                    ζ      1
+                  f (x) − 4 x = −         log x −
+                                  ζ 2               ζ      2
+                                  X xρ−1/2           ∞
+                                                    X x−2k−1/2                        (46)
+                                −                 −
+                                   ρ
+                                      (ρ − 1/2)2        (2k + 1/2)2
+                                                       k=1
+
+for x ≥ 2. The second sum on the second line of the right-hand side is clearly bounded
+for x ≥ 2. The first sum on the second line of the right-hand side is also bounded for
+x ≥ 2, because ρ − 1/2 is purely imaginary by the RH and (35). On the other hand,
+                     ξ′ 1       ζ′ 1      1 Γ′ 1
+                                                     
+                             =         +             − log π = 0
+                      ξ 2       ζ 2       2 Γ 4
+by taking the logarithmic derivative of the first equation in (34) and using (Γ′ /Γ)(1/4) =
+−π/2 − 3 log 2 − C0 = −4.22745 · · · < 0 ([15, p. 411]). Therefore,
+                   ζ′ 1
+                       
+                              1 π                  
+                           =        + log 8π + C0 = 2.68609 · · · > 0.                 (47)
+                    ζ 2       2 2
+Hence, (5) holds for all sufficiently large x ≥ 2. Furthermore, dividing both sides of (46)
+by log x and taking the limit as x → ∞, we obtain (6).
+  By (47), equality (6) implies that (5) holds for all sufficiently large x. Therefore, it
+remains to show that the RH holds if there exist x0 ≥ 2 such that (5) is valid for all
+x ≥ x0 . The key point is the integral formula
+               Z ∞
+                                       dx         1      ζ′
+                   (−f (x)) x−s+1/2        =                (s) for ℜ(s) > 1,          (48)
+                1                       x     (s − 1/2)2 ζ
+which is derived as follows. For an interval I ⊂ R, we denote by 1I the indicator function
+of I. Using the integral formula
+        Z ∞
+              1      x                       dx        1
+             √ log · 1[n,∞) (x) · x−s+1/2       =            n−s for ℜ(s) > 1/2
+         1     n     n                        x   (s − 1/2)2
+obtained by a straightforward calculation for any n ∈ Z>0 , we have
+      Z ∞                           ∞       Z ∞
+                     −s+1/2 dx                   1     x                     dx
+                                   X
+          (−f (x)) x           =−      Λ(n)     √ log · 1[n,∞) (x) · x−s+1/2
+       1                    x                1    n    n                     x
+                                   n=2
+                                                ∞
+                                                            !
+                                     1          X
+                               =              −    Λ(n) n−s
+                                 (s − 1/2)2
+                                                 n=2
+
+if ℜ(s) > 1, where the interchange of the order of integration and summation is justified
+by the absolute convergence of the series for ℜ(s) > 1 and Fubini’s theorem. Therefore,
+we obtain (48) by (33).
+12                                       M. SUZUKI
+
+
+   On the other hand, (ζ ′ /ζ)(s) has no poles in the half-line (1/2, ∞) on the real axis
+except for the simple pole at s = 1 with residue −1, because ζ(s) has the simple pole at
+s = 1 with residuePone and has no zeros in the half-line (1/2, ∞) by the series expansion
+(1 − 21−s )ζ(s) = ∞ n=1 (−1)
+                             n−1 n−s > 0 for s > 0.
+                                     R∞√
+   By the integral formula (48) and 1        x · x−s+1/2 dx/x = 1/(s − 1) for ℜ(s) > 1,
+                     Z ∞
+                                     √              dx
+                         (−f (x) + 4 x )x−s+1/2
+                      1                              x
+                                          ′                                             (49)
+                                  1     ζ           4
+                          =                 (s) +         for ℜ(s) > 1.
+                             (s − 1/2)2 ζ         s−1
+The simple pole of (s − 1/2)−2 (ζ ′ /ζ)(s) at s = 1 is canceled out by the second term of
+the right-hand side. If we divide the left-hand side of (49) into
+                        Z ∞ Z x0 
+                                                   √            dx
+                             +          (−f (x) + 4 x )x−s+1/2     ,
+                          x0     1                               x
+the second integral defines an entire function. Applying Proposition 1 to the first in-
+tegral, we find that the abscissa of convergence of this integral is at most 1/2. There-
+fore, the integral converges uniformly on any compact subset of the right half-plane
+ℜ(s) > 1/2, and hence defines an analytic function there. This implies, by (49), that
+(ζ ′ /ζ)(s) has no poles in the right half-plane ℜ(s) > 1/2, which in turn implies that the
+RH holds.                                                                                □
+3.2. Proof of Corollary 1. Assuming the RH, it is shown that −g0 (t) is nonnegative
+for all sufficiently large t > 0 by (9) and (46) as in the proof of Theorem 1. Therefore,
+we prove the converse. Using (9), (48), and the integral formula
+     Z ∞                                                             
+              t/2    −t/2       −t(s−1/2)          1         1      1
+          4(e + e         − 2) e          dt =                   +       for ℜ(s) > 1,
+       0                                       (s − 1/2)2 s − 1 s
+we have       Z ∞                                        ′                  
+                             −t(s−1/2)            1       ζ          1     1
+                  (−g0 (t)) e          dt =                 (s) +       +              (50)
+               0                             (s − 1/2)2 ζ          s−1 s
+for ℜ(s) > 1. The simple pole of (ζ ′ /ζ)(s) at s = 1 is canceled out by the second term
+of the right-hand side. Hence, if we use (50) instead of (49), the RH follows from the
+nonnegativity of −g0 (t) for all sufficiently large t > 0 as in the proof of Theorem 1. □
+3.3. Proof of Theorem 2. First, we prove that the nonpositivity (10) for all sufficiently
+large x > 0 implies the RH. Using the integral formula
+            Z ∞
+                  1                       dx      1
+                 √ · 1[n,∞) (x) · x−s+1/2    =         n−s for ℜ(s) > 1/2
+             1     n                      x    s − 1/2
+obtained by a straightforward calculation for any n ∈ Z>0 , we have
+                                 
+                   Z ∞ X
+                             Λ(n)             dx        1    ζ′
+                             √  x−s+1/2        =−             (s)
+                    1           n             x      s − 1/2 ζ
+                           n≤x
+
+for ℜ(s) > 1. Combining this with (48) and denoting 2 as log exp(2), we obtain
+                            
+    Z ∞      X Λ(n)       x            dx      2(s − 1) ζ ′
+         −      √ log 2  x−s+1/2        =−                (s) for ℜ(s) > 1.          (51)
+     1            n      ne             x     (s − 1/2)2 ζ
+             n≤x
+
+On the right-hand side, as stated in the proof of Theorem 1, (ζ ′ /ζ)(s) has no poles in
+the half-line (1/2, ∞) except for the simple pole at s = 1, but it is canceled out by s − 1.
+Hence, it is shown that the nonpositivity (10) for sufficiently large x > 0 implies the RH
+as in the proof of Theorem 1.
+                      ON VARIANTS OF CHEBYSHEV’S CONJECTURE                           13
+
+
+  We prove the second half of the theorem. Applying (36) to s = 1/2,
+                                                        ∞
+                √               X xρ−1/2      ζ′ 1          x−2k−1/2
+                                                  X
+              2 x = ψ1/2 (x) +              +        −                             (52)
+                                  ρ
+                                    ρ − 1/2   ζ 2           2k + 1/2
+                                                              k=1
+
+for x > 1. Substituting (52) into (46),
+                                        ζ′ 1
+          X Λ(n)                           
+                       x      X′ Λ(n)
+              √ log − 2            √ =−       log x
+                 n     n             n  ζ 2
+          n≤x                n≤x
+                                               X xρ−1/2           Xxρ−1/2
+                                          +2                  −
+                                              ρ
+                                                  ρ − 1/2    ρ
+                                                                 (ρ − 1/2)2
+                                             ′ ′                               (53)
+                                                            ζ′ 1
+                                                                
+                                             ζ       1
+                                          −             +2
+                                             ζ       2      ζ 2
+                                            ∞
+                                            X x−2k−1/2            ∞
+                                                                 X   x−2k−1/2
+                                          −                 −  2              .
+                                                (2k + 1/2)2          2k + 1/2
+                                            k=1                       k=1
+By denoting 2 as log exp(2), the left-hand side of (53) is written as
+                                                           
+                          X Λ(n)         x          1
+                               √ log 2 + O √ log x ,
+                                 n      ne           x
+                          n≤x
+                                            X′                P
+where the error term arises by replacing                  n≤x . Substituting this into
+                                                       with
+                                                 n≤x
+                                  2
+(53), and then replacing x with xe and dividing by log x, we have
+             X Λ(n)                ζ′ 1       2 X (xe2 )ρ−1/2
+                                      
+                         log n
+                  √   1−         =−        +
+                    n    log x      ζ 2      log x ρ ρ − 1/2
+            n≤xe2
+                                                                                   (54)
+                                      1 X (xe2 )ρ−1/2
+                                                                  
+                                                               1
+                                  −                    + O
+                                    log x ρ (ρ − 1/2)2       log x
+as x → ∞.
+   Suppose that equation (11) holds. Then, inequality (10) is valid for all sufficiently
+large x > 0 by (47), and therefore, the RH holds from the first half of the theorem.
+From the RH, the third term on the right hand side of (54) is O(1/ log x), and
+                X xρ−1/2      X xρ−1/2     1 X xρ−1/2
+                            −            =                   = O(1).
+                 ρ
+                    ρ − 1/2    ρ
+                                     ρ     2 ρ ρ(ρ − 1/2)
+
+Hence, (11) implies that (12) holds. Conversely, assuming that the RH and (12) hold,
+(11) follows from (54).                                                           □
+
+                        4. Proof of Theorems 3, 4, and 5
+4.1. Proof of Theorem 3. We prove the following theorem as Theorem 3 is obtained
+by applying it to χ = χ4 .
+Theorem 8. Let χ be a non-principal Dirichlet character of modulo q, and denote
+L(s, χ) by L(s). Suppose that there exists x0 ≥ 2 such that
+                                X Λ(n)                x
+                                     √ ℜ(χ(n)) log                         (55)
+                                       n             n
+                                 n≤x
+
+has a constant sign for all x ≥ x0 , and L(σ) ̸= 0 for σ > β for some 1/2 ≤ β < 1.
+Then, L(s) ̸= 0 in the right-half plane ℜ(s) > β. In particular, if (55) has a constant
+sign for all sufficiently large x > 0, and L(σ) ̸= 0 for σ > 1/2, then the GRH for L(s)
+holds.
+14                                        M. SUZUKI
+
+
+     Suppose that L(1/2) ̸= 0. Then, we have
+                             X Λ(n)χ(n)                 L′ 1
+                                                           
+                                              log n
+                        lim        √       1−         =−                             (56)
+                       x→∞           n        log x      L 2
+                           n≤x
+
+if and only if the GRH for L(s) holds. If χ is primitive, then equation (56) implies that
+the sum (55) has a constant sign for all sufficiently large x > 0.
+   Furthermore, suppose that s = 1/2 is a zero of L(s) of order m ≥ 0. Then, we have
+                                                           
+                            1 X Λ(n)χ(n)             log n       m
+                      lim              √         1−           =−                     (57)
+                     x→∞ log x           n            log x       2
+                                 n≤x
+
+if and only if the GRH for L(s) holds. Equation (57) implies that the value of the sum
+(55) is negative for all sufficiently large x > 0 if m ≥ 1.
+
+Remark. It is conjectured that L(σ, χ) ̸= 0 for all 1/2 ≤ σ ≤ 1 and for all χ. This
+conjecture has been confirmed for primitive Dirichlet characters of modulus q ≤ 4·105 by
+Platt [17], and for real odd Dirichlet characters of modulus q ≤ 3 · 108 by Watkins [24].
+It has also been confirmed by Platt [17] that L(1/2, χ) ̸= 0 for primitive Dirichlet
+characters of modulus q ≤ 2 · 106 .
+
+Proof. We provide only a sketch of the proof, as the argument is similar to that of
+Theorems 1 and 2. However, we carefully address the points that require particular
+consideration in the case of L(s). We set
+                                          X Λ(n)χ(n)    x
+                              fχ (x) :=       √      log .                           (58)
+                                                n       n
+                                          n≤x
+
+Then, the integral formula
+              Z ∞
+                                     dx       1      L′
+                   (−fχ (x)) x−s+1/2    =               (s)   for ℜ(s) > 1           (59)
+               1                     x    (s − 1/2)2 L
+
+is obtained in the same way as (48) using the series expansion (39). On the right-hand
+side, there exists 1/2 ≤ β < 1 such that L(σ) ̸= 0 for any real number σ > β, because
+L(s) is analytic in C, and has no poles and zeros in the half-line [1, ∞) ⊂ R by the Euler
+product (38) and Dirichlet’s theorem (37). Therefore, if χ is real, the first half of the
+theorem follows similarly to the proof of Theorem 1.
+   We consider the case where χ is not real. We replace χ by χ̄ in (59). Combining this
+with (59), we have
+                                     
+      Z ∞      X Λ(n)               x            dx
+           −        √ ℜ(χ(n)) log x−s+1/2
+        1              n            n            x
+               n≤x                                                                    (60)
+                                                         ′             ′
+                                                                              
+                                                 1        L            L
+                                         =                   (s, χ) + (s, χ̄) .
+                                           2(s − 1/2)2 L               L
+
+By L(s, χ̄) = L(s̄, χ), the assumption that L(σ, χ) ̸= 0 for σ > β implies L(σ, χ̄) ̸= 0
+for σ > β. This yields that the right-hand side of (60) has no poles on the interval
+(β, ∞) ⊂ R. Thus, the assumption on (55) implies that the abscissa of convergence for
+the integral on the left-hand side of (60) is at most β thanks to Proposition 1. This
+means that the right-hand side of (60) is analytic in ℜ(s) > β. This forces L(s, χ) ̸= 0
+in ℜ(s) > β, since the residues of the logarithmic derivative at the zeros are positive
+integers and hence cannot cancel between (L′ /L)(s, χ) and (L′ /L)(s, χ̄).
+                       ON VARIANTS OF CHEBYSHEV’S CONJECTURE                                15
+
+
+  We prove the second half of the theorem. Let χ∗ be a primitive character that induces
+χ. Then, by applying the argument in the proof of [20, Lemma 1] to L(s), we obtain
+                 X Λ(n)χ(n)             x     L′           X xρ−s
+                                  log     = − (s) log x −
+                         ns             n     L            ρ
+                                                             (ρ − s)2
+                 n≤x
+                                               ′ ′       ∞                             (61)
+                                                L          X x−2k−κ∗ −s
+                                            −        (s) −
+                                                 L           (2k + κ∗ + s)2
+                                                          k=0
+
+for x > 1, s ̸= ρχ , −2k − κ∗ (k ∈ Z≥0 ). If L(1/2) ̸= 0, that is, if m = 0, then substituting
+s = 1/2 into (61) yields
+                                   L′ 1             X xρ−1/2
+                                       
+                       fχ (x) = −          log x −
+                                   L 2               ρ
+                                                         (ρ − 1/2)2
+                                    ′ ′   X     ∞              ∗
+                                                                                          (62)
+                                     L      1              x−2k−κ −1/2
+                                 −              −                          ,
+                                     L      2           (2k + κ∗ + 1/2)2
+                                                   k=0
+
+where the sum ρ is taken over all nontrivial zeros of L(s, χ∗ ), which coincide with all
+                  P
+
+zeros of ξ(s, χ∗ ), and the zeros of the finite product L(s)/L(s, χ∗ ) = p|q (1 − χ∗ (p)p−s ),
+                                                                             Q
+
+and κ∗ = κ(χ∗ ).
+   Suppose that L(s) has a zero of order m ≥ 1 at s = 1/2. Then, we have
+                                                              ′ ′ !
+                             L′              mx−s+1/2          L
+                    lim − (s) log x −                   2
+                                                           −         (s)
+                   s→1/2     L             (−s + 1/2)           L
+                                                   ′                    
+                              m        2            L               m                     (63)
+                         = − (log x) − lim             (s, χ) −            log x
+                               2           s→1/2 L              s − 1/2
+                                     ′ ′                     
+                                       L                 m
+                            − lim            (s) +                .
+                              s→1/2    L            (s − 1/2)2
+Therefore, by isolating the term of ρ = 1/2 in the second sum on the right-hand side of
+(61), then taking the limit s → 1/2, we obtain
+                                               ′                  
+                           m        2          L               m
+                fχ (x) = − (log x) − lim          (s, χ) −           log x
+                            2           s→1/2 L            s − 1/2
+                                  ′ ′                   
+                                    L               m
+                         − lim           (s) +                                     (64)
+                           s→1/2     L         (s − 1/2)2
+                                               ∞             ∗
+                            X xρ−1/2           X      x−2k−κ −1/2
+                         −                  −                        .
+                                 (ρ − 1/2)2        (2k + κ∗ + 1/2)2
+                              ρ̸=1/2               k=0
+
+   Assuming the GRH for L(s), each term of the right-hand side (62) is bounded except
+for the first term, and each term of the right-hand side (64) is bounded except for the
+first and second terms. Hence, (56) and (57) hold.
+   Conversely, assuming (56) (resp. (57)), we have fχ (x) ≪ log x (resp. ≪ (log x)2 ) as
+x → ∞. Therefore, the integral on the left-hand side of (59) converges uniformly on
+any compact subset in ℜ(s) > 1/2. Thus, it defines an analytic function in ℜ(s) > 1/2,
+and hence, L(s) has no zeros (or poles) in ℜ(s) > 1/2, that is the GRH for L(s).
+   Finally, we prove that the sum (55) has a constant sign for all sufficiently large x > 0
+assuming L(1/2) ̸= 0, (56) and that χ is primitive. Taking the logarithmic derivative of
+(41) and substituting s = 1/2, we obtain ℜ(ξ ′ /ξ)(1/2, χ) = 0. This gives
+                          L′ 1             π Γ′ 1 κ(χ)
+                                                           
+                                    1
+                        ℜ         =     log −          +                               (65)
+                          L 2       2      q     Γ 4        2
+16                                              M. SUZUKI
+
+
+by (40). In particular, ℜ(L′ /L)(1/2) depends only on q and the parity of χ. By (65),
+the value ℜ(L′ /L)(1/2) vanishes only when q > 1 takes the following values
+                                           (
+                              Γ′ 1 κ(χ)
+                               
+                                                   215.332 · · · , κ = 0,
+               q = π · exp −        +         =
+                              Γ 4       2          9.305 · · · ,   κ = 1,
+however it is impossible for any integer q > 1, where
+                    Γ′ 1 κ(χ)
+                                                
+                                                 1
+                           +         = κ(χ) −        π − 3 log 2 − C0                     (66)
+                     Γ 4       2                 2
+([15, p. 411]). Therefore, ℜ(L′ /L)(1/2) is a nonzero real number. Hence, by taking
+the real part of (56), it follows that (55) has a constant sign for all sufficiently large
+x > 0.                                                                                  □
+Proof of Theorem 3. From the second half of Theorem 8, we see that the  PNfirst andn third
+claims of Theorem 3 are equivalent. Using the series expansion limN →∞ n=0 (−1) (2n+
+1)−s for ℜ(s) > 0, we find that L(s, χ4 ) has no zeros on the positive real line (0, ∞).
+Therefore, by the first half of Theorem 8, the second claim of Theorem 3 implies the
+first claim. Assuming the first claim of Theorem 3, it follows that the third claim holds
+by the equivalence we have already shown. Furthermore, since χ4 is primitive, the third
+claim implies the second claim.                                                         □
+
+4.2. Proof of Theorem 4. We prove the following theorem as Theorem 4 is obtained
+by applying it to χ = χ4 . Note that L(1/2, χ4 ) ̸= 0 as mentioned in the proof of Theorem
+3.
+Theorem 9. Let χ be a real Dirichlet character such that L(σ, χ) ̸= 0 for σ > β (≥ 1/2).
+Suppose that                                r
+                            X                 x     x
+                               χ(p) log p ·     log ≤ 0                             (67)
+                                              p     p
+                               p≤x
+for all sufficiently large x > 1. Then, L(s, χ) ̸= 0 in the right-half plane ℜ(s) > β. In
+particular, if β = 1/2, the GRH for L(s, χ) holds.
+   Conversely, suppose that the GRH for L(s, χ) holds and L(1/2, χ) ̸= 0. Then, the
+asymptotic formula
+                                 r           √                          
+                X                  x    x      x        2             1
+                    χ(p) log p ·     log = −     (log x) 1 + O                       (68)
+                                   p    p     4                     log x
+               p≤x
+
+holds as x → ∞. Therefore, (67) is valid for all sufficiently large x > 1, and the left-hand
+side of (67) tends to −∞ as x → ∞.
+Proof. Let fχ (x) be the function in (58). If we define
+                                        X χ(p) log p     x
+                              f1 (x) :=        √      log ,
+                                                 p       p
+                                            p≤x
+
+                   X χ(p)2 log p         x                      X X χ(p)k log p     x
+       f2 (x) :=                   log      ,       f3 (x) :=                   log k ,
+                     √     p             p2                             p k/2      p
+                   p≤ x                                         k≥3 1/k
+                                                                    p≤x
+then fχ (x) = f1 (x) + f2 (x) + f3 (x). For f2 (x), we have
+                                   X log p         X (log p)2
+                   f2 (x) = log x            −2               + O(log x)
+                                    √    p          √     p
+                                p≤ x                  p≤ x
+
+                           1                        X (log p)2
+                          = (log x)2 + O(log x) − 2
+                           2                        √    p
+                                                             p≤ x
+                       ON VARIANTS OF CHEBYSHEV’S CONJECTURE                              17
+
+
+by using (31). For the third term on the right-hand side,
+                                                              
+               X (log p)2           X log p Z x X log p 1
+                            = log x          −                 dt
+                      p                  p      1           p     t
+               p≤x                  p≤x              p≤t
+                                                    Z x
+                                                                      1
+                            = (log x)2 + O(log x) −     (log t + O(1)) dt
+                                                     1                t
+                              1
+                            = (log x)2 + O(log x)
+                              2
+by partial summation and (31). Therefore,
+                                      1
+                              f2 (x) = (log x)2 + O(log x).                            (69)
+                                      4
+On the other hand,
+                                     f3 (x) = O(log x)                                 (70)
+by the convergence of the sum. As a consequence, if we rewrite (59) as
+       Z ∞
+                          dx        1      L′
+     −     f1 (x) x−s+1/2    =                (s)
+        1                 x    (s − 1/2)2 L
+                                 Z ∞                      Z ∞                          (71)
+                                              −s+1/2 dx                     dx
+                               +      f2 (x) x          +     f3 (x) x−s+1/2 ,
+                                  1                  x     1                x
+the second and third terms on the right-hand side converge absolutely and uniformly on
+any compact subset in ℜ(s) > 1/2, and hence define analytic functions there.
+   Suppose that f1 (x) has a constant sign for all sufficiently large x > 1. Then, the
+assumption L(σ, χ) ̸= 0 for σ > β (≥ 1/2) implies that the abscissa of convergence σc
+for the integral on the left-hand side of (71) satisfies σc ≤ β by Proposition 1. Therefore,
+the integral on the left-hand side of (71) converges uniformly for any compact subset of
+ℜ(s) > σc . This means that the right-hand side of (71) is analytic in ℜ(s) > β (≥ 1/2).
+This forces L(s, χ) ̸= 0 in ℜ(s) > β (≥ 1/2).
+   Conversely, suppose that the GRH for L(s) holds. Then, fχ (x) = O(log x) by (62).
+On the other hand, fχ (x) = f1 (z)+(1/4)(log x)2 +O(log x) by (69) and (70). Combining
+these two,
+                                                               
+                                     1        2              1
+                           f1 (x) = − (log x) 1 + O                 .
+                                     4                     log x
+This immediately implies (68).                                                            □
+
+4.3. Proof of Theorem 5. It suffices to show (20) with x replaced by x/e2 . Using the
+decomposition
+                X Λ(n)       x      X log p       x
+                                                         
+                    √ log 2 =            √     log − 2
+                     n      ne             p       p
+                n≤x                 p≤x
+                                       X log p              
+                                                       x
+                                   +               log 2 − 2
+                                         √   p        p
+                                      p≤ x
+                                      X X log p            x
+                                                                  
+                                   +                    log k − 2
+                                      k≥3    1/k
+                                                 pk/2      p
+                                              p≤x
+
+and (31), it can be obtained by an argument similar to that of Theorem 4.                 □
+18                                             M. SUZUKI
+
+
+                              5. Proof of Theorems 6 and 7
+5.1. Proof of Theorem 6. Noting the orthogonality of characters
+                                    (
+                       X              φ(q) n ≡ 1 mod q,
+                             χ(n) =
+                     χ mod q
+                                      0    n ̸≡ 1 mod q,
+
+we take the sum of (58) over all χ modulo q. Then,
+                         X                   X Λ(n)     x
+                              fχ (x) = φ(q)        √ log .                              (72)
+                                                    n   n
+                          χ mod q            n≤x
+                                                      n≡1 mod q
+
+The Dirichlet theorem on arithmetic progressions [15, Corollary 11.17] tells us that the
+leading term in the asymptotic formulas for both (72) and
+                        X X Λ(n)χ(n)                  X Λ(n)
+                     2             √       = 2 φ(q)          √
+                                     n                         n
+                         χ mod q n≤x                  n≤x
+                                                                  n≡1 mod q
+             √
+as x → ∞ is 4 x. Thus, leading terms cancel out in
+                                                         √
+                                   1     X              4 x
+                        fq (x) :=              fχ (x) −
+                                  φ(q)                  φ(q)
+                                       χ mod q
+                                                          √                             (73)
+                                   X Λ(n)            x 4 x
+                               =          √ log −
+                                   n≤x
+                                             n       n φ(q)
+                                          n≡1 mod q
+
+and
+                               1   X           2   X X Λ(n)χ(n)
+                  Fq (x) :=          fχ (x) −            √
+                              φ(q)            φ(q)         n
+                                     χ mod q                  χ mod q n≤x
+                           1   X X Λ(n)χ(n)     x
+                        =            √      log 2
+                          φ(q)         n       ne                                       (74)
+                                    χ mod q n≤x
+                                X         Λ(n)  x
+                        =                 √ log 2 .
+                                n≤x
+                                            n  ne
+                              n≡1 mod q
+                      −1
+                         P
+Taking the sum φ(q)           χ mod q in (59),
+                                                                                   
+      Z ∞                                                         X L′
+                               dx    1      1                                   4 
+            (−fq (x))x−s+1/2      =                                    (s, χ) +         (75)
+      1                         x   φ(q) (s − 1/2)2                 L           s−1
+                                                              χ mod q
+
+for ℜ(s) > 1. On the other hand, by (51), (59), and the way of their proofs, we obtain
+                                       
+           Z ∞     X Λ(n)χ(n)         x            dx     2(1 − s) L′
+               −         √      log 2  x−s+1/2      =                (s, χ)      (76)
+            1               n        ne             x    (s − 1/2)2 L
+                   n≤x
+
+for ℜ(s) > 1. Taking the sum φ(q)−1 χ mod q in (76),
+                                     P
+              Z ∞                                         X L′
+                                   dx      2(1 − s) 1
+                  (−Fq (x))x−s+1/2     =                          (s, χ).          (77)
+               1                    x    (s − 1/2)2 φ(q)        L
+                                                                        χ mod q
+
+Then, following an argument similar to the proof of Theorems 2 and 8, and using (75)
+and (77), we obtain the first claim of Theorem 6.
+   We now prove the second and third claims of Theorem 6. Suppose that L(1/2, χ) ̸= 0
+for any Dirichlet character χ modulo q. In an  Q argument similar to the proof of (53),
+in the case χ = χ0 , we include the zeros of p|q (1 − p−s ) in both sums for ρ on the
+right-hand side of (53); in the case χ ̸= χ0 , we use (62) and (43) instead of (46) and
+                        ON VARIANTS OF CHEBYSHEV’S CONJECTURE                                19
+
+
+(36), respectively, and include the zeros of p|q (1 − χ∗ (p)p−s ) in both sums for ρ on the
+                                               Q
+
+right-hand side, to obtain
+     X Λ(n)χ(n)          x       L′ 1
+                                                      X xρχ −1/2
+             √      log 2 = −           , χ log x + 2
+               n        ne       L 2                     ρχ
+                                                             ρχ − 1/2
+     n≤x
+                                 X xρχ −1/2              L′ ′ 1             L′ 1
+                                                                                
+                              −                     −              ,χ + 2         ,χ
+                                  ρχ
+                                      (ρχ − 1/2)2         L      2          L 2
+                                                                                           (78)
+                                  ∞       −2k−κ ∗ −1/2         ∞      −2k−κ∗ −1/2
+                                 X      x                     X     x
+                              −               ∗
+                                                          −2
+                                      (2k + κ + 1/2)    2          2k + κ∗ + 1/2
+                                 k=0                          k=0
+                                           
+                                      log x
+                              +O √            .
+                                         x
+                       P
+Here, the two sums        ρχ on the right-hand side are taken over Q       all nontrivial zeros
+of L(s, χ ) and all zeros of the finite product L(s, χ)/L(s, χ ) = p|q (1 − χ∗ (p)p−s ),
+         ∗                                                          ∗
+                                                                           X′
+κ∗ = κ(χ∗ ), and the last term arises from the difference between
+                                                                                        P
+                                                                                    and n≤x .
+                  P                                                            n≤x
+Taking the sum χ mod q in (62) and using (46) for χ = χ0 , we obtain
+                            X L′  1              X X xρχ∗ −1/2
+      φ(q)fq (x) = − log x               ,χ −                               + O(1),        (79)
+                                  L 2                    ρ ∗
+                                                             (ρχ∗ − 1/2)2
+                             χ mod q                χ mod q   χ
+
+
+where the sums ρχ∗ on the right-hand side are taken over all nontrivial zeros of L(s, χ∗ )
+                  P
+                                                                          P
+and the implied constant depends only on q. Similarly, taking the sum χ mod q in (78),
+we obtain
+                                 X L′  1 
+          φ(q)Fq (x) = − log x               ,χ
+                                       L 2
+                               χ mod q
+                                                                                  (80)
+                          X        X xρχ∗ −1/2       X xρχ∗ −1/2
+                       +        2                 −                    + O(1),
+                                        ρχ ∗ − 1/2       (ρχ ∗ − 1/2)2
+                             χ mod qρ ∗χ             ρ ∗      χ
+                   P
+where the sums ρ∗χ and the implied constant have the same meaning as in (79). In
+(80), the contribution from the zeros of L(s, χ)/L(s, χ∗ ) is included in the O(1) term,
+and it is justified as follows.
+   For a Dirichlet character χ modulo q, we denote by Z1 (χ) the set of all nontrivial zeros
+of L(s, χ∗ ) counted with multiplicity and by Z2 (χ) the set of all zeros of L(s, χ)/L(s, χ∗ ).
+Then, the second sum on the right-hand side of (43) for s = 1/2 is written as
+                                                                             
+            X xρχ −1/2                    X     xρχ −1/2     X       xρχ −1/2 
+                             = lim                       +                    .
+             ρχ
+                  ρχ − 1/2     T →∞
+                                       ρ ∈Z (χ)
+                                                ρ χ − 1/2   ρ ∈Z (χ)
+                                                                     ρ χ − 1/2 
+                                        χ    1                     χ    2
+                                       |ℑ(ρχ )|≤T                 |ℑ(ρχ )|≤T
+
+
+The second sum inside the brackets on the right-hand side is x−1/2 (1+o(1)) with respect
+to T , because the zeros of p-factors of L(s, χ)/L(s, χ∗ ) have the form i(A + Bn) (n ∈ Z)
+for some real numbers A and B ̸= 0, and the series
+                                      X          xiBn
+                                 lim
+                                N →∞       i(A + Bn) − 1/2
+                                       |n|≤N
+
+is convergent and bounded, as in the case of the Fourier series of the sawtooth wave.
+Therefore, the contribution from the zeros of L(s, χ)/L(s, χ∗ ) on the right-hand side
+of (78), which originates from (43), is bounded. Moreover, the contributions from the
+20                                          M. SUZUKI
+
+
+zeros of L(s, χ)/L(s, χ∗ ) arising from (46) and (62) are also bounded, since the sums
+over zeros in (46) and (62) converge absolutely.
+   Assuming that the GRH holds for L(s, χ) for all χ modulo q, the second sum on the
+right-hand side of (79) is bounded. Additionally, if we assume (25), the last sum over χ
+mod q on the right-hand side of (80) is o(log x). Hence, (23) and (24) hold.
+   Conversely, assuming (23) (resp. (24)), it follows from (73) (resp. (74)) that fq (x) ≪
+log x (resp. Fq (x) ≪ log x) as x → ∞. Therefore, the integral on the left-hand side
+of (75) (resp. (77)) converges uniformly on any compact subset of the right half-plane
+ℜ(s) > 1/2, and hence defines an analytic function there. Thus, the GRH for L(s, χ)
+for all χ modulo q follows from an argument similar to that in the proof of Theorem 8.
+Moreover, assuming (24), it follows from (74) that
+                                     X L′  1 
+              φ(q)Fq (x) = − log x              , χ + o(log x) as x → ∞.
+                                          L 2
+                                      χ mod q
+
+Comparing this with (80), we find that the sum over χ mod q on the right-hand side of
+(80) must be o(log x). However, the latter part of this sum is absolutely convergent and
+bounded, and thus (25) follows.
+  Finally, we prove the fourth and fifth claims of Theorem 6. By using (44) in place of
+(43) and (64) in place of (62), and employing the resulting modified versions of (79) and
+(80), one can show that both (26) and (27) are equivalent to the GRH for L(s, χ) for all
+Dirichlet characters χ modulo q, by an argument similar to that used in the proofs of
+the second and third claims. Furthermore, by appropriately modifying (80) using (44)
+and (64), one can also show that (27) implies (28) by an argument similar to that of the
+proof of the third claim. We omit the details, as there is no essential difference.     □
+5.2. Proof of Theorem 7. First, we prove (29). After multiplying fq (x) in (73) by
+φ(q), summing over 3 ≤ q ≤ Q, and then changing the order of summation, we obtain
+                                                                    
+              X                 X           X Λ(n)          x    √ 
+                  φ(q)fq (x) =       φ(q)            √ log − 4 x
+                                                       n     n
+            3≤q≤Q              3≤q≤Q         n≤x
+                                           n≡1 mod q                          (81)
+                               X Λ(n)      x X               √
+                             =     √ log             φ(q) − 4 x (Q − 2),
+                                     n     n 3≤q≤Q
+                                    n≤x
+                                                    q|n−1
+
+where we understand that the inner sum is zero if it is an empty sum. For any n ≤ x,
+all the divisors of n − 1 appear in the range 1 ≤ q ≤ Q by the assumption PQ ≥ x. For a
+prime number p, 2 divides pk − 1 if and only if p is odd. Therefore, using d|m φ(d) = m
+on the right-hand side of (81),
+     X Λ(n)        x X             X Λ(n)(n − 3)         x        X (2k − 2)      x
+          √ log            φ(q) =           √         log + log 2        √    log k
+            n      n 3≤q≤Q                    n          n                2k     2
+     n≤x                           n≤x                             k
+                                                                 2 ≤x
+                    q|n−1           n̸∈2N
+                                    X Λ(n)(n − 3)    x    √
+                                =        √        log + o( x ).
+                                           n         n
+                                    n≤x
+
+Using [21, (2.3)] and the prime number theorem (32) in (46),
+                               X Λ(n)      x     √
+                                   √ log = O( x).
+                                    n      n
+                                n≤x
+
+Therefore, we obtain
+                X                     X         √     x   √        √
+                       φ(q)fq (x) =         Λ(n) n log − 4 x Q + O( x ).
+                                                      n
+               3≤q≤Q                  n≤x
+                          ON VARIANTS OF CHEBYSHEV’S CONJECTURE                         21
+
+
+By applying partial summation to the first term on the right-hand side using the prime
+number theorem (32),
+                                   Z xX
+                      √
+                                                                     
+           X                x                        1       1      x
+               Λ(n) · n log = −             Λ(n) − √ + √ log            du
+                            n       1                 u 2 u         u
+             n≤x                                  n≤u
+                                      4 √
+                                     = x x (1 + o(1)).
+                                      9
+Hence, we obtain (29).
+  Next, we prove (30). After multiplying Fq (x) in (74) by φ(q), summing over 3 ≤ q ≤
+Q, and then changing the order of summation as in (81), we obtain
+                    X                 X Λ(n)         x X
+                         φ(q)Fq (x) =     √ log 2             φ(q).              (82)
+                                             n      ne 3≤q≤Q
+                         3≤q≤Q                  n≤x
+                                                                  q|n−1
+
+Then, as before,
+                     X                      X Λ(n)(n − 3)     x     √
+                             φ(q)Fq (x) =        √        log 2 + o( x ).
+                                                   n         ne
+                   3≤q≤Q                    n≤x
+
+Using [21, (2.3)] and the prime number theorem (32) in (53),
+                              X Λ(n)       x      √
+                                  √ log 2 = o( x ).
+                                    n     ne
+                                   n≤x
+
+Therefore, we obtain
+                    X                           X         √      x     √
+                              φ(q)Fq (x) =            Λ(n) n log 2 + o( x ).
+                                                                ne
+                     3≤q≤Q                      n≤x
+
+By applying partial summation to the first term on the right-hand side using the prime
+number theorem (32),
+                                              Z xX
+            √               √ X
+                                                                              
+  X                   x                                        2      1      x
+      Λ(n) · n log 2 = −2 x          Λ(n) −          Λ(n) − √ + √ log            du
+                     ne                        1                u 2 u        u
+   n≤x                                    n≤x               n≤u
+                            8 √
+                        = − x x (1 + o(1)).
+                            9
+Hence, we obtain (30) by substituting xe2 for x.                                    □
+                     P
+  If we take the sum 3≤q≤Q in (74), we obtain
+                         X               X Λ(n)(σ0 (n − 1) − ν(n))     x
+                              Fq (x) =               √             log 2 ,
+                                                       n              ne
+                    3≤q≤Q                n≤x
+
+where σ0 (n) denotes the number of divisors of n and ν(n) = 1 if n = 2k for some
+k ∈ Z>0P, and ν(n) = 2 otherwise. In this case, the study of Titchmarsh’s divisor
+problem n≤x Λ(n)σ0 (n − 1) provides the leading term. Using the asymptotic formula
+ X                         ζ(2)ζ(3)
+       Λ(n)σ0 (n − 1) =             x log x
+                             ζ(6)
+ n≤x
+                                       "                    !    #                 
+                             ζ(2)ζ(3)          X log p                         x
+                           +            2 C0 −                − 1 x + OA
+                               ζ(6)            p
+                                                 p2 − p + 1                (log x)A
+
+obtained by Bombieri, Friedlander, and Iwaniec [4] and Fouvry [6], we find that
+              X Λ(n)σ0 (n − 1)        x        ζ(2)ζ(3) √
+                        √         log 2 = −8              x (1 + o(1)).
+                          n          ne           ζ(6)
+                   n≤x
+22                                            M. SUZUKI
+
+
+This also shows that (22) has a constant sign on average, however, the sum used in the
+proof of Theorem 7 is probably easier to handle.
+
+                                            References
+ [1] M. Aoki, S. Koyama Chebyshev’s bias against splitting and principal primes in global fields, J.
+     Number Theory 245 (2023), 233–262.
+ [2] H. Akatsuka, The Euler product for the Riemann zeta-function in the critical strip, Kodai Math.
+     J. 40 (2017), no. 1, 79–101.
+ [3] H. Akatsuka, Maximal order for divisor functions and zeros of the Riemann zeta-function,
+     arXiv:2411.19259. https://arxiv.org/abs/2411.19259.
+ [4] E. Bombieri, J. B. Friedlander, H. Iwaniec, Primes in arithmetic progressions to large moduli, Acta
+     Math. 156 (1986), no. 3-4, 203–251.
+ [5] K. Conrad, Partial Euler products on the critical line, Canad. J. Math. 57 (2005), no. 2, 267–297.
+ [6] É. Fouvry, Sur le problème des diviseurs de Titchmarsh, J. Reine Angew. Math. 357 (1985), 51–76.
+ [7] A. Fujii, Some generalizations of Chebyshev’s conjecture, Proc. Japan Acad. Ser. A Math. Sci. 64
+     (1988), no. 7, 260–263.
+ [8] G. H. Hardy, J. E. Littlewood, Contributions to the theory of the Riemann zeta-function and the
+     theory of the distribution of primes, Acta Math. 41 (1916), no. 1, 119–196.
+ [9] A. E. Ingham, The distribution of prime numbers, Reprint of the 1932 original, With a foreword by
+     R. C. Vaughan, Cambridge Mathematical Library, Cambridge University Press, Cambridge 1990.
+[10] D. R. Johnston, On the average value of π(t) − li(t), Canad. Math. Bull., 66 (2023), no. 1, 185–195.
+[11] S. Knapowski, P. Turán, Über einige Fragen der vergleichenden Primzahltheorie (German), Number
+     Theory and Analysis (Papers in Honor of Edmund Landau), 157–171, Plenum, New York, 1969.
+[12] M. G. Kreı̆n, H. Langer, Über einige Fortsetzungsprobleme, die eng mit der Theorie hermitescher
+     Operatoren im Raume Πκ zusammenhängen. I. Einige Funktionenklassen und ihre Darstellungen,
+     Math. Nachr. 77 (1977), 187–236.
+[13] E. Landau, Über einige ältere Vermutungen und Behauptungen in der Primzahltheorie, Math. Z.
+     1 (1918), 1–24, 213–219.
+[14] H. L. Montgomery, The zeta function and prime numbers, Proceedings of the Queen’s Number
+     Theory Conference, 1979 (Kingston, Ont., 1979), pp. 1–31, Queen’s Papers in Pure and Appl.
+     Math., 54, Queen’s Univ., Kingston, ON, 1980.
+[15] H. L. Montgomery, R. C. Vaughan, Multiplicative number theory. I. Classical theory, Cambridge
+     Studies in Advanced Mathematics, 97 , Cambridge University Press, Cambridge, 2007.
+[16] J. Pintz, On an assertion of Riemann concerning the distribution of prime numbers, Acta Math.
+     Hungar. 8 (1991), no. 3-4, 383–387.
+[17] D. Platt, Numerical computations concerning the GRH, Math. Comp. 85 (2016), no. 302, 3009–
+     3027.
+[18] D. Platt, T. Trudgian, Fujii’s development on Chebyshev’s conjecture, Int. J. Number Theory 15
+     (2019), no. 3, 639–644.
+[19] M. Rubinstein, P. Sarnak, Chebyshev’s bias, Experiment. Math. 3 (1994), no. 3, 173–197.
+[20] K. Soundararajan, Moments of the Riemann zeta function, Ann. of Math. (2) 170 (2009), no. 2,
+     981–993.
+[21] M. Suzuki, Aspects of the screw function corresponding to the Riemann zeta function, J. Lond.
+     Math. Soc. 108 (2023), no.4, 1448-1487.
+[22] M. Suzuki, Screw functions of Dirichlet series in the extended Selberg class, to appear in the
+     International Journal of Number Theory.
+[23] E. C. Titchmarsh, The theory of the Riemann zeta-function, Second edition, Edited and with a
+     preface by D. R. Heath-Brown , The Clarendon Press, Oxford University Press, New York, 1986.
+[24] M. Watkins, Real zeros of real odd Dirichlet L-functions, Math. Comp. 73 (2004), no. 245, 415–423.
+[25] V. D. Widder, The Laplace Transform, Princeton Mathematical Series, vol. 6, Princeton University
+     Press, Princeton, NJ, 1941.
+[26] C. Y. Yildirim, The pair correlation of zeros of Dirichlet L-functions and primes in arithmetic
+     progressions, Manuscripta Math. 72 (1991), no. 3, 325–334.
+
+Masatoshi Suzuki,
+Department of Mathematics,
+School of Science,
+Institute of Science Tokyo
+2-12-1 Ookayama, Meguro-ku,
+Tokyo 152-8551, Japan
+                  ON VARIANTS OF CHEBYSHEV’S CONJECTURE   23
+
+
+Email: msuzuki@math.sci.isct.ac.jp
+

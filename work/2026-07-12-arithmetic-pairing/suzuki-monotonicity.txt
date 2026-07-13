@@ -1,0 +1,849 @@
+                                            ON MONOTONICITY OF CERTAIN WEIGHTED SUMMATORY
+                                                 FUNCTIONS ASSOCIATED WITH L-FUNCTIONS
+
+                                                                              MASATOSHI SUZUKI
+
+
+
+                                           Dedicated to Professor Akio Fujii on the occasion of his retirement from Rikkyo Uni-
+                                         versity.
+
+
+
+
+arXiv:1204.1823v1 [math.NT] 9 Apr 2012
+                                                                              1. Introduction
+                                           Let N be the set of natural numbers n = 1, 2, · · · . For a sequence of real numbers
+                                         {c(n)}n∈N and a real-valued locally integrable function g : (0, ∞) → R, we consider a
+                                         weighted summatory function
+                                                                                X∞        n
+                                                                        h(x) =      c(n)g       .                          (1.1)
+                                                                                n=1
+                                                                                           x
+
+                                         Typical example of a weight function is the step function gst which is defined by gst (y) = 1
+                                         for 0 < yP⩽ 1, and gst (y) = 0 for y > 1. In this case, we obtain the usual summatory
+                                         function n⩽x c(n).
+                                            As is often the case with an arithmetically defined sequence {c(n)}n∈N , a certain
+                                         reasonable estimate h(x) = O(xA ) (x → ∞) is a sufficient or an equivalent condition to
+                                         the Generalized/Grand Riemann Hypothesis      R x (GRH for short) for some zeta/L-function.
+                                         On the other hand, the monotonicity of c h(t) dt for large x ⩾ c > 0 may also be a
+                                         sufficient or an equivalent condition to the GRH for some zeta/L-function.
+                                            In the present paper we study the latter type conditions for a family of weighted
+                                         summatory functions
+                                                           R x with certain specific weights in terms of the sign of h(x), since the
+                                         monotonicity of c h(t) dt for large x is equivalent to the condition that h(x) has a single
+                                         sign for large x.
+                                            We mention two examples of the monotonic condition. The first one is Pólya’s con-
+                                         jecture. Let λ(n) = (−1)Ω(n) be the Liouville function, where Ω(n) is the number of all
+                                         prime factors of n counted with multiplicity. Pólya [15] conjectured that the value of the
+                                         summatory function
+                                                                        ∞
+                                                                        X              n X
+                                                                            λ(n) · gst       =     λ(n)                        (1.2)
+                                                                                          x    n⩽x
+                                                                        n=1
+                                         is nonpositive for x ⩾ 2 and noted that it is a sufficient condition for the Riemann
+                                         Hypothesis (RH for short), but it was disproved by Haselgrove [4]. However, recently,
+                                         Pólya’s approach resurrected by Ram Murty [16] by considering an analogue of the Pólya
+                                         conjecture to L-functions of elliptic curves.
+                                            The second example is Chebyshev’s conjecture. Let ̟ : N → {0, 1} be the characteris-
+                                         tic function of odd prime numbers. Chebyshev [1] asserted that the weighted summatory
+                                         function
+                                                                ∞                   n
+                                                                X      n−1
+                                                                  (−1) 2 ̟(n) · g        (g(y) = exp(−y))                  (1.3)
+                                                                                       x
+                                                               n=1
+                                         is nonpositive for large x > 0 without a proof. Subsequently, Hardy-Littlewood [3] and
+                                         Landau [10] proved independently that Chebyshev’s assertion is equivalent to the GRH
+                                         for the Dirichlet L-function L(s, χ4 ) associated with the primitive non-principal Dirichlet
+                                                                                       1
+2                                         M. SUZUKI
+
+character χ4 mod 4. Moreover, Knapowski-Turán [8] proved that the nonpositivity of
+the weighted summatory function
+                 ∞                           n
+                 X           n−1
+                     (−1) 2 ̟(n) log n · g          (g(y) = exp(−(log y)2 ))              (1.4)
+                 n=1
+                                              x
+
+for large x > 0 is also equivalent to the GRH for L(s, χ4 ). In the later, Fujii [2] generalized
+Chebyshev’s equivalence condition to the weight function g(y) = exp(−y α ) for every
+0 < α < α0 (α0 > 4), and conjectured that it holds for all α > 0. Furthermore, he
+proved that Knapowski-Turán’s equivalence condition still holds if their weight function
+                                                     √
+is replaced by the inverse Mellin transform 2K0 (2 y) of Γ(s)2 , where Kn (x) is the K-
+Bessel function of index n and Γ(s) is the usual gamma function.
+  As mentioned in the final section of Fujii [2], we may replace the weight g in (1.3)
+or (1.4) by a more general weight. Similarly, it is expected that we obtain various
+equivalence conditions of the RH by replacing the weight gst in (1.2) by other reasonable
+weights as an application of several standard techniques of analytic number theory
+   The main subject of the present paper is a family of specific weighted summatory
+            hki
+functions hf,ω : (0, ∞) → R associated with general L-functions L(f, s) in the sense
+of Iwaniec-Kowalski [6, §5.1] endowed with two parameters 0 < ω < 1/2 and k ∈ N.
+It is introduced in Section 2. The main result is that, for arbitrary fixed k ⩾ 2, the
+                 R x hki
+monotonicity of 1 hf,ω (t) dt for large x > 0 for all 0 < ω < 1/2 is equivalent to the
+GRH of L(f, s). It is stated precisely in Section 2 as Theorem 2.1 ∼ 2.4 together with
+                                         hki
+a little comment on a background of hf,ω . These results are proved in Section 4 and
+Section 5 using two basic facts stated in Section 3.
+Acknowlegements I would like to express my gratitude to Professor Akio Fujii for his
+advice and encouragement over the past several years. In particular, I thank for his
+support during my JSPS research fellowship at Rikkyo University.
+   A part of this work was done during my stay at the Nottingham University in August
+2010 which was partially supported by EPSRC grant EP/E049109. I thank I. Fesenko
+for his warm hospitality during my stay. This work was supported by Grant-in-Aid for
+Young Scientists (B) (21740004).
+
+                                         2. Results
+   We start from two special cases of the main result (Themore 2.3 in below) for the
+simplicity of statements. That are cases of the Riemann zeta function and Dirichlet
+L-functions. The main result will be stated after these two special cases and a brief
+introduction of general L-functions. We shall give a little comment on the main theorem
+and its background after Theorem 2.4.
+
+2.1. Riemann P zeta −s function. Let ζ(s) be the Riemann zeta function which is defined
+by the series ∞ n=1  n    for ℜ(s) > 1 and extended to a meromorphic function on C with
+the unique pole of residue 1 at s = 1. We denote by γ(s) the factor π −s/2 Γ(s/2) of the
+Riemann xi-function ξ(s) = s(s − 1)π −s/2 Γ(s/2)ζ(s). Let B(z; p, q) be the incomplete
+beta function defined by
+                        Z z
+          B(z; p, q) =      xp−1 (1 − x)q−1 dx (0 ⩽ z ⩽ 1, ℜ(p) > 0, ℜ(q) > 0).    (2.1)
+                         0
+We use the notation
+                                                        Z 1
+                 β(z; p, q) := B(p, q) − B(z; p, q) =         xp−1 (1 − x)q−1 dx.         (2.2)
+                                                         z
+ON MONOTONICITY OF CERTAIN WEIGHTED SUMMATORY FUNCTIONS ASSOCIATED WITH L-FUNCTIONS
+                                                                                  3
+
+   Let 0 < ω < 1/2. We define the real-valued function gω on (0, ∞) by
+                    πω
+                                                                             
+              4ω            ω−1      2 3 − 2ω        2ω + 1 −1/2     2 5 − 2ω
+   gω (x) =               x     β x ,         ,ω −           x   β x ,        ,ω
+            2ω − 1 Γ(ω)                   2            4ω                 4
+                                                                                  (2.3)
+for 0 < x < 1, and gω (x) = 0 for x ⩾ 1. In addition, we define
+                                               X µ(d)
+                                  cω (n) := nω                                    (2.4)
+                                                   d2ω
+                                                 d|n
+
+for natural numbers n, where µ(n) is the Möbius function, i.e., µ(n) = 0 if n is not a
+square free number, and µ(n) = (−1)k if n is the product of k distinct primes. nω cω (n) is
+called Jordan’s totient function. Finally, we define the real-valued function hω on (0, ∞)
+by
+                                            ∞
+                                        1 X             n
+                              hω (x) = √       cω (n)gω      .                        (2.5)
+                                         x                x
+                                           n=1
+Note that the sum on the right-hand side is finite for any x > 0, since gω is supported
+on (0, 1] by its definition. Therefore hω is well-defined and supported on [1, ∞).
+Theorem 2.1 Let 0 ⩽ ω0 < 1/2.
+    (1) Assume that there exists xω ⩾ 1 for every ω0 < ω < 1/2 such that hω is nonneg-
+        ative on (xω , ∞). Then ζ(s) 6= 0 in the right-half plane ℜ(s) > 1/2 + ω0 .
+    (2) Assume that the RH is valid for ζ(s). Then there exists xω ⩾ 1 for every 0 <
+        ω < 1/2 such that hω is nonnegative on (xω , ∞).
+In particular the validity of the RH is equivalent to the statement that there exists xω ⩾ 1
+for every 0 < ω < 1/2 such that hω is nonnegative on (xω , ∞).
+Remark The function gω has only one zero yω in (0, 1) which tends to zero as ω → 0+ ,
+                                     √
+and gω (x) > 0 on (yω , 1). Moreover, y gω (y) → 1 uniformly on any compact subset
+of (0, 1) as ω → 0+ .POn the other hand, cω (n) > 0 for all n ∈ N because of the Euler
+product formula of n⩾1 cω (n)n−s . Therefore hω (x) > 0 for all 1 < x < yω−1 without
+any assumptions. Hence the proper interest is in values of hω (x) for x > yω−1 .
+2.2. Dirichlet L-functions. Let χ be a real primitive Dirichlet character modulo q,
+and let                            (
+                                    0 if χ(−1) = 1,
+                          δ = δχ =
+                                    1 if χ(−1) = −1.
+Let L(s,
+       P∞ χ) be the    Dirichlet L-function associated with χ which is defined by the se-
+ries          χ(n)n −s for ℜ(s) > 1 and extended to an entire function on C. We de-
+         n=1
+note by γ(s, χ) the factor π −s/2 Γ((s + δ)/2) of the completed L-function Λ(s, χ) =
+q s/2 π −s/2 Γ((s + δ)/2)L(s, χ).
+    Let 0 < ω < 1/2. We define the function gχ,ω on (0, ∞) by
+                                     πω 1
+                                                                  
+                                                  2 1 + 2δ − 2ω
+                         gχ,ω (x) =      √ β x ;                ,ω                  (2.6)
+                                    Γ(ω) x               4
+for 0 < x < 1, and gχ,ω (x) = 0 for x ⩾ 1, where β(z; p, q) is the function defined in (2.2).
+By using (2.4), we define
+                                   cχ,ω (n) := χ(n)cω (n)
+
+for natural numbers n. Finally, we define the real-valued function hχ,ω on (0, ∞) by
+                                           ∞                n
+                                   −ω 1
+                                          X
+                       hχ,ω (x) = q √         cχ,ω (n) gχ,ω     .                  (2.7)
+                                        x n=1                x
+As well as hω of (2.5), hω,χ is well-defined and supported on [1, ∞).
+4                                             M. SUZUKI
+
+Theorem 2.2 Let 0 ⩽ ω0 < 1/2.
+    (1) Assume that L(s, χ) 6= 0 for real s ∈ (1/2 + ω0 , 1]. Moreover assume that there
+        exists xω ⩾ 1 for every ω0 < ω < 1/2 such that hχ,ω of (2.7) does not change
+        sign on (xω , ∞). Then L(s, χ) 6= 0 in the right-half plane ℜ(s) > 1/2 + ω0 .
+    (2) Assume that the GRH is valid for L(s, χ). Then there exists xω ⩾ 1 for every
+        0 < ω < 1/2 such that hχ,ω does not change sign on (xω , ∞).
+In particular the validity of the GRH for L(s, χ) is equivalent to the statement that there
+exists xω ⩾ 1 for every 0 < ω < 1/2 such that hχ,ω does not change sign on (xω , ∞).
+                                                                                    2
+Remark We have L(s, χ) 6= 0 for real s if the series θχ (x) = n∈Z nδ χ(n)e−πn x/q at-
+                                                                  P
+                                                                       R∞
+tached to L(s, χ) has a single sign on (0, ∞) by the formula Λ(s, χ) = 0 θχ (x2 ) xs+δ−1 dx
+which is valid for all s ∈ C. We may check whether θχ (x) has a single sign by an ele-
+mentary way if the modulo q is small.
+2.3. General L-functions. In order to state the main result, we specify the meaning of
+“L-function” in the present paper according to Iwaniec-Kowalski [6, §5.1]. We say that
+L(f, s) is an L-function with the symbol f if we have the following data and conditions:
+  (L-1) A Dirichlet series with Euler product of degree d ⩾ 1
+                         ∞
+                                            αf,1 (p) −1          αf,d (p) −1
+                                                                      
+                        X   λf (n) Y
+             L(s, f ) =           =      1−             ··· 1 −
+                        n=1
+                             ns     p
+                                               ps                   ps
+          with λf (1) = 1, λf (n) ∈ C, and αf,i (p) ∈ C. We assume that the series and
+          the Euler product converges absolutely for ℜ(s) > 1, and the local parameters
+          αf,i (p) (1 ⩽ i ⩽ d) satisfy |αf,i (p)| < p for all prime numbers p.
+
+    (L-2) A gamma factor
+                                                      d           
+                                              −ds/2
+                                                      Y     s + κj
+                                γ(f, s) = π             Γ
+                                                               2
+                                                      j=1
+
+          with κj ∈ C. We assume that the local parameters κi (1 ⩽ j ⩽ d) are either real
+          or come in conjugate pairs. Moreover ℜ(κj ) > −1.
+
+    (L-3) An integer q(f ) ⩾ 1 such that αf,i (p) 6= 0 for p ∤ q(f ) and 1 ⩽ i ⩽ d.
+
+    (L-4) The complete L-function defined by
+                                                      s
+                                 Λ(f, s) = q(f ) 2 γ(f, s)L(f, s)
+          admits analytic continuation to a meromorphic function for s ∈ C of order 1,
+          with at most poles at s = 0 and s = 1 with the same order r ⩾ 0. Moreover it
+          satisfies the functional equation
+                                   Λ(f, s) = ε(f )Λ(f¯, 1 − s),
+          where f¯ is an object associated with f (the dual of f ) for which λf¯(n) = λf (n),
+          γ(f¯, s) = γ(f, s), q(f¯) = q(f ) and ε(f ) is a complex number of absolute value 1.
+It is said that L(f, s) satisfies the Ramanujan-Petersson conjecture if for any 1 ⩽ i ⩽ d
+we have |αf,i (p)| = 1 for all p ∤ q(f ) and |αf,i (p)| ⩽ 1 otherwise. This implies, in
+particular, λf (n) ⩽ τd (n) ≪ǫ nǫ for the Dirichlet coefficients τd (n) of ζ d (s). The Grand
+Riemann Hypothesis (GRH for short) refers to the statement that all zeros of L(f, s) in
+the critical strip 0 < ℜ(s) < 1 lie on the critical line ℜ(s) = 1/2.
+   The Riemann zeta function and Dirichlet L-functions are L-functions in this sense.
+Products ζ(s)k0 L(s, χ1 )k1 · · · L(s, χl )kl (kj ∈ Z⩾0 , 0 ⩽ j ⩽ l) of them are also L-
+functions. Other typical examples of L-functions are L-functions L(s, φ) associated with
+ON MONOTONICITY OF CERTAIN WEIGHTED SUMMATORY FUNCTIONS ASSOCIATED WITH L-FUNCTIONS
+                                                                                  5
+
+normalized Hecke eigen holomorphic cusp forms φ. As for the theory of holomorphic
+cusp forms, see Chapter 14 of [6], for example. We refer these examples as L-functions
+of the symbol f = 1, f = χ, and f = φ, respectively.
+   Now we generalize Theorem 2.1 and 2.2 to L-functions. An L-function L(f, s) is called
+self-dual if f = f¯. Hereafter we assume that L(f, s) is self-dual. Then coefficients λf (n)
+are real for all n by definition of the dual f¯, and ε(f ) ∈ {±1}. The Rimeann zeta
+function and Dirichlet L-functions associated with real primitive characters are self-dual
+L-functions. An L-function attached to a normalized Hecke eigen holomorphic cusp form
+φ satisfying W φ = φ for the Fricke involution W is also self-dual L-function.
+  Let 0 < ω < 1/2. We define functions gf,ω,j , 1 ⩽ j ⩽ d on (0, ∞) by
+                                           2π ω −ω+κj
+                           gf,ω,j (x) :=        x     (1 − x2 )ω−1                       (2.8)
+                                           Γ(ω)
+for 0 < x < 1, and gf,ω,j (x) = 0 for x ⩾ 1. In addition, we define
+                    p1 (x) := δ1 (x) − 2ω(1 − 2ω) xω−1 − 2ω(1 + 2ω) xω
+for 0 < x < 1, and p1 (x) = 0 for x > 1, where δ1 (x) is the delta function at x = 1, and
+               Z 1     Z 1                
+                                   x                                   dy1     dyr−1
+     pr (x) :=     ···    p1                 p1 (y1 ) · · · p1 (yr−1 )     ···       (r ⩾ 2).
+                0       0    y1 · · · yr−1                              y1      yr−1
+By using these functions, we define
+                           h0i
+                          gf,ω (x) := (pr ∗ gf,ω,1 ∗ · · · ∗ gf,ω,d )(x),                (2.9)
+where r ⩾ 0 is the order of the pole of Λ(f, s) at s = 1 and ∗ means the multiplicative
+                         R∞                                     h0i
+convolution (F ∗ G)(x) = 0 F (x/y)G(y) y −1 dy. Note that gf,ω (x) = 0 for x > 1 by its
+definition. We define numbers µf (n) by the Dirichlet coefficients of L(f, s)−1 :
+                        ∞
+                        X µf (n) Y                                        
+                1                              αf,1 (p)             αf,d (p)
+                      =           =       1−              ··· 1 −              ,  (2.10)
+              L(f, s) n=1 ns          p
+                                                 ps                   ps
+and define the numbers cf,ω (n) by
+                                                 X µf (d)λf (n/d)
+                              cf,ω (n) = nω                         .                  (2.11)
+                                                             d2ω
+                                                 d|n
+                                     h0i
+Moreover we define the function hf,ω on (0, ∞) by
+                                                       ∞
+                         h0i                1 X             h0i n
+                                                                 
+                        hf,ω (x) = q(f )−ω √       cf,ω (n)gf,ω     .                  (2.12)
+                                             x n=1               x
+As well as (2.5) and (2.7), the right-hand side of (2.12) is a finite sum for any fixed x ⩾ 1
+                                                                 hki
+and vanishes for 0 < x < 1. Finally we define the function hf,ω for k ∈ N by
+                                            Z x
+                                  hki            hk−1i   dy
+                                hf,ω (x) :=     hf,ω (y) .                              (2.13)
+                                             1            y
+                                    hki
+As proved in Lemma 4.1 below, hf,ω is a well-defined continuous function on (0, ∞). We
+have
+                                             ∞
+                                     −ω 1                hki n
+                                                              
+                       hki
+                                            X
+                     hf,ω (x) = q(f ) √         cf,ω (n)gf,ω                     (2.14)
+                                         x                    x
+                                                       n=1
+if we put                                   Z 1r
+                               hki                     y hk−1i dy
+                              gf,ω (x) :=               g     (y) .                    (2.15)
+                                             x         x f,ω     y
+                                    hki
+As proved in Lemma 4.1 below, gf,ω is a well-defined continuous function on (0, ∞).
+6                                        M. SUZUKI
+
+                  h1i
+  The function hf,ω is equal to (2.5) (resp. (2.7)) if f = 1 (resp. f = χ) by Lemma 4.3
+below. Now Theorems 2.1 and 2.2 are generalized as follows:
+Theorem 2.3 Let 0 ⩽ ω0 < 1/2. Let L(f, s) be a self-dual L-function in the sense of
+the above.
+    (1) Assume that L(f, s) 6= 0 for any real s ∈ (1/2 + ω0 , 1]. Moreover assume that the
+        following condition holds for some natural number k ⩾ 1: there exists xω,k ⩾ 1 for
+                                         hki
+        every ω0 < ω < 1/2 such that hf,ω of (2.13) does not change sign on (xω,k , ∞).
+        Then L(f, s) 6= 0 in the right-half plane ℜ(s) > 1/2 + ω0 .
+  (2-a) Assume that the GRH is valid for L(f, s). Then there exists xω,k ⩾ 1 for every
+                                                                                  hki
+        natural number k ⩾ 2 and every real number 0 < ω < 1/2 such that hf,ω does
+        not change sign on (xω,k , ∞).
+  (2-b) Assume that d = 1 (see (L-1)) and that the Ramanujan-Petersson conjecture
+        and the GRH are valid for L(f, s). Then there exists xω,k ⩾ 1 for every natural
+                                                                       hki
+        number k ⩾ 1 and every real number 0 < ω < 1/2 such that hf,ω does not change
+        sign on (xω,k , ∞).
+Remark Let L(s, φ) be a self-dual L-function attached to a normalized Hecke eigen
+holomorphic cusp form φ of weight k and level
+                                            Qq. If φ(iy)2πinz
+                                                           has a single sign on (0, ∞), e.g.
+the Ramanujan delta function, ∆(z) = eR2πiz ∞  n=1 (1 − e     )24 , we have L(s, φ) 6= 0 for
+                                          ∞
+s ∈ R by the integral formula Λ(s, f ) = 0 y (k−1)/2 φ(iyq −1/2 ) y s−1 dy.
+   By Kaczorowski-Perelli [7], the assertion of (2-b) for k = 1 is essentially (2) of Theorem
+2.1 and 2.2. One of obvious advantage of cases of d = 1; the Riemann zeta function
+                                                                                        h1i
+(f = 1) and Dirichlet L-functions (f = χ), is that we can define functions hf,ω by
+elementally ways only because of the simplicity of the coefficients λf (n) and the gamma
+factor γ(f, s).
+   It is not obvious whether the condition k ⩾ 2 in (2-a) is relaxed to k ⩾ 1 for any d > 1
+by a technical reason. However, we obtain the following result at least.
+Theorem 2.4 Let L(f, s) be a self-dual L-function. Assume that the GRH is valid for
+L(f, s). Then the function
+                                        h1i
+                          Rf,ω (x) := hf,ω (x) − ε(f ) · 1[1,∞) (x)                   (2.16)
+belongs to L2 ((1, ∞), x−1 dx) for every 0 < ω < 1/2, where ε(f ) is the sign of the
+functional equation in (L-4) and 1[1,∞) is the characteristic function of [1, ∞). In other
+                          h1i
+words, for large x ⩾ 1, hf,ω has the definite sign ε(f ) in the sense of L2 .
+  Conversely, if (2.16) belongs to L2 ((1, ∞), x−1 dx) for every ω0 < ω < 1/2, Then
+L(f, s) 6= 0 in the right-half plane ℜ(s) > 1/2 + ω0 .
+                                                                 hki
+    In Theorem 2.3, we specified the special type function gf,ω of (2.15) as a weight in
+                                                    hki
+(1.1). As found in (2.3) or (2.6), the weight gf,ω has quite different form comparing
+with any other weights in the introduction and other usual weights studied in analytic
+number theory (see [11, §5.1], for example). One may consider that it is possible to
+extend Theorem 2.3 to more wide class of weights. Moreover one may wonder why we
+introduced the parameter ω (and k) which complicate the statements of results.
+                                                                                    hki
+   However we have a positive reason for the restriction of weights to the special gf,ω . It
+                                                                       hki
+is in the connection between the weighted summatory functions hf,ω and the theory of
+model subspaces of the Hardy space on the upper half plane generated by meromorphic
+inner functions. In this connection the case of k = 1 has a particular importance.
+   A model subspace is the orthogonal complement of some invariant subspace of the
+Hardy space. The theory of model subspaces is one of fruitful area of function analysis
+ON MONOTONICITY OF CERTAIN WEIGHTED SUMMATORY FUNCTIONS ASSOCIATED WITH L-FUNCTIONS
+                                                                                  7
+
+and operator theory (see [12, 13], for example). The existence of such background is a
+remarkable advantage of our summatoryRfunctions with the special weights. In general,
+it is hard to prove the monotonicity of h if it is sufficient or equivalent to the GRH
+for some zeta/L-function. A reason
+                                 R of such difficulty may be in a situation that we can
+not reduce the monotonicity of h to other plausible problem inside/outside number
+theory, of course, except for an essential difficulty of the GRH itself. For example, as
+far as the author know, the monotonicity of primitive functions of (1.2), (1.3), and (1.4)
+are not reduced to other reasonable problems inside/outside number theory. See the
+                                                                              h1i
+forthcoming paper [17] for bridges between weighted summatory functions hf,ω and the
+theory of model subspaces.
+
+                                     3. Preliminaries
+Notation. We denote by s = σ + it the complex variable with the real part σ and the
+imaginary part t, and use ǫ to express arbitrary small positive real number. For a positive
+valued function g(x), we use Landau’s f (x) = O(g(x)) and Vinogradov’s f (x) ≪ g(x) as
+the same meaning in the usual sense. Also we use Landau’s f (x) = o(g(x)) for x → ∞
+in the meaning that for any ǫ there exists xǫ > 0 such that |f (x)| ⩽ ǫg(x) for x ⩾ xǫ .
+  The following lemmas are used repeatedly in the later sections.
+Lemma 3.1 (Stirling’s formula [6, A.4 of §5]) Let −∞ < σ1 < σ2 < ∞. We have
+                √
+    Γ(σ + it) = 2π |t|σ+it−1/2 e−(π/2)|t|−it+sgn(t)i(π/2)(σ−1/2) (1 + O(|t|−1 )) (3.1)
+for σ1 ⩽ σ ⩽ σ2 and |t| ⩾ 1.
+Lemma 3.2 ([14, (5.35) of p.195]) For ℜ(s + α) > 0 and ℜ(β − α) > 0, we have
+                                       Z 1
+                 Γ(s + α)         1                           dx
+                            =              xα (1 − x)β−α−1 xs    .           (3.2)
+                 Γ(s + β)     Γ(β − α) 0                       x
+
+                       4. On the first half of Theorem 2.3
+  In this section, we prove Theorem 2.3 (1). We define the entire function ξ(f, s) by
+                                 ξ(f, s) := sr (s − 1)r Λ(f, s),
+where r is the order of the pole of Λ(f, s) at s = 1 (see (L-4)), and put
+                                          (s − ω)(s − ω − 1) r Λ(f, s − ω)
+                                                            
+                          ξ(f, s − ω)
+              Θf,ω (s) :=             =                                    .           (4.1)
+                          ξ(f, s + ω)     (s + ω)(s + ω − 1) Λ(f, s + ω)
+                                                                       hki      hki
+Lemma 4.1 Let 0 < ω < 1/2 and k ∈ N. Functions gf,ω of (2.15) and hf,ω of (2.13)
+are continuous functions on (0, ∞) supported on (0, 1] and [1, ∞), respectively.
+                                                      hki
+Proof. By (2.14), it is sufficient to prove that gf,ω is a continuous function on (0, 1] and
+       hki
+lim gf,ω (x) = 0. By (2.15), it is reduced to the case k = 1, and we have
+x→1−
+                                                Z 1
+                             √      h1i               √      h0i       dy
+                                 x gf,ω (x) =             y gf,ω (y)      .            (4.2)
+                                                 x                      y
+                                                                               h0i
+Because L1 ((0, 1), x−1 dx) is closed under the multiplicative convolution, gf,ω belongs to
+L1 ((0, 1), x−1 dx) by definition (2.9) and the assumption 0 < ω < 1/2. Hence the right-
+hand side of (4.2) is a continuous function on (0, 1) and tends to zero as x → 1− .      
+Lemma 4.2 Let 0 < ω < 1/2 and k ∈ N. We have
+                      Z ∞
+                            hki       1    dx    Θf,ω (s)
+                           hf,ω (x) x 2 −s    =                                        (4.3)
+                        1                   x   (s − 1/2)k
+8                                        M. SUZUKI
+
+together with the absolute convergence of the integral for sufficiently large ℜ(s) > 0.
+Under the Ramanujan-Petersson conjecture, the region of the absolute convergence is
+relaxed to the right-half plane ℜ(s) > 1 + ω.
+Proof. Put γj (f, s) := π −s/2 Γ((s+κj )/2) for 1 ⩽ j ⩽ d such that γ(f, s) = dj=1 γj (f, s).
+                                                                             Q
+
+Applying (3.2) to functions gf,j,ω of (2.8), we have
+                  Z 1
+                                    dx   γj (f, s − ω)
+                      gf,j,ω (x) xs    =               for ℜ(s) > 1 + ω,               (4.4)
+                   0                 x   γj (f, s + ω)
+since ℜ(κj ) > −1 (see (L-2)). On the other hand, we have
+                Z 1
+                              dx   (s − ω)(s − ω − 1)
+                    p1 (x) xs    =                    for ℜ(s) > 1 + ω                 (4.5)
+                 0             x   (s + ω)(s + ω − 1)
+by elementary ways. Applying Theorem 44 of [18] to (4.4) and (4.5) with definition (2.9),
+we obtain
+                            (s − ω)(s − ω − 1) r γ(f, s − ω)
+    Z ∞                                      
+         h0i       s dx
+        gf,ω (x) x      =                                    for ℜ(s) > 1 + ω.      (4.6)
+     1                x     (s + ω)(s + ω − 1) γ(f, s + ω)
+Using (2.15) repeatedly, we have
+                              (−1)k−1 1            x k−1 h0i
+                                           r        
+                                            y                   dy
+                                      Z
+                    hki
+                   gf,ω (x) =                  log      gf,ω (y) ,                     (4.7)
+                              (k − 1)! x    x      y            y
+while                Z 1
+            (−1)k                            dx         1
+                         x−1/2 (log x)k−1 xs    =               for ℜ(s) > 1/2.       (4.8)
+           (k − 1)! 0                         x    (s − 1/2)k
+Therefore, by applying Theorem 44 of [18] again to (4.6) and (4.8) with (4.7), we obtain
+                                     (s − ω)(s − ω − 1) r γ(f, s − ω)
+Z ∞                                                    
+      hki      s dx          1
+    gf,ω (x) x      =                                                    for ℜ(s) > 1 + ω.
+ 1                x    (s − 1/2)k (s + ω)(s + ω − 1) γ(f, s + ω)
+                                                                                      (4.9)
+By definition (2.10) and (2.11), we have
+                     ∞               ∞           ∞
+                    X    cf,ω (n)   X    λf (m) X µf (n)      L(f, s − ω)
+                              s
+                                  =         s−ω       s+ω
+                                                          =                          (4.10)
+                    n=1
+                            n       m=1
+                                         m      n=1
+                                                    n         L(f, s + ω)
+as an equality of formal Dirichlet series. However all Dirichlet series in (4.10) converge
+absolutely if ℜ(s) > 0 is sufficiently large, since we assumed |αf,i (p)| < p (see (L-1)).
+   Under the Ramanujan-Petersson conjecture, the region of the absolute convergence of
+the Dirichlet series (4.10) is relaxed to ℜ(s) > 1+ ω, since λf (n) ≪ǫ nǫ and µf (n) ≪ǫ nǫ .
+Hence, (2.14), (4.9), (4.10), and Fubini’s theorem derive the assertion we needed.         
+                                                                            h1i
+Lemma 4.3 The function gω of (2.3) (resp. gχ,ω of (2.6)) is equal to gf,ω of (2.13) for
+f = 1 (resp. f = χ).
+Proof. This is a simple consequence of (3.2) and [18, Theorem 44] by (2.1) and (2.2). 
+Proof of Theorem 2.3 (1). We prove that Λ(f, s) 6= 0 for any s ∈ C in the strip
+1/2 + ω0 < ℜ(s) ⩽ 1 by contradiction. Note that Λ(f, s) 6= 0 for ℜ(s) > 1 by the Euler
+product of L(f, s) with its convergence condition and the assumption on the gamma
+factor γ(f, s). By the assumptions of Theorem 2.3 (1), a well-known theorem of Landau
+(see [20, §5 of Chap.II], for example) and formula (4.3) imply that Θf,ω (s) has no poles
+in the right-half plane ℜ(s) > 1/2 for every ω0 < ω < 1/2.
+  Suppose that there exists a zero ρ of Λ(f, s) such that 1/2 + ω0 < ℜ(ρ) ⩽ 1 and
+|ℑ(ρ)| > 0. We take some T > |ℑ(ρ)| > 0. Then the set
+                                                                    
+                                        1
+            ZT := s ∈ C Λ(f, s) = 0, + ω0 < ℜ(s) ⩽ 1, |ℑ(ρ)| < T
+                                        2
+ON MONOTONICITY OF CERTAIN WEIGHTED SUMMATORY FUNCTIONS ASSOCIATED WITH L-FUNCTIONS
+                                                                                  9
+
+is non-empty and finite. Therefore we may assume that ℜ(ρ) is minimal in ZT by
+replacing ρ by another zero in ZT if necessary.
+  Obviously it is possible to take (0 ⩽) ω0 < ω < 1/2 such that
+                      1         1                1
+                        + ω0 < + ω < ℜ(ρ) < + ω + (ω − ω0 ).                        (4.11)
+                      2         2                2
+For such ω, we put s̃ := ρ − ω. Then Λ(f, s̃ + ω) = Λ(f, ρ) = 0 with
+                                 1           1
+                                   < ℜ(s̃) < + ω − ω0 .                              (4.12)
+                                 2           2
+This implies Λ(f, s̃ − ω) = 0, since |ℑ(ρ)| > 0 and Θf,ω (s) has no poles on ℜ(s) > 1/2.
+By the functional equation, Λ(f, 1 − s̃ + ω) = ε(f )Λ(f, s̃ − ω) = 0. Hence 1 − s̃ + ω is a
+zero of Λ(f, s) having a nonzero imaginary part. For this zero, (4.12) implies
+                         1                       1
+                           + ω0 < ℜ(1 − s̃ + ω) < + ω (< 1).
+                         2                       2
+This contradicts the choice of ρ by (4.11).                                              
+
+           5. On the latter half of Theorem 2.3 and Theorem 2.4
+  In this section, we prove Theorem 2.3 (2-a), (2-b), and Theorem 2.4. We start from
+the preparation of lemmas.
+Lemma 5.1 Let k ∈ N. Suppose that cf,ω (n) = O(ψf,ω (n)) for some positive valued
+arithmetic function ψf,ω . If c > 0 and T > 0 are sufficiently large, we have
+                          Z c+iT                                        1
+                                                                                !
+            hki       1            Θf,ω (s) s− 1                    xc− 2
+          hf,ω (x) =                          x 2 ds + O
+                     2πi c−iT (s − 1/2)k                    T k+dω (c − 1 − ω)r
+                                                 !
+                            ψf,ω (2x) x1/2 log x
+                                                                  
+                                                         ψf,ω (x)
+                     +O                            +O          √
+                                   T k+dω               T k+dω x
+for x > 1 with x 6∈ Z.
+Proof. By the Stirling formula (3.1), in any vertical strip of finite width, there exists
+T0 ⩾ 1 such that
+          γ(f, s − ω)                   πidω
+                      = (2π)dω |t|−dω e− 2 sgn(t) (1 + O(|t|−1 )) for |t| ⩾ T0 .      (5.1)
+          γ(f, s + ω)
+                                     h0i                hki
+By (4.7) and the summability of |gf,ω (x)| on (ǫ, 1), gf,ω belongs to C 1 (0, 1) and is of
+locally bounded variation. Therefore the Mellin inversion formula of (4.9) holds for
+0 < x < 1 and c > 1 + ω ([18, Theorem 28]):
+                                         (s − ω)(s − ω − 1) r γ(f, s − ω) −s
+                     Z c+i∞                                
+        hki        1            1
+       gf,ω (x) =                                                          x ds.
+                  2πi c−i∞ (s − 1/2)k (s + ω)(s + ω − 1) γ(f, s + ω)
+Note that we may understand as T ⩾ T0 , since we assumed that T is sufficiently large.
+By (5.1), we have
+                               (s − ω)(s − ω − 1) r γ(f, s − ω) −s
+          Z c+i∞                                   
+       1               1
+                                                                     x ds
+      2πi c+iT (s − 1/2)k (s + ω)(s + ω − 1) γ(f, s + ω)
+                                 Z ∞
+                            πidω           t−dω
+           = x−c (2π)dω−1 e− 2                        k
+                                                        (1 + O(|t|−1 )) x−it dt
+                                  T   (c − 1/2  +  it)
+                                 Z ∞
+                            πidω           ik tk−dω           −it
+                                                                         
+                                                                            −c −k−dω
+                                                                                     
+           = x−c (2π)dω−1 e− 2                   2      2 k
+                                                            x     dt + O  x   T        .
+                                  T ((c − 1/2) + t )
+10                                       M. SUZUKI
+
+The function tk−dω /((c − 1/2)2 + t2 )k in the integral of the right-hand side decreases
+monotonically if |t| > T1 for some T1 > 0. Therefore
+               Z ∞
+                            tk−dω        −it        4         T k−dω
+                                2  2 k
+                                       x     dt ⩽
+                 T ((c − 1/2) + t )               log x ((c − 1/2)2 + T 2 )k
+by the first derivative test (see [5, §2.1], for example) if T ⩾ max{T0 , T1 }. Hence
+                                              (s − ω)(s − ω − 1) r γ(f, s − ω) −s
+                       Z c+iT                                    
+         hki        1               1
+        gf,ω (x) =                                                             x ds
+                   2πi c−iT (s − 1/2)k (s + ω)(s + ω − 1) γ(f, s + ω)
+                                                           
+                          1     1                 1       1
+                   +O                  +O                       .
+                          xc T k+dω           xc log x T k+dω
+By (2.12), (4.1), and (4.10), we have
+                        Z c+iT
+          hki        1           Θf,ω (s) s− 1
+        hf,ω (x) =                        x 2 ds
+                    2πi c−iT (s − 1/2)k
+                                  ∞                             ∞
+                                              !                                  !
+                          xc−1/2 X |ψf,ω (n)|           xc−1/2 X |ψf,ω (n)|
+                   +O                           +O
+                          T k+dω         nc             T k+dω  nc | log(n/x)|
+                                 n=1                            n=1
+
+since c is large. Sums in the error terms are estimated by a standard way (see [19, §3.12],
+for example), and then we obtain the desired formula.                                    
+Lemma 5.2 Let 0 < ω < 1/2. Assume that the GRH of L(f, s) is valid. Then we have
+|Θf,ω (s)| < 1 for ℜ(s) > 1/2, and |Θf,ω (s)| = 1 for ℜ(s) = 1/2.
+Proof. Recall that ε(f ) ∈ {±1} by the self-duality of L(f, s). Applying Theorem 4
+of [9] to ξ(f, s), we obtain |Θf,ω (s)| < 1 for ℜ(s) > 1/2. Using the functional equation
+ξ(f, s) = ε(f )ξ(f, 1 − s) in (4.1), we obtain |Θf,ω(s) | = 1 on ℜ(s) = 1/2.            
+Lemma 5.3 Assume that the Ramanujan-Petersson conjecture and the GRH for L(f, s).
+For any ǫ > 0 we have
+                                
+                                |t|dǫ         if σ ⩾ 1/2, |t| → ∞,
+                 L(f, σ + it) ≪        1
+                                |t|d( 2 −σ+ǫ) if σ < 1/2, |t| → ∞,
+
+where the implied constant depends on f and ǫ. We can take ǫ = 0 if σ > 1 or σ < 0.
+Moreover
+                                 1
+                                         ≪ |t|dǫ (|t| → ∞)
+                            L(f, σ + it)
+in the right-half plane σ ⩾ 1/2 + ǫ.
+Proof. For 0 ⩽ σ ⩽ 1, the estimate for L(f, s) is a consequence of Corollary 5.20 of [6]
+and the Phragmen-Lindelöf convexity principle. We have L(f, σ + it) ≪ 1 for σ > 1 by
+the absolute convergence of the Dirichlet series, and L(f, σ + it) ≪ |t|d(1/2−σ) for σ < 0
+by the functional equation and the Stirling formula (3.1). The estimate for L(f, s)−1 is
+a consequence of Theorem 5.19 of [6].                                                   
+
+Proof of Theorem 2.3 (2-a). Let 0 < ω < 1/2, 0 < δ < ω, and T ⩾ max{T0 , T1 },
+where T0 and T1 are positive real numbers appeared in the proof of Lemma 5.1.
+  We consider the positively oriented closed path consisting of the vertical line from
+c − iT to c + iT , the horizontal line from c + iT to 1/2 + iT , the vertical line from
+1/2 + iT to 1/2 + iδ, the counter-clockwise left-half circle Cδ of radius δ around s = 1/2,
+the vertical line from 1/2 − iδ to 1/2 − iT , and the horizontal line from 1/2 − iT to
+c − iT . In the interior of the closed path Θf,ω (s)/(s − 1/2)k has no poles except for
+the pole of order k (⩾ 2) at s = 1/2, since Θf,ω (s) has no poles in the right-half plane
+ON MONOTONICITY OF CERTAIN WEIGHTED SUMMATORY FUNCTIONS ASSOCIATED WITH L-FUNCTIONS
+                                                                                 11
+
+ℜ(s) > 1/2 − ω by the GRH for L(f, s) and Θf,ω (1/2) = ε(f ) ∈ {±1} by the functional
+equation of Λ(f, s). Thus the residue theorem gives
+       Z c+iT
+     1          Θf,ω (s) s− 1
+                           x 2 ds = Pk (log x)
+   2πi c−iT (s − 1/2)k
+                          Z 1/2+iT Z 1/2−iδ Z c+iT         Z c−iT !
+            1                                                        Θf,ω (s) s− 1
+                   Z
+        +       −       +           +          +         −                     x 2 ds,
+          2πi        Cδ    1/2+δ       1/2−iT     1/2+iT    1/2−iT  (s − 1/2)k
+                                                                                    (5.2)
+where Pk is the polynomial of degree k − 1 with real coefficients such that
+                                                               
+                                                 Θf,ω (s) s− 1
+                           Pk (log x) = Res               x   2   .
+                                        s=1/2 (s − 1/2)k
+
+The leading term of Pk (log x) is
+                          Θf,ω (1/2)(log x)k−1 = ε(f )(log x)k−1 .
+By Lemma 5.2 the fourth and fifth integrals in the right-hand side of (5.2) are estimated
+as
+     Z c+iT    Z c−iT !                               Z c
+                          Θf,ω (s) s− 1           −k         σ− 12       xc−1/2
+             −                      x   2 ds ≪ T           x       dσ ≪           .  (5.3)
+      1/2+iT    1/2−iT  (s − 1/2)k                     1/2              T k log x
+
+By Lemma 5.1, (5.2), and (5.3), we obtain
+                                     Z 1/2+i∞ Z 1/2−iδ !
+                                                          Θf,ω (s) s− 1
+                               Z
+      hki
+     hf,ω (x) = Pk (log x) + −     +         +                      x 2 ds
+                                Cδ    1/2+δ    1/2−i∞    (s − 1/2)k                  (5.4)
+             =: Pk (log x) − I1 + I2 + I3
+say, by tending T → ∞ for fixed x ⩾ 1. Here the integrals I2 and I3 are absolutely inte-
+grable, since |Θf,ω (s)| = 1 on the line ℜ(s) = 1/2 by Lemma 5.2 and k ⩾ 2. Therefore,
+                                I2 + I3 = o(1)   (x → ∞)
+as a function of x by the Riemann-Lebesgue lemma ([18, Theorem 1]). In addition, we
+have
+                             Z π/2
+                                                     1
+                       I1 ≪        x−δ cos θ dθ ≪        (x → ∞).
+                               0                   log x
+Hence we obtain                                                  
+                       hki
+                      hf,ω (x) = ε(f )(log x)k−1 1 + O((log x)−1 ) .
+               hki
+In particular hf,ω does not change sign for large x > 0.                               
+
+Proof of Theorem 2.3 (2-b). It is sufficient to prove the case k = 1 only, since the
+other cases are proved by a similar way with the above.
+   Let 0 < ω < 1/2, 0 < δ < ω, and T ⩾ max{T0 , T1 }. We consider the positively
+oriented rectangle with vertices at c + iT , 1/2 − δ + iT , 1/2 − δ − iT and c − iT . In
+this rectangle Θf,ω (s)/(s − 1/2) has no poles except for the simple pole at s = 1/2 with
+residue ε(f ) by a similar reason with the above proof. Thus the residue theorem gives
+          Z c+iT
+       1         Θf,ω (s) s− 1
+                          x 2 ds
+      2πi c−iT s − 1/2
+                           Z 1/2−δ+iT Z c+iT        Z c−iT    !
+                      1                                         Θf,ω (s) s− 1        (5.5)
+          = ε(f ) +                  +            −                      x 2 ds
+                     2πi    1/2−δ−iT     1/2−δ+iT    1/2−δ−iT    s − 1/2
+         = ε(f ) + I1 + I2 − I3 ,
+12                                          M. SUZUKI
+
+say. Recall that d = 1. By Lemma 5.3 and the Stirling formula (3.1), we have
+                                    Z T
+                                        |t|δ+ǫ
+                         I1 ≪ x  −δ
+                                                dt ≪ (x/T )−δ T ǫ ,                            (5.6)
+                                     −T 1 + |t|
+and
+                                      1                                 1
+                             (x/T )σ− 2
+                   Z 1/2+ω
+                                                                    xσ− 2
+                                                        Z c
+                 ǫ                                −ω+ǫ)
+     I2 − I3 ≪ T                           dσ + T                              dσ
+                    1/2    |σ − 1/2 + iT |               1/2+ω |σ − 1/2 + iT |
+                                                 1
+                                                                                               (5.7)
+                (x/T )ω − 1     xc− 2
+             ≪ 1−ǫ          + 1+ω−ǫ       .
+              T    log(x/T ) T      log x
+By Lemma 5.1, (5.5), (5.6), and (5.7), we obtain
+                                                                                     !
+                                                     ω −1
+                                                                           c− 12
+     h1i
+                                            (x/T   )                    x
+    hf,ω (x) = ε(f ) + O (x/T )−δ T ǫ + O                       +O
+                                             T 1−ǫ log(x/T )          T 1+ω−ǫ log x
+                               1
+                                       !                           !
+                           xc− 2              ψf,ω (2x) x1/2 log x
+                                                                                    
+                                                                            ψf,ω (x)
+             +O                          +O                          +O           √    .
+                    T 1+ω (c − 1 − ω)r                T 1+ω                T 1+ω x
+By the Ramanujan-Petersson conjecture we have λf (n) ≪ǫ nǫ and µf (n) ≪ǫ nǫ . There-
+fore we can take c = 1 + ω + ǫ and ψf,ω (x) ≪ xǫ . Hence we have
+                                                                             1
+                                                                                      !
+                                                       ω −1
+                                                                              +ω+ǫ
+      h1i
+                                               (x/T  )                   x 2
+     hf,ω (x) = ε(f ) + O (x/T )−δ T ǫ + O                        +O
+                                               T 1−ǫ log(x/T )          T 1+ω−ǫ log x
+                       1
+                              !                   !
+                     x 2 +ω+ǫ        x1/2+ǫ log x              xǫ
+                                                                   
+              +O                +O                  +O            √   .
+                      T 1+ω             T 1+ω               T 1+ω x
+By taking T = xA for some ((1/2) + ω + ǫ)/(1 + ω − ǫ) < A < δ/(δ + ǫ) (roughly, for
+some 2/3 < A < 1 by 0 < ω < 1/2), we obtain
+                              h1i
+                             hf,ω (x) = ε(f ) + O(x−B ) (x → ∞)
+                                           h1i
+for some small B > 0. In particular hf,ω does not change sign for large x > 0.                    
+
+Proof of Theorem 2.4. The first half of Theorem 2.4 is obvious by the proof of
+Theorem 2.4 (2-a). In fact, the integrand of integrals I2 and I3 in (5.4) is L2 , and hence
+I2 + I3 belongs to L2 ((1, ∞), x−1 dx). In addition, as already found, I1 in (5.4) also
+belongs to L2 ((1, ∞), x−1 dx).
+   We prove the latter half of Theorem 2.4. By (4.3), we have
+                         Z ∞
+                                         1    dx   Θf,ω (s) − ε(f )
+                              Rf,ω (x) x 2 −s    =
+                           1                   x      s − 1/2
+for s ∈ C with large ℜ(s) > 0. By Rf,ω ∈ L2 ((1, ∞), x−1 dx) and Theorem 10 of [20,
+Chap.II], we find that (Θf,ω (s) − ε(f ))/(s − 1/2) has no poles in the right-half plane
+ℜ(s) > 1/2. Then, by the argument of the proof of Theorem 2.3 (1), we arrive at the
+desired conclusion.                                                                   
+
+                                          References
+ [1] P. L. Chebyshev, Oeuvres de P. L. Tchebychef I, Chelsea Publ., 1962.
+ [2] A. Fujii, Some generalizations of Chebyshev’s conjecture, Proc. Japan Acad. Ser. A Math. Sci. 64
+     (1988), no. 7, 260–263.
+ [3] G. H. Hardy and J. E. Littlewood, Contributions to the theory of the Riemann zeta-function and
+     the theory of the distribution of primes, Acta Math. 41 (1916), no. 1, 119–196.
+ [4] C. B. Haselgrove, A disproof of a conjecture of Pólya, Mathematika 5 (1958), 141–145.
+ [5] A. Ivić, The Riemann zeta-function, John Wiley and Sons, New York, 1985 (2nd ed. Dover, 2003).
+ [6] H. Iwaniec and E. Kowalski, Analytic number theory, American Mathematical Society Colloquium
+     Publications, vol. 53, American Mathematical Society, Providence, RI, 2004.
+ON MONOTONICITY OF CERTAIN WEIGHTED SUMMATORY FUNCTIONS ASSOCIATED WITH L-FUNCTIONS
+                                                                                 13
+
+ [7] J. Kaczorowski and A. Perelli, On the structure of the Selberg class. I. 0 ⩽ d ⩽ 1, Acta Math. 182
+     (1999), no. 2, 207–241.
+ [8] S. Knapowski and P. Turán, Über einige Fragen der vergleichenden Primzahltheorie, Number Theory
+     and Analysis (Papers in Honor of Edmund Landau), Plenum, New York, 1969, pp. 157–171.
+ [9] J. C. Lagarias and M. Suzuki, The Riemann hypothesis for certain integrals of Eisenstein series, J.
+     Number Theory 118 (2006), no. 1, 98–122.
+[10] E. Landau, Über einige ältere Vermutungen und Behauptungen in der Primzahltheorie, Math. Z. 1
+     (1918), no. 2-3, 213–219.
+[11] H. L. Montgomery and R. C. Vaughan, Multiplicative number theory. I. Classical theory, Cambridge
+     Studies in Advanced Mathematics, vol. 97, Cambridge University Press, Cambridge, 2007.
+[12] N. K. Nikolski, Operators, functions, and systems: an easy reading. Vol. 1, Mathematical Surveys
+     and Monographs, vol. 92, American Mathematical Society, Providence, RI, 2002.
+[13]        , Operators, functions, and systems: an easy reading. Vol. 2, Mathematical Surveys and
+     Monographs, vol. 93, American Mathematical Society, Providence, RI, 2002.
+[14] F. Oberhettinger, Tables of Mellin transforms, Springer-Verlag, New York, 1974.
+[15] G. Pólya, Verscheidene Bemerkungen zur Zahlentheorie, Jahresbericht der deutschen Math.-
+     Vereinigung 28 (1919), 31–40.
+[16] M. Ram Murty, Some remarks on the Riemann hypothesis, Cohomology of arithmetic groups, L-
+     functions and automorphic forms (Mumbai, 1998/1999), Tata Inst. Fund. Res. Stud. Math., vol.
+     15, Tata Inst. Fund. Res., Bombay, 2001, pp. 180–196.
+[17] M. Suzuki, A canonical system of differential equations arising from the Riemann zeta-function,
+     to appear in Functions in Number Theory and Their Probabilistic Aspects (Kyoto, 2010), RIMS
+     Kokyuroku Bessatsu Series, RIMS, Kyoto University, Kyoto.
+[18] E. C. Titchmarsh, Introduction to the theory of Fourier integrals, third ed., Chelsea Publishing Co.,
+     New York, 1986.
+[19]        , The theory of the Riemann zeta-function, second ed., The Clarendon Press Oxford Univer-
+     sity Press, New York, 1986, Edited and with a preface by D. R. Heath-Brown.
+[20] D. V. Widder, The Laplace Transform, Princeton Mathematical Series, v. 6, Princeton University
+     Press, Princeton, N. J., 1941.
+
+  Department of Mathematics, Tokyo Institute of Technology, 2-12-1 Ookayama, Meguro-
+ku, Tokyo 152-8551, Japan
+  E-mail address: msuzuki@math.titech.ac.jp
+
