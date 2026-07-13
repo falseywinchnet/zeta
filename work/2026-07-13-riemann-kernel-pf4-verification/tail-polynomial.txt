@@ -1,0 +1,31 @@
+H4 at exact kappa_j=-2^j x:
+  49152*x**6
+
+lower-bound coefficients of x^d (Laurent degree d = power-6),
+delta-monomials bounded by |.|<=1:
+  x^6: constant=49152  |delta-part|<=0
+  x^4: constant=0  |delta-part|<=7299072/5
+  x^3: constant=0  |delta-part|<=88018944/5
+  x^2: constant=0  |delta-part|<=756929024/5
+  x^1: constant=0  |delta-part|<=9307871232/25
+  x^0: constant=0  |delta-part|<=90509073984/25
+  x^-1: constant=0  |delta-part|<=1807239327472/125
+  x^-2: constant=0  |delta-part|<=3528006311808/125
+  x^-3: constant=0  |delta-part|<=62513985514124/625
+  x^-4: constant=0  |delta-part|<=220885105972212/3125
+  x^-5: constant=0  |delta-part|<=8406623961648/625
+  x^-6: constant=0  |delta-part|<=11297761792812/15625
+
+guaranteed lower bound polynomial:
+  49152*x**6 - 7299072*x**4/5 - 88018944*x**3/5 - 756929024*x**2/5 - 9307871232*x/25 - 90509073984/25 - 1807239327472/(125*x) - 3528006311808/(125*x**2) - 62513985514124/(625*x**3) - 220885105972212/(3125*x**4) - 8406623961648/(625*x**5) - 11297761792812/(15625*x**6)
+  lower(1157/50) = 6.8154221E+12
+  lower(24) = 8.5649943E+12
+  lower(25) = 1.1046526E+13
+  lower(30) = 3.4022502E+13
+  lower(40) = 1.9620171E+14
+  lower(60) = 2.2699429E+15
+  lower(100) = 4.8986860E+16
+
+monotone margin: H4/x^6 >= 49152 - sum B_d x0^(d-6) = 44392.80919
+exact rational margin: 255454134188265056605408295545698811236352/5754403446699412011150230263800555601
+status=tail lemma holds for all x >= pi e^2, i.e. |u| >= 1
