@@ -2556,8 +2556,149 @@
       ],
       "status": "established",
       "updated_at": "2026-07-12T23:50:19+00:00"
+    },
+    "F000140": {
+      "because": [
+        {
+          "id": "F000004",
+          "type": "factoid"
+        },
+        {
+          "id": "C000024",
+          "type": "citation"
+        }
+      ],
+      "content": "For a positive, smooth, strictly log-concave translation kernel, global PF3 is equivalent to L(t,a,b)>=0 for all real t and a,b>0, where L=s(t-b)-s(t+a)+(q(t)-q(t-b))/(s(t-b)-s(t))-(q(t+a)-q(t))/(s(t)-s(t+a)) with s=(log f)-prime and q=-(log f)-double-prime; L is the logarithmic slope derivative of the middle-column-normalized order-three minor curve.",
+      "created_at": "2026-07-13T05:00:59+00:00",
+      "relates_to": [
+        "T000011"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-13T05:01:08+00:00"
+    },
+    "F000141": {
+      "because": [
+        {
+          "id": "F000140",
+          "type": "factoid"
+        },
+        {
+          "id": "C000024",
+          "type": "citation"
+        }
+      ],
+      "content": "If q>0 and F2=q^3-(q q-double-prime-(q-prime)^2)>=0 hold pointwise on R, then L(t,a,b) is at least the integral of min(q^3,F2)/q^2 over [t-b,t+a], hence nonnegative: L equals the integral of q plus the difference of two q-weighted means of q-prime/q, and that difference is bounded by the integral of max(F1,0)/q^2.",
+      "created_at": "2026-07-13T05:01:08+00:00",
+      "relates_to": [
+        "T000011",
+        "T000009"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-13T05:01:15+00:00"
+    },
+    "F000142": {
+      "because": [
+        {
+          "id": "C000024",
+          "type": "citation"
+        }
+      ],
+      "content": "Directed Arb interval computation certifies q>=18.726, F1>=0.181, and F2>=3889.2 on [0,1] for the Riemann kernel, using 7731 adaptive second-order Taylor cells at precision 192 with termwise theta-tail majorants; evenness of q, F1, F2 extends all three bounds to [-1,1].",
+      "created_at": "2026-07-13T05:01:15+00:00",
+      "relates_to": [
+        "T000011",
+        "T000015"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-13T05:01:28+00:00"
+    },
+    "F000143": {
+      "because": [
+        {
+          "id": "C000024",
+          "type": "citation"
+        }
+      ],
+      "content": "For |u|>=1 and x=pi e^{2u}, explicit enclosures of the dominant theta term give |q-4x|<=19.8/x, |q-dot-8x|<=176/x, |q-ddot-16x|<=2082/x for the Riemann kernel, hence q>=4x-0.86>0, |F1|<=11596, and F2>=(4x-0.86)^3-11596>0; the 64x^2 leading terms of q q-ddot and (q-dot)^2 cancel exactly, so F2 compares O(1) against O(x^3).",
+      "created_at": "2026-07-13T05:01:28+00:00",
+      "relates_to": [
+        "T000011",
+        "T000009"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-13T05:01:35+00:00"
+    },
+    "F000144": {
+      "because": [
+        {
+          "id": "F000004",
+          "type": "factoid"
+        },
+        {
+          "id": "F000140",
+          "type": "factoid"
+        },
+        {
+          "id": "F000141",
+          "type": "factoid"
+        },
+        {
+          "id": "F000142",
+          "type": "factoid"
+        },
+        {
+          "id": "F000143",
+          "type": "factoid"
+        },
+        {
+          "id": "C000024",
+          "type": "citation"
+        }
+      ],
+      "content": "The Riemann/de Bruijn-Newman kernel is globally PF3: orders one and two follow from termwise positivity and q>0, and order three follows from the slope criterion through the curvature-pair sufficiency lemma, the certified compact core on [-1,1], and the tail enclosures for |u|>=1.",
+      "created_at": "2026-07-13T05:01:35+00:00",
+      "relates_to": [
+        "T000011"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-13T05:01:42+00:00"
+    },
+    "F000145": {
+      "because": [
+        {
+          "id": "F000144",
+          "type": "factoid"
+        },
+        {
+          "id": "F000016",
+          "type": "factoid"
+        }
+      ],
+      "content": "The exact global Polya-frequency order of the Riemann kernel is three or four: global PF3 is established and PF5 fails by the certified negative Toeplitz 5x5 minor, so only global PF4 remains open.",
+      "created_at": "2026-07-13T05:01:42+00:00",
+      "relates_to": [
+        "T000011",
+        "T000012"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-13T05:01:42+00:00"
+    },
+    "F000146": {
+      "because": [
+        {
+          "id": "C000025",
+          "type": "citation"
+        }
+      ],
+      "content": "Khare's Theorem E: for p>=3, a measurable function whose two-sided translate products decay at infinity is TN_p as soon as every order-p translation-kernel minor is nonnegative; lower-order minors follow automatically, so a future global PF4 verification needs only the order-four minors.",
+      "created_at": "2026-07-13T05:01:51+00:00",
+      "relates_to": [
+        "T000007"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-13T05:01:51+00:00"
     }
   },
-  "next_id": 140,
+  "next_id": 147,
   "version": 1
 }
