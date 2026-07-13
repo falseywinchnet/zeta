@@ -174,9 +174,14 @@ path until `R93` is resolved.
   PF4 separator (`R52`--`R54`). The Riemann kernel itself is globally PF3
   (`R140`--`R144`), so its exact global Polya-frequency order is three or four
   and only global PF4 remains open (`R145`); by Khare's Theorem E a PF4
-  verification needs only the order-four minors (`R146`). This classification
-  is RH-neutral; kernel-specific transition invariants require their own
-  formal definitions.
+  verification needs only the order-four minors (`R146`). The full collision
+  boundary is certified positive at order four (`R147`--`R152`): every doubly
+  confluent order-four minor is strictly positive, closing the route on which
+  PF5 fails. PF4 remains open on the non-confluent surface, unfalsified by
+  ~10^7 scanned configurations; the named continuation is certifying the
+  translate Wronskians W3, W4 > 0 (ECT route, `R153`). This classification is
+  RH-neutral; kernel-specific transition invariants require their own formal
+  definitions.
 - Jensen and Li families: exact but unbounded coordinate tests (`R62`, `R79`,
   `R85`).
 - De Bruijn–Newman: exact transition boundary, but RH is the endpoint statement

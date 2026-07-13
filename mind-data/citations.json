@@ -564,8 +564,54 @@
         "T000007"
       ],
       "updated_at": "2026-07-13T05:00:35+00:00"
+    },
+    "C000026": {
+      "artifacts": [
+        {
+          "path": "scripts/verify_c4_confluent.py",
+          "sha256": "5153e624acbd768381ad75237fb4ec1fbf6d58b993f4217e9ddd422fd8e4f624"
+        },
+        {
+          "path": "sources/c4-confluent-certificate.md",
+          "sha256": "9af1282c9fa3eb8ce074683daa0f181b916d7ce93519fc500f820a232800262b"
+        },
+        {
+          "path": "work/2026-07-13-riemann-kernel-pf4-verification/certify_c4.py",
+          "sha256": "e76060095f420d2d758171a59c32bc58dae7a02b50228553928092dabb8f02e1"
+        },
+        {
+          "path": "work/2026-07-13-riemann-kernel-pf4-verification/c4-certificate.txt",
+          "sha256": "bf2436a454ece2c4ef97917f0aa606f29a7e3c401faa9428c203893a7f52d0cc"
+        },
+        {
+          "path": "work/2026-07-13-riemann-kernel-pf4-verification/tail-polynomial.txt",
+          "sha256": "5f996f08785b246adc4c0f52b31616f91de1d9f322267022cd76f155eb643403"
+        },
+        {
+          "path": "work/2026-07-13-riemann-kernel-pf4-verification/c4-tail-check.txt",
+          "sha256": "6f080b81a69ca1d22d81f0b02126b4dbf3fa8e28f45bbce7f47778fc6ebc5e61"
+        },
+        {
+          "path": "work/2026-07-13-riemann-kernel-pf4-verification/toeplitz-anchor.txt",
+          "sha256": "a298004a14b176a618ff56de6f65cb4f1a3e8ac834fa9055fb3ec61d2ea1f46d"
+        },
+        {
+          "path": "work/2026-07-13-riemann-kernel-pf4-verification/MATHEMATICS.md",
+          "sha256": "f3d4fc26029fa0685a60403fc589d2b688bfe9ab3751424027d975b590636692"
+        }
+      ],
+      "author": "Claude Fable 5, Anthropic",
+      "body": "Confluent order-four audit of the Riemann kernel, 2026-07-13. Moment-Hankel reduction, PF3-invariant decomposition, Stirling cumulant tail, compact second-order interval certificate; 45-check symbolic and numeric verification.",
+      "created_at": "2026-07-13T17:17:32+00:00",
+      "paper": null,
+      "source_url": null,
+      "topics": [
+        "T000012",
+        "T000011"
+      ],
+      "updated_at": "2026-07-13T17:17:32+00:00"
     }
   },
-  "next_id": 26,
+  "next_id": 27,
   "version": 1
 }
