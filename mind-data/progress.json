@@ -67,8 +67,12 @@
     "P000017": {
       "blurb": "Close finite complement extension and redirect to analytic ground-state flow",
       "created_at": "2026-07-13T00:19:14+00:00"
+    },
+    "P000018": {
+      "blurb": "Advance analytic localized-Weil ground-state flow across scale and prime thresholds",
+      "created_at": "2026-07-13T00:29:09+00:00"
     }
   },
-  "next_id": 18,
+  "next_id": 19,
   "version": 1
 }
