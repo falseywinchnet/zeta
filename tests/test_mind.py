@@ -28,14 +28,29 @@ class MindStoreTest(unittest.TestCase):
         base = self.store.establish("Base observation.", [self.zeta])
         self.assertEqual(self.store.factoids[base]["status"], "todo")
         child = self.store.establish("Derived observation.", [self.zeta], [base])
+        self.assertEqual(self.store.factoids[child]["status"], "todo")
+        cite = self.store.add_citation("A", "B", [self.zeta], artifacts=[self._file("source.txt", "source")])
+        self.store.update_fact(base, "refer", [cite], citation=True)
+        self.store.update_fact(child, "refer", [cite], citation=True)
         self.assertEqual(self.store.factoids[child]["status"], "established")
         self.assertEqual(self.store.retrieval_roots({base}), [child])
+
+    def _file(self, name, content):
+        path = self.root / name
+        path.write_text(content, encoding="utf-8")
+        return path
 
     def test_cycle_rejected(self):
         first = self.store.establish("First.", [self.zeta])
         second = self.store.establish("Second.", [self.zeta], [first])
         with self.assertRaises(MindError):
             self.store.update_fact(first, "refer", [second])
+
+    def test_factoid_content_can_be_modified_without_support_change(self):
+        fact = self.store.establish("Original wording.", [self.zeta])
+        self.store.modify_fact(fact, content="Corrected wording.")
+        self.assertEqual(self.store.factoids[fact]["content"], "Corrected wording.")
+        self.assertEqual(self.store.factoids[fact]["status"], "todo")
 
     def test_citation_boundary_and_checksum(self):
         paper = self.root / "source.pdf"
@@ -45,6 +60,10 @@ class MindStoreTest(unittest.TestCase):
         self.store.update_fact(fact, "refer", [cite], citation=True)
         self.assertEqual(self.store.factoids[fact]["status"], "established")
         self.assertEqual(self.store.validate(), [])
+
+    def test_citation_requires_local_evidence(self):
+        with self.assertRaises(MindError):
+            self.store.add_citation("A", "Unanchored.", [self.zeta])
 
     def test_local_artifact_checksum(self):
         artifact = self.root / "source.txt"
@@ -86,15 +105,59 @@ class MindStoreTest(unittest.TestCase):
         self.assertEqual(engine.search("interval arithmetic, obstruction", 1)[0]["document"]["id"], child)
         self.assertEqual(engine.search("spectral sibling", 1, ["work"])[0]["document"]["kind"], "work")
 
-    def test_progress_record_builds_static_index(self):
+    def test_progress_record_leaves_generated_index_lazy(self):
         self.store.establish("Indexed before commitment.", [self.zeta])
         pid = self.store.record_progress("index epoch")
         self.assertEqual(pid, "P000001")
+        self.assertFalse(index_is_current(self.store))
+        SearchEngine(self.store)
         self.assertTrue(index_is_current(self.store))
         work = self.root / "work"
         work.mkdir()
         (work / "notes.md").write_text("changed after record", encoding="utf-8")
         self.assertFalse(index_is_current(self.store))
+
+    def test_replayable_certificate_and_output_hash(self):
+        verifier = self._file("verify.py", "print('proof-ok')\n")
+        kid = self.store.add_certificate(
+            verifier,
+            "Exact toy proof.",
+            [self.zeta],
+            requirements=[],
+        )
+        self.assertEqual(kid, "K000001")
+        self.assertEqual(self.store.replay_certificates(kid), [kid])
+        fact = self.store.establish("Certified theorem.", [self.zeta], [kid])
+        self.assertEqual(self.store.factoids[fact]["status"], "established")
+        verifier.write_text("print('changed')\n", encoding="utf-8")
+        with self.assertRaises(MindError):
+            self.store.replay_certificates(kid)
+
+    def test_certificate_runner_must_invoke_registered_file(self):
+        verifier = self._file("verify.py", "print('proof-ok')\n")
+        with self.assertRaises(MindError):
+            self.store.add_certificate(
+                verifier, "Disconnected verifier.", [self.zeta], command="python3 -c pass"
+            )
+
+    def test_certificate_identity_is_reversible_and_searchable(self):
+        verifier = self._file("verify.py", "print('proof-ok')\n")
+        kid = self.store.add_certificate(verifier, "Spectral certificate boundary.", [self.zeta])
+        self.assertEqual(public_id(kid), "CERT1")
+        self.assertEqual(internal_id("cert1"), kid)
+        self.assertEqual(exact_identity(self.store, "CERT1")["id"], kid)
+        build_index(self.store)
+        result = SearchEngine(self.store).search("spectral certificate", 1, ["certificate"])[0]
+        self.assertEqual(result["document"]["id"], kid)
+
+    def test_certificate_dependencies_replay_before_dependents(self):
+        first_file = self._file("first.py", "print('first')\n")
+        second_file = self._file("second.py", "print('second')\n")
+        first = self.store.add_certificate(first_file, "First proof.", [self.zeta])
+        second = self.store.add_certificate(
+            second_file, "Dependent proof.", [self.zeta], dependencies=[first]
+        )
+        self.assertEqual(self.store.replay_certificates(second), [first, second])
 
     def test_lossless_source_records_are_searchable(self):
         sources = self.root / "sources"
@@ -107,7 +170,10 @@ class MindStoreTest(unittest.TestCase):
 
     def test_public_reference_and_citation_identities_are_reversible(self):
         fact = self.store.establish("Reference identity.", [self.zeta])
-        cite = self.store.add_citation("Author", "Citation identity.", [self.zeta])
+        cite = self.store.add_citation(
+            "Author", "Citation identity.", [self.zeta],
+            artifacts=[self._file("citation.txt", "citation")],
+        )
         self.assertEqual(public_id(fact), "R1")
         self.assertEqual(public_id(cite), "CITE1")
         self.assertEqual(internal_id("r1"), fact)
@@ -118,7 +184,10 @@ class MindStoreTest(unittest.TestCase):
     def test_search_merges_references_citations_and_topics(self):
         kernel, _ = self.store.add_topic(self.zeta, "spectral-kernel")
         fact = self.store.establish("Spectral determinant evidence.", [kernel])
-        cite = self.store.add_citation("Kernel Author", "Spectral source boundary.", [kernel])
+        cite = self.store.add_citation(
+            "Kernel Author", "Spectral source boundary.", [kernel],
+            artifacts=[self._file("spectral.txt", "source")],
+        )
         build_index(self.store)
         results = SearchEngine(self.store).search(
             "spectral kernel", limit=25, score_floor=0.0, secretary_count=1
@@ -162,7 +231,10 @@ class MindStoreTest(unittest.TestCase):
         self.assertEqual(len(selected), 3)
 
     def test_search_exact_public_id_returns_full_object(self):
-        cite = self.store.add_citation("Author", "Boundary body.", [self.zeta])
+        cite = self.store.add_citation(
+            "Author", "Boundary body.", [self.zeta],
+            artifacts=[self._file("boundary.txt", "source")],
+        )
         fact = self.store.establish("Anchored reference.", [self.zeta])
         self.store.update_fact(fact, "refer", [cite], citation=True)
         output = io.StringIO()

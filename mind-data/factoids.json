@@ -131,7 +131,7 @@
         "T000014",
         "T000022"
       ],
-      "status": "established",
+      "status": "todo",
       "updated_at": "2026-07-12T21:41:23+00:00"
     },
     "F000008": {
@@ -202,7 +202,7 @@
         "T000015",
         "T000022"
       ],
-      "status": "established",
+      "status": "todo",
       "updated_at": "2026-07-12T19:19:06+00:00"
     },
     "F000012": {
@@ -240,7 +240,7 @@
         "T000013",
         "T000022"
       ],
-      "status": "established",
+      "status": "todo",
       "updated_at": "2026-07-12T19:19:06+00:00"
     },
     "F000014": {
@@ -293,7 +293,7 @@
         "T000014",
         "T000005"
       ],
-      "status": "established",
+      "status": "todo",
       "updated_at": "2026-07-12T19:19:06+00:00"
     },
     "F000017": {
@@ -310,7 +310,7 @@
         "T000014",
         "T000023"
       ],
-      "status": "established",
+      "status": "todo",
       "updated_at": "2026-07-12T19:19:06+00:00"
     },
     "F000018": {
@@ -331,7 +331,7 @@
         "T000024",
         "T000022"
       ],
-      "status": "established",
+      "status": "todo",
       "updated_at": "2026-07-12T19:19:06+00:00"
     },
     "F000019": {
@@ -386,7 +386,7 @@
         "T000009",
         "T000022"
       ],
-      "status": "established",
+      "status": "todo",
       "updated_at": "2026-07-12T19:19:06+00:00"
     },
     "F000022": {
@@ -429,7 +429,7 @@
         "T000013",
         "T000022"
       ],
-      "status": "established",
+      "status": "todo",
       "updated_at": "2026-07-12T19:19:06+00:00"
     },
     "F000024": {
@@ -456,8 +456,8 @@
           "type": "citation"
         },
         {
-          "id": "C000023",
-          "type": "citation"
+          "id": "K000001",
+          "type": "certificate"
         }
       ],
       "content": "PF3 or PF4 membership, even together with positivity, evenness, and Schwartz decay, cannot by itself force Fourier real-rootedness; separately proposed transition-dependent ribbons remain undefined until their admissible invariants are formalized.",
@@ -469,7 +469,7 @@
         "T000022"
       ],
       "status": "established",
-      "updated_at": "2026-07-13T03:55:25+00:00"
+      "updated_at": "2026-07-13T19:58:44+00:00"
     },
     "F000026": {
       "because": [
@@ -616,7 +616,7 @@
         "T000020",
         "T000023"
       ],
-      "status": "established",
+      "status": "todo",
       "updated_at": "2026-07-12T19:19:06+00:00"
     },
     "F000034": {
@@ -770,7 +770,7 @@
         "T000009",
         "T000010"
       ],
-      "status": "established",
+      "status": "todo",
       "updated_at": "2026-07-12T19:22:05+00:00"
     },
     "F000045": {
@@ -786,7 +786,7 @@
         "T000006",
         "T000032"
       ],
-      "status": "established",
+      "status": "todo",
       "updated_at": "2026-07-12T19:22:05+00:00"
     },
     "F000046": {
@@ -810,7 +810,7 @@
         "T000010",
         "T000032"
       ],
-      "status": "established",
+      "status": "todo",
       "updated_at": "2026-07-12T19:22:05+00:00"
     },
     "F000047": {
@@ -945,8 +945,8 @@
           "type": "factoid"
         },
         {
-          "id": "C000023",
-          "type": "citation"
+          "id": "K000001",
+          "type": "certificate"
         }
       ],
       "content": "The exact finite-window enumeration certifies (1,3,4,2) as a PF4 sequence; symmetrization and Gaussian convolution give a positive even Schwartz PF4 kernel whose Fourier transform has nonreal zeros, so PF4 membership and therefore PF3 membership do not imply Fourier real-rootedness.",
@@ -958,7 +958,7 @@
         "T000032"
       ],
       "status": "established",
-      "updated_at": "2026-07-13T03:55:25+00:00"
+      "updated_at": "2026-07-13T19:58:44+00:00"
     },
     "F000055": {
       "because": [
@@ -1069,7 +1069,7 @@
         "T000027",
         "T000003"
       ],
-      "status": "established",
+      "status": "todo",
       "updated_at": "2026-07-12T19:22:05+00:00"
     },
     "F000062": {
@@ -1182,7 +1182,7 @@
         "T000030",
         "T000023"
       ],
-      "status": "established",
+      "status": "todo",
       "updated_at": "2026-07-12T19:22:05+00:00"
     },
     "F000069": {
@@ -1374,7 +1374,7 @@
         "T000016",
         "T000022"
       ],
-      "status": "established",
+      "status": "todo",
       "updated_at": "2026-07-12T21:49:42+00:00"
     },
     "F000081": {
@@ -1403,7 +1403,7 @@
         "T000012",
         "T000023"
       ],
-      "status": "established",
+      "status": "todo",
       "updated_at": "2026-07-13T03:55:37+00:00"
     },
     "F000082": {
@@ -1423,7 +1423,7 @@
         "T000017",
         "T000023"
       ],
-      "status": "established",
+      "status": "todo",
       "updated_at": "2026-07-12T21:49:42+00:00"
     },
     "F000083": {
@@ -1444,7 +1444,7 @@
         "T000017",
         "T000031"
       ],
-      "status": "established",
+      "status": "todo",
       "updated_at": "2026-07-12T21:49:42+00:00"
     },
     "F000084": {
@@ -1461,7 +1461,7 @@
         "T000016",
         "T000023"
       ],
-      "status": "established",
+      "status": "todo",
       "updated_at": "2026-07-12T21:49:42+00:00"
     },
     "F000085": {
@@ -1482,7 +1482,7 @@
         "T000035",
         "T000023"
       ],
-      "status": "established",
+      "status": "todo",
       "updated_at": "2026-07-12T21:49:42+00:00"
     },
     "F000086": {
@@ -1535,7 +1535,7 @@
         "T000017",
         "T000023"
       ],
-      "status": "established",
+      "status": "todo",
       "updated_at": "2026-07-12T22:27:00+00:00"
     },
     "F000087": {
@@ -1628,7 +1628,7 @@
         "T000016",
         "T000023"
       ],
-      "status": "established",
+      "status": "todo",
       "updated_at": "2026-07-12T21:51:35+00:00"
     },
     "F000093": {
@@ -1679,7 +1679,7 @@
         "T000034",
         "T000023"
       ],
-      "status": "established",
+      "status": "todo",
       "updated_at": "2026-07-12T21:52:11+00:00"
     },
     "F000096": {
@@ -1721,7 +1721,7 @@
         "T000034",
         "T000016"
       ],
-      "status": "established",
+      "status": "todo",
       "updated_at": "2026-07-12T21:53:33+00:00"
     },
     "F000098": {
@@ -1770,7 +1770,7 @@
         "T000034",
         "T000016"
       ],
-      "status": "established",
+      "status": "todo",
       "updated_at": "2026-07-12T22:27:00+00:00"
     },
     "F000101": {
@@ -1791,7 +1791,7 @@
         "T000034",
         "T000016"
       ],
-      "status": "established",
+      "status": "todo",
       "updated_at": "2026-07-12T21:54:09+00:00"
     },
     "F000102": {
@@ -1828,10 +1828,6 @@
         {
           "id": "F000103",
           "type": "factoid"
-        },
-        {
-          "id": "C000015",
-          "type": "citation"
         }
       ],
       "content": "For the Dirichlet sine basis on (-1,1), translation invariance reduces each scaled localized-Weil matrix element exactly to a one-dimensional integral of g(at) against the sum of two analytic derivative-correlation functions; the integration pieces break at t=log(n)/a for prime powers n.",
@@ -1840,16 +1836,11 @@
         "T000034",
         "T000036"
       ],
-      "status": "established",
-      "updated_at": "2026-07-12T22:26:39+00:00"
+      "status": "todo",
+      "updated_at": "2026-07-13T20:00:28+00:00"
     },
     "F000105": {
-      "because": [
-        {
-          "id": "C000015",
-          "type": "citation"
-        }
-      ],
+      "because": [],
       "content": "The P000009 adaptive N=8 computation reports localized-Weil Ritz values 0.0101117508912 at a=0.3, 3.37951556796e-6 at a=0.5, and 1.41653696018e-12 at a=1; these are floating-point observations, not certified enclosures or lower bounds for lambda_a.",
       "created_at": "2026-07-12T22:26:39+00:00",
       "relates_to": [
@@ -1857,16 +1848,11 @@
         "T000034",
         "T000022"
       ],
-      "status": "established",
-      "updated_at": "2026-07-12T22:26:39+00:00"
+      "status": "todo",
+      "updated_at": "2026-07-13T20:00:28+00:00"
     },
     "F000106": {
-      "because": [
-        {
-          "id": "C000015",
-          "type": "citation"
-        }
-      ],
+      "because": [],
       "content": "At a=1, the P000009 N=8 adaptive Ritz value 1.41653696018e-12 is smaller than the reported maximum scalar quadrature-error estimate 5.50e-12, so even the computed finite-dimensional sign is not certified by that run.",
       "created_at": "2026-07-12T22:26:39+00:00",
       "relates_to": [
@@ -1874,16 +1860,11 @@
         "T000037",
         "T000022"
       ],
-      "status": "established",
-      "updated_at": "2026-07-12T22:26:39+00:00"
+      "status": "todo",
+      "updated_at": "2026-07-13T20:00:29+00:00"
     },
     "F000107": {
-      "because": [
-        {
-          "id": "C000015",
-          "type": "citation"
-        }
-      ],
+      "because": [],
       "content": "The P000009 small-interval N=20 computations are numerically consistent with Suzuki's logarithmic asymptotic and a two-point extrapolation mu_1 approximately 0.250, with an even simple computed ground state; the extrapolation, quadrature, and trial-space errors are not enclosed.",
       "created_at": "2026-07-12T22:27:00+00:00",
       "relates_to": [
@@ -1891,18 +1872,14 @@
         "T000034",
         "T000022"
       ],
-      "status": "established",
-      "updated_at": "2026-07-12T22:27:00+00:00"
+      "status": "todo",
+      "updated_at": "2026-07-13T20:00:29+00:00"
     },
     "F000108": {
       "because": [
         {
           "id": "F000099",
           "type": "factoid"
-        },
-        {
-          "id": "C000015",
-          "type": "citation"
         }
       ],
       "content": "For 0<a<b, zero extension sends the closed localized-Weil form domain D(q_a) into D(q_b) and preserves q and the L2 norm; this follows by core approximation because the two positive form norms differ only by an L2 term. No nesting of the operator domains D(A_a) is asserted.",
@@ -1911,18 +1888,14 @@
         "T000034",
         "T000017"
       ],
-      "status": "established",
-      "updated_at": "2026-07-12T22:27:00+00:00"
+      "status": "todo",
+      "updated_at": "2026-07-13T20:00:29+00:00"
     },
     "F000109": {
       "because": [
         {
           "id": "F000099",
           "type": "factoid"
-        },
-        {
-          "id": "C000015",
-          "type": "citation"
         }
       ],
       "content": "A conforming finite-dimensional Ritz minimum is an upper bound for lambda_a. Certifying a lower bound for the full localized-Weil form additionally requires control of the unresolved infinite-dimensional complement; positivity of a Galerkin matrix alone is insufficient.",
@@ -1932,18 +1905,14 @@
         "T000037",
         "T000022"
       ],
-      "status": "established",
-      "updated_at": "2026-07-12T22:27:00+00:00"
+      "status": "todo",
+      "updated_at": "2026-07-13T20:00:29+00:00"
     },
     "F000110": {
       "because": [
         {
           "id": "F000109",
           "type": "factoid"
-        },
-        {
-          "id": "C000015",
-          "type": "citation"
         }
       ],
       "content": "The P000009 certification design calls for an interval enclosure of the projected form matrix together with a coercive complement bound, off-diagonal block norm control, and a tail-block lower bound, combined through a Schur-complement estimate.",
@@ -1952,8 +1921,8 @@
         "T000037",
         "T000036"
       ],
-      "status": "established",
-      "updated_at": "2026-07-12T22:27:00+00:00"
+      "status": "todo",
+      "updated_at": "2026-07-13T20:00:29+00:00"
     },
     "F000111": {
       "because": [
@@ -2001,16 +1970,11 @@
         "T000034",
         "T000022"
       ],
-      "status": "established",
+      "status": "todo",
       "updated_at": "2026-07-12T23:50:19+00:00"
     },
     "F000112": {
-      "because": [
-        {
-          "id": "C000016",
-          "type": "citation"
-        }
-      ],
+      "because": [],
       "content": "For N=8 at a=0.3, 0.5, and 1, P000011 replaces the adaptive floating-point localized-Weil matrix entries by directed interval enclosures on every prime-power piece, including an analytic archimedean origin enclosure; this finite-projection gate is complete at the tested parameters.",
       "created_at": "2026-07-12T22:27:00+00:00",
       "relates_to": [
@@ -2018,8 +1982,8 @@
         "T000034",
         "T000022"
       ],
-      "status": "established",
-      "updated_at": "2026-07-12T23:10:00+00:00"
+      "status": "todo",
+      "updated_at": "2026-07-13T20:00:29+00:00"
     },
     "F000113": {
       "because": [],
@@ -2035,12 +1999,7 @@
       "updated_at": "2026-07-12T23:50:19+00:00"
     },
     "F000114": {
-      "because": [
-        {
-          "id": "C000016",
-          "type": "citation"
-        }
-      ],
+      "because": [],
       "content": "At N=8 and a=0.3, 0.5, and 1, P000011 gives directed Arb enclosures for every localized-Weil projected-matrix entry and eigenvalue; the certified smallest-eigenvalue lower endpoints are positive.",
       "created_at": "2026-07-12T23:08:49+00:00",
       "relates_to": [
@@ -2048,32 +2007,22 @@
         "T000034",
         "T000022"
       ],
-      "status": "established",
-      "updated_at": "2026-07-12T23:08:49+00:00"
+      "status": "todo",
+      "updated_at": "2026-07-13T20:00:29+00:00"
     },
     "F000115": {
-      "because": [
-        {
-          "id": "C000016",
-          "type": "citation"
-        }
-      ],
+      "because": [],
       "content": "P000011 certifies its finite projected matrices by exact prime-power partitioning, an analytic origin remainder bound, exact parity zeros, validated Acb integration, and Weyl widening by the interval-matrix row-radius norm.",
       "created_at": "2026-07-12T23:08:49+00:00",
       "relates_to": [
         "T000034",
         "T000022"
       ],
-      "status": "established",
-      "updated_at": "2026-07-12T23:08:49+00:00"
+      "status": "todo",
+      "updated_at": "2026-07-13T20:00:29+00:00"
     },
     "F000116": {
-      "because": [
-        {
-          "id": "C000016",
-          "type": "citation"
-        }
-      ],
+      "because": [],
       "content": "In the uncertified P000011 64-mode probe, coupling between low L-adapted modes and one global tail block did not decay over the tested cutoffs, so that naive one-block Schur architecture did not approach the certified ground-state scale.",
       "created_at": "2026-07-12T23:08:49+00:00",
       "relates_to": [
@@ -2081,8 +2030,8 @@
         "T000034",
         "T000023"
       ],
-      "status": "established",
-      "updated_at": "2026-07-12T23:08:49+00:00"
+      "status": "todo",
+      "updated_at": "2026-07-13T20:00:29+00:00"
     },
     "F000117": {
       "because": [
@@ -2102,7 +2051,7 @@
         "T000034",
         "T000022"
       ],
-      "status": "established",
+      "status": "todo",
       "updated_at": "2026-07-12T23:08:49+00:00"
     },
     "F000118": {
@@ -2123,20 +2072,15 @@
       "updated_at": "2026-07-12T23:09:18+00:00"
     },
     "F000119": {
-      "because": [
-        {
-          "id": "C000018",
-          "type": "citation"
-        }
-      ],
+      "because": [],
       "content": "MIND and ConeDAG already preserve collision-free evidence identity through exact record IDs and stored bytes; fixed-dimensional sketches propose candidates and are not authoritative evidence.",
       "created_at": "2026-07-12T23:09:18+00:00",
       "relates_to": [
         "T000038",
         "T000022"
       ],
-      "status": "established",
-      "updated_at": "2026-07-12T23:09:18+00:00"
+      "status": "todo",
+      "updated_at": "2026-07-13T20:00:29+00:00"
     },
     "F000120": {
       "because": [
@@ -2147,10 +2091,6 @@
         {
           "id": "F000119",
           "type": "factoid"
-        },
-        {
-          "id": "C000018",
-          "type": "citation"
         }
       ],
       "content": "Semantic equivalence should be represented as a typed and scoped relation between interpretation graphs under a declared ontology and context, not as equality of fixed-dimensional vectors.",
@@ -2159,18 +2099,14 @@
         "T000038",
         "T000039"
       ],
-      "status": "established",
-      "updated_at": "2026-07-12T23:09:18+00:00"
+      "status": "todo",
+      "updated_at": "2026-07-13T20:00:29+00:00"
     },
     "F000121": {
       "because": [
         {
           "id": "F000118",
           "type": "factoid"
-        },
-        {
-          "id": "C000018",
-          "type": "citation"
         }
       ],
       "content": "A semantic interpretation layer requires distinct but linked structures for lexical senses, ontology, event roles, discourse and coreference, time, and epistemic provenance; multiple inheritance and polysemy make the aggregate a typed multigraph or DAG rather than one tree.",
@@ -2180,34 +2116,25 @@
         "T000039",
         "T000040"
       ],
-      "status": "established",
-      "updated_at": "2026-07-12T23:09:18+00:00"
+      "status": "todo",
+      "updated_at": "2026-07-13T20:00:29+00:00"
     },
     "F000122": {
-      "because": [
-        {
-          "id": "C000018",
-          "type": "citation"
-        }
-      ],
+      "because": [],
       "content": "Huffman codes, CRT-style addressing, compact postings, and perceptual hashes can compress or index established semantic objects, but they cannot infer senses, roles, entailment, or equivalence.",
       "created_at": "2026-07-12T23:09:30+00:00",
       "relates_to": [
         "T000038",
         "T000039"
       ],
-      "status": "established",
-      "updated_at": "2026-07-12T23:09:30+00:00"
+      "status": "todo",
+      "updated_at": "2026-07-13T20:00:29+00:00"
     },
     "F000123": {
       "because": [
         {
           "id": "F000119",
           "type": "factoid"
-        },
-        {
-          "id": "C000018",
-          "type": "citation"
         }
       ],
       "content": "Lossless fixed-dimensional compression of arbitrary unbounded exact strings remains impossible; the viable architecture is a fixed-dimensional lossy candidate index paired with a growing lossless exact store and interpretation graph.",
@@ -2216,40 +2143,30 @@
         "T000038",
         "T000022"
       ],
-      "status": "established",
-      "updated_at": "2026-07-12T23:09:30+00:00"
+      "status": "todo",
+      "updated_at": "2026-07-13T20:00:29+00:00"
     },
     "F000124": {
-      "because": [
-        {
-          "id": "C000018",
-          "type": "citation"
-        }
-      ],
+      "because": [],
       "content": "Additional context cannot guarantee monotone semantic stabilization because later context can reverse an earlier reading; the testable target is calibrated ambiguity refinement with measured revision and convergence.",
       "created_at": "2026-07-12T23:09:30+00:00",
       "relates_to": [
         "T000038",
         "T000040"
       ],
-      "status": "established",
-      "updated_at": "2026-07-12T23:09:30+00:00"
+      "status": "todo",
+      "updated_at": "2026-07-13T20:00:29+00:00"
     },
     "F000125": {
-      "because": [
-        {
-          "id": "C000018",
-          "type": "citation"
-        }
-      ],
+      "because": [],
       "content": "Nonuniform semantic importance of edits explains why semantic relevance should not be identified with raw edit distance, but it does not establish a bi-Lipschitz comparison between ConeDAG distance and edit distance.",
       "created_at": "2026-07-12T23:09:30+00:00",
       "relates_to": [
         "T000038",
         "T000022"
       ],
-      "status": "established",
-      "updated_at": "2026-07-12T23:09:30+00:00"
+      "status": "todo",
+      "updated_at": "2026-07-13T20:00:29+00:00"
     },
     "F000126": {
       "because": [
@@ -2289,7 +2206,7 @@
         "T000039",
         "T000040"
       ],
-      "status": "established",
+      "status": "todo",
       "updated_at": "2026-07-12T23:09:30+00:00"
     },
     "F000127": {
@@ -2329,10 +2246,6 @@
         {
           "id": "F000128",
           "type": "factoid"
-        },
-        {
-          "id": "C000020",
-          "type": "citation"
         }
       ],
       "content": "The stable discrete object for a learned semantic bridge should be a versioned canonical sense or concept ID, not a bare word vector, because one spelling can have several senses and one sense can have several spellings or translations.",
@@ -2342,16 +2255,11 @@
         "T000041",
         "T000040"
       ],
-      "status": "established",
-      "updated_at": "2026-07-12T23:15:53+00:00"
+      "status": "todo",
+      "updated_at": "2026-07-13T20:00:29+00:00"
     },
     "F000130": {
-      "because": [
-        {
-          "id": "C000020",
-          "type": "citation"
-        }
-      ],
+      "because": [],
       "content": "A learned embedding bridge must distinguish equivalence from association: antonyms, causes, properties, and co-occurring terms may be geometrically close without being semantically equivalent.",
       "created_at": "2026-07-12T23:15:53+00:00",
       "relates_to": [
@@ -2359,16 +2267,11 @@
         "T000041",
         "T000022"
       ],
-      "status": "established",
-      "updated_at": "2026-07-12T23:15:53+00:00"
+      "status": "todo",
+      "updated_at": "2026-07-13T20:00:29+00:00"
     },
     "F000131": {
-      "because": [
-        {
-          "id": "C000020",
-          "type": "citation"
-        }
-      ],
+      "because": [],
       "content": "A reproducible local sense bridge requires locally stored and checksummed model weights, tokenizer, vocabulary, concept registry, prototype vectors, training evidence, license, and versioned migrations.",
       "created_at": "2026-07-12T23:15:53+00:00",
       "relates_to": [
@@ -2376,8 +2279,8 @@
         "T000041",
         "T000022"
       ],
-      "status": "established",
-      "updated_at": "2026-07-12T23:15:53+00:00"
+      "status": "todo",
+      "updated_at": "2026-07-13T20:00:29+00:00"
     },
     "F000132": {
       "because": [
@@ -2409,7 +2312,7 @@
         "T000041",
         "T000039"
       ],
-      "status": "established",
+      "status": "todo",
       "updated_at": "2026-07-12T23:15:53+00:00"
     },
     "F000133": {
@@ -2429,10 +2332,6 @@
         {
           "id": "C000014",
           "type": "citation"
-        },
-        {
-          "id": "C000021",
-          "type": "citation"
         }
       ],
       "content": "For v supported in (-a,a), Suzuki's localized Weil quadratic form has an exact Fourier-multiplier representation (2*pi)^(-1) integral m_a(z)|vhat(z)|^2 dz, where m_a contains the digamma term, the finite prime-power cosine sum, and the signed truncated polar remainder transform.",
@@ -2442,7 +2341,7 @@
         "T000037"
       ],
       "status": "established",
-      "updated_at": "2026-07-12T23:50:09+00:00"
+      "updated_at": "2026-07-13T20:00:29+00:00"
     },
     "F000135": {
       "because": [
@@ -2455,8 +2354,8 @@
           "type": "factoid"
         },
         {
-          "id": "C000022",
-          "type": "citation"
+          "id": "K000004",
+          "type": "certificate"
         }
       ],
       "content": "For V=(mu-m_a)_+ and its positive convolution operator K on L2(-a,a), lambda_a is at least mu-||K||; for a finite orthogonal projection P, positivity gives ||K|| no greater than lambda_max(PKP)+tr((I-P)K(I-P)).",
@@ -2466,7 +2365,7 @@
         "T000037"
       ],
       "status": "established",
-      "updated_at": "2026-07-12T23:50:09+00:00"
+      "updated_at": "2026-07-13T19:58:44+00:00"
     },
     "F000136": {
       "because": [
@@ -2475,8 +2374,8 @@
           "type": "factoid"
         },
         {
-          "id": "C000022",
-          "type": "citation"
+          "id": "K000004",
+          "type": "certificate"
         }
       ],
       "content": "At a=0.3 and mu=1, P000015 certifies with directed Arb ranges that V vanishes outside [-22,22], the eight-mode Legendre compression plus the exact infinite complement trace bounds ||K|| above by 0.9962971374103319278341277203122, and an independent coarser run also keeps ||K|| below one.",
@@ -2487,7 +2386,7 @@
         "T000022"
       ],
       "status": "established",
-      "updated_at": "2026-07-12T23:50:09+00:00"
+      "updated_at": "2026-07-13T19:58:44+00:00"
     },
     "F000137": {
       "because": [
@@ -2512,7 +2411,7 @@
         "T000037",
         "T000022"
       ],
-      "status": "established",
+      "status": "todo",
       "updated_at": "2026-07-12T23:50:09+00:00"
     },
     "F000138": {
@@ -2533,7 +2432,7 @@
         "T000034",
         "T000037"
       ],
-      "status": "established",
+      "status": "todo",
       "updated_at": "2026-07-12T23:50:09+00:00"
     },
     "F000139": {
@@ -2554,7 +2453,7 @@
         "T000034",
         "T000022"
       ],
-      "status": "established",
+      "status": "todo",
       "updated_at": "2026-07-12T23:50:19+00:00"
     },
     "F000140": {
@@ -2564,8 +2463,8 @@
           "type": "factoid"
         },
         {
-          "id": "C000024",
-          "type": "citation"
+          "id": "K000002",
+          "type": "certificate"
         }
       ],
       "content": "For a positive, smooth, strictly log-concave translation kernel, global PF3 is equivalent to L(t,a,b)>=0 for all real t and a,b>0, where L=s(t-b)-s(t+a)+(q(t)-q(t-b))/(s(t-b)-s(t))-(q(t+a)-q(t))/(s(t)-s(t+a)) with s=(log f)-prime and q=-(log f)-double-prime; L is the logarithmic slope derivative of the middle-column-normalized order-three minor curve.",
@@ -2574,7 +2473,7 @@
         "T000011"
       ],
       "status": "established",
-      "updated_at": "2026-07-13T05:01:08+00:00"
+      "updated_at": "2026-07-13T19:58:44+00:00"
     },
     "F000141": {
       "because": [
@@ -2583,8 +2482,8 @@
           "type": "factoid"
         },
         {
-          "id": "C000024",
-          "type": "citation"
+          "id": "K000002",
+          "type": "certificate"
         }
       ],
       "content": "If q>0 and F2=q^3-(q q-double-prime-(q-prime)^2)>=0 hold pointwise on R, then L(t,a,b) is at least the integral of min(q^3,F2)/q^2 over [t-b,t+a], hence nonnegative: L equals the integral of q plus the difference of two q-weighted means of q-prime/q, and that difference is bounded by the integral of max(F1,0)/q^2.",
@@ -2594,13 +2493,13 @@
         "T000009"
       ],
       "status": "established",
-      "updated_at": "2026-07-13T05:01:15+00:00"
+      "updated_at": "2026-07-13T19:58:44+00:00"
     },
     "F000142": {
       "because": [
         {
-          "id": "C000024",
-          "type": "citation"
+          "id": "K000002",
+          "type": "certificate"
         }
       ],
       "content": "Directed Arb interval computation certifies q>=18.726, F1>=0.181, and F2>=3889.2 on [0,1] for the Riemann kernel, using 7731 adaptive second-order Taylor cells at precision 192 with termwise theta-tail majorants; evenness of q, F1, F2 extends all three bounds to [-1,1].",
@@ -2610,13 +2509,13 @@
         "T000015"
       ],
       "status": "established",
-      "updated_at": "2026-07-13T05:01:28+00:00"
+      "updated_at": "2026-07-13T19:58:45+00:00"
     },
     "F000143": {
       "because": [
         {
-          "id": "C000024",
-          "type": "citation"
+          "id": "K000002",
+          "type": "certificate"
         }
       ],
       "content": "For |u|>=1 and x=pi e^{2u}, explicit enclosures of the dominant theta term give |q-4x|<=19.8/x, |q-dot-8x|<=176/x, |q-ddot-16x|<=2082/x for the Riemann kernel, hence q>=4x-0.86>0, |F1|<=11596, and F2>=(4x-0.86)^3-11596>0; the 64x^2 leading terms of q q-ddot and (q-dot)^2 cancel exactly, so F2 compares O(1) against O(x^3).",
@@ -2626,7 +2525,7 @@
         "T000009"
       ],
       "status": "established",
-      "updated_at": "2026-07-13T05:01:35+00:00"
+      "updated_at": "2026-07-13T19:58:45+00:00"
     },
     "F000144": {
       "because": [
@@ -2651,8 +2550,8 @@
           "type": "factoid"
         },
         {
-          "id": "C000024",
-          "type": "citation"
+          "id": "K000002",
+          "type": "certificate"
         }
       ],
       "content": "The Riemann/de Bruijn-Newman kernel is globally PF3: orders one and two follow from termwise positivity and q>0, and order three follows from the slope criterion through the curvature-pair sufficiency lemma, the certified compact core on [-1,1], and the tail enclosures for |u|>=1.",
@@ -2661,7 +2560,7 @@
         "T000011"
       ],
       "status": "established",
-      "updated_at": "2026-07-13T05:01:42+00:00"
+      "updated_at": "2026-07-13T19:58:45+00:00"
     },
     "F000145": {
       "because": [
@@ -2680,7 +2579,7 @@
         "T000011",
         "T000012"
       ],
-      "status": "established",
+      "status": "todo",
       "updated_at": "2026-07-13T05:01:42+00:00"
     },
     "F000146": {
@@ -2705,8 +2604,8 @@
           "type": "factoid"
         },
         {
-          "id": "C000026",
-          "type": "citation"
+          "id": "K000003",
+          "type": "certificate"
         }
       ],
       "content": "The doubly confluent limit of the order-k translation minor of a smooth kernel is (-1)^{k(k-1)/2} det[Phi^{(i+j-2)}(t)] times positive Vandermonde factors; divided by Phi^k it equals the central-moment Hankel determinant in the cumulants ell_2..ell_{2k-2} of log Phi, so PF4 forces C4(t)>=0 for all t.",
@@ -2715,7 +2614,7 @@
         "T000012"
       ],
       "status": "established",
-      "updated_at": "2026-07-13T17:17:40+00:00"
+      "updated_at": "2026-07-13T19:58:45+00:00"
     },
     "F000148": {
       "because": [
@@ -2736,8 +2635,8 @@
           "type": "factoid"
         },
         {
-          "id": "C000026",
-          "type": "citation"
+          "id": "K000003",
+          "type": "certificate"
         }
       ],
       "content": "The scaled confluent order-three minor of the Riemann kernel satisfies C3/Phi^3 = 2q^3-F1 = q^3+F2, so the certified global bounds q>0 and F2>=0 make every fully confluent order-three minor strictly positive on R.",
@@ -2746,7 +2645,7 @@
         "T000011"
       ],
       "status": "established",
-      "updated_at": "2026-07-13T17:17:47+00:00"
+      "updated_at": "2026-07-13T19:58:45+00:00"
     },
     "F000149": {
       "because": [
@@ -2755,8 +2654,8 @@
           "type": "factoid"
         },
         {
-          "id": "C000026",
-          "type": "citation"
+          "id": "K000003",
+          "type": "certificate"
         }
       ],
       "content": "The confluent order-four invariant decomposes exactly in the audited PF3 invariants: C4 = 3(2q^3-F1)(2q^3-3F1) + 2(q^2 F1pp - 6 q qdot F1p + 9 qdot^2 F1) - det H3[q], where the 2x2 cumulant minors are F1, F1p=F1-prime, F1pp=F1-double-prime and H3[q] is the 3x3 Hankel of q-derivatives; C4 is weight-12 homogeneous with thirteen cumulant terms.",
@@ -2765,13 +2664,13 @@
         "T000012"
       ],
       "status": "established",
-      "updated_at": "2026-07-13T17:17:55+00:00"
+      "updated_at": "2026-07-13T19:58:45+00:00"
     },
     "F000150": {
       "because": [
         {
-          "id": "C000026",
-          "type": "citation"
+          "id": "K000003",
+          "type": "certificate"
         }
       ],
       "content": "Directed Arb interval computation certifies C4 >= 2.817e7 on [0,1] for the Riemann kernel, using 8050 adaptive second-order Taylor cells over division-free CSE forms of C4 and its first two derivatives in kappa_2..kappa_8; evenness extends the bound to [-1,1].",
@@ -2781,13 +2680,13 @@
         "T000015"
       ],
       "status": "established",
-      "updated_at": "2026-07-13T17:18:04+00:00"
+      "updated_at": "2026-07-13T19:58:45+00:00"
     },
     "F000151": {
       "because": [
         {
-          "id": "C000026",
-          "type": "citation"
+          "id": "K000003",
+          "type": "certificate"
         }
       ],
       "content": "For |u|>=1 and x=pi e^{2u}, the Stirling identity D^j psi = 2^j sum_k S(j,k) x^k psi^(k) gives kappa_j = -2^j x + O(E_j/x) with E = (19.8, 176, 2082, 30770, 545900); at the exact leading cumulants the moment Hankel collapses to 49152 x^6 identically, every perturbation monomial has x-degree at most four, and C4 >= 44392 x^6 > 0 follows for all x >= pi e^2.",
@@ -2796,7 +2695,7 @@
         "T000012"
       ],
       "status": "established",
-      "updated_at": "2026-07-13T17:18:12+00:00"
+      "updated_at": "2026-07-13T19:58:45+00:00"
     },
     "F000152": {
       "because": [
@@ -2821,8 +2720,8 @@
           "type": "factoid"
         },
         {
-          "id": "C000026",
-          "type": "citation"
+          "id": "K000003",
+          "type": "certificate"
         }
       ],
       "content": "Every fully doubly-confluent order-four minor of the Riemann kernel is strictly positive: C4 > 0 on all of R by the compact certificate on [-1,1] and the tail bound for |u|>=1. The full-collision route on which PF5 fails is closed at order four; the reproduced R14 configuration has a certified positive order-four determinant 1.96e-8.",
@@ -2831,7 +2730,7 @@
         "T000012"
       ],
       "status": "established",
-      "updated_at": "2026-07-13T17:18:22+00:00"
+      "updated_at": "2026-07-13T19:58:45+00:00"
     },
     "F000153": {
       "because": [
@@ -2844,8 +2743,8 @@
           "type": "factoid"
         },
         {
-          "id": "C000026",
-          "type": "citation"
+          "id": "K000003",
+          "type": "certificate"
         }
       ],
       "content": "Global PF4 of the Riemann kernel remains open but unfalsified: the confluent boundary is certified positive, and the non-confluent surface shows no negative order-four minor across Wronskian-face, clustered, and generic Sobol scans of about 10^7 configurations. Certifying W3 > 0 and W4 > 0 over all translates would give global PF4 by the extended-complete-Chebyshev-system criterion.",
@@ -2853,8 +2752,8 @@
       "relates_to": [
         "T000012"
       ],
-      "status": "established",
-      "updated_at": "2026-07-13T17:18:32+00:00"
+      "status": "todo",
+      "updated_at": "2026-07-13T19:58:45+00:00"
     }
   },
   "next_id": 154,

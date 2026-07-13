@@ -38,9 +38,12 @@ record anchors used by retrieval.
 
 Run `./MIND EXPLAIN ALL` before changing the graph. Retrieve before establishing.
 Store one claim per factoid. A claim supported by another claim uses that factoid;
-a claim taken directly from a source uses a citation boundary. Preserve conflicting
-claims and audits as separate factoids. Never silently upgrade computation,
-conjecture, manuscript assertion, or remembered conversation to theorem.
+a claim taken directly from an independently authored source uses a `CITE`
+boundary; a repository-local proof uses a replayable `CERT` boundary. A factoid is
+established only with a direct CITE or CERT and established factoid prerequisites.
+Preserve conflicting claims and audits as separate factoids. Never silently
+upgrade computation, conjecture, manuscript assertion, or remembered conversation
+to theorem.
 
 Every cited paper must exist under `papers/`. Citation records carry its checksum.
 External URLs are locators, not substitutes for local evidence. Full supplied raw
@@ -87,11 +90,13 @@ Do not run ordinary `git commit` or `git push`. Finish an epoch with:
 ./MIND PROGRESS COMMIT
 ```
 
-`PROGRESS RECORD` rebuilds the static search index before commitment. Any change
-to MIND data or `work/` after recording makes the index stale and blocks commit.
+The search index is generated, ignored by git, and rebuilt automatically when
+missing or stale. `PROGRESS COMMIT` replays every certificate and rebuilds the
+index before the remaining validation gates.
 
 Direct git commands are for inspection and rollback only. `PROGRESS COMMIT` refuses
-invalid data, failed tests, a missing progress record, or a missing paper.
+invalid data, failed certificate replay, failed tests, a missing progress record,
+or a missing paper.
 
 ## Voice
 

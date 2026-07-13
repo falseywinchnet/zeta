@@ -1,0 +1,216 @@
+{
+  "items": {
+    "K000001": {
+      "artifacts": [
+        {
+          "path": "sources/pf4-separator-certificate.md",
+          "sha256": "61b3c65ae3298423abd48f610b17927eb4f8224080cdd8f752e993e3a7a621e5"
+        }
+      ],
+      "created_at": "2026-07-13T19:56:41+00:00",
+      "dependencies": [],
+      "description": "Exact PF4 separator: exhaustive integer-minor verification for (1,3,4,2), with the checked analytic reduction recorded in the artifact.",
+      "environment": null,
+      "file": {
+        "path": "scripts/verify_pf4_separator.py",
+        "sha256": "aa41443b2304f32e7c7057251c3064a4246b48f63941391397c1258152cc2fcf"
+      },
+      "precision": "exact rational arithmetic",
+      "requirements": [],
+      "runner": {
+        "argv": [
+          "{python}",
+          "scripts/verify_pf4_separator.py"
+        ],
+        "expected_exit_code": 0,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "39d04cd1d42aa6ba09f2d4aa6192334b1f9b6600d72a6056c835c1fdcb7a8c2d",
+        "timeout_seconds": 300
+      },
+      "topics": [
+        "T000007"
+      ],
+      "updated_at": "2026-07-13T19:56:41+00:00"
+    },
+    "K000002": {
+      "artifacts": [
+        {
+          "path": "sources/pf3-global-certificate.md",
+          "sha256": "1a55ffc46440a14d15e3ba4b4668660601f2b6a722c552fc0382192f9869666a"
+        },
+        {
+          "path": "work/2026-07-12-riemann-kernel-pf34-classification/certify_pf3_curvature.py",
+          "sha256": "cf6ec54e4bd5047766241a9a1e105f7f241261b8f8e646686746586d59680c9c"
+        },
+        {
+          "path": "work/2026-07-12-riemann-kernel-pf34-classification/pf3-curvature-certificate.txt",
+          "sha256": "a52a360cdc5e0a616d791e038d759952af287c85b9f22bfa4e3bba39373c827f"
+        },
+        {
+          "path": "work/2026-07-12-riemann-kernel-pf34-classification/verify_tail_bounds.py",
+          "sha256": "62db7101c523aed36de7826f78270d54363409286561f1771e4ddabe607e39ec"
+        },
+        {
+          "path": "work/2026-07-12-riemann-kernel-pf34-classification/tail-bounds-check.txt",
+          "sha256": "1c919edacd0ec983e5886a3c9deeaf7662d8007f2fa2cc64777404de3bb27856"
+        },
+        {
+          "path": "work/2026-07-12-riemann-kernel-pf34-classification/MATHEMATICS.md",
+          "sha256": "826e58ef319e60d9d4cf62885f12808f96d918aa43484c84de368c40819d49de"
+        }
+      ],
+      "created_at": "2026-07-13T19:57:01+00:00",
+      "dependencies": [],
+      "description": "Global PF3 audit for the Riemann kernel: symbolic slope and tail identities, directed compact bounds, and independent numerical cross-checks.",
+      "environment": null,
+      "file": {
+        "path": "scripts/verify_pf3_reduction.py",
+        "sha256": "ef9381e36016d4e082f704debeb323ae375cf7d9e1db4a890dda68d3c389a484"
+      },
+      "precision": "Arb 256 bits; mpmath 40-60 decimal digits",
+      "requirements": [
+        "mpmath==1.3.0",
+        "sympy==1.14.0",
+        "python-flint==0.9.0"
+      ],
+      "runner": {
+        "argv": [
+          "{python}",
+          "scripts/verify_pf3_reduction.py"
+        ],
+        "expected_exit_code": 0,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "d3b741c38f6319c3f6083862dc2d1636f677f0fd8e90a1b273f166fb66eb2b35",
+        "timeout_seconds": 300
+      },
+      "topics": [
+        "T000011"
+      ],
+      "updated_at": "2026-07-13T19:57:01+00:00"
+    },
+    "K000003": {
+      "artifacts": [
+        {
+          "path": "sources/c4-confluent-certificate.md",
+          "sha256": "9af1282c9fa3eb8ce074683daa0f181b916d7ce93519fc500f820a232800262b"
+        },
+        {
+          "path": "work/2026-07-13-riemann-kernel-pf4-verification/certify_c4.py",
+          "sha256": "e76060095f420d2d758171a59c32bc58dae7a02b50228553928092dabb8f02e1"
+        },
+        {
+          "path": "work/2026-07-13-riemann-kernel-pf4-verification/c4-certificate.txt",
+          "sha256": "bf2436a454ece2c4ef97917f0aa606f29a7e3c401faa9428c203893a7f52d0cc"
+        },
+        {
+          "path": "work/2026-07-13-riemann-kernel-pf4-verification/tail-polynomial.txt",
+          "sha256": "5f996f08785b246adc4c0f52b31616f91de1d9f322267022cd76f155eb643403"
+        },
+        {
+          "path": "work/2026-07-13-riemann-kernel-pf4-verification/c4-tail-check.txt",
+          "sha256": "6f080b81a69ca1d22d81f0b02126b4dbf3fa8e28f45bbce7f47778fc6ebc5e61"
+        },
+        {
+          "path": "work/2026-07-13-riemann-kernel-pf4-verification/toeplitz-anchor.txt",
+          "sha256": "a298004a14b176a618ff56de6f65cb4f1a3e8ac834fa9055fb3ec61d2ea1f46d"
+        },
+        {
+          "path": "work/2026-07-13-riemann-kernel-pf4-verification/MATHEMATICS.md",
+          "sha256": "f3d4fc26029fa0685a60403fc589d2b688bfe9ab3751424027d975b590636692"
+        }
+      ],
+      "created_at": "2026-07-13T19:57:44+00:00",
+      "dependencies": [],
+      "description": "Confluent order-four audit for the Riemann kernel: exact moment algebra, symbolic identities, compact certificate, analytic tail bound, and independent numerical checks.",
+      "environment": null,
+      "file": {
+        "path": "scripts/verify_c4_confluent.py",
+        "sha256": "5153e624acbd768381ad75237fb4ec1fbf6d58b993f4217e9ddd422fd8e4f624"
+      },
+      "precision": "mpmath 50-120 decimal digits; exact symbolic algebra",
+      "requirements": [
+        "mpmath==1.3.0",
+        "sympy==1.14.0"
+      ],
+      "runner": {
+        "argv": [
+          "{python}",
+          "scripts/verify_c4_confluent.py"
+        ],
+        "expected_exit_code": 0,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "a59b61f711b526a294010b49f24baae9c6461b680a142253ceaeaae20e7a0fc6",
+        "timeout_seconds": 300
+      },
+      "topics": [
+        "T000012"
+      ],
+      "updated_at": "2026-07-13T19:57:44+00:00"
+    },
+    "K000004": {
+      "artifacts": [
+        {
+          "path": "work/2026-07-12-compact-weil-certificate/ROUND.md",
+          "sha256": "6fef6cdd809d6ecd97974dc88cb19db18036e286867bed748befd4ae1477a386"
+        },
+        {
+          "path": "work/2026-07-12-compact-weil-certificate/CERTIFICATION.md",
+          "sha256": "4ebd8209e9ebd8ee35956a04cfa5acee532c3038d913e9cd8bb184cc5396520f"
+        },
+        {
+          "path": "work/2026-07-12-compact-weil-certificate/RESULTS.md",
+          "sha256": "c644eb87abd65bfa06d0a1b6a97351a7d8c062dcd738b873765faf9483b69b63"
+        },
+        {
+          "path": "work/2026-07-12-compact-weil-certificate/certificate-main.txt",
+          "sha256": "67363b83917a921a3a343c40a2679eb78996846ec19d9f94705e3df7b48570b7"
+        },
+        {
+          "path": "work/2026-07-12-compact-weil-certificate/certificate-coarse.txt",
+          "sha256": "158ac05c0fd9c11101f50892f8ce4d9dd184f803897f27432e21c49abf6218f2"
+        },
+        {
+          "path": "work/2026-07-12-compact-weil-certificate/test_certificate.py",
+          "sha256": "7c3f998682e880251413019cc6e874a795e441a53e7ab745dd9d8fd285b88345"
+        }
+      ],
+      "created_at": "2026-07-13T19:58:17+00:00",
+      "dependencies": [],
+      "description": "Full localized-Weil lower certificate at a=0.3: directed negative-symbol ranges, eight-mode Legendre compression, exact complement trace, and a strictly positive full-operator lower bound.",
+      "environment": null,
+      "file": {
+        "path": "work/2026-07-12-compact-weil-certificate/certify_compact.py",
+        "sha256": "6954e0aeff3effc3259968dad9d8c3c5fc365740214e0b28056c50b5b781d851"
+      },
+      "precision": "Arb 192 bits; frequency step 0.00025; cutoff 22; 8 Legendre modes",
+      "requirements": [
+        "python-flint==0.9.0"
+      ],
+      "runner": {
+        "argv": [
+          "{python}",
+          "work/2026-07-12-compact-weil-certificate/certify_compact.py",
+          "--step",
+          "0.00025",
+          "--modes",
+          "8",
+          "--precision",
+          "192"
+        ],
+        "expected_exit_code": 0,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "7a1addbf9c863aa63091dd63061f5b432000ac21c943306bd8023fb882f0249e",
+        "timeout_seconds": 300
+      },
+      "topics": [
+        "T000003",
+        "T000034",
+        "T000037",
+        "T000022"
+      ],
+      "updated_at": "2026-07-13T19:58:17+00:00"
+    }
+  },
+  "next_id": 5,
+  "version": 1
+}
