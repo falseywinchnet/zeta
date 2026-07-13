@@ -131,8 +131,12 @@
     "P000033": {
       "blurb": "close PF4 escape derivative and prove dominant-theta Peano tail",
       "created_at": "2026-07-13T23:25:26+00:00"
+    },
+    "P000034": {
+      "blurb": "audit supplied PF5 witness and derive collision-regularized PF4 certificate architecture",
+      "created_at": "2026-07-13T23:46:19+00:00"
     }
   },
-  "next_id": 34,
+  "next_id": 35,
   "version": 1
 }
