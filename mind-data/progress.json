@@ -87,8 +87,12 @@
     "P000022": {
       "blurb": "Certify and integrate the exact PF4 separator closing PF3/PF4 membership-only routes",
       "created_at": "2026-07-13T03:56:02+00:00"
+    },
+    "P000023": {
+      "blurb": "Resolve global PF3 of the Riemann kernel by slope-criterion sufficiency, compact curvature certificate, and analytic tail bounds",
+      "created_at": "2026-07-13T04:45:58+00:00"
     }
   },
-  "next_id": 23,
+  "next_id": 24,
   "version": 1
 }
