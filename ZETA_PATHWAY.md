@@ -177,11 +177,14 @@ path until `R93` is resolved.
   verification needs only the order-four minors (`R146`). The full collision
   boundary is certified positive at order four (`R147`--`R152`): every doubly
   confluent order-four minor is strictly positive, closing the route on which
-  PF5 fails. PF4 remains open on the non-confluent surface, unfalsified by
-  ~10^7 scanned configurations; the named continuation is certifying the
-  translate Wronskians W3, W4 > 0 (ECT route, `R153`). This classification is
-  RH-neutral; kernel-specific transition invariants require their own formal
-  definitions.
+  PF5 fails. `CERT5` audits a self-contained quotient/iterated-integral route:
+  every translate W3 is strictly positive (`R155`), and global PF4 is exactly
+  equivalent to `partial_xi Psi(xi;m,r)<=0` for every `xi<m<r` (`R154`, `R156`).
+  Proving this three-point inequality is now the single named continuation
+  (`R153`). P000027's 8.4-million-point scan found no violation but remains raw
+  numerical progress, not evidence for the global inequality. This
+  classification is RH-neutral; kernel-specific transition invariants require
+  their own formal definitions.
 - Jensen and Li families: exact but unbounded coordinate tests (`R62`, `R79`,
   `R85`).
 - De Bruijn–Newman: exact transition boundary, but RH is the endpoint statement
