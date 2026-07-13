@@ -170,7 +170,10 @@ path until `R93` is resolved.
 ## Secondary and closed routes
 
 - Original-kernel PF-infinity: closed (`R16`–`R18`).
-- PF3/PF4: valid classification, no stored implication to RH (`R81`).
+- PF3/PF4 membership: closed as a sufficient real-zero mechanism by the exact
+  PF4 separator (`R52`--`R54`). The Riemann kernel's own global PF3/PF4 status
+  remains a separate classification question; kernel-specific transition
+  invariants require their own formal definitions.
 - Jensen and Li families: exact but unbounded coordinate tests (`R62`, `R79`,
   `R85`).
 - De Bruijn–Newman: exact transition boundary, but RH is the endpoint statement
