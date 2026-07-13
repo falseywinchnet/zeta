@@ -71,8 +71,12 @@
     "P000018": {
       "blurb": "Advance analytic localized-Weil ground-state flow across scale and prime thresholds",
       "created_at": "2026-07-13T00:29:09+00:00"
+    },
+    "P000019": {
+      "blurb": "Sharpen localized-Weil flow by centering the smooth kernel and isolating mean gain",
+      "created_at": "2026-07-13T00:37:21+00:00"
     }
   },
-  "next_id": 19,
+  "next_id": 20,
   "version": 1
 }
