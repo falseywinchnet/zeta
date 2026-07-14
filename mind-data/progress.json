@@ -183,8 +183,12 @@
     "P000046": {
       "blurb": "Derive and validate pi-floor theta-tail envelope tables with a floor-23 regression gate",
       "created_at": "2026-07-14T16:53:46+00:00"
+    },
+    "P000047": {
+      "blurb": "Discover the one-term architecture floor near z=6 and certify tight band envelopes",
+      "created_at": "2026-07-14T17:30:19+00:00"
     }
   },
-  "next_id": 47,
+  "next_id": 48,
   "version": 1
 }
