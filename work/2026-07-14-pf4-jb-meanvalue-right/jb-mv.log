@@ -1,0 +1,26 @@
+cross-check: right-increment integral equals 2 E rdec exactly
+expansion: 7171 pieces in 755 blocks [1.7s]
+per-beta folding done: 617 blocks [3.8s total]
+validate trial 0: exact match
+validate trial 1: exact match
+common face factors: d1^2 d2^1
+collapsed 616 error blocks into 423 lcd-class envelopes
+right region: geometry_monomials=32610 negative=2436 face_negative=0 [547.3s]
+NEG (0, 35, 0) 1623
+NEG (1, 35, 0) 1623
+NEG (2, 35, 0) 1621
+NEG (3, 35, 0) 1620
+NEG (4, 35, 0) 1618
+NEG (5, 35, 0) 1615
+NEG (6, 35, 0) 1612
+NEG (7, 35, 0) 1609
+NEG (8, 35, 0) 1606
+NEG (9, 35, 0) 1602
+Traceback (most recent call last):
+  File "$HOME/zeta/work/2026-07-14-pf4-jb-meanvalue-right/prove_jb_meanvalue_right.py", line 375, in <module>
+    main()
+    ~~~~^^
+  File "$HOME/zeta/work/2026-07-14-pf4-jb-meanvalue-right/prove_jb_meanvalue_right.py", line 370, in main
+    assert certify(items)
+           ~~~~~~~^^^^^^^
+AssertionError

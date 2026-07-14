@@ -1,0 +1,6 @@
+cross-check: right-increment integral equals 2 E rdec exactly
+loaded 617 cached blocks
+common face factors: d1^2 d2^1
+collapsed 616 error blocks into 423 lcd-class envelopes
+strip: geometry_monomials=53001 negative=0 face_negative=0 [789.0s]
+PASS full-theta J_b >= 0 on the strip 0<=d1<(w0+3)2^-34, d2 separated, mean-value model
