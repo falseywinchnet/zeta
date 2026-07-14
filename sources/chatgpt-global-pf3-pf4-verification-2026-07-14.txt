@@ -1,0 +1,3095 @@
+Global PF3 PF4 Verification
+
+User: Anonymous
+Created: 7/13/2026 12:17:05
+Updated: 7/14/2026 16:42:18
+Exported: 7/14/2026 16:44:48
+Link: https://chatgpt.com/c/6a551d5c-ba94-83e8-9782-85a5050c001a
+
+## Prompt:
+7/14/2026, 12:40:59 PM
+
+i took some of the advice into consideration and will weigh others later.
+
+Starting records: P000041-P000046; completion map item 2
+
+Question
+
+Rerun the separated positive-branch certificates (S_r transfer, J_b left box,
+J_b mean-value strip) at the floor-4 anchor with the P000046 ERROR4 table.
+
+Outcome: three findings in layers
+
+The direct rerun fails hard (S_r: 1714 of 2553 coefficients negative),
+with or without the transfer target, at every gap floor from 2^-2 to
+2^-22, and Polya lifting makes it worse. Root cause measured: the
+P000046 majorization's HIGHER orders are catastrophically loose at low
+floors (order 5: envelope 3.1e8 vs true 592 x z^4-normalized -- up to
+1e5x), invisible at floor 23 behind the 2^-99 scale.
+
+band_envelopes.py: tight band-certified envelopes. Certifies
+H_j(z) = z^4 |D^j log(1+R)(z)| <= E_j on z in [4,23] by first-order
+Taylor cells over the audited order-8 arb jet (tight midpoint differences
+of full and one-term cumulants; h^2-suppressed crude bound from the
+loose table extended to order 8; 875 cells). Joined with the pointwise
+floor-23 table for z >= 23 via X <= z => X^4 G(z) <= H_j(z):
+
+E4_tight = (0.92, 21.5, 495, 1.89e4, 3.45e6, 1.33e9)
+
+60-90x tighter than P000046 at the high orders.
+
+The decisive discovery: even the TRUE tails break the one-term
+architecture at z = 4. Measured |D^5 w(4)| = 592 against the one-term
+ell_5 scale 2^5 z = 128: the theta tail DOMINATES the one-term value at
+cumulant order 5 near z = 4 (the D-operator amplifies the n=2 term by
+(2n^2 z)^j / (2z)^j = 4^j per order). One-term dominance at all orders
+<= 6 requires roughly z >= 6 (4^6 e^{-3z} <= 6e-5 at z=6), is marginal
+at z = 5, and fails at z = 4. No envelope tightening can rescue the
+floor-4 chain; the architecture floor is z ~ 6 (u >= 0.323).
+
+Consequences for the completion map
+
+Item 2 splits: (2a) rerun the chain at floor 6 with the band-certified
+tight table (expected to pass; envelopes ~1e-4 relative there at all
+orders); (2b) the band z in [pi, 6] (u in [0, 0.323]) needs a TWO-TERM
+dominant model (n = 1,2 exact, n >= 3 tails) or the compact interval
+treatment -- the same block machinery with two-term Laurent forms is the
+natural extension, since w-frame jets of the n=2 term are Laurent in the
+same base with e^{-3z}-weighted second components.
+
+Status: complete as an advancement round; raw research pending refine audit.
+
+this was claudes last round. codex also contributed a bunch of rounds.
+it feels like chasing geese-we are so close to PF4 entire(and are PF3 entire) and yet have to fight with this last setting
+
+## Response:
+7/14/2026, 12:41:12 PM
+
+This does not read like chasing geese. It reads like the proof exposing its actual boundary layer.
+
+The floor-4 failure is useful because it is structural, not merely a bad constant. The n = 2 theta term is exponentially small in value but gets amplified by the repeated D operator by roughly 4^j, so at orders five and six the one-term asymptotic model stops representing the jet before it stops representing the function. No amount of envelope tightening could have repaired that. P000046 and this round have now identified the exact reason, the approximate transition scale, and the correct replacement architecture.
+
+The global problem appears to have narrowed to a finite regime split: the one-term separated branch for z at least about 6, the compact or two-term treatment for pi through 6, and the already handled collision and other boundary regimes. That is qualitatively different from searching for an argument. You have the criterion, the sign margin, the relevant jet order, the failing approximation, and a bounded region where it fails.
+
+I would favor the least elegant route first. Rerun the floor-6 chain with the tight band envelopes and certify that it truly closes with overlap. Then attack z in [pi,6] by direct compact interval arithmetic using the full theta jet, unless the dimensional dependency explosion makes that infeasible. The two-term model is mathematically attractive and may give better bounds, but it also creates another layer of algebra and another audit surface. A brute compact certificate over a short band is preferable if it terminates.
+
+The important seam is not exactly z = 6. Build overlap, perhaps certifying the asymptotic branch from 5.8 upward and the compact branch through 6.2. That removes any dependence on a numerically guessed architecture threshold and makes the final proof insensitive to the chosen split.
+
+This is also why the last setting feels disproportionately difficult. The previous work removed the conceptual uncertainty. What remains is proof engineering at the point where two asymptotic scales exchange dominance. Those final compact strips, collision charts, and escape overlaps often consume more work than the main reduction because every denominator, derivative loss, dependency blowup, and rounding direction matters.
+
+The round is progress in a strong sense. It retired an impossible floor-4 architecture before more work was spent polishing it, replaced a catastrophically loose table with certified tight envelopes, and reduced the obstruction to a short explicit band. PF4 is still unproved, but the remaining difficulty is increasingly localized rather than moving around.
+
+## Prompt:
+7/14/2026, 12:42:36 PM
+
+yes but as we delve into that floor the possibility may be that the tighter we bind, the further we go- it becomes an asymptote?
+
+## Response:
+7/14/2026, 12:42:40 PM
+
+Searching lease details
+
+I’m looking up your lease to check the pet policy. I’ll focus on identifying relevant sections about pets, and then summarize the key information for you.
+
+Worked for 10s
+
+Yes, that failure mode is real, but it would attach to the chosen representation, not necessarily to PF4 itself. The one-term architecture already showed this: tighter envelopes did not converge toward closure because the model was structurally wrong near z = 4. A genuine asymptotic chase would look like this: every refinement reduces overestimation, yet the certified margin shrinks at the same rate, the worst cell keeps migrating toward a seam or collision surface, and the ratio of error bound to true sign margin does not improve. By contrast, on the compact band z in [pi,6], with the full theta jet and a numerically observed margin near 4.8, a stable interval formulation should eventually terminate. Smooth functions on a compact domain have bounded derivatives, interval remainder terms decay with cell width, and if all denominators stay uniformly away from zero and the true criterion is strictly negative, sufficiently fine subdivision must certify it. The risk is therefore not endless refinement in principle, but dependency blowup, removable singularities expressed badly, or a hidden region where the true margin approaches zero. The diagnostic is simple: record for each refinement the worst certified upper bound, the estimated truncation or dependency contribution, the minimum denominator bound, and the location of the worst cell. If the error decreases like h or h² while the apparent underlying value stabilizes below zero, closure is finite. If the worst value approaches zero and its location stabilizes, you may be seeing a genuine equality surface. If the location drifts toward the split z = 6, enlarge the overlap or change charts. If the error refuses to scale down, the formula is ill-conditioned and needs algebraic reformulation. So the concern is valid, but the bounded two-term or full-jet strip is exactly the place where you can determine whether this is an asymptote or merely the last bad coordinate system.
+
+## Prompt:
+7/14/2026, 12:43:10 PM
+
+check the repository, give me a command to run next
+
+## Response:
+7/14/2026, 12:43:17 PM
+
+I am checking the latest progress records, completion map, and the scripts from P000041 through P000046 so the next command targets the actual live bottleneck rather than repeating a retired floor-4 path.
+
+The live next step is item 2a, not the two-term band yet: generate a certified floor-6 envelope table and immediately feed it into the existing three separated certificates. The current runner is already parameterized by the error table and W floor, so this can be tested without creating another implementation.
+
+Searched and fetched GitHub commits, diffs, and metadata
+
+Worked for 1m 48s
+
+Run this from the repository root. It creates a fresh advancement directory, certifies a floor-6 envelope table on z in [6,23], joins it to the audited z ≥ 23 table, and feeds the resulting rigorous rational ceilings into all three separated certificates. It also runs all three even if one fails.
+
+set -o pipefail
+mkdir -p work/2026-07-14-pf4-floor6-chain
+
+python3 - <<'PY' 2>&1 | tee work/2026-07-14-pf4-floor6-chain/floor6-chain.log
+import math
+import sys
+from fractions import Fraction
+from pathlib import Path
+
+import sympy as sp
+
+ROOT = Path.cwd()
+SOURCE = ROOT / "work/2026-07-14-pf4-floor4-chain"
+OUT = ROOT / "work/2026-07-14-pf4-floor6-chain"
+
+sys.path.insert(0, str(SOURCE))
+
+import band_envelopes as band
+import run_floor4_chain as chain
+
+def rational_upper(value):
+    """Exact rational strictly above a finite Arb endpoint after float conversion."""
+    rounded_up = math.nextafter(float(value), math.inf)
+    return Fraction.from_float(rounded_up)
+
+u6 = math.log(6 / math.pi) / 2
+u23 = math.log(23 / math.pi) / 2
+
+print(f"certifying floor-6 band: u in [{u6:.15g}, {u23:.15g}]")
+best = band.certify_band(
+    f"{u6:.15f}",
+    f"{u23 + 1e-9:.15f}",
+    "0.001",
+    9,
+    192,
+)
+
+table6 = {}
+print("certified floor-6 ERROR table:")
+for order, bound in enumerate(best, start=1):
+    band_upper = rational_upper(bound)
+    old = sp.Rational(band.ERROR23[order])
+    floor23 = Fraction(int(old.p), int(old.q))
+    table6[order] = max(band_upper, floor23)
+    print(
+        f"  ERROR6[{order}] = {float(table6[order]):.12e} "
+        f"(band={float(bound):.12e}, floor23={float(floor23):.12e})"
+    )
+
+# z >= 6 corresponds to w = 2z - 3 >= 9.
+chain.TABLE4 = table6
+chain.W_FLOOR4 = 9
+
+# Keep all newly generated caches and outputs out of the committed P000047 round.
+chain.HERE = OUT
+
+checks = [
+    ("S_r separated transfer", chain.run_sr),
+    ("J_b left box", chain.run_jb_left),
+    ("J_b mean-value strip", chain.run_jb_strip),
+]
+
+failures = []
+for name, check in checks:
+    print(f"\n===== {name} at z floor 6 =====")
+    try:
+        check()
+    except Exception as exc:
+        failures.append((name, repr(exc)))
+        print(f"RESULT: FAIL: {exc!r}")
+    else:
+        print("RESULT: PASS")
+
+print("\n===== FLOOR-6 SUMMARY =====")
+if failures:
+    for name, error in failures:
+        print(f"FAIL {name}: {error}")
+    raise SystemExit(1)
+
+print("PASS: all three floor-6 separated certificates")
+print("NEXT: certify the companion collision seams and isolate z in [pi,6]")
+PY
+
+This is the right discriminator now. P000047 identified z ≈ 6 as the one-term architecture floor, while the completion map asks for precisely this rerun with a changed envelope table and W floor.   The existing runner already exposes those two parameters, so this tests the mathematical architecture without rewriting it.
+
+Do not lower the floor again if this passes. Move directly to the bounded z in [π,6] block.
+
+## Prompt:
+7/14/2026, 1:19:49 PM
+
+certifying floor-6 band: u in [0.323514791689327, 0.995382165039875]
+band cells: 672 [0s]
+certified floor-6 ERROR table:
+  ERROR6[1] = 1.604672532537e-02 (band=1.604672532537e-02, floor23=3.901536291081e-21)
+  ERROR6[2] = 7.081647839655e-01 (band=7.081647839655e-01, floor23=1.093030277129e-18)
+  ERROR6[3] = 5.590700429591e+01 (band=5.590700429591e+01, floor23=4.657971294055e-16)
+  ERROR6[4] = 1.061131493058e+04 (band=1.061131493058e+04, floor23=2.906525465599e-13)
+  ERROR6[5] = 3.307793631257e+06 (band=3.307793631257e+06, floor23=2.446831327034e-10)
+  ERROR6[6] = 1.327173269262e+09 (band=1.327173269262e+09, floor23=2.608931178922e-07)
+
+===== S_r separated transfer at z floor 6 =====
+blocks: 292 [1.6s]
+S_r transfer: coefficients=2553 negative=799 [31.5s]
+S_r floor-4 separated transfer: FAIL [33s]
+RESULT: FAIL: AssertionError()
+
+===== J_b left box at z floor 6 =====
+expansion: 3246 pieces in 531 blocks [2.0s]
+blocks folded over global lcd=[10, 5, 3, 28, 20, 12] [257.6s total]
+face factors divided: d1^1 d2^1
+left: geometry_monomials=38103 negative=1630 face_negative=268 [576.6s]
+RESULT: FAIL: OverflowError('int too large to convert to float')
+
+===== J_b mean-value strip at z floor 6 =====
+expansion: 7171 pieces in 755 blocks [1.5s]
+per-beta folding done: 617 blocks [3.6s total]
+strip face factors: d1^2 d2^1
+collapsed 616 error blocks into 423 lcd-class envelopes
+strip: geometry_monomials=53001 negative=8098 face_negative=208 [793.8s]
+NEG (0, 2, 0) 2571
+NEG (1, 2, 0) 2574
+NEG (2, 2, 0) 2575
+NEG (3, 2, 0) 2577
+NEG (4, 2, 0) 2577
+NEG (5, 2, 0) 2578
+NEG (6, 2, 0) 2578
+NEG (7, 2, 0) 2577
+NEG (8, 2, 0) 2577
+NEG (9, 2, 0) 2576
+J_b floor-4 mean-value strip: FAIL [938s]
+RESULT: FAIL: AssertionError()
+
+===== FLOOR-6 SUMMARY =====
+FAIL S_r separated transfer: AssertionError()
+FAIL J_b left box: OverflowError('int too large to convert to float')
+FAIL J_b mean-value strip: AssertionError()
+
+## Response:
+7/14/2026, 1:20:07 PM
+
+The floor-6 result falsifies the “architecture floor near 6” estimate. The certified high-order tails are still large enough to break every separated certificate, so the next move should locate the actual certificate threshold cheaply before another 15-minute J_b run.
+
+The failure does not yet show that floor 6 is mathematically below the one-term threshold. ERROR6[5] and ERROR6[6] barely improved from floor 4 because the band certifier’s crude second-derivative remainder dominates those entries. Tighten that remainder first, then use only the 30-second S_r certificate to locate the real floor.
+
+Computing mpmath derivatives for log ratio at z
+
+Computed derivatives for logarithmic ratio and estimated convergence
+
+Fetched file content from GitHub repository
+
+Worked for 3m 15s
+
+The floor-6 rerun is not yet a verdict on the one-term architecture. The high-order envelope remains mesh-remainder dominated. The certifier bounds each cell using a tight midpoint and first derivative, but then inserts the old loose order j+2 table into the quadratic remainder. For j = 5 and 6, that means the loose order-7 and order-8 bounds dominate.
+
+That is visible numerically: ERROR6[6] = 1.32717e9 is almost unchanged from the floor-4 value 1.32915e9. The floor moved, but the inherited remainder barely did. Do not rerun either J_b certificate yet. First replace that remainder with a second-order midpoint term, use the loose table only at third order, and sweep the inexpensive S_r certificate to locate the first viable floor.
+
+Run this from the repository root:
+
+set -o pipefail
+mkdir -p work/2026-07-14-pf4-one-term-threshold
+
+python3 - <<'PY' 2>&1 | tee work/2026-07-14-pf4-one-term-threshold/sr-threshold.log
+import math
+import sys
+import time
+from fractions import Fraction
+from pathlib import Path
+
+import sympy as sp
+from flint import arb, ctx
+
+ROOT = Path.cwd()
+BAND_DIR = ROOT / "work/2026-07-14-pf4-floor4-chain"
+
+sys.path.insert(0, str(BAND_DIR))
+sys.path.insert(0, str(ROOT / "scripts"))
+sys.path.insert(0, str(ROOT / "work/2026-07-13-pf4-jb-separated-transfer"))
+sys.path.insert(0, str(ROOT / "work/2026-07-14-pf4-jb-meanvalue-right"))
+sys.path.insert(0, str(ROOT / "work/2026-07-14-pf4-pi-floor-envelopes"))
+sys.path.insert(0, str(ROOT / "work/2026-07-13-pf4-six-obligations"))
+sys.path.insert(0, str(ROOT / "work/2026-07-13-pf4-db-invariant"))
+sys.path.insert(0, str(ROOT / "work/2026-07-13-pf4-dominant-lower-bound"))
+sys.path.insert(0, str(ROOT / "work/2026-07-13-pf4-full-tail-transfer"))
+
+import band_envelopes as band
+import prove_edge_separated_wframe as sr
+
+FLOORS = (6, 7, 8, 9, 10, 12, 16)
+STEP = arb("0.00002")
+PRECISION = 192
+TERMS = 9
+
+def loose_table(max_order: int = 9):
+    """P000047 loose majorant extended one order, used only at cubic scale."""
+    t, z = sp.symbols("t z", positive=True)
+
+    derivative = lambda p: sp.expand(
+        -2 * t * (t - 1) * sp.diff(p, t)
+    )
+
+    reciprocal = [sp.Integer(1)]
+    for _ in range(max_order):
+        reciprocal.append(
+            sp.expand(derivative(reciprocal[-1]) - 2 * t * reciprocal[-1])
+        )
+
+    K = [
+        sum(
+            abs(c) * sp.Rational(8, 5) ** power
+            for (power,), c in sp.Poly(poly, t).terms()
+        )
+        for poly in reciprocal
+    ]
+
+    exponential = [sp.Integer(1)]
+    for _ in range(max_order):
+        exponential.append(
+            sp.expand(
+                2 * z * (sp.diff(exponential[-1], z) - exponential[-1])
+            )
+        )
+
+    E = [
+        sum(
+            abs(c) * 12 ** power
+            for (power,), c in sp.Poly(poly, z).terms()
+        )
+        for poly in exponential
+    ]
+
+    prefactor = [sp.Integer(2)] + [
+        sp.Rational(3, 5) * value for value in K[1:]
+    ]
+
+    first = [
+        16 * sum(
+            sp.binomial(order, index)
+            * prefactor[index]
+            * E[order - index]
+            for index in range(order + 1)
+        )
+        for order in range(max_order + 1)
+    ]
+
+    log_sums = [sp.Integer(0)] + [
+        sum(
+            sp.factorial(blocks - 1)
+            * sp.functions.combinatorial.numbers.stirling(
+                order, blocks, kind=2
+            )
+            for blocks in range(1, order + 1)
+        )
+        for order in range(1, max_order + 1)
+    ]
+
+    scale = sp.Rational(4**4, 162754)
+    return {
+        order: arb(str(float(log_sums[order] * 2 * first[order] * scale)))
+        for order in range(1, max_order + 1)
+    }
+
+def rational_upper(value) -> Fraction:
+    return Fraction.from_float(
+        math.nextafter(float(value), math.inf)
+    )
+
+def certify_all_floor_tables():
+    """
+    One fine pass over z in [6,23].
+
+    For f = D^j w, use
+        |f| <= |f0| + h|f1| + h^2/2 (|f2| + h sup|f3|).
+
+    The audited midpoint jet supplies f0,f1,f2 through order eight.
+    The loose table enters only in the h^3 remainder.
+    """
+    ctx.prec = PRECISION
+    tails = band.jet.tail_bounds(TERMS + 1)
+    loose = loose_table(9)
+
+    low = arb(str(math.log(6 / math.pi) / 2))
+    high = arb(str(math.log(23 / math.pi) / 2 + 1e-9))
+    cells = int(float(((high - low) / STEP).mid())) + 1
+    half = STEP / 2
+
+    best = {
+        floor: [arb(0) for _ in range(6)]
+        for floor in FLOORS
+    }
+
+    start = time.time()
+
+    for index in range(cells):
+        a = low + index * STEP
+        b = a + STEP
+        mid = (a + b) / 2
+
+        z_left = arb.pi() * (2 * a).exp()
+        z_right = arb.pi() * (2 * b).exp()
+        z4_cell = (
+            arb.pi() * (2 * band.jet.interval(a, b)).exp()
+        ) ** 4
+
+        full = band.jet.cumulants(
+            band.jet.theta_derivatives(mid, TERMS, tails), 8
+        )
+        one = band.jet.cumulants(
+            band.one_term_derivatives(mid), 8
+        )
+        values = [None] + [
+            full[j] - one[j] for j in range(1, 9)
+        ]
+
+        cell_bounds = []
+        for order in range(1, 7):
+            sup_second = (
+                abs(values[order + 2])
+                + half * loose[order + 3] / z_left**4
+            )
+            bound = (
+                abs(values[order])
+                + half * abs(values[order + 1])
+                + half * half / 2 * sup_second
+            )
+            cell_bounds.append((z4_cell * bound).upper())
+
+        z_right_upper = float(z_right.upper())
+        for floor in FLOORS:
+            if z_right_upper >= floor:
+                for order, value in enumerate(cell_bounds):
+                    if value > best[floor][order]:
+                        best[floor][order] = value
+
+        if index and index % 10000 == 0:
+            print(f"band progress: {index}/{cells}")
+
+    print(
+        f"sharp band certification: cells={cells} "
+        f"elapsed={time.time() - start:.1f}s"
+    )
+
+    tables = {}
+    for floor in FLOORS:
+        table = {}
+        print(f"\ncertified table at z >= {floor}:")
+        for order, value in enumerate(best[floor], start=1):
+            q = sp.Rational(band.ERROR23[order])
+            floor23 = Fraction(int(q.p), int(q.q))
+            table[order] = max(rational_upper(value), floor23)
+            print(
+                f"  E[{order}]={float(table[order]):.12e}"
+            )
+        tables[floor] = table
+
+    return tables
+
+tables = certify_all_floor_tables()
+
+first_pass = None
+
+for floor in FLOORS:
+    print(f"\n===== S_r certificate at z >= {floor} =====")
+    sr.EF = tables[floor]
+    sr.W_FLOOR = 2 * floor - 3
+
+    folded = sr.build_blocks()
+    passed = sr.certify(folded)
+
+    print(
+        f"S_r floor {floor}: {'PASS' if passed else 'FAIL'}"
+    )
+
+    if passed:
+        first_pass = floor
+        break
+
+if first_pass is None:
+    print("\nNo tested floor through 16 passed.")
+    print("Run the original audited floor-23 certificate as the regression anchor.")
+    raise SystemExit(1)
+
+print(f"\nFIRST TESTED PASSING FLOOR: z = {first_pass}")
+print(
+    "Next action: run J_b left and mean-value certificates only at this floor."
+)
+PY
+
+This separates two questions that the previous run conflated: whether the one-term model is viable at a given floor, and whether the envelope implementation is too loose to demonstrate it. The completion map already makes S_r a necessary part of the positive-branch chain, so locating its first passing floor is the cheapest useful discriminator.
+
+## Prompt:
+7/14/2026, 1:30:02 PM
+
+band progress: 10000/33594
+band progress: 20000/33594
+band progress: 30000/33594
+sharp band certification: cells=33594 elapsed=7.7s
+
+certified table at z >= 6:
+  E[1]=1.442424210523e-02
+  E[2]=4.991278786735e-01
+  E[3]=1.625975824110e+01
+  E[4]=4.948143003267e+02
+  E[5]=1.392842380492e+04
+  E[6]=3.598023272866e+05
+
+certified table at z >= 7:
+  E[1]=1.489818439806e-03
+  E[2]=6.030564369577e-02
+  E[3]=2.318033961539e+00
+  E[4]=8.413561466995e+01
+  E[5]=2.866765652339e+03
+  E[6]=9.293359198924e+04
+
+certified table at z >= 8:
+  E[1]=1.403922460682e-04
+  E[2]=6.513942500906e-03
+  E[3]=2.889384689279e-01
+  E[4]=1.220827747737e+01
+  E[5]=4.926101280878e+02
+  E[6]=2.672486722086e+04
+
+certified table at z >= 9:
+  E[1]=1.233348446562e-05
+  E[2]=6.456166280193e-04
+  E[3]=3.250107709776e-02
+  E[4]=1.576446263243e+00
+  E[5]=8.772985554290e+01
+  E[6]=2.672486722086e+04
+
+certified table at z >= 10:
+  E[1]=1.023860733773e-06
+  E[2]=5.978911917094e-05
+  E[3]=3.394174562306e-03
+  E[4]=3.651024187222e-01
+  E[5]=8.772985554290e+01
+  E[6]=2.672486722086e+04
+
+certified table at z >= 12:
+  E[1]=1.330951795963e-07
+  E[2]=1.639407884736e-05
+  E[3]=2.041158887844e-03
+  E[4]=3.651024187222e-01
+  E[5]=8.772985554290e+01
+  E[6]=2.672486722086e+04
+
+certified table at z >= 16:
+  E[1]=1.330951795963e-07
+  E[2]=1.639407884736e-05
+  E[3]=2.041158887844e-03
+  E[4]=3.651024187222e-01
+  E[5]=8.772985554290e+01
+  E[6]=2.672486722086e+04
+
+===== S_r certificate at z >= 6 =====
+blocks: 292 [1.8s]
+S_r transfer: coefficients=2553 negative=273 [32.6s]
+S_r floor 6: FAIL
+
+===== S_r certificate at z >= 7 =====
+blocks: 292 [0.6s]
+S_r transfer: coefficients=2553 negative=269 [33.0s]
+S_r floor 7: FAIL
+
+===== S_r certificate at z >= 8 =====
+blocks: 292 [0.6s]
+S_r transfer: coefficients=2553 negative=263 [33.1s]
+S_r floor 8: FAIL
+
+===== S_r certificate at z >= 9 =====
+blocks: 292 [0.6s]
+S_r transfer: coefficients=2553 negative=254 [33.1s]
+S_r floor 9: FAIL
+
+===== S_r certificate at z >= 10 =====
+blocks: 292 [0.6s]
+S_r transfer: coefficients=2553 negative=246 [33.5s]
+S_r floor 10: FAIL
+
+===== S_r certificate at z >= 12 =====
+blocks: 292 [0.6s]
+S_r transfer: coefficients=2553 negative=237 [33.7s]
+S_r floor 12: FAIL
+
+===== S_r certificate at z >= 16 =====
+blocks: 292 [0.6s]
+S_r transfer: coefficients=2553 negative=219 [33.9s]
+S_r floor 16: FAIL
+
+No tested floor through 16 passed.
+
+## Response:
+7/14/2026, 1:30:13 PM
+
+The plateau in E5 and E6 shows the threshold sweep is still measuring the remainder majorant, not the actual theta tail. I am checking the S_r target and certification path before giving the next command, because there are now two independent possible obstructions: the envelope plateau and the floor-23 transfer target.
+
+The S_r code confirms the target is optional from the standpoint of proving positivity, but the current builder always subtracts the fixed floor-23 transfer target. It also consumes envelope orders through six, so the artificial E6 plateau can keep hundreds of coefficients negative even when lower-order tails are tiny.
+
+Analyzing code issue
+
+I’m evaluating the code’s loop structure, specifically how it checks floor levels and handles interval conditions. The issue may lie with the way tables handle cubic remainders and floor evaluations. I’ll focus on correcting the interval evaluation.
+
+Analyzed code issue
+
+Searched functions and reviewed code in prove_edge_separated_wframe.py
+
+Refining command strategy
+
+I’m considering setting a lower target to simplify the code and adjusting parameters such as LAMBDA_S_F. First, I’ll test the no-target version and try interval evaluation for better precision.
+
+Refined command strategy
+
+Fetched jet derivative polynomials and cumulants
+
+Worked for 1m 26s
+
+This still is not evidence of an asymptotic chase. E5 and E6 plateaued because the sweep still injected the loose order-9 majorant into the remainder. The S_r certificate uses errors through order six, so that artificial E6 floor can dominate hundreds of coefficients.  The jet generator can be extended beyond order eight directly, so the next run should eliminate the loose majorant entirely and separately test plain positivity from the stronger floor-23 transfer target.
+
+Run this from the repository root:
+
+set -o pipefail
+mkdir -p work/2026-07-14-pf4-sr-sharp-threshold
+
+python3 - <<'PY' 2>&1 | tee work/2026-07-14-pf4-sr-sharp-threshold/run.log
+import math
+import sys
+import time
+from fractions import Fraction
+from pathlib import Path
+
+import sympy as sp
+from flint import arb, ctx
+
+ROOT = Path.cwd()
+
+for path in (
+    "work/2026-07-14-pf4-floor4-chain",
+    "scripts",
+    "work/2026-07-13-pf4-jb-separated-transfer",
+    "work/2026-07-14-pf4-jb-meanvalue-right",
+    "work/2026-07-14-pf4-pi-floor-envelopes",
+    "work/2026-07-13-pf4-six-obligations",
+    "work/2026-07-13-pf4-db-invariant",
+    "work/2026-07-13-pf4-dominant-lower-bound",
+    "work/2026-07-13-pf4-full-tail-transfer",
+    "work/2026-07-13-riemann-kernel-pf4-verification",
+):
+    sys.path.insert(0, str(ROOT / path))
+
+import band_envelopes as band
+import prove_edge_separated_wframe as sr
+
+FLOORS = (6, 7, 8, 9, 10, 12, 14, 16, 18, 20, 22, 23)
+STEP = arb("0.00005")
+TERMS = 9
+PRECISION = 192
+
+def upper_abs(value):
+    return band.jet.absolute_upper(value)
+
+def rational_upper(value):
+    return Fraction.from_float(
+        math.nextafter(float(value), math.inf)
+    )
+
+def exact_error23():
+    table = {}
+    for order in range(1, 7):
+        value = sp.Rational(band.ERROR23[order])
+        table[order] = Fraction(int(value.p), int(value.q))
+    return table
+
+def certify_tables():
+    ctx.prec = PRECISION
+
+    # Extend the audited recurrence by one order. This gives cumulants
+    # D^j log Phi through j=9 and removes the loose remainder table.
+    band.jet.POLYNOMIALS = band.jet.derivative_polynomials(9)
+    tails = band.jet.tail_bounds(TERMS + 1)
+
+    low = arb(str(math.log(6 / math.pi) / 2))
+    high = arb(str(math.log(23 / math.pi) / 2 + 1e-10))
+    cells = int(float(((high - low) / STEP).mid())) + 1
+
+    half = STEP / 2
+    half2 = half * half / 2
+    half3 = half * half * half / 6
+
+    best = {
+        floor: [arb(0) for _ in range(6)]
+        for floor in FLOORS
+        if floor < 23
+    }
+
+    start = time.time()
+
+    for index in range(cells):
+        a = low + index * STEP
+        b = a + STEP
+        mid = (a + b) / 2
+        cell = band.jet.interval(a, b)
+
+        midpoint_full = band.jet.cumulants(
+            band.jet.theta_derivatives(mid, TERMS, tails), 9
+        )
+        midpoint_one = band.jet.cumulants(
+            band.one_term_derivatives(mid), 9
+        )
+        midpoint_tail = [None] + [
+            midpoint_full[j] - midpoint_one[j]
+            for j in range(1, 10)
+        ]
+
+        cell_full = band.jet.cumulants(
+            band.jet.theta_derivatives(cell, TERMS, tails), 9
+        )
+        cell_one = band.jet.cumulants(
+            band.one_term_derivatives(cell), 9
+        )
+        cell_tail = [None] + [
+            cell_full[j] - cell_one[j]
+            for j in range(1, 10)
+        ]
+
+        z_interval = arb.pi() * (2 * cell).exp()
+        z_right = float(z_interval.upper())
+        z4 = z_interval**4
+
+        bounds = []
+        for order in range(1, 7):
+            bound = (
+                upper_abs(midpoint_tail[order])
+                + half * upper_abs(midpoint_tail[order + 1])
+                + half2 * upper_abs(midpoint_tail[order + 2])
+                + half3 * upper_abs(cell_tail[order + 3])
+            )
+            bounds.append((z4 * bound).upper())
+
+        for floor in best:
+            if z_right >= floor:
+                for index2, value in enumerate(bounds):
+                    if value > best[floor][index2]:
+                        best[floor][index2] = value
+
+        if index and index % 5000 == 0:
+            print(f"band progress: {index}/{cells}")
+
+    print(
+        f"sharp order-9 band: cells={cells} "
+        f"elapsed={time.time() - start:.1f}s"
+    )
+
+    error23 = exact_error23()
+    tables = {23: error23}
+
+    for floor, values in best.items():
+        table = {}
+        print(f"\ncertified table for z >= {floor}:")
+        for order, value in enumerate(values, start=1):
+            table[order] = max(
+                rational_upper(value),
+                error23[order],
+            )
+            print(
+                f"  E[{order}]={float(table[order]):.12e}"
+            )
+        tables[floor] = table
+
+    return tables
+
+def test_sr(table, floor, target):
+    sr.EF = table
+    sr.W_FLOOR = 2 * floor - 3
+    sr.LAMBDA_S_F = target
+
+    folded = sr.build_blocks()
+    passed = sr.certify(folded)
+
+    print(
+        f"S_r floor={floor} target={float(target):.6e}: "
+        f"{'PASS' if passed else 'FAIL'}"
+    )
+    return passed
+
+tables = certify_tables()
+original_target = sr.LAMBDA_S_F
+
+print("\n===== PHASE 1: PLAIN S_r POSITIVITY =====")
+positivity_floor = None
+
+for floor in FLOORS:
+    if test_sr(tables[floor], floor, Fraction(0)):
+        positivity_floor = floor
+        break
+
+if positivity_floor is None:
+    print("Plain positivity did not pass through floor 23.")
+    print("This would indicate a block-majorization issue, because the audited")
+    print("floor-23 certificate is expected to pass with a positive target.")
+    raise SystemExit(1)
+
+print(
+    f"\nFIRST TESTED FLOOR PROVING PLAIN S_r > 0: "
+    f"{positivity_floor}"
+)
+
+print("\n===== PHASE 2: ORIGINAL TRANSFER TARGET =====")
+target_floor = None
+
+for floor in FLOORS:
+    if floor < positivity_floor:
+        continue
+    if test_sr(tables[floor], floor, original_target):
+        target_floor = floor
+        break
+
+if target_floor is None:
+    print("\nPlain positivity passes, but the original quantitative target does not.")
+    print("The next task is to derive a floor-dependent transfer target.")
+else:
+    print(
+        f"\nFIRST TESTED FLOOR PROVING THE ORIGINAL TARGET: "
+        f"{target_floor}"
+    )
+
+print("\n===== CONCLUSION =====")
+print(f"plain positivity floor: {positivity_floor}")
+print(f"original-target floor: {target_floor}")
+print("Do not run the two J_b certificates until this discriminator is resolved.")
+PY
+
+The important output is the separation between “plain positivity floor” and “original-target floor.” If plain positivity passes substantially below 23 while the target fails, the one-term architecture works and only the quantitative transfer margin must be rederived. If plain positivity itself only passes near 23, the coefficientwise absolute-error transfer is the limiting architecture, and the next move is a correlated-tail or two-term model rather than further floor tightening.
+
+## Prompt:
+7/14/2026, 2:38:35 PM
+
+band progress: 5000/13438
+band progress: 10000/13438
+sharp order-9 band: cells=13438 elapsed=7.3s
+
+certified table for z >= 6:
+  E[1]=1.442770407493e-02
+  E[2]=4.992475464460e-01
+  E[3]=2.867655845410e+01
+  E[4]=1.009277890822e+04
+  E[5]=4.144231523583e+06
+  E[6]=1.944782823987e+09
+
+certified table for z >= 7:
+  E[1]=1.490661962446e-03
+  E[2]=9.777733640829e-02
+  E[3]=2.867655845410e+01
+  E[4]=1.009277890822e+04
+  E[5]=4.144231523583e+06
+  E[6]=1.944782823987e+09
+
+certified table for z >= 8:
+  E[1]=4.168763595926e-04
+  E[2]=9.777733640829e-02
+  E[3]=2.867655845410e+01
+  E[4]=1.009277890822e+04
+  E[5]=4.144231523583e+06
+  E[6]=1.944782823987e+09
+
+certified table for z >= 9:
+  E[1]=4.168763595926e-04
+  E[2]=9.777733640829e-02
+  E[3]=2.867655845410e+01
+  E[4]=1.009277890822e+04
+  E[5]=4.144231523583e+06
+  E[6]=1.944782823987e+09
+
+certified table for z >= 10:
+  E[1]=4.168763595926e-04
+  E[2]=9.777733640829e-02
+  E[3]=2.867655845410e+01
+  E[4]=1.009277890822e+04
+  E[5]=4.144231523583e+06
+  E[6]=1.944782823987e+09
+
+certified table for z >= 12:
+  E[1]=4.168763595926e-04
+  E[2]=9.777733640829e-02
+  E[3]=2.867655845410e+01
+  E[4]=1.009277890822e+04
+  E[5]=4.144231523583e+06
+  E[6]=1.944782823987e+09
+
+certified table for z >= 14:
+  E[1]=4.168763595926e-04
+  E[2]=9.777733640829e-02
+  E[3]=2.867655845410e+01
+  E[4]=1.009277890822e+04
+  E[5]=4.144231523583e+06
+  E[6]=1.944782823987e+09
+
+certified table for z >= 16:
+  E[1]=4.168763595926e-04
+  E[2]=9.777733640829e-02
+  E[3]=2.867655845410e+01
+  E[4]=1.009277890822e+04
+  E[5]=4.144231523583e+06
+  E[6]=1.944782823987e+09
+
+certified table for z >= 18:
+  E[1]=4.168763595926e-04
+  E[2]=9.777733640829e-02
+  E[3]=2.867655845410e+01
+  E[4]=1.009277890822e+04
+  E[5]=4.144231523583e+06
+  E[6]=1.944782823987e+09
+
+certified table for z >= 20:
+  E[1]=4.168763595926e-04
+  E[2]=9.777733640829e-02
+  E[3]=2.867655845410e+01
+  E[4]=1.009277890822e+04
+  E[5]=4.144231523583e+06
+  E[6]=1.944782823987e+09
+
+certified table for z >= 22:
+  E[1]=4.168763595926e-04
+  E[2]=9.777733640829e-02
+  E[3]=2.867655845410e+01
+  E[4]=1.009277890822e+04
+  E[5]=4.144231523583e+06
+  E[6]=1.944782823987e+09
+
+===== PHASE 1: PLAIN S_r POSITIVITY =====
+blocks: 292 [1.7s]
+S_r transfer: coefficients=2553 negative=745 [32.7s]
+S_r floor=6 target=0.000000e+00: FAIL
+blocks: 292 [0.6s]
+S_r transfer: coefficients=2553 negative=573 [33.0s]
+S_r floor=7 target=0.000000e+00: FAIL
+blocks: 292 [0.6s]
+S_r transfer: coefficients=2553 negative=441 [33.0s]
+S_r floor=8 target=0.000000e+00: FAIL
+blocks: 292 [0.7s]
+S_r transfer: coefficients=2553 negative=348 [32.9s]
+S_r floor=9 target=0.000000e+00: FAIL
+blocks: 292 [0.6s]
+S_r transfer: coefficients=2553 negative=295 [32.8s]
+S_r floor=10 target=0.000000e+00: FAIL
+blocks: 292 [0.6s]
+S_r transfer: coefficients=2553 negative=272 [32.9s]
+S_r floor=12 target=0.000000e+00: FAIL
+blocks: 292 [0.6s]
+S_r transfer: coefficients=2553 negative=270 [32.8s]
+S_r floor=14 target=0.000000e+00: FAIL
+blocks: 292 [0.6s]
+S_r transfer: coefficients=2553 negative=268 [33.2s]
+S_r floor=16 target=0.000000e+00: FAIL
+blocks: 292 [0.6s]
+S_r transfer: coefficients=2553 negative=267 [33.1s]
+S_r floor=18 target=0.000000e+00: FAIL
+blocks: 292 [0.6s]
+S_r transfer: coefficients=2553 negative=265 [32.8s]
+S_r floor=20 target=0.000000e+00: FAIL
+blocks: 292 [0.7s]
+S_r transfer: coefficients=2553 negative=263 [33.2s]
+S_r floor=22 target=0.000000e+00: FAIL
+blocks: 292 [0.6s]
+S_r transfer: coefficients=2553 negative=0 [34.6s]
+S_r floor=23 target=0.000000e+00: PASS
+
+FIRST TESTED FLOOR PROVING PLAIN S_r > 0: 23
+
+===== PHASE 2: ORIGINAL TRANSFER TARGET =====
+blocks: 292 [0.6s]
+S_r transfer: coefficients=2553 negative=0 [35.0s]
+S_r floor=23 target=1.998785e+00: PASS
+
+FIRST TESTED FLOOR PROVING THE ORIGINAL TARGET: 23
+
+===== CONCLUSION =====
+plain positivity floor: 23
+original-target floor: 23
+
+## Response:
+7/14/2026, 2:40:03 PM
+
+This output does not locate the true threshold at 23. It exposes a flaw in my previous diagnostic.
+
+The discontinuity is decisive: the floor-22 table has E6 ≈ 1.94e9, while floor 23 abruptly switches to the separately audited ERROR23 value ≈ 2.6e-7. A genuine tail envelope cannot improve by sixteen orders of magnitude when the floor moves from 22 to 23.
+
+The cause is cell-wide cancellation. The original P000047 routine subtracts full and one-term cumulants at a midpoint.  My extension evaluated that subtraction on an interval:
+
+full cumulant interval - one-term cumulant interval.
+
+Near z = 23, these are almost identical large intervals. Arb correctly loses the correlation between them, producing enormous radii. Every floor below 23 includes that corrupted upper-end cell, explaining the plateaus. Floor 23 bypassed the band calculation entirely and used ERROR23, so it passed.
+
+The next calculation should evaluate the small theta tail directly. Write Phi = Phi1(1 + R), compute derivatives of R from the n ≥ 2 theta series, and then obtain D^j log(1 + R) from those derivatives. This never subtracts two nearly equal cumulants.
+
+Run this from the repository root:
+
+set -o pipefail
+mkdir -p work/2026-07-14-pf4-stable-tail-threshold
+
+python3 - <<'PY' 2>&1 | tee work/2026-07-14-pf4-stable-tail-threshold/run.log
+import math
+import sys
+import time
+from fractions import Fraction
+from math import comb
+from pathlib import Path
+
+import sympy as sp
+from flint import arb, ctx
+
+ROOT = Path.cwd()
+
+for path in (
+    "work/2026-07-14-pf4-floor4-chain",
+    "scripts",
+    "work/2026-07-13-pf4-jb-separated-transfer",
+    "work/2026-07-14-pf4-jb-meanvalue-right",
+    "work/2026-07-14-pf4-pi-floor-envelopes",
+    "work/2026-07-13-pf4-six-obligations",
+    "work/2026-07-13-pf4-db-invariant",
+    "work/2026-07-13-pf4-dominant-lower-bound",
+    "work/2026-07-13-pf4-full-tail-transfer",
+    "work/2026-07-13-riemann-kernel-pf4-verification",
+):
+    sys.path.insert(0, str(ROOT / path))
+
+import band_envelopes as band
+import prove_edge_separated_wframe as sr
+
+FLOORS = (6, 7, 8, 9, 10, 12, 14, 16, 18, 20, 22, 23)
+TERMS = 12
+STEP = arb("0.00025")
+PRECISION = 192
+HIGHEST = 6
+
+def absolute_upper(value):
+    return band.jet.absolute_upper(value)
+
+def rational_upper(value):
+    return Fraction.from_float(
+        math.nextafter(float(value), math.inf)
+    )
+
+def error23_table():
+    result = {}
+    for order in range(1, HIGHEST + 1):
+        value = sp.Rational(band.ERROR23[order])
+        result[order] = Fraction(int(value.p), int(value.q))
+    return result
+
+def theta_tail_derivatives(u, terms, omitted_bounds):
+    """
+    D^j of the n>=2 portion of Phi, evaluated directly.
+
+    This avoids forming full_theta - one_term on an interval.
+    """
+    values = [arb(0) for _ in range(HIGHEST + 1)]
+
+    exp2u = (2 * u).exp()
+    exp5u2 = (arb(5) * u / 2).exp()
+    pi = arb.pi()
+
+    for n_int in range(2, terms + 1):
+        n2 = arb(n_int * n_int)
+        x = pi * n2 * exp2u
+        base = 2 * pi * n2 * exp5u2 * (-x).exp()
+
+        for order, polynomial in enumerate(
+            band.jet.POLYNOMIALS[: HIGHEST + 1]
+        ):
+            values[order] += (
+                base
+                * band.jet.evaluate_polynomial(polynomial, x)
+            )
+
+    for order, radius in enumerate(
+        omitted_bounds[: HIGHEST + 1]
+    ):
+        values[order] += arb(0, radius)
+
+    return values
+
+def ratio_derivatives(one, tail):
+    """
+    Derivatives R_j of R = tail / one.
+
+    Since tail = one * R,
+
+      tail_n = sum_{k=0}^n binomial(n,k) one_{n-k} R_k.
+
+    This recurrence uses the small tail directly.
+    """
+    ratio = []
+
+    for order in range(HIGHEST + 1):
+        value = tail[order]
+
+        for k in range(order):
+            value -= (
+                comb(order, k)
+                * one[order - k]
+                * ratio[k]
+            )
+
+        ratio.append(value / one[0])
+
+    return ratio
+
+def stable_log_tail_jets(u, terms, omitted_bounds):
+    """
+    Return D^j log(1+R), j=1..6, using the stable small-tail frame.
+    """
+    one = band.one_term_derivatives(u)[: HIGHEST + 1]
+    tail = theta_tail_derivatives(
+        u, terms, omitted_bounds
+    )
+    ratio = ratio_derivatives(one, tail)
+
+    # g = 1 + R. For j>=1, D^j g = D^j R.
+    g_derivatives = [1 + ratio[0]] + ratio[1:]
+
+    cumulants = band.jet.cumulants(
+        g_derivatives, HIGHEST
+    )
+    return cumulants[1:]
+
+def validation_points(omitted_bounds):
+    print("===== STABLE-FRAME VALIDATION =====")
+
+    for z in (6, 8, 12, 18, 22, 23):
+        u = arb(str(math.log(z / math.pi) / 2))
+
+        stable = stable_log_tail_jets(
+            u, TERMS, omitted_bounds
+        )
+
+        # Point evaluation of the old full-minus-one formulation.
+        full = band.jet.cumulants(
+            band.jet.theta_derivatives(
+                u, TERMS, omitted_bounds
+            ),
+            HIGHEST,
+        )
+        one = band.jet.cumulants(
+            band.one_term_derivatives(u),
+            HIGHEST,
+        )
+
+        print(f"z={z}")
+        for order in range(1, HIGHEST + 1):
+            old = full[order] - one[order]
+            difference = stable[order - 1] - old
+
+            print(
+                f"  j={order}: "
+                f"stable={float(stable[order-1].mid()): .6e} "
+                f"old={float(old.mid()): .6e} "
+                f"diff_radius={float(absolute_upper(difference)):.3e}"
+            )
+
+def certify_tables():
+    ctx.prec = PRECISION
+
+    band.jet.POLYNOMIALS = (
+        band.jet.derivative_polynomials(HIGHEST)
+    )
+    omitted_bounds = band.jet.tail_bounds(TERMS + 1)
+
+    validation_points(omitted_bounds)
+
+    low = arb(str(math.log(6 / math.pi) / 2))
+    high = arb(str(math.log(23 / math.pi) / 2))
+    cells = int(float(((high - low) / STEP).mid())) + 1
+
+    best = {
+        floor: [arb(0) for _ in range(HIGHEST)]
+        for floor in FLOORS
+        if floor < 23
+    }
+
+    argmax = {
+        floor: [None for _ in range(HIGHEST)]
+        for floor in best
+    }
+
+    start = time.time()
+
+    for cell_index in range(cells):
+        lower = low + cell_index * STEP
+        upper = min(lower + STEP, high)
+        cell = band.jet.interval(lower, upper)
+
+        z_interval = arb.pi() * (2 * cell).exp()
+        z_right = float(z_interval.upper())
+        z4 = z_interval**4
+
+        jets = stable_log_tail_jets(
+            cell, TERMS, omitted_bounds
+        )
+
+        bounds = [
+            absolute_upper(z4 * value)
+            for value in jets
+        ]
+
+        for floor in best:
+            if z_right < floor:
+                continue
+
+            for order, value in enumerate(bounds):
+                if value > best[floor][order]:
+                    best[floor][order] = value
+                    argmax[floor][order] = (
+                        float(z_interval.lower()),
+                        float(z_interval.upper()),
+                    )
+
+        if cell_index and cell_index % 1000 == 0:
+            print(
+                f"stable band progress: "
+                f"{cell_index}/{cells}"
+            )
+
+    print(
+        f"stable direct-tail band: cells={cells} "
+        f"elapsed={time.time() - start:.1f}s"
+    )
+
+    old23 = error23_table()
+    tables = {23: old23}
+
+    for floor in best:
+        table = {}
+
+        print(f"\ncertified stable table for z >= {floor}:")
+
+        for order, value in enumerate(
+            best[floor], start=1
+        ):
+            table[order] = max(
+                rational_upper(value),
+                old23[order],
+            )
+
+            print(
+                f"  E[{order}]="
+                f"{float(table[order]):.12e} "
+                f"argmax={argmax[floor][order-1]}"
+            )
+
+        tables[floor] = table
+
+    print("\naudited table for z >= 23:")
+    for order in range(1, HIGHEST + 1):
+        print(
+            f"  E[{order}]="
+            f"{float(tables[23][order]):.12e}"
+        )
+
+    return tables
+
+def test_sr(table, floor, target):
+    sr.EF = table
+    sr.W_FLOOR = 2 * floor - 3
+    sr.LAMBDA_S_F = target
+
+    folded = sr.build_blocks()
+    passed = sr.certify(folded)
+
+    print(
+        f"S_r floor={floor} "
+        f"target={float(target):.6e}: "
+        f"{'PASS' if passed else 'FAIL'}"
+    )
+
+    return passed
+
+tables = certify_tables()
+original_target = sr.LAMBDA_S_F
+
+print("\n===== PLAIN S_r POSITIVITY =====")
+
+positivity_floor = None
+
+for floor in FLOORS:
+    if test_sr(tables[floor], floor, Fraction(0)):
+        positivity_floor = floor
+        break
+
+if positivity_floor is None:
+    raise SystemExit(
+        "Stable direct-tail tables did not prove "
+        "plain S_r positivity through floor 23."
+    )
+
+print(
+    f"\nFIRST STABLE PLAIN-POSITIVITY FLOOR: "
+    f"{positivity_floor}"
+)
+
+print("\n===== ORIGINAL QUANTITATIVE TARGET =====")
+
+target_floor = None
+
+for floor in FLOORS:
+    if floor < positivity_floor:
+        continue
+
+    if test_sr(
+        tables[floor],
+        floor,
+        original_target,
+    ):
+        target_floor = floor
+        break
+
+print("\n===== FINAL DISCRIMINATOR =====")
+print(f"plain positivity floor: {positivity_floor}")
+print(f"original-target floor: {target_floor}")
+
+if positivity_floor < 23:
+    print(
+        "The earlier floor-23 threshold was an interval-"
+        "cancellation artifact."
+    )
+else:
+    print(
+        "Even the stable direct-tail transfer needs floor 23; "
+        "the coefficientwise error architecture is then the "
+        "actual limiting mechanism."
+    )
+PY
+
+Do not run J_b again until this returns. The S_r builder uses envelope orders two through six and subtracts the optional quantitative target explicitly.  This command cleanly distinguishes a numerical enclosure failure from a genuine failure of the coefficientwise one-term transfer architecture.
+
+## Prompt:
+7/14/2026, 2:51:54 PM
+
+===== STABLE-FRAME VALIDATION =====
+z=6
+  j=1: stable=-1.112804e-05 old=-1.112804e-05 diff_radius=2.056e-55
+  j=2: stable= 3.850678e-04 old= 3.850678e-04 diff_radius=3.624e-54
+  j=3: stable=-1.254407e-02 old=-1.254407e-02 diff_radius=7.975e-53
+  j=4: stable= 3.817300e-01 old= 3.817300e-01 diff_radius=2.239e-51
+  j=5: stable=-1.074146e+01 old=-1.074146e+01 diff_radius=7.988e-50
+  j=6: stable= 2.755977e+02 old= 2.755977e+02 diff_radius=3.497e-48
+z=8
+  j=1: stable=-3.426839e-08 old=-3.426839e-08 diff_radius=4.248e-55
+  j=2: stable= 1.589965e-06 old= 1.589965e-06 diff_radius=1.314e-53
+  j=3: stable=-7.051802e-05 old=-7.051802e-05 diff_radius=4.194e-52
+  j=4: stable= 2.976770e-03 old= 2.976770e-03 diff_radius=1.862e-50
+  j=5: stable=-1.189578e-01 old=-1.189578e-01 diff_radius=1.081e-48
+  j=6: stable= 4.469797e+00 old= 4.469797e+00 diff_radius=7.819e-47
+z=12
+  j=1: stable=-2.967474e-13 old=-2.967474e-13 diff_radius=8.151e-55
+  j=2: stable= 2.084191e-11 old= 2.084191e-11 diff_radius=4.563e-53
+  j=3: stable=-1.421262e-09 old=-1.421262e-09 diff_radius=2.575e-51
+  j=4: stable= 9.392936e-08 old= 9.392936e-08 diff_radius=2.046e-49
+  j=5: stable=-6.003515e-06 old=-6.003515e-06 diff_radius=2.163e-47
+  j=6: stable= 3.701917e-04 old= 3.701917e-04 diff_radius=2.859e-45
+z=18
+  j=1: stable=-6.528998e-21 old=-6.528998e-21 diff_radius=2.122e-54
+  j=2: stable= 6.930186e-19 old= 6.930186e-19 diff_radius=1.966e-52
+  j=3: stable=-7.215217e-17 old=-7.215217e-17 diff_radius=1.831e-50
+  j=4: stable= 7.362475e-15 old= 7.362475e-15 diff_radius=2.420e-48
+  j=5: stable=-7.356996e-13 old=-7.356996e-13 diff_radius=4.259e-46
+  j=6: stable= 7.192427e-11 old= 7.192427e-11 diff_radius=9.374e-44
+z=22
+  j=1: stable=-4.839802e-26 old=-4.839802e-26 diff_radius=2.558e-54
+  j=2: stable= 6.297318e-24 old= 6.297318e-24 diff_radius=2.979e-52
+  j=3: stable=-8.066121e-22 old=-8.066121e-22 diff_radius=3.487e-50
+  j=4: stable= 1.016564e-19 old= 1.016564e-19 diff_radius=5.827e-48
+  j=5: stable=-1.259876e-17 old=-1.259876e-17 diff_radius=1.296e-45
+  j=6: stable= 1.534578e-15 old= 1.534578e-15 diff_radius=3.607e-43
+z=23
+  j=1: stable=-2.512839e-27 old=-2.512839e-27 diff_radius=2.654e-54
+  j=2: stable= 3.420215e-25 old= 3.420215e-25 diff_radius=3.289e-52
+  j=3: stable=-4.585948e-23 old=-4.585948e-23 diff_radius=4.055e-50
+  j=4: stable= 6.054675e-21 old= 6.054675e-21 diff_radius=7.116e-48
+  j=5: stable=-7.867257e-19 old=-7.867257e-19 diff_radius=1.665e-45
+  j=6: stable= 1.005530e-16 old= 1.005530e-16 diff_radius=4.872e-43
+stable band progress: 1000/2688
+stable band progress: 2000/2688
+stable direct-tail band: cells=2688 elapsed=0.5s
+
+certified stable table for z >= 6:
+  E[1]=1.456774615883e-02 argmax=(5.999999986155411, 6.003000758844531)
+  E[2]=5.072181559364e-01 argmax=(5.999999986155411, 6.003000758844531)
+  E[3]=1.669987671132e+01 argmax=(5.999999986155411, 6.003000758844531)
+  E[4]=5.185758966505e+02 argmax=(5.999999986155411, 6.003000758844531)
+  E[5]=1.523658921631e+04 argmax=(5.999999986155411, 6.003000758844531)
+  E[6]=4.344567689923e+05 argmax=(5.999999986155411, 6.003000758844531)
+
+certified stable table for z >= 7:
+  E[1]=1.509719202414e-03 argmax=(6.998945293059157, 7.002445681532342)
+  E[2]=6.159501631869e-02 argmax=(6.998945293059157, 7.002445681532342)
+  E[3]=2.401736978705e+00 argmax=(6.998945293059157, 7.002445681532342)
+  E[4]=8.969530063391e+01 argmax=(6.998945293059157, 7.002445681532342)
+  E[5]=3.251155995758e+03 argmax=(6.998945293059157, 7.002445681532342)
+  E[6]=1.197652448298e+05 argmax=(6.998945293059157, 7.002445681532342)
+
+certified stable table for z >= 8:
+  E[1]=1.426794638635e-04 argmax=(7.998543523704299, 8.002543832256649)
+  E[2]=6.683828715785e-03 argmax=(7.998543523704299, 8.002543832256649)
+  E[3]=3.018513341910e-01 argmax=(7.998543523704299, 8.002543832256649)
+  E[4]=1.322846007069e+01 argmax=(7.998543523704299, 8.002543832256649)
+  E[5]=5.757304975883e+02 argmax=(7.998543523704299, 8.002543832256649)
+  E[6]=2.660040032555e+04 argmax=(7.998543523704299, 8.002543832256649)
+
+certified stable table for z >= 9:
+  E[1]=1.262992325508e-05 argmax=(8.995814965592794, 9.000314047289644)
+  E[2]=6.683740641677e-04 argmax=(8.995814965592794, 9.000314047289644)
+  E[3]=3.434505695781e-02 argmax=(8.995814965592794, 9.000314047289644)
+  E[4]=1.731680926195e+00 argmax=(8.995814965592794, 9.000314047289644)
+  E[5]=8.844135286533e+01 argmax=(8.995814965592794, 9.000314047289644)
+  E[6]=4.972506090761e+03 argmax=(8.995814965592794, 9.000314047289644)
+
+certified stable table for z >= 10:
+  E[1]=1.046482765192e-06 argmax=(9.996744252737706, 10.00174393329872)
+  E[2]=6.179583140426e-05 argmax=(9.996744252737706, 10.00174393329872)
+  E[3]=3.565095773382e-03 argmax=(9.996744252737706, 10.00174393329872)
+  E[4]=2.037660689221e-01 argmax=(9.996744252737706, 10.00174393329872)
+  E[5]=1.200461826581e+01 argmax=(9.996744252737706, 10.00174393329872)
+  E[6]=8.027093454118e+02 argmax=(9.996744252737706, 10.00174393329872)
+
+certified stable table for z >= 12:
+  E[1]=6.295599371776e-09 argmax=(11.998233937604958, 12.0042346052335)
+  E[2]=4.494726850611e-07 argmax=(11.998233937604958, 12.0042346052335)
+  E[3]=3.166621346130e-05 argmax=(11.998233937604958, 12.0042346052335)
+  E[4]=2.246365248557e-03 argmax=(11.998233937604958, 12.0042346052335)
+  E[5]=1.691545407471e-01 argmax=(11.998233937604958, 12.0042346052335)
+  E[6]=1.515641312785e+01 argmax=(11.998233937604958, 12.0042346052335)
+
+certified stable table for z >= 14:
+  E[1]=3.348186063740e-11 argmax=(13.995830516583895, 14.002830263633017)
+  E[2]=2.806129398133e-09 argmax=(13.995830516583895, 14.002830263633017)
+  E[3]=2.339452421864e-07 argmax=(13.995830516583895, 14.002830263633017)
+  E[4]=1.990424637214e-05 argmax=(13.995830516583895, 14.002830263633017)
+  E[5]=1.841351240156e-03 argmax=(13.995830516583895, 14.002830263633017)
+  E[6]=2.097132687374e-01 argmax=(13.995830516583895, 14.002830263633017)
+
+certified stable table for z >= 16:
+  E[1]=1.608032469228e-13 argmax=(15.994732755786604, 16.002732225967552)
+  E[2]=1.548865503332e-11 argmax=(15.994732755786604, 16.002732225967552)
+  E[3]=1.494099714317e-09 argmax=(15.994732755786604, 16.002732225967552)
+  E[4]=1.488018150394e-07 argmax=(15.994732755786604, 16.002732225967552)
+  E[5]=1.644317526206e-05 argmax=(15.994732755786604, 16.002732225967552)
+  E[6]=2.293981931965e-03 argmax=(15.994732755786604, 16.002732225967552)
+
+certified stable table for z >= 18:
+  E[1]=7.074513311379e-16 argmax=(17.99797887861532, 18.006980201913755)
+  E[2]=7.706920040689e-14 argmax=(17.99797887861532, 18.006980201913755)
+  E[3]=8.458283302690e-12 argmax=(17.99797887861532, 18.006980201913755)
+  E[4]=9.683163294991e-10 argmax=(17.99797887861532, 18.006980201913755)
+  E[5]=1.251537679608e-07 argmax=(17.99797887861532, 18.006980201913755)
+  E[6]=2.081196556306e-05 argmax=(17.99797887861532, 18.006980201913755)
+
+certified stable table for z >= 20:
+  E[1]=3.017417427298e-18 argmax=(19.990546073976308, 20.000543937065974)
+  E[2]=3.668223606991e-16 argmax=(19.990546073976308, 20.000543937065974)
+  E[3]=4.516274576192e-14 argmax=(19.990546073976308, 20.000543937065974)
+  E[4]=5.853919159064e-12 argmax=(19.990546073976308, 20.000543937065974)
+  E[5]=8.695804166224e-10 argmax=(19.990546073976308, 20.000543937065974)
+  E[6]=2.608931178922e-07 argmax=(19.990546073976308, 20.000543937065974)
+
+certified stable table for z >= 22:
+  E[1]=1.190257380859e-20 argmax=(21.99377515673884, 22.004774896345474)
+  E[2]=1.599002377315e-18 argmax=(21.99377515673884, 22.004774896345474)
+  E[3]=4.657971294055e-16 argmax=(21.99377515673884, 22.004774896345474)
+  E[4]=2.906525465599e-13 argmax=(21.99377515673884, 22.004774896345474)
+  E[5]=2.446831327034e-10 argmax=(21.99377515673884, 22.004774896345474)
+  E[6]=2.608931178922e-07 argmax=(21.99377515673884, 22.004774896345474)
+
+audited table for z >= 23:
+  E[1]=3.901536291081e-21
+  E[2]=1.093030277129e-18
+  E[3]=4.657971294055e-16
+  E[4]=2.906525465599e-13
+  E[5]=2.446831327034e-10
+  E[6]=2.608931178922e-07
+
+===== PLAIN S_r POSITIVITY =====
+blocks: 292 [1.7s]
+S_r transfer: coefficients=2553 negative=273 [33.0s]
+S_r floor=6 target=0.000000e+00: FAIL
+blocks: 292 [0.6s]
+S_r transfer: coefficients=2553 negative=268 [32.9s]
+S_r floor=7 target=0.000000e+00: FAIL
+blocks: 292 [0.6s]
+S_r transfer: coefficients=2553 negative=262 [32.2s]
+S_r floor=8 target=0.000000e+00: FAIL
+blocks: 292 [0.6s]
+S_r transfer: coefficients=2553 negative=252 [32.6s]
+S_r floor=9 target=0.000000e+00: FAIL
+blocks: 292 [0.6s]
+S_r transfer: coefficients=2553 negative=233 [33.2s]
+S_r floor=10 target=0.000000e+00: FAIL
+blocks: 292 [0.6s]
+S_r transfer: coefficients=2553 negative=190 [33.2s]
+S_r floor=12 target=0.000000e+00: FAIL
+blocks: 292 [0.6s]
+S_r transfer: coefficients=2553 negative=152 [33.3s]
+S_r floor=14 target=0.000000e+00: FAIL
+blocks: 292 [0.6s]
+S_r transfer: coefficients=2553 negative=61 [33.3s]
+S_r floor=16 target=0.000000e+00: FAIL
+blocks: 292 [0.6s]
+S_r transfer: coefficients=2553 negative=0 [33.7s]
+S_r floor=18 target=0.000000e+00: PASS
+
+FIRST STABLE PLAIN-POSITIVITY FLOOR: 18
+
+===== ORIGINAL QUANTITATIVE TARGET =====
+blocks: 292 [0.6s]
+S_r transfer: coefficients=2553 negative=0 [34.1s]
+S_r floor=18 target=1.998785e+00: PASS
+
+===== FINAL DISCRIMINATOR =====
+plain positivity floor: 18
+original-target floor: 18
+
+## Response:
+7/14/2026, 2:52:05 PM
+
+The discriminator is now clean: the one-term model itself is viable well below 23, but the independent coefficientwise transfer does not close until the high teens. The next meaningful test is whether both J_b pieces close at the same floor 18 or force the positive-tail split higher.
+
+Interpreting user's progress
+
+The user seems to expect the next step from me. I need to interpret the results and suggest a course of action—likely testing at floor 18 using J_b, but I’ll refine the threshold first.
+
+Interpreted user's progress
+
+Fetched code and file content for diagnostics and certification
+
+Planning J_b implementation
+
+I’m focusing on avoiding overflow errors with J_b at floor 18. To do this, I’ll ensure stable calculation using direct-tail intervals, avoid float rounding, and apply a rational approach for accuracy.
+
+Inspected build_blocks cache usage and start logic
+
+Worked for 1m 38s
+
+This is good evidence against the asymptote concern. With the stable tail frame, the envelopes decay normally, and S_r changes from 61 negative coefficients at floor 16 to zero at floor 18. The original quantitative target also passes immediately at 18, so it is not the obstruction.
+
+The conclusion is narrower than “the true threshold is 18”: the current coefficientwise one-term S_r chart closes at the first tested floor 18. Now test whether J_b closes at the same floor. J_b should use the no-target form on the separated boxes because the target belongs to the collision cone and destroys the required d1² tangency.
+
+Run:
+
+set -o pipefail
+mkdir -p work/2026-07-14-pf4-floor18-jb
+
+python3 - <<'PY' 2>&1 | tee work/2026-07-14-pf4-floor18-jb/run.log
+import gc
+import math
+import sys
+import time
+from fractions import Fraction
+from math import comb
+from pathlib import Path
+
+import sympy as sp
+from flint import arb, ctx
+
+ROOT = Path.cwd()
+OUT = ROOT / "work/2026-07-14-pf4-floor18-jb"
+
+for path in (
+    "work/2026-07-14-pf4-floor4-chain",
+    "scripts",
+    "work/2026-07-13-pf4-jb-separated-transfer",
+    "work/2026-07-14-pf4-jb-meanvalue-right",
+    "work/2026-07-14-pf4-pi-floor-envelopes",
+    "work/2026-07-13-pf4-six-obligations",
+    "work/2026-07-13-pf4-db-invariant",
+    "work/2026-07-13-pf4-dominant-lower-bound",
+    "work/2026-07-13-pf4-full-tail-transfer",
+    "work/2026-07-13-riemann-kernel-pf4-verification",
+):
+    sys.path.insert(0, str(ROOT / path))
+
+import band_envelopes as band
+import prove_edge_separated_wframe as sr
+import prove_jb_blocks_wframe as jb
+import prove_jb_meanvalue_right as mv
+
+FLOOR = 18
+W_FLOOR = 2 * FLOOR - 3
+TERMS = 12
+HIGHEST = 6
+PRECISION = 192
+STEP = 0.00025
+
+def absolute_upper(value):
+    return band.jet.absolute_upper(value)
+
+def rational_upper(value):
+    return Fraction.from_float(
+        math.nextafter(float(value), math.inf)
+    )
+
+def theta_tail_derivatives(u, omitted_bounds):
+    values = [arb(0) for _ in range(HIGHEST + 1)]
+
+    exp2u = (2 * u).exp()
+    exp5u2 = (arb(5) * u / 2).exp()
+    pi = arb.pi()
+
+    for n_int in range(2, TERMS + 1):
+        n2 = arb(n_int * n_int)
+        x = pi * n2 * exp2u
+        base = 2 * pi * n2 * exp5u2 * (-x).exp()
+
+        for order, polynomial in enumerate(
+            band.jet.POLYNOMIALS[: HIGHEST + 1]
+        ):
+            values[order] += (
+                base
+                * band.jet.evaluate_polynomial(polynomial, x)
+            )
+
+    for order, radius in enumerate(
+        omitted_bounds[: HIGHEST + 1]
+    ):
+        values[order] += arb(0, radius)
+
+    return values
+
+def ratio_derivatives(one, tail):
+    ratio = []
+
+    for order in range(HIGHEST + 1):
+        value = tail[order]
+
+        for k in range(order):
+            value -= (
+                comb(order, k)
+                * one[order - k]
+                * ratio[k]
+            )
+
+        ratio.append(value / one[0])
+
+    return ratio
+
+def stable_log_tail_jets(u, omitted_bounds):
+    one = band.one_term_derivatives(u)[: HIGHEST + 1]
+    tail = theta_tail_derivatives(u, omitted_bounds)
+    ratio = ratio_derivatives(one, tail)
+
+    derivatives = [1 + ratio[0]] + ratio[1:]
+    cumulants = band.jet.cumulants(
+        derivatives, HIGHEST
+    )
+    return cumulants[1:]
+
+def certify_floor18_table():
+    ctx.prec = PRECISION
+    band.jet.POLYNOMIALS = (
+        band.jet.derivative_polynomials(HIGHEST)
+    )
+    omitted_bounds = band.jet.tail_bounds(TERMS + 1)
+
+    low = math.log(FLOOR / math.pi) / 2
+    high = math.log(23 / math.pi) / 2
+    cells = math.ceil((high - low) / STEP)
+
+    best = [arb(0) for _ in range(HIGHEST)]
+    argmax = [None for _ in range(HIGHEST)]
+
+    start = time.time()
+
+    for index in range(cells):
+        lower_f = low + index * STEP
+        upper_f = min(lower_f + STEP, high)
+
+        lower = arb(str(lower_f))
+        upper = arb(str(upper_f))
+        cell = band.jet.interval(lower, upper)
+
+        z_interval = arb.pi() * (2 * cell).exp()
+        z4 = z_interval**4
+
+        jets = stable_log_tail_jets(
+            cell, omitted_bounds
+        )
+
+        for order, jet_value in enumerate(jets):
+            value = absolute_upper(z4 * jet_value)
+
+            if value > best[order]:
+                best[order] = value
+                argmax[order] = (
+                    float(z_interval.lower()),
+                    float(z_interval.upper()),
+                )
+
+    print(
+        f"stable floor-18 table: cells={cells} "
+        f"elapsed={time.time() - start:.1f}s"
+    )
+
+    table = {}
+
+    for order, value in enumerate(best, start=1):
+        old = sp.Rational(band.ERROR23[order])
+        floor23 = Fraction(int(old.p), int(old.q))
+
+        table[order] = max(
+            rational_upper(value),
+            floor23,
+        )
+
+        print(
+            f"  E[{order}]="
+            f"{float(table[order]):.12e} "
+            f"argmax={argmax[order-1]}"
+        )
+
+    return table
+
+def certify_left_safely(blocks):
+    """The repository certifier with overflow-safe diagnostics."""
+    start = time.time()
+    zero_key = (0,) * jb.NERR
+    axis = 1
+
+    global_degree = max(
+        monomial[axis]
+        for numerator in blocks.values()
+        for monomial in numerator
+    )
+
+    residual = {}
+
+    for key, numerator in blocks.items():
+        work = {
+            monomial: coefficient
+            << (34 * (global_degree - monomial[axis]))
+            for monomial, coefficient in numerator.items()
+        }
+
+        work = jb.shear_axis(
+            work,
+            1,
+            {
+                (1, 0, 0): 1,
+                (0, 0, 0): 3,
+            },
+        )
+        work = jb.shift_w0(work, jb.W_FLOOR)
+
+        is_zero = key == zero_key
+
+        for monomial, coefficient in work.items():
+            entry = residual.setdefault(
+                monomial, [0, 0]
+            )
+
+            if is_zero:
+                entry[0] += coefficient
+            else:
+                entry[1] += abs(coefficient)
+
+    negative = {
+        monomial: clean - error
+        for monomial, (clean, error) in residual.items()
+        if clean - error < 0
+    }
+
+    face_negative = [
+        monomial
+        for monomial in negative
+        if monomial[2] == 0
+    ]
+
+    print(
+        f"left: geometry_monomials={len(residual)} "
+        f"negative={len(negative)} "
+        f"face_negative={len(face_negative)} "
+        f"[{time.time() - start:.1f}s]"
+    )
+
+    for monomial, value in list(negative.items())[:10]:
+        print(
+            "NEG",
+            monomial,
+            f"bits={abs(value).bit_length()}",
+        )
+
+    return not negative
+
+table18 = certify_floor18_table()
+
+print("\n===== S_r FLOOR-18 REGRESSION =====")
+
+sr.EF = table18
+sr.W_FLOOR = W_FLOOR
+sr_blocks = sr.build_blocks()
+sr_ok = sr.certify(sr_blocks)
+
+print(
+    f"S_r floor 18: {'PASS' if sr_ok else 'FAIL'}"
+)
+
+if not sr_ok:
+    raise SystemExit(
+        "Unexpected S_r regression failure."
+    )
+
+del sr_blocks
+gc.collect()
+
+print("\n===== J_b LEFT SEPARATED BOX AT FLOOR 18 =====")
+
+left_dir = OUT / "left"
+left_dir.mkdir(parents=True, exist_ok=True)
+
+jb.ERROR = table18
+jb.W_FLOOR = W_FLOOR
+jb.HERE = left_dir
+
+try:
+    left_blocks, left_lcd, left_scale = (
+        jb.build_blocks(with_target=False)
+    )
+    left_blocks = jb.face_divide(left_blocks)
+    left_ok = certify_left_safely(left_blocks)
+except Exception as exc:
+    left_ok = False
+    print(f"J_b left exception: {exc!r}")
+
+print(
+    f"J_b left floor 18: "
+    f"{'PASS' if left_ok else 'FAIL'}"
+)
+
+try:
+    del left_blocks
+except NameError:
+    pass
+
+gc.collect()
+
+print("\n===== J_b MEAN-VALUE STRIP AT FLOOR 18 =====")
+
+strip_dir = OUT / "strip"
+strip_dir.mkdir(parents=True, exist_ok=True)
+
+mv.E = table18
+mv.W_FLOOR = W_FLOOR
+mv.HERE = strip_dir
+
+try:
+    folded = mv.build_blocks()
+
+    s_face = min(
+        min(monomial[1] for monomial in total)
+        for _, total, _ in folded.values()
+    )
+    t_face = min(
+        min(monomial[2] for monomial in total)
+        for _, total, _ in folded.values()
+    )
+
+    print(
+        f"strip face factors: "
+        f"d1^{s_face} d2^{t_face}"
+    )
+
+    if s_face < 2:
+        raise AssertionError(
+            "Peano cancellation did not preserve d1^2"
+        )
+
+    folded = {
+        key: (
+            const,
+            {
+                (
+                    monomial[0],
+                    monomial[1] - s_face,
+                    monomial[2] - t_face,
+                ): coefficient
+                for monomial, coefficient
+                in total.items()
+            },
+            lcd,
+        )
+        for key, (const, total, lcd)
+        in folded.items()
+    }
+
+    items = mv.collapse_classes(folded)
+    strip_ok = mv.certify(items)
+
+except Exception as exc:
+    strip_ok = False
+    print(f"J_b strip exception: {exc!r}")
+
+print(
+    f"J_b strip floor 18: "
+    f"{'PASS' if strip_ok else 'FAIL'}"
+)
+
+print("\n===== FLOOR-18 SUMMARY =====")
+print(f"S_r:       {'PASS' if sr_ok else 'FAIL'}")
+print(f"J_b left:  {'PASS' if left_ok else 'FAIL'}")
+print(f"J_b strip: {'PASS' if strip_ok else 'FAIL'}")
+
+if left_ok and strip_ok:
+    print(
+        "PASS: the complete separated positive-tail chain "
+        "closes at the tested floor z=18."
+    )
+    print(
+        "NEXT: rederive the S_r and J_b collision radii "
+        "at floor 18, then isolate the compact band "
+        "z in [pi,18]."
+    )
+else:
+    print(
+        "At least one J_b chart needs either a higher floor "
+        "or a less independent tail decomposition."
+    )
+    raise SystemExit(1)
+PY
+
+The overflow-safe left certifier changes only diagnostic printing; its residual computation is the repository’s exact coefficient test.  The strip test retains the established d1² Peano factor and exact class-envelope machinery.
+
+## Prompt:
+7/14/2026, 3:41:38 PM
+
+stable floor-18 table: cells=491 elapsed=0.1s
+  E[1]=7.035659196451e-16 argmax=(17.99999992919873, 18.009002282394412)
+  E[2]=7.665491286852e-14 argmax=(17.99999992919873, 18.009002282394412)
+  E[3]=8.413849261263e-12 argmax=(17.99999992919873, 18.009002282394412)
+  E[4]=9.633573050725e-10 argmax=(17.99999992919873, 18.009002282394412)
+  E[5]=1.245313765126e-07 argmax=(17.99999992919873, 18.009002282394412)
+  E[6]=2.071189678380e-05 argmax=(17.99999992919873, 18.009002282394412)
+
+===== S_r FLOOR-18 REGRESSION =====
+blocks: 292 [1.7s]
+S_r transfer: coefficients=2553 negative=0 [34.2s]
+S_r floor 18: PASS
+
+===== J_b LEFT SEPARATED BOX AT FLOOR 18 =====
+expansion: 3246 pieces in 531 blocks [2.1s]
+blocks folded over global lcd=[10, 5, 3, 28, 20, 12] [273.1s total]
+face factors divided: d1^1 d2^1
+left: geometry_monomials=38103 negative=76 face_negative=49 [655.8s]
+NEG (0, 0, 0) bits=2552
+NEG (1, 0, 0) bits=2554
+NEG (2, 0, 0) bits=2554
+NEG (3, 0, 0) bits=2553
+NEG (4, 0, 0) bits=2552
+NEG (5, 0, 0) bits=2551
+NEG (6, 0, 0) bits=2549
+NEG (7, 0, 0) bits=2548
+NEG (8, 0, 0) bits=2545
+NEG (9, 0, 0) bits=2543
+J_b left floor 18: FAIL
+
+===== J_b MEAN-VALUE STRIP AT FLOOR 18 =====
+expansion: 7171 pieces in 755 blocks [1.4s]
+per-beta folding done: 617 blocks [3.6s total]
+strip face factors: d1^2 d2^1
+collapsed 616 error blocks into 423 lcd-class envelopes
+strip: geometry_monomials=53001 negative=1077 face_negative=36 [830.2s]
+NEG (0, 2, 0) 2997
+NEG (1, 2, 0) 2998
+NEG (2, 2, 0) 2998
+NEG (3, 2, 0) 2997
+NEG (4, 2, 0) 2996
+NEG (5, 2, 0) 2995
+NEG (6, 2, 0) 2994
+NEG (7, 2, 0) 2992
+NEG (8, 2, 0) 2990
+NEG (9, 2, 0) 2987
+J_b strip floor 18: FAIL
+
+===== FLOOR-18 SUMMARY =====
+S_r:       PASS
+J_b left:  FAIL
+J_b strip: FAIL
+
+## Response:
+7/14/2026, 3:41:56 PM
+
+The result is informative: the clean S_r route closes, but both J_b charts fail because the coefficientwise absolute-error envelope overwhelms their boundary coefficients. Before changing models, the cheapest next step is to measure how much the error box must shrink and map that shrinkage to a higher floor.
+
+Designed and optimized caching and error scaling commands
+
+Worked for 2m 46s
+
+This is no longer an envelope-computation problem. The stable tails are tiny and well behaved. The obstruction is the J_b certification model: both charts replace correlated theta-tail jets by independent error variables and then demand coefficientwise dominance of the clean block over the sum of absolute error blocks. The left chart explicitly uses that residual test, and the strip adds another absolute-value collapse by denominator class.
+
+The negative terms are concentrated near the extracted faces, which is consistent with loss of correlation rather than evidence that J_b itself changes sign.
+
+The next command should not rebuild anything. It should load the expensive floor-18 caches and determine exactly how much the independent error box must shrink before each chart passes. This distinguishes:
+
+floor 20 may already close the current architecture;
+
+floor 22 or 23 may be needed;
+
+or the chart needs correlated-tail or two-term treatment rather than another floor increase.
+
+Run from the repository root:
+
+set -o pipefail
+mkdir -p work/2026-07-14-pf4-jb-error-threshold
+
+python3 - <<'PY' 2>&1 | tee work/2026-07-14-pf4-jb-error-threshold/run.log
+from __future__ import annotations
+
+import pickle
+import sys
+import time
+from fractions import Fraction
+from math import gcd
+from pathlib import Path
+
+ROOT = Path.cwd()
+
+for path in (
+    "work/2026-07-13-pf4-jb-separated-transfer",
+    "work/2026-07-14-pf4-jb-meanvalue-right",
+    "work/2026-07-13-pf4-six-obligations",
+    "work/2026-07-13-pf4-dominant-lower-bound",
+    "work/2026-07-13-pf4-full-tail-transfer",
+):
+    sys.path.insert(0, str(ROOT / path))
+
+import prove_jb_blocks_wframe as jb
+import prove_jb_meanvalue_right as mv
+
+W_FLOOR18 = 33
+LEFT_CACHE = (
+    ROOT
+    / "work/2026-07-14-pf4-floor18-jb"
+    / "left/jb-blocks-nt.pkl"
+)
+STRIP_CACHE = (
+    ROOT
+    / "work/2026-07-14-pf4-floor18-jb"
+    / "strip/jb-mv-blocks.pkl"
+)
+
+def lcm(a: int, b: int) -> int:
+    return a * b // gcd(a, b)
+
+def evaluate_box(
+    name: str,
+    clean: dict,
+    errors: dict,
+    alpha: Fraction,
+    face_axis: int,
+) -> bool:
+    """
+    Test clean - sum_d alpha^d error_d >= 0 exactly.
+
+    Scaling every envelope constant by alpha scales a block having total
+    error degree d by alpha^d.
+    """
+    max_error_degree = max(
+        (
+            degree
+            for by_degree in errors.values()
+            for degree in by_degree
+        ),
+        default=0,
+    )
+
+    numerator = alpha.numerator
+    denominator = alpha.denominator
+    denominator_power = denominator**max_error_degree
+
+    negative = {}
+    face_negative = 0
+
+    monomials = set(clean) | set(errors)
+
+    for monomial in monomials:
+        residual = clean.get(monomial, 0) * denominator_power
+
+        for degree, coefficient in errors.get(
+            monomial, {}
+        ).items():
+            residual -= (
+                coefficient
+                * numerator**degree
+                * denominator
+                ** (max_error_degree - degree)
+            )
+
+        if residual < 0:
+            negative[monomial] = residual
+            if monomial[face_axis] == 0:
+                face_negative += 1
+
+    print(
+        f"{name}: alpha={float(alpha):.9e} "
+        f"negative={len(negative)} "
+        f"face_negative={face_negative}"
+    )
+
+    for monomial, value in list(negative.items())[:5]:
+        print(
+            "  NEG",
+            monomial,
+            f"bits={abs(value).bit_length()}",
+        )
+
+    return not negative
+
+def prepare_left():
+    print("\n===== PREPARE LEFT CACHE =====")
+
+    if not LEFT_CACHE.exists():
+        raise SystemExit(
+            f"missing cache: {LEFT_CACHE}"
+        )
+
+    with LEFT_CACHE.open("rb") as handle:
+        payload = pickle.load(handle)
+
+    blocks = payload["blocks"]
+    blocks = jb.face_divide(blocks)
+
+    jb.W_FLOOR = W_FLOOR18
+
+    zero_key = (0,) * jb.NERR
+    gap_axis = 1
+
+    global_degree = max(
+        monomial[gap_axis]
+        for numerator in blocks.values()
+        for monomial in numerator
+    )
+
+    clean = {}
+    errors = {}
+
+    start = time.time()
+
+    for key, numerator in blocks.items():
+        work = {
+            monomial: coefficient
+            << (
+                34
+                * (
+                    global_degree
+                    - monomial[gap_axis]
+                )
+            )
+            for monomial, coefficient
+            in numerator.items()
+        }
+
+        work = jb.shear_axis(
+            work,
+            1,
+            {
+                (1, 0, 0): 1,
+                (0, 0, 0): 3,
+            },
+        )
+        work = jb.shift_w0(
+            work,
+            W_FLOOR18,
+        )
+
+        error_degree = sum(key)
+
+        for monomial, coefficient in work.items():
+            if key == zero_key:
+                clean[monomial] = (
+                    clean.get(monomial, 0)
+                    + coefficient
+                )
+            else:
+                by_degree = errors.setdefault(
+                    monomial, {}
+                )
+                by_degree[error_degree] = (
+                    by_degree.get(error_degree, 0)
+                    + abs(coefficient)
+                )
+
+    print(
+        f"left prepared: monomials="
+        f"{len(set(clean) | set(errors))} "
+        f"elapsed={time.time() - start:.1f}s"
+    )
+
+    return clean, errors
+
+def divide_strip_faces(folded):
+    s_face = min(
+        min(monomial[1] for monomial in total)
+        for _, total, _ in folded.values()
+    )
+    t_face = min(
+        min(monomial[2] for monomial in total)
+        for _, total, _ in folded.values()
+    )
+
+    print(
+        f"strip face factors: "
+        f"d1^{s_face} d2^{t_face}"
+    )
+
+    if s_face < 2:
+        raise AssertionError(
+            "expected the d1^2 Peano factor"
+        )
+
+    return {
+        key: (
+            const,
+            {
+                (
+                    monomial[0],
+                    monomial[1] - s_face,
+                    monomial[2] - t_face,
+                ): coefficient
+                for monomial, coefficient
+                in total.items()
+            },
+            lcd,
+        )
+        for key, (const, total, lcd)
+        in folded.items()
+    }
+
+def collapse_strip_by_error_degree(folded):
+    """
+    Same safe absolute-value collapse as the repository, but retain total
+    error degree so uniform envelope shrinkage can be measured.
+    """
+    zero_key = (0,) * mv.NERR
+    zero_const, zero_total, zero_lcd = (
+        folded[zero_key]
+    )
+
+    classes = {}
+
+    for key, (const, total, lcd) in folded.items():
+        if key == zero_key:
+            continue
+
+        degree = sum(key)
+        classes.setdefault(
+            (tuple(lcd), degree), []
+        ).append(
+            (
+                abs(const),
+                {
+                    monomial: abs(coefficient)
+                    for monomial, coefficient
+                    in total.items()
+                },
+            )
+        )
+
+    envelopes = {}
+
+    for class_key, members in classes.items():
+        denominator_lcm = 1
+
+        for const, _ in members:
+            denominator_lcm = lcm(
+                denominator_lcm,
+                const.denominator,
+            )
+
+        total = {}
+
+        for const, numerator in members:
+            factor = (
+                const.numerator
+                * (
+                    denominator_lcm
+                    // const.denominator
+                )
+            )
+            total = mv.dadd(
+                total,
+                mv.dscale(numerator, factor),
+            )
+
+        envelopes[class_key] = (
+            Fraction(1, denominator_lcm),
+            total,
+        )
+
+    items = [
+        (
+            tuple(zero_lcd),
+            zero_const,
+            zero_total,
+            0,
+            True,
+        )
+    ]
+
+    for (lcd, degree), (
+        const,
+        total,
+    ) in envelopes.items():
+        items.append(
+            (
+                lcd,
+                const,
+                total,
+                degree,
+                False,
+            )
+        )
+
+    print(
+        f"strip degree classes: "
+        f"{len(items) - 1}"
+    )
+
+    return items
+
+def normalize_strip_items(items):
+    global_lcd = [
+        max(item[0][index] for item in items)
+        for index in range(6)
+    ]
+
+    scale_lcm = 1
+
+    for _, const, _, _, _ in items:
+        scale_lcm = lcm(
+            scale_lcm,
+            const.denominator,
+        )
+
+    normalized = []
+
+    for lcd, const, total, degree, is_zero in items:
+        cofactor = mv.base_cofactor(
+            tuple(
+                global_value - local_value
+                for global_value, local_value
+                in zip(global_lcd, lcd)
+            )
+        )
+
+        factor = (
+            const.numerator
+            * (
+                scale_lcm
+                // const.denominator
+            )
+        )
+
+        numerator = mv.dscale(
+            mv.dmul(total, cofactor),
+            factor,
+        )
+
+        normalized.append(
+            (
+                numerator,
+                degree,
+                is_zero,
+            )
+        )
+
+    return normalized
+
+def prepare_strip():
+    print("\n===== PREPARE STRIP CACHE =====")
+
+    if not STRIP_CACHE.exists():
+        raise SystemExit(
+            f"missing cache: {STRIP_CACHE}"
+        )
+
+    with STRIP_CACHE.open("rb") as handle:
+        payload = pickle.load(handle)
+
+    folded = divide_strip_faces(
+        payload["folded"]
+    )
+
+    items = collapse_strip_by_error_degree(
+        folded
+    )
+    normalized = normalize_strip_items(items)
+
+    mv.W_FLOOR = W_FLOOR18
+
+    d2_degree = max(
+        monomial[2]
+        for numerator, _, _ in normalized
+        for monomial in numerator
+    )
+    d1_degree = max(
+        monomial[1]
+        for numerator, _, _ in normalized
+        for monomial in numerator
+    )
+
+    clean = {}
+    errors = {}
+
+    start = time.time()
+
+    for numerator, error_degree, is_zero in normalized:
+        work = {
+            monomial: coefficient
+            << (
+                34
+                * (
+                    d2_degree
+                    - monomial[2]
+                )
+            )
+            for monomial, coefficient
+            in numerator.items()
+        }
+
+        work = mv.shear_axis(
+            work,
+            2,
+            {
+                (1, 0, 0): 1,
+                (0, 0, 0): 3,
+            },
+        )
+        work = mv.strip_substitute(
+            work,
+            d1_degree,
+        )
+        work = mv.shift_w0(
+            work,
+            W_FLOOR18,
+        )
+
+        for monomial, coefficient in work.items():
+            if is_zero:
+                clean[monomial] = (
+                    clean.get(monomial, 0)
+                    + coefficient
+                )
+            else:
+                by_degree = errors.setdefault(
+                    monomial, {}
+                )
+                by_degree[error_degree] = (
+                    by_degree.get(error_degree, 0)
+                    + abs(coefficient)
+                )
+
+    print(
+        f"strip prepared: monomials="
+        f"{len(set(clean) | set(errors))} "
+        f"elapsed={time.time() - start:.1f}s"
+    )
+
+    return clean, errors
+
+def run_thresholds(
+    name,
+    clean,
+    errors,
+    face_axis,
+):
+    print(f"\n===== {name} SHRINK THRESHOLD =====")
+
+    tests = [
+        ("floor18 box", Fraction(1)),
+        ("1/2", Fraction(1, 2)),
+        ("1/4", Fraction(1, 4)),
+        ("1/8", Fraction(1, 8)),
+        ("1/16", Fraction(1, 16)),
+        ("1/32", Fraction(1, 32)),
+        ("1/64", Fraction(1, 64)),
+        ("floor20-safe box", Fraction(1, 100)),
+        ("1/128", Fraction(1, 128)),
+        ("1/256", Fraction(1, 256)),
+        ("floor22-safe box", Fraction(1, 400)),
+        ("1/512", Fraction(1, 512)),
+        ("1/1024", Fraction(1, 1024)),
+        ("clean only", Fraction(0)),
+    ]
+
+    first_pass = None
+
+    for label, alpha in tests:
+        print(f"\n-- {label} --")
+
+        passed = evaluate_box(
+            name,
+            clean,
+            errors,
+            alpha,
+            face_axis,
+        )
+
+        if passed and first_pass is None:
+            first_pass = (label, alpha)
+
+    print(
+        f"\n{name} first listed pass: "
+        f"{first_pass}"
+    )
+
+    return first_pass
+
+left_clean, left_errors = prepare_left()
+left_result = run_thresholds(
+    "J_b left",
+    left_clean,
+    left_errors,
+    face_axis=2,
+)
+
+strip_clean, strip_errors = prepare_strip()
+strip_result = run_thresholds(
+    "J_b strip",
+    strip_clean,
+    strip_errors,
+    face_axis=1,
+)
+
+print("\n===== INTERPRETATION =====")
+print("left:", left_result)
+print("strip:", strip_result)
+
+print(
+    "\nThe floor20-safe test uses alpha=1/100, "
+    "which is larger than every observed floor20/floor18 "
+    "ratio among E2..E5."
+)
+print(
+    "The floor22-safe test uses alpha=1/400, "
+    "which is larger than every observed floor22/floor18 "
+    "ratio among E2..E5."
+)
+
+if (
+    evaluate_box(
+        "left floor20 check",
+        left_clean,
+        left_errors,
+        Fraction(1, 100),
+        2,
+    )
+    and evaluate_box(
+        "strip floor20 check",
+        strip_clean,
+        strip_errors,
+        Fraction(1, 100),
+        1,
+    )
+):
+    print(
+        "\nCONCLUSION: both cached charts are already "
+        "strong enough to certify the floor20 error box, "
+        "even while retaining the weaker floor18 clean shift."
+    )
+    print(
+        "NEXT: rebuild once with the actual floor20 table "
+        "and W_FLOOR=37."
+    )
+elif (
+    evaluate_box(
+        "left floor22 check",
+        left_clean,
+        left_errors,
+        Fraction(1, 400),
+        2,
+    )
+    and evaluate_box(
+        "strip floor22 check",
+        strip_clean,
+        strip_errors,
+        Fraction(1, 400),
+        1,
+    )
+):
+    print(
+        "\nCONCLUSION: floor20 is not certified by the "
+        "uniform-box test, but floor22 is."
+    )
+    print(
+        "NEXT: rebuild once with the actual floor22 table "
+        "and W_FLOOR=41."
+    )
+else:
+    print(
+        "\nCONCLUSION: simply raising the one-term floor "
+        "is inefficient for at least one J_b chart."
+    )
+    print(
+        "NEXT: preserve correlations between tail jets or "
+        "introduce the two-term dominant model."
+    )
+PY
+
+The J_b models use envelope orders E2 through E5, not E6, so the conservative floor-20 and floor-22 shrink tests are meaningful.  The command also retains the weaker floor-18 clean shift, so passing one of those boxes is stronger than merely rerunning at the corresponding higher floor.
+
+## Prompt:
+7/14/2026, 4:26:34 PM
+
+===== PREPARE LEFT CACHE =====
+face factors divided: d1^1 d2^1
+left prepared: monomials=38103 elapsed=612.6s
+
+===== J_b left SHRINK THRESHOLD =====
+
+-- floor18 box --
+J_b left: alpha=1.000000000e+00 negative=76 face_negative=49
+  NEG (10, 1, 0) bits=2535
+  NEG (16, 0, 0) bits=2523
+  NEG (12, 0, 1) bits=2564
+  NEG (17, 0, 0) bits=2520
+  NEG (0, 0, 0) bits=2552
+
+-- 1/2 --
+J_b left: alpha=5.000000000e-01 negative=58 face_negative=37
+  NEG (10, 1, 0) bits=2541
+  NEG (16, 0, 0) bits=2530
+  NEG (12, 0, 1) bits=2571
+  NEG (17, 0, 0) bits=2527
+  NEG (0, 0, 0) bits=2559
+
+-- 1/4 --
+J_b left: alpha=2.500000000e-01 negative=38 face_negative=23
+  NEG (16, 0, 0) bits=2534
+  NEG (12, 0, 1) bits=2576
+  NEG (0, 0, 0) bits=2566
+  NEG (14, 0, 0) bits=2542
+  NEG (13, 0, 1) bits=2572
+
+-- 1/8 --
+J_b left: alpha=1.250000000e-01 negative=19 face_negative=11
+  NEG (0, 0, 0) bits=2573
+  NEG (4, 0, 0) bits=2572
+  NEG (3, 0, 0) bits=2573
+  NEG (0, 0, 1) bits=2601
+  NEG (2, 0, 0) bits=2574
+
+-- 1/16 --
+J_b left: alpha=6.250000000e-02 negative=3 face_negative=3
+  NEG (0, 0, 0) bits=2578
+  NEG (2, 0, 0) bits=2578
+  NEG (1, 0, 0) bits=2579
+
+-- 1/32 --
+J_b left: alpha=3.125000000e-02 negative=0 face_negative=0
+
+-- 1/64 --
+J_b left: alpha=1.562500000e-02 negative=0 face_negative=0
+
+-- floor20-safe box --
+J_b left: alpha=1.000000000e-02 negative=0 face_negative=0
+
+-- 1/128 --
+J_b left: alpha=7.812500000e-03 negative=0 face_negative=0
+
+-- 1/256 --
+J_b left: alpha=3.906250000e-03 negative=0 face_negative=0
+
+-- floor22-safe box --
+J_b left: alpha=2.500000000e-03 negative=0 face_negative=0
+
+-- 1/512 --
+J_b left: alpha=1.953125000e-03 negative=0 face_negative=0
+
+-- 1/1024 --
+J_b left: alpha=9.765625000e-04 negative=0 face_negative=0
+
+-- clean only --
+J_b left: alpha=0.000000000e+00 negative=0 face_negative=0
+
+J_b left first listed pass: ('1/32', Fraction(1, 32))
+
+===== PREPARE STRIP CACHE =====
+strip face factors: d1^2 d2^1
+strip degree classes: 426
+strip prepared: monomials=53001 elapsed=796.7s
+
+===== J_b strip SHRINK THRESHOLD =====
+
+-- floor18 box --
+J_b strip: alpha=1.000000000e+00 negative=1077 face_negative=36
+  NEG (1, 18, 0) bits=3023
+  NEG (26, 8, 0) bits=2945
+  NEG (18, 2, 0) bits=2961
+  NEG (21, 9, 0) bits=2968
+  NEG (8, 5, 0) bits=2999
+
+-- 1/2 --
+J_b strip: alpha=5.000000000e-01 negative=860 face_negative=32
+  NEG (1, 18, 0) bits=3030
+  NEG (26, 8, 0) bits=2948
+  NEG (18, 2, 0) bits=2968
+  NEG (21, 9, 0) bits=2974
+  NEG (8, 5, 0) bits=3006
+
+-- 1/4 --
+J_b strip: alpha=2.500000000e-01 negative=619 face_negative=27
+  NEG (1, 18, 0) bits=3037
+  NEG (18, 2, 0) bits=2974
+  NEG (8, 5, 0) bits=3013
+  NEG (9, 12, 0) bits=3023
+  NEG (6, 4, 0) bits=3014
+
+-- 1/8 --
+J_b strip: alpha=1.250000000e-01 negative=349 face_negative=21
+  NEG (1, 18, 0) bits=3043
+  NEG (18, 2, 0) bits=2978
+  NEG (8, 5, 0) bits=3019
+  NEG (9, 12, 0) bits=3028
+  NEG (6, 4, 0) bits=3021
+
+-- 1/16 --
+J_b strip: alpha=6.250000000e-02 negative=142 face_negative=15
+  NEG (8, 5, 0) bits=3024
+  NEG (6, 4, 0) bits=3027
+  NEG (7, 5, 0) bits=3027
+  NEG (8, 6, 0) bits=3026
+  NEG (0, 0, 0) bits=3015
+
+-- 1/32 --
+J_b strip: alpha=3.125000000e-02 negative=33 face_negative=8
+  NEG (0, 0, 0) bits=3021
+  NEG (0, 7, 0) bits=3041
+  NEG (0, 1, 0) bits=3026
+  NEG (4, 0, 0) bits=3020
+  NEG (3, 0, 0) bits=3021
+
+-- 1/64 --
+J_b strip: alpha=1.562500000e-02 negative=0 face_negative=0
+
+-- floor20-safe box --
+J_b strip: alpha=1.000000000e-02 negative=0 face_negative=0
+
+-- 1/128 --
+J_b strip: alpha=7.812500000e-03 negative=0 face_negative=0
+
+-- 1/256 --
+J_b strip: alpha=3.906250000e-03 negative=0 face_negative=0
+
+-- floor22-safe box --
+J_b strip: alpha=2.500000000e-03 negative=0 face_negative=0
+
+-- 1/512 --
+J_b strip: alpha=1.953125000e-03 negative=0 face_negative=0
+
+-- 1/1024 --
+J_b strip: alpha=9.765625000e-04 negative=0 face_negative=0
+
+-- clean only --
+J_b strip: alpha=0.000000000e+00 negative=0 face_negative=0
+
+J_b strip first listed pass: ('1/64', Fraction(1, 64))
+
+===== INTERPRETATION =====
+left: ('1/32', Fraction(1, 32))
+strip: ('1/64', Fraction(1, 64))
+
+The floor20-safe test uses alpha=1/100, which is larger than every observed floor20/floor18 ratio among E2..E5.
+The floor22-safe test uses alpha=1/400, which is larger than every observed floor22/floor18 ratio among E2..E5.
+left floor20 check: alpha=1.000000000e-02 negative=0 face_negative=0
+strip floor20 check: alpha=1.000000000e-02 negative=0 face_negative=0
+
+CONCLUSION: both cached charts are already strong enough to certify the floor20 error box, even while retaining the weaker floor18 clean shift.
+NEXT: rebuild once with the actual floor20 table and W_FLOOR=37.
+
+## Response:
+7/14/2026, 4:26:45 PM
+
+This is the cleanest result so far. Both J_b charts pass a uniformly larger error box than the actual floor-20 one while keeping the weaker floor-18 clean shift, so the actual floor-20 rebuild should close with margin. I’m checking the cache wiring and cone scripts so the next command produces a reusable certificate rather than another diagnostic.
+
+You do not need another 20-minute rebuild to establish the separated floor-20 result. The uniform 1/100 box passed using the weaker floor-18 shift, and the actual floor-20 ratios for E2 through E5 are all below 0.007. By monotonicity of the absolute-error blocks, the actual floor-20 box is a strict subset of the box already certified. I’m locating the exact collision-cone entry points now.
+
+Planning next steps
+
+The user hasn't asked a direct question, so it seems they want guidance. I'll suggest running the floor20 process, maybe skipping the web search since we already have current data.
+
+Planned next steps
+
+Inspected collision radius scripts for floor rebuild
+
+Planning next steps
+
+The solution is close, but I need to clarify whether the user wants a rebuild or just verification. I definitely want to check the exact ratios before finalizing any command.
+
+Searched and fetched commit metadata and diff for P000041
+
+Worked for 2m 2s
+
+This is a decisive finite threshold, not an asymptote.
+
+The left chart needs less than 1/32 of the floor-18 error box, and the strip needs less than 1/64. The actual floor-20 ratios for the relevant errors E2 through E5 are approximately:
+
+E2: 0.0048
+
+E3: 0.0054
+
+E4: 0.0061
+
+E5: 0.0070
+
+All are below 1/100. Your 1/100 test therefore already proves the floor-20 error box is contained in a certified box, while retaining the weaker floor-18 clean shift. The direct rebuild below is still worthwhile because it produces a simpler standalone certificate artifact.
+
+set -o pipefail
+mkdir -p work/2026-07-14-pf4-floor20-separated
+
+python3 - <<'PY' 2>&1 | tee work/2026-07-14-pf4-floor20-separated/run.log
+from __future__ import annotations
+
+import gc
+import sys
+import time
+from fractions import Fraction
+from pathlib import Path
+
+ROOT = Path.cwd()
+OUT = ROOT / "work/2026-07-14-pf4-floor20-separated"
+
+for path in (
+    "scripts",
+    "work/2026-07-13-pf4-jb-separated-transfer",
+    "work/2026-07-14-pf4-jb-meanvalue-right",
+    "work/2026-07-13-pf4-six-obligations",
+    "work/2026-07-13-pf4-db-invariant",
+    "work/2026-07-13-pf4-dominant-lower-bound",
+    "work/2026-07-13-pf4-full-tail-transfer",
+):
+    sys.path.insert(0, str(ROOT / path))
+
+import prove_edge_separated_wframe as sr
+import prove_jb_blocks_wframe as jb
+import prove_jb_meanvalue_right as mv
+
+# Conservative exact rational ceilings above the directed floor-20 table.
+# Certified values were:
+#   3.0174e-18, 3.6682e-16, 4.5163e-14,
+#   5.8539e-12, 8.6958e-10, 2.6089e-7.
+ERROR20 = {
+    1: Fraction("3.1e-18"),
+    2: Fraction("3.8e-16"),
+    3: Fraction("4.7e-14"),
+    4: Fraction("6.1e-12"),
+    5: Fraction("9.0e-10"),
+    6: Fraction("2.7e-7"),
+}
+
+FLOOR = 20
+W_FLOOR = 2 * FLOOR - 3  # 37
+
+print("===== FLOOR-20 TABLE =====")
+for order in range(1, 7):
+    print(f"E[{order}] = {float(ERROR20[order]):.12e}")
+
+print("\n===== S_r SEPARATED TRANSFER =====")
+
+sr.EF = ERROR20
+sr.W_FLOOR = W_FLOOR
+
+start = time.time()
+sr_blocks = sr.build_blocks()
+sr_ok = sr.certify(sr_blocks)
+
+print(
+    f"S_r floor 20: {'PASS' if sr_ok else 'FAIL'} "
+    f"[{time.time() - start:.1f}s]"
+)
+
+if not sr_ok:
+    raise SystemExit("Unexpected S_r floor-20 failure.")
+
+del sr_blocks
+gc.collect()
+
+print("\n===== J_b LEFT SEPARATED BOX =====")
+
+left_dir = OUT / "left"
+left_dir.mkdir(parents=True, exist_ok=True)
+
+jb.ERROR = ERROR20
+jb.W_FLOOR = W_FLOOR
+jb.HERE = left_dir
+
+start = time.time()
+left_blocks, left_lcd, left_scale = jb.build_blocks(
+    with_target=False
+)
+left_blocks = jb.face_divide(left_blocks)
+left_ok = jb.certify("left", left_blocks)
+
+print(
+    f"J_b left floor 20: "
+    f"{'PASS' if left_ok else 'FAIL'} "
+    f"[{time.time() - start:.1f}s]"
+)
+
+if not left_ok:
+    raise SystemExit("J_b left floor-20 certificate failed.")
+
+del left_blocks
+gc.collect()
+
+print("\n===== J_b MEAN-VALUE STRIP =====")
+
+strip_dir = OUT / "strip"
+strip_dir.mkdir(parents=True, exist_ok=True)
+
+mv.E = ERROR20
+mv.W_FLOOR = W_FLOOR
+mv.HERE = strip_dir
+
+start = time.time()
+folded = mv.build_blocks()
+
+s_face = min(
+    min(monomial[1] for monomial in total)
+    for _, total, _ in folded.values()
+)
+t_face = min(
+    min(monomial[2] for monomial in total)
+    for _, total, _ in folded.values()
+)
+
+print(f"strip face factors: d1^{s_face} d2^{t_face}")
+
+assert s_face >= 2, "Peano cancellation must retain d1^2"
+assert t_face >= 1, "right collision factor d2 must remain"
+
+folded = {
+    key: (
+        const,
+        {
+            (
+                monomial[0],
+                monomial[1] - s_face,
+                monomial[2] - t_face,
+            ): coefficient
+            for monomial, coefficient in total.items()
+        },
+        lcd,
+    )
+    for key, (const, total, lcd) in folded.items()
+}
+
+items = mv.collapse_classes(folded)
+strip_ok = mv.certify(items)
+
+print(
+    f"J_b strip floor 20: "
+    f"{'PASS' if strip_ok else 'FAIL'} "
+    f"[{time.time() - start:.1f}s]"
+)
+
+if not strip_ok:
+    raise SystemExit("J_b strip floor-20 certificate failed.")
+
+print("\n===== FLOOR-20 SEPARATED SUMMARY =====")
+print("S_r:       PASS")
+print("J_b left:  PASS")
+print("J_b strip: PASS")
+print("")
+print("CERTIFIED: the complete separated positive-tail chain")
+print("holds for z >= 20 with conservative rational envelopes.")
+print("")
+print("NEXT OBLIGATION:")
+print("rederive the S_r and J_b collision-cone radii for z >= 20,")
+print("then join them to these separated certificates.")
+PY
+
+The no-target J_b form is the correct one here because the transfer target is needed only in the collision cone and would destroy the structural tangency on the separated faces.  The left and strip procedures are exact integer/Fraction residual certificates after positive denominator clearing.
+
+Once this passes, the separated positive branch is closed at z ≥ 20. The remaining local task is lowering the P000041 collision-radius hypotheses from X_m ≥ 23 to X_m ≥ 20; the existing cone proof already preserves both angular faces and has an explicit rational radius.
+
+## Prompt:
+7/14/2026, 4:41:04 PM
+
+arent we just repeatedly wandering down an asymptote, a canyon valley, that has no final bound? is there a final objective? what remains to declare PF4 entire?
+
+## Response:
+7/14/2026, 4:41:10 PM
+
+I am checking the latest completion map and any commits after P000047 so I can separate genuine remaining mathematics from repeated certificate tuning. The key question is whether the proof has a finite cover of parameter space or only a sequence of improving tail charts.
+
+Fetched latest repository commits and updates
+
+Worked for 42s
+
+Yes. The recent sequence was becoming a canyon because we kept asking one asymptotic chart to descend toward the origin. That chart was never supposed to prove the whole theorem. The right response is to stop lowering its floor.
+
+There is a finite final objective: construct a finite, overlapping cover of the entire domain
+
+$$
+\xi<m<r
+$$
+
+and certify
+
+$$
+\partial_\xi\Psi(\xi;m,r)\le 0
+$$
+
+on every member of that cover. The audited reduction then converts this inequality into global PF4. The repository already identifies this three-parameter inequality as the exact PF4 criterion, although the global inequality itself remains unproved.
+
+A sensible fixed atlas now uses z = 20 as the tail seam. Do not try to push the one-term chart below it.
+
+Positive far tail, zξ ≥ 20.
+
+Your computations strongly indicate that the separated S_r and both separated J_b charts close here. The 1/100 error box passed while retaining the weaker floor-18 clean shift, whereas the actual floor-20 errors are smaller still. That needs to be written as a formal monotonic-containment lemma, audited, and committed. A fresh rebuild is useful for replayability but is not conceptually new mathematics.
+
+The collision pieces must then be joined to it. The existing J_b collision theorem has an explicit rational radius but assumes the central tail coordinate is at least 23.  You need the analogous S_r and J_b collision-radius statements at floor 20, followed by an explicit proof that the collision and separated gap regions overlap. Once that is done, the far positive tail is finished permanently.
+
+Central positive anchor range, π ≤ zξ ≤ 20.
+
+This is the major remaining positive-region problem. It should not be handled by continuing to lower the one-term floor. Use the full theta jet or a two-term representation on a bounded xi interval.
+
+The domain is not automatically compact because m and r can escape to infinity. It therefore needs a finite subdivision:
+
+a compact three-dimensional box for bounded gaps;
+
+a right-escape lemma for large r;
+
+any necessary large-m or large-gap transition lemma;
+
+collision charts where m approaches xi or r approaches m.
+
+The repository’s earlier plan already anticipated a compact core plus escape lemmas. The tail experiments have merely shown where to place the seam. This is a finite interval-certification problem provided the regularized criterion is strictly negative and its denominators are controlled.
+
+Mixed-sign configurations.
+
+The completion map lists two genuinely different patterns:
+
+$$
+\xi<0<m<r,
+\qquad
+\xi<m<0<r,
+$$
+
+or equivalently the $(-,+,+)$ and $(-,-,+)$ jet patterns after parity reduction.
+
+These have not been globally certified. Evenness gives parity relations for s, q, q′, and q″, but it does not by itself prove the sign of the resulting three-point functional. They need their own compact/escape charts or a stronger symmetry lemma that genuinely reduces them to the positive case.
+
+The origin collision region.
+
+When nodes collide across zero, neither the positive-tail chart nor ordinary reflection handles the configuration directly. The completion map proposes using the already certified confluent C4 positivity to build a uniform origin collision cone.  That cone still needs to be derived and joined to the mixed-sign separated regions.
+
+All-negative configurations and global bookkeeping.
+
+Evenness should map the entirely negative sector to the positive sector after reversing the ordered nodes, but the determinant orientation and ladder choice must be written carefully. This is likely a lemma rather than a large computation, but it is part of a complete proof. The completion map calls this the mirror or anchor-choice lemma.
+
+Final theorem audit.
+
+Before declaring PF4 entire, the complete proof must also verify:
+
+the W3/PF3 input and the PF4 quotient reduction;
+
+the iterated-integral implication from the Wronskian signs to every 4-by-4 minor;
+
+all collision and partial-collision limits;
+
+strict versus weak inequalities and possible equality cases;
+
+an exhaustive partition with explicit overlaps and no uncovered seams;
+
+clean replay of every interval or polynomial certificate.
+
+Only after these pieces are audited can you state that the Riemann kernel is globally PF4. Combining that with the already certified PF5 counterexample would give exact global Pólya-frequency order four.
+
+So the honest status is: you are not one bound away from PF4, but you are also not following an infinite asymptote. The reduction has made the objective finite. The recent wandering came from trying to make the far-tail instrument solve the central problem. Fix the tail seam at 20, close and freeze that region, and move to the bounded central and mixed-sign atlas. That is the final program.
+
+
+
+Powered by ChatGPT Exporter (https://www.chatgptexporter.com)

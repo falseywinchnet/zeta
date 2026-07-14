@@ -28,6 +28,7 @@ comparison is built in.
 from __future__ import annotations
 
 import argparse
+import os
 import pickle
 import sys
 import time
@@ -39,6 +40,7 @@ from pathlib import Path
 import sympy as sp
 
 HERE = Path(__file__).resolve().parent
+CACHE_DIR = Path(os.environ.get("MIND_CACHE_DIR", HERE))
 ROOT = HERE.parent
 sys.path.insert(0, str(HERE))
 sys.path.insert(0, str(ROOT / "2026-07-13-pf4-six-obligations"))
@@ -190,7 +192,8 @@ def make_pieces():
 
 
 def build_blocks(with_target: bool = False):
-    cache = HERE / ("jb-blocks-target.pkl" if with_target else "jb-blocks-nt.pkl")
+    CACHE_DIR.mkdir(parents=True, exist_ok=True)
+    cache = CACHE_DIR / ("jb-blocks-target.pkl" if with_target else "jb-blocks-nt.pkl")
     if cache.exists():
         with open(cache, "rb") as handle:
             payload = pickle.load(handle)

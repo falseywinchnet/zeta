@@ -2890,16 +2890,58 @@
       "updated_at": "2026-07-14T02:15:43+00:00"
     },
     "F000161": {
-      "because": [],
-      "content": "Prove the three-point PF4 Peano density J_b>=0 on the positive tail after sparse collision division; the certified S_r theorem does not settle this sibling obligation.",
+      "because": [
+        {
+          "id": "K000008",
+          "type": "certificate"
+        }
+      ],
+      "content": "For the full Riemann theta kernel, the three-point PF4 Peano density satisfies J_b(x,m,r)>=0 for every x<m<r with pi exp(2x)>=23; the proof covers the full collision cone, both angular faces, the left separated box, and the mean-value strip.",
       "created_at": "2026-07-14T02:15:43+00:00",
       "relates_to": [
         "T000003"
       ],
+      "status": "established",
+      "updated_at": "2026-07-14T22:24:16+00:00"
+    },
+    "F000162": {
+      "because": [
+        {
+          "id": "F000156",
+          "type": "factoid"
+        },
+        {
+          "id": "F000160",
+          "type": "factoid"
+        },
+        {
+          "id": "F000161",
+          "type": "factoid"
+        },
+        {
+          "id": "K000008",
+          "type": "certificate"
+        }
+      ],
+      "content": "For the full Riemann kernel, partial_xi Psi(xi;m,r)<=0 holds for every xi<m<r with pi exp(2xi)>=23, by the certified positive-tail S_r and J_b Peano densities.",
+      "created_at": "2026-07-14T22:24:16+00:00",
+      "relates_to": [
+        "T000012"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-14T22:24:16+00:00"
+    },
+    "F000163": {
+      "because": [],
+      "content": "Prove explicit uniform escape thresholds for partial_xi Psi on bounded anchor intervals, on both right-escape and parity-reflected left-escape branches, so the remaining central and mixed-sign PF4 domain reduces to finitely many compact collision-divided charts.",
+      "created_at": "2026-07-14T22:25:41+00:00",
+      "relates_to": [
+        "T000012"
+      ],
       "status": "todo",
-      "updated_at": "2026-07-14T02:15:43+00:00"
+      "updated_at": "2026-07-14T22:25:41+00:00"
     }
   },
-  "next_id": 162,
+  "next_id": 164,
   "version": 1
 }

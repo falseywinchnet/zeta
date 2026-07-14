@@ -1,0 +1,98 @@
+band progress: 10000/33594
+band progress: 20000/33594
+band progress: 30000/33594
+sharp band certification: cells=33594 elapsed=7.7s
+
+certified table at z >= 6:
+  E[1]=1.442424210523e-02
+  E[2]=4.991278786735e-01
+  E[3]=1.625975824110e+01
+  E[4]=4.948143003267e+02
+  E[5]=1.392842380492e+04
+  E[6]=3.598023272866e+05
+
+certified table at z >= 7:
+  E[1]=1.489818439806e-03
+  E[2]=6.030564369577e-02
+  E[3]=2.318033961539e+00
+  E[4]=8.413561466995e+01
+  E[5]=2.866765652339e+03
+  E[6]=9.293359198924e+04
+
+certified table at z >= 8:
+  E[1]=1.403922460682e-04
+  E[2]=6.513942500906e-03
+  E[3]=2.889384689279e-01
+  E[4]=1.220827747737e+01
+  E[5]=4.926101280878e+02
+  E[6]=2.672486722086e+04
+
+certified table at z >= 9:
+  E[1]=1.233348446562e-05
+  E[2]=6.456166280193e-04
+  E[3]=3.250107709776e-02
+  E[4]=1.576446263243e+00
+  E[5]=8.772985554290e+01
+  E[6]=2.672486722086e+04
+
+certified table at z >= 10:
+  E[1]=1.023860733773e-06
+  E[2]=5.978911917094e-05
+  E[3]=3.394174562306e-03
+  E[4]=3.651024187222e-01
+  E[5]=8.772985554290e+01
+  E[6]=2.672486722086e+04
+
+certified table at z >= 12:
+  E[1]=1.330951795963e-07
+  E[2]=1.639407884736e-05
+  E[3]=2.041158887844e-03
+  E[4]=3.651024187222e-01
+  E[5]=8.772985554290e+01
+  E[6]=2.672486722086e+04
+
+certified table at z >= 16:
+  E[1]=1.330951795963e-07
+  E[2]=1.639407884736e-05
+  E[3]=2.041158887844e-03
+  E[4]=3.651024187222e-01
+  E[5]=8.772985554290e+01
+  E[6]=2.672486722086e+04
+
+===== S_r certificate at z >= 6 =====
+blocks: 292 [1.8s]
+S_r transfer: coefficients=2553 negative=273 [32.6s]
+S_r floor 6: FAIL
+
+===== S_r certificate at z >= 7 =====
+blocks: 292 [0.6s]
+S_r transfer: coefficients=2553 negative=269 [33.0s]
+S_r floor 7: FAIL
+
+===== S_r certificate at z >= 8 =====
+blocks: 292 [0.6s]
+S_r transfer: coefficients=2553 negative=263 [33.1s]
+S_r floor 8: FAIL
+
+===== S_r certificate at z >= 9 =====
+blocks: 292 [0.6s]
+S_r transfer: coefficients=2553 negative=254 [33.1s]
+S_r floor 9: FAIL
+
+===== S_r certificate at z >= 10 =====
+blocks: 292 [0.6s]
+S_r transfer: coefficients=2553 negative=246 [33.5s]
+S_r floor 10: FAIL
+
+===== S_r certificate at z >= 12 =====
+blocks: 292 [0.6s]
+S_r transfer: coefficients=2553 negative=237 [33.7s]
+S_r floor 12: FAIL
+
+===== S_r certificate at z >= 16 =====
+blocks: 292 [0.6s]
+S_r transfer: coefficients=2553 negative=219 [33.9s]
+S_r floor 16: FAIL
+
+No tested floor through 16 passed.
+Run the original audited floor-23 certificate as the regression anchor.

@@ -1,0 +1,39 @@
+{
+  "artifact": "certificates/pf4-tail-jb-residuals.bin.xz",
+  "artifact_sha256": "bb14f04265f124611b4c38183cf90e6cb737549d9af02d504d01534c0192239f",
+  "charts": {
+    "left": {
+      "count": 38103,
+      "minimum_bits": 838,
+      "zero": 0
+    },
+    "strip": {
+      "count": 53001,
+      "minimum_bits": 2146,
+      "zero": 0
+    }
+  },
+  "dependencies": [
+    "CERT6",
+    "CERT7"
+  ],
+  "generator": "scripts/generate_pf4_tail_jb_certificate.py --rebuild",
+  "hypotheses": [
+    "full Riemann theta kernel",
+    "ordered x<m<r",
+    "pi*exp(2*x)>=23"
+  ],
+  "precision": "exact rational and integer arithmetic; no numerical scan",
+  "requirements": [
+    "Python 3.13.13",
+    "sympy==1.14.0"
+  ],
+  "source_sha256": {
+    "work/2026-07-13-pf4-jb-collision-radius/prove_jb_collision_radius.py": "25e7a3f4c244ab7777dd9f8e9012f4e37cea61b10274942025a8d4f69997b3b0",
+    "work/2026-07-13-pf4-jb-separated-transfer/join_positive_tail.py": "f7e9d7d4347adce8ed38b44d6ed45d4d2ffb3c7e8cb644e3a2528613768ce3d0",
+    "work/2026-07-13-pf4-jb-separated-transfer/prove_jb_blocks_wframe.py": "ddd6bdfc7a10f8e502f4746243355350ed664167cbf524f3e37be3369db8b874",
+    "work/2026-07-13-pf4-six-obligations/density_algebra.py": "a9321d268075630c0cefaabf13b98c4672613b7f0d098522d66956a0f9fce08a",
+    "work/2026-07-14-pf4-jb-meanvalue-right/prove_jb_meanvalue_right.py": "834f3a3bf812f218803cef814fc03909bfbf08360d566a07f1cfea42166919c6"
+  },
+  "statement": "The cleared three-point PF4 Peano density J_b is nonnegative on the complete positive tail pi*exp(2*x)>=23, including both angular faces."
+}
