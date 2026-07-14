@@ -1,0 +1,46 @@
+certifying floor-6 band: u in [0.323514791689327, 0.995382165039875]
+band cells: 672 [0s]
+certified floor-6 ERROR table:
+  ERROR6[1] = 1.604672532537e-02 (band=1.604672532537e-02, floor23=3.901536291081e-21)
+  ERROR6[2] = 7.081647839655e-01 (band=7.081647839655e-01, floor23=1.093030277129e-18)
+  ERROR6[3] = 5.590700429591e+01 (band=5.590700429591e+01, floor23=4.657971294055e-16)
+  ERROR6[4] = 1.061131493058e+04 (band=1.061131493058e+04, floor23=2.906525465599e-13)
+  ERROR6[5] = 3.307793631257e+06 (band=3.307793631257e+06, floor23=2.446831327034e-10)
+  ERROR6[6] = 1.327173269262e+09 (band=1.327173269262e+09, floor23=2.608931178922e-07)
+
+===== S_r separated transfer at z floor 6 =====
+blocks: 292 [1.6s]
+S_r transfer: coefficients=2553 negative=799 [31.5s]
+S_r floor-4 separated transfer: FAIL [33s]
+RESULT: FAIL: AssertionError()
+
+===== J_b left box at z floor 6 =====
+expansion: 3246 pieces in 531 blocks [2.0s]
+blocks folded over global lcd=[10, 5, 3, 28, 20, 12] [257.6s total]
+face factors divided: d1^1 d2^1
+left: geometry_monomials=38103 negative=1630 face_negative=268 [576.6s]
+RESULT: FAIL: OverflowError('int too large to convert to float')
+
+===== J_b mean-value strip at z floor 6 =====
+expansion: 7171 pieces in 755 blocks [1.5s]
+per-beta folding done: 617 blocks [3.6s total]
+strip face factors: d1^2 d2^1
+collapsed 616 error blocks into 423 lcd-class envelopes
+strip: geometry_monomials=53001 negative=8098 face_negative=208 [793.8s]
+NEG (0, 2, 0) 2571
+NEG (1, 2, 0) 2574
+NEG (2, 2, 0) 2575
+NEG (3, 2, 0) 2577
+NEG (4, 2, 0) 2577
+NEG (5, 2, 0) 2578
+NEG (6, 2, 0) 2578
+NEG (7, 2, 0) 2577
+NEG (8, 2, 0) 2577
+NEG (9, 2, 0) 2576
+J_b floor-4 mean-value strip: FAIL [938s]
+RESULT: FAIL: AssertionError()
+
+===== FLOOR-6 SUMMARY =====
+FAIL S_r separated transfer: AssertionError()
+FAIL J_b left box: OverflowError('int too large to convert to float')
+FAIL J_b mean-value strip: AssertionError()

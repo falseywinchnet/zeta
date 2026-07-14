@@ -359,8 +359,59 @@
         "T000003"
       ],
       "updated_at": "2026-07-14T16:05:02+00:00"
+    },
+    "K000008": {
+      "artifacts": [
+        {
+          "path": "certificates/pf4-tail-jb-residuals.bin.xz",
+          "sha256": "bb14f04265f124611b4c38183cf90e6cb737549d9af02d504d01534c0192239f"
+        },
+        {
+          "path": "scripts/pf4_tail_jb_manifest.json",
+          "sha256": "2f00bcc108e83d56aab7ab85ab8974bf1996a16f7648e1838f8d544a79ab4d7a"
+        },
+        {
+          "path": "scripts/generate_pf4_tail_jb_certificate.py",
+          "sha256": "869ea1f2ca1e45a638d8aa718641ba979c07ebbb38b616bd8de96a34b04587a6"
+        },
+        {
+          "path": "work/2026-07-13-pf4-jb-collision-radius/MATHEMATICS.md",
+          "sha256": "51c0aab81367ca618c3cd6e4a7f3a6de0814d447fd8863c484818cd6170dc6d4"
+        },
+        {
+          "path": "work/2026-07-14-pf4-jb-meanvalue-right/MATHEMATICS.md",
+          "sha256": "59ee61ff046fc8efeac86cd92f5f4588c78f1fb880c14cbdb726cff07fe7feaf"
+        }
+      ],
+      "created_at": "2026-07-14T22:21:47+00:00",
+      "dependencies": [
+        "K000006",
+        "K000007"
+      ],
+      "description": "Exact positive-tail PF4 J_b certificate: all-order collision radius, proof-carrying left-box and mean-value-strip residuals, first Peano cancellation, both angular faces, and exhaustive positive-tail join.",
+      "environment": null,
+      "file": {
+        "path": "scripts/verify_pf4_tail_jb.py",
+        "sha256": "02890ec1898b4ac10a8c32570a52f47a5a174d8f3703c7008b4b1cd67f88729b"
+      },
+      "precision": "exact rational/integer arithmetic; 91104 proof-carrying residuals; no scan",
+      "requirements": [],
+      "runner": {
+        "argv": [
+          "{python}",
+          "scripts/verify_pf4_tail_jb.py"
+        ],
+        "expected_exit_code": 0,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "a54d5ce2cf3eee4437b1ff8fd7a7571b7ecbe564edd4c0708ca520462bd2de1a",
+        "timeout_seconds": 300
+      },
+      "topics": [
+        "T000012"
+      ],
+      "updated_at": "2026-07-14T22:21:47+00:00"
     }
   },
-  "next_id": 8,
+  "next_id": 9,
   "version": 1
 }

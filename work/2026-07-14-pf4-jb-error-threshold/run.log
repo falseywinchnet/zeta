@@ -1,0 +1,166 @@
+
+===== PREPARE LEFT CACHE =====
+face factors divided: d1^1 d2^1
+left prepared: monomials=38103 elapsed=612.6s
+
+===== J_b left SHRINK THRESHOLD =====
+
+-- floor18 box --
+J_b left: alpha=1.000000000e+00 negative=76 face_negative=49
+  NEG (10, 1, 0) bits=2535
+  NEG (16, 0, 0) bits=2523
+  NEG (12, 0, 1) bits=2564
+  NEG (17, 0, 0) bits=2520
+  NEG (0, 0, 0) bits=2552
+
+-- 1/2 --
+J_b left: alpha=5.000000000e-01 negative=58 face_negative=37
+  NEG (10, 1, 0) bits=2541
+  NEG (16, 0, 0) bits=2530
+  NEG (12, 0, 1) bits=2571
+  NEG (17, 0, 0) bits=2527
+  NEG (0, 0, 0) bits=2559
+
+-- 1/4 --
+J_b left: alpha=2.500000000e-01 negative=38 face_negative=23
+  NEG (16, 0, 0) bits=2534
+  NEG (12, 0, 1) bits=2576
+  NEG (0, 0, 0) bits=2566
+  NEG (14, 0, 0) bits=2542
+  NEG (13, 0, 1) bits=2572
+
+-- 1/8 --
+J_b left: alpha=1.250000000e-01 negative=19 face_negative=11
+  NEG (0, 0, 0) bits=2573
+  NEG (4, 0, 0) bits=2572
+  NEG (3, 0, 0) bits=2573
+  NEG (0, 0, 1) bits=2601
+  NEG (2, 0, 0) bits=2574
+
+-- 1/16 --
+J_b left: alpha=6.250000000e-02 negative=3 face_negative=3
+  NEG (0, 0, 0) bits=2578
+  NEG (2, 0, 0) bits=2578
+  NEG (1, 0, 0) bits=2579
+
+-- 1/32 --
+J_b left: alpha=3.125000000e-02 negative=0 face_negative=0
+
+-- 1/64 --
+J_b left: alpha=1.562500000e-02 negative=0 face_negative=0
+
+-- floor20-safe box --
+J_b left: alpha=1.000000000e-02 negative=0 face_negative=0
+
+-- 1/128 --
+J_b left: alpha=7.812500000e-03 negative=0 face_negative=0
+
+-- 1/256 --
+J_b left: alpha=3.906250000e-03 negative=0 face_negative=0
+
+-- floor22-safe box --
+J_b left: alpha=2.500000000e-03 negative=0 face_negative=0
+
+-- 1/512 --
+J_b left: alpha=1.953125000e-03 negative=0 face_negative=0
+
+-- 1/1024 --
+J_b left: alpha=9.765625000e-04 negative=0 face_negative=0
+
+-- clean only --
+J_b left: alpha=0.000000000e+00 negative=0 face_negative=0
+
+J_b left first listed pass: ('1/32', Fraction(1, 32))
+
+===== PREPARE STRIP CACHE =====
+strip face factors: d1^2 d2^1
+strip degree classes: 426
+strip prepared: monomials=53001 elapsed=796.7s
+
+===== J_b strip SHRINK THRESHOLD =====
+
+-- floor18 box --
+J_b strip: alpha=1.000000000e+00 negative=1077 face_negative=36
+  NEG (1, 18, 0) bits=3023
+  NEG (26, 8, 0) bits=2945
+  NEG (18, 2, 0) bits=2961
+  NEG (21, 9, 0) bits=2968
+  NEG (8, 5, 0) bits=2999
+
+-- 1/2 --
+J_b strip: alpha=5.000000000e-01 negative=860 face_negative=32
+  NEG (1, 18, 0) bits=3030
+  NEG (26, 8, 0) bits=2948
+  NEG (18, 2, 0) bits=2968
+  NEG (21, 9, 0) bits=2974
+  NEG (8, 5, 0) bits=3006
+
+-- 1/4 --
+J_b strip: alpha=2.500000000e-01 negative=619 face_negative=27
+  NEG (1, 18, 0) bits=3037
+  NEG (18, 2, 0) bits=2974
+  NEG (8, 5, 0) bits=3013
+  NEG (9, 12, 0) bits=3023
+  NEG (6, 4, 0) bits=3014
+
+-- 1/8 --
+J_b strip: alpha=1.250000000e-01 negative=349 face_negative=21
+  NEG (1, 18, 0) bits=3043
+  NEG (18, 2, 0) bits=2978
+  NEG (8, 5, 0) bits=3019
+  NEG (9, 12, 0) bits=3028
+  NEG (6, 4, 0) bits=3021
+
+-- 1/16 --
+J_b strip: alpha=6.250000000e-02 negative=142 face_negative=15
+  NEG (8, 5, 0) bits=3024
+  NEG (6, 4, 0) bits=3027
+  NEG (7, 5, 0) bits=3027
+  NEG (8, 6, 0) bits=3026
+  NEG (0, 0, 0) bits=3015
+
+-- 1/32 --
+J_b strip: alpha=3.125000000e-02 negative=33 face_negative=8
+  NEG (0, 0, 0) bits=3021
+  NEG (0, 7, 0) bits=3041
+  NEG (0, 1, 0) bits=3026
+  NEG (4, 0, 0) bits=3020
+  NEG (3, 0, 0) bits=3021
+
+-- 1/64 --
+J_b strip: alpha=1.562500000e-02 negative=0 face_negative=0
+
+-- floor20-safe box --
+J_b strip: alpha=1.000000000e-02 negative=0 face_negative=0
+
+-- 1/128 --
+J_b strip: alpha=7.812500000e-03 negative=0 face_negative=0
+
+-- 1/256 --
+J_b strip: alpha=3.906250000e-03 negative=0 face_negative=0
+
+-- floor22-safe box --
+J_b strip: alpha=2.500000000e-03 negative=0 face_negative=0
+
+-- 1/512 --
+J_b strip: alpha=1.953125000e-03 negative=0 face_negative=0
+
+-- 1/1024 --
+J_b strip: alpha=9.765625000e-04 negative=0 face_negative=0
+
+-- clean only --
+J_b strip: alpha=0.000000000e+00 negative=0 face_negative=0
+
+J_b strip first listed pass: ('1/64', Fraction(1, 64))
+
+===== INTERPRETATION =====
+left: ('1/32', Fraction(1, 32))
+strip: ('1/64', Fraction(1, 64))
+
+The floor20-safe test uses alpha=1/100, which is larger than every observed floor20/floor18 ratio among E2..E5.
+The floor22-safe test uses alpha=1/400, which is larger than every observed floor22/floor18 ratio among E2..E5.
+left floor20 check: alpha=1.000000000e-02 negative=0 face_negative=0
+strip floor20 check: alpha=1.000000000e-02 negative=0 face_negative=0
+
+CONCLUSION: both cached charts are already strong enough to certify the floor20 error box, even while retaining the weaker floor18 clean shift.
+NEXT: rebuild once with the actual floor20 table and W_FLOOR=37.

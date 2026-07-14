@@ -35,6 +35,7 @@ geometry monomial.
 from __future__ import annotations
 
 import argparse
+import os
 import pickle
 import sys
 import time
@@ -46,6 +47,7 @@ from pathlib import Path
 import sympy as sp
 
 HERE = Path(__file__).resolve().parent
+CACHE_DIR = Path(os.environ.get("MIND_CACHE_DIR", HERE))
 ROOT = HERE.parent
 sys.path.insert(0, str(ROOT / "2026-07-13-pf4-jb-separated-transfer"))
 sys.path.insert(0, str(ROOT / "2026-07-13-pf4-six-obligations"))
@@ -148,7 +150,8 @@ def cross_check_rdec() -> None:
 
 
 def build_blocks():
-    cache = HERE / "jb-mv-blocks.pkl"
+    CACHE_DIR.mkdir(parents=True, exist_ok=True)
+    cache = CACHE_DIR / "jb-mv-blocks.pkl"
     if cache.exists():
         with open(cache, "rb") as handle:
             payload = pickle.load(handle)

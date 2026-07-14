@@ -3,3 +3,10 @@ __pycache__/
 tmp/
 mind-data/search-index.json
 .DS_Store
+
+# Large regenerable PF4 coefficient caches from manual terminal runs.  Their
+# exact conclusions are retained in logs; certified residuals live under
+# certificates/ in a compact proof-carrying format.
+work/2026-07-14-pf4-floor6-chain/*.pkl
+work/2026-07-14-pf4-floor18-jb/**/*.pkl
+work/2026-07-13-pf4-jb-separated-transfer/jb-blocks-*.pkl

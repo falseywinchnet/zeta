@@ -1,0 +1,53 @@
+stable floor-18 table: cells=491 elapsed=0.1s
+  E[1]=7.035659196451e-16 argmax=(17.99999992919873, 18.009002282394412)
+  E[2]=7.665491286852e-14 argmax=(17.99999992919873, 18.009002282394412)
+  E[3]=8.413849261263e-12 argmax=(17.99999992919873, 18.009002282394412)
+  E[4]=9.633573050725e-10 argmax=(17.99999992919873, 18.009002282394412)
+  E[5]=1.245313765126e-07 argmax=(17.99999992919873, 18.009002282394412)
+  E[6]=2.071189678380e-05 argmax=(17.99999992919873, 18.009002282394412)
+
+===== S_r FLOOR-18 REGRESSION =====
+blocks: 292 [1.7s]
+S_r transfer: coefficients=2553 negative=0 [34.2s]
+S_r floor 18: PASS
+
+===== J_b LEFT SEPARATED BOX AT FLOOR 18 =====
+expansion: 3246 pieces in 531 blocks [2.1s]
+blocks folded over global lcd=[10, 5, 3, 28, 20, 12] [273.1s total]
+face factors divided: d1^1 d2^1
+left: geometry_monomials=38103 negative=76 face_negative=49 [655.8s]
+NEG (0, 0, 0) bits=2552
+NEG (1, 0, 0) bits=2554
+NEG (2, 0, 0) bits=2554
+NEG (3, 0, 0) bits=2553
+NEG (4, 0, 0) bits=2552
+NEG (5, 0, 0) bits=2551
+NEG (6, 0, 0) bits=2549
+NEG (7, 0, 0) bits=2548
+NEG (8, 0, 0) bits=2545
+NEG (9, 0, 0) bits=2543
+J_b left floor 18: FAIL
+
+===== J_b MEAN-VALUE STRIP AT FLOOR 18 =====
+expansion: 7171 pieces in 755 blocks [1.4s]
+per-beta folding done: 617 blocks [3.6s total]
+strip face factors: d1^2 d2^1
+collapsed 616 error blocks into 423 lcd-class envelopes
+strip: geometry_monomials=53001 negative=1077 face_negative=36 [830.2s]
+NEG (0, 2, 0) 2997
+NEG (1, 2, 0) 2998
+NEG (2, 2, 0) 2998
+NEG (3, 2, 0) 2997
+NEG (4, 2, 0) 2996
+NEG (5, 2, 0) 2995
+NEG (6, 2, 0) 2994
+NEG (7, 2, 0) 2992
+NEG (8, 2, 0) 2990
+NEG (9, 2, 0) 2987
+J_b strip floor 18: FAIL
+
+===== FLOOR-18 SUMMARY =====
+S_r:       PASS
+J_b left:  FAIL
+J_b strip: FAIL
+At least one J_b chart needs either a higher floor or a less independent tail decomposition.

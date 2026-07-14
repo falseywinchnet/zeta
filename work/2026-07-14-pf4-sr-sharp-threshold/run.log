@@ -1,0 +1,143 @@
+band progress: 5000/13438
+band progress: 10000/13438
+sharp order-9 band: cells=13438 elapsed=7.3s
+
+certified table for z >= 6:
+  E[1]=1.442770407493e-02
+  E[2]=4.992475464460e-01
+  E[3]=2.867655845410e+01
+  E[4]=1.009277890822e+04
+  E[5]=4.144231523583e+06
+  E[6]=1.944782823987e+09
+
+certified table for z >= 7:
+  E[1]=1.490661962446e-03
+  E[2]=9.777733640829e-02
+  E[3]=2.867655845410e+01
+  E[4]=1.009277890822e+04
+  E[5]=4.144231523583e+06
+  E[6]=1.944782823987e+09
+
+certified table for z >= 8:
+  E[1]=4.168763595926e-04
+  E[2]=9.777733640829e-02
+  E[3]=2.867655845410e+01
+  E[4]=1.009277890822e+04
+  E[5]=4.144231523583e+06
+  E[6]=1.944782823987e+09
+
+certified table for z >= 9:
+  E[1]=4.168763595926e-04
+  E[2]=9.777733640829e-02
+  E[3]=2.867655845410e+01
+  E[4]=1.009277890822e+04
+  E[5]=4.144231523583e+06
+  E[6]=1.944782823987e+09
+
+certified table for z >= 10:
+  E[1]=4.168763595926e-04
+  E[2]=9.777733640829e-02
+  E[3]=2.867655845410e+01
+  E[4]=1.009277890822e+04
+  E[5]=4.144231523583e+06
+  E[6]=1.944782823987e+09
+
+certified table for z >= 12:
+  E[1]=4.168763595926e-04
+  E[2]=9.777733640829e-02
+  E[3]=2.867655845410e+01
+  E[4]=1.009277890822e+04
+  E[5]=4.144231523583e+06
+  E[6]=1.944782823987e+09
+
+certified table for z >= 14:
+  E[1]=4.168763595926e-04
+  E[2]=9.777733640829e-02
+  E[3]=2.867655845410e+01
+  E[4]=1.009277890822e+04
+  E[5]=4.144231523583e+06
+  E[6]=1.944782823987e+09
+
+certified table for z >= 16:
+  E[1]=4.168763595926e-04
+  E[2]=9.777733640829e-02
+  E[3]=2.867655845410e+01
+  E[4]=1.009277890822e+04
+  E[5]=4.144231523583e+06
+  E[6]=1.944782823987e+09
+
+certified table for z >= 18:
+  E[1]=4.168763595926e-04
+  E[2]=9.777733640829e-02
+  E[3]=2.867655845410e+01
+  E[4]=1.009277890822e+04
+  E[5]=4.144231523583e+06
+  E[6]=1.944782823987e+09
+
+certified table for z >= 20:
+  E[1]=4.168763595926e-04
+  E[2]=9.777733640829e-02
+  E[3]=2.867655845410e+01
+  E[4]=1.009277890822e+04
+  E[5]=4.144231523583e+06
+  E[6]=1.944782823987e+09
+
+certified table for z >= 22:
+  E[1]=4.168763595926e-04
+  E[2]=9.777733640829e-02
+  E[3]=2.867655845410e+01
+  E[4]=1.009277890822e+04
+  E[5]=4.144231523583e+06
+  E[6]=1.944782823987e+09
+
+===== PHASE 1: PLAIN S_r POSITIVITY =====
+blocks: 292 [1.7s]
+S_r transfer: coefficients=2553 negative=745 [32.7s]
+S_r floor=6 target=0.000000e+00: FAIL
+blocks: 292 [0.6s]
+S_r transfer: coefficients=2553 negative=573 [33.0s]
+S_r floor=7 target=0.000000e+00: FAIL
+blocks: 292 [0.6s]
+S_r transfer: coefficients=2553 negative=441 [33.0s]
+S_r floor=8 target=0.000000e+00: FAIL
+blocks: 292 [0.7s]
+S_r transfer: coefficients=2553 negative=348 [32.9s]
+S_r floor=9 target=0.000000e+00: FAIL
+blocks: 292 [0.6s]
+S_r transfer: coefficients=2553 negative=295 [32.8s]
+S_r floor=10 target=0.000000e+00: FAIL
+blocks: 292 [0.6s]
+S_r transfer: coefficients=2553 negative=272 [32.9s]
+S_r floor=12 target=0.000000e+00: FAIL
+blocks: 292 [0.6s]
+S_r transfer: coefficients=2553 negative=270 [32.8s]
+S_r floor=14 target=0.000000e+00: FAIL
+blocks: 292 [0.6s]
+S_r transfer: coefficients=2553 negative=268 [33.2s]
+S_r floor=16 target=0.000000e+00: FAIL
+blocks: 292 [0.6s]
+S_r transfer: coefficients=2553 negative=267 [33.1s]
+S_r floor=18 target=0.000000e+00: FAIL
+blocks: 292 [0.6s]
+S_r transfer: coefficients=2553 negative=265 [32.8s]
+S_r floor=20 target=0.000000e+00: FAIL
+blocks: 292 [0.7s]
+S_r transfer: coefficients=2553 negative=263 [33.2s]
+S_r floor=22 target=0.000000e+00: FAIL
+blocks: 292 [0.6s]
+S_r transfer: coefficients=2553 negative=0 [34.6s]
+S_r floor=23 target=0.000000e+00: PASS
+
+FIRST TESTED FLOOR PROVING PLAIN S_r > 0: 23
+
+===== PHASE 2: ORIGINAL TRANSFER TARGET =====
+blocks: 292 [0.6s]
+S_r transfer: coefficients=2553 negative=0 [35.0s]
+S_r floor=23 target=1.998785e+00: PASS
+
+FIRST TESTED FLOOR PROVING THE ORIGINAL TARGET: 23
+
+===== CONCLUSION =====
+plain positivity floor: 23
+original-target floor: 23
+Do not run the two J_b certificates until this discriminator is resolved.

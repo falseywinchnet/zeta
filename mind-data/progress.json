@@ -187,8 +187,12 @@
     "P000047": {
       "blurb": "Discover the one-term architecture floor near z=6 and certify tight band envelopes",
       "created_at": "2026-07-14T17:30:19+00:00"
+    },
+    "P000048": {
+      "blurb": "Audit and certify the complete positive-tail PF4 J_b proof, preserve manual threshold diagnostics, optimize replay, and fix the finite global PF4 completion atlas",
+      "created_at": "2026-07-14T22:25:51+00:00"
     }
   },
-  "next_id": 48,
+  "next_id": 49,
   "version": 1
 }

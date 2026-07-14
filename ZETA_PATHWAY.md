@@ -183,9 +183,13 @@ path until `R93` is resolved.
   `CERT6` and `CERT7` now certify the positive-tail one-sided branch of the
   Peano reduction: the full-kernel collision margins are explicit (`R157`,
   `R158`), a corrected rational collision radius is proved (`R159`), and
-  `S_r(m,r)>0` holds for every `m<r` with `pi exp(2m)>=23` (`R160`). The sibling
-  three-point density `J_b>=0` remains open (`R161`), so proving the complete
-  three-point inequality is still the named continuation (`R153`). P000027's
+  `S_r(m,r)>0` holds for every `m<r` with `pi exp(2m)>=23` (`R160`). `CERT8`
+  closes the sibling three-point density `J_b>=0` on the complete positive
+  tail (`R161`), including the collision cone, both faces, and both separated
+  charts; hence the exact criterion holds whenever `pi exp(2xi)>=23` (`R162`).
+  The live finite completion atlas is recorded in `PF4_PATHWAY.md`; the next
+  obligation is a uniform escape compactification, followed by central,
+  mixed-sign, origin-collision, and mirror/join charts (`R153`, `R163`). P000027's
   8.4-million-point scan found no violation but remains raw numerical progress,
   not evidence for the global inequality. This
   classification is RH-neutral; kernel-specific transition invariants require
@@ -211,6 +215,8 @@ Before any new zeta round:
 ./MIND SEARCH R113
 ./MIND SEARCH R160
 ./MIND SEARCH R161
+./MIND SEARCH R162
+./MIND SEARCH R163
 ./MIND SEARCH R83
 ./MIND SEARCH R94
 ```

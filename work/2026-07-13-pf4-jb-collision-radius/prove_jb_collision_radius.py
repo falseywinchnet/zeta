@@ -125,17 +125,21 @@ def main() -> None:
     for order in range(6, ORDER + 1):
         if series.c[order] == 0:
             continue
-        quotient = sp.cancel(series.c[order] / (alpha * beta**2))
-        assert sp.fraction(quotient)[1] == 1, order
-        # Keep alpha and beta independent during majorization.  On the
-        # normalized simplex each is <=1; substituting alpha=1-beta first
-        # causes needless binomial expression swell.
-        expanded = sp.expand(quotient)
+        # Every term has the forced collision factor alpha*beta**2.  Dividing
+        # that known monomial through termwise is exact and avoids forty very
+        # expensive generic polynomial-GCD calls in ``cancel``.  Alpha and
+        # beta remain independent during majorization and are each <=1 on the
+        # normalized simplex.
+        expanded = sp.expand(series.c[order])
         norm = sp.Integer(0)
         term_count = 0
         for monomial in sp.Add.make_args(expanded):
             coefficient, symbolic = monomial.as_coeff_Mul()
             powers = symbolic.as_powers_dict()
+            alpha_power = sp.sympify(powers.get(alpha, 0))
+            beta_power = sp.sympify(powers.get(beta, 0))
+            assert alpha_power.is_Integer and alpha_power >= 1, order
+            assert beta_power.is_Integer and beta_power >= 2, order
             term = abs(coefficient)  # alpha and beta are bounded by one.
             for variable in remainder_variables:
                 power = sp.sympify(powers.get(variable, 0))
