@@ -439,7 +439,7 @@ class Store:
         for kid in roots:
             visit(kid)
         ordered, completed = [], set()
-        workers = max(1, int(os.environ.get("MIND_CERTIFICATE_JOBS", "4")))
+        workers = max(1, int(os.environ.get("MIND_CERTIFICATE_JOBS", "8")))
         while completed != selected:
             ready = sorted(
                 kid for kid in selected - completed
