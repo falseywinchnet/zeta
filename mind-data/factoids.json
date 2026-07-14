@@ -2828,8 +2828,78 @@
       ],
       "status": "established",
       "updated_at": "2026-07-13T20:36:21+00:00"
+    },
+    "F000157": {
+      "because": [
+        {
+          "id": "K000006",
+          "type": "certificate"
+        }
+      ],
+      "content": "For the full Riemann theta kernel on the positive tail X=pi exp(2m)>=23, the continuous collision extension of the one-sided PF4 Peano density satisfies S_r(m,m)>X/38.",
+      "created_at": "2026-07-14T02:15:42+00:00",
+      "relates_to": [
+        "T000003"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-14T02:15:42+00:00"
+    },
+    "F000158": {
+      "because": [
+        {
+          "id": "K000006",
+          "type": "certificate"
+        }
+      ],
+      "content": "For x=m-beta epsilon and r=m+alpha epsilon on the positive tail X=pi exp(2m)>=23, the full-kernel PF4 three-point numerator satisfies lim_(epsilon to 0+) J/[beta(alpha+beta)^2 epsilon^3]>7X^3.",
+      "created_at": "2026-07-14T02:15:42+00:00",
+      "relates_to": [
+        "T000003"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-14T02:15:42+00:00"
+    },
+    "F000159": {
+      "because": [
+        {
+          "id": "K000006",
+          "type": "certificate"
+        }
+      ],
+      "content": "For the full Riemann theta kernel with X=pi exp(2m)>=23, S_r(m,m+h)>0 whenever 0<h<=7167625959375/4845831475374350860288.",
+      "created_at": "2026-07-14T02:15:43+00:00",
+      "relates_to": [
+        "T000003"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-14T02:15:43+00:00"
+    },
+    "F000160": {
+      "because": [
+        {
+          "id": "K000007",
+          "type": "certificate"
+        }
+      ],
+      "content": "For the full Riemann theta kernel, the one-sided PF4 Peano density satisfies S_r(m,r)>0 for every m<r with pi exp(2m)>=23.",
+      "created_at": "2026-07-14T02:15:43+00:00",
+      "relates_to": [
+        "T000003"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-14T02:15:43+00:00"
+    },
+    "F000161": {
+      "because": [],
+      "content": "Prove the three-point PF4 Peano density J_b>=0 on the positive tail after sparse collision division; the certified S_r theorem does not settle this sibling obligation.",
+      "created_at": "2026-07-14T02:15:43+00:00",
+      "relates_to": [
+        "T000003"
+      ],
+      "status": "todo",
+      "updated_at": "2026-07-14T02:15:43+00:00"
     }
   },
-  "next_id": 157,
+  "next_id": 162,
   "version": 1
 }

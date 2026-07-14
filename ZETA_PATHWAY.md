@@ -180,9 +180,14 @@ path until `R93` is resolved.
   PF5 fails. `CERT5` audits a self-contained quotient/iterated-integral route:
   every translate W3 is strictly positive (`R155`), and global PF4 is exactly
   equivalent to `partial_xi Psi(xi;m,r)<=0` for every `xi<m<r` (`R154`, `R156`).
-  Proving this three-point inequality is now the single named continuation
-  (`R153`). P000027's 8.4-million-point scan found no violation but remains raw
-  numerical progress, not evidence for the global inequality. This
+  `CERT6` and `CERT7` now certify the positive-tail one-sided branch of the
+  Peano reduction: the full-kernel collision margins are explicit (`R157`,
+  `R158`), a corrected rational collision radius is proved (`R159`), and
+  `S_r(m,r)>0` holds for every `m<r` with `pi exp(2m)>=23` (`R160`). The sibling
+  three-point density `J_b>=0` remains open (`R161`), so proving the complete
+  three-point inequality is still the named continuation (`R153`). P000027's
+  8.4-million-point scan found no violation but remains raw numerical progress,
+  not evidence for the global inequality. This
   classification is RH-neutral; kernel-specific transition invariants require
   their own formal definitions.
 - Jensen and Li families: exact but unbounded coordinate tests (`R62`, `R79`,
@@ -204,6 +209,8 @@ Before any new zeta round:
 ./MIND SEARCH R111
 ./MIND SEARCH R112
 ./MIND SEARCH R113
+./MIND SEARCH R160
+./MIND SEARCH R161
 ./MIND SEARCH R83
 ./MIND SEARCH R94
 ```
