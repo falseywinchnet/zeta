@@ -1,0 +1,8 @@
+PASS W1 reflection row_sign=1 column_reversal_sign=1 total=1
+PASS W2 reflection row_sign=-1 column_reversal_sign=-1 total=1
+PASS W3 reflection row_sign=-1 column_reversal_sign=-1 total=1
+PASS W4 reflection row_sign=1 column_reversal_sign=1 total=1
+PASS backward finite difference limit=-a1
+PASS positive-tail seam pi*exp(2)>23: [23.2134043573633872361503458960068824800629326490559034571 +/- 4.55e-56]
+PASS implication: positive reflected W4 finite differences imply partial_x Psi<=0 for x<m<r<-1
+status=all-negative PF4 mirror closed; only compact chart remains

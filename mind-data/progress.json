@@ -199,8 +199,12 @@
     "P000050": {
       "blurb": "Upgrade PF4 escape to a global Peano bound, compactify mixed charts, and derive exact reflection orientation",
       "created_at": "2026-07-14T22:56:39+00:00"
+    },
+    "P000051": {
+      "blurb": "Close the all-negative PF4 mirror through finite Wronskian reflection and confluent orientation",
+      "created_at": "2026-07-14T23:24:43+00:00"
     }
   },
-  "next_id": 51,
+  "next_id": 52,
   "version": 1
 }
