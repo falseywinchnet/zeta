@@ -1,0 +1,8 @@
+band cells: 875 [0s]
+certified band bounds (z^4 |D^j w| on [4,23]):
+  j=1: band=0.92069  ERROR23=3.9e-21  E4_tight=0.92069
+  j=2: band=21.5344  ERROR23=1.09e-18  E4_tight=21.5344
+  j=3: band=494.552  ERROR23=4.66e-16  E4_tight=494.552
+  j=4: band=18928.8  ERROR23=2.91e-13  E4_tight=18928.8
+  j=5: band=3.44664e+06  ERROR23=2.45e-10  E4_tight=3.44664e+06
+  j=6: band=1.32915e+09  ERROR23=2.61e-07  E4_tight=1.32915e+09
