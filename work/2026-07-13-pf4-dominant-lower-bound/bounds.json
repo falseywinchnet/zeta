@@ -1,0 +1,26 @@
+{
+  "kernel": "first theta term",
+  "chart": "positive tail",
+  "domain": {
+    "X_min": 23,
+    "U_min": 1,
+    "V_min": 1
+  },
+  "lambda_S": {
+    "numerator": 12874546322,
+    "denominator": 6441186049,
+    "claim": "S_r >= lambda_S q1(r)"
+  },
+  "lambda_J": {
+    "numerator": 40692340696264827889,
+    "denominator": 40743983163526890625,
+    "claim": "J_b >= lambda_J q1(x)(B+C)(3B+C)"
+  },
+  "collision_divided": {
+    "claim": "J/[b(b+d)^2] >= lambda_J q1(x)^3",
+    "X_cubic_numerator": 2604309804560948984896,
+    "X_cubic_denominator": 40743983163526890625
+  },
+  "verifier": "prove_explicit_lower_bounds.py",
+  "full_theta_claim": false
+}
