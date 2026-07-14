@@ -179,8 +179,12 @@
     "P000045": {
       "blurb": "Rebuild the S_r separated-transfer certificate in the w-frame block machinery and raise default certificate replay parallelism",
       "created_at": "2026-07-14T16:05:13+00:00"
+    },
+    "P000046": {
+      "blurb": "Derive and validate pi-floor theta-tail envelope tables with a floor-23 regression gate",
+      "created_at": "2026-07-14T16:53:46+00:00"
     }
   },
-  "next_id": 46,
+  "next_id": 47,
   "version": 1
 }
