@@ -147,8 +147,12 @@
     "P000037": {
       "blurb": "Derived explicit full-theta PF4 collision-face margins and isolated the failed independent-jet transfer",
       "created_at": "2026-07-14T01:14:28+00:00"
+    },
+    "P000038": {
+      "blurb": "Proved a quantitative full-theta edge collision radius and closed its separated positive-tail complement",
+      "created_at": "2026-07-14T01:57:16+00:00"
     }
   },
-  "next_id": 38,
+  "next_id": 39,
   "version": 1
 }
