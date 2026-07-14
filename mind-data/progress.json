@@ -151,8 +151,12 @@
     "P000038": {
       "blurb": "Proved a quantitative full-theta edge collision radius and closed its separated positive-tail complement",
       "created_at": "2026-07-14T01:57:16+00:00"
+    },
+    "P000039": {
+      "blurb": "Audit, certify, and integrate the corrected PF4 positive-tail collision and edge-density proof",
+      "created_at": "2026-07-14T02:16:14+00:00"
     }
   },
-  "next_id": 39,
+  "next_id": 40,
   "version": 1
 }

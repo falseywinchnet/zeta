@@ -254,8 +254,113 @@
         "T000012"
       ],
       "updated_at": "2026-07-13T20:35:51+00:00"
+    },
+    "K000006": {
+      "artifacts": [
+        {
+          "path": "work/2026-07-13-pf4-full-tail-transfer/prove_full_collision_margins.py",
+          "sha256": "c08f9f989c81977e3a25b574416876da2190219f9c57e737e5d2d50c684e7957"
+        },
+        {
+          "path": "work/2026-07-13-pf4-collision-radius/prove_edge_collision_radius.py",
+          "sha256": "55275a0f6e16f733de8556281b980e03cb3337a2e9c6c102730327ad664cfe32"
+        },
+        {
+          "path": "work/2026-07-13-pf4-collision-radius/AUDIT_CORRECTION.md",
+          "sha256": "393efd598a8d3186e73e3ddae2e11b7684c39b487eae148d90d4872d74ce39c6"
+        },
+        {
+          "path": "work/2026-07-13-pf4-six-obligations/density_algebra.py",
+          "sha256": "a9321d268075630c0cefaabf13b98c4672613b7f0d098522d66956a0f9fce08a"
+        },
+        {
+          "path": "work/2026-07-13-pf4-db-invariant/prove_one_term_tail_density.py",
+          "sha256": "f19338e80fef607a63ad6bbc533139a3ac952df86039469e1b4baae794f084b7"
+        }
+      ],
+      "created_at": "2026-07-14T02:09:22+00:00",
+      "dependencies": [
+        "K000002",
+        "K000003"
+      ],
+      "description": "Exact full-theta PF4 positive-tail collision audit: certified C4 collision margins, corrected dependency-preserving edge Taylor remainder, and a rational S_r collision radius.",
+      "environment": null,
+      "file": {
+        "path": "scripts/verify_pf4_tail_collision.py",
+        "sha256": "c23896e5a770c04f73500b1a1d218f135fc2b4705a93bcf94ac2fd8f8ea9eb71"
+      },
+      "precision": null,
+      "requirements": [
+        "sympy==1.14.0"
+      ],
+      "runner": {
+        "argv": [
+          "{python}",
+          "scripts/verify_pf4_tail_collision.py"
+        ],
+        "expected_exit_code": 0,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "ddb3c6581fd7b891b067efe35eb2482953b34a30b526069d154c52349e7dae1b",
+        "timeout_seconds": 180
+      },
+      "topics": [
+        "T000003"
+      ],
+      "updated_at": "2026-07-14T02:09:22+00:00"
+    },
+    "K000007": {
+      "artifacts": [
+        {
+          "path": "work/2026-07-13-pf4-collision-radius/prove_edge_separated_transfer.py",
+          "sha256": "f6b72102149cb64e6b2c502d17a5d9c31241708418e1b639ee617a978b02c128"
+        },
+        {
+          "path": "work/2026-07-13-pf4-full-tail-transfer/prove_positive_tail_transfer.py",
+          "sha256": "ac63ccd9bef6f5fd7d3406ac99177edc30a433901d8982eaf12ab90dd4f056e6"
+        },
+        {
+          "path": "work/2026-07-13-pf4-dominant-lower-bound/prove_explicit_lower_bounds.py",
+          "sha256": "ee6a2393934547fc23a81438e0d5c73d107d9161b50fc4b7f1059ff51cf8eb65"
+        },
+        {
+          "path": "work/2026-07-13-pf4-six-obligations/density_algebra.py",
+          "sha256": "a9321d268075630c0cefaabf13b98c4672613b7f0d098522d66956a0f9fce08a"
+        },
+        {
+          "path": "work/2026-07-13-pf4-db-invariant/prove_one_term_tail_density.py",
+          "sha256": "f19338e80fef607a63ad6bbc533139a3ac952df86039469e1b4baae794f084b7"
+        }
+      ],
+      "created_at": "2026-07-14T02:09:58+00:00",
+      "dependencies": [
+        "K000006"
+      ],
+      "description": "Exact separated-gap completion of full-theta S_r positivity on the positive tail: rational gap floor 2^-29 and 2300 nonnegative shifted error-box coefficients.",
+      "environment": null,
+      "file": {
+        "path": "scripts/verify_pf4_tail_edge.py",
+        "sha256": "c0d4ce9d1d1c728dda6c349080aa98d8854f0276129696c98586ab4ed4bacefd"
+      },
+      "precision": null,
+      "requirements": [
+        "sympy==1.14.0"
+      ],
+      "runner": {
+        "argv": [
+          "{python}",
+          "scripts/verify_pf4_tail_edge.py"
+        ],
+        "expected_exit_code": 0,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "24454db9fb406430c22f094fb869bfd27edbdc1bd4ed9961e3ffad052c9ffca1",
+        "timeout_seconds": 900
+      },
+      "topics": [
+        "T000003"
+      ],
+      "updated_at": "2026-07-14T02:09:58+00:00"
     }
   },
-  "next_id": 6,
+  "next_id": 8,
   "version": 1
 }

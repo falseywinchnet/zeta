@@ -25,23 +25,25 @@ At collision,
 \]
 
 On `0<=h<=1/4`, `X(m+t)<2X`; the certified tail jets imply rational boxes for
-all `u_j,a_3,g_j`.  Exact sparse coefficient summation gives
+all corrected endpoint remainder variables.  Exact sparse coefficient
+summation gives
 
 \[
-|\mathcal N'(h)|\le {549351274053632\over243}X^7.
+|\mathcal N'(h)|\le
+{9691662950748701720576\over3875090625}X^7.
 \]
 
 The square-root denominator factor also divides by `h^2`; its collision value
 is `-C3/2`, and
 
 \[
-|\mathcal G'(h)|\le {25946368\over135}X^3.
+|\mathcal G'(h)|\le {3595695104\over18225}X^3.
 \]
 
 Therefore the rational choice
 
 \[
-\boxed{h_0={449469\over274675637026816}}
+\boxed{h_0={7167625959375\over4845831475374350860288}}
 \]
 
 keeps the numerator positive and the denominator nonzero.  Hence `S_r>0` for

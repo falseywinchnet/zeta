@@ -138,6 +138,11 @@ def prove_jet_scales():
     assert sum((sp.Rational(23, 33)) ** k / sp.factorial(k) for k in range(5)) > 2
     assert 99 * sp.Rational(23, 33) == 69
     assert 6 + 4 < 69  # X^4 times every derivative monomial is decreasing.
+    # Uniform n-to-n+1 domination through derivative order six.  The same
+    # algebraic estimate was audited through order eight in P000033.
+    assert sp.Rational(3, 2) ** 4 * sp.Rational(8, 3) ** 6 < 2**14
+    assert 164 * sp.Rational(23, 33) > 114
+    assert 14 - 164 <= -150
     assert all(value > 0 for value in ERROR.values())
 
     for order in range(4):

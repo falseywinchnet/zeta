@@ -30,7 +30,7 @@ dependence is retained.  A finite exact coefficient norm gives the uniform
 radius
 
 \[
-h_0={449469\over274675637026816}.
+h_0={7167625959375\over4845831475374350860288}.
 \]
 
 Inside this radius the certified `qC4/6` collision term dominates the complete
@@ -38,6 +38,12 @@ remainder.  Outside it, `V-1>=2^-29`; inserting that rational gap into the
 dominant-theta perturbation polynomial leaves 2,300 strictly positive error-box
 coefficients.  Thus `S_r>0` is proved for the full theta kernel throughout the
 positive tail.
+
+The refine audit corrected the endpoint remainder parametrization before
+certification.  The advancement value `449469/274675637026816` relied on two
+undersized fourth-order remainder boxes and is superseded by the smaller
+certified radius displayed above.  The separated threshold `V-1>=2^-29`
+remains valid because `2h0>2^-29`.
 
 The analogous `J_b` expansion was not completed.  A naive fully expanded
 fifth-order endpoint substitution exhibits prohibitive symbolic swell and was

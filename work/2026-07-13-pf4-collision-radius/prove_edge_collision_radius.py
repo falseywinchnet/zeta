@@ -14,30 +14,38 @@ import sympy as sp
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "work/2026-07-13-pf4-six-obligations"))
+sys.path.insert(0, str(ROOT / "work/2026-07-13-pf4-db-invariant"))
 
 from density_algebra import edge_density  # noqa: E402
+from prove_one_term_tail_density import X, jet  # noqa: E402
 
 
-h, a3 = sp.symbols("h a3", nonnegative=True)
+h, aR = sp.symbols("h aR", nonnegative=True)
 u = sp.symbols("u0:7")
 g = sp.symbols("g0:4")
 
 # On 0<=h<=1/4, X(m+t)/X(m)=exp(2t)<2.  The full theta jet bounds are
 # |q^(j)|<2^(j+3)X through the required order.  Thus these are uniform
 # rational boxes for the base jets and divided endpoint differences.
-VARIABLES = (a3,) + u + g
+VARIABLES = (aR,) + u + g
 BOUNDS = {
-    # Fourth-order integral remainder for A.
-    a3: sp.Rational(16, 3),
+    # A is expanded through q^(4); its remainder uses q^(5).
+    aR: sp.Rational(32, 45),
     **{u[j]: sp.Integer(2 ** (j + 3)) for j in range(7)},
-    # Fourth-order Taylor remainders for the endpoint jets.
-    **{g[j]: sp.Rational(2 ** (j + 4), 3) for j in range(4)},
+    # q^(j)(m+h) is expanded through q^(4).  Every remainder therefore
+    # uses q^(5), with Taylor order n=5-j.
+    **{
+        g[j]: sp.Rational(512, sp.factorial(5 - j))
+        for j in range(4)
+    },
 }
 RATES = {
-    # Differentiating the fourth-order remainders adds one derivative and
-    # the normalized weight integrates to 1/120.
-    a3: sp.Rational(32, 15),
-    **{g[j]: sp.Rational(2 ** (j + 5), 15) for j in range(4)},
+    # Differentiating these integral remainders uses only q^(6).
+    aR: sp.Rational(64, 315),
+    **{
+        g[j]: sp.Rational(1024, sp.factorial(6 - j))
+        for j in range(4)
+    },
 }
 
 
@@ -69,18 +77,35 @@ def path_derivative_bound(polynomial: sp.Expr, maximum_degree: int) -> sp.Expr:
 
 
 def main() -> None:
+    # P000033 gives |q^(j)-q1^(j)|<2^-9/X through j=6.  Verify that this
+    # perturbation fits inside the exact first-theta upper margins used below.
+    y = sp.symbols("y", nonnegative=True)
+    for j in range(7):
+        margin = sp.factor(2 ** (j + 3) * X - jet(X, j) - sp.Rational(1, 512) / X)
+        numerator, denominator = sp.fraction(margin)
+        assert all(
+            coefficient > 0
+            for _, coefficient in sp.Poly(sp.expand(numerator.subs(X, 23 + y)), y).terms()
+        )
+        assert all(
+            coefficient > 0
+            for _, coefficient in sp.Poly(sp.expand(denominator.subs(X, 23 + y)), y).terms()
+        )
+    print("PASS |q^(j)|<2^(j+3)X for 0<=j<=6")
+
     symbols, _, numerator, _ = edge_density()
     substitution = {
-        symbols["A"]: h * u[0] + h**2 * u[1] / 2 + h**3 * u[2] / 6 + h**4 * a3
+        symbols["A"]: sum(
+            u[k] * h ** (k + 1) / sp.factorial(k + 1) for k in range(5)
+        )
+        + h**6 * aR
     }
     for j in range(4):
         substitution[symbols[f"u{j}"]] = u[j]
+        order = 5 - j
         substitution[symbols[f"v{j}"]] = (
-            u[j]
-            + h * u[j + 1]
-            + h**2 * u[j + 2] / 2
-            + h**3 * u[j + 3] / 6
-            + h**4 * g[j]
+            sum(u[j + k] * h**k / sp.factorial(k) for k in range(order))
+            + h**order * g[j]
         )
 
     divided_numerator = sp.cancel(

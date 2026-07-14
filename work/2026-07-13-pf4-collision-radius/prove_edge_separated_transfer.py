@@ -23,7 +23,7 @@ from prove_explicit_lower_bounds import LAMBDA_S  # noqa: E402
 from prove_positive_tail_transfer import ERROR  # noqa: E402
 
 
-EDGE_RADIUS = sp.Rational(449469, 274675637026816)
+EDGE_RADIUS = sp.Rational(7167625959375, 4845831475374350860288)
 GAP_FLOOR = sp.Rational(1, 2**29)
 V_SHIFT = 1 + GAP_FLOOR
 
