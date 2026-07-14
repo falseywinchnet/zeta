@@ -1,0 +1,18 @@
+expansion: 3246 pieces in 531 blocks [1.8s]
+blocks folded over global lcd=[10, 5, 3, 28, 20, 12] [248.8s total]
+validate trial 0: exact match (positive clearing multiplier)
+validate trial 1: exact match (positive clearing multiplier)
+face factors divided: d1^1 d2^1
+left: geometry_monomials=38103 negative=0 face_negative=0 [595.7s]
+right: geometry_monomials=37995 negative=1269 face_negative=1269 [707.3s]
+Traceback (most recent call last):
+  File "$HOME/zeta/work/2026-07-13-pf4-jb-separated-transfer/prove_jb_blocks_wframe.py", line 406, in <module>
+    main()
+    ~~~~^^
+  File "$HOME/zeta/work/2026-07-13-pf4-jb-separated-transfer/prove_jb_blocks_wframe.py", line 401, in main
+    assert certify(side, blocks)
+           ~~~~~~~^^^^^^^^^^^^^^
+  File "$HOME/zeta/work/2026-07-13-pf4-jb-separated-transfer/prove_jb_blocks_wframe.py", line 385, in certify
+    print("NEG", monomial, float(value))
+                           ~~~~~^^^^^^^
+OverflowError: int too large to convert to float

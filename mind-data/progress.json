@@ -163,8 +163,12 @@
     "P000041": {
       "blurb": "Add full endpoint remainders, prove a uniform J_b collision radius, and preserve both angular faces",
       "created_at": "2026-07-14T03:18:21+00:00"
+    },
+    "P000042": {
+      "blurb": "Certify the left separated box for full-theta J_b by exact epsilon-block decomposition and isolate the mean-value strip lemma",
+      "created_at": "2026-07-14T06:48:00+00:00"
     }
   },
-  "next_id": 42,
+  "next_id": 43,
   "version": 1
 }

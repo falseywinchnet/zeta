@@ -1,0 +1,15 @@
+loaded 531 cached blocks, lcd=[10, 5, 3, 28, 20, 12]
+face factors divided: d1^1 d2^1
+left: geometry_monomials=38103 negative=0 face_negative=0 [604.0s]
+right: geometry_monomials=37995 negative=1269 face_negative=1269 [710.5s]
+Traceback (most recent call last):
+  File "$HOME/zeta/work/2026-07-13-pf4-jb-separated-transfer/prove_jb_blocks_wframe.py", line 397, in <module>
+    main()
+    ~~~~^^
+  File "$HOME/zeta/work/2026-07-13-pf4-jb-separated-transfer/prove_jb_blocks_wframe.py", line 392, in main
+    assert certify(side, blocks)
+           ~~~~~~~^^^^^^^^^^^^^^
+  File "$HOME/zeta/work/2026-07-13-pf4-jb-separated-transfer/prove_jb_blocks_wframe.py", line 377, in certify
+    print("NEG", monomial, float(value))
+                           ~~~~~^^^^^^^
+OverflowError: int too large to convert to float
