@@ -159,8 +159,12 @@
     "P000040": {
       "blurb": "Replace dense J_b collision expansion by sparse forced-factor series and bound its first correction",
       "created_at": "2026-07-14T02:35:56+00:00"
+    },
+    "P000041": {
+      "blurb": "Add full endpoint remainders, prove a uniform J_b collision radius, and preserve both angular faces",
+      "created_at": "2026-07-14T03:18:21+00:00"
     }
   },
-  "next_id": 41,
+  "next_id": 42,
   "version": 1
 }
