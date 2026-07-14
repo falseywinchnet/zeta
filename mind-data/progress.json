@@ -191,8 +191,12 @@
     "P000048": {
       "blurb": "Audit and certify the complete positive-tail PF4 J_b proof, preserve manual threshold diagnostics, optimize replay, and fix the finite global PF4 completion atlas",
       "created_at": "2026-07-14T22:25:51+00:00"
+    },
+    "P000049": {
+      "blurb": "Prove explicit collision-regular right and parity-correct left PF4 escape thresholds on bounded anchors",
+      "created_at": "2026-07-14T22:43:53+00:00"
     }
   },
-  "next_id": 49,
+  "next_id": 50,
   "version": 1
 }
