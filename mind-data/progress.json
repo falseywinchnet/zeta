@@ -135,8 +135,12 @@
     "P000034": {
       "blurb": "audit supplied PF5 witness and derive collision-regularized PF4 certificate architecture",
       "created_at": "2026-07-13T23:46:19+00:00"
+    },
+    "P000035": {
+      "blurb": "build PF4 Taylor certificate engine and isolate unbounded near-collision tail obstruction",
+      "created_at": "2026-07-14T00:18:30+00:00"
     }
   },
-  "next_id": 35,
+  "next_id": 36,
   "version": 1
 }
