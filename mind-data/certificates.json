@@ -339,7 +339,7 @@
       "environment": null,
       "file": {
         "path": "scripts/verify_pf4_tail_edge.py",
-        "sha256": "c0d4ce9d1d1c728dda6c349080aa98d8854f0276129696c98586ab4ed4bacefd"
+        "sha256": "f8bb71754a06d0a0f65fe98da3b3a0eba4e989c2169be6c46d2fd773c93ee9f2"
       },
       "precision": null,
       "requirements": [
@@ -352,13 +352,13 @@
         ],
         "expected_exit_code": 0,
         "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "stdout_sha256": "24454db9fb406430c22f094fb869bfd27edbdc1bd4ed9961e3ffad052c9ffca1",
-        "timeout_seconds": 900
+        "stdout_sha256": "79c4de27657f2b41eab210e691a0b2300bdaba656ef2f7349e0163bf87f824ea",
+        "timeout_seconds": 300
       },
       "topics": [
         "T000003"
       ],
-      "updated_at": "2026-07-14T02:09:58+00:00"
+      "updated_at": "2026-07-14T16:05:02+00:00"
     }
   },
   "next_id": 8,
