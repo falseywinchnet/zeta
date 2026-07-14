@@ -1,0 +1,17 @@
+{
+  "statement": "directed Taylor-model positivity of Jhat on four complete calibration cells",
+  "status": "partial",
+  "precision_bits": 512,
+  "theta_terms": 16,
+  "taylor_total_degree": 5,
+  "variables": ["m", "rho", "theta"],
+  "cells": [
+    {"name": "center", "m": [0.55, 0.552], "rho": [0.20, 0.202], "theta": [0.40, 0.402]},
+    {"name": "left", "m": [0.65, 0.652], "rho": [0.20, 0.202], "theta": [0.10, 0.102]},
+    {"name": "right", "m": [0.65, 0.652], "rho": [0.20, 0.202], "theta": [0.88, 0.882]},
+    {"name": "reflection", "m": [0.09, 0.092], "rho": [0.20, 0.202], "theta": [0.49, 0.51]}
+  ],
+  "verifier": "certify_tm_cells.py",
+  "global_core_claim": false,
+  "blocking_reason": "the proved tail boxes leave an unbounded near-collision family, so no bounded residual core is currently justified"
+}
