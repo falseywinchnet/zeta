@@ -195,8 +195,12 @@
     "P000049": {
       "blurb": "Prove explicit collision-regular right and parity-correct left PF4 escape thresholds on bounded anchors",
       "created_at": "2026-07-14T22:43:53+00:00"
+    },
+    "P000050": {
+      "blurb": "Upgrade PF4 escape to a global Peano bound, compactify mixed charts, and derive exact reflection orientation",
+      "created_at": "2026-07-14T22:56:39+00:00"
     }
   },
-  "next_id": 50,
+  "next_id": 51,
   "version": 1
 }
