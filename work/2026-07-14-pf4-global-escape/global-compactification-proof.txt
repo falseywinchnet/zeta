@@ -1,0 +1,13 @@
+PASS X|D^j rho|<2^-29 for 0<=j<=8, X>=23
+PASS X|D^j log(1+rho)|<2^-12<2^-9 for 1<=j<=8
+LOG_COEFFICIENT_SUMS= [1, 2, 6, 26, 150, 1082, 9366, 94586]
+PASS global Peano comparison h/q>=5/9 delta>=7/9 delta<=1 |TlogH|<=52
+PASS global derivative rates tail_|fpp|<407/3 global_|fpp|<400 |hprime|/h<44
+PASS right uniform escape polynomial: 28*X**2/9 - 2456*X/9 + 44350/9
+PASS right shift X=64+z: 28*z**2/9 + 376*z/3 + 206
+PASS left compactifying polynomial: 28*Y**2/9 - 2420*Y/9 + 42046/9
+PASS left shift Y=64+z: 28*z**2/9 + 388*z/3 + 206
+PASS reflected right Peano factor D_R=C + MR - fr
+PASS reflected translation derivative TD_R=C*MR - MR**2 + NR - fpr
+PASS reflection: lambda invariant, Tlambda anti-invariant, J orientation retained
+status=global central/mixed escape compactification proved; all-negative mirror remains
