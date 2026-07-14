@@ -171,8 +171,12 @@
     "P000043": {
       "blurb": "Close positive-tail J_b on the near-face strip by the mean-value tail model and the first Peano cancellation",
       "created_at": "2026-07-14T15:40:11+00:00"
+    },
+    "P000044": {
+      "blurb": "Map the PF4 completion program: pi-floor envelopes, mixed-sign patterns, origin cone, mirror lemma",
+      "created_at": "2026-07-14T15:49:38+00:00"
     }
   },
-  "next_id": 44,
+  "next_id": 45,
   "version": 1
 }
