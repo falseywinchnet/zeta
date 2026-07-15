@@ -170,30 +170,28 @@ path until `R93` is resolved.
 ## Secondary and closed routes
 
 - Original-kernel PF-infinity: closed (`R16`–`R18`).
-- PF3/PF4 membership: closed as a sufficient real-zero mechanism by the exact
-  PF4 separator (`R52`--`R54`). The Riemann kernel itself is globally PF3
-  (`R140`--`R144`), so its exact global Polya-frequency order is three or four
-  and only global PF4 remains open (`R145`); by Khare's Theorem E a PF4
-  verification needs only the order-four minors (`R146`). The full collision
-  boundary is certified positive at order four (`R147`--`R152`): every doubly
-  confluent order-four minor is strictly positive, closing the route on which
-  PF5 fails. `CERT5` audits a self-contained quotient/iterated-integral route:
-  every translate W3 is strictly positive (`R155`), and global PF4 is exactly
-  equivalent to `partial_xi Psi(xi;m,r)<=0` for every `xi<m<r` (`R154`, `R156`).
-  `CERT6` and `CERT7` now certify the positive-tail one-sided branch of the
-  Peano reduction: the full-kernel collision margins are explicit (`R157`,
-  `R158`), a corrected rational collision radius is proved (`R159`), and
-  `S_r(m,r)>0` holds for every `m<r` with `pi exp(2m)>=23` (`R160`). `CERT8`
-  closes the sibling three-point density `J_b>=0` on the complete positive
-  tail (`R161`), including the collision cone, both faces, and both separated
-  charts; hence the exact criterion holds whenever `pi exp(2xi)>=23` (`R162`).
-  The live finite completion atlas is recorded in `PF4_PATHWAY.md`; the next
-  obligation is a uniform escape compactification, followed by central,
-  mixed-sign, origin-collision, and mirror/join charts (`R153`, `R163`). P000027's
-  8.4-million-point scan found no violation but remains raw numerical progress,
-  not evidence for the global inequality. This
-  classification is RH-neutral; kernel-specific transition invariants require
-  their own formal definitions.
+- PF3/PF4 membership: resolved. The Riemann kernel is globally PF3
+  (`R140`--`R144`) and strictly PF4 (`R153`, `R164`, `CERT9`), while the
+  certified negative order-five minor excludes PF5 (`R14`). Its exact global
+  Polya-frequency order is four (`R145`). The proof connects the globally
+  positive confluent invariant `C4` from `CERT3` to the `CERT5` three-point
+  criterion by an exact curvature-coordinate identity:
+
+  \[
+  \mathcal N=\delta\Lambda\int W(t)
+  \frac{C_4(t)}{Q(t)^6\kappa(t)^2}\,dt>0,
+  \qquad
+  \partial_\xi\Psi=-\frac{Q(p)}{\Lambda^2}\mathcal N<0.
+  \]
+
+  The crossing kernel `W` is positive by stochastic dominance of the two
+  triangular measures. `CERT9` audits the sign orientation, reconstructs the
+  `C4` normalization directly from the central-moment determinant, and proves
+  the integration-by-parts cancellation with generic functions and endpoint
+  algebra. The former escape/chart atlas is superseded (`R163`); `CERT6`--
+  `CERT8` remain valid independent positive-tail results but are not needed for
+  the global theorem. This classification remains RH-neutral (`R81`): PF4
+  alone does not force Fourier real-rootedness.
 - Jensen and Li families: exact but unbounded coordinate tests (`R62`, `R79`,
   `R85`).
 - De Bruijn–Newman: exact transition boundary, but RH is the endpoint statement
@@ -217,6 +215,7 @@ Before any new zeta round:
 ./MIND SEARCH R161
 ./MIND SEARCH R162
 ./MIND SEARCH R163
+./MIND SEARCH R164
 ./MIND SEARCH R83
 ./MIND SEARCH R94
 ```
