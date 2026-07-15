@@ -44,6 +44,13 @@ def atomic_json(path: Path, value):
             os.unlink(tmp)
 
 
+def canonical_sha256(value):
+    payload = json.dumps(
+        value, ensure_ascii=False, sort_keys=True, separators=(",", ":")
+    ).encode("utf-8")
+    return hashlib.sha256(payload).hexdigest()
+
+
 class MindError(RuntimeError):
     pass
 
@@ -264,7 +271,64 @@ class Store:
                     f"certificate requirement mismatch: {name.strip()}=={expected.strip()} required, {observed} installed"
                 )
 
-    def _replay_certificate_item(self, item, compare_output=True):
+    def certificate_manifest(self, kid, _visiting=None):
+        """Return the readable, content-addressed object authenticated by a CERT."""
+        kid = kid.upper()
+        if kid not in self.certificates:
+            raise MindError(f"unknown certificate: {kid}")
+        visiting = set() if _visiting is None else _visiting
+        if kid in visiting:
+            raise MindError(f"certificate dependency cycle involving {kid}")
+        visiting.add(kid)
+        item = self.certificates[kid]
+        dependencies = []
+        for dependency in item.get("dependencies", []):
+            dependency_manifest = self.certificate_manifest(dependency, visiting)
+            dependencies.append({
+                "id": dependency,
+                "manifest_sha256": canonical_sha256(dependency_manifest),
+            })
+        visiting.remove(kid)
+        return {
+            "schema": 1,
+            "certificate": kid,
+            "description": item["description"],
+            "topics": list(item["topics"]),
+            "verifier": dict(item["file"]),
+            "artifacts": [dict(record) for record in item.get("artifacts", [])],
+            "dependencies": dependencies,
+            "requirements": list(item.get("requirements", [])),
+            "precision": item.get("precision"),
+            "environment": item.get("environment"),
+            "runner": {
+                field: item["runner"][field]
+                for field in (
+                    "argv", "timeout_seconds", "expected_exit_code",
+                    "stdout_sha256", "stderr_sha256",
+                )
+            },
+        }
+
+    def certificate_manifest_sha256(self, kid):
+        return canonical_sha256(self.certificate_manifest(kid))
+
+    def _attest_certificate(self, kid, method="executed"):
+        self.certificates[kid]["attestation"] = {
+            "schema": 1,
+            "manifest_sha256": self.certificate_manifest_sha256(kid),
+            "method": method,
+            "verified_at": now(),
+        }
+
+    def _certificate_attestation_valid(self, kid):
+        attestation = self.certificates[kid].get("attestation", {})
+        return (
+            attestation.get("schema") == 1
+            and attestation.get("manifest_sha256") == self.certificate_manifest_sha256(kid)
+            and attestation.get("method") == "executed"
+        )
+
+    def _verify_certificate_inputs(self, item):
         files = [item["file"], *item.get("artifacts", [])]
         for record in files:
             path = self.root / record["path"]
@@ -282,6 +346,9 @@ class Store:
                     "certificate environment mismatch: set MIND_ENVIRONMENT_DIGEST "
                     f"to {environment!r} (observed {observed!r})"
                 )
+
+    def _replay_certificate_item(self, item, compare_output=True):
+        self._verify_certificate_inputs(item)
         argv = [os.environ.get("PYTHON", "python3") if arg == "{python}" else arg for arg in item["runner"]["argv"]]
         try:
             result = subprocess.run(
@@ -347,6 +414,7 @@ class Store:
         kid = self.allocate("certificates", "K")
         self.certificates[kid] = item
         self._assert_certificate_acyclic()
+        self._attest_certificate(kid)
         self.save("certificates")
         return kid
 
@@ -387,6 +455,7 @@ class Store:
         self._assert_certificate_acyclic()
         item["runner"].update(self._replay_certificate_item(item, compare_output=False))
         item["updated_at"] = now()
+        self._attest_certificate(kid)
         self.save("certificates")
 
     def remove_certificate(self, kid):
@@ -458,9 +527,67 @@ class Store:
                 }
                 for kid in ready:
                     futures[kid].result()
+                    self._attest_certificate(kid)
             completed.update(ready)
             ordered.extend(ready)
+        if ordered:
+            self.save("certificates")
         return ordered
+
+    def authenticate_certificates(self, target=None):
+        """Authenticate unchanged CERTs by manifest; execute only stale manifests."""
+        target = target.upper() if target else "ALL"
+        if target != "ALL" and target not in self.certificates:
+            raise MindError(f"unknown certificate: {target}")
+        roots = sorted(self.certificates) if target == "ALL" else [target]
+        selected = set()
+
+        def visit(kid):
+            if kid in selected:
+                return
+            for dependency in self.certificates[kid].get("dependencies", []):
+                visit(dependency)
+            selected.add(kid)
+
+        for kid in roots:
+            visit(kid)
+        authenticated, replayed = [], []
+        remaining = set(selected)
+        completed = set()
+        workers = max(1, int(os.environ.get("MIND_CERTIFICATE_JOBS", "8")))
+        while remaining:
+            ready = sorted(
+                kid for kid in remaining
+                if set(self.certificates[kid].get("dependencies", [])) <= completed
+            )
+            if not ready:
+                raise MindError("certificate dependency graph has no authenticatable frontier")
+            stale = []
+            for kid in ready:
+                self._verify_certificate_inputs(self.certificates[kid])
+                if self._certificate_attestation_valid(kid):
+                    authenticated.append(kid)
+                else:
+                    stale.append(kid)
+            if stale:
+                with ThreadPoolExecutor(max_workers=min(workers, len(stale))) as executor:
+                    futures = {
+                        kid: executor.submit(
+                            self._replay_certificate_item,
+                            self.certificates[kid],
+                            True,
+                        )
+                        for kid in stale
+                    }
+                    for kid in stale:
+                        futures[kid].result()
+                        self._attest_certificate(kid)
+                        replayed.append(kid)
+            completed.update(ready)
+            remaining.difference_update(ready)
+        if replayed:
+            self.save("certificates")
+        return authenticated, replayed
 
     def remove_citation(self, cid):
         cid = cid.upper()
@@ -817,7 +944,7 @@ class Store:
         errors = self.validate()
         if errors:
             raise MindError("validation failed:\n  " + "\n  ".join(errors))
-        replayed = self.replay_certificates("ALL")
+        authenticated, replayed = self.authenticate_certificates("ALL")
         from .search_index import build_index, index_is_current
 
         build_index(self)
@@ -845,4 +972,4 @@ class Store:
         if subprocess.run(["git", "push", "origin", branch], cwd=self.root).returncode:
             raise MindError(f"commit created on {branch}, but push failed")
         commit = subprocess.run(["git", "rev-parse", "HEAD"], cwd=self.root, text=True, capture_output=True, check=True).stdout.strip()
-        return pid, commit, branch, replayed
+        return pid, commit, branch, authenticated, replayed

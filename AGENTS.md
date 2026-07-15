@@ -91,8 +91,10 @@ Do not run ordinary `git commit` or `git push`. Finish an epoch with:
 ```
 
 The search index is generated, ignored by git, and rebuilt automatically when
-missing or stale. `PROGRESS COMMIT` replays every certificate and rebuilds the
-index before the remaining validation gates.
+missing or stale. `PROGRESS COMMIT` authenticates unchanged content-addressed
+certificate manifests, replays only missing or stale attestations, and rebuilds
+the index before the remaining validation gates. Use `CERTIFICATE RUN` for an
+explicit forced audit.
 
 Direct git commands are for inspection and rollback only. `PROGRESS COMMIT` refuses
 invalid data, failed certificate replay, failed tests, a missing progress record,
