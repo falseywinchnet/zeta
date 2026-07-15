@@ -203,8 +203,12 @@
     "P000051": {
       "blurb": "Close the all-negative PF4 mirror through finite Wronskian reflection and confluent orientation",
       "created_at": "2026-07-14T23:24:43+00:00"
+    },
+    "P000052": {
+      "blurb": "proved an all-angle PF4 origin collision cone and isolated the compact separated complement",
+      "created_at": "2026-07-15T00:09:08+00:00"
     }
   },
-  "next_id": 52,
+  "next_id": 53,
   "version": 1
 }
