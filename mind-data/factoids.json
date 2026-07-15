@@ -456,15 +456,15 @@
     "F000025": {
       "because": [
         {
-          "id": "C000001",
-          "type": "citation"
+          "id": "F000054",
+          "type": "factoid"
         },
         {
           "id": "K000001",
           "type": "certificate"
         }
       ],
-      "content": "PF3 or PF4 membership, even together with positivity, evenness, and Schwartz decay, cannot by itself force Fourier real-rootedness; separately proposed transition-dependent ribbons remain undefined until their admissible invariants are formalized.",
+      "content": "CERT1 does not prove that continuous PF3 or PF4 membership is insufficient for Fourier real-rootedness: it certifies a discrete PF4 sequence, but the proposed Gaussian smoothing lacks a proof of continuous PF4.",
       "created_at": "2026-07-12T19:19:06+00:00",
       "relates_to": [
         "T000011",
@@ -473,7 +473,7 @@
         "T000022"
       ],
       "status": "established",
-      "updated_at": "2026-07-13T19:58:44+00:00"
+      "updated_at": "2026-07-15T05:02:29+00:00"
     },
     "F000026": {
       "because": [
@@ -969,7 +969,7 @@
           "type": "certificate"
         }
       ],
-      "content": "The exact finite-window enumeration certifies (1,3,4,2) as a PF4 sequence; symmetrization and Gaussian convolution give a positive even Schwartz PF4 kernel whose Fourier transform has nonreal zeros, so PF4 membership and therefore PF3 membership do not imply Fourier real-rootedness.",
+      "content": "The exact finite-window enumeration certifies (1,3,4,2) as a discrete PF4 sequence, and its autocorrelation smoothing has explicit nonreal Fourier zeros; CERT1 does not establish that the smoothed continuous translation kernel is PF4, so the proposed continuous PF3/PF4 separator remains unproved.",
       "created_at": "2026-07-12T19:22:05+00:00",
       "relates_to": [
         "T000011",
@@ -978,7 +978,7 @@
         "T000032"
       ],
       "status": "established",
-      "updated_at": "2026-07-13T19:58:44+00:00"
+      "updated_at": "2026-07-15T05:01:51+00:00"
     },
     "F000055": {
       "because": [
@@ -1031,14 +1031,14 @@
     },
     "F000058": {
       "because": [],
-      "content": "Formalize and audit the proposed nowhere-density theorem by specifying a kernel topology and proving the required approximate-identity convergence; the exact PF4 separator premise is now certified.",
+      "content": "Construct and certify a valid continuous PF3 or PF4 separator, then formalize the proposed nowhere-density theorem by specifying a kernel topology and proving the required approximate-identity convergence; CERT1 supplies only the discrete PF4 sequence premise.",
       "created_at": "2026-07-12T19:22:05+00:00",
       "relates_to": [
         "T000032",
         "T000022"
       ],
       "status": "todo",
-      "updated_at": "2026-07-13T03:55:37+00:00"
+      "updated_at": "2026-07-15T05:01:51+00:00"
     },
     "F000059": {
       "because": [
@@ -1400,10 +1400,6 @@
     "F000081": {
       "because": [
         {
-          "id": "F000025",
-          "type": "factoid"
-        },
-        {
           "id": "F000054",
           "type": "factoid"
         },
@@ -1420,7 +1416,7 @@
           "type": "certificate"
         }
       ],
-      "content": "The Riemann kernel is strictly PF4 but not PF5, so its exact global Polya-frequency order is four; this classification is RH-neutral, because PF4 alone does not force Fourier real-rootedness and the kernel-specific transition invariants proposed elsewhere require separate theorems.",
+      "content": "The Riemann kernel is strictly PF4 but not PF5, so its exact global Polya-frequency order is four; the current separator does not establish whether continuous PF4 membership alone is insufficient for Fourier real-rootedness, and any kernel-specific transition invariant requires a separate theorem.",
       "created_at": "2026-07-12T21:49:42+00:00",
       "relates_to": [
         "T000012",
@@ -1428,7 +1424,7 @@
         "T000003"
       ],
       "status": "established",
-      "updated_at": "2026-07-15T03:55:19+00:00"
+      "updated_at": "2026-07-15T05:02:06+00:00"
     },
     "F000082": {
       "because": [

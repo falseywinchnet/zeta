@@ -4,22 +4,22 @@
       "artifacts": [
         {
           "path": "sources/pf4-separator-certificate.md",
-          "sha256": "61b3c65ae3298423abd48f610b17927eb4f8224080cdd8f752e993e3a7a621e5"
+          "sha256": "8686d995e2c026d296ff3a787b4aaba61b27d145b30d59fed15dea1385cdff27"
         }
       ],
       "attestation": {
-        "manifest_sha256": "03d28d32cb47438ae1a9ca23f2b95b8f912d5bbd1867bc1fc97915dc0c84f2c8",
+        "manifest_sha256": "818829a6896d94a3f6f5c1568af2fb651a1309dacdc9a2799cb92ae5d796d356",
         "method": "executed",
         "schema": 1,
-        "verified_at": "2026-07-15T04:23:50+00:00"
+        "verified_at": "2026-07-15T05:01:51+00:00"
       },
       "created_at": "2026-07-13T19:56:41+00:00",
       "dependencies": [],
-      "description": "Exact PF4 separator: exhaustive integer-minor verification for (1,3,4,2), with the checked analytic reduction recorded in the artifact.",
+      "description": "Exact discrete PF4-sequence certificate: exhaustive connected integer-minor verification for (1,3,4,2); no continuous Gaussian-smoothing claim.",
       "environment": null,
       "file": {
         "path": "scripts/verify_pf4_separator.py",
-        "sha256": "aa41443b2304f32e7c7057251c3064a4246b48f63941391397c1258152cc2fcf"
+        "sha256": "7daeb570ae20667e23041af12d0413b0d5717e7053a8d343e9b818b875122011"
       },
       "precision": "exact rational arithmetic",
       "requirements": [],
@@ -36,7 +36,7 @@
       "topics": [
         "T000007"
       ],
-      "updated_at": "2026-07-13T19:56:41+00:00"
+      "updated_at": "2026-07-15T05:01:51+00:00"
     },
     "K000002": {
       "artifacts": [

@@ -1,13 +1,20 @@
 #!/usr/bin/env python3
-"""Exact finite certificate for the PF4 sequence (1, 3, 4, 2).
+"""Exact finite certificate for the discrete PF4 sequence (1, 3, 4, 2).
 
 For a_j=0 outside 0<=j<=3, a connected nonzero k-by-k Toeplitz
 minor may be translated so its first row index is zero. Connectivity then
 forces every consecutive row gap to be at most three, hence the final row
 index is at most 3(k-1). A nonzero column lies between zero and three past
 the final row, hence at most 3k. Minors outside this window are zero or
-factor into smaller connected minors. It is therefore enough to enumerate
-the finite windows below for 1<=k<=4.
+factor into smaller connected minors. Because the row and column vertices of
+each component occur in the same order, the row and column permutations have
+the same sign and the determinant is the product of the component
+determinants. It is therefore enough to enumerate the finite windows below for
+1<=k<=4.
+
+This verifier makes no claim that convolving the corresponding lattice measure
+with a Gaussian produces a continuous PF4 translation kernel. That is a
+separate mixed-domain theorem and is not supplied by this enumeration.
 """
 
 from fractions import Fraction

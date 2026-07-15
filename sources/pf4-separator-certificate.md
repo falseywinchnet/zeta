@@ -1,4 +1,4 @@
-# Exact PF4 separator certificate
+# Exact discrete PF4-sequence certificate
 
 Let `a=(1,3,4,2)`, extended by zero outside indices `0,1,2,3`, and let
 `T(i,j)=a[j-i]`.
@@ -11,25 +11,28 @@ disconnected. Every other minor is zero or factors into connected minors.
 Consequently the exact enumeration in `scripts/verify_pf4_separator.py`
 exhausts all Toeplitz minors through order four. It returns no negative
 determinants among `4`, `63`, `1800`, and `60060` candidates respectively.
-Hence `a` is PF4.
+Hence `a` is a discrete PF4 sequence.
 
 Write
 
 `A(w)=1+3w+4w^2+2w^3=(1+w)(1+2w+2w^2)`.
 
 The last factor has roots `(-1+i)/2` and `(-1-i)/2`, both of modulus
-`1/sqrt(2)`. Symmetrize the discrete PF4 measure associated with `a` by
-convolving it with its reflection, then convolve with a Gaussian. Composition
-of totally positive kernels preserves PF4. The resulting kernel is positive,
-even, entire, Schwartz, and PF4. Its Fourier transform is, up to a nonzero
-Gaussian factor,
+`1/sqrt(2)`. Autocorrelation gives the symmetric lattice weights
+`(2,10,23,30,23,10,2)` on shifts `-3,...,3`. Gaussian smoothing therefore
+produces a positive even Schwartz function whose Fourier transform is, up to
+a nonzero Gaussian factor,
 
 `A(exp(-iz)) A(exp(iz))`,
 
 which has nonreal zeros because the two displayed roots do not lie on the unit
-circle. Therefore PF4, and hence PF3, does not imply real-rootedness of the
-Fourier transform, even with positivity, evenness, and Schwartz decay.
+circle.
 
-This separates PF3/PF4 membership from a real-zero conclusion. It does not
-determine whether the Riemann kernel itself is globally PF3 or PF4, and it does
-not exclude a separately defined kernel-specific transition invariant.
+The missing implication is continuous PF4. The discrete Toeplitz certificate
+does not make the lattice measure a continuous PF4 translation kernel, so the
+usual continuous composition theorem cannot be invoked without an additional
+mixed-domain argument. No Gaussian variance is specified or checked here.
+Consequently this certificate does **not** establish a positive even Schwartz
+PF4 separator, and it does not prove that continuous PF3 or PF4 membership is
+insufficient for Fourier real-rootedness. A valid continuous separator, or a
+theorem proving PF4 for one explicitly parameterized smoothing, remains open.
