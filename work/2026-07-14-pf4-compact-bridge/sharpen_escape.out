@@ -1,0 +1,5 @@
+escape_floor=1247/20
+right_shift= 28*z**2/9 + 1726*z/15 + 767/100
+left_shift= 28*z**2/9 + 1786*z/15 + 107/100
+PASS every shifted coefficient is positive
+R_*=log((1247/20)/pi)/2
