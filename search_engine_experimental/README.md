@@ -12,6 +12,10 @@ The originating hypothesis separates a sequence into content, position, and
 combination. The safety rule is anchor-and-verify: a fixed-size sketch may propose
 nearby records; it never replaces the original text or proves identity.
 
+The supplied human design correspondence is retained losslessly under `sources/`.
+Its ordered wording is provenance for the experiment; the research documents are
+technical interpretations rather than replacements for that source.
+
 The current candidate is ConeDAG, documented in `research/cone_dag.md`. Its
 implementation, reproducible benchmarks, ablations, and geometry audit are in
 `experiments/`; measured results and the adoption decision are in

@@ -1,0 +1,174 @@
+{
+  "accepted": [
+    {
+      "depth": 0,
+      "lower": "[1973903.400957325095306186719161572380762045477846700617757148115489576815206127645557448382400514062453046149685140 +/- 4.02e-110]",
+      "m": [
+        "0",
+        "0.002"
+      ],
+      "rho": [
+        "0.03",
+        "0.05"
+      ],
+      "theta": [
+        "0",
+        "1"
+      ],
+      "upper": "[20315102.90095732509530618671916157238076204547784670061775714811548957681520612764555744838240051406245304614968514 +/- 3.86e-109]"
+    },
+    {
+      "depth": 0,
+      "lower": "[1617085.816798381507313827381892898363481393292124155960835599823796487154279259159730160044612836116813289927431518 +/- 1.86e-109]",
+      "m": [
+        "-0.002",
+        "0"
+      ],
+      "rho": [
+        "0.03",
+        "0.05"
+      ],
+      "theta": [
+        "0",
+        "1"
+      ],
+      "upper": "[20716657.72304838150731382738189289836348139329212415596083559982379648715427925915973016004461283611681328992743152 +/- 1.82e-108]"
+    },
+    {
+      "depth": 0,
+      "lower": "[10739840.25528789537141023715604715350308088333438777488077786838116826213666009573145347745019797648552143474373978 +/- 2.47e-108]",
+      "m": [
+        "0",
+        "0.002"
+      ],
+      "rho": [
+        "0.01",
+        "0.03"
+      ],
+      "theta": [
+        "0",
+        "1"
+      ],
+      "upper": "[11375968.86368633287141023715604715350308088333438777488077786838116826213666009573145347745019797648552143474373978 +/- 2.47e-108]"
+    },
+    {
+      "depth": 0,
+      "lower": "[10689854.33322608934479847202240861195423137434545673464652259726774225041033026869605958167457787515208153570282585 +/- 1.18e-108]",
+      "m": [
+        "-0.002",
+        "0"
+      ],
+      "rho": [
+        "0.01",
+        "0.03"
+      ],
+      "theta": [
+        "0",
+        "1"
+      ],
+      "upper": "[11448315.71506202684479847202240861195423137434545673464652259726774225041033026869605958167457787515208153570282585 +/- 1.18e-108]"
+    },
+    {
+      "depth": 0,
+      "lower": "[10994112.13401793479805988835588241719937369588965187021002622767137930990615723841817924482357259708947460960898222 +/- 4.29e-108]",
+      "m": [
+        "0",
+        "0.002"
+      ],
+      "rho": [
+        "0",
+        "0.01"
+      ],
+      "theta": [
+        "0",
+        "1"
+      ],
+      "upper": "[11072537.76622008323555988835588241719937369588965187021002622767137930990615723841817924482357259708947460960898222 +/- 4.29e-108]"
+    },
+    {
+      "depth": 0,
+      "lower": "[10977146.02742485976754954049923811701748187836468660460679033396424970400627707349666484769893359480529102191967619 +/- 1.38e-108]",
+      "m": [
+        "-0.002",
+        "0"
+      ],
+      "rho": [
+        "0",
+        "0.01"
+      ],
+      "theta": [
+        "0",
+        "1"
+      ],
+      "upper": "[11095093.51057915664254954049923811701748187836468660460679033396424970400627707349666484769893359480529102191967619 +/- 1.38e-108]"
+    }
+  ],
+  "claim": {
+    "global_pf4_claim": false,
+    "hypotheses": [
+      "x=m-theta*rho, r=m+(1-theta)*rho",
+      "0<=theta<=1 and rho>=0",
+      "directed theta-series tail begins at n=17"
+    ],
+    "kernel": "Riemann theta kernel Phi",
+    "statement": "The normalized x-confluent order-four divided determinant is positive on every listed accepted closed box."
+  },
+  "dependencies": {
+    "work/2026-07-14-pf4-hermite-manifest/crosscheck_jhat.py": "cb42cb9427150a46a3fa1b98cab1bbdbdbad765151f122d4a344e818fb021be3",
+    "work/2026-07-14-pf4-hermite-manifest/generate_manifest.py": "ee72541d88eb49cf521fe3ce39d6d49b8c98b0c53e369f70ffea221dec55e08b",
+    "work/2026-07-14-pf4-hermite-manifest/hermite_tm.py": "c95fcf0c73ec58b9e139d03e946b4fd4f617243b858cfe9bc0b7807b86cdb1fd",
+    "work/2026-07-14-pf4-hermite-manifest/test_hermite_tm.py": "73253b469e329c6e842245843486287e78c37ecf52d367af2fc6b3313fcdf0d2"
+  },
+  "environment": {
+    "environment_fingerprint_sha256": "05d3683e7137df77c734be092f9d73ddaafeda35b92882553e01971baa6299e0",
+    "environment_image_digest": "unavailable-local-host",
+    "platform": "macOS-14.8.7-arm64-arm-64bit-Mach-O",
+    "python": "3.13.13 | packaged by conda-forge | (main, Apr  8 2026, 02:29:07) [Clang 19.1.7 ]",
+    "python_executable": "$HOME/miniforge3/bin/python",
+    "python_executable_sha256": "b68f7bcd2e5a55f4efc91e5e9b5cea80d48dd32e263471efca8b8be47a1e8c94",
+    "python_flint": "0.9.0",
+    "sympy": "1.14.0"
+  },
+  "expected_outcome_sha256": "ad5ca77b6a810e334a3f9be65283b7337aa3cd1747e2b570b2587d9e905c2419",
+  "global_compact_complement": {
+    "constraints": [
+      "rho0<=rho<=2*R64",
+      "0<=theta<=1",
+      "-R64+theta*rho<=m<=R64-(1-theta)*rho",
+      "x<=a23 and r>=-a23"
+    ],
+    "reason": "the one-center Hermite series loses determinant cancellation on separated off-origin boxes",
+    "status": "UNRESOLVED"
+  },
+  "method": {
+    "accepted_boxes": 6,
+    "first_omitted_theta_term": 17,
+    "max_subdivision_depth": 8,
+    "precision_bits": 384,
+    "taylor_total_degree": 10,
+    "theta_terms": 16,
+    "unresolved_pilot_boxes": 0
+  },
+  "pilot_domain": {
+    "complete": true,
+    "m": [
+      "-0.002",
+      "0.002"
+    ],
+    "rho": [
+      "0",
+      "0.05"
+    ],
+    "theta": [
+      "0",
+      "1"
+    ]
+  },
+  "schema": "mind-pf4-hermite-manifest-v1",
+  "unresolved_pilot": [],
+  "verifier_commands": [
+    "$HOME/miniforge3/bin/python work/2026-07-14-pf4-hermite-manifest/test_hermite_tm.py",
+    "$HOME/miniforge3/bin/python work/2026-07-14-pf4-hermite-manifest/crosscheck_jhat.py",
+    "$HOME/miniforge3/bin/python work/2026-07-14-pf4-hermite-manifest/generate_manifest.py --replay work/2026-07-14-pf4-hermite-manifest/manifest.json"
+  ]
+}
