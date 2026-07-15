@@ -113,9 +113,11 @@ to delete a citation still supporting a factoid.
   MIND CERTIFICATE RUN [ALL|CERT1]
 
 ADD and MOD execute the shell-free verifier command and record checksums for the
-verifier, artifacts, stdout, and stderr. Python files default to
-`{python} FILE`. RUN replays dependencies first and verifies exact outputs.
-PROGRESS COMMIT replays every certificate before tests and commitment.
+verifier, artifacts, stdout, and stderr. They also seal a readable proof manifest
+whose SHA-256 transitively authenticates dependency manifests. Python files
+default to `{python} FILE`. RUN forces dependency replay and verifies exact
+outputs. PROGRESS COMMIT authenticates unchanged sealed manifests and replays
+only missing or stale attestations before tests and commitment.
 """,
     "DISTINGUISH": """DISTINGUISH manages the valid topic etymology.
 
@@ -338,6 +340,12 @@ def cmd_retrieve_certificate(store, kid):
     print(f"TIMEOUT: {certificate['runner']['timeout_seconds']} seconds")
     print(f"STDOUT SHA256: {certificate['runner']['stdout_sha256']}")
     print(f"STDERR SHA256: {certificate['runner']['stderr_sha256']}")
+    attestation = certificate.get("attestation")
+    print("ATTESTATION: " + (
+        f"{attestation['method']} manifest-sha256={attestation['manifest_sha256']} "
+        f"verified={attestation['verified_at']}"
+        if attestation else "unsealed; next commit will replay"
+    ))
     print("DEPENDENCIES: " + (
         " ".join(public_id(dep) for dep in certificate.get("dependencies", [])) or "none"
     ))
@@ -467,6 +475,9 @@ def cmd_certificate(store, args):
             print(
                 f"{public_id(kid)} {item['description']}\n"
                 f"  verifier: {item['file']['path']}\n"
+                f"  verifier sha256: {item['file']['sha256']}\n"
+                f"  manifest sha256: "
+                f"{item.get('attestation', {}).get('manifest_sha256', 'unsealed')}\n"
                 f"  command: {' '.join(item['runner']['argv'])}\n"
                 f"  dependencies: {' '.join(public_id(dep) for dep in item.get('dependencies', [])) or 'none'}"
             )
@@ -531,9 +542,10 @@ def cmd_progress(store, args):
                 state = state[:12]
             print(f"{pid} [{state}] {store.progress[pid]['blurb']}")
     elif action == "COMMIT":
-        pid, commit, branch, replayed = store.run_commit()
+        pid, commit, branch, authenticated, replayed = store.run_commit()
         print(
-            f"{pid} replayed {len(replayed)} certificates, committed {commit}, "
+            f"{pid} authenticated {len(authenticated)} unchanged certificates and "
+            f"replayed {len(replayed)} stale certificates, committed {commit}, "
             f"and pushed origin/{branch}"
         )
     else:

@@ -136,6 +136,13 @@ class MindStoreTest(unittest.TestCase):
         )
         self.assertEqual(kid, "K000001")
         self.assertEqual(self.store.replay_certificates(kid), [kid])
+        self.assertEqual(self.store.authenticate_certificates(kid), ([kid], []))
+        manifest = self.store.certificate_manifest(kid)
+        self.assertEqual(manifest["verifier"]["path"], "verify.py")
+        self.assertEqual(
+            self.store.certificates[kid]["attestation"]["manifest_sha256"],
+            self.store.certificate_manifest_sha256(kid),
+        )
         fact = self.store.establish("Certified theorem.", [self.zeta], [kid])
         self.assertEqual(self.store.factoids[fact]["status"], "established")
         verifier.write_text("print('changed')\n", encoding="utf-8")
@@ -167,6 +174,28 @@ class MindStoreTest(unittest.TestCase):
             second_file, "Dependent proof.", [self.zeta], dependencies=[first]
         )
         self.assertEqual(self.store.replay_certificates(second), [first, second])
+
+    def test_changed_dependency_manifest_invalidates_dependent_attestation(self):
+        first_file = self._file("first.py", "print('first')\n")
+        second_file = self._file("second.py", "print('second')\n")
+        first = self.store.add_certificate(first_file, "First proof.", [self.zeta])
+        second = self.store.add_certificate(
+            second_file, "Dependent proof.", [self.zeta], dependencies=[first]
+        )
+        first_file.write_text("print('first revised')\n", encoding="utf-8")
+        self.store.change_certificate(first, filename=first_file)
+        authenticated, replayed = self.store.authenticate_certificates(second)
+        self.assertEqual(authenticated, [first])
+        self.assertEqual(replayed, [second])
+
+    def test_missing_attestation_is_replayed_once_then_authenticated(self):
+        verifier = self._file("verify.py", "print('proof-ok')\n")
+        kid = self.store.add_certificate(verifier, "Exact toy proof.", [self.zeta])
+        del self.store.certificates[kid]["attestation"]
+        authenticated, replayed = self.store.authenticate_certificates(kid)
+        self.assertEqual(authenticated, [])
+        self.assertEqual(replayed, [kid])
+        self.assertEqual(self.store.authenticate_certificates(kid), ([kid], []))
 
     def test_certificate_cli_resolves_public_dependency(self):
         first_file = self._file("first.py", "print('first')\n")

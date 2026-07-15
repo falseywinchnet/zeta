@@ -33,7 +33,8 @@ the score-at-least-`1/e` prefix when it contains at least eight results; otherwi
 it stops at the first adjacent score drop greater than `1-1/e`.
 
 The search index is generated locally and ignored by git. SEARCH rebuilds it when
-missing or stale. `PROGRESS COMMIT` replays every certificate, rebuilds the index,
+missing or stale. `PROGRESS COMMIT` authenticates unchanged content-addressed
+certificate manifests, replays only missing or stale attestations, rebuilds the index,
 validates the graph, compiles Python, and runs the test suite before commitment.
 
 New research is isolated by round mode. Advancement rounds preserve everything in
