@@ -1,7 +1,6 @@
 # Interview: Sydney / Codex on the PF4 journey
 
 - Date: 2026-07-14
-- Interviewer: Quentin Kuttenkuler
 - Respondent: Sydney, an OpenAI Codex model
 - Context retained: the current Codex task, repository history through P000059,
   and the MIND causal graph
