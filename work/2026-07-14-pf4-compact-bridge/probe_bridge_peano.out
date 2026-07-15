@@ -1,0 +1,24 @@
+central-0.10 determinant_value [1e+7 +/- 5.32e+6] POSITIVE
+central-0.10 corner_determinant [+/- 8.51e+8] UNDECIDED
+central-0.10 jgap [2e+3 +/- 2.52e+2] POSITIVE
+central-0.25 determinant_value [3e+7 +/- 9.30e+6] POSITIVE
+central-0.25 corner_determinant [+/- 6.24e+18] UNDECIDED
+central-0.25 jgap [+/- 3.33e+4] UNDECIDED
+central-0.50 determinant_value [2e+8 +/- 3.85e+7] POSITIVE
+central-0.50 corner_determinant [+/- 1.79e+37] UNDECIDED
+central-0.50 jgap ZeroDivisionError UNDECIDED
+central-1.00 determinant_value [+/- 2.03e+25] UNDECIDED
+central-1.00 corner_determinant [+/- 4.98e+66] UNDECIDED
+central-1.00 jgap ZeroDivisionError UNDECIDED
+negative-anchor determinant_value [+/- 1.06e+27] UNDECIDED
+negative-anchor corner_determinant [+/- 5.95e+56] UNDECIDED
+negative-anchor jgap ZeroDivisionError UNDECIDED
+positive-anchor determinant_value [+/- 4.51e+12] UNDECIDED
+positive-anchor corner_determinant [+/- 1.76e+52] UNDECIDED
+positive-anchor jgap ZeroDivisionError UNDECIDED
+left-near-escape determinant_value [+/- 1.44e+49] UNDECIDED
+left-near-escape corner_determinant [+/- 3.46e+91] UNDECIDED
+left-near-escape jgap ZeroDivisionError UNDECIDED
+right-near-escape determinant_value [+/- 1.35e+19] UNDECIDED
+right-near-escape corner_determinant [+/- 1.21e+53] UNDECIDED
+right-near-escape jgap ZeroDivisionError UNDECIDED
