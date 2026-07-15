@@ -684,15 +684,31 @@
       "updated_at": "2026-07-12T19:19:06+00:00"
     },
     "F000038": {
-      "because": [],
-      "content": "Determine global PF3 and PF4 status; positivity of selected Toeplitz minors is not enough.",
+      "because": [
+        {
+          "id": "F000144",
+          "type": "factoid"
+        },
+        {
+          "id": "F000145",
+          "type": "factoid"
+        },
+        {
+          "id": "F000164",
+          "type": "factoid"
+        },
+        {
+          "id": "K000009",
+          "type": "certificate"
+        }
+      ],
+      "content": "The global PF3 and PF4 status of the Riemann kernel is resolved: it is globally PF3 and strictly PF4, while the certified negative order-five minor excludes PF5.",
       "created_at": "2026-07-12T19:19:06+00:00",
       "relates_to": [
-        "T000011",
-        "T000012"
+        "T000007"
       ],
-      "status": "todo",
-      "updated_at": "2026-07-12T19:19:06+00:00"
+      "status": "established",
+      "updated_at": "2026-07-15T03:55:01+00:00"
     },
     "F000039": {
       "because": [],
@@ -1384,31 +1400,35 @@
     "F000081": {
       "because": [
         {
-          "id": "F000018",
-          "type": "factoid"
-        },
-        {
           "id": "F000025",
-          "type": "factoid"
-        },
-        {
-          "id": "F000027",
           "type": "factoid"
         },
         {
           "id": "F000054",
           "type": "factoid"
+        },
+        {
+          "id": "F000145",
+          "type": "factoid"
+        },
+        {
+          "id": "F000164",
+          "type": "factoid"
+        },
+        {
+          "id": "K000009",
+          "type": "certificate"
         }
       ],
-      "content": "The exact PF4 separator closes PF3/PF4 membership as a sufficient real-zero or RH mechanism. The Riemann kernel global PF3/PF4 classification remains open but cannot alone prove RH; any kernel-specific transition invariant requires a separate formal theorem.",
+      "content": "The Riemann kernel is strictly PF4 but not PF5, so its exact global Polya-frequency order is four; this classification is RH-neutral, because PF4 alone does not force Fourier real-rootedness and the kernel-specific transition invariants proposed elsewhere require separate theorems.",
       "created_at": "2026-07-12T21:49:42+00:00",
       "relates_to": [
-        "T000011",
         "T000012",
-        "T000023"
+        "T000013",
+        "T000003"
       ],
-      "status": "todo",
-      "updated_at": "2026-07-13T03:55:37+00:00"
+      "status": "established",
+      "updated_at": "2026-07-15T03:55:19+00:00"
     },
     "F000082": {
       "because": [
@@ -2583,16 +2603,28 @@
         {
           "id": "K000002",
           "type": "certificate"
+        },
+        {
+          "id": "F000164",
+          "type": "factoid"
+        },
+        {
+          "id": "F000014",
+          "type": "factoid"
+        },
+        {
+          "id": "K000009",
+          "type": "certificate"
         }
       ],
-      "content": "The exact global Polya-frequency order of the Riemann kernel is three or four: global PF3 is established and PF5 fails by the certified negative Toeplitz 5x5 minor, so only global PF4 remains open.",
+      "content": "The exact global Polya-frequency order of the Riemann kernel is four: strict global PF4 is certified, while the directed negative Toeplitz 5x5 minor proves failure of PF5.",
       "created_at": "2026-07-13T05:01:42+00:00",
       "relates_to": [
-        "T000011",
-        "T000012"
+        "T000012",
+        "T000013"
       ],
       "status": "established",
-      "updated_at": "2026-07-13T20:36:21+00:00"
+      "updated_at": "2026-07-15T03:54:52+00:00"
     },
     "F000146": {
       "because": [
@@ -2749,15 +2781,23 @@
         {
           "id": "F000156",
           "type": "factoid"
+        },
+        {
+          "id": "F000152",
+          "type": "factoid"
+        },
+        {
+          "id": "K000009",
+          "type": "certificate"
         }
       ],
-      "content": "Prove partial_xi Psi(xi;m,r)<=0 for every xi<m<r; by R156 this is the exact remaining criterion for global PF4 of the Riemann kernel.",
+      "content": "For the Riemann kernel, partial_xi Psi(xi;m,r)<0 for every xi<m<r: in the curvature coordinate, -partial_xi Psi equals Q(p) delta/Lambda times the strictly positive integral of W(t) C4(t)/(Q(t)^6 kappa(t)^2).",
       "created_at": "2026-07-13T17:18:32+00:00",
       "relates_to": [
         "T000012"
       ],
-      "status": "todo",
-      "updated_at": "2026-07-13T20:36:21+00:00"
+      "status": "established",
+      "updated_at": "2026-07-15T03:56:16+00:00"
     },
     "F000154": {
       "because": [
@@ -2932,16 +2972,48 @@
       "updated_at": "2026-07-14T22:24:16+00:00"
     },
     "F000163": {
-      "because": [],
-      "content": "Prove explicit uniform escape thresholds for partial_xi Psi on bounded anchor intervals, on both right-escape and parity-reflected left-escape branches, so the remaining central and mixed-sign PF4 domain reduces to finitely many compact collision-divided charts.",
+      "because": [
+        {
+          "id": "F000153",
+          "type": "factoid"
+        },
+        {
+          "id": "K000009",
+          "type": "certificate"
+        }
+      ],
+      "content": "The spatial escape, compact-chart, and regional atlas route is superseded: the exact curvature-coordinate transport identity proves the full three-point PF4 inequality through one positive crossing-kernel integral, with no residual domain subdivision.",
       "created_at": "2026-07-14T22:25:41+00:00",
       "relates_to": [
         "T000012"
       ],
-      "status": "todo",
-      "updated_at": "2026-07-14T22:25:41+00:00"
+      "status": "established",
+      "updated_at": "2026-07-15T03:54:42+00:00"
+    },
+    "F000164": {
+      "because": [
+        {
+          "id": "F000153",
+          "type": "factoid"
+        },
+        {
+          "id": "F000156",
+          "type": "factoid"
+        },
+        {
+          "id": "K000009",
+          "type": "certificate"
+        }
+      ],
+      "content": "The Riemann kernel is strictly PF4: every order-four translation minor is strictly positive, because the certified transport identity gives partial_xi Psi<0 globally and CERT5 converts that monotonicity through the quotient-Wronskian and iterated-integral reduction.",
+      "created_at": "2026-07-15T03:54:46+00:00",
+      "relates_to": [
+        "T000012"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-15T03:54:46+00:00"
     }
   },
-  "next_id": 164,
+  "next_id": 165,
   "version": 1
 }

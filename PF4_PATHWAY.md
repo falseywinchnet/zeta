@@ -1,62 +1,77 @@
 # PF4 pathway
 
-## Final objective
+## Resolved classification
 
-Prove
+The Riemann kernel is strictly PF4 (`R164`, `CERT9`) and is not PF5 (`R14`).
+Its exact global Polya-frequency order is therefore four (`R145`).
+
+The global three-point criterion is strict:
 
 \[
-\partial_\xi\Psi(\xi;m,r)\le 0\qquad(\xi<m<r)
+\partial_\xi\Psi(\xi;m,r)<0\qquad(\xi<m<r).             \tag{1}
 \]
 
-for the full Riemann kernel.  By `R156` and `CERT5`, this is equivalent to
-global PF4.  Together with global PF3 and the certified PF5 counterexample,
-it would make the exact global Polya-frequency order four.
+## Certified proof chain
 
-## Secured boundary
+1. `CERT2` gives `q>0`, so `y=-s(t)` is a strictly increasing coordinate and
+   `Q(y(t))=q(t)>0`.
+2. `CERT3` proves the direct central-moment invariant `C4(t)>0` for every real
+   `t`.
+3. In the curvature coordinate,
 
-- Global PF3: `R144`, `CERT2`.
-- Global PF4 reduction: `R156`, `CERT5`.
-- Every fully confluent order-four minor is positive: `R152`, `CERT3`.
-- Positive-tail edge density `S_r>0` for `pi exp(2m)>=23`: `R160`, `CERT7`.
-- Positive-tail three-point density `J_b>=0` for
-  `X_xi=pi exp(2xi)>=23`: `CERT8`, including the collision cone, both
-  angular faces, the left separated box, and the mean-value strip.
+   \[
+   C_4=Q^6\kappa^2
+   \left[3(\kappa-1)-\{Q(\log\kappa)'\}'\right],
+   \qquad \kappa=2-Q''>0.
+   \]
 
-The positive-tail seam is fixed at 23.  Lowering it is optional optimization,
-not a prerequisite for global PF4.  The floor-6, floor-18, and error-threshold
-runs from 2026-07-14 remain raw diagnostics; they must not turn the proof into
-an indefinite sequence of lower tail anchors.
+4. The exact `delta` and `Lambda` triangular weights normalize to probability
+   measures `mu` and `nu`. Their CDF crossing kernel `W=F_mu-F_nu` is strictly
+   positive in the interior: the left density ratio decreases once from
+   infinity to zero, while the right triangular component supplies a strict
+   endpoint gap.
+5. Two exact primitives remove every transport remainder and give
 
-## Finite completion atlas
+   \[
+   \mathcal N=\delta\Lambda\int_p^w
+   W(t)\frac{C_4(t)}{Q(t)^6\kappa(t)^2}\,dt>0.
+   \]
 
-1. **Uniform escape lemmas.** Prove the right-escape and left-escape signs
-   with explicit uniform thresholds on bounded anchor intervals.  This turns
-   the apparently unbounded central and mixed-sign regimes into compact boxes.
-2. **Positive central chart.** Certify the regularized criterion for
-   `0<=xi<x_23`, bounded gaps, with the full theta jet.  Use collision-divided
-   coordinates; do not force the one-term tail model below its useful seam.
-3. **Mixed chart `(-,+,+)`.** Derive and certify the parity-correct density or
-   regularized criterion for `xi<0<m<r`, joined to the escape and collision
-   charts.
-4. **Mixed chart `(-,-,+)`.** Do the same for `xi<m<0<r`.  This is a distinct
-   sign pattern; evenness alone does not prove it.
-5. **Origin collision cone.** Turn the global `C4>0` certificate into a
-   quantitative cone covering collisions that meet or cross zero, with
-   explicit overlap into both mixed charts.
-6. **Mirror and exhaustive join.** Prove the all-negative reflection and
-   determinant-orientation lemma, list every ordered sign/collision/escape
-   cell, verify overlaps, and replay the final implication through `CERT5`.
+6. The sign bridge audited against `CERT5` is
 
-The immediate next advancement round is item 1 (`R163`).  Its deliverable is an exact
-uniform escape threshold and a compact residual domain, not a scan.
+   \[
+   \partial_\xi\Psi=-\frac{Q(p)}{\Lambda^2}\mathcal N<0.
+   \]
 
-## Replay policy
+   `CERT5` then converts (1) through the quotient-Wronskian and generic
+   iterated-integral identities to strict positivity of every order-four
+   translation minor.
 
-`CERT8` uses a fast proof-carrying replay: every final exact integer residual
-is stored and checked on each CI run.  The manifest also names the deep
-generator, which reconstructs those residuals from the 74-term symbolic
-numerator.  This keeps routine replay bounded while retaining a from-scratch
-audit path.
+The checked derivation is in
+`sources/pf4-transport-kernel-certificate.md`; its replay boundary is `CERT9`.
 
-Historical `work/**/NEXT.md` files describe the state at their own epochs.
-This file is the only live PF4 completion plan.
+## Retired spatial atlas
+
+The escape thresholds, collision cones, Hermite boxes, mixed-sign charts, and
+regional joins are no longer proof obligations (`R163`). `CERT6`--`CERT8`
+remain valid independent positive-tail results, and their work directories
+remain durable evidence, but the global theorem does not depend on completing
+that atlas.
+
+The raw independent coupling has sign-indefinite fibers when its two left
+samples occur in reverse order. They cancel in the positive CDF crossing
+kernel. Treating those fibers as separate spatial regions would recreate the
+discarded subdivision problem.
+
+## RH boundary
+
+Exact PF order four is RH-neutral (`R81`). PF4 is not PF-infinity, and the
+repository contains an exact PF4 separator whose Fourier transform has
+nonreal zeros. No RH conclusion is inferred from this classification.
+
+## Replay
+
+`CERT9` is a short exact-symbolic audit with independent 70-digit Riemann-kernel
+checks. It depends on `CERT3` for global `C4>0` and on `CERT5` for the global
+PF4 equivalence. Routine replay does not execute any abandoned atlas generator
+or numerical scan.
