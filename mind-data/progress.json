@@ -235,8 +235,12 @@
     "P000059": {
       "blurb": "Audit and certify the positive transport-kernel proof of strict global PF4",
       "created_at": "2026-07-15T03:56:38+00:00"
+    },
+    "P000060": {
+      "blurb": "Preserve sibling and long-context Codex interviews on the completed PF4 journey",
+      "created_at": "2026-07-15T04:05:53+00:00"
     }
   },
-  "next_id": 60,
+  "next_id": 61,
   "version": 1
 }
