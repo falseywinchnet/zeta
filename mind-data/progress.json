@@ -227,8 +227,12 @@
     "P000057": {
       "blurb": "Replace PF4 compact tiling with an exact curvature-coordinate integral reduction",
       "created_at": "2026-07-15T03:24:57+00:00"
+    },
+    "P000058": {
+      "blurb": "Derive the exact PF4 transport crossing-kernel identity and positive monotone-coupling integral",
+      "created_at": "2026-07-15T03:43:18+00:00"
     }
   },
-  "next_id": 58,
+  "next_id": 59,
   "version": 1
 }
