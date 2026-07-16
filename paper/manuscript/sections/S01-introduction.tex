@@ -1,0 +1,43 @@
+\section{Introduction}\label{sec:introduction}
+
+A function \(f:\R\to\R\) is \(\PF_r\) when every translation-kernel minor
+\[
+ \det[f(x_i-y_j)]_{i,j=1}^k
+\]
+is nonnegative for \(1\leq k\leq r\) and increasing node tuples. We call the
+property strict when the determinant is positive whenever both tuples are
+strictly increasing. This paper determines the exact finite Polya-frequency
+order of the Riemann kernel; see \cite{belton} for modern background and
+Schoenberg's characterization.
+
+\begin{theorem}[Strict global \(\PF_4\)]\label{thm:main}
+For every \(1\leq k\leq4\) and strictly increasing real tuples
+\(x_1<\cdots<x_k\) and \(y_1<\cdots<y_k\),
+\[
+ \det[\Phi(x_i-y_j)]_{i,j=1}^k>0.
+\]
+\end{theorem}
+
+Michalowski gives a directed interval certificate for a negative order-five
+Toeplitz minor of the same kernel \cite{michalowski}. Hence
+Theorem~\ref{thm:main} has the following immediate consequence.
+
+\begin{corollary}\label{cor:exact-order}
+The exact global Polya-frequency order of \(\Phi\) is four.
+\end{corollary}
+
+The proof has two certified one-variable inputs and one exact transport
+mechanism. First, global inequalities \(q>0\) and \(F_2>0\) imply strict
+\(\PF_3\) and positivity of a three-point functional \(\Lambda\). Second, the
+fully confluent order-four invariant \(\Cfour\) is globally positive. Exact
+quotient identities reduce strict \(\PF_4\) to the monotonicity of a scalar
+three-point function \(\Psi\). An increasing curvature coordinate then turns
+the derivative of \(\Psi\) into a positive crossing-kernel integral of
+\(\Cfour\).
+
+The distinction between a human derivation and a computer certificate is
+maintained throughout. Directed interval arithmetic proves the compact and
+tail inequalities stated in \secref{sec:inputs}; exact algebra is written in
+the paper and independently replayed by the repository verifiers. The
+classification concerns finite-order total positivity only. It neither proves
+nor disproves the Riemann Hypothesis.

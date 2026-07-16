@@ -1,0 +1,55 @@
+\section{Curvature coordinate and sign bridge}\label{sec:coordinate}
+
+Since \(q>0\),
+\[
+ y(t)=-s(t),\qquad Q(y(t))=q(t)
+\]
+defines a strictly increasing global coordinate, with
+\(\dd y/\dd t=q(t)=Q(y)>0\). Primes in this and the next three sections mean
+\(y\)-derivatives. Put
+\[
+ \rho=1-Q''=\frac{F_2}{q^3}>0,
+ \qquad \kappa=2-Q''=1+\rho>1.
+\]
+
+For \(\xi<m<r\), write
+\[
+ p=y(\xi),\quad z=y(m),\quad w=y(r),\quad L=z-p,quad R=w-z.
+\]
+Because \(A(a,b)=y(b)-y(a)\) and
+\(M(a,b)=Q[y(a),y(b)]\),
+\begin{equation}\label{eq:Lambda-coordinate}
+ \Lambda=(w-p)+Q[p,z]-Q[z,w].
+\end{equation}
+Two integrations of \(\kappa=2-Q''\) give
+\begin{align}
+ \Lambda&=\frac1L\int_p^z(y-p)\kappa(y)\dd y
+ +\frac1R\int_z^w(w-y)\kappa(y)\dd y,\label{eq:Lambda-triangular}\\
+ \delta:=-\partial_p\Lambda
+ &=\frac1{L^2}\int_p^z(z-y)\kappa(y)\dd y>0.
+ \label{eq:delta-triangular}
+\end{align}
+Simultaneous translation becomes
+\[
+ \T=Q(p)\partial_p+Q(z)\partial_z+Q(w)\partial_w,
+\]
+and \(\partial_\xi=Q(p)\partial_p\). Thus
+\(\Lambda_\xi=-Q(p)\delta\).
+
+Define
+\begin{equation}\label{eq:N-def}
+ \mathcal N=\delta\Lambda^2+Q'(p)\delta\Lambda+
+ \Lambda\T\delta-\delta\T\Lambda.
+\end{equation}
+Differentiating \(\Psi=\Lambda+\T\log\Lambda\), commuting simultaneous
+translation with \(\partial_\xi\), and collecting over \(\Lambda^2\) gives
+\begin{equation}\label{eq:sign-bridge}
+ \partial_\xi\Psi=-\frac{Q(p)}{\Lambda^2}\mathcal N.
+\end{equation}
+Equivalently,
+\begin{equation}\label{eq:K-def}
+ \frac{\mathcal N}{\delta\Lambda}
+ =K:=\Lambda+Q'(p)+\T\log\delta-\T\log\Lambda.
+\end{equation}
+It remains to prove \(K>0\).
+

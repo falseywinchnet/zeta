@@ -1,0 +1,37 @@
+\section{The kernel and smooth even continuation}\label{sec:kernel}
+
+Put
+\[
+ \vartheta(x)=\sum_{n\in\mathbb Z}e^{-\pi n^2x},\qquad
+ \Theta(t)=\vartheta(e^{2t}),\qquad H(t)=e^{t/2}\Theta(t).
+\]
+The theta transformation \(\vartheta(x)=x^{-1/2}\vartheta(1/x)\) gives
+\[
+ \Theta(-t)=e^t\Theta(t),\qquad H(-t)=H(t).
+\]
+The series and all its derivatives converge locally uniformly, so \(H\) is
+real analytic and even. Define
+\[
+ \Phi(t)=\frac12\left(H''(t)-\frac14H(t)\right).
+\]
+Termwise differentiation gives, for every real \(t\),
+\begin{equation}\label{eq:kernel-series}
+ \Phi(t)=\sum_{n\geq1}
+ \left(4\pi^2n^4e^{9t/2}-6\pi n^2e^{5t/2}\right)
+ e^{-\pi n^2e^{2t}}.
+\end{equation}
+Thus the positive-side formula often written with \(|t|\) is the restriction
+of a real-analytic even function. In particular, smoothness at the origin is
+not inferred from numerical coverage.
+
+Write
+\[
+ \ell=\log\Phi,\qquad s=\ell',\qquad q=-s'=-\ell''.
+\]
+For \(a<b\), define
+\begin{equation}\label{eq:AM}
+ A(a,b)=s(a)-s(b),\qquad
+ M(a,b)=\frac{q(b)-q(a)}{A(a,b)}.
+\end{equation}
+When \(q>0\), \(s\) is strictly decreasing and \(A(a,b)>0\).
+

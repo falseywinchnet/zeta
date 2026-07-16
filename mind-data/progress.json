@@ -251,8 +251,12 @@
     "P000063": {
       "blurb": "Reconcile ChatGPT PF correspondence, correct the discrete-to-continuous PF4 separator overclaim, and scrub unauthorized identity from reachable history",
       "created_at": "2026-07-15T05:08:37+00:00"
+    },
+    "P000064": {
+      "blurb": "Build a mapped modular PF4 paper, archive the reviewed preliminary draft, and close its proof-audit ledger",
+      "created_at": "2026-07-16T16:22:12+00:00"
     }
   },
-  "next_id": 64,
+  "next_id": 65,
   "version": 1
 }

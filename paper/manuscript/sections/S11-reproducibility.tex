@@ -1,0 +1,43 @@
+\section{Reproducibility and evidence boundary}\label{sec:reproducibility}
+
+The proof has four replay boundaries.
+\begin{center}
+\small
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.25\textwidth}
+>{\raggedright\arraybackslash}p{0.46\textwidth}
+>{\raggedright\arraybackslash}p{0.20\textwidth}@{}}
+\toprule
+Object & Repository verifier & Role \\
+\midrule
+Global \(q,F_2\), strict \(\PF_3\) &
+\path{scripts/verify_pf3_reduction.py} & directed and exact \\
+Global \(\Cfour>0\) &
+\path{scripts/verify_c4_confluent.py} & directed and exact \\
+Quotient reduction &
+\path{scripts/verify_pf4_wronskian_reduction.py} & exact generic algebra \\
+Transport completion &
+\path{scripts/verify_pf4_transport_kernel.py} & exact algebra and checks \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The compact inequalities are directed Arb calculations at 192-bit precision;
+the tail uses explicit analytic envelopes and rational coefficient bounds.
+The quotient, curvature, primitive, endpoint, and density-ratio identities are
+mathematical identities for generic smooth functions. The paper displays
+these identities; the scripts independently replay them and compare the
+normalizations against high-precision evaluations of the Riemann kernel.
+
+A focused independent audit should proceed in this order:
+\begin{enumerate}
+ \item verify the analytic theta normalization in \eqref{eq:kernel-series};
+ \item replay the directed \(q,F_2,\Cfour\) compact and tail certificates;
+ \item check the sign \(\T\log A=M\) and the two weighted-mean splits in
+       \secref{sec:quotient};
+ \item expand the determinant and curvature identity in
+       \appref{app:algebra};
+ \item check the endpoint identity in \appref{app:endpoints};
+ \item differentiate the density ratio in
+       \eqref{eq:density-ratio-derivative}.
+\end{enumerate}
+No numerical scan is used as evidence for global nonconfluent positivity.
