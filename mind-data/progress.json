@@ -291,8 +291,12 @@
     "P000073": {
       "blurb": "Promote sweep-free exact PF3/PF4 signs, remove FLINT from the paper graph, exactify the separator discriminant, integrate the analytic manuscript, and package an arXiv-ready source archive",
       "created_at": "2026-07-16T19:34:36+00:00"
+    },
+    "P000074": {
+      "blurb": "Polished the PF4 paper, expanded the quotient proof and exact certificate table, reduced the separator numerator, corrected provenance and literature, and rebuilt the verified arXiv package",
+      "created_at": "2026-07-16T20:47:24+00:00"
     }
   },
-  "next_id": 74,
+  "next_id": 75,
   "version": 1
 }

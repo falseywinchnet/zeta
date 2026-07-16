@@ -18,7 +18,7 @@ Let \(\T\) denote simultaneous translation of all point arguments. From
 \begin{equation}\label{eq:TlogA}
  \T A(a,b)=q(b)-q(a),\qquad \T\log A(a,b)=M(a,b).
 \end{equation}
-This sign is load-bearing. Since
+The sign convention in \eqref{eq:TlogA} will be used below. Since
 \[
  \frac{v_j}{v_2}=\frac{u_j}{u_2}
  \frac{A(p_j,p_1)}{A(p_2,p_1)},
@@ -66,6 +66,31 @@ identity
  =\Psi(p_4;p_2,p_1)-\Psi(p_3;p_2,p_1).
 \end{equation}
 
+\begin{lemma}[Iterated quotient integral]\label{lem:quotient-integral}
+Let \(f_1,\ldots,f_k\) be continuously differentiable on an interval,
+let \(f_1>0\), and put \(G_j=f_j/f_1\). For
+\(t_1<\cdots<t_k\),
+\begin{equation}\label{eq:iterated-determinant}
+ \det[f_j(t_i)]_{i,j=1}^k
+ =\prod_{i=1}^k f_1(t_i)
+ \int_{t_1}^{t_2}\!\cdots\!\int_{t_{k-1}}^{t_k}
+ \det[G'_{j+1}(\tau_i)]_{i,j=1}^{k-1}
+ \dd\tau_1\cdots\dd\tau_{k-1}.
+\end{equation}
+The identity may be applied repeatedly whenever the first member of the new
+derivative family is positive.
+\end{lemma}
+
+\begin{proof}
+Factor \(f_1(t_i)\) from row \(i\). The first column is then one. Replace
+successive rows, from bottom to top, by their difference with the preceding
+row. Each remaining entry is
+\(G_j(t_{i+1})-G_j(t_i)=\int_{t_i}^{t_{i+1}}G_j'(\tau)\dd\tau\).
+Determinant multilinearity gives \eqref{eq:iterated-determinant}. Since
+\(\tau_i\in[t_i,t_{i+1}]\), the integration nodes remain ordered, so the same
+argument applies to the derivative determinant.
+\end{proof}
+
 \begin{proposition}[Three-point equivalence]\label{prop:equivalence}
 Under the strict lower-order positivity already proved, global \(\PF_4\) is
 equivalent to
@@ -81,18 +106,21 @@ If \(\partial_\xi\Psi\leq0\), then \(p_4<p_3\) makes the right side of
 \eqref{eq:W4-quotient} are positive. The Wronskian is therefore
 nonnegative, and is positive in the strict case.
 
-For increasing row nodes \(t_1<\cdots<t_k\), divide columns by \(u_1(t_i)\)
-and take consecutive row differences from the bottom upward. The fundamental
-theorem of calculus and determinant multilinearity give
-\[
- \det[U_j(t_i)]_{i,j=1}^k
- =\int_{t_1}^{t_2}\!\cdots\!\int_{t_{k-1}}^{t_k}
- \det[U'_{j+1}(\tau_i)]_{i,j=1}^{k-1}
- \dd\tau_1\cdots\dd\tau_{k-1},
-\]
-where \(U_1=1\). Repeating the quotient reduction converts the Wronskian sign
-to every collocation minor; positivity of the integrand on a product of
-positive-length intervals gives the strict conclusion.
+For clarity, applying Lemma~\ref{lem:quotient-integral} three times to the
+order-four minor gives, with \(I_i=[t_i,t_{i+1}]\),
+\begin{align*}
+\det[u_j(t_i)]_{i,j=1}^4
+={}&\prod_{i=1}^4u_1(t_i)
+\int_{I_1\times I_2\times I_3}\prod_{i=1}^3v_2(\tau_i)\\
+&\quad\times\int_{\tau_1}^{\tau_2}\int_{\tau_2}^{\tau_3}
+w_3(\sigma_1)w_3(\sigma_2)
+\int_{\sigma_1}^{\sigma_2}
+\left(\frac{w_4}{w_3}\right)'(\rho)\dd\rho
+\dd\sigma_2\dd\sigma_1\dd\boldsymbol\tau.
+\end{align*}
+Every factor is positive in the strict case, and every integration interval
+has positive length. This proves positivity of every ordered collocation minor,
+not only of the confluent Wronskian.
 
 Conversely, assume global \(\PF_4\). Let all four row nodes coalesce, divide
 by their positive Vandermonde, and pass to the limit. The resulting translate
@@ -102,4 +130,3 @@ Wronskian is nonnegative. Equations \eqref{eq:W4-quotient} and
 Thus \(\Psi(\cdot;m,r)\) is nonincreasing, which is equivalent to the stated
 differential inequality because it is smooth.
 \end{proof}
-

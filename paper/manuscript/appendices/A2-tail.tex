@@ -1,4 +1,4 @@
-\section{Sweep-free proof of the certified input}\label{app:tail}
+\section{Exact proof of the certified input}\label{app:tail}
 
 This appendix proves Lemma~\ref{lem:certified-input}. The positive-side
 theta series has \(j\)-th derivative
@@ -88,7 +88,43 @@ the indicated shift. The 361 resulting rational coefficient inequalities give
  q_{1,2}>10,\qquad (F_2)_{1,2}>1000,\qquad
  (\Cfour)_{1,2}>50{,}000{,}000.
 \end{equation}
-This is a finite algebraic proof on fixed domains, not an interval sweep.
+This is a finite algebraic proof on fixed domains.
+
+For reference, the complete finite certificate is summarized below.  Write
+\(\mathcal A=(2x-3)+4(8x-3)y\), which is positive on every listed domain.
+Rows \(Q_0,F_0,F_1,C_0\) are Bernstein certificates after the indicated
+affine change to the unit square; the remaining rows use coefficient
+positivity after a half-line shift. In the two ``ratio'' rows, the listed
+fraction is the sum of
+the adverse coefficient ratios and is strictly less than one.
+\begin{center}
+\tiny
+\begin{tabular}{@{}lllll@{}}
+\toprule
+ID & Variables and domain & Degree & Positive denominator & Exact lower datum \\
+\midrule
+\(Q_0\) & \(157/50\le x\le10/3,\ 0\le y\le1/12000\)
+ & \((4,2)\) & \(\mathcal A^2\) & \(6613625187767/70312500000\) \\
+\(Q_\infty\) & \(x=10/3+z,\ 0\le y\le1/12000\)
+ & \((4,2)\) & \(\mathcal A^2\) & ratio \(47333/505500\) \\
+\(F_0\) & \(157/50\le x\le10/3,\ 1/23000\le y\le1/12000\)
+ & \((12,6)\) & \(\mathcal A^6\) & minimum \(>1610047\) \\
+\(F_1\) & \(10/3\le x\le5,\ 0\le y\le1/22000\)
+ & \((12,6)\) & \(\mathcal A^6\) & \(29124973000/19683\) \\
+\(F_\infty\) & \(x=5+z,\ y=v/3000000\)
+ & \((12,6)\) & \(\mathcal A^6\) & \(432/19073486328125\) \\
+\(C_0\) & \(157/50\le x\le10/3,\ 0\le y\le1/12000\)
+ & \((14,4)\) & \(\mathcal A^4\) & minimum \(>9546672947\) \\
+\(C_\infty\) & \(x=10/3+z,\ 0\le y\le1/12000\)
+ & \((14,4)\) & \(\mathcal A^4\) & ratio \(65989337396066791/77165720550000000\) \\
+\bottomrule
+\end{tabular}
+\end{center}
+These seven checks comprise 361 exact rational inequalities.  The derivative
+envelopes used below contribute 140 further Bernstein coefficients, of
+bidegrees \((j+1,1)\), \(0\le j\le6\); their smallest coefficient is
+\(44861/31250\).  Thus the compact domains and the differentiated tail
+majorants belong to the same exact certificate.
 
 \subsection{All later modes}
 
@@ -138,7 +174,19 @@ for \(x\geq5\). A single rational Taylor bound at \(x=5\) gives
  |\Delta N_{F_2}|<0.03,\quad
  |\Delta N_{\Cfour}|<418{,}287.
 \end{equation}
-The bounds \eqref{eq:core-perturbation} and
-\eqref{eq:outer-perturbation} are strictly smaller than
-\eqref{eq:two-mode-margin}. Since \(b_0>0\), \eqref{eq:raw-signs} proves all
-three signs for \(u\geq0\). Evenness proves Lemma~\ref{lem:certified-input}.
+To compare like quantities, note that
+\[
+ a_0=1+4y\frac{P_0(4x)}{P_0(x)}>1,
+\]
+and, by homogeneity,
+\[
+ N_{q,1,2}=q_{1,2}a_0^2,\qquad
+ N_{F_2,1,2}=(F_2)_{1,2}a_0^6,\qquad
+ N_{\Cfour,1,2}=(\Cfour)_{1,2}a_0^4.
+\]
+Consequently \eqref{eq:two-mode-margin} supplies the same respective lower
+margins \(10\), \(1000\), and \(50{,}000{,}000\) for the cleared
+numerators.  Both perturbation bounds
+\eqref{eq:core-perturbation} and \eqref{eq:outer-perturbation} are strictly
+smaller.  Finally \(b_0=a_0+e_0>0\), so \eqref{eq:raw-signs} proves all three
+signs for \(u\geq0\). Evenness proves Lemma~\ref{lem:certified-input}.

@@ -143,6 +143,6 @@ conclusion from `u>=0` to the real line.
 
 `scripts/verify_riemann_signs_exact.py` forces SymPy's pure-Python rational
 domain, rejects any import whose name begins with `flint`, and runs the
-preserved exact verifier from P000072.  The certificate hashes the launcher,
-the verifier, its retained output, and this proof record.  Its only external
-requirement is SymPy 1.14.0; all sign decisions are exact.
+maintained core `scripts/verify_riemann_signs_core.py`. The certificate hashes
+the launcher, the core, its retained output, and this proof record. Its only
+external requirement is SymPy 1.14.0; all sign decisions are exact.

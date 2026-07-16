@@ -1,7 +1,8 @@
-\section{Proof provenance}\label{app:provenance}
+\section{Certificate inventory}\label{app:provenance}
 
-The maintained source map is \texttt{paper/PAPER\_MAP.md}. The principal
-repository proof records are:
+The finite and symbolic parts of the proof are recorded in the following
+plain-text source files. Each record states the exact claim, its inputs, and
+the corresponding verifier.
 \begin{center}
 \begin{tabular}{@{}ll@{}}
 \toprule
@@ -23,17 +24,6 @@ Continuous strict-\(\PF_4\) Fourier separator &
 \bottomrule
 \end{tabular}
 \end{center}
-The corresponding MIND identities are
-\[
-\begin{gathered}
- R140,R141,R147,R149,\quad R154\text{--}R156,\quad
- R153,R164,R171\text{--}R173,\\
- R14,R37,R50,R72,\quad R165\text{--}R170.
-\end{gathered}
-\]
-The active replay boundaries are
-\[
- CERT12,\ CERT5,\ CERT9,\ CERT11,\ CERT10.
-\]
-The former CERT2 and CERT3 Arb boundaries remain archived historical evidence.
-These identifiers are evidence anchors, not bibliographic citations.
+The maintained source map \path{paper/PAPER_MAP.md} identifies the manuscript
+section in which each record is used. The single replay command in
+\secref{sec:reproducibility} checks the five corresponding verifier outputs.

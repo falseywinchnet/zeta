@@ -114,19 +114,21 @@ def check_c4() -> None:
         )
         cleared += term
 
-    coefficients = cleared.all_coeffs()
-    report("C cleared C4 numerator has degree 72", cleared.degree() == 72)
-    report("C cleared C4 numerator has no gaps", len(coefficients) == 73)
-    report("C cleared C4 numerator is palindromic", coefficients == list(reversed(coefficients)))
-    report("C all 73 cleared C4 coefficients are positive", all(value > 0 for value in coefficients))
+    report("C common-denominator numerator has factor P^8", cleared.rem(polynomial**8) == 0)
+    reduced = cleared.exquo(polynomial**8)
+    coefficients = reduced.all_coeffs()
+    report("C reduced C4 numerator has degree 24", reduced.degree() == 24)
+    report("C reduced C4 numerator has no gaps", len(coefficients) == 25)
+    report("C reduced C4 numerator is palindromic", coefficients == list(reversed(coefficients)))
+    report("C all 25 reduced C4 coefficients are positive", all(value > 0 for value in coefficients))
     report(
-        "C smallest cleared coefficient",
-        min(coefficients) == sp.Rational(3, 65536),
+        "C smallest reduced coefficient",
+        min(coefficients) == sp.Rational(3, 2**24),
         f"min={min(coefficients)}",
     )
 
     # Independent spot checks compare the reconstructed determinant directly
-    # with H/P^12 at exact rational t values.
+    # with the reduced numerator over P^4 at exact rational t values.
     ell = {
         variables[0]: cumulant_numerators[2].as_expr() / polynomial.as_expr() ** 2,
         variables[1]: cumulant_numerators[3].as_expr() / polynomial.as_expr() ** 3,
@@ -135,7 +137,7 @@ def check_c4() -> None:
         variables[4]: cumulant_numerators[6].as_expr() / polynomial.as_expr() ** 6,
     }
     direct = determinant.as_expr().subs(ell)
-    quotient = cleared.as_expr() / polynomial.as_expr() ** 12
+    quotient = reduced.as_expr() / polynomial.as_expr() ** 4
     for value in (sp.Rational(1, 3), sp.Integer(1), sp.Integer(4)):
         report(
             f"C exact determinant reconstruction at t={value}",

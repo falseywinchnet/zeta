@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """Replay the sweep-free exact certificate for q, F2, and C4.
 
-The promoted verifier is retained in its advancement directory.  This launcher
-forces SymPy's pure-Python rational domain and rejects every attempted FLINT
-import, so a successful replay also checks the advertised dependency boundary.
+The maintained algebraic core lives beside this launcher. This launcher forces
+SymPy's pure-Python rational domain and rejects every attempted FLINT import,
+so a successful replay also checks the stated dependency boundary.
 """
 
 from __future__ import annotations
@@ -25,9 +25,8 @@ class _RejectFlint(importlib.abc.MetaPathFinder):
 ROOT = Path(__file__).resolve().parents[1]
 VERIFIER = (
     ROOT
-    / "work"
-    / "2026-07-16-pf4-no-flint-analytic-core"
-    / "verify_no_flint_compact.py"
+    / "scripts"
+    / "verify_riemann_signs_core.py"
 )
 
 if not VERIFIER.is_file():

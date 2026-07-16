@@ -44,13 +44,13 @@ its displayed section number changes.
 | `S09` | `sections/S09-crossing-kernel.tex` | Strict density-ratio monotonicity and positive integral | `R153`, `CERT9` | ready |
 | `S10` | `sections/S10-completion.tex` | Strict minors, origin parity obstruction, exact order four, no RH implication | `R14`, `R72`, `R81`, `R145`, `R164`, `CERT11` | ready; exact rational replay |
 | `S10a` | `sections/S10a-separator.tex` | Explicit positive even Schwartz strict-PF4 kernel with nonreal Fourier zeros | `R165`-`R170`, `CERT10` | ready; exact/direct replay |
-| `S11` | `sections/S11-reproducibility.tex` | Exact active replay, archived covers, and audit order | `CERT5`, `CERT9`-`CERT12` | ready |
+| `S11` | `sections/S11-reproducibility.tex` | Exact active replay, fixed artifacts, and software versions | `CERT5`, `CERT9`-`CERT12` | ready |
 | `S11a` | `sections/S11a-availability.tex` | Public evidence anchor, availability, AI provenance, release gates | `P000069`, `P000070` | ready; release-gated |
 | `A1` | `appendices/A1-algebra.tex` | Cumulant expansion and curvature factorization line by line | `R149`, `CERT9`, `CERT12` | ready |
 | `A2` | `appendices/A2-tail.tex` | Two-mode margins and analytic all-mode perturbation | `R171`, `CERT12` | ready; exact replay |
 | `A3` | `appendices/A3-endpoints.tex` | `(50)->(45)` endpoint algebra with all substitutions exposed | `R153`, `CERT9` | ready |
 | `A4` | `appendices/A4-provenance.tex` | Claim-to-file replay table | `CERT5`, `CERT9`-`CERT12` | ready |
-| `A5` | `appendices/A5-separator.tex` | Independent central determinant, 37 printed coefficients, exact Fourier discriminant | `R167`, `R168`, `CERT10` | ready |
+| `A5` | `appendices/A5-separator.tex` | Independent central determinant, reduced 13-coefficient certificate, exact Fourier discriminant | `R167`, `R168`, `CERT10` | ready |
 
 ## Review verdict ledger
 
@@ -87,7 +87,7 @@ candidate are retained in `work/2026-07-16-pf4-audit-through-c2/`.
 |---|---|
 | V1 | Public repository and immutable `P000069` theorem-evidence commit are printed; `paper/RELEASE_MANIFEST.md` names the final tag/DOI and clean-platform replay as release gates. |
 | V2 | `S11` identifies the sweep-free exact active replay; the 7731- and 8050-cell Arb covers are archived historical evidence and cannot run during routine replay. |
-| V3 | `A5` prints the 37 independent exact coefficients, while `A2` supplies the analytic later-mode bounds and exact coefficient boundary. |
+| V3 | `A5` prints the 13 independent coefficients of the reduced degree-24 numerator, while `A2` supplies the complete finite-domain table and analytic later-mode bounds. |
 | V4 | `S01a` adds the supplied Khare, Dimitrov--Xu, and Csordas--Varga context; comprehensive priority search remains the explicitly deferred Q1 item. |
 | V5 | `CERT11` and `S10` already replaced the external decimal PF5 witness. |
 | V6 | `S00` and `A5` replace the directed separator discriminant by an exact rational inequality. |

@@ -2,14 +2,13 @@
 
 \paragraph{Author contribution.}
 Joshua Rainstar conceived and directed the project, developed the proof
-architecture, assembled and audited the computational evidence, and prepared
+architecture, verified the exact computations, and prepared
 the manuscript.
 
 \paragraph{Acknowledgments and computational assistance.}
 The author acknowledges the use of OpenAI Codex and other disclosed AI systems
-for symbolic derivation, implementation, drafting, and adversarial audit. The
-proof records preserve the resulting calculations and their replay boundaries;
-the author takes responsibility for the mathematical claims.
+for symbolic calculation, implementation, drafting, and review. The author
+takes responsibility for the mathematical claims and the final manuscript.
 
 \paragraph{Conflict of interest.}
 The author declares no competing interests.
@@ -17,14 +16,14 @@ The author declares no competing interests.
 \paragraph{Code and data availability.}
 
 The public repository is
-\url{https://github.com/falseywinchnet/zeta}. The sweep-free analytic advance
-audited in this revision is frozen at MIND epoch \texttt{P000072}, Git commit
-\href{https://github.com/falseywinchnet/zeta/commit/66ba7f983a21972d0af6c6041fcee3bda7727945}{\texttt{66ba7f983a21}}.
-Its audited paper integration is MIND epoch \texttt{P000073}.
-A submission release must
-freeze this revised source, its generated coefficient table, replay tool,
-environment lock, and built PDF under one versioned archive record; the PDF
-hash belongs in that release manifest rather than recursively inside the PDF.
+\url{https://github.com/falseywinchnet/zeta}. The exact analytic proof was
+promoted in commit
+\href{https://github.com/falseywinchnet/zeta/commit/0ebb95b141a109f88dc0c0218a9840e01eba9790}{\texttt{0ebb95b141a1}}.
+The submission source, generated coefficient table, environment lock, replay
+tool, and PDF are frozen together under the versioned tag
+\texttt{pf4-paper-v1.0.0}; their SHA-256 values are listed in
+\path{paper/RELEASE_MANIFEST.md}. The complete evidence replay is
+\texttt{python scripts/replay\_paper.py} from the repository root.
 
 All theorem-bearing sign decisions are exact. Numerical values produced by
 the repository scripts are diagnostic only; there is no separate experimental

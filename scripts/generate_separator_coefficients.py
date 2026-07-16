@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate the printable exact positive certificate for the separator C4 numerator."""
+"""Generate the reduced exact positive certificate for the separator C4 numerator."""
 
 from __future__ import annotations
 
@@ -57,17 +57,20 @@ def coefficients() -> tuple[int, list[int]]:
             raise ArithmeticError(f"unexpected derivative weight {weight}")
         numerator += term
 
+    if numerator.rem(p**8) != 0:
+        raise ArithmeticError("uncancelled separator numerator lacks P^8 factor")
+    numerator = numerator.exquo(p**8)
     rational = list(reversed(numerator.all_coeffs()))
     scale = int(sp.ilcm(*[coefficient.q for coefficient in rational]))
     integers = [int(coefficient * scale) for coefficient in rational]
-    if len(integers) != 73 or integers != list(reversed(integers)) or min(integers) <= 0:
+    if len(integers) != 25 or integers != list(reversed(integers)) or min(integers) <= 0:
         raise ArithmeticError("separator coefficient certificate failed")
     return scale, integers
 
 
 def write_outputs(scale: int, values: list[int]) -> None:
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-    record = {"schema": 1, "scale": scale, "degree": 72, "coefficients": values}
+    record = {"schema": 2, "scale": scale, "degree": 24, "coefficients": values}
     encoded = json.dumps(record, indent=2, sort_keys=True).encode("ascii") + b"\n"
     (OUTPUT_DIR / "separator-coefficients.json").write_bytes(encoded)
 
@@ -79,13 +82,13 @@ def write_outputs(scale: int, values: list[int]) -> None:
         "$j$ & $a_j$ & $j$ & $a_j$ \\\\",
         "\\midrule",
     ]
-    for index in range(19):
-        other = index + 19
-        right = f"{other} & ${values[other]}$" if other < 37 else "&"
+    for index in range(7):
+        other = index + 7
+        right = f"{other} & ${values[other]}$" if other < 13 else "&"
         rows.append(f"{index} & ${values[index]}$ & {right} \\\\")
     rows.extend(["\\bottomrule", "\\end{tabular}", "\\end{center}"])
     (OUTPUT_DIR / "separator-coefficients.tex").write_text("\n".join(rows) + "\n", encoding="ascii")
-    print(f"scale={scale} degree=72 independent_coefficients=37 minimum={min(values)}")
+    print(f"scale={scale} degree=24 independent_coefficients=13 minimum={min(values)}")
     print(f"json_sha256={hashlib.sha256(encoded).hexdigest()}")
 
 

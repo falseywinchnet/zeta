@@ -255,10 +255,10 @@
         }
       ],
       "attestation": {
-        "manifest_sha256": "e979ee2663873d1421e3c705ed7c8fba12a9651279b52b55f840db81276c1919",
+        "manifest_sha256": "fb0516008e6d97546caafad5101d99a4aff3fa39b6f73820e269ab32edf7dfa7",
         "method": "executed",
         "schema": 1,
-        "verified_at": "2026-07-16T19:28:17+00:00"
+        "verified_at": "2026-07-16T20:47:06+00:00"
       },
       "created_at": "2026-07-13T20:35:51+00:00",
       "dependencies": [
@@ -486,10 +486,10 @@
         }
       ],
       "attestation": {
-        "manifest_sha256": "16d78bd3158e7629b4ba6f6a77ff23c48f96a4311786f40b8a85970894a39bdd",
+        "manifest_sha256": "d620620320bd6af99dfe30a253bee7e29a40c42bd7044b446402bf237ccca89b",
         "method": "executed",
         "schema": 1,
-        "verified_at": "2026-07-16T19:28:20+00:00"
+        "verified_at": "2026-07-16T20:47:09+00:00"
       },
       "created_at": "2026-07-15T03:54:20+00:00",
       "dependencies": [
@@ -526,25 +526,29 @@
       "artifacts": [
         {
           "path": "sources/continuous-pf4-separator-certificate.md",
-          "sha256": "eea803fc426ed3e4f9acc6b587eb7ab77ad00c84859942d24e17ae8ee20bda96"
+          "sha256": "8eb616a9bcc957ba37989ad0b0243081ee3c20a6536983cc1d6cec5cf9ce9fb1"
+        },
+        {
+          "path": "paper/manuscript/generated/separator-coefficients.json",
+          "sha256": "d0f91259919c7f237ef65068041122656636ca990fe6ef41a146dd53eaa1dba9"
         }
       ],
       "attestation": {
-        "manifest_sha256": "65df6d88864c2aea2c037a2ce55eda40450e6a4c84a907f73cd970140e8fc41a",
+        "manifest_sha256": "f97bb45d7239f0e6034185301c1e2c58feb230c99c831e0ca19076dc7263d2cd",
         "method": "executed",
         "schema": 1,
-        "verified_at": "2026-07-16T19:28:21+00:00"
+        "verified_at": "2026-07-16T20:47:10+00:00"
       },
       "created_at": "2026-07-16T16:57:04+00:00",
       "dependencies": [
         "K000012",
         "K000009"
       ],
-      "description": "Continuous strict-PF4 Fourier separator audit: exact PF3 margin, independently reconstructed central C4 determinant with 73 positive cleared coefficients, and exact negative Fourier-cubic discriminant inequality",
+      "description": "Continuous strict-PF4 Fourier separator: exact PF3 margin, exact P^8 cancellation to a degree-24 C4 numerator with 25 positive coefficients, and exact negative Fourier-cubic discriminant inequality",
       "environment": null,
       "file": {
         "path": "scripts/verify_continuous_pf4_separator.py",
-        "sha256": "174b3a5d22cd3b5d0add71e9752cd7ff6381f33a3c4845d0cb51f897b9461f24"
+        "sha256": "56c6b5caa566f3088fdcd47374726653d97b25cf97e05a7c556fc7e9ebc7374d"
       },
       "precision": "exact symbolic and rational polynomial arithmetic; no numerical sign decisions",
       "requirements": [
@@ -557,13 +561,13 @@
         ],
         "expected_exit_code": 0,
         "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "stdout_sha256": "76d3bf5530e122e443de2b23e3abef936d1235762fdb2e1006aeacea6eb646e8",
+        "stdout_sha256": "07af9cb98b8272e2b2bfddc186b1240168f2f5b8dd41c6b0f0ac68401a568f1a",
         "timeout_seconds": 300
       },
       "topics": [
         "T000012"
       ],
-      "updated_at": "2026-07-16T19:28:21+00:00"
+      "updated_at": "2026-07-16T20:41:07+00:00"
     },
     "K000011": {
       "artifacts": [
@@ -615,30 +619,26 @@
       "artifacts": [
         {
           "path": "sources/riemann-signs-analytic-certificate.md",
-          "sha256": "1d757c9738dec0b6b9dfe7550cb6d2cd1fd9e4cd3ebe9b1d36bf27a6d5dc0d03"
+          "sha256": "cb33af27d411cef5c139c4cdc16baa72dd226a25bda1b80b187fbedd4d1e0ec7"
         },
         {
-          "path": "work/2026-07-16-pf4-no-flint-analytic-core/verify_no_flint_compact.py",
-          "sha256": "6133b1a2402eaef0fbd53304fcec68ab5998f78b1e38e32d5b4947c0b8ec0734"
-        },
-        {
-          "path": "work/2026-07-16-pf4-no-flint-analytic-core/no-flint-certificate.txt",
-          "sha256": "0f6d051dd1da7ecb535b8f3c5b3a97f806c3db76c720b354c136f2548cf5b818"
+          "path": "scripts/verify_riemann_signs_core.py",
+          "sha256": "73d6e140accad84cb4121a3da8072b0d67e05da8ee1a579c880b89cb13deb65e"
         }
       ],
       "attestation": {
-        "manifest_sha256": "bf52cc8d39c468a8bd0d60a03ebe82f0c8099e19bf75231423b883135c049738",
+        "manifest_sha256": "26ae374b89f20d6cf031a6afb6eafce58fd53c1a9622f92c86f9e08113b839d8",
         "method": "executed",
         "schema": 1,
-        "verified_at": "2026-07-16T19:27:13+00:00"
+        "verified_at": "2026-07-16T20:47:00+00:00"
       },
       "created_at": "2026-07-16T19:25:50+00:00",
       "dependencies": [],
-      "description": "Sweep-free exact global Riemann-kernel sign and PF3 certificate: generic slope identity, two theta modes, rational Bernstein and decay coefficients, analytic modes-three-and-higher perturbation, proving q>0, F2>0, C4>0, and strict PF3 without FLINT, floating point, or interval subdivision",
+      "description": "Exact global Riemann-kernel sign and PF3 certificate: two theta modes, rational Bernstein and decay coefficients, derivative envelopes, and analytic modes-three-and-higher bounds prove q>0, F2>0, C4>0, and strict PF3 without floating-point sign decisions",
       "environment": null,
       "file": {
         "path": "scripts/verify_riemann_signs_exact.py",
-        "sha256": "15660baa3b9ec2375262940c6f201186cbf8e74abdf87013f7b9270e1871adf9"
+        "sha256": "cee0b5edfa425c58a003474f29bf946f6612d7ee5263dfca26f0c823988c4a22"
       },
       "precision": "exact symbolic and rational polynomial arithmetic; fixed Bernstein domains; analytic geometric tails",
       "requirements": [
@@ -651,13 +651,13 @@
         ],
         "expected_exit_code": 0,
         "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "stdout_sha256": "15103eff6edd668a940461ec0275e643f58fb97d97bd69479b6b0e622fa03ef8",
+        "stdout_sha256": "fd1d123736614402ff058efaece704ab63473f50b368a2534518ae4f985ef492",
         "timeout_seconds": 60
       },
       "topics": [
         "T000012"
       ],
-      "updated_at": "2026-07-16T19:27:13+00:00"
+      "updated_at": "2026-07-16T20:46:03+00:00"
     }
   },
   "next_id": 13,

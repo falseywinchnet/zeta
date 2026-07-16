@@ -284,8 +284,72 @@
         "T000006"
       ],
       "updated_at": "2026-07-16T18:26:38+00:00"
+    },
+    "C000028": {
+      "artifacts": [],
+      "author": "I. J. Schoenberg",
+      "body": "On Polya Frequency Functions. II. Variation-Diminishing Integral Operators of the Convolution Type, Acta Sci. Math. (Szeged) 12 (1950), 97-106.",
+      "created_at": "2026-07-16T20:38:17+00:00",
+      "paper": {
+        "path": "papers/schoenberg-pf2.pdf",
+        "sha256": "2b8e65f17003ba5a8b6ae18f82c3f0806374d453193abec09208a077b7839588"
+      },
+      "source_url": null,
+      "topics": [
+        "T000007",
+        "T000008"
+      ],
+      "updated_at": "2026-07-16T20:38:17+00:00"
+    },
+    "C000029": {
+      "artifacts": [],
+      "author": "N. G. de Bruijn",
+      "body": "The Roots of Trigonometric Integrals, Duke Mathematical Journal 17 (1950), 197-226, DOI 10.1215/S0012-7094-50-01720-0.",
+      "created_at": "2026-07-16T20:38:17+00:00",
+      "paper": {
+        "path": "papers/de-bruijn-trigonometric-integrals.pdf",
+        "sha256": "ac7dbf2b8a8ada104bc84900e48d2ca75e1b1740862126e1568cf814cd319b02"
+      },
+      "source_url": null,
+      "topics": [
+        "T000005",
+        "T000006"
+      ],
+      "updated_at": "2026-07-16T20:38:17+00:00"
+    },
+    "C000030": {
+      "artifacts": [],
+      "author": "Karlheinz Grochenig",
+      "body": "Schoenberg's Theory of Totally Positive Functions and the Riemann Zeta Function, arXiv:2007.12889 (2020).",
+      "created_at": "2026-07-16T20:38:17+00:00",
+      "paper": {
+        "path": "papers/grochenig-schoenberg-zeta.pdf",
+        "sha256": "e610f7a0de324a610fd24ee9fafa4356e5005a9af811245f016d6c0d791ed3a2"
+      },
+      "source_url": null,
+      "topics": [
+        "T000014",
+        "T000003"
+      ],
+      "updated_at": "2026-07-16T20:38:17+00:00"
+    },
+    "C000031": {
+      "artifacts": [],
+      "author": "Wojciech Michalowski",
+      "body": "On the Polya Frequency Order of the de Bruijn-Newman Kernel: Certified Failure at Order Five and the Toeplitz Threshold Phenomenon, arXiv:2602.20313 (2026). Pursues a numerical order-five Toeplitz obstruction and leaves global PF4 open.",
+      "created_at": "2026-07-16T20:38:17+00:00",
+      "paper": {
+        "path": "papers/michalowski-pf5.pdf",
+        "sha256": "1c73cdab49e72792e518ed661a0a0373a15fcf6e3f708a9f9dda669fbcd99fda"
+      },
+      "source_url": null,
+      "topics": [
+        "T000013",
+        "T000012"
+      ],
+      "updated_at": "2026-07-16T20:43:14+00:00"
     }
   },
-  "next_id": 28,
+  "next_id": 32,
   "version": 1
 }

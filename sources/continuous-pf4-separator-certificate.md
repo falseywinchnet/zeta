@@ -81,16 +81,18 @@ The quotient rule proves `E^j log P=N_j/P^j`.  Hence, with
 
 The verifier independently reconstructs `C4` as the `4x4` central-moment
 Hankel determinant from these five cumulants.  It does not import the
-thirteen-term advancement formula.  Every resulting monomial has derivative
-weight twelve, so
+thirteen-term advancement formula. Every resulting monomial has derivative
+weight twelve, so it may be placed over `P^12`. The collected numerator has
+the exact factor `P^8`; after cancellation,
 
 \[
-C_4(x)={H(t)\over P(t)^{12}}.
+C_4(x)={\widetilde H(t)\over 2^{54}P(t)^4}.
 \]
 
-Exact arithmetic over the rationals proves that `H` is palindromic of degree
-72, has no coefficient gaps, and all 73 coefficients are positive.  Its
-smallest coefficient is `3/65536`.  Therefore `C4(x)>0` globally.
+Exact arithmetic over the rationals proves that `\widetilde H` is palindromic
+of degree 24, has no coefficient gaps, and all 25 integer coefficients are
+positive. Its smallest integer coefficient is `3221225472`; before clearing
+the factor `2^54`, the minimum is `3/2^24`. Therefore `C4(x)>0` globally.
 
 CERT9 proves for any positive smooth strictly log-concave kernel satisfying
 the PF3 bridge that
@@ -145,7 +147,7 @@ insufficient for Fourier real-rootedness.
 ## Replay boundary
 
 `scripts/verify_continuous_pf4_separator.py` checks the exact PF3 algebra and
-margin, independently reconstructs the central determinant and all 73
+margin, independently reconstructs the central determinant and all 25
 positive numerator coefficients, verifies exact rational spot values, checks
 the Laurent-to-cubic reduction, and proves the negative discriminant by exact
 rational polynomial inequalities. The certificate depends on CERT12 and

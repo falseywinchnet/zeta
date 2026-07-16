@@ -1,74 +1,62 @@
-\section{Reproducibility and evidence boundary}\label{sec:reproducibility}
+\section{Exact verification and reproduction}\label{sec:reproducibility}
 
-The maintained paper has five active replay boundaries.
+The repository supplies five independent verifiers for the finite algebra and
+rational inequalities used above.
 \begin{center}
 \small
 \begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.25\textwidth}
->{\raggedright\arraybackslash}p{0.46\textwidth}
->{\raggedright\arraybackslash}p{0.20\textwidth}@{}}
+>{\raggedright\arraybackslash}p{0.47\textwidth}
+>{\raggedright\arraybackslash}p{0.19\textwidth}@{}}
 \toprule
-Object & Repository verifier & Role \\
+Object & Repository verifier & Arithmetic \\
 \midrule
 Global \(q,F_2,\Cfour\) &
-\path{scripts/verify_riemann_signs_exact.py} & exact analytic inequalities \\
+\path{scripts/verify_riemann_signs_exact.py} & rational polynomial \\
 Quotient reduction &
-\path{scripts/verify_pf4_wronskian_reduction.py} & exact generic algebra \\
-Transport completion &
-\path{scripts/verify_pf4_transport_kernel.py} & exact algebra and checks \\
-Origin order-five obstruction &
-\path{scripts/verify_pf5_origin.py} & exact rational enclosures \\
-Continuous strict-\(\PF_4\) separator &
-\texttt{scripts/verify\_continuous\_}\newline
-\texttt{pf4\_separator.py} & exact polynomial algebra \\
+\path{scripts/verify_pf4_wronskian_reduction.py} & symbolic exact \\
+Transport identity &
+\path{scripts/verify_pf4_transport_kernel.py} & symbolic exact \\
+Origin order-five sign &
+\path{scripts/verify_pf5_origin.py} & rational enclosures \\
+Continuous separator &
+\texttt{scripts/verify\_continuous\_pf4\_separator.py} & rational polynomial \\
 \bottomrule
 \end{tabular}
 \end{center}
 
-The global-sign verifier retains two theta modes exactly, checks 361 rational
-Bernstein or decay coefficients and 140 derivative-envelope coefficients,
-and bounds all modes \(n\geq3\) by the analytic estimates in
-\appref{app:tail}. Its launcher forces SymPy's pure-Python rational domain and
-rejects every attempted FLINT import. There is no interval subdivision and no
-floating-point sign decision.
+The global-sign verifier retains the first two theta modes exactly. It checks
+the 361 Bernstein and decay inequalities summarized in \appref{app:tail}, the
+140 derivative-envelope coefficients, and the analytic geometric bounds for
+all modes \(n\geq3\). Its launcher selects SymPy's pure-Python rational domain
+and refuses a FLINT import. No floating-point comparison or interval
+subdivision decides a sign.
 
-The origin order-five certificate is independent. It uses only
-standard-library integer arithmetic with outward rounding on a
-\(10^{-36}\)-rational grid, Machin's formula, alternating Taylor sums, three
-retained theta modes, and one geometric tail bound. The separator certificate
-reconstructs all 73 positive coefficients of its order-four numerator and
-checks the discriminant inequality in \appref{app:separator} over the exact
-rationals.
+The order-five verifier is independent of that calculation. It uses integer
+arithmetic with outward rounding on \(10^{-36}\mathbb Z\), Machin bounds for
+\(\pi\), alternating Taylor bounds for three theta modes, and the geometric
+tail in Lemma~\ref{lem:origin-pf5-sign}. The separator verifier reconstructs
+the central determinant, checks the exact \(P^8\) cancellation, verifies all
+25 coefficients in \eqref{eq:separator-c4}, and reproduces the rational
+discriminant inequality in \appref{app:separator}. The generated coefficient
+record has SHA-256
+\begin{center}
+\texttt{d0f91259919c7f237ef65068041122656636ca990fe6ef41a146dd53eaa1dba9}.
+\end{center}
 
-The quotient, curvature, primitive, endpoint, density-ratio, and
-confluent-limit statements are mathematical identities for generic smooth
-functions. The paper displays their derivations; the symbolic scripts replay
-the algebra. High-precision values at \(t=1/3,1,4\) and several Riemann-kernel
-points are regression checks only and are not premises of a sign conclusion.
+The quotient and transport scripts check identities for generic smooth jets.
+Their numerical evaluations at selected points are regression tests only; all
+sign conclusions follow from the displayed identities and exact inequalities.
 
-The former 192-bit Arb covers of 7731 and 8050 cells are retained in the
-repository as historical certificates, but they are archived and are not
-dependencies of this paper or of routine replay. The collision, Hermite,
-escape, and spatial-atlas computations are likewise outside the proof graph.
-
-A focused independent audit should proceed in this order:
-\begin{enumerate}
- \item verify the analytic theta normalization in \eqref{eq:kernel-series};
- \item check \eqref{eq:raw-signs}, the two-mode Bernstein domains, and the
-       later-mode estimates in \appref{app:tail};
- \item check the two weighted-mean splits in \secref{sec:pf3};
- \item expand the determinant and curvature identity in
-       \appref{app:algebra};
- \item check the endpoint identity in \appref{app:endpoints};
- \item differentiate the density ratio in
-       \eqref{eq:density-ratio-derivative};
- \item derive the parity factorization and divided-difference limit in
-       \secref{sec:completion}, then replay the rational origin certificate;
- \item reconstruct the separator determinant and exact discriminant proof in
-       \appref{app:separator}.
-\end{enumerate}
-No numerical scan is used as evidence for global nonconfluent positivity of
-either kernel.
-
-The non-mutating entry point \path{scripts/replay_paper.py} checks all five
-registered verifier outputs. Exact package versions are in
-\path{requirements-paper.txt}; python-flint is not a paper dependency.
+From a clean checkout with Python 3.13, SymPy 1.14.0, and mpmath 1.3.0, the
+single replay command is
+\begin{center}
+\texttt{python scripts/replay\_paper.py}.
+\end{center}
+It prints five lines beginning \texttt{PASS}, one for each row above, followed
+by \texttt{status=paper evidence replay passed}. The SHA-256 of its complete
+standard output is
+\begin{center}
+\texttt{ec48df7f12724a948075be71d1b6771e8fb2ea735ab74fb490ab61eafcb7eea3}.
+\end{center}
+Package versions and the complete artifact hashes are also recorded in
+\path{requirements-paper.txt} and \path{paper/RELEASE_MANIFEST.md}.

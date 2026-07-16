@@ -25,7 +25,8 @@ For the kernel \(\Phi\),
 \]
 \end{lemma}
 
-The proof is analytic and sweep-free. For \(u\geq0\), put
+The proof combines exact rational polynomial inequalities with analytic
+theta-tail bounds. For \(u\geq0\), put
 \[
  x=\pi e^{2u},\qquad y=e^{-3x},\qquad P_0(z)=2z-3,
 \]
@@ -33,8 +34,8 @@ and recursively
 \[
  P_{j+1}(z)=\left(\frac52-2z\right)P_j(z)+2zP_j'(z).
 \]
-After division by the positive first theta mode, the first two normalized
-derivatives are
+After division by the positive first theta mode, the first two modes give the
+normalized jet entries
 \[
  a_j(x,y)=\frac{P_j(x)+4yP_j(4x)}{P_0(x)}.
 \]
@@ -47,6 +48,6 @@ The complete contribution of modes \(n\geq3\) is then bounded by one
 monotone polynomial-geometric estimate. Its changes in the cleared sign
 numerators are smaller than the three displayed margins, both on
 \(\pi\leq x\leq5\) and on \(x\geq5\). Evenness completes the real line.
-All inequalities, including the derivative paddings formerly used on the
-tail, are derived in \appref{app:tail}. The exact replay uses no floating
+All inequalities, including the derivative envelopes used on the tail, are
+derived in \appref{app:tail}. The exact replay uses no floating
 point, no interval subdivision, and no FLINT or Arb arithmetic.

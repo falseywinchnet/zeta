@@ -41,7 +41,7 @@ Consequently continuous \(\PF_3\) and continuous \(\PF_4\) membership are
 each insufficient to force Fourier real-rootedness.
 \end{theorem}
 
-The proof has two certified one-variable inputs and one exact transport
+The proof has two one-variable inputs and one exact transport
 mechanism. First, global inequalities \(q>0\) and \(F_2>0\) imply strict
 \(\PF_3\) and positivity of a three-point functional \(\Lambda\). Second, the
 fully confluent order-four invariant \(\Cfour\) is globally positive. Exact
@@ -50,15 +50,11 @@ three-point function \(\Psi\). An increasing curvature coordinate then turns
 the derivative of \(\Psi\) into a positive crossing-kernel integral of
 \(\Cfour\).
 
-The distinction between a human derivation and a computer certificate is
-maintained throughout. Directed interval arithmetic proves the compact and
-tail inequalities stated in \secref{sec:inputs}; the structural transport
-algebra is written in the paper and independently replayed by repository
-verifiers. The exact separator coefficient list is printed in
-\appref{app:separator}. The short
-order-five certificate uses only exact rational arithmetic and elementary
-series bounds. The classification concerns finite-order total positivity
-only. It neither proves nor disproves the Riemann Hypothesis.
+The finite part of the first input consists of exact rational Bernstein
+coefficients on fixed algebraic domains, followed by analytic bounds for all
+remaining theta modes; \appref{app:tail} lists the domains, degrees, and minimum
+coefficients. The transport algebra is proved in the text, and the order-five
+calculation uses rational enclosures and elementary series bounds.
 Theorem~\ref{thm:separator}, proved in \secref{sec:separator}, supplies an
 explicit order-four counterexample rather than a finite-order sufficiency
 threshold.

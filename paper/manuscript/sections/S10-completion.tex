@@ -7,6 +7,9 @@ Equation \eqref{eq:sign-bridge} and \eqref{eq:central-identity} imply
 Proposition~\ref{prop:equivalence} therefore proves
 Theorem~\ref{thm:main}.
 
+Micha\l{}owski also studied order-five Toeplitz obstructions numerically
+\cite{michalowski}; here a direct origin-confluent determinant suffices.
+
 We now prove directly that the classification stops at order four. Put
 \[
  H_k=\det[\Phi^{(i+j)}(0)]_{i,j=0}^{k-1},\qquad
@@ -105,18 +108,15 @@ the limit strictly negative. Hence
 Theorem~\ref{thm:main} and Theorem~\ref{thm:not-pf5} prove
 Corollary~\ref{cor:exact-order}.
 
-The proof uses no multidimensional interval cover of the nonconfluent
-configuration space. Earlier positive-tail Peano densities, collision cones,
-Hermite boxes, and escape charts remain independent certified results, but
-they are not premises here. Their role was superseded when the transport
-numerator was recognized as the difference of expectations in
-\eqref{eq:transport-expectation}.
-
 \begin{remark}[Riemann Hypothesis boundary]
-The theorem determines the kernel's exact finite Polya-frequency order and
-makes no claim about the zeros of the Riemann \(\Xi\)-function. In particular,
-the failure of \(\PF_5\) neither proves nor disproves the Riemann Hypothesis.
-The next section proves, by an explicit strict-\(\PF_4\) separator, that no
-Fourier real-rootedness conclusion follows from membership through order four
-alone.
+Schoenberg's transform theorem says that the bilateral Laplace transform of a
+\(\PF_\infty\) function is the reciprocal of a Laguerre--Polya entire function
+on its strip of convergence~\cite{schoenberg-ii,belton}. The Fourier transform
+of \(\Phi\), up to the standard normalization, is the Riemann \(\Xi\)-function,
+which has known real zeros; hence \(\Phi\) is unconditionally not
+\(\PF_\infty\). The Schoenberg formulation related to the Riemann Hypothesis
+instead asks for the inverse transform of the reciprocal of \(\Xi\) to be a
+Polya-frequency function~\cite{grochenig}. Thus the finite-order classification
+proved here is a different statement. The next section further shows that
+strict \(\PF_4\) alone does not imply Fourier real-rootedness.
 \end{remark}

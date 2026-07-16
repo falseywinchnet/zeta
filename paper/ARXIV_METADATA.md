@@ -24,7 +24,7 @@ Let Phi be the classical Riemann, or de Bruijn-Newman, kernel. We prove that
 every translation minor of Phi of order at most four is strictly positive at
 strictly ordered nodes, while an exact origin-confluent calculation gives a
 negative order-five minor. Thus its exact global Polya-frequency order is four.
-The positive theorem uses a sweep-free two-mode argument: exact rational
+The positive theorem uses a two-mode argument: exact rational
 polynomial inequalities prove global positivity of the log-curvature
 quantities q and F2 and of the fully confluent invariant C4, while analytic
 geometric bounds control every later theta mode. A quotient-Wronskian argument
@@ -33,8 +33,7 @@ integral with positive density. We also construct an explicit positive even
 Schwartz kernel that is strictly PF4 but whose entire Fourier transform has
 nonreal zeros; the latter follows from an exact discriminant inequality.
 Therefore continuous PF3 and PF4 membership alone do not force Fourier
-real-rootedness. The results are finite-order and have no implication for the
-Riemann Hypothesis.
+real-rootedness.
 
 ## Keywords
 
@@ -43,9 +42,9 @@ characteristic function; Wronskian; Fourier transform; computer-assisted proof.
 
 ## 2020 MSC
 
-Primary: 26D15
+Primary: 15B48
 
-Secondary: 30D15, 60E10, 11M26
+Secondary: 42A38, 30D15, 11M26
 
 ## Upload
 
