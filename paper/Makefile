@@ -3,10 +3,14 @@ SHELL := /bin/sh
 MANUSCRIPT := manuscript/main.tex
 BUILD_DIR := build
 OUTPUT := $(BUILD_DIR)/strict-global-pf4-riemann-kernel.pdf
+PUBLIC_OUTPUT := ../strict-global-pf4-riemann-kernel.pdf
 
-.PHONY: all clean
+.PHONY: all publish clean
 
-all: $(OUTPUT)
+all: publish
+
+publish: $(OUTPUT)
+	cp $(OUTPUT) $(PUBLIC_OUTPUT)
 
 $(OUTPUT): $(MANUSCRIPT) $(shell find manuscript -type f -name '*.tex' -o -name '*.bib')
 	@command -v tectonic >/dev/null 2>&1 || { echo "tectonic is required"; exit 1; }
@@ -17,4 +21,3 @@ $(OUTPUT): $(MANUSCRIPT) $(shell find manuscript -type f -name '*.tex' -o -name 
 clean:
 	rm -f $(BUILD_DIR)/main.aux $(BUILD_DIR)/main.log $(BUILD_DIR)/main.out \
 		$(BUILD_DIR)/main.toc $(OUTPUT)
-
