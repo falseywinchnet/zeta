@@ -307,8 +307,12 @@
     "P000077": {
       "blurb": "Certify and promote strict PF1 for the reciprocal-xi kernel using four exact rational moments, a directed first-residue enclosure, and a height-16 contour norm",
       "created_at": "2026-07-16T22:59:27+00:00"
+    },
+    "P000078": {
+      "blurb": "Map the normalized Bruun condition-one and positive-cone Fourier factorization into a concrete compact PF2 certificate architecture for the reciprocal-xi kernel",
+      "created_at": "2026-07-16T23:26:59+00:00"
     }
   },
-  "next_id": 78,
+  "next_id": 79,
   "version": 1
 }
