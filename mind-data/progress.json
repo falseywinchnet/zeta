@@ -311,8 +311,12 @@
     "P000078": {
       "blurb": "Map the normalized Bruun condition-one and positive-cone Fourier factorization into a concrete compact PF2 certificate architecture for the reciprocal-xi kernel",
       "created_at": "2026-07-16T23:26:59+00:00"
+    },
+    "P000079": {
+      "blurb": "Reduce the exact reciprocal-xi moment certificate replay from 392 seconds to 45 seconds by fixed-lattice elementary recurrences and coarser total-variation partitions",
+      "created_at": "2026-07-16T23:45:31+00:00"
     }
   },
-  "next_id": 79,
+  "next_id": 80,
   "version": 1
 }

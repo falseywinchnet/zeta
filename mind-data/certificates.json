@@ -707,20 +707,20 @@
         }
       ],
       "attestation": {
-        "manifest_sha256": "b1450b23ce7df8256f785fb446ead6f00b390043c6bee7a369173136c701c5a1",
+        "manifest_sha256": "3b567f4f33395ce3b41c26a2b75cf9c1748794f6aa4f0e8bf3ea30d9b6860cf7",
         "method": "executed",
         "schema": 1,
-        "verified_at": "2026-07-16T23:17:54+00:00"
+        "verified_at": "2026-07-16T23:45:04+00:00"
       },
       "created_at": "2026-07-16T22:49:59+00:00",
       "dependencies": [],
-      "description": "Exact-rational reciprocal-xi moment certificate: M0>19/5, M2<91, M4>6700, and M6<900000 from finite zeta bounds, Robbins gamma bounds, total-variation quadrature, and an analytic tail",
+      "description": "Exact-rational reciprocal-xi moment certificate: M0>19/5, M2<91, M4>6700, and M6<900000 from finite zeta bounds, Robbins gamma bounds, fixed-lattice elementary recurrences, total-variation quadrature, and an analytic tail",
       "environment": "CPython 3.13.13; mpmath 1.3.0 available; CERT11 and CERT13-CERT15 do not use FLINT",
       "file": {
         "path": "scripts/verify_reciprocal_xi_moments.py",
-        "sha256": "bdf968bbe254324f8b84ded66872f4e15d74e391192d18b4ebffaf9efb3019b9"
+        "sha256": "501ff06a5475a5caaa15593cf9ac2f77f8f0eb4dc6e19eb3c3cb48d55555df9e"
       },
-      "precision": "24-place fixed rational grid; integration steps 1/100 and 1/200 to s=40; exact total-variation correction and gamma-recurrence tail",
+      "precision": "24-place fixed rational grid; 24-term outward log/exp recurrences; integration steps 1/50 and 1/100 to s=40; exact total-variation correction and gamma-recurrence tail",
       "requirements": [
         "mpmath==1.3.0"
       ],
@@ -731,13 +731,13 @@
         ],
         "expected_exit_code": 0,
         "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "stdout_sha256": "718b289392634031e25f5e21b1bfd85f998f3bf0cb5c696dc883c91eefe05434",
+        "stdout_sha256": "2f09e8c96952858952ced7a97967617058b06e36942309ebdbab05bfc9f0e09e",
         "timeout_seconds": 900
       },
       "topics": [
         "T000003"
       ],
-      "updated_at": "2026-07-16T23:17:54+00:00"
+      "updated_at": "2026-07-16T23:45:04+00:00"
     },
     "K000015": {
       "artifacts": [
@@ -747,10 +747,10 @@
         }
       ],
       "attestation": {
-        "manifest_sha256": "82ab46a9df5ee609766e5e07c25e0b396a87fa344fbb5e4f821f672a68a59458",
+        "manifest_sha256": "b463b6880adc1040898095917585f76dd48d6b91b48f2ab568e2c755be83f1f5",
         "method": "executed",
         "schema": 1,
-        "verified_at": "2026-07-16T23:18:16+00:00"
+        "verified_at": "2026-07-16T23:45:10+00:00"
       },
       "created_at": "2026-07-16T22:57:39+00:00",
       "dependencies": [
@@ -780,7 +780,7 @@
       "topics": [
         "T000003"
       ],
-      "updated_at": "2026-07-16T23:18:16+00:00"
+      "updated_at": "2026-07-16T23:45:10+00:00"
     }
   },
   "next_id": 16,

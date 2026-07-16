@@ -10,12 +10,16 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from fractions import Fraction
-from math import factorial
 
 
 DIGITS = 24
 SCALE = 10**DIGITS
 Q = Fraction
+# After range reduction, the logarithm has 0 <= z <= 1/3 and the exponential
+# has |x| <= 1.  The explicit remainders below make 24 terms ample; every
+# recurrence step is rounded outward on the fixed integer lattice.
+LOG_TERMS = 24
+EXP_TERMS = 24
 
 
 def floor_q(x: Q) -> int:
@@ -24,6 +28,17 @@ def floor_q(x: Q) -> int:
 
 def ceil_q(x: Q) -> int:
     return -((-x.numerator) // x.denominator)
+
+
+def floor_ratio(numerator: int, denominator: int) -> int:
+    if denominator < 0:
+        numerator = -numerator
+        denominator = -denominator
+    return numerator // denominator
+
+
+def ceil_ratio(numerator: int, denominator: int) -> int:
+    return -floor_ratio(-numerator, denominator)
 
 
 @dataclass(frozen=True)
@@ -63,13 +78,16 @@ class I:
             self.hi * other.lo,
             self.hi * other.hi,
         )
-        return I(min(values) // SCALE, ceil_q(Q(max(values), SCALE)))
+        return I(floor_ratio(min(values), SCALE), ceil_ratio(max(values), SCALE))
 
     def reciprocal(self) -> "I":
         if self.lo <= 0 <= self.hi:
             raise ZeroDivisionError("interval contains zero")
-        values = (Q(SCALE, self.lo), Q(SCALE, self.hi))
-        return I.q(min(values), max(values))
+        square = SCALE * SCALE
+        return I(
+            floor_ratio(square, self.hi),
+            ceil_ratio(square, self.lo),
+        )
 
     def __truediv__(self, other: "I") -> "I":
         return self * other.reciprocal()
@@ -94,13 +112,16 @@ class I:
 def atan_bounds(reciprocal: int, last_even: int) -> tuple[Q, Q]:
     total = Q(0)
     lower = upper = None
+    power = Q(1, reciprocal)
+    step = Q(1, reciprocal * reciprocal)
     for k in range(last_even + 1):
-        term = Q(1, (2 * k + 1) * reciprocal ** (2 * k + 1))
+        term = power / (2 * k + 1)
         total += term if k % 2 == 0 else -term
         if k == last_even - 1:
             lower = total
         if k == last_even:
             upper = total
+        power *= step
     assert lower is not None and upper is not None and lower < upper
     return lower, upper
 
@@ -111,7 +132,23 @@ def pi_interval() -> I:
     return I.q(16 * a5l - 4 * a239u, 16 * a5u - 4 * a239l)
 
 
-def log_point_bounds(value: Q, terms: int = 42) -> tuple[Q, Q]:
+def log_core_bounds(value: Q, terms: int) -> tuple[Q, Q]:
+    """Atanh series evaluated on the fixed outward-rounded lattice."""
+    z = I.q((value - 1) / (value + 1))
+    z_squared = z * z
+    power = z
+    total = I.q(0)
+    for k in range(terms):
+        total = total + power.scale(Q(2, 2 * k + 1))
+        power *= z_squared
+    remainder = power.scale(Q(2, 2 * terms + 1)) / (I.q(1) - z_squared)
+    return total.lower(), (total + remainder).upper()
+
+
+LOG_2_POINT = log_core_bounds(Q(2), LOG_TERMS)
+
+
+def log_point_bounds(value: Q, terms: int = LOG_TERMS) -> tuple[Q, Q]:
     """Rational atanh-series enclosure of log(value)."""
     if value <= 0:
         raise ValueError("log domain")
@@ -124,20 +161,10 @@ def log_point_bounds(value: Q, terms: int = 42) -> tuple[Q, Q]:
         reduced *= 2
         exponent -= 1
 
-    def core(q: Q) -> tuple[Q, Q]:
-        z = (q - 1) / (q + 1)
-        total = Q(0)
-        for k in range(terms):
-            total += 2 * z ** (2 * k + 1) / (2 * k + 1)
-        remainder = 2 * z ** (2 * terms + 1) / (
-            (2 * terms + 1) * (1 - z * z)
-        )
-        return total, total + remainder
-
-    rlo, rhi = core(reduced)
+    rlo, rhi = log_core_bounds(reduced, terms)
     if exponent == 0:
         return rlo, rhi
-    l2lo, l2hi = core(Q(2))
+    l2lo, l2hi = LOG_2_POINT if terms == LOG_TERMS else log_core_bounds(Q(2), terms)
     if exponent > 0:
         return rlo + exponent * l2lo, rhi + exponent * l2hi
     return rlo + exponent * l2hi, rhi + exponent * l2lo
@@ -149,15 +176,19 @@ def log_i(value: I) -> I:
     return I.q(lo, hi)
 
 
-def exp_point_bounds(value: Q, terms: int = 38) -> tuple[Q, Q]:
+def exp_point_bounds(value: Q, terms: int = EXP_TERMS) -> tuple[Q, Q]:
     divisor = max(1, ceil_q(abs(value)))
-    reduced = value / divisor
-    total = sum((reduced**k / factorial(k) for k in range(terms + 1)), Q(0))
-    error = Q(3) * abs(reduced) ** (terms + 1) / factorial(terms + 1)
-    lo = total - error
-    hi = total + error
-    assert lo > 0
-    result = I.q(lo, hi).power(divisor)
+    reduced = I.q(value / divisor)
+    term = I.q(1)
+    total = term
+    for k in range(1, terms + 1):
+        term = (term * reduced).scale(Q(1, k))
+        total += term
+    next_term = (term * reduced).scale(Q(1, terms + 1))
+    radius = 3 * max(abs(next_term.lo), abs(next_term.hi))
+    enclosure = total + I(-radius, radius)
+    assert enclosure.lo > 0
+    result = enclosure.power(divisor)
     return result.lower(), result.upper()
 
 
@@ -278,14 +309,14 @@ def certify_variation(
     upper: Q,
     modes: int,
     direction: str,
-    peak: tuple[Q, Q] | None,
 ) -> Q:
     """Certify variation by integrating f*abs((log f)')."""
-    del peak
     variation = Q(0)
     point = lower
     while point < upper:
-        derivative_step = Q(1, 1000) if point < Q(3, 2) else Q(1, 50)
+        # Any partition is valid because each cell uses an interval supremum.
+        # These widths retain ample final margins while avoiding a fine sweep.
+        derivative_step = Q(1, 200) if point < Q(3, 2) else Q(1, 20)
         right = min(upper, point + derivative_step)
         cell = I.q(point, right)
         value = envelope(cell, order, modes, direction).upper()
@@ -312,15 +343,7 @@ def integrate_bound(
         s = I.q(lower + index * step)
         total = total + envelope(s, order, modes, direction)
 
-    peaks: dict[tuple[str, int, int], tuple[Q, Q] | None] = {
-        ("lower", 0, 10): (Q(1), Q(11, 10)),
-        ("lower", 2, 2): (Q(103, 10), Q(21, 2)),
-        ("upper", 1, 10): (Q(36, 5), Q(37, 5)),
-        ("upper", 3, 1): (Q(64, 5), Q(131, 10)),
-    }
-    variation = certify_variation(
-        order, lower, upper, modes, direction, peaks[(direction, order, modes)]
-    )
+    variation = certify_variation(order, lower, upper, modes, direction)
     correction = step * variation
     integral = total.scale(step) / PI
     return integral + I.q(-correction / PI.lower(), correction / PI.lower())
@@ -369,14 +392,14 @@ def decimal(value: Q, places: int = 12) -> str:
 def main() -> None:
     cutoff = Q(40)
 
-    m0_tail = integrate_bound(0, Q(1), cutoff, Q(1, 100), 10, "lower")
+    m0_tail = integrate_bound(0, Q(1), cutoff, Q(1, 50), 10, "lower")
     m0 = m0_tail + I.q(Q(7, 22))  # A(t)>=2 on [0,1/2], pi<22/7.
-    m4 = integrate_bound(2, Q(1), cutoff, Q(1, 100), 2, "lower")
+    m4 = integrate_bound(2, Q(1), cutoff, Q(1, 50), 2, "lower")
 
     compact_m2 = Q(21, 10) * Q(3, 5) ** 3 / 3 / PI.lower()
     compact_m6 = Q(21, 10) * Q(3, 5) ** 7 / 7 / PI.lower()
-    m2 = integrate_bound(1, Q(11, 10), cutoff, Q(1, 200), 10, "upper")
-    m6 = integrate_bound(3, Q(11, 10), cutoff, Q(1, 100), 1, "upper")
+    m2 = integrate_bound(1, Q(11, 10), cutoff, Q(1, 100), 10, "upper")
+    m6 = integrate_bound(3, Q(11, 10), cutoff, Q(1, 50), 1, "upper")
     tail_m2 = upper_tail_bound(1)
     tail_m6 = upper_tail_bound(3)
     m2_upper = m2.upper() + compact_m2 + tail_m2

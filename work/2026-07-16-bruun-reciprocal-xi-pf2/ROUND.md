@@ -17,3 +17,15 @@ already contained unrelated local changes.
 
 See `BRUUN_PF2_BRIDGE.md` for the mathematical reduction and proposed next
 experiment.
+
+## Follow-up clarification
+
+The immediate intended use of the normalized Bruun idea was to reduce the slow
+replay cost of the newly certified reciprocal-xi bounds, not to begin PF2.
+The moment verifier contains no Fourier transform, so the Bruun tree itself is
+not applicable there. Its fixed-scale, bounded-recurrence principle was applied
+instead: logarithm and exponential enclosures now round outward after every
+integer-lattice recurrence, and the total-variation proof permits substantially
+coarser certified partitions. On the same machine the complete exact replay
+fell from `391.53` seconds to `45.19` seconds while retaining all four theorem
+thresholds. The PF2 bridge remains a separate possible later application.
