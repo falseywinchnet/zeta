@@ -6,8 +6,8 @@
 - Starting MIND records: R5, R7, R17, R18, R61, R81, CITE30, P000075
 - Question: What PF order can be proved as a global lower bound for the
   reciprocal-xi kernel, beginning with PF1?
-- Status: exact finite PF1 reduction found; six analytic enclosures remain to
-  be certified in a later refinement round
+- Status: promoted in the following refinement as `R177`, supported by
+  `CERT13`--`CERT15` and `CITE32`
 
 Write
 

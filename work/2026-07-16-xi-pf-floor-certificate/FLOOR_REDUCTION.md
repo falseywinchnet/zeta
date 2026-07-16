@@ -15,9 +15,9 @@ exponentially.  Thus `L` is real and even.  The PF1 assertion is exactly
 
 This note reduces strict PF1 to six deliberately coarse enclosures and a
 standard finite zero statement.  The algebraic glue is exact.  The enclosures
-listed below are strongly supported by the probes in this directory but have
-not yet been converted to outward-rounded certificates, so this is a candidate
-proof reduction rather than a completed theorem.
+are now certified by `CERT13` and `CERT14`, and `CERT15` seals the global
+compact/tail implication; the resulting strict PF1 theorem is recorded as
+`R177`.
 
 ## Compact interval
 
@@ -130,17 +130,16 @@ The exploratory values are
  I_{16}=1159.866364\ldots.
 \]
 
-## Remaining certificate boundary
+## Certificate boundary
 
-The exact implication is complete once the following are independently
-certified without floating-point assumptions:
+The following components are independently certified:
 
 1. the four moment bounds (C);
 2. the first-zero location, simplicity, and absence of another zero below
    height `16`;
 3. the residue lower bound and contour-norm upper bound (R).
 
-The local Platt--Trudgian source is vastly stronger than the finite zero-count
-requirement.  The new numerical work is only four positive real integrals, one
-derivative enclosure at the first zero, and one absolute contour integral.  No
-FLINT machinery, multidimensional sweep, or high-zero residue table is needed.
+The Platt--Trudgian source is vastly stronger than the finite zero-count
+requirement.  The new numerical work consists of four positive real integrals,
+one derivative enclosure at the first zero, and one absolute contour integral.
+No FLINT machinery, multidimensional sweep, or high-zero residue table is used.

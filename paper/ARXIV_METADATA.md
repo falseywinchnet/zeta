@@ -8,7 +8,7 @@ Strict Global PF4 for the Riemann Kernel and a Continuous Fourier Separator
 
 Joshua Rainstar
 
-Affiliation: Airspy, Inc.
+Affiliation: OpenAI
 
 Email: joshuah.rainstar@gmail.com
 

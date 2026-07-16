@@ -3257,8 +3257,85 @@
       ],
       "status": "established",
       "updated_at": "2026-07-16T19:27:44+00:00"
+    },
+    "F000174": {
+      "because": [
+        {
+          "id": "C000032",
+          "type": "citation"
+        }
+      ],
+      "content": "Every nontrivial zeta zero with positive ordinate at most 3,000,175,332,800 lies on the critical line; in particular the contour strip through height 16 contains no off-critical zero.",
+      "created_at": "2026-07-16T22:57:52+00:00",
+      "relates_to": [
+        "T000003"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-16T22:57:52+00:00"
+    },
+    "F000175": {
+      "because": [
+        {
+          "id": "K000014",
+          "type": "certificate"
+        }
+      ],
+      "content": "For A(t)=1/xi(1/2+t), the even moments M_2j=pi^(-1) integral_0^infinity t^(2j)A(t)dt satisfy M0>19/5, M2<91, M4>6700, and M6<900000 by exact rational arithmetic.",
+      "created_at": "2026-07-16T22:57:57+00:00",
+      "relates_to": [
+        "T000003"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-16T22:57:57+00:00"
+    },
+    "F000176": {
+      "because": [
+        {
+          "id": "F000174",
+          "type": "factoid"
+        },
+        {
+          "id": "K000013",
+          "type": "certificate"
+        }
+      ],
+      "content": "The first positive zero gamma1 of Xi lies in (14.1347,14.1348), is simple, its reciprocal residue c1=-1/Xi-prime(gamma1) exceeds 700, and the height-16 reciprocal-xi contour norm I16 is below 1170.",
+      "created_at": "2026-07-16T22:58:02+00:00",
+      "relates_to": [
+        "T000003"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-16T22:58:02+00:00"
+    },
+    "F000177": {
+      "because": [
+        {
+          "id": "F000175",
+          "type": "factoid"
+        },
+        {
+          "id": "F000176",
+          "type": "factoid"
+        },
+        {
+          "id": "K000015",
+          "type": "certificate"
+        },
+        {
+          "id": "C000030",
+          "type": "citation"
+        }
+      ],
+      "content": "The reciprocal-xi Schoenberg kernel Lambda_Xi(x)=(2pi)^(-1) integral_R exp(-itx)/xi(1/2+t) dt is strictly positive on R and therefore is strictly PF1.",
+      "created_at": "2026-07-16T22:58:14+00:00",
+      "relates_to": [
+        "T000003",
+        "T000014"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-16T22:58:14+00:00"
     }
   },
-  "next_id": 174,
+  "next_id": 178,
   "version": 1
 }

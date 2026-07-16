@@ -303,8 +303,12 @@
     "P000076": {
       "blurb": "Reduced reciprocal-xi PF1 to four coarse moments, one first-zero residue, and one height-16 contour norm with exact rational compact-tail glue",
       "created_at": "2026-07-16T21:33:27+00:00"
+    },
+    "P000077": {
+      "blurb": "Certify and promote strict PF1 for the reciprocal-xi kernel using four exact rational moments, a directed first-residue enclosure, and a height-16 contour norm",
+      "created_at": "2026-07-16T22:59:27+00:00"
     }
   },
-  "next_id": 77,
+  "next_id": 78,
   "version": 1
 }

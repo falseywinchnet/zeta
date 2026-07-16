@@ -169,6 +169,12 @@ path until `R93` is resolved.
 
 ## Secondary and closed routes
 
+- Reciprocal-xi PF floor: resolved at order one (`R174`--`R177`, `CERT13`--
+  `CERT15`).  The Schoenberg kernel recovered from `1/xi(1/2+t)` is strictly
+  positive on the real line and hence strictly PF1.  The proof uses four exact
+  rational moment bounds on `|x|<=3/10`, then one certified first-zero residue
+  and a height-16 contour norm for the tail.  This is an unconditional finite
+  verified-zero result and does not assume RH.  PF2 remains open.
 - Original-kernel PF-infinity: closed (`R16`–`R18`).
 - PF3/PF4 membership: resolved. The Riemann kernel is globally PF3
   (`R140`--`R144`) and strictly PF4 (`R153`, `R164`, `CERT9`), while the
