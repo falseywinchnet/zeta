@@ -1,0 +1,92 @@
+[A0-sign-1-core band Bernstein x=[157/50,10/3] y=[1/23000,1/12000]]
+degrees=(1,1) coefficients=4 failures=0 min_coefficient=245447/75000
+
+[A0-sign-1-mid box Bernstein x=[10/3,5] scale=22000]
+degrees=(1,1) coefficients=4 failures=0 min_coefficient=20143/5500
+
+[A0-sign1-core band Bernstein x=[157/50,10/3] y=[1/23000,1/12000]]
+degrees=(1,1) coefficients=4 failures=0 min_coefficient=1415053/143750
+
+[A0-sign1-mid box Bernstein x=[10/3,5] scale=22000]
+degrees=(1,1) coefficients=4 failures=0 min_coefficient=11
+
+[A1-sign-1-core band Bernstein x=[157/50,10/3] y=[1/23000,1/12000]]
+degrees=(2,1) coefficients=6 failures=0 min_coefficient=117276143/7187500
+
+[A1-sign-1-mid box Bernstein x=[10/3,5] scale=22000]
+degrees=(2,1) coefficients=6 failures=0 min_coefficient=365/18
+
+[A1-sign1-core band Bernstein x=[157/50,10/3] y=[1/23000,1/12000]]
+degrees=(2,1) coefficients=6 failures=0 min_coefficient=175133/10800
+
+[A1-sign1-mid box Bernstein x=[10/3,5] scale=22000]
+degrees=(2,1) coefficients=6 failures=0 min_coefficient=4977/2200
+
+[A2-sign-1-core band Bernstein x=[157/50,10/3] y=[1/23000,1/12000]]
+degrees=(3,1) coefficients=8 failures=0 min_coefficient=23828688367/187500000
+
+[A2-sign-1-mid box Bernstein x=[10/3,5] scale=22000]
+degrees=(3,1) coefficients=8 failures=0 min_coefficient=121783/880
+
+[A2-sign1-core band Bernstein x=[157/50,10/3] y=[1/23000,1/12000]]
+degrees=(3,1) coefficients=8 failures=0 min_coefficient=1018047133/359375000
+
+[A2-sign1-mid box Bernstein x=[10/3,5] scale=22000]
+degrees=(3,1) coefficients=8 failures=0 min_coefficient=395/108
+
+[A3-sign-1-core band Bernstein x=[157/50,10/3] y=[1/23000,1/12000]]
+degrees=(4,1) coefficients=10 failures=0 min_coefficient=31461611/49680
+
+[A3-sign-1-mid box Bernstein x=[10/3,5] scale=22000]
+degrees=(4,1) coefficients=10 failures=0 min_coefficient=1025/8
+
+[A3-sign1-core band Bernstein x=[157/50,10/3] y=[1/23000,1/12000]]
+degrees=(4,1) coefficients=10 failures=0 min_coefficient=6132799727477/9375000000
+
+[A3-sign1-mid box Bernstein x=[10/3,5] scale=22000]
+degrees=(4,1) coefficients=10 failures=0 min_coefficient=10783447/12960
+
+[A4-sign-1-core band Bernstein x=[157/50,10/3] y=[1/23000,1/12000]]
+degrees=(5,1) coefficients=12 failures=0 min_coefficient=5595173/93312
+
+[A4-sign-1-mid box Bernstein x=[10/3,5] scale=22000]
+degrees=(5,1) coefficients=12 failures=0 min_coefficient=410339723/1425600
+
+[A4-sign1-core band Bernstein x=[157/50,10/3] y=[1/23000,1/12000]]
+degrees=(5,1) coefficients=12 failures=0 min_coefficient=5450133079751813/898437500000
+
+[A4-sign1-mid box Bernstein x=[10/3,5] scale=22000]
+degrees=(5,1) coefficients=12 failures=0 min_coefficient=58375/16
+
+[A5-sign-1-core band Bernstein x=[157/50,10/3] y=[1/23000,1/12000]]
+degrees=(6,1) coefficients=14 failures=0 min_coefficient=1716308223006238503/44921875000000
+
+[A5-sign-1-mid box Bernstein x=[10/3,5] scale=22000]
+degrees=(6,1) coefficients=14 failures=0 min_coefficient=1094603075/23328
+
+[A5-sign1-core band Bernstein x=[157/50,10/3] y=[1/23000,1/12000]]
+degrees=(6,1) coefficients=14 failures=0 min_coefficient=98187444169/2799360
+
+[A5-sign1-mid box Bernstein x=[10/3,5] scale=22000]
+degrees=(6,1) coefficients=14 failures=4 min_coefficient=-1150822267/7040
+failure=(3, 1, -2656687709/950400)
+failure=(4, 1, -35008891133/950400)
+failure=(5, 1, -5527397363/63360)
+failure=(6, 1, -1150822267/7040)
+
+[A6-sign-1-core band Bernstein x=[157/50,10/3] y=[1/23000,1/12000]]
+degrees=(7,1) coefficients=16 failures=0 min_coefficient=831335924305386821907/2246093750000000
+
+[A6-sign-1-mid box Bernstein x=[10/3,5] scale=22000]
+degrees=(7,1) coefficients=16 failures=3 min_coefficient=-9776615141/2816
+failure=(5, 1, -355523365831/887040)
+failure=(6, 1, -39945074279/26880)
+failure=(7, 1, -9776615141/2816)
+
+[A6-sign1-core band Bernstein x=[157/50,10/3] y=[1/23000,1/12000]]
+degrees=(7,1) coefficients=16 failures=0 min_coefficient=1141710344423609/315000000000
+
+[A6-sign1-mid box Bernstein x=[10/3,5] scale=22000]
+degrees=(7,1) coefficients=16 failures=1 min_coefficient=-540060725/326592
+failure=(2, 0, -540060725/326592)
+

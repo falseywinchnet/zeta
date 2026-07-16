@@ -1,0 +1,8 @@
+PASS rational Machin and exponential bounds
+PASS exact two-mode margins q>10 F2>1000 C4>50000000
+PASS Bernstein/decay checks=361
+PASS core derivative Bernstein coefficients=140
+PASS n>=3 analytic theta-tail derivative bounds
+core_perturbation_upper=q:0.00040414000156,F2:37.9583943336,C4:31549531.2948
+outer_perturbation_upper=q:6.48e-11,F2:0.0294948864,C4:418286.592001
+status=no-flint sweep-free global q,F2,C4 candidate passed

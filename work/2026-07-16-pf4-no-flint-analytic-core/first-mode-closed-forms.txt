@@ -1,0 +1,80 @@
+[q]
+formula=4*x*(4*x**2 - 12*x + 15)/(2*x - 3)**2
+numerator=4*x*(4*x**2 - 12*x + 15)
+denominator=(2*x - 3)**2
+shift_x_minus_5_degree=3
+shift_x_minus_5_min_coefficient=16
+shift_x_minus_5_all_positive=True
+
+[q_prime]
+formula=8*x*(8*x**3 - 36*x**2 + 42*x - 45)/(2*x - 3)**3
+numerator=8*x*(8*x**3 - 36*x**2 + 42*x - 45)
+denominator=(2*x - 3)**3
+shift_x_minus_5_degree=4
+shift_x_minus_5_min_coefficient=64
+shift_x_minus_5_all_positive=True
+
+[q_second]
+formula=16*x*(16*x**4 - 96*x**3 + 240*x**2 - 72*x + 135)/(2*x - 3)**4
+numerator=16*x*(16*x**4 - 96*x**3 + 240*x**2 - 72*x + 135)
+denominator=(2*x - 3)**4
+shift_x_minus_5_degree=5
+shift_x_minus_5_min_coefficient=256
+shift_x_minus_5_all_positive=True
+
+[F1]
+formula=1536*x**3*(16*x**3 - 36*x**2 + 45)/(2*x - 3)**6
+numerator=1536*x**3*(16*x**3 - 36*x**2 + 45)
+denominator=(2*x - 3)**6
+shift_x_minus_5_degree=6
+shift_x_minus_5_min_coefficient=24576
+shift_x_minus_5_all_positive=True
+
+[F2]
+formula=64*x**3*(64*x**6 - 576*x**5 + 2448*x**4 - 6432*x**3 + 10044*x**2 - 8100*x + 2295)/(2*x - 3)**6
+numerator=64*x**3*(64*x**6 - 576*x**5 + 2448*x**4 - 6432*x**3 + 10044*x**2 - 8100*x + 2295)
+denominator=(2*x - 3)**6
+shift_x_minus_5_degree=9
+shift_x_minus_5_min_coefficient=4096
+shift_x_minus_5_all_positive=True
+
+[F2_prime]
+formula=384*x**3*(128*x**7 - 1344*x**6 + 6240*x**5 - 17136*x**4 + 31896*x**3 - 39420*x**2 + 27810*x - 6885)/(2*x - 3)**7
+numerator=384*x**3*(128*x**7 - 1344*x**6 + 6240*x**5 - 17136*x**4 + 31896*x**3 - 39420*x**2 + 27810*x - 6885)
+denominator=(2*x - 3)**7
+shift_x_minus_5_degree=10
+shift_x_minus_5_min_coefficient=49152
+shift_x_minus_5_all_positive=True
+
+[F2_second]
+formula=2304*x**3*(256*x**8 - 3072*x**7 + 16256*x**6 - 49920*x**5 + 98688*x**4 - 138816*x**3 + 141480*x**2 - 92880*x + 20655)/(2*x - 3)**8
+numerator=2304*x**3*(256*x**8 - 3072*x**7 + 16256*x**6 - 49920*x**5 + 98688*x**4 - 138816*x**3 + 141480*x**2 - 92880*x + 20655)
+denominator=(2*x - 3)**8
+shift_x_minus_5_degree=11
+shift_x_minus_5_min_coefficient=589824
+shift_x_minus_5_all_positive=True
+
+[C4]
+formula=49152*x**6*(16*x**4 - 96*x**3 + 360*x**2 - 840*x + 945)/(2*x - 3)**4
+numerator=49152*x**6*(16*x**4 - 96*x**3 + 360*x**2 - 840*x + 945)
+denominator=(2*x - 3)**4
+shift_x_minus_5_degree=10
+shift_x_minus_5_min_coefficient=786432
+shift_x_minus_5_all_positive=True
+
+[C4_prime]
+formula=589824*x**6*(32*x**5 - 240*x**4 + 912*x**3 - 2280*x**2 + 3570*x - 2835)/(2*x - 3)**5
+numerator=589824*x**6*(32*x**5 - 240*x**4 + 912*x**3 - 2280*x**2 + 3570*x - 2835)
+denominator=(2*x - 3)**5
+shift_x_minus_5_degree=11
+shift_x_minus_5_min_coefficient=18874368
+shift_x_minus_5_all_positive=True
+
+[C4_second]
+formula=7077888*x**6*(64*x**6 - 576*x**5 + 2416*x**4 - 6384*x**3 + 11500*x**2 - 13440*x + 8505)/(2*x - 3)**6
+numerator=7077888*x**6*(64*x**6 - 576*x**5 + 2416*x**4 - 6384*x**3 + 11500*x**2 - 13440*x + 8505)
+denominator=(2*x - 3)**6
+shift_x_minus_5_degree=12
+shift_x_minus_5_min_coefficient=452984832
+shift_x_minus_5_all_positive=True
+
