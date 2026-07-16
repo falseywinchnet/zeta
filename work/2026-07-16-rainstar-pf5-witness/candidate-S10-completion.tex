@@ -7,7 +7,7 @@ Equation \eqref{eq:sign-bridge} and \eqref{eq:central-identity} imply
 Proposition~\ref{prop:equivalence} therefore proves
 Theorem~\ref{thm:main}.
 
-We now prove directly that the classification stops at order four. Put
+We now prove directly that the classification stops at order four.  Put
 \[
  H_k=\det[\Phi^{(i+j)}(0)]_{i,j=0}^{k-1},\qquad
  s_j=\Phi^{(j)}(0).
@@ -41,7 +41,7 @@ In particular, \(H_4>0\) and \(H_5<0\).
 
 \begin{proof}
 For \(x=\pi n^2e^{2u}\), the \(n\)-th summand of \(\Phi(u)\) is
-\(e^{u/2-x}P_0(x)\), where \(P_0(x)=2x(2x-3)\). If its \(j\)-th derivative
+\(e^{u/2-x}P_0(x)\), where \(P_0(x)=2x(2x-3)\).  If its \(j\)-th derivative
 is \(e^{u/2-x}P_j(x)\), then
 \[
  P_{j+1}=2xP_j'+(1/2-2x)P_j.
@@ -52,12 +52,12 @@ Thus
 \]
 The first three modes are enclosed by rational alternating-series bounds.
 Machin's identity
-\(\pi=16\arctan(1/5)-4\arctan(1/239)\) supplies rational bounds for \(\pi\),
+\(pi=16\arctan(1/5)-4\arctan(1/239)\) supplies rational bounds for \(\pi\),
 and argument division followed by the degree-29 and degree-30 alternating
 Taylor sums supplies rational bounds for each exponential.
 
 For the omitted modes, let \(S_j\) be the sum of the absolute coefficients of
-\(P_j\). Since \(\deg P_j=j+2\), \(3<\pi<22/7\), and
+\(P_j\).  Since \(\deg P_j=j+2\), \(3<\pi<22/7\), and
 \(e^3>\sum_{r=0}^8 3^r/r!>20\),
 \[
  \sum_{n\ge4}|P_j(\pi n^2)|e^{-\pi n^2}
@@ -66,8 +66,8 @@ For the omitted modes, let \(S_j\) be the sum of the absolute coefficients of
  {1-(5/4)^{20}20^{-9}}
  \qquad(j=0,2,4,6,8).
 \]
-Exact rational interval arithmetic then gives the stated bounds. The full
-endpoints and the standard-library verifier are included in the
+Exact rational interval arithmetic then gives the stated bounds.  The full
+endpoints and the short standard-library verifier are included in the
 reproducibility archive.
 \end{proof}
 
@@ -86,11 +86,11 @@ give, for increasing fixed tuples \(a,b\),
  {\prod_{r=0}^{k-1}(r!)^2}
  \det[f^{(i+j)}(z)]_{i,j=0}^{k-1}.
 \]
-Take \(k=5\), \(z=0\), and \(a_i=b_i=i\). The sign factor is one, both
+Take \(k=5\), \(z=0\), and \(a_i=b_i=i\).  The sign factor is one, both
 Vandermonde factors are positive, and Lemma~\ref{lem:origin-pf5-sign} makes
-the limit strictly negative. Hence
+the limit strictly negative.  Hence
 \(\det[\Phi((i-j)h)]_{i,j=0}^4<0\) for every sufficiently small positive
-\(h\). These are translation minors at strictly increasing nodes.
+\(h\).  These are translation minors at strictly increasing nodes.
 \end{proof}
 
 Theorem~\ref{thm:main} and Theorem~\ref{thm:not-pf5} prove

@@ -42,9 +42,9 @@ nonnegative for strictly increasing tuples.
    `O(x^3)`, so no delicate cancellation is required.
 
 Conclusion: `q > 0` and `F2 > 0` on all of `R`, so the Riemann kernel is
-globally PF3. Combined with Michalowski's certified negative Toeplitz 5x5
-minor (not PF5), the kernel's exact global Polya-frequency order is three or
-four; only global PF4 remains open.
+globally PF3. This certificate does not by itself address PF4 or PF5. The
+current exact-order classification is recorded separately in R145, with the
+order-five boundary supplied by CERT11.
 
 ## Audit
 

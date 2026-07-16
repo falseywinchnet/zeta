@@ -3,9 +3,11 @@
 ## Thesis
 
 For the Riemann/de Bruijn-Newman kernel `Phi`, every translation minor of
-order at most four is strictly positive at strictly ordered nodes, while a
-certified order-five minor is negative. Its exact global Polya-frequency order
-is four. This classification is finite-order and RH-neutral.
+order at most four is strictly positive at strictly ordered nodes. At the
+origin, exact rational enclosure gives `H4(0)>0` and `H5(0)<0`; the confluent
+limit transfers the latter sign to distinct order-five translation minors.
+Its exact global Polya-frequency order is four. This classification is
+finite-order and RH-neutral.
 
 The paper also constructs an explicit positive even Schwartz strict-PF4
 kernel with nonreal Fourier zeros. This proves that continuous PF3 and PF4
@@ -29,8 +31,8 @@ its displayed section number changes.
 
 | ID | File | Object and burden | MIND / certificate anchors | Status |
 |---|---|---|---|---|
-| `S00` | `sections/S00-abstract.tex` | Claim, method, evidence boundary | `R145`, `R164`, `R170`, `CERT9`, `CERT10` | ready |
-| `S01` | `sections/S01-introduction.tex` | Scope, exact-order and separator statements, RH boundary | `R81`, `R145`, `R164`, `R170` | ready |
+| `S00` | `sections/S00-abstract.tex` | Claim, method, evidence boundary | `R145`, `R164`, `R170`, `CERT9`, `CERT10`, `CERT11` | ready |
+| `S01` | `sections/S01-introduction.tex` | Scope, exact-order and separator statements, RH boundary | `R14`, `R81`, `R145`, `R164`, `R170`, `CERT11` | ready |
 | `S02` | `sections/S02-kernel.tex` | Analytic even kernel; smoothness at zero | `R4`, `CERT2` | ready |
 | `S03` | `sections/S03-certified-inputs.tex` | Global `q>0`, `F2>0`, `C4>0` and what computation certifies | `R142`, `R143`, `R150`, `R151`, `CERT2`, `CERT3` | ready; replay-dependent |
 | `S04` | `sections/S04-pf3.tex` | Full weighted-mean proof of `Lambda>0` and strict PF3 | `R140`-`R144`, `CERT2` | ready |
@@ -39,13 +41,13 @@ its displayed section number changes.
 | `S07` | `sections/S07-confluent-invariant.tex` | Central-moment determinant and `C4=Q^6 kappa^2 D` | `R147`-`R152`, `CERT3`, `CERT9` | ready |
 | `S08` | `sections/S08-transport-identity.tex` | Exact expectation identity and endpoint cancellation | `R153`, `CERT9` | ready |
 | `S09` | `sections/S09-crossing-kernel.tex` | Strict density-ratio monotonicity and positive integral | `R153`, `CERT9` | ready |
-| `S10` | `sections/S10-completion.tex` | Strict minors, exact order four, no RH implication | `R14`, `R81`, `R145`, `R164` | ready |
+| `S10` | `sections/S10-completion.tex` | Strict minors, origin parity obstruction, exact order four, no RH implication | `R14`, `R72`, `R81`, `R145`, `R164`, `CERT11` | ready; exact rational replay |
 | `S10a` | `sections/S10a-separator.tex` | Explicit positive even Schwartz strict-PF4 kernel with nonreal Fourier zeros | `R165`-`R170`, `CERT10` | ready; exact/direct replay |
-| `S11` | `sections/S11-reproducibility.tex` | Human proof vs replay boundary and audit order | `CERT2`, `CERT3`, `CERT5`, `CERT9`, `CERT10` | ready |
+| `S11` | `sections/S11-reproducibility.tex` | Human proof vs replay boundary and audit order | `CERT2`, `CERT3`, `CERT5`, `CERT9`, `CERT10`, `CERT11` | ready |
 | `A1` | `appendices/A1-algebra.tex` | Cumulant expansion and curvature factorization line by line | `R149`, `CERT3`, `CERT9` | ready |
 | `A2` | `appendices/A2-tail.tex` | Tail constants, polynomial, normalized monotonicity | `R143`, `R151`, `CERT2`, `CERT3` | ready; replay-dependent |
 | `A3` | `appendices/A3-endpoints.tex` | `(50)->(45)` endpoint algebra with all substitutions exposed | `R153`, `CERT9` | ready |
-| `A4` | `appendices/A4-provenance.tex` | Claim-to-file replay table | `CERT2`, `CERT3`, `CERT5`, `CERT9`, `CERT10` | ready |
+| `A4` | `appendices/A4-provenance.tex` | Claim-to-file replay table | `CERT2`, `CERT3`, `CERT5`, `CERT9`, `CERT10`, `CERT11` | ready |
 | `A5` | `appendices/A5-separator.tex` | Independent central-determinant reconstruction, coefficient positivity, Fourier discriminant | `R167`, `R168`, `CERT10` | ready |
 
 ## Review verdict ledger
@@ -67,6 +69,7 @@ directed-rounding boundary is named.
 | 8. Smoothness at zero | `S02` defines `H(t)=e^{t/2} theta(e^{2t})`, proves `H(-t)=H(t)`, and writes `Phi=(H''-H/4)/2`. | closed |
 | 9. Order-three bound | `S04` gives the two weighted means, extrema argument, integral of `max(F1,0)/q^2`, and final lower bound. | closed |
 | 10. PF4 equivalence | `S05` gives both directions: confluent row limits imply Wronskian sign and monotonicity; iterated integrals give the converse. Strict and weak cases are separated. | closed |
+| 11. PF5 decimal and geometry audit | `S10` replaces the decimal witness entirely. `CERT11` uses no coordinates or floating determinant: exact rational enclosures give `H5(0)<0`, and the displayed confluent limit supplies equally spaced distinct nodes for every sufficiently small positive step. | closed / certificate |
 
 No critique position is currently unfilled. CERT10 and S10a additionally
 close the continuous PF3/PF4 insufficiency position that remained open after
@@ -86,8 +89,10 @@ This is a transcription/typesetting defect, not an unfilled research position.
 
 The positive-tail atlas (`CERT6`-`CERT8`), collision cones, Hermite boxes,
 escape charts, and regional joins are valid independent results but are not
-dependencies of this paper. They remain in `work/` and must not be folded into
-the main proof as if they were still necessary. This retirement is `R163`.
+dependencies of this paper. The three certificate boundaries are archived:
+routine replay skips them, while their records and explicit targeted replay are
+preserved. They remain in `work/` and must not be folded into the main proof as
+if they were still necessary. This retirement is `R163`.
 
 ## Editorial rules
 
@@ -96,7 +101,8 @@ the main proof as if they were still necessary. This retirement is `R163`.
 2. The paper carries the human algebra. Scripts replay identities and directed
    inequalities; they are not prose substitutes.
 3. Computational statements say exactly what interval, precision, cells,
-   tail enclosure, and verifier establish them.
+   tail enclosure, and verifier establish them. The PF5 certificate separately
+   names its rational grid, retained modes, Taylor degrees, and geometric tail.
 4. PF4 is never presented as an RH proof. The continuous PF4 Fourier separator
    is stated only through `R165`--`R170` and `CERT10`; `R81` names the resulting
    boundary and `R58` retains only the separate nowhere-density question.

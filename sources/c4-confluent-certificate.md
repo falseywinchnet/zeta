@@ -14,10 +14,9 @@ node pattern `(0,1,2,3)`).
 
 The claim certified here: `C_4(t) > 0` for every real `t`. Consequently no
 order-four minor of the Riemann kernel can go negative through full collision
-of its nodes — the exact boundary route on which PF5 fails (R14; the negative
-order-five Toeplitz minor at `u0=0.01`, `h=0.05` is reproduced by directed
-intervals in the round, and the order-four determinant at that same
-configuration is certified positive, `1.96e-8`).
+of its nodes. CERT11 now closes the adjacent origin boundary directly: exact
+rational enclosure gives `H_4(0)>0` while `H_5(0)<0`, and the latter sign
+transfers to distinct order-five minors by the confluent limit.
 
 ## Structure
 

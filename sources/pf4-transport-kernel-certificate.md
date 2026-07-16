@@ -138,7 +138,8 @@ CERT3 and (7) prove `N>0` for every ordered triple.  Equation (1) proves
 `partial_xi Psi<0`; CERT5 then proves every order-four translate minor is
 strictly positive.  Together with the lower-order results, the Riemann kernel
 is strictly PF4.  The certified negative order-five minor still proves failure
-of PF5, so the exact global Polya-frequency order is four.
+of PF5 through R14 and CERT11, so the exact global Polya-frequency order is
+four.
 
 This classification is RH-neutral.  PF4 is not PF-infinity, and the repository
 already contains an exact PF4 separator whose Fourier transform has nonreal

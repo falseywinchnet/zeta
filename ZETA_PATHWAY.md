@@ -172,7 +172,8 @@ path until `R93` is resolved.
 - Original-kernel PF-infinity: closed (`R16`–`R18`).
 - PF3/PF4 membership: resolved. The Riemann kernel is globally PF3
   (`R140`--`R144`) and strictly PF4 (`R153`, `R164`, `CERT9`), while the
-  certified negative order-five minor excludes PF5 (`R14`). Its exact global
+  exact-rational origin certificate gives `H5(0)<0` and excludes PF5 through
+  the confluent distinct-node limit (`R14`, `R72`, `CERT11`). Its exact global
   Polya-frequency order is four (`R145`). The proof connects the globally
   positive confluent invariant `C4` from `CERT3` to the `CERT5` three-point
   criterion by an exact curvature-coordinate identity:
@@ -189,8 +190,10 @@ path until `R93` is resolved.
   `C4` normalization directly from the central-moment determinant, and proves
   the integration-by-parts cancellation with generic functions and endpoint
   algebra. The former escape/chart atlas is superseded (`R163`); `CERT6`--
-  `CERT8` remain valid independent positive-tail results but are not needed for
-  the global theorem. This classification remains RH-neutral (`R81`): PF4
+  `CERT8` are archived, so routine certificate replay and progress commits skip
+  them. Their manifests, supports, and explicit targeted replay remain available
+  as independent positive-tail results. They are not needed for the global
+  theorem. This classification remains RH-neutral (`R81`): PF4
   alone does not force Fourier real-rootedness.
 - Jensen and Li families: exact but unbounded coordinate tests (`R62`, `R79`,
   `R85`).

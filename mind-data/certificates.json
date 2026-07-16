@@ -11,7 +11,7 @@
         "manifest_sha256": "818829a6896d94a3f6f5c1568af2fb651a1309dacdc9a2799cb92ae5d796d356",
         "method": "executed",
         "schema": 1,
-        "verified_at": "2026-07-15T05:01:51+00:00"
+        "verified_at": "2026-07-16T17:58:36+00:00"
       },
       "created_at": "2026-07-13T19:56:41+00:00",
       "dependencies": [],
@@ -42,7 +42,7 @@
       "artifacts": [
         {
           "path": "sources/pf3-global-certificate.md",
-          "sha256": "1a55ffc46440a14d15e3ba4b4668660601f2b6a722c552fc0382192f9869666a"
+          "sha256": "39f17e9b4313e390b8a28e6690d1284ba1e5445800598ceb6d2260ba4fd66d44"
         },
         {
           "path": "work/2026-07-12-riemann-kernel-pf34-classification/certify_pf3_curvature.py",
@@ -66,10 +66,10 @@
         }
       ],
       "attestation": {
-        "manifest_sha256": "892a99a963d1f6b4f60a7d203e48002a553c9d898b6b8a657aa42775041d553e",
+        "manifest_sha256": "5f3dd9fa5b2dbb68cbb309929e98ae83aed78648ba2132e1edd28a91735b6d0e",
         "method": "executed",
         "schema": 1,
-        "verified_at": "2026-07-16T17:04:59+00:00"
+        "verified_at": "2026-07-16T17:59:04+00:00"
       },
       "created_at": "2026-07-13T19:57:01+00:00",
       "dependencies": [],
@@ -98,13 +98,13 @@
       "topics": [
         "T000011"
       ],
-      "updated_at": "2026-07-13T19:57:01+00:00"
+      "updated_at": "2026-07-16T17:48:59+00:00"
     },
     "K000003": {
       "artifacts": [
         {
           "path": "sources/c4-confluent-certificate.md",
-          "sha256": "9af1282c9fa3eb8ce074683daa0f181b916d7ce93519fc500f820a232800262b"
+          "sha256": "25f488238b798cd7216e67c4304dc33ec7005d9fa3f9bc05ecdcf86ab081a002"
         },
         {
           "path": "work/2026-07-13-riemann-kernel-pf4-verification/certify_c4.py",
@@ -132,10 +132,10 @@
         }
       ],
       "attestation": {
-        "manifest_sha256": "307ade1d15ef14e729bf48dc879fbf1b5e590230aef5ef60dada07190f64a2ee",
+        "manifest_sha256": "65e77ef2a5a88898f49db4a06eed6f1a56f46d84310ad399044446d3c60ebcb2",
         "method": "executed",
         "schema": 1,
-        "verified_at": "2026-07-16T17:04:59+00:00"
+        "verified_at": "2026-07-16T17:59:04+00:00"
       },
       "created_at": "2026-07-13T19:57:44+00:00",
       "dependencies": [],
@@ -163,7 +163,7 @@
       "topics": [
         "T000012"
       ],
-      "updated_at": "2026-07-13T19:57:44+00:00"
+      "updated_at": "2026-07-16T17:49:18+00:00"
     },
     "K000004": {
       "artifacts": [
@@ -196,7 +196,7 @@
         "manifest_sha256": "8c73fc154a6de295bb58d910ba139bf5d22ec697ad3351739e0d07a79c97d44d",
         "method": "executed",
         "schema": 1,
-        "verified_at": "2026-07-15T04:24:20+00:00"
+        "verified_at": "2026-07-16T17:59:04+00:00"
       },
       "created_at": "2026-07-13T19:58:17+00:00",
       "dependencies": [],
@@ -250,10 +250,10 @@
         }
       ],
       "attestation": {
-        "manifest_sha256": "394bf285585ec0e4e5ffd01a90f791e87e44b72b05f0829f23bc4ee4e8e99a99",
+        "manifest_sha256": "08c58c5c5fda3b1dfd63f1b34f0198c062794a9526f3f53affe5b70baeadcc84",
         "method": "executed",
         "schema": 1,
-        "verified_at": "2026-07-16T17:05:06+00:00"
+        "verified_at": "2026-07-16T17:59:10+00:00"
       },
       "created_at": "2026-07-13T20:35:51+00:00",
       "dependencies": [
@@ -286,6 +286,8 @@
       "updated_at": "2026-07-13T20:35:51+00:00"
     },
     "K000006": {
+      "archived": true,
+      "archived_at": "2026-07-16T17:57:40+00:00",
       "artifacts": [
         {
           "path": "work/2026-07-13-pf4-full-tail-transfer/prove_full_collision_margins.py",
@@ -309,10 +311,10 @@
         }
       ],
       "attestation": {
-        "manifest_sha256": "b69f9fcb810c285c1d3f82702ca67f77ee941cb4d771a905ea721bce6820822a",
+        "manifest_sha256": "4429703d5c16b58bbe6b5380807fe2d43992235d81d0c1d0c16f61a761c50cb3",
         "method": "executed",
         "schema": 1,
-        "verified_at": "2026-07-15T04:24:40+00:00"
+        "verified_at": "2026-07-16T17:52:01+00:00"
       },
       "created_at": "2026-07-14T02:09:22+00:00",
       "dependencies": [
@@ -342,9 +344,11 @@
       "topics": [
         "T000003"
       ],
-      "updated_at": "2026-07-14T02:09:22+00:00"
+      "updated_at": "2026-07-16T17:57:40+00:00"
     },
     "K000007": {
+      "archived": true,
+      "archived_at": "2026-07-16T17:57:40+00:00",
       "artifacts": [
         {
           "path": "work/2026-07-13-pf4-collision-radius/prove_edge_separated_transfer.py",
@@ -368,10 +372,10 @@
         }
       ],
       "attestation": {
-        "manifest_sha256": "16e68a441e102b17aee2ac243f7add85e4cc4ef29063b282100e337f46adc874",
+        "manifest_sha256": "a52c96613b21be39ef0f28c84f9ca859198d725e3276d655d6f2fa7bbba56003",
         "method": "executed",
         "schema": 1,
-        "verified_at": "2026-07-15T04:25:18+00:00"
+        "verified_at": "2026-07-16T17:52:37+00:00"
       },
       "created_at": "2026-07-14T02:09:58+00:00",
       "dependencies": [
@@ -400,9 +404,11 @@
       "topics": [
         "T000003"
       ],
-      "updated_at": "2026-07-14T16:05:02+00:00"
+      "updated_at": "2026-07-16T17:57:40+00:00"
     },
     "K000008": {
+      "archived": true,
+      "archived_at": "2026-07-16T17:57:40+00:00",
       "artifacts": [
         {
           "path": "certificates/pf4-tail-jb-residuals.bin.xz",
@@ -426,10 +432,10 @@
         }
       ],
       "attestation": {
-        "manifest_sha256": "13dbc2580895fdf9f9190437379d9c305b84256fb0707593064854e6d0a06085",
+        "manifest_sha256": "a9afdd07e89bcfb723c3303e22f122bc0ca5a6804b95e85556a9f9adb144624c",
         "method": "executed",
         "schema": 1,
-        "verified_at": "2026-07-15T04:27:44+00:00"
+        "verified_at": "2026-07-16T17:54:54+00:00"
       },
       "created_at": "2026-07-14T22:21:47+00:00",
       "dependencies": [
@@ -457,13 +463,13 @@
       "topics": [
         "T000012"
       ],
-      "updated_at": "2026-07-14T22:21:47+00:00"
+      "updated_at": "2026-07-16T17:57:40+00:00"
     },
     "K000009": {
       "artifacts": [
         {
           "path": "sources/pf4-transport-kernel-certificate.md",
-          "sha256": "b7af35c5a2ea48484111324cec64cefed8c7df6ca33d899045b7c8ef4f722910"
+          "sha256": "1b53165c7fc2a540a7d126fee451e28d83bc6210e2df13b48cf4f67cf593c1e1"
         },
         {
           "path": "work/2026-07-14-pf4-compact-bridge/CURVATURE_COORDINATE.md",
@@ -475,10 +481,10 @@
         }
       ],
       "attestation": {
-        "manifest_sha256": "d1f5f4d34a514f92e1a60b11f7a4cfdd0e03c207a14b46241a2d53d068da2bd4",
+        "manifest_sha256": "274a0ea690ae5662c8f40a4f0df3a8ff59f36eb7def280a8971da2e5d1f135b2",
         "method": "executed",
         "schema": 1,
-        "verified_at": "2026-07-16T17:05:09+00:00"
+        "verified_at": "2026-07-16T17:59:13+00:00"
       },
       "created_at": "2026-07-15T03:54:20+00:00",
       "dependencies": [
@@ -509,7 +515,7 @@
       "topics": [
         "T000012"
       ],
-      "updated_at": "2026-07-15T03:54:20+00:00"
+      "updated_at": "2026-07-16T17:49:21+00:00"
     },
     "K000010": {
       "artifacts": [
@@ -519,10 +525,10 @@
         }
       ],
       "attestation": {
-        "manifest_sha256": "8bda7e105edc56c9f0f3829cc7550a333bdb99a69143ef61ef74dafa71e52fd2",
+        "manifest_sha256": "52a84045816a8b7d326087fd4089e4fa535dba8fdb623c18cf049398c1540bbf",
         "method": "executed",
         "schema": 1,
-        "verified_at": "2026-07-16T17:05:09+00:00"
+        "verified_at": "2026-07-16T17:59:14+00:00"
       },
       "created_at": "2026-07-16T16:57:04+00:00",
       "dependencies": [
@@ -553,9 +559,55 @@
       "topics": [
         "T000012"
       ],
-      "updated_at": "2026-07-16T16:57:04+00:00"
+      "updated_at": "2026-07-16T17:49:22+00:00"
+    },
+    "K000011": {
+      "artifacts": [
+        {
+          "path": "sources/pf5-origin-certificate.md",
+          "sha256": "9e1242df6fd743ab1acdb8ace0279bcf84176778a2e51765d8244849e1373d9c"
+        },
+        {
+          "path": "work/2026-07-16-rainstar-pf5-witness/verify_origin_pf5.py",
+          "sha256": "e5fced0ba1581ea50038b1bd5f4388676cae9939bf98ab3b3e0d5ddae7edf8b1"
+        },
+        {
+          "path": "work/2026-07-16-rainstar-pf5-witness/certificate-output.txt",
+          "sha256": "da71996099925cdba28f6025481602fe451b5b85b63b38508f52cfdb5e06cc1e"
+        }
+      ],
+      "attestation": {
+        "manifest_sha256": "11671b4a4073d262651bdf2ad5c3f5f4072f872a40d0a3a3945e3a6ffa8eedf5",
+        "method": "executed",
+        "schema": 1,
+        "verified_at": "2026-07-16T17:59:04+00:00"
+      },
+      "created_at": "2026-07-16T17:43:25+00:00",
+      "dependencies": [],
+      "description": "Exact-rational origin PF5 audit for the Riemann kernel: Machin and alternating-series enclosures, three theta modes with a geometric tail, parity factorization H4=AB and H5=CB, and the confluent distinct-node implication",
+      "environment": "Python standard library only; no external packages",
+      "file": {
+        "path": "scripts/verify_pf5_origin.py",
+        "sha256": "4c201cec103eff714525538a94b4ad9772a2ec91cbeb1b6dff55a7035e340f83"
+      },
+      "precision": "exact outward rational grid 10^-36; theta modes n=1..3; Taylor degrees 29 and 30",
+      "requirements": [],
+      "runner": {
+        "argv": [
+          "{python}",
+          "scripts/verify_pf5_origin.py"
+        ],
+        "expected_exit_code": 0,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "da71996099925cdba28f6025481602fe451b5b85b63b38508f52cfdb5e06cc1e",
+        "timeout_seconds": 30
+      },
+      "topics": [
+        "T000013"
+      ],
+      "updated_at": "2026-07-16T17:43:25+00:00"
     }
   },
-  "next_id": 11,
+  "next_id": 12,
   "version": 1
 }

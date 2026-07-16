@@ -55,22 +55,6 @@
       ],
       "updated_at": "2026-07-12T19:19:06+00:00"
     },
-    "C000004": {
-      "author": "Wojciech Michałowski",
-      "body": "On the Pólya Frequency Order of the de Bruijn-Newman Kernel: Certified Failure at Order Five and the Toeplitz Threshold Phenomenon, arXiv:2602.20313 (2026).",
-      "created_at": "2026-07-12T19:19:06+00:00",
-      "paper": {
-        "path": "papers/michalowski-pf5.pdf",
-        "sha256": "1c73cdab49e72792e518ed661a0a0373a15fcf6e3f708a9f9dda669fbcd99fda"
-      },
-      "source_url": "https://arxiv.org/abs/2602.20313",
-      "topics": [
-        "T000005",
-        "T000013",
-        "T000015"
-      ],
-      "updated_at": "2026-07-12T19:19:06+00:00"
-    },
     "C000005": {
       "author": "Alexander Belton, Dominique Guillot, Apoorva Khare, and Mihai Putinar",
       "body": "Preservers of Totally Positive Kernels and Pólya Frequency Functions, arXiv:2110.08206; Theorem 2.2 restates Schoenberg's bilateral-Laplace-transform characterization.",

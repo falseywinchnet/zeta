@@ -175,6 +175,40 @@ class MindStoreTest(unittest.TestCase):
         )
         self.assertEqual(self.store.replay_certificates(second), [first, second])
 
+    def test_archived_certificate_is_skipped_by_routine_replay(self):
+        retired_file = self._file("retired.py", "print('retired')\n")
+        active_file = self._file("active.py", "print('active')\n")
+        retired = self.store.add_certificate(retired_file, "Retired proof.", [self.zeta])
+        active = self.store.add_certificate(active_file, "Active proof.", [self.zeta])
+        self.store.archive_certificate(retired)
+        self.assertTrue(self.store.certificates[retired]["archived"])
+        self.assertEqual(self.store.replay_certificates("ALL"), [active])
+        self.assertEqual(self.store.authenticate_certificates("ALL"), ([active], []))
+        self.assertEqual(self.store.replay_certificates(retired), [retired])
+
+    def test_archive_guards_active_dependency_closure(self):
+        first_file = self._file("first.py", "print('first')\n")
+        second_file = self._file("second.py", "print('second')\n")
+        first = self.store.add_certificate(first_file, "First proof.", [self.zeta])
+        second = self.store.add_certificate(
+            second_file, "Dependent proof.", [self.zeta], dependencies=[first]
+        )
+        with self.assertRaises(MindError):
+            self.store.archive_certificate(first)
+        self.store.archive_certificate(second)
+        self.store.archive_certificate(first)
+        with self.assertRaises(MindError):
+            self.store.restore_certificate(second)
+        third_file = self._file("third.py", "print('third')\n")
+        with self.assertRaises(MindError):
+            self.store.add_certificate(
+                third_file, "Invalid active proof.", [self.zeta], dependencies=[first]
+            )
+        self.store.restore_certificate(first)
+        self.store.restore_certificate(second)
+        self.assertFalse(self.store.certificates[first].get("archived", False))
+        self.assertFalse(self.store.certificates[second].get("archived", False))
+
     def test_changed_dependency_manifest_invalidates_dependent_attestation(self):
         first_file = self._file("first.py", "print('first')\n")
         second_file = self._file("second.py", "print('second')\n")

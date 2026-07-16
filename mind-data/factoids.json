@@ -246,27 +246,43 @@
     "F000014": {
       "because": [
         {
-          "id": "C000004",
-          "type": "citation"
+          "id": "F000072",
+          "type": "factoid"
+        },
+        {
+          "id": "F000147",
+          "type": "factoid"
+        },
+        {
+          "id": "K000011",
+          "type": "certificate"
         }
       ],
-      "content": "Michałowski certifies a negative Toeplitz 5x5 determinant at u0=0.01 and h=0.05 by interval arithmetic, proving the de Bruijn-Newman kernel is not PF5.",
+      "content": "For the Riemann kernel, H5(0)<0; the order-five confluent divided-difference limit therefore makes det[Phi((i-j)h)] for i,j=0,...,4 negative for every sufficiently small h>0, so the kernel is not PF5.",
       "created_at": "2026-07-12T19:19:06+00:00",
       "relates_to": [
         "T000013",
         "T000015"
       ],
       "status": "established",
-      "updated_at": "2026-07-12T19:19:06+00:00"
+      "updated_at": "2026-07-16T17:44:10+00:00"
     },
     "F000015": {
       "because": [
         {
-          "id": "C000004",
-          "type": "citation"
+          "id": "F000072",
+          "type": "factoid"
+        },
+        {
+          "id": "F000164",
+          "type": "factoid"
+        },
+        {
+          "id": "K000011",
+          "type": "certificate"
         }
       ],
-      "content": "Michałowski certifies positive Toeplitz minors through order 4 at selected configurations only; global PF4 remains open.",
+      "content": "At the origin, the order-four derivative Hankel determinant is positive while the order-five determinant is negative; this local order-four sign alone does not prove global PF4, which is supplied independently by the strict transport theorem.",
       "created_at": "2026-07-12T19:19:06+00:00",
       "relates_to": [
         "T000011",
@@ -274,7 +290,7 @@
         "T000022"
       ],
       "status": "established",
-      "updated_at": "2026-07-12T19:19:06+00:00"
+      "updated_at": "2026-07-16T17:44:11+00:00"
     },
     "F000016": {
       "because": [
@@ -287,8 +303,8 @@
           "type": "factoid"
         },
         {
-          "id": "C000004",
-          "type": "citation"
+          "id": "K000011",
+          "type": "certificate"
         }
       ],
       "content": "The Riemann/de Bruijn-Newman kernel is not PF_infinity.",
@@ -298,7 +314,7 @@
         "T000005"
       ],
       "status": "established",
-      "updated_at": "2026-07-13T20:36:33+00:00"
+      "updated_at": "2026-07-16T17:44:10+00:00"
     },
     "F000017": {
       "because": [
@@ -495,15 +511,23 @@
     "F000027": {
       "because": [
         {
-          "id": "C000001",
-          "type": "citation"
+          "id": "F000145",
+          "type": "factoid"
         },
         {
-          "id": "C000004",
-          "type": "citation"
+          "id": "F000164",
+          "type": "factoid"
+        },
+        {
+          "id": "F000014",
+          "type": "factoid"
+        },
+        {
+          "id": "K000011",
+          "type": "certificate"
         }
       ],
-      "content": "The useful discrete research question left by the PF work is the exact global Pólya-frequency order of the Riemann kernel, especially global PF3 and PF4.",
+      "content": "The discrete Polya-frequency classification question for the Riemann kernel is resolved: the kernel is strictly PF4 and not PF5, so its exact global order is four.",
       "created_at": "2026-07-12T19:19:06+00:00",
       "relates_to": [
         "T000011",
@@ -511,7 +535,7 @@
         "T000023"
       ],
       "status": "established",
-      "updated_at": "2026-07-12T19:19:06+00:00"
+      "updated_at": "2026-07-16T17:44:33+00:00"
     },
     "F000028": {
       "because": [
@@ -673,15 +697,24 @@
       "updated_at": "2026-07-12T19:19:06+00:00"
     },
     "F000037": {
-      "because": [],
-      "content": "Repair or replace the supplied PF5 witness with exact rational coordinates and directed interval arithmetic covering coordinates, kernel truncation, rounding, and determinant evaluation.",
+      "because": [
+        {
+          "id": "F000072",
+          "type": "factoid"
+        },
+        {
+          "id": "K000011",
+          "type": "certificate"
+        }
+      ],
+      "content": "The supplied decimal PF5 witness is replaced by an exact-rational origin certificate with no coordinate inputs: the complete theta tails and all arithmetic rounding are enclosed, and H5(0)<0 is certified without a floating determinant.",
       "created_at": "2026-07-12T19:19:06+00:00",
       "relates_to": [
         "T000013",
         "T000015"
       ],
-      "status": "todo",
-      "updated_at": "2026-07-12T19:19:06+00:00"
+      "status": "established",
+      "updated_at": "2026-07-16T17:44:10+00:00"
     },
     "F000038": {
       "because": [
@@ -887,22 +920,22 @@
     "F000050": {
       "because": [
         {
-          "id": "C000001",
-          "type": "citation"
+          "id": "F000072",
+          "type": "factoid"
         },
         {
-          "id": "C000004",
-          "type": "citation"
+          "id": "K000011",
+          "type": "certificate"
         }
       ],
-      "content": "The conversation reports that the fully confluent order-five obstruction at the origin is the first enlargement of the even derivative block from size 2x2 to 3x3; the odd 2x2 block is unchanged from order four.",
+      "content": "At the origin, evenness splits H5 into the order-four odd 2x2 block B and an enlarged even 3x3 block C; exact rational enclosure proves B>0 and C<0.",
       "created_at": "2026-07-12T19:22:05+00:00",
       "relates_to": [
         "T000012",
         "T000013"
       ],
       "status": "established",
-      "updated_at": "2026-07-12T19:22:05+00:00"
+      "updated_at": "2026-07-16T17:44:11+00:00"
     },
     "F000051": {
       "because": [
@@ -1254,15 +1287,20 @@
       "updated_at": "2026-07-12T19:22:05+00:00"
     },
     "F000072": {
-      "because": [],
-      "content": "Independently verify the origin parity-block sign proof with exact or interval arithmetic through the eighth derivative.",
+      "because": [
+        {
+          "id": "K000011",
+          "type": "certificate"
+        }
+      ],
+      "content": "Exact rational interval arithmetic through Phi^(8)(0) certifies 445<A<446, 189223<B<189228, and -674000000<C<-614000000 for the origin parity blocks, hence H4(0)=A B>0 and H5(0)=C B<0.",
       "created_at": "2026-07-12T19:22:05+00:00",
       "relates_to": [
         "T000013",
         "T000015"
       ],
-      "status": "todo",
-      "updated_at": "2026-07-12T19:22:05+00:00"
+      "status": "established",
+      "updated_at": "2026-07-16T17:44:10+00:00"
     },
     "F000073": {
       "because": [],
@@ -2597,10 +2635,6 @@
           "type": "factoid"
         },
         {
-          "id": "C000004",
-          "type": "citation"
-        },
-        {
           "id": "K000002",
           "type": "certificate"
         },
@@ -2615,16 +2649,20 @@
         {
           "id": "K000009",
           "type": "certificate"
+        },
+        {
+          "id": "K000011",
+          "type": "certificate"
         }
       ],
-      "content": "The exact global Polya-frequency order of the Riemann kernel is four: strict global PF4 is certified, while the directed negative Toeplitz 5x5 minor proves failure of PF5.",
+      "content": "The exact global Polya-frequency order of the Riemann kernel is four: strict global PF4 is certified, while the negative origin-confluent order-five limit proves failure of PF5.",
       "created_at": "2026-07-13T05:01:42+00:00",
       "relates_to": [
         "T000012",
         "T000013"
       ],
       "status": "established",
-      "updated_at": "2026-07-15T03:54:52+00:00"
+      "updated_at": "2026-07-16T17:44:11+00:00"
     },
     "F000146": {
       "because": [
@@ -2760,21 +2798,25 @@
           "type": "factoid"
         },
         {
-          "id": "F000014",
+          "id": "K000003",
+          "type": "certificate"
+        },
+        {
+          "id": "F000072",
           "type": "factoid"
         },
         {
-          "id": "K000003",
+          "id": "K000011",
           "type": "certificate"
         }
       ],
-      "content": "Every fully doubly-confluent order-four minor of the Riemann kernel is strictly positive: C4 > 0 on all of R by the compact certificate on [-1,1] and the tail bound for |u|>=1. The full-collision route on which PF5 fails is closed at order four; the reproduced R14 configuration has a certified positive order-four determinant 1.96e-8.",
+      "content": "Every fully doubly-confluent order-four minor of the Riemann kernel is strictly positive: C4>0 on all of R by the compact certificate on [-1,1] and the tail bound for |u|>=1; CERT11 independently confirms H4(0)>0 at the origin where H5(0)<0.",
       "created_at": "2026-07-13T17:18:22+00:00",
       "relates_to": [
         "T000012"
       ],
       "status": "established",
-      "updated_at": "2026-07-13T19:58:45+00:00"
+      "updated_at": "2026-07-16T17:44:11+00:00"
     },
     "F000153": {
       "because": [

@@ -17,7 +17,7 @@ Usage:
   MIND SEARCH [--limit N] [--type KIND] [--explain] <terms>
   MIND ESTABLISH ...
   MIND CITE <ADD|REMOVE|LIST|CHANGE> ...
-  MIND CERTIFICATE <ADD|DEL|MOD|LIST|RUN> ...
+  MIND CERTIFICATE <ADD|DEL|MOD|ARCHIVE|RESTORE|LIST|RUN> ...
   MIND DISTINGUISH <TREE|BRANCH|PRUNE> ...
   MIND PROGRESS <RECORD|CHANGE|LIST|COMMIT> ...
 
@@ -109,6 +109,8 @@ to delete a citation still supporting a factoid.
       [--precision TEXT] [--environment DIGEST] [--timeout SECONDS]
   MIND CERTIFICATE MOD CERT1 [the same optional fields]
   MIND CERTIFICATE DEL CERT1
+  MIND CERTIFICATE ARCHIVE CERT1
+  MIND CERTIFICATE RESTORE CERT1
   MIND CERTIFICATE LIST [ALL|CERT1]
   MIND CERTIFICATE RUN [ALL|CERT1]
 
@@ -117,7 +119,10 @@ verifier, artifacts, stdout, and stderr. They also seal a readable proof manifes
 whose SHA-256 transitively authenticates dependency manifests. Python files
 default to `{python} FILE`. RUN forces dependency replay and verifies exact
 outputs. PROGRESS COMMIT authenticates unchanged sealed manifests and replays
-only missing or stale attestations before tests and commitment.
+only missing or stale active attestations before tests and commitment. ARCHIVE
+preserves the certificate and its supports but excludes it from routine RUN ALL
+and commit authentication. A targeted RUN CERT1 remains available for forensic
+replay. RESTORE requires all dependencies to be active.
 """,
     "DISTINGUISH": """DISTINGUISH manages the valid topic etymology.
 
@@ -334,6 +339,7 @@ def cmd_retrieve_certificate(store, kid):
     certificate = store.certificates[kid]
     print(f"CERTIFICATE: {public_id(kid)}")
     print(f"DESCRIPTION: {certificate['description']}")
+    print("STATUS: " + ("archived" if certificate.get("archived") else "active"))
     print("TOPICS: " + ", ".join(store.topic_path(tid) for tid in certificate["topics"]))
     print(f"VERIFIER: {certificate['file']['path']} sha256={certificate['file']['sha256']}")
     print("COMMAND: " + " ".join(certificate["runner"]["argv"]))
@@ -435,7 +441,7 @@ def certificate_parser(action):
 
 def cmd_certificate(store, args):
     if not args:
-        raise MindError("CERTIFICATE requires ADD, DEL, MOD, LIST, or RUN")
+        raise MindError("CERTIFICATE requires ADD, DEL, MOD, ARCHIVE, RESTORE, LIST, or RUN")
     aliases = {"REMOVE": "DEL", "DELETE": "DEL", "CHANGE": "MOD", "MODIFY": "MOD"}
     action = aliases.get(args[0].upper(), args[0].upper())
     tail = args[1:]
@@ -464,6 +470,16 @@ def cmd_certificate(store, args):
         kid = internal_id(tail[0])
         store.remove_certificate(kid)
         print(f"{public_id(kid)} removed")
+    elif action in {"ARCHIVE", "RESTORE"}:
+        if len(tail) != 1:
+            raise MindError(f"CERTIFICATE {action} requires one certificate ID")
+        kid = internal_id(tail[0])
+        if action == "ARCHIVE":
+            store.archive_certificate(kid)
+            print(f"{public_id(kid)} archived")
+        else:
+            store.restore_certificate(kid)
+            print(f"{public_id(kid)} restored")
     elif action == "LIST":
         target = internal_id(tail[0]) if tail else "ALL"
         target = target.upper()
@@ -474,6 +490,7 @@ def cmd_certificate(store, args):
             item = store.certificates[kid]
             print(
                 f"{public_id(kid)} {item['description']}\n"
+                f"  status: {'archived' if item.get('archived') else 'active'}\n"
                 f"  verifier: {item['file']['path']}\n"
                 f"  verifier sha256: {item['file']['sha256']}\n"
                 f"  manifest sha256: "

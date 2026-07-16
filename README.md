@@ -11,7 +11,7 @@ replays, and broken commit epochs.
 ./MIND RETRIEVE math/zeta/riemann-hypothesis
 ./MIND SEARCH "Schoenberg, reciprocal transform"
 ./MIND SEARCH R14
-./MIND SEARCH CITE4
+./MIND SEARCH CERT11
 ./MIND SEARCH CERT1
 ```
 
@@ -34,8 +34,11 @@ it stops at the first adjacent score drop greater than `1-1/e`.
 
 The search index is generated locally and ignored by git. SEARCH rebuilds it when
 missing or stale. `PROGRESS COMMIT` authenticates unchanged content-addressed
-certificate manifests, replays only missing or stale attestations, rebuilds the index,
-validates the graph, compiles Python, and runs the test suite before commitment.
+active certificate manifests, replays only missing or stale active attestations,
+rebuilds the index, validates the graph, compiles Python, and runs the test suite
+before commitment. `CERTIFICATE ARCHIVE` preserves a retired proof boundary and
+its graph supports while excluding it from routine replay; an explicit targeted
+replay remains available, and `CERTIFICATE RESTORE` returns it to the active set.
 
 New research is isolated by round mode. Advancement rounds preserve everything in
 `work/YYYY-MM-DD-name/`; later refine rounds audit and integrate it. Retrieval

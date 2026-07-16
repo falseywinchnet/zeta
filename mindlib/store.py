@@ -257,6 +257,17 @@ class Store:
                 result.append(dependency)
         return result
 
+    def _require_active_certificate_dependencies(self, dependencies):
+        archived = sorted(
+            dependency for dependency in dependencies
+            if self.certificates[dependency].get("archived")
+        )
+        if archived:
+            raise MindError(
+                "active certificate cannot depend on archived certificates: "
+                + ", ".join(archived)
+            )
+
     def _check_requirements(self, requirements):
         for requirement in requirements or []:
             name, separator, expected = requirement.partition("==")
@@ -390,12 +401,14 @@ class Store:
         argv = self._certificate_argv(file_record["path"], command)
         if file_record["path"] not in argv:
             raise MindError("verifier command must include the certificate FILE as an argument")
+        dependencies = self._normalize_certificate_dependencies(dependencies)
+        self._require_active_certificate_dependencies(dependencies)
         item = {
             "description": description,
             "topics": self._topic_ids(topics),
             "file": file_record,
             "artifacts": self._artifact_records(artifacts or []),
-            "dependencies": self._normalize_certificate_dependencies(dependencies),
+            "dependencies": dependencies,
             "requirements": list(requirements or []),
             "precision": precision,
             "environment": environment,
@@ -443,7 +456,10 @@ class Store:
         if environment is not None:
             item["environment"] = environment
         if dependencies is not None:
-            item["dependencies"] = self._normalize_certificate_dependencies(dependencies)
+            normalized = self._normalize_certificate_dependencies(dependencies)
+            if not item.get("archived"):
+                self._require_active_certificate_dependencies(normalized)
+            item["dependencies"] = normalized
         if timeout_seconds is not None:
             if timeout_seconds <= 0:
                 raise MindError("certificate timeout must be positive")
@@ -472,6 +488,48 @@ class Store:
         del self.certificates[kid]
         self.save("certificates")
 
+    def archive_certificate(self, kid):
+        """Retire a CERT from routine replay while preserving its evidence."""
+        kid = kid.upper()
+        if kid not in self.certificates:
+            raise MindError(f"unknown certificate: {kid}")
+        if self.certificates[kid].get("archived"):
+            return
+        active_dependents = sorted(
+            other for other, item in self.certificates.items()
+            if not item.get("archived") and kid in item.get("dependencies", [])
+        )
+        if active_dependents:
+            raise MindError(
+                f"certificate {kid} has active dependents: {', '.join(active_dependents)}"
+            )
+        timestamp = now()
+        self.certificates[kid]["archived"] = True
+        self.certificates[kid]["archived_at"] = timestamp
+        self.certificates[kid]["updated_at"] = timestamp
+        self.save("certificates")
+
+    def restore_certificate(self, kid):
+        """Return an archived CERT to routine replay."""
+        kid = kid.upper()
+        if kid not in self.certificates:
+            raise MindError(f"unknown certificate: {kid}")
+        item = self.certificates[kid]
+        if not item.get("archived"):
+            return
+        archived_dependencies = sorted(
+            dependency for dependency in item.get("dependencies", [])
+            if self.certificates[dependency].get("archived")
+        )
+        if archived_dependencies:
+            raise MindError(
+                f"certificate {kid} has archived dependencies: {', '.join(archived_dependencies)}"
+            )
+        item.pop("archived", None)
+        item.pop("archived_at", None)
+        item["updated_at"] = now()
+        self.save("certificates")
+
     def _assert_certificate_acyclic(self):
         visiting, visited = set(), set()
 
@@ -495,7 +553,10 @@ class Store:
         target = target.upper() if target else "ALL"
         if target != "ALL" and target not in self.certificates:
             raise MindError(f"unknown certificate: {target}")
-        roots = sorted(self.certificates) if target == "ALL" else [target]
+        roots = (
+            sorted(kid for kid, item in self.certificates.items() if not item.get("archived"))
+            if target == "ALL" else [target]
+        )
         selected = set()
 
         def visit(kid):
@@ -539,7 +600,10 @@ class Store:
         target = target.upper() if target else "ALL"
         if target != "ALL" and target not in self.certificates:
             raise MindError(f"unknown certificate: {target}")
-        roots = sorted(self.certificates) if target == "ALL" else [target]
+        roots = (
+            sorted(kid for kid, item in self.certificates.items() if not item.get("archived"))
+            if target == "ALL" else [target]
+        )
         selected = set()
 
         def visit(kid):
@@ -918,6 +982,10 @@ class Store:
             if not required.issubset(certificate):
                 errors.append(f"{kid}: missing fields {sorted(required - set(certificate))}")
                 continue
+            if "archived" in certificate and certificate["archived"] is not True:
+                errors.append(f"{kid}: archived must be true when present")
+            if certificate.get("archived") and not certificate.get("archived_at"):
+                errors.append(f"{kid}: archived certificate has no archived_at timestamp")
             runner_required = {
                 "argv", "timeout_seconds", "expected_exit_code", "stdout_sha256", "stderr_sha256"
             }
@@ -929,6 +997,16 @@ class Store:
             for tid in certificate["topics"]:
                 if tid not in self.topics:
                     errors.append(f"{kid}: unknown topic {tid}")
+            if not certificate.get("archived"):
+                archived_dependencies = sorted(
+                    dependency for dependency in certificate.get("dependencies", [])
+                    if self.certificates.get(dependency, {}).get("archived")
+                )
+                if archived_dependencies:
+                    errors.append(
+                        f"{kid}: active certificate depends on archived certificates "
+                        + ", ".join(archived_dependencies)
+                    )
             for record in [certificate["file"], *certificate.get("artifacts", [])]:
                 path = self.root / record["path"]
                 if not path.is_file():
