@@ -31,26 +31,26 @@ its displayed section number changes.
 
 | ID | File | Object and burden | MIND / certificate anchors | Status |
 |---|---|---|---|---|
-| `S00` | `sections/S00-abstract.tex` | Claim, method, evidence boundary | `R145`, `R164`, `R170`, `CERT9`, `CERT10`, `CERT11` | ready |
+| `S00` | `sections/S00-abstract.tex` | Claim, method, evidence boundary | `R145`, `R164`, `R170`, `CERT9`-`CERT12` | ready |
 | `S01` | `sections/S01-introduction.tex` | Scope, exact-order and separator statements, RH boundary | `R14`, `R81`, `R145`, `R164`, `R170`, `CERT11` | ready |
 | `S01a` | `sections/S01a-related-work.tex` | Bounded finite-order, Riemann-kernel, moment, and Wronskian context | `CITE5`, `CITE6`, `CITE25`, `CITE27` | ready |
-| `S02` | `sections/S02-kernel.tex` | Analytic even kernel; smoothness at zero; positivity before `log Phi` | `R4`, `CERT2` | ready |
-| `S03` | `sections/S03-certified-inputs.tex` | Global `q>0`, `F2>0`, `C4>0` and what computation certifies | `R142`, `R143`, `R150`, `R151`, `CERT2`, `CERT3` | ready; replay-dependent |
-| `S04` | `sections/S04-pf3.tex` | Full weighted-mean proof of `Lambda>0` and strict PF3 | `R140`-`R144`, `CERT2` | ready |
+| `S02` | `sections/S02-kernel.tex` | Analytic even kernel; smoothness at zero; positivity before `log Phi` | `R4`, `R171`, `CERT12` | ready |
+| `S03` | `sections/S03-certified-inputs.tex` | Sweep-free global `q>0`, `F2>0`, `C4>0` | `R171`, `CERT12` | ready; exact replay |
+| `S04` | `sections/S04-pf3.tex` | Full weighted-mean proof of `Lambda>0` and strict PF3 | `R140`, `R141`, `R172`, `CERT12` | ready |
 | `S05` | `sections/S05-quotient-reduction.tex` | Correct `T log(v3/v2)` derivation; fourth-order reduction; equivalence | `R154`-`R156`, `CERT5` | ready |
 | `S06` | `sections/S06-curvature-coordinate.tex` | Increasing coordinate on its image, triangular weights, sign bridge | `R153`, `CERT9` | ready |
-| `S07` | `sections/S07-confluent-invariant.tex` | Central-moment determinant and `C4=Q^6 kappa^2 D` | `R147`-`R152`, `CERT3`, `CERT9` | ready |
+| `S07` | `sections/S07-confluent-invariant.tex` | Central-moment determinant and `C4=Q^6 kappa^2 D` | `R147`, `R149`, `R171`, `R173`, `CERT9`, `CERT12` | ready |
 | `S08` | `sections/S08-transport-identity.tex` | Exact expectation identity and endpoint cancellation | `R153`, `CERT9` | ready |
 | `S09` | `sections/S09-crossing-kernel.tex` | Strict density-ratio monotonicity and positive integral | `R153`, `CERT9` | ready |
 | `S10` | `sections/S10-completion.tex` | Strict minors, origin parity obstruction, exact order four, no RH implication | `R14`, `R72`, `R81`, `R145`, `R164`, `CERT11` | ready; exact rational replay |
 | `S10a` | `sections/S10a-separator.tex` | Explicit positive even Schwartz strict-PF4 kernel with nonreal Fourier zeros | `R165`-`R170`, `CERT10` | ready; exact/direct replay |
-| `S11` | `sections/S11-reproducibility.tex` | Quick wrappers vs full directed covers, hashes, and audit order | `CERT2`, `CERT3`, `CERT5`, `CERT9`, `CERT10`, `CERT11` | ready |
+| `S11` | `sections/S11-reproducibility.tex` | Exact active replay, archived covers, and audit order | `CERT5`, `CERT9`-`CERT12` | ready |
 | `S11a` | `sections/S11a-availability.tex` | Public evidence anchor, availability, AI provenance, release gates | `P000069`, `P000070` | ready; release-gated |
-| `A1` | `appendices/A1-algebra.tex` | Cumulant expansion and curvature factorization line by line | `R149`, `CERT3`, `CERT9` | ready |
-| `A2` | `appendices/A2-tail.tex` | Tail constants, polynomial, normalized monotonicity | `R143`, `R151`, `CERT2`, `CERT3` | ready; replay-dependent |
+| `A1` | `appendices/A1-algebra.tex` | Cumulant expansion and curvature factorization line by line | `R149`, `CERT9`, `CERT12` | ready |
+| `A2` | `appendices/A2-tail.tex` | Two-mode margins and analytic all-mode perturbation | `R171`, `CERT12` | ready; exact replay |
 | `A3` | `appendices/A3-endpoints.tex` | `(50)->(45)` endpoint algebra with all substitutions exposed | `R153`, `CERT9` | ready |
-| `A4` | `appendices/A4-provenance.tex` | Claim-to-file replay table | `CERT2`, `CERT3`, `CERT5`, `CERT9`, `CERT10`, `CERT11` | ready |
-| `A5` | `appendices/A5-separator.tex` | Independent central-determinant reconstruction, 37 printed palindromic coefficients, Fourier discriminant | `R167`, `R168`, `CERT10` | ready |
+| `A4` | `appendices/A4-provenance.tex` | Claim-to-file replay table | `CERT5`, `CERT9`-`CERT12` | ready |
+| `A5` | `appendices/A5-separator.tex` | Independent central determinant, 37 printed coefficients, exact Fourier discriminant | `R167`, `R168`, `CERT10` | ready |
 
 ## Review verdict ledger
 
@@ -66,8 +66,8 @@ directed-rounding boundary is named.
 | 3. Confluent expansion | `S07` and `A1` give the moment matrix, its Schur complement, and the thirteen-term polynomial. | closed |
 | 4. `C4=Q^6 kappa^2 D` | `A1` lists `c2,...,c6`, the factored determinant, and the expanded form of `D`. | closed |
 | 5. Transport endpoint algebra | `S08` derives the primitives; `A3` substitutes `J,H,U,delta,Lambda` into one explicit rational identity. | closed |
-| 6. Tail constants | `A2` derives `E_j=2^j sum S(j,k)C_k`, displays the `C_k` and `E_j` tables, and names the theta-tail padding. Directed enclosures remain a certificate input. | closed / certificate |
-| 7. Monotonicity of `P(x)/x^6` | `A2` writes it as `49152-sum b_d x^{d-6}` and differentiates termwise. | closed |
+| 6. Tail constants | `A2` replaces the old derivative paddings by a two-mode normalization and one analytic bound for every mode `n>=3`, including all derivatives through order six. | closed / exact certificate |
+| 7. Tail monotonicity | `A2` proves the `n=3` derivative sign and the decreasing weighted-homogeneous outer perturbation explicitly. | closed |
 | 8. Smoothness at zero | `S02` defines `H(t)=e^{t/2} theta(e^{2t})`, proves `H(-t)=H(t)`, and writes `Phi=(H''-H/4)/2`. | closed |
 | 9. Order-three bound | `S04` gives the two weighted means, extrema argument, integral of `max(F1,0)/q^2`, and final lower bound. | closed |
 | 10. PF4 equivalence | `S05` gives both directions: confluent row limits imply Wronskian sign and monotonicity; iterated integrals give the converse. Strict and weak cases are separated. | closed |
@@ -86,11 +86,11 @@ candidate are retained in `work/2026-07-16-pf4-audit-through-c2/`.
 | Audit item | Maintained resolution |
 |---|---|
 | V1 | Public repository and immutable `P000069` theorem-evidence commit are printed; `paper/RELEASE_MANIFEST.md` names the final tag/DOI and clean-platform replay as release gates. |
-| V2 | `S11` separates quick wrappers from the full 192-bit 7731- and 8050-cell covers; `scripts/replay_paper.py --full` executes both tiers without mutating MIND. |
-| V3 | The categorical human-readable claim is removed; `A5` prints the 37 independent exact coefficients, while `A2` names the directed tail-padding boundary honestly. |
+| V2 | `S11` identifies the sweep-free exact active replay; the 7731- and 8050-cell Arb covers are archived historical evidence and cannot run during routine replay. |
+| V3 | `A5` prints the 37 independent exact coefficients, while `A2` supplies the analytic later-mode bounds and exact coefficient boundary. |
 | V4 | `S01a` adds the supplied Khare, Dimitrov--Xu, and Csordas--Varga context; comprehensive priority search remains the explicitly deferred Q1 item. |
 | V5 | `CERT11` and `S10` already replaced the external decimal PF5 witness. |
-| V6 | `S00` separately discloses the directed 192-bit separator discriminant. |
+| V6 | `S00` and `A5` replace the directed separator discriminant by an exact rational inequality. |
 | V7 | `S02` proves `Phi>0` before defining `log Phi`. |
 | V8 | `S11`, the proof records, and certificate metadata distinguish base-cover and wrapper precision/dependencies. |
 | V9 | `S10a` attributes positive `kappa` to the established `q>0,F2>0` inequalities. |
@@ -121,11 +121,11 @@ if they were still necessary. This retirement is `R163`.
 
 1. Every theorem-sized claim names an exact MIND or certificate boundary in
    this map before entering the paper.
-2. The paper carries the human algebra. Scripts replay identities and directed
+2. The paper carries the human algebra. Scripts replay identities and exact
    inequalities; they are not prose substitutes.
-3. Computational statements say exactly what interval, precision, cells,
-   tail enclosure, and verifier establish them. The PF5 certificate separately
-   names its rational grid, retained modes, Taylor degrees, and geometric tail.
+3. Computational statements distinguish exact theorem premises from diagnostic
+   checks. The PF5 certificate separately names its rational grid, retained
+   modes, Taylor degrees, and geometric tail.
 4. PF4 is never presented as an RH proof. The continuous PF4 Fourier separator
    is stated only through `R165`--`R170` and `CERT10`; `R81` names the resulting
    boundary and `R58` retains only the separate nowhere-density question.

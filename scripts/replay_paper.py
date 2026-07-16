@@ -1,41 +1,23 @@
 #!/usr/bin/env python3
 """Non-mutating replay entry point for the PF4 paper evidence.
 
-Quick mode executes the six certificate-facing paper verifiers and checks their
-registered output hashes. Full mode first reruns the two theorem-producing
-192-bit directed compact covers and checks their retained output hashes.
+The maintained proof uses five active certificate boundaries.  The former Arb
+compact covers are historical records and are intentionally absent here.
 """
 
 from __future__ import annotations
 
-import argparse
 from concurrent.futures import ThreadPoolExecutor
 import hashlib
 import importlib.metadata
 import json
-import os
 from pathlib import Path
 import subprocess
 import sys
 
 
 PAPER_CERTIFICATES = (
-    "K000002", "K000003", "K000005", "K000009", "K000010", "K000011"
-)
-
-FULL_COVERS = (
-    {
-        "label": "PF3 compact cover (7731 cells)",
-        "directory": "work/2026-07-12-riemann-kernel-pf34-classification",
-        "script": "certify_pf3_curvature.py",
-        "stdout_sha256": "a52a360cdc5e0a616d791e038d759952af287c85b9f22bfa4e3bba39373c827f",
-    },
-    {
-        "label": "C4 compact cover (8050 cells)",
-        "directory": "work/2026-07-13-riemann-kernel-pf4-verification",
-        "script": "certify_c4.py",
-        "stdout_sha256": "bf2436a454ece2c4ef97917f0aa606f29a7e3c401faa9428c203893a7f52d0cc",
-    },
+    "K000005", "K000009", "K000010", "K000011", "K000012"
 )
 
 
@@ -76,19 +58,6 @@ def run_checked(label: str, argv: list[str], cwd: Path, stdout_hash: str, stderr
     return f"PASS {label} stdout={observed_stdout}"
 
 
-def replay_full_covers(root: Path) -> None:
-    empty_hash = sha256(b"")
-    for task in FULL_COVERS:
-        directory = root / task["directory"]
-        print(run_checked(
-            task["label"],
-            [sys.executable, task["script"]],
-            directory,
-            task["stdout_sha256"],
-            empty_hash,
-        ))
-
-
 def replay_paper_certificates(root: Path) -> None:
     document = json.loads((root / "mind-data/certificates.json").read_text(encoding="utf-8"))
     certificates = document["items"]
@@ -97,8 +66,6 @@ def replay_paper_certificates(root: Path) -> None:
         for certificate_id in PAPER_CERTIFICATES
         for requirement in certificates[certificate_id].get("requirements", [])
     }
-    # The C4 wrapper is lightweight, but its theorem-producing base cover uses Arb.
-    requirements.add("python-flint==0.9.0")
     check_requirements(requirements)
     tasks = []
     for certificate_id in PAPER_CERTIFICATES:
@@ -117,18 +84,9 @@ def replay_paper_certificates(root: Path) -> None:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser()
-    parser.add_argument(
-        "--full",
-        action="store_true",
-        help="rerun the 7731- and 8050-cell directed compact covers before the quick audits",
-    )
-    args = parser.parse_args()
     root = find_repository()
-    if args.full:
-        replay_full_covers(root)
     replay_paper_certificates(root)
-    print("status=full paper replay passed" if args.full else "status=quick paper audit passed")
+    print("status=paper evidence replay passed")
 
 
 if __name__ == "__main__":

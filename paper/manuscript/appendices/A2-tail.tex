@@ -1,72 +1,144 @@
-\section{Tail envelopes and normalized margin}\label{app:tail}
+\section{Sweep-free proof of the certified input}\label{app:tail}
 
-For \(x=\pi e^{2t}\), write
+This appendix proves Lemma~\ref{lem:certified-input}. The positive-side
+theta series has \(j\)-th derivative
 \[
- \Phi(t)=4\pi x e^{5t/2-x}(1+\rho(x)),\qquad
- \rho(x)=-\frac{3}{2x}+\sigma(x),\qquad w=\log(1+\rho).
+ 2\pi n^2e^{5u/2-n^2x}P_j(n^2x),\qquad x=\pi e^{2u},
 \]
-The \(n\geq2\) theta terms satisfy, with their first six derivatives,
-an exponentially small bound absorbed into the following rational paddings
-for \(x\geq\pi e^2\):
-\[
- |w^{(k)}(x)|\leq\frac{C_k}{x^{k+1}},
-\]
-\[
-\begin{array}{c|rrrrrr}
-k&1&2&3&4&5&6\\ \hline
-C_k&1.61&3.33&10.4&42.8&222&1376
-\end{array}
-\]
-For \(D_x=2x\dd/\dd x\), induction gives the Stirling identity
-\[
- D_x^j\psi=2^j\sum_{k=1}^j S(j,k)x^k\psi^{(k)},
-\]
-where \(S(j,k)\) are Stirling numbers of the second kind. Since only \(w\)
-contributes to the error in derivatives of order at least two,
-\[
- |\varepsilon_j|\leq\frac{E_j}{x},\qquad
- E_j=2^j\sum_{k=1}^jS(j,k)C_k.
-\]
-Rounding each sum upward gives
-\[
-\begin{array}{c|rrrrr}
-j&2&3&4&5&6\\ \hline
-E_j&19.8&176&2082&30770&545900.
-\end{array}
-\]
-For example,
-\[
- E_4\leq16(C_1+7C_2+6C_3+C_4)=2081.92<2082.
-\]
-The logarithmic derivative formulas for \(w\) are finite Faa di Bruno sums;
-the \(n=1\) contribution uses
-\(\rho'\sim3/(2x^2),\rho''\sim-3/x^3,\ldots\), while the common theta-tail
-padding controls \(\sigma\) and all its derivatives. These finite derivative
-paddings are a directed certificate boundary: the verifier evaluates their
-Faa di Bruno inequalities with outward-rounded balls. The article records the
-resulting constants and the analytic monotonicity argument below, but does not
-claim to print every interval operation.
+where the polynomials \(P_j\) satisfy the recurrence in
+\secref{sec:inputs}. Machin's identity and alternating series give
+\(\pi>157/50\); hence \(P_0(x)=2x-3>0\).
 
-Substituting \(c_j=-2^jx+\delta_jE_j/x\), \(|\delta_j|\leq1\), into the
-thirteen-term polynomial and collecting absolute coefficients gives
+\subsection{Cleared sign polynomials}
+
+In addition to \(a_j\), define the normalized remaining modes
+\[
+ e_j(x)=\sum_{n\geq3}
+ \frac{n^2e^{-(n^2-1)x}P_j(n^2x)}{P_0(x)},
+ \qquad b_j=a_j+e_j.
+\]
+For an indeterminate raw jet \((b_0,\ldots,b_6)\), put
+\[
+ N_q=b_1^2-b_0b_2,
+\]
 \begin{align*}
-P(x)={}&49152x^6-\frac{7299072}{5}x^4-\frac{88018944}{5}x^3
--\frac{756929024}{5}x^2-\frac{9307871232}{25}x\\
-&-\frac{90509073984}{25}-\frac{1807239327472}{125x}
--\frac{3528006311808}{125x^2}-\frac{62513985514124}{625x^3}\\
-&-\frac{220885105972212}{3125x^4}
--\frac{8406623961648}{625x^5}
--\frac{11297761792812}{15625x^6}.
+N_{F_2}={}&-b_0^4b_2b_4+b_0^4b_3^2+b_0^3b_1^2b_4
+-2b_0^3b_1b_2b_3+2b_0^3b_2^3\\
+&-3b_0^2b_1^2b_2^2+3b_0b_1^4b_2-b_1^6,
 \end{align*}
-Every subtracted term in \(P(x)/x^6\) has the form \(b_dx^{d-6}\) with
-\(b_d>0\) and \(d<6\). Therefore
+and
 \[
- \frac{\dd}{\dd x}\frac{P(x)}{x^6}
- =\sum_{d<6}(6-d)b_dx^{d-7}>0.
+ N_{\Cfour}=\det[b_{i+j}]_{i,j=0}^3.
 \]
-The normalized margin is increasing, so its minimum on
-\(x\geq\pi e^2\) occurs at the left endpoint. Evaluation at the rational
-lower bound \(x>1157/50\) gives
+Direct logarithmic differentiation and the central-moment determinant give
+\begin{equation}\label{eq:raw-signs}
+ q=\frac{N_q}{b_0^2},\qquad
+ F_2=\frac{N_{F_2}}{b_0^6},\qquad
+ \Cfour=\frac{N_{\Cfour}}{b_0^4}.
+\end{equation}
+The thirteen-term cumulant expansion obtained from the last identity agrees
+with \eqref{eq:C4-expanded}; this is an exact polynomial identity.
+
+For orientation, retaining only the first mode gives
 \[
- \frac{\Cfour}{x^6}\geq\frac{P(x)}{x^6}>44392.80919.
+q_1=\frac{4x(4x^2-12x+15)}{(2x-3)^2},
 \]
+\[
+(F_2)_1=\frac{64x^3(64x^6-576x^5+2448x^4-6432x^3
++10044x^2-8100x+2295)}{(2x-3)^6},
+\]
+\[
+(\Cfour)_1=\frac{49152x^6(16x^4-96x^3+360x^2-840x+945)}{(2x-3)^4}.
+\]
+After \(x=5+z\), every numerator has positive coefficients. The second
+mode is retained exactly because it supplies the larger margin near the
+origin.
+
+\subsection{Exact two-mode margin}
+
+Alternating Taylor bounds for the exponential imply
+\[
+ 0<y<\frac1{12000}\quad(x\geq\pi),
+\]
+and
+\[
+ \frac1{23000}<y<\frac1{12000}
+ \quad\left(\frac{157}{50}\leq x\leq\frac{10}{3}\right).
+\]
+We use the following elementary certificate lemma. If
+\(p(s,t)=\sum p_{ij}s^it^j\) has bidegree \((d,e)\), its Bernstein
+coefficients on the unit square are
+\[
+ \beta_{k\ell}=\sum_{i\leq k,\,j\leq\ell}
+ p_{ij}\frac{\binom{k}{i}}{\binom{d}{i}}
+       \frac{\binom{\ell}{j}}{\binom{e}{j}}.
+\]
+The power-to-Bernstein identity proves that \(\beta_{k\ell}>0\) for every
+\(k,\ell\) implies \(p>0\) on the square.
+
+Apply this lemma after affine rational changes of variables. For \(q\), one
+rectangle ends at \(x=10/3\), followed by a positive base polynomial minus
+exponentially decreasing corrections. For \(F_2\), dependent bounds on the
+first rectangle are followed by a rectangle through \(x=5\) and a positive
+half-strip expansion. For \(\Cfour\), the first rectangle is followed by two
+negative odd-power corrections whose ratios to the positive base decrease.
+The derivative of each ratio has a numerator with positive coefficients after
+the indicated shift. The 361 resulting rational coefficient inequalities give
+\begin{equation}\label{eq:two-mode-margin}
+ q_{1,2}>10,\qquad (F_2)_{1,2}>1000,\qquad
+ (\Cfour)_{1,2}>50{,}000{,}000.
+\end{equation}
+This is a finite algebraic proof on fixed domains, not an interval sweep.
+
+\subsection{All later modes}
+
+For \(t\geq27\), shifting \(t=27+z\) gives positive coefficients in
+\((-1)^jP_j(t)\) and in
+\(2^{j+1}t^{j+1}-(-1)^jP_j(t)\). Therefore
+\begin{equation}\label{eq:P-envelope}
+ 0<(-1)^jP_j(t)\leq2^{j+1}t^{j+1},
+ \qquad 0\leq j\leq6.
+\end{equation}
+The derivative numerator of the normalized \(n=3\) term is another positive
+shifted polynomial, so its absolute value decreases for \(x\geq3\). For
+\(n\geq4\), successive majorants have ratio at most
+\[
+ \left(\frac54\right)^{16}e^{-27}<10^{-9}.
+\]
+Rational Taylor lower bounds for \(e^{24},e^{27},e^{45}\) then yield, on
+\(\pi\leq x\leq5\),
+\begin{equation}\label{eq:core-tail}
+(|e_0|,\ldots,|e_6|)<
+(7\!\cdot\!10^{-9},4\!\cdot\!10^{-7},2\!\cdot\!10^{-4},
+7\!\cdot\!10^{-4},3\!\cdot\!10^{-2},1.1,41).
+\end{equation}
+The same Bernstein lemma gives
+\[
+(|a_0|,\ldots,|a_6|)<(2,5,20,200,2000,60000,1000000).
+\]
+Expanding the three polynomials in \eqref{eq:raw-signs} and using absolute
+coefficients gives
+\begin{equation}\label{eq:core-perturbation}
+ |\Delta N_q|<0.000405,\quad
+ |\Delta N_{F_2}|<37.959,\quad
+ |\Delta N_{\Cfour}|<31{,}549{,}532.
+\end{equation}
+
+For \(x\geq5\), \eqref{eq:P-envelope} gives
+\[
+ |a_j|\leq2^{j+2}x^j,\qquad
+ |e_j|\leq2^{j+2}3^{2j+4}x^je^{-8x}.
+\]
+The raw weights of \(N_q,N_{F_2},N_{\Cfour}\) are respectively \(2,6,12\).
+Thus every perturbation majorant is a positive multiple of
+\(x^we^{-8x}\), or a faster-decaying term, with \(w\leq12\); it decreases
+for \(x\geq5\). A single rational Taylor bound at \(x=5\) gives
+\begin{equation}\label{eq:outer-perturbation}
+ |\Delta N_q|<6.49\cdot10^{-11},\quad
+ |\Delta N_{F_2}|<0.03,\quad
+ |\Delta N_{\Cfour}|<418{,}287.
+\end{equation}
+The bounds \eqref{eq:core-perturbation} and
+\eqref{eq:outer-perturbation} are strictly smaller than
+\eqref{eq:two-mode-margin}. Since \(b_0>0\), \eqref{eq:raw-signs} proves all
+three signs for \(u\geq0\). Evenness proves Lemma~\ref{lem:certified-input}.

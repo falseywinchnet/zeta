@@ -29,8 +29,8 @@ For `xi<m<r`, define
 \]
 
 where `T` translates all arguments together. For the Riemann kernel `Phi`,
-CERT2 supplies `q>0`, `F2>0`, and the strict positivity of the R141 functional
-`Lambda` on its full domain.
+CERT12 supplies `q>0` and `F2>0`; the displayed R141 weighted-mean proof then
+gives strict positivity of `Lambda` on its full domain.
 
 ## Generic quotient and integral machinery
 
@@ -81,8 +81,8 @@ L_3=T\log(v_3/v_2)
 \Lambda(p_3;p_2,p_1).
 \]
 
-For `Phi`, `q>0` makes both `A` factors positive and CERT2 makes `Lambda`
-strictly positive. Hence every translate Wronskian `W_3` is strictly positive.
+For `Phi`, `q>0` makes both `A` factors positive and CERT12 with R141 makes
+`Lambda` strictly positive. Hence every translate Wronskian `W_3` is strictly positive.
 The generic iterated-integral identity then recovers strict global order-three
 minors without invoking an external extended-Chebyshev theorem.
 

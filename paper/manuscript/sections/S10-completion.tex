@@ -66,8 +66,17 @@ For the omitted modes, let \(S_j\) be the sum of the absolute coefficients of
  {1-(5/4)^{20}20^{-9}}
  \qquad(j=0,2,4,6,8).
 \]
-Exact rational interval arithmetic then gives the stated bounds. The full
-endpoints and the standard-library verifier are included in the
+All endpoints lie on \(10^{-36}\mathbb Z\), and every arithmetic operation is
+rounded outward. Substitution into the displayed formulas gives the entirely
+rational sign chain
+\[
+ 0<445<A<446,\qquad 0<189223<B<189228,
+\]
+\[
+ -674000000<C<-614000000<0.
+\]
+Thus \(AB>0\) and \(CB<0\) without a floating-point determinant. The full
+grid endpoints and the standard-library verifier are included in the
 reproducibility archive.
 \end{proof}
 

@@ -39,6 +39,8 @@
       "updated_at": "2026-07-15T05:01:51+00:00"
     },
     "K000002": {
+      "archived": true,
+      "archived_at": "2026-07-16T19:28:34+00:00",
       "artifacts": [
         {
           "path": "sources/pf3-global-certificate.md",
@@ -98,9 +100,11 @@
       "topics": [
         "T000011"
       ],
-      "updated_at": "2026-07-16T18:27:28+00:00"
+      "updated_at": "2026-07-16T19:28:34+00:00"
     },
     "K000003": {
+      "archived": true,
+      "archived_at": "2026-07-16T19:28:34+00:00",
       "artifacts": [
         {
           "path": "sources/c4-confluent-certificate.md",
@@ -164,7 +168,7 @@
       "topics": [
         "T000012"
       ],
-      "updated_at": "2026-07-16T18:27:47+00:00"
+      "updated_at": "2026-07-16T19:28:34+00:00"
     },
     "K000004": {
       "artifacts": [
@@ -239,7 +243,7 @@
       "artifacts": [
         {
           "path": "sources/pf4-wronskian-reduction-certificate.md",
-          "sha256": "43fcedc520efb507136160e4d8bf908640e351de1a5f6f23ea9fa1b620fa671d"
+          "sha256": "d9faa307fd2780d7b1e3b824492049e8bd7d0a3b1b0381127ca7bb3958d4b574"
         },
         {
           "path": "work/2026-07-13-riemann-kernel-pf4-wronskian-route/MATHEMATICS.md",
@@ -251,22 +255,22 @@
         }
       ],
       "attestation": {
-        "manifest_sha256": "e55a95941cdb80933f0ddc5454b511ab13090e4c68b7e7bc0a21ebae36dffed2",
+        "manifest_sha256": "e979ee2663873d1421e3c705ed7c8fba12a9651279b52b55f840db81276c1919",
         "method": "executed",
         "schema": 1,
-        "verified_at": "2026-07-16T18:35:01+00:00"
+        "verified_at": "2026-07-16T19:28:17+00:00"
       },
       "created_at": "2026-07-13T20:35:51+00:00",
       "dependencies": [
-        "K000002"
+        "K000012"
       ],
-      "description": "P000027 proof audit: generic quotient and iterated-integral identities, strict global W3 positivity for the Riemann kernel from CERT2, and exact equivalence of global PF4 to partial_xi Psi(xi;m,r)<=0 on xi<m<r; the inequality itself is not certified.",
+      "description": "Generic quotient and iterated-integral identities, strict global W3 positivity for the Riemann kernel from the exact CERT12 sign boundary, and equivalence of global PF4 to partial_xi Psi<=0; the inequality itself is supplied by CERT9",
       "environment": null,
       "file": {
         "path": "scripts/verify_pf4_wronskian_reduction.py",
         "sha256": "d13629c256a1532b67af4aaa04c3878f53bf2fa0a40b3b0bf51c19d1b39d76b6"
       },
-      "precision": "exact symbolic algebra; independent mpmath spot-checks at 50 decimal digits",
+      "precision": "exact symbolic algebra; independent mpmath regression checks at 50 decimal digits",
       "requirements": [
         "mpmath==1.3.0",
         "sympy==1.14.0"
@@ -284,7 +288,7 @@
       "topics": [
         "T000012"
       ],
-      "updated_at": "2026-07-13T20:35:51+00:00"
+      "updated_at": "2026-07-16T19:28:17+00:00"
     },
     "K000006": {
       "archived": true,
@@ -470,7 +474,7 @@
       "artifacts": [
         {
           "path": "sources/pf4-transport-kernel-certificate.md",
-          "sha256": "1b53165c7fc2a540a7d126fee451e28d83bc6210e2df13b48cf4f67cf593c1e1"
+          "sha256": "7764540c077f22cf1ae5ebb83a6e2283001a3a381c883e74dd75b3c45dced222"
         },
         {
           "path": "work/2026-07-14-pf4-compact-bridge/CURVATURE_COORDINATE.md",
@@ -482,23 +486,23 @@
         }
       ],
       "attestation": {
-        "manifest_sha256": "83b98889d70ccc4f8e30b4a463fd60ed15b2346db968a2a721af9d3cdb8ffc58",
+        "manifest_sha256": "16d78bd3158e7629b4ba6f6a77ff23c48f96a4311786f40b8a85970894a39bdd",
         "method": "executed",
         "schema": 1,
-        "verified_at": "2026-07-16T18:35:04+00:00"
+        "verified_at": "2026-07-16T19:28:20+00:00"
       },
       "created_at": "2026-07-15T03:54:20+00:00",
       "dependencies": [
-        "K000003",
+        "K000012",
         "K000005"
       ],
-      "description": "Strict global PF4 transport audit: CERT5 sign orientation, direct CERT3 central-moment normalization, exact triangular-measure cancellation, positive crossing kernel, and independent Riemann-kernel checks.",
+      "description": "Strict global PF4 transport audit: CERT5 sign orientation, direct central-moment normalization, exact triangular-measure cancellation, positive crossing kernel, and exact CERT12 global sign input",
       "environment": null,
       "file": {
         "path": "scripts/verify_pf4_transport_kernel.py",
         "sha256": "aef7fb8f6f3058dba81211ec18ff8be61253bcf6680c4b736243b39a1f68d673"
       },
-      "precision": "exact symbolic algebra; independent mpmath checks at 70 decimal digits",
+      "precision": "exact symbolic algebra; independent mpmath regression checks at 70 decimal digits",
       "requirements": [
         "mpmath==1.3.0",
         "sympy==1.14.0"
@@ -516,36 +520,35 @@
       "topics": [
         "T000012"
       ],
-      "updated_at": "2026-07-16T17:49:21+00:00"
+      "updated_at": "2026-07-16T19:28:20+00:00"
     },
     "K000010": {
       "artifacts": [
         {
           "path": "sources/continuous-pf4-separator-certificate.md",
-          "sha256": "c164f33307ee4c452d032ee0fc985b8613031c58baf918797484d8b29dc0f5ca"
+          "sha256": "eea803fc426ed3e4f9acc6b587eb7ab77ad00c84859942d24e17ae8ee20bda96"
         }
       ],
       "attestation": {
-        "manifest_sha256": "bd1fdf8ca0d21fe07a7ee908055f66b2a59425ba815e557f586ea05200cc5049",
+        "manifest_sha256": "65df6d88864c2aea2c037a2ce55eda40450e6a4c84a907f73cd970140e8fc41a",
         "method": "executed",
         "schema": 1,
-        "verified_at": "2026-07-16T18:35:05+00:00"
+        "verified_at": "2026-07-16T19:28:21+00:00"
       },
       "created_at": "2026-07-16T16:57:04+00:00",
       "dependencies": [
-        "K000002",
+        "K000012",
         "K000009"
       ],
-      "description": "Continuous strict-PF4 Fourier separator audit: exact PF3 margin, independently reconstructed central C4 determinant with 73 positive cleared coefficients, and directed nonreal Fourier-zero discriminant",
+      "description": "Continuous strict-PF4 Fourier separator audit: exact PF3 margin, independently reconstructed central C4 determinant with 73 positive cleared coefficients, and exact negative Fourier-cubic discriminant inequality",
       "environment": null,
       "file": {
         "path": "scripts/verify_continuous_pf4_separator.py",
-        "sha256": "1cf341e86a4bd95aeb984f8feee2038cc9e4cb76baed85a0f43155e1ee31fe29"
+        "sha256": "174b3a5d22cd3b5d0add71e9752cd7ff6381f33a3c4845d0cb51f897b9461f24"
       },
-      "precision": "exact rational and symbolic arithmetic; Arb 192 bits",
+      "precision": "exact symbolic and rational polynomial arithmetic; no numerical sign decisions",
       "requirements": [
-        "sympy==1.14.0",
-        "python-flint==0.9.0"
+        "sympy==1.14.0"
       ],
       "runner": {
         "argv": [
@@ -554,13 +557,13 @@
         ],
         "expected_exit_code": 0,
         "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "stdout_sha256": "dc68478d93982c24cf0a57b54f1c7d8c976c63ae224a065847442c567e7f45f7",
+        "stdout_sha256": "76d3bf5530e122e443de2b23e3abef936d1235762fdb2e1006aeacea6eb646e8",
         "timeout_seconds": 300
       },
       "topics": [
         "T000012"
       ],
-      "updated_at": "2026-07-16T17:49:22+00:00"
+      "updated_at": "2026-07-16T19:28:21+00:00"
     },
     "K000011": {
       "artifacts": [
@@ -607,8 +610,56 @@
         "T000013"
       ],
       "updated_at": "2026-07-16T17:43:25+00:00"
+    },
+    "K000012": {
+      "artifacts": [
+        {
+          "path": "sources/riemann-signs-analytic-certificate.md",
+          "sha256": "1d757c9738dec0b6b9dfe7550cb6d2cd1fd9e4cd3ebe9b1d36bf27a6d5dc0d03"
+        },
+        {
+          "path": "work/2026-07-16-pf4-no-flint-analytic-core/verify_no_flint_compact.py",
+          "sha256": "6133b1a2402eaef0fbd53304fcec68ab5998f78b1e38e32d5b4947c0b8ec0734"
+        },
+        {
+          "path": "work/2026-07-16-pf4-no-flint-analytic-core/no-flint-certificate.txt",
+          "sha256": "0f6d051dd1da7ecb535b8f3c5b3a97f806c3db76c720b354c136f2548cf5b818"
+        }
+      ],
+      "attestation": {
+        "manifest_sha256": "bf52cc8d39c468a8bd0d60a03ebe82f0c8099e19bf75231423b883135c049738",
+        "method": "executed",
+        "schema": 1,
+        "verified_at": "2026-07-16T19:27:13+00:00"
+      },
+      "created_at": "2026-07-16T19:25:50+00:00",
+      "dependencies": [],
+      "description": "Sweep-free exact global Riemann-kernel sign and PF3 certificate: generic slope identity, two theta modes, rational Bernstein and decay coefficients, analytic modes-three-and-higher perturbation, proving q>0, F2>0, C4>0, and strict PF3 without FLINT, floating point, or interval subdivision",
+      "environment": null,
+      "file": {
+        "path": "scripts/verify_riemann_signs_exact.py",
+        "sha256": "15660baa3b9ec2375262940c6f201186cbf8e74abdf87013f7b9270e1871adf9"
+      },
+      "precision": "exact symbolic and rational polynomial arithmetic; fixed Bernstein domains; analytic geometric tails",
+      "requirements": [
+        "sympy==1.14.0"
+      ],
+      "runner": {
+        "argv": [
+          "{python}",
+          "scripts/verify_riemann_signs_exact.py"
+        ],
+        "expected_exit_code": 0,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "15103eff6edd668a940461ec0275e643f58fb97d97bd69479b6b0e622fa03ef8",
+        "timeout_seconds": 60
+      },
+      "topics": [
+        "T000012"
+      ],
+      "updated_at": "2026-07-16T19:27:13+00:00"
     }
   },
-  "next_id": 12,
+  "next_id": 13,
   "version": 1
 }

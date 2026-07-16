@@ -2525,7 +2525,7 @@
           "type": "factoid"
         },
         {
-          "id": "K000002",
+          "id": "K000012",
           "type": "certificate"
         }
       ],
@@ -2535,7 +2535,7 @@
         "T000011"
       ],
       "status": "established",
-      "updated_at": "2026-07-13T19:58:44+00:00"
+      "updated_at": "2026-07-16T19:27:44+00:00"
     },
     "F000141": {
       "because": [
@@ -2544,7 +2544,7 @@
           "type": "factoid"
         },
         {
-          "id": "K000002",
+          "id": "K000012",
           "type": "certificate"
         }
       ],
@@ -2555,7 +2555,7 @@
         "T000009"
       ],
       "status": "established",
-      "updated_at": "2026-07-13T19:58:44+00:00"
+      "updated_at": "2026-07-16T19:27:44+00:00"
     },
     "F000142": {
       "because": [
@@ -2627,16 +2627,8 @@
     "F000145": {
       "because": [
         {
-          "id": "F000144",
-          "type": "factoid"
-        },
-        {
           "id": "F000016",
           "type": "factoid"
-        },
-        {
-          "id": "K000002",
-          "type": "certificate"
         },
         {
           "id": "F000164",
@@ -2653,6 +2645,14 @@
         {
           "id": "K000011",
           "type": "certificate"
+        },
+        {
+          "id": "F000172",
+          "type": "factoid"
+        },
+        {
+          "id": "K000012",
+          "type": "certificate"
         }
       ],
       "content": "The exact global Polya-frequency order of the Riemann kernel is four: strict global PF4 is certified, while the negative origin-confluent order-five limit proves failure of PF5.",
@@ -2662,7 +2662,7 @@
         "T000013"
       ],
       "status": "established",
-      "updated_at": "2026-07-16T17:44:11+00:00"
+      "updated_at": "2026-07-16T19:27:56+00:00"
     },
     "F000146": {
       "because": [
@@ -2686,7 +2686,7 @@
           "type": "factoid"
         },
         {
-          "id": "K000003",
+          "id": "K000011",
           "type": "certificate"
         }
       ],
@@ -2696,7 +2696,7 @@
         "T000012"
       ],
       "status": "established",
-      "updated_at": "2026-07-13T19:58:45+00:00"
+      "updated_at": "2026-07-16T19:27:44+00:00"
     },
     "F000148": {
       "because": [
@@ -2736,7 +2736,7 @@
           "type": "factoid"
         },
         {
-          "id": "K000003",
+          "id": "K000012",
           "type": "certificate"
         }
       ],
@@ -2746,7 +2746,7 @@
         "T000012"
       ],
       "status": "established",
-      "updated_at": "2026-07-13T19:58:45+00:00"
+      "updated_at": "2026-07-16T19:27:44+00:00"
     },
     "F000150": {
       "because": [
@@ -2825,12 +2825,12 @@
           "type": "factoid"
         },
         {
-          "id": "F000152",
-          "type": "factoid"
-        },
-        {
           "id": "K000009",
           "type": "certificate"
+        },
+        {
+          "id": "F000173",
+          "type": "factoid"
         }
       ],
       "content": "For the Riemann kernel, partial_xi Psi(xi;m,r)<0 for every xi<m<r: in the curvature coordinate, -partial_xi Psi equals Q(p) delta/Lambda times the strictly positive integral of W(t) C4(t)/(Q(t)^6 kappa(t)^2).",
@@ -2839,7 +2839,7 @@
         "T000012"
       ],
       "status": "established",
-      "updated_at": "2026-07-15T03:56:16+00:00"
+      "updated_at": "2026-07-16T19:27:56+00:00"
     },
     "F000154": {
       "because": [
@@ -2863,15 +2863,15 @@
           "type": "factoid"
         },
         {
-          "id": "F000142",
-          "type": "factoid"
-        },
-        {
-          "id": "F000143",
-          "type": "factoid"
-        },
-        {
           "id": "K000005",
+          "type": "certificate"
+        },
+        {
+          "id": "F000171",
+          "type": "factoid"
+        },
+        {
+          "id": "K000012",
           "type": "certificate"
         }
       ],
@@ -2882,7 +2882,7 @@
         "T000012"
       ],
       "status": "established",
-      "updated_at": "2026-07-13T20:36:21+00:00"
+      "updated_at": "2026-07-16T19:27:55+00:00"
     },
     "F000156": {
       "because": [
@@ -3176,8 +3176,89 @@
       ],
       "status": "established",
       "updated_at": "2026-07-16T16:57:48+00:00"
+    },
+    "F000171": {
+      "because": [
+        {
+          "id": "K000012",
+          "type": "certificate"
+        }
+      ],
+      "content": "For the Riemann kernel, a sweep-free exact two-mode proof with analytic bounds for every mode n>=3 establishes q>0, F2>0, and C4>0 on the whole real line; the certificate uses rational polynomial algebra and geometric tails, with no floating-point sign decision, interval subdivision, FLINT, or Arb.",
+      "created_at": "2026-07-16T19:26:06+00:00",
+      "relates_to": [
+        "T000012"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-16T19:26:06+00:00"
+    },
+    "F000172": {
+      "because": [
+        {
+          "id": "F000004",
+          "type": "factoid"
+        },
+        {
+          "id": "F000140",
+          "type": "factoid"
+        },
+        {
+          "id": "F000141",
+          "type": "factoid"
+        },
+        {
+          "id": "F000171",
+          "type": "factoid"
+        },
+        {
+          "id": "K000012",
+          "type": "certificate"
+        }
+      ],
+      "content": "The Riemann kernel is globally strict PF3 because q>0 and F2>0 hold everywhere by the sweep-free exact certificate, and the weighted-mean slope lemma makes every order-three translation minor strictly positive.",
+      "created_at": "2026-07-16T19:27:44+00:00",
+      "relates_to": [
+        "T000011"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-16T19:27:44+00:00"
+    },
+    "F000173": {
+      "because": [
+        {
+          "id": "F000147",
+          "type": "factoid"
+        },
+        {
+          "id": "F000149",
+          "type": "factoid"
+        },
+        {
+          "id": "F000171",
+          "type": "factoid"
+        },
+        {
+          "id": "F000072",
+          "type": "factoid"
+        },
+        {
+          "id": "K000012",
+          "type": "certificate"
+        },
+        {
+          "id": "K000011",
+          "type": "certificate"
+        }
+      ],
+      "content": "Every fully doubly-confluent order-four minor of the Riemann kernel is strictly positive because the exact sweep-free certificate proves C4>0 on the real line; the exact rational origin certificate independently confirms H4(0)>0.",
+      "created_at": "2026-07-16T19:27:44+00:00",
+      "relates_to": [
+        "T000012"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-16T19:27:44+00:00"
     }
   },
-  "next_id": 171,
+  "next_id": 174,
   "version": 1
 }

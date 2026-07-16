@@ -1,12 +1,12 @@
 # Strict global PF4 transport certificate
 
-Status: refine-round audit of P000057 and P000058.  This note certifies the
-exact transport identity and its implication, together with CERT3 and CERT5,
+Status: refine-round audit of P000057 and P000058. This note certifies the
+exact transport identity and its implication, together with CERT12 and CERT5,
 that the Riemann kernel is strictly PF4.
 
 ## Established boundaries
 
-CERT3 proves that the fully confluent order-four central-moment determinant
+CERT12 proves that the fully confluent order-four central-moment determinant
 `C4(t)` is strictly positive for every real `t`.  CERT5 proves that strict
 global PF4 follows from
 
@@ -25,7 +25,7 @@ Put
  \kappa=2-Q''.
 \]
 
-CERT2 gives `q>0`, so `y` is strictly increasing and `Q>0`.  The PF3
+CERT12 gives `q>0`, so `y` is strictly increasing and `Q>0`. The PF3
 curvature bounds give `kappa>0`.  For `p=y(xi)<z=y(m)<w=y(r)`, define the
 positive triangular quantities `delta` and `Lambda` as in P000057.
 
@@ -42,7 +42,7 @@ Thus the orientation needed by CERT5 is `N>0`.
 
 ## Direct C4 normalization
 
-The audit reconstructs CERT3's `C4` directly as the `4x4` central-moment
+The audit reconstructs CERT12's `C4` directly as the `4x4` central-moment
 Hankel determinant in cumulants `(log Phi)^(2)..(log Phi)^(6)`.  It does not
 import the thirteen-term decomposition from the advancement script.
 
@@ -56,7 +56,7 @@ symbolic reduction gives
  D=3(\kappa-1)-\{Q(\log\kappa)'\}'.}                           \tag{2}
 \]
 
-Consequently CERT3 supplies `D>0` globally.
+Consequently CERT12 supplies `D>0` globally.
 
 ## Exact transport identity
 
@@ -134,7 +134,7 @@ remaining domain.
 
 ## Consequence
 
-CERT3 and (7) prove `N>0` for every ordered triple.  Equation (1) proves
+CERT12 and (7) prove `N>0` for every ordered triple. Equation (1) proves
 `partial_xi Psi<0`; CERT5 then proves every order-four translate minor is
 strictly positive.  Together with the lower-order results, the Riemann kernel
 is strictly PF4.  The certified negative order-five minor still proves failure
@@ -150,5 +150,5 @@ zeros.
 `scripts/verify_pf4_transport_kernel.py` checks the generic identities,
 orientation, direct central-moment normalization, crossing ratio, constant
 curvature regression, and two independent 70-digit Riemann-kernel comparisons.
-It depends on CERT3 and CERT5; their replays supply the global `C4>0` and PF4
+It depends on CERT12 and CERT5; their replays supply the global `C4>0` and PF4
 equivalence premises rather than duplicating their long proofs.

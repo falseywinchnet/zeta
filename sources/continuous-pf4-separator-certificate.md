@@ -54,7 +54,8 @@ F_2\ge q(q^2-3888c^4)
 \ge q c^2(529/256-243/256)>0.
 \]
 
-The generic slope theorem R141, audited by CERT2, therefore proves strict PF3.
+The generic slope theorem R141, paired with the exact CERT12 sign boundary,
+therefore proves strict PF3.
 
 ## Exact order-four invariant
 
@@ -118,9 +119,22 @@ For `w=e^{-iz}` and `u=w+w^{-1}`, the Laurent factor reduces exactly to
 R_c(u)=2e^{9c}u^3+10e^{4c}u^2+(23e^c-6e^{9c})u+30-20e^{4c}.
 \]
 
-At `c=1/64`, directed 192-bit Arb arithmetic encloses its discriminant in a
-strictly negative interval centered near `-6.04461372517649847`.  The real
-cubic therefore has a nonreal conjugate pair.  If `|w|=1`, then
+At `c=1/64`, put `r=e^(1/64)`, `x=r^2`, and `y=x-1`. Exact expansion gives
+
+\[
+\operatorname{disc}(R_c)=4r^{10}G(x).
+\]
+
+The constant and first two terms of `G(1+y)` are `-1-10y-12y^2`; all
+remaining coefficients are positive. The binomial theorem gives
+`0<y<1/30`, while the sum of all positive terms at `y=1/30` is
+
+\[
+\frac{1621193195302591}{36905625000000000}<1.
+\]
+
+Thus the discriminant is exactly negative. The real cubic therefore has a
+nonreal conjugate pair. If `|w|=1`, then
 `w+w^{-1}` is real, so each nonreal `u` root lifts to a `w` root off the unit
 circle and hence to a Fourier zero with nonzero imaginary part.
 
@@ -133,6 +147,6 @@ insufficient for Fourier real-rootedness.
 `scripts/verify_continuous_pf4_separator.py` checks the exact PF3 algebra and
 margin, independently reconstructs the central determinant and all 73
 positive numerator coefficients, verifies exact rational spot values, checks
-the Laurent-to-cubic reduction, and certifies the negative discriminant with
-directed Arb arithmetic.  The certificate depends on CERT2 and CERT9 for the
-generic PF3 and PF4 implication theorems.
+the Laurent-to-cubic reduction, and proves the negative discriminant by exact
+rational polynomial inequalities. The certificate depends on CERT12 and
+CERT9 for the PF3 and PF4 implication theorems.

@@ -4,13 +4,18 @@
 The verifier is independent of the advancement scripts.  It reconstructs the
 order-four central-moment determinant symbolically, derives its cleared
 numerator from Euler derivatives of the exact kernel polynomial, checks the
-PF3 margin over QQ, and uses Arb only for the Fourier cubic discriminant.
+PF3 margin over QQ, and proves the Fourier cubic discriminant negative by an
+exact rational inequality.
 """
 
 from __future__ import annotations
 
+from fractions import Fraction
+from math import comb
+import os
+
+os.environ["SYMPY_GROUND_TYPES"] = "python"
 import sympy as sp
-from flint import arb, ctx
 
 
 FAILURES: list[str] = []
@@ -149,14 +154,65 @@ def check_fourier_zeros() -> None:
     stated = 2 * a**9 * u**3 + 10 * a**4 * u**2 + (23 * a - 6 * a**9) * u + 30 - 20 * a**4
     report("D Laurent factor reduces to the stated real cubic", sp.expand(reduced - stated) == 0)
 
-    ctx.prec = 192
-    c = arb(1) / 64
-    e1, e4, e9 = c.exp(), (4 * c).exp(), (9 * c).exp()
-    discriminant = cubic_discriminant(2 * e9, 10 * e4, 23 * e1 - 6 * e9, 30 - 20 * e4)
+    r, x, y = sp.symbols("r x y", positive=True)
+    discriminant = sp.expand(
+        cubic_discriminant(
+            2 * r**9,
+            10 * r**4,
+            23 * r - 6 * r**9,
+            30 - 20 * r**4,
+        )
+    )
+    g = (
+        432 * x**13 - 4968 * x**9 + 900 * x**8 + 16200 * x**6
+        + 19044 * x**5 - 72600 * x**4 + 20000 * x**3
+        + 62100 * x**2 - 54334 * x + 13225
+    )
     report(
-        "D directed Fourier cubic discriminant is negative",
-        discriminant < 0,
-        f"Delta={discriminant.str(35)}",
+        "D exact discriminant factorization",
+        sp.expand(discriminant - 4 * r**10 * g.subs(x, r**2)) == 0,
+    )
+
+    shifted = sp.Poly(sp.expand(g.subs(x, 1 + y)), y, domain=sp.QQ)
+    expected = [
+        -1, -10, -12, 680, 11532, 96660, 365400, 569664,
+        512172, 303912, 123552, 33696, 5616, 432,
+    ]
+    report(
+        "D shifted discriminant polynomial",
+        [shifted.nth(j) for j in range(14)] == expected,
+    )
+
+    # e < 11/4 follows from the first four terms of its series and
+    # sum_{k>=4} 1/k! <= (1/24) sum_{j>=0} 4^{-j} = 1/18.
+    e_upper = Fraction(1) + Fraction(1) + Fraction(1, 2) + Fraction(1, 6) + Fraction(1, 18)
+    binomial_lower = sum(
+        (Fraction(comb(32, j), 30**j) for j in range(4)), Fraction(0)
+    )
+    report(
+        "D e^(1/32) lies below 31/30",
+        e_upper < Fraction(11, 4)
+        < binomial_lower
+        == Fraction(1891, 675),
+    )
+
+    positive_at_endpoint = sum(
+        (Fraction(expected[j], 30**j) for j in range(3, 14)), Fraction(0)
+    )
+    report(
+        "D positive shifted terms sum to less than one",
+        positive_at_endpoint
+        == Fraction(1621193195302591, 36905625000000000)
+        < 1,
+        f"sum={positive_at_endpoint}",
+    )
+    report(
+        "D Fourier cubic discriminant is exactly negative",
+        all(expected[j] > 0 for j in range(3, 14))
+        and expected[0] == -1
+        and expected[1] < 0
+        and expected[2] < 0
+        and positive_at_endpoint < 1,
     )
 
 

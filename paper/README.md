@@ -21,7 +21,7 @@ make -C paper
 The build requires `tectonic`. The source tree is also conventional LaTeX and
 can be compiled from `manuscript/main.tex` with another engine.
 
-From the repository root, `python scripts/replay_paper.py` runs the quick,
-non-mutating paper audit. Add `--full` to regenerate the 7731- and 8050-cell
-directed compact covers before the quick checks. Exact Python package versions
-are pinned in `requirements-paper.txt`.
+From the repository root, `python scripts/replay_paper.py` runs the complete
+non-mutating paper audit. The old Arb compact covers are archived historical
+evidence and are not invoked. Exact Python package versions are pinned in
+`requirements-paper.txt`.

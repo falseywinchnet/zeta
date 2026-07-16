@@ -1,0 +1,1366 @@
+\documentclass[11pt]{article}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs,array}
+\usepackage{microtype}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
+\hypersetup{
+  pdftitle={Strict Global PF4 for the Riemann Kernel and a Continuous Fourier Separator},
+  pdfauthor={Joshua Rainstar},
+  pdfsubject={Finite-order total positivity of the Riemann kernel},
+  pdfkeywords={Polya-frequency function, total positivity, Riemann kernel, entire function, characteristic function, Wronskian, Fourier transform}
+}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\T}{\mathcal{T}}
+\newcommand{\Cfour}{\mathcal{C}_4}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\dd}{\,\mathrm{d}}
+\newcommand{\PF}{\mathrm{PF}}
+\newcommand{\TP}{\mathrm{TP}}
+\newcommand{\TN}{\mathrm{TN}}
+\newcommand{\secref}[1]{Section~\ref{#1}}
+\newcommand{\appref}[1]{Appendix~\ref{#1}}
+
+\numberwithin{equation}{section}
+
+\title{Strict Global \texorpdfstring{$\PF_4$}{PF4} for the Riemann Kernel\\
+and a Continuous Fourier Separator}
+\author{Joshua Rainstar\\
+\small Airspy, Inc.\\
+\small\href{mailto:joshuah.rainstar@gmail.com}{\texttt{joshuah.rainstar@gmail.com}}}
+\date{16 July 2026}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+Let \(\Phi\) be the classical Riemann, or de Bruijn--Newman, kernel. We prove
+that every translation minor of \(\Phi\) of order at most four is strictly
+positive at strictly ordered nodes, and an exact origin-confluent calculation
+gives a negative order-five minor. Thus the exact global Polya-frequency order
+is four. For the Riemann-kernel positive theorem, a sweep-free two-mode
+argument proves global positivity of the log-curvature quantities \(q,F_2\)
+and of the fully confluent invariant \(\Cfour\). Its finite certificate uses
+only rational polynomial algebra, Taylor inequalities, and geometric tails.
+The order-five origin certificate likewise uses exact rational arithmetic.
+A
+quotient-Wronskian argument reduces arbitrary fourth-order minors to
+\(\partial_\xi\Psi<0\). In the increasing curvature coordinate, its numerator
+is
+\[
+ \delta\Lambda\int_p^w
+ W(t)\frac{\Cfour(t)}{Q(t)^6\kappa(t)^2}\dd t.
+\]
+Here \(W\) is the difference of two explicitly normalized triangular CDFs.
+Its strict positivity follows from a one-crossing density ratio. The structural
+transport reductions and analytic sign estimates are displayed in the text
+and appendices; exact coefficient reconstructions remain explicitly identified
+certificate boundaries.
+We then construct an explicit positive even Schwartz kernel which is itself
+strictly \(\PF_4\) but whose entire Fourier transform has nonreal zeros; the
+the latter sign follows from a short exact discriminant inequality. Thus
+continuous \(\PF_3\) and \(\PF_4\) membership alone do not force Fourier
+real-rootedness. The results are finite-order and have no implication for the
+Riemann Hypothesis.
+\end{abstract}
+\noindent\textbf{2020 Mathematics Subject Classification.}
+26D15 (primary); 30D15, 60E10, 11M26 (secondary).
+
+\noindent\textbf{Keywords.}
+Polya-frequency function, total positivity, Riemann kernel, entire function,
+characteristic function, Wronskian, Fourier transform, computer-assisted proof.
+\tableofcontents
+
+\section{Introduction}\label{sec:introduction}
+
+A function \(f:\R\to\R\) is \(\PF_r\) when every translation-kernel minor
+\[
+ \det[f(x_i-y_j)]_{i,j=1}^k
+\]
+is nonnegative for \(1\leq k\leq r\) and increasing node tuples. We call the
+property strict when the determinant is positive whenever both tuples are
+strictly increasing. This paper determines the exact finite Polya-frequency
+order of the Riemann kernel; see \cite{belton} for modern background and
+Schoenberg's characterization. Related finite-order and Riemann-kernel work is
+placed in \secref{sec:related-work}.
+
+\begin{theorem}[Strict global \(\PF_4\)]\label{thm:main}
+For every \(1\leq k\leq4\) and strictly increasing real tuples
+\(x_1<\cdots<x_k\) and \(y_1<\cdots<y_k\),
+\[
+ \det[\Phi(x_i-y_j)]_{i,j=1}^k>0.
+\]
+\end{theorem}
+
+A parity factorization of the fully confluent derivative matrix at the origin
+gives a negative order-five limit. Divided differences then transfer that sign
+to equally spaced translation minors at sufficiently small positive spacing;
+see Theorem~\ref{thm:not-pf5}. Hence Theorem~\ref{thm:main} has the following
+exact consequence.
+
+\begin{corollary}\label{cor:exact-order}
+The exact global Polya-frequency order of \(\Phi\) is four.
+\end{corollary}
+
+The exact-order classification and the Fourier question are distinct. At the
+proved order-four level, the following example shows that finite-order
+membership alone does not force Fourier real-rootedness, even within the
+positive even Schwartz class.
+
+\begin{theorem}[Continuous \(\PF_4\) Fourier separator]\label{thm:separator}
+There is an explicit positive even Schwartz function \(f_*\) which is strict
+\(\PF_4\), while its entire Fourier transform has nonreal zeros.
+Consequently continuous \(\PF_3\) and continuous \(\PF_4\) membership are
+each insufficient to force Fourier real-rootedness.
+\end{theorem}
+
+The proof has two certified one-variable inputs and one exact transport
+mechanism. First, global inequalities \(q>0\) and \(F_2>0\) imply strict
+\(\PF_3\) and positivity of a three-point functional \(\Lambda\). Second, the
+fully confluent order-four invariant \(\Cfour\) is globally positive. Exact
+quotient identities reduce strict \(\PF_4\) to the monotonicity of a scalar
+three-point function \(\Psi\). An increasing curvature coordinate then turns
+the derivative of \(\Psi\) into a positive crossing-kernel integral of
+\(\Cfour\).
+
+The distinction between a human derivation and a computer certificate is
+maintained throughout. Directed interval arithmetic proves the compact and
+tail inequalities stated in \secref{sec:inputs}; the structural transport
+algebra is written in the paper and independently replayed by repository
+verifiers. The exact separator coefficient list is printed in
+\appref{app:separator}. The short
+order-five certificate uses only exact rational arithmetic and elementary
+series bounds. The classification concerns finite-order total positivity
+only. It neither proves nor disproves the Riemann Hypothesis.
+Theorem~\ref{thm:separator}, proved in \secref{sec:separator}, supplies an
+explicit order-four counterexample rather than a finite-order sufficiency
+threshold.
+\section{Relation to earlier work}\label{sec:related-work}
+
+We use \emph{finite-order} Polya-frequency terminology in the sense reviewed
+by Belton, Guillot, Khare, and Putinar~\cite{belton}. Khare's characterization
+of measurable \(\TN_p\) functions for \(p\geq3\) gives a broader finite-order
+context for translation-kernel criteria~\cite{khare}; the present proof instead
+derives a kernel-specific strict order-four criterion through quotient
+Wronskians and a curvature transport identity.
+
+For the same normalization of the Riemann kernel, Dimitrov and Xu relate
+Wronskians of Fourier and Laplace transforms to correlation kernels and
+real-zero criteria~\cite{dimitrov-xu}. Csordas and Varga obtain strict
+concavity and moment inequalities for the Riemann kernel in connection with
+the Riemann Hypothesis~\cite{csordas-varga}. Those works concern adjacent
+Wronskian, moment, and Fourier questions. Our theorem here is the finite
+translation-minor statement in Theorem~\ref{thm:main}; no comprehensive
+priority claim beyond that precise proved statement is made.
+\section{The kernel and smooth even continuation}\label{sec:kernel}
+
+Put
+\[
+ \vartheta(x)=\sum_{n\in\mathbb Z}e^{-\pi n^2x},\qquad
+ \Theta(t)=\vartheta(e^{2t}),\qquad H(t)=e^{t/2}\Theta(t).
+\]
+The theta transformation \(\vartheta(x)=x^{-1/2}\vartheta(1/x)\) gives
+\[
+ \Theta(-t)=e^t\Theta(t),\qquad H(-t)=H(t).
+\]
+The series and all its derivatives converge locally uniformly, so \(H\) is
+real analytic and even. Define
+\[
+ \Phi(t)=\frac12\left(H''(t)-\frac14H(t)\right).
+\]
+Termwise differentiation gives, for every real \(t\),
+\begin{equation}\label{eq:kernel-series}
+ \Phi(t)=\sum_{n\geq1}
+ \left(4\pi^2n^4e^{9t/2}-6\pi n^2e^{5t/2}\right)
+ e^{-\pi n^2e^{2t}}.
+\end{equation}
+Thus the positive-side formula often written with \(|t|\) is the restriction
+of a real-analytic even function. In particular, smoothness at the origin is
+not inferred from numerical coverage.
+
+For \(t\geq0\), the coefficient of the \(n\)-th exponential can be factored as
+\[
+ 2\pi n^2e^{5t/2}\bigl(2\pi n^2e^{2t}-3\bigr)>0,
+\]
+because \(2\pi>3\). Hence every term in \eqref{eq:kernel-series} is positive
+and \(\Phi(t)>0\) on \([0,\infty)\). Evenness gives \(\Phi(t)>0\) on all of
+\(\R\), so the following logarithm is globally defined.
+
+Write
+\[
+ \ell=\log\Phi,\qquad s=\ell',\qquad q=-s'=-\ell''.
+\]
+For \(a<b\), define
+\begin{equation}\label{eq:AM}
+ A(a,b)=s(a)-s(b),\qquad
+ M(a,b)=\frac{q(b)-q(a)}{A(a,b)}.
+\end{equation}
+When \(q>0\), \(s\) is strictly decreasing and \(A(a,b)>0\).
+\section{Certified one-variable inputs}\label{sec:inputs}
+
+Define
+\[
+ F_1=qq''-(q')^2,\qquad F_2=q^3-F_1.
+\]
+For the logarithmic cumulants \(c_j=\ell^{(j)}\), set
+\[
+\begin{aligned}
+ &m_0=1,\quad m_1=0,\quad m_2=c_2,\quad m_3=c_3,\\
+ &m_4=c_4+3c_2^2,\quad m_5=c_5+10c_2c_3,\\
+ &m_6=c_6+15c_2c_4+10c_3^2+15c_2^3,
+\end{aligned}
+\]
+and
+\begin{equation}\label{eq:C4-def}
+ \Cfour(t)=\det[m_{i+j-2}(t)]_{i,j=1}^4.
+\end{equation}
+
+\begin{lemma}[Certified input]\label{lem:certified-input}
+For the kernel \(\Phi\),
+\[
+ q(t)>0,\qquad F_2(t)>0,\qquad \Cfour(t)>0
+ \quad(t\in\R).
+\]
+\end{lemma}
+
+The proof is analytic and sweep-free. For \(u\geq0\), put
+\[
+ x=\pi e^{2u},\qquad y=e^{-3x},\qquad P_0(z)=2z-3,
+\]
+and recursively
+\[
+ P_{j+1}(z)=\left(\frac52-2z\right)P_j(z)+2zP_j'(z).
+\]
+After division by the positive first theta mode, the first two normalized
+derivatives are
+\[
+ a_j(x,y)=\frac{P_j(x)+4yP_j(4x)}{P_0(x)}.
+\]
+Exact rational Bernstein coefficients on three fixed algebraic domains prove
+\[
+ q_{1,2}>10,\qquad (F_2)_{1,2}>1000,
+ \qquad (\Cfour)_{1,2}>50{,}000{,}000.
+\]
+The complete contribution of modes \(n\geq3\) is then bounded by one
+monotone polynomial-geometric estimate. Its changes in the cleared sign
+numerators are smaller than the three displayed margins, both on
+\(\pi\leq x\leq5\) and on \(x\geq5\). Evenness completes the real line.
+All inequalities, including the derivative paddings formerly used on the
+tail, are derived in \appref{app:tail}. The exact replay uses no floating
+point, no interval subdivision, and no FLINT or Arb arithmetic.
+\section{Order three and the positive slope functional}\label{sec:pf3}
+
+For \(\xi<m<r\), define
+\begin{equation}\label{eq:Lambda}
+ \Lambda(\xi;m,r)=A(\xi,r)+M(\xi,m)-M(m,r).
+\end{equation}
+We give the full estimate used to prove its positivity.
+
+Set \(f_0=q'/q\). Because \(s'=-q\),
+\[
+ M(a,b)=\frac{\int_a^bq'(t)\dd t}{\int_a^bq(t)\dd t}
+       =\frac{\int_a^b f_0(t)q(t)\dd t}{\int_a^bq(t)\dd t};
+\]
+thus \(M(a,b)\) is a \(q\)-weighted mean of \(f_0\). Choose a point
+\(u\in[\xi,m]\) where \(f_0\) is minimal on the left interval and a point
+\(v\in[m,r]\) where it is maximal on the right. Then
+\[
+ M(m,r)-M(\xi,m)\leq f_0(v)-f_0(u)
+ \leq\int_\xi^r\max(f_0'(t),0)\dd t.
+\]
+Since
+\[
+ f_0'=\frac{qq''-(q')^2}{q^2}=\frac{F_1}{q^2}
+\]
+and \(A(\xi,r)=\int_\xi^r q(t)\dd t\), equation
+\eqref{eq:Lambda} yields
+\begin{align}
+ \Lambda(\xi;m,r)
+ &\geq\int_\xi^r\left(q-\frac{\max(F_1,0)}{q^2}\right)\dd t\\
+ &=\int_\xi^r\frac{q^3-\max(F_1,0)}{q^2}\dd t
+ =\int_\xi^r\frac{\min(q^3,F_2)}{q^2}\dd t>0.
+ \label{eq:Lambda-lower}
+\end{align}
+The last inequality follows from Lemma~\ref{lem:certified-input} and
+\(q>0\).
+
+The same quantity is the logarithmic slope derivative in the normalized
+order-three determinant. Hence \eqref{eq:Lambda-lower}, together with strict
+log-concavity, proves strict global \(\PF_3\). We rederive the needed
+Wronskian form in the next section because its signs also control order four.
+\section{Quotient-Wronskian reduction}\label{sec:quotient}
+
+Fix \(y_1<y_2<y_3<y_4\), put \(u_j(t)=\Phi(t-y_j)\), and write
+\(p_j=t-y_j\), so \(p_4<p_3<p_2<p_1\). Define
+\[
+ v_j=(u_j/u_1)',\qquad w_j=(v_j/v_2)'.
+\]
+Successive column division and differentiation give
+\begin{align}
+ W(u_1,u_2,u_3)&=u_1^3W(v_2,v_3),\label{eq:W3-quotient}\\
+ W(u_1,u_2,u_3,u_4)&=u_1^4v_2^3w_3^2
+ \frac{\dd}{\dd t}\left(\frac{w_4}{w_3}\right).
+ \label{eq:W4-quotient}
+\end{align}
+
+Let \(\T\) denote simultaneous translation of all point arguments. From
+\eqref{eq:AM},
+\begin{equation}\label{eq:TlogA}
+ \T A(a,b)=q(b)-q(a),\qquad \T\log A(a,b)=M(a,b).
+\end{equation}
+This sign is load-bearing. Since
+\[
+ \frac{v_j}{v_2}=\frac{u_j}{u_2}
+ \frac{A(p_j,p_1)}{A(p_2,p_1)},
+\]
+direct differentiation gives
+\begin{equation}\label{eq:gj-expanded}
+ g_j:=\T\log(v_j/v_2)
+ =A(p_j,p_2)+M(p_j,p_1)-M(p_2,p_1).
+\end{equation}
+The exact weighted-mean split
+\[
+ A(p_j,p_1)M(p_j,p_1)
+ =A(p_j,p_2)M(p_j,p_2)+A(p_2,p_1)M(p_2,p_1)
+\]
+turns \eqref{eq:gj-expanded} into
+\begin{equation}\label{eq:gj-Lambda}
+ g_j=\frac{A(p_j,p_2)}{A(p_j,p_1)}
+ \Lambda(p_j;p_2,p_1)>0.
+\end{equation}
+Thus \(w_j=(v_j/v_2)g_j>0\), and
+\eqref{eq:W3-quotient} has the strict order-three sign.
+
+Define
+\[
+ \Psi(\xi;m,r)=\Lambda(\xi;m,r)+\T\log\Lambda(\xi;m,r).
+\]
+Because \(w_j=(v_j/v_2)g_j\),
+\begin{equation}\label{eq:L4-first}
+ \T\log(w_4/w_3)
+ =(g_4+\T\log g_4)-(g_3+\T\log g_3).
+\end{equation}
+Equation \eqref{eq:gj-Lambda} and \eqref{eq:TlogA} give
+\[
+ \T\log g_j=M(p_j,p_2)-M(p_j,p_1)+\T\log\Lambda_j,
+\]
+where \(\Lambda_j=\Lambda(p_j;p_2,p_1)\). A second use of the same mean split
+gives
+\[
+ g_j+M(p_j,p_2)-M(p_j,p_1)=\Lambda_j-A(p_2,p_1).
+\]
+The common last term cancels in \eqref{eq:L4-first}, yielding the exact
+identity
+\begin{equation}\label{eq:L4-Psi}
+ \T\log(w_4/w_3)
+ =\Psi(p_4;p_2,p_1)-\Psi(p_3;p_2,p_1).
+\end{equation}
+
+\begin{proposition}[Three-point equivalence]\label{prop:equivalence}
+Under the strict lower-order positivity already proved, global \(\PF_4\) is
+equivalent to
+\[
+ \partial_\xi\Psi(\xi;m,r)\leq0\qquad(\xi<m<r).
+\]
+Strict inequality implies strict global \(\PF_4\).
+\end{proposition}
+
+\begin{proof}
+If \(\partial_\xi\Psi\leq0\), then \(p_4<p_3\) makes the right side of
+\eqref{eq:L4-Psi} nonnegative. All prefactors in
+\eqref{eq:W4-quotient} are positive. The Wronskian is therefore
+nonnegative, and is positive in the strict case.
+
+For increasing row nodes \(t_1<\cdots<t_k\), divide columns by \(u_1(t_i)\)
+and take consecutive row differences from the bottom upward. The fundamental
+theorem of calculus and determinant multilinearity give
+\[
+ \det[U_j(t_i)]_{i,j=1}^k
+ =\int_{t_1}^{t_2}\!\cdots\!\int_{t_{k-1}}^{t_k}
+ \det[U'_{j+1}(\tau_i)]_{i,j=1}^{k-1}
+ \dd\tau_1\cdots\dd\tau_{k-1},
+\]
+where \(U_1=1\). Repeating the quotient reduction converts the Wronskian sign
+to every collocation minor; positivity of the integrand on a product of
+positive-length intervals gives the strict conclusion.
+
+Conversely, assume global \(\PF_4\). Let all four row nodes coalesce, divide
+by their positive Vandermonde, and pass to the limit. The resulting translate
+Wronskian is nonnegative. Equations \eqref{eq:W4-quotient} and
+\eqref{eq:L4-Psi} imply
+\(\Psi(p_4;p_2,p_1)\geq\Psi(p_3;p_2,p_1)\) whenever \(p_4<p_3\).
+Thus \(\Psi(\cdot;m,r)\) is nonincreasing, which is equivalent to the stated
+differential inequality because it is smooth.
+\end{proof}
+
+\section{Curvature coordinate and sign bridge}\label{sec:coordinate}
+
+Since \(q>0\),
+\[
+ y(t)=-s(t),\qquad Q(y(t))=q(t)
+\]
+defines a global strictly increasing coordinate on its image, with
+\(\dd y/\dd t=q(t)=Q(y)>0\). Primes in this and the next three sections mean
+\(y\)-derivatives. Put
+\[
+ \rho=1-Q''=\frac{F_2}{q^3}>0,
+ \qquad \kappa=2-Q''=1+\rho>1.
+\]
+
+For \(\xi<m<r\), write
+\[
+ p=y(\xi),\quad z=y(m),\quad w=y(r),\quad L=z-p,\quad R=w-z.
+\]
+Because \(A(a,b)=y(b)-y(a)\) and
+\(M(a,b)=Q[y(a),y(b)]\),
+\begin{equation}\label{eq:Lambda-coordinate}
+ \Lambda=(w-p)+Q[p,z]-Q[z,w].
+\end{equation}
+Two integrations of \(\kappa=2-Q''\) give
+\begin{align}
+ \Lambda&=\frac1L\int_p^z(y-p)\kappa(y)\dd y
+ +\frac1R\int_z^w(w-y)\kappa(y)\dd y,\label{eq:Lambda-triangular}\\
+ \delta:=-\partial_p\Lambda
+ &=\frac1{L^2}\int_p^z(z-y)\kappa(y)\dd y>0.
+ \label{eq:delta-triangular}
+\end{align}
+Simultaneous translation becomes
+\[
+ \T=Q(p)\partial_p+Q(z)\partial_z+Q(w)\partial_w,
+\]
+and \(\partial_\xi=Q(p)\partial_p\). Thus
+\(\Lambda_\xi=-Q(p)\delta\).
+
+Define
+\begin{equation}\label{eq:N-def}
+ \mathcal N=\delta\Lambda^2+Q'(p)\delta\Lambda+
+ \Lambda\T\delta-\delta\T\Lambda.
+\end{equation}
+Differentiating \(\Psi=\Lambda+\T\log\Lambda\), commuting simultaneous
+translation with \(\partial_\xi\), and collecting over \(\Lambda^2\) gives
+\begin{equation}\label{eq:sign-bridge}
+ \partial_\xi\Psi=-\frac{Q(p)}{\Lambda^2}\mathcal N.
+\end{equation}
+Equivalently,
+\begin{equation}\label{eq:K-def}
+ \frac{\mathcal N}{\delta\Lambda}
+ =K:=\Lambda+Q'(p)+\T\log\delta-\T\log\Lambda.
+\end{equation}
+It remains to prove \(K>0\).
+\section{The confluent invariant in curvature form}\label{sec:confluent}
+
+Define
+\begin{equation}\label{eq:D-def}
+ D=3(\kappa-1)-\{Q(\log\kappa)'\}'.
+\end{equation}
+
+\begin{lemma}[Confluent-to-curvature identity]\label{lem:C4-curvature}
+The determinant \eqref{eq:C4-def} satisfies
+\begin{equation}\label{eq:C4-curvature}
+ \Cfour=Q^6\kappa^2D.
+\end{equation}
+Consequently \(D>0\) on \(\R\).
+\end{lemma}
+
+\begin{proof}
+The change of variable gives \(\dd/\dd t=Q\dd/\dd y\) and \(c_2=-Q\).
+Recursively applying this operator produces the five cumulants listed in
+\appref{app:algebra}. Substitution into the Schur-complement form of
+\eqref{eq:C4-def} factors out \(Q^6\). The remaining factor is
+\[
+ \kappa^2\left(3(\kappa-1)-\{Q(\log\kappa)'\}'\right),
+\]
+as shown by the common expanded numerator in \appref{app:algebra}. This proves
+\eqref{eq:C4-curvature} without a numerical assumption. Lemma
+\ref{lem:certified-input}, \(Q>0\), and \(\kappa>0\) then imply \(D>0\).
+\end{proof}
+
+The determinant definition is primary: it is the doubly confluent
+fourth-order translation minor after division by the positive row and column
+Vandermonde factors and by \(\Phi^4\). The explicit thirteen-term expansion is
+included in \appref{app:algebra} for independent checking of the certificate
+input.
+
+\section{Exact transport identity}\label{sec:transport}
+
+Normalize the triangular weights in \eqref{eq:Lambda-triangular} and
+\eqref{eq:delta-triangular} as probability measures:
+\begin{align}
+ \dd\mu(y)&=\frac{(z-y)\kappa(y)}{L^2\delta}
+ \mathbf1_{[p,z]}(y)\dd y,\label{eq:mu}\\
+ \dd\nu(y)&=\frac{(y-p)\kappa(y)}{L\Lambda}
+ \mathbf1_{[p,z]}(y)\dd y
+ +\frac{(w-y)\kappa(y)}{R\Lambda}
+ \mathbf1_{[z,w]}(y)\dd y.
+ \label{eq:nu}
+\end{align}
+Set
+\[
+ A_0(y)=3(y-Q'(y))-Q(y)\frac{\kappa'(y)}{\kappa(y)}.
+\]
+Then \(A_0'=D\).
+
+\begin{lemma}[Transport cancellation]\label{lem:transport}
+With \(K\) as in \eqref{eq:K-def},
+\begin{equation}\label{eq:transport-expectation}
+ K=\E_\nu[A_0]-\E_\mu[A_0].
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Two elementary primitives carry the complete cancellation:
+\begin{align}
+ \kappa A_0&=H',& H&=3y^2-3Q-3yQ'+(Q')^2+QQ'',\label{eq:H}\\
+ H&=J',& J&=y^3-3yQ+QQ'.\label{eq:J}
+\end{align}
+Both identities follow by one differentiation.
+
+Let \(I_L=J(z)-J(p)\) and \(I_R=J(w)-J(z)\). Integrating the linear weights
+in \eqref{eq:mu}--\eqref{eq:nu} by parts once gives
+\begin{equation}\label{eq:expectation-endpoint}
+ \E_\nu[A_0]-\E_\mu[A_0]
+ =\frac{-I_L/L+I_R/R}{\Lambda}
+ +\frac{LH(p)-I_L}{L^2\delta}.
+\end{equation}
+On the other hand, differentiation of the triangular integrals along \(\T\)
+gives
+\[
+ \T\Lambda=U(z,w)-U(p,z),
+\quad
+ \T\delta=\frac{U(p,z)-(Q(z)-Q(p))\delta-Q(p)\kappa(p)}L,
+\]
+where
+\begin{equation}\label{eq:U-endpoint}
+ U(c,d)=Q(c)+Q(d)-\frac{Q(d)Q'(d)-Q(c)Q'(c)}{d-c}
+ +\frac{(Q(d)-Q(c))^2}{(d-c)^2}.
+\end{equation}
+Substitution in \eqref{eq:K-def} yields
+\begin{equation}\label{eq:K-endpoint}
+ K=\Lambda+Q'(p)-Q[p,z]
+ +\frac{U(p,z)-U(z,w)}{\Lambda}
+ +\frac{U(p,z)-Q(p)\kappa(p)}{L\delta}.
+\end{equation}
+The endpoint identity equating \eqref{eq:expectation-endpoint} and
+\eqref{eq:K-endpoint}, with every substitution exposed, is
+\appref{app:endpoints}. It is an identity in the endpoint positions and the
+values of \(Q,Q',Q''\); no bound or polynomial model is used. This proves
+\eqref{eq:transport-expectation}.
+\end{proof}
+
+\section{The positive crossing kernel}\label{sec:crossing}
+
+Let \(F_\mu,F_\nu\) be the CDFs of \eqref{eq:mu}--\eqref{eq:nu}, and put
+\[
+ W(y)=F_\mu(y)-F_\nu(y).
+\]
+
+\begin{lemma}[Strict stochastic ordering]\label{lem:crossing}
+One has \(W(y)>0\) for \(p<y<w\), while \(W(p)=W(w)=0\).
+\end{lemma}
+
+\begin{proof}
+On \([z,w]\), \(F_\mu=1\), so \(W=1-F_\nu>0\) before \(w\). On
+\((p,z)\), the ratio of the two positive densities is
+\begin{equation}\label{eq:density-ratio}
+ R_0(y)=\frac{\dd\mu/\dd y}{\dd\nu/\dd y}
+ =\frac{\Lambda(z-y)}{L\delta(y-p)}.
+\end{equation}
+Writing \(C=\Lambda/(L\delta)>0\), direct differentiation gives
+\begin{equation}\label{eq:density-ratio-derivative}
+ R_0'(y)=-\frac{C(z-p)}{(y-p)^2}<0.
+\end{equation}
+Thus \(R_0\) decreases strictly from \(+\infty\) to \(0\). Hence
+\(W'=\mu'-\nu'\) changes sign exactly once, from positive to negative. Since
+\(W(p)=0\) and
+\[
+ W(z)=1-F_\nu(z)=\nu((z,w])>0,
+\]
+the function cannot return to zero on \((p,z]\). The right interval was
+already handled.
+\end{proof}
+
+Integration by parts for CDFs, using \(A_0'=D\) and the common total mass,
+turns Lemma~\ref{lem:transport} into
+\begin{equation}\label{eq:crossing-integral}
+ K=\int_p^w W(y)D(y)\dd y.
+\end{equation}
+Combining \eqref{eq:K-def}, \eqref{eq:C4-curvature}, and
+\eqref{eq:crossing-integral} gives the central identity
+\begin{equation}\label{eq:central-identity}
+ \mathcal N=\delta\Lambda\int_p^w
+ W(y)\frac{\Cfour(y)}{Q(y)^6\kappa(y)^2}\dd y>0.
+\end{equation}
+Every factor in the interior is strictly positive.
+
+\section{Completion and exact order}\label{sec:completion}
+
+Equation \eqref{eq:sign-bridge} and \eqref{eq:central-identity} imply
+\[
+ \partial_\xi\Psi(\xi;m,r)<0\qquad(\xi<m<r).
+\]
+Proposition~\ref{prop:equivalence} therefore proves
+Theorem~\ref{thm:main}.
+
+We now prove directly that the classification stops at order four. Put
+\[
+ H_k=\det[\Phi^{(i+j)}(0)]_{i,j=0}^{k-1},\qquad
+ s_j=\Phi^{(j)}(0).
+\]
+Since \(\Phi\) is even, simultaneous parity permutations of the rows and
+columns give
+\[
+ H_4=AB,\qquad H_5=CB,
+\]
+where
+\[
+ A=s_0s_4-s_2^2,\qquad B=s_2s_6-s_4^2,
+\]
+and
+\[
+ C=\det\begin{pmatrix}
+ s_0&s_2&s_4\\
+ s_2&s_4&s_6\\
+ s_4&s_6&s_8
+ \end{pmatrix}.
+\]
+
+\begin{lemma}\label{lem:origin-pf5-sign}
+For the Riemann kernel,
+\[
+ 445<A<446,\qquad 189223<B<189228,
+ \qquad -674000000<C<-614000000.
+\]
+In particular, \(H_4>0\) and \(H_5<0\).
+\end{lemma}
+
+\begin{proof}
+For \(x=\pi n^2e^{2u}\), the \(n\)-th summand of \(\Phi(u)\) is
+\(e^{u/2-x}P_0(x)\), where \(P_0(x)=2x(2x-3)\). If its \(j\)-th derivative
+is \(e^{u/2-x}P_j(x)\), then
+\[
+ P_{j+1}=2xP_j'+(1/2-2x)P_j.
+\]
+Thus
+\[
+ s_j=\sum_{n\ge1}e^{-\pi n^2}P_j(\pi n^2).
+\]
+The first three modes are enclosed by rational alternating-series bounds.
+Machin's identity
+\(\pi=16\arctan(1/5)-4\arctan(1/239)\) supplies rational bounds for \(\pi\),
+and argument division followed by the degree-29 and degree-30 alternating
+Taylor sums supplies rational bounds for each exponential.
+
+For the omitted modes, let \(S_j\) be the sum of the absolute coefficients of
+\(P_j\). Since \(\deg P_j=j+2\), \(3<\pi<22/7\), and
+\(e^3>\sum_{r=0}^8 3^r/r!>20\),
+\[
+ \sum_{n\ge4}|P_j(\pi n^2)|e^{-\pi n^2}
+ \leq
+ \frac{S_j(22/7)^{j+2}4^{2j+4}20^{-16}}
+ {1-(5/4)^{20}20^{-9}}
+ \qquad(j=0,2,4,6,8).
+\]
+All endpoints lie on \(10^{-36}\mathbb Z\), and every arithmetic operation is
+rounded outward. Substitution into the displayed formulas gives the entirely
+rational sign chain
+\[
+ 0<445<A<446,\qquad 0<189223<B<189228,
+\]
+\[
+ -674000000<C<-614000000<0.
+\]
+Thus \(AB>0\) and \(CB<0\) without a floating-point determinant. The full
+grid endpoints and the standard-library verifier are included in the
+reproducibility archive.
+\end{proof}
+
+\begin{theorem}\label{thm:not-pf5}
+The Riemann kernel is not \(\PF_5\).
+\end{theorem}
+
+\begin{proof}
+For a \(C^{2k-2}\) function \(f\), repeated row and column divided differences
+give, for increasing fixed tuples \(a,b\),
+\[
+ \lim_{h\downarrow0}
+ \frac{\det[f(z+h(a_i-b_j))]_{i,j=0}^{k-1}}
+ {h^{k(k-1)}V(a)V(b)}
+ =\frac{(-1)^{k(k-1)/2}}
+ {\prod_{r=0}^{k-1}(r!)^2}
+ \det[f^{(i+j)}(z)]_{i,j=0}^{k-1}.
+\]
+Take \(k=5\), \(z=0\), and \(a_i=b_i=i\). The sign factor is one, both
+Vandermonde factors are positive, and Lemma~\ref{lem:origin-pf5-sign} makes
+the limit strictly negative. Hence
+\(\det[\Phi((i-j)h)]_{i,j=0}^4<0\) for every sufficiently small positive
+\(h\). These are translation minors at strictly increasing nodes.
+\end{proof}
+
+Theorem~\ref{thm:main} and Theorem~\ref{thm:not-pf5} prove
+Corollary~\ref{cor:exact-order}.
+
+The proof uses no multidimensional interval cover of the nonconfluent
+configuration space. Earlier positive-tail Peano densities, collision cones,
+Hermite boxes, and escape charts remain independent certified results, but
+they are not premises here. Their role was superseded when the transport
+numerator was recognized as the difference of expectations in
+\eqref{eq:transport-expectation}.
+
+\begin{remark}[Riemann Hypothesis boundary]
+The theorem determines the kernel's exact finite Polya-frequency order and
+makes no claim about the zeros of the Riemann \(\Xi\)-function. In particular,
+the failure of \(\PF_5\) neither proves nor disproves the Riemann Hypothesis.
+The next section proves, by an explicit strict-\(\PF_4\) separator, that no
+Fourier real-rootedness conclusion follows from membership through order four
+alone.
+\end{remark}
+\section{An explicit continuous \texorpdfstring{$\PF_4$}{PF4} separator}
+\label{sec:separator}
+
+We now prove Theorem~\ref{thm:separator}.  Put
+\[
+ c=\frac1{64},\qquad
+ B(w)=\sum_{k=-3}^{3}b_kw^k,\qquad
+ (b_{-3},\ldots,b_3)=(2,10,23,30,23,10,2),
+\]
+and define
+\begin{equation}\label{eq:separator-kernel}
+ f_*(x)=e^{-cx^2}B(e^{2cx})
+ =\sum_{k=-3}^{3}b_ke^{ck^2}e^{-c(x-k)^2}.
+\end{equation}
+The Gaussian-mixture expression proves positivity and Schwartz decay;
+palindromy of \((b_k)\) proves evenness.
+
+\subsection{Strict \texorpdfstring{$\PF_3$}{PF3}}
+
+For fixed \(x\), give \(K\in\{-3,\ldots,3\}\) probability proportional to
+\(b_ke^{2ckx}\), and write \(\kappa_j\) for its cumulants. Differentiation of
+the finite log-partition function gives
+\begin{equation}\label{eq:separator-cumulants}
+ q=2c-(2c)^2\kappa_2,\qquad
+ q'=-(2c)^3\kappa_3,\qquad
+ q''=-(2c)^4\kappa_4.
+\end{equation}
+If \(\mu=\mathbb EK\), then
+\(0\leq\mathbb E[(K+3)(3-K)]=9-\kappa_2-\mu^2\).
+Thus \(0\leq\kappa_2\leq9\), and hence
+\begin{equation}\label{eq:separator-q}
+ q\geq2c(1-18c)=2c\frac{23}{32}>0.
+\end{equation}
+Moreover,
+\begin{align}
+ F_2
+ &=q^3-\{qq''-(q')^2\}\notag\\
+ &=q^3+q(2c)^4\kappa_4+(2c)^6\kappa_3^2.       \label{eq:separator-f2}
+\end{align}
+The identity \(\kappa_4=\mathbb E(K-\mathbb EK)^4-3\kappa_2^2\) gives
+\(\kappa_4\geq-243\).  Dropping the final nonnegative term in
+\eqref{eq:separator-f2} gives
+\[
+ F_2\geq q\{q^2-3888c^4\}.
+\]
+At \(c=1/64\), the two coefficients after division by \(c^2\) are
+\[
+ q^2/c^2\geq\frac{529}{256},\qquad
+ 3888c^2=\frac{243}{256}.
+\]
+Thus \(F_2\geq q c^2(143/128)>0\) globally.  The weighted-mean criterion of
+\secref{sec:pf3} proves strict \(\PF_3\).
+
+\subsection{Exact order-four density}
+
+Let \(\epsilon=2c=1/32\), \(t=e^{\epsilon x}\), and
+\[
+ P(t)=t^3B(t)=2+10t+23t^2+30t^3+23t^4+10t^5+2t^6.
+\]
+For \(E=t\frac{\dd}{\dd t}\), define
+\begin{equation}\label{eq:separator-N-recurrence}
+ N_1=tP',\qquad N_{j+1}=t(N_j'P-jN_jP').
+\end{equation}
+The quotient rule gives \(E^j\log P=N_j/P^j\). Therefore, for
+\(\ell_j=(\log f_*)^{(j)}\),
+\begin{equation}\label{eq:separator-logjets}
+ \ell_2=\frac{-\epsilon P^2+\epsilon^2N_2}{P^2},
+ \qquad
+ \ell_j=\frac{\epsilon^jN_j}{P^j}\quad(3\leq j\leq6).
+\end{equation}
+Insert these jets into the central-moment determinant
+\eqref{eq:C4-def}. Every monomial has derivative weight twelve,
+so the common denominator is \(P^{12}\):
+\begin{equation}\label{eq:separator-c4}
+ \Cfour[f_*](x)=\frac{H(t)}{P(t)^{12}}.
+\end{equation}
+The exact expansion printed in \appref{app:separator} proves that \(H\) is
+palindromic of degree 72 and that all 73 coefficients are strictly positive.
+Hence \(\Cfour[f_*]>0\) on \(\R\).
+
+The established inequalities \(q>0\) and \(F_2>0\) also give
+\[
+ \kappa=2-Q''=\frac{q^3+F_2}{q^3}>0.
+\]
+The generic transport identity \eqref{eq:central-identity} now has strictly
+positive density and crossing weight for \(f_*\).  Thus
+\(\partial_\xi\Psi<0\), and Proposition~\ref{prop:equivalence} proves that
+\(f_*\) is strict \(\PF_4\).
+
+\subsection{Nonreal Fourier zeros}
+
+With \(\widehat f(z)=\int_\R f(x)e^{-izx}\dd x\), Gaussian translation gives
+\begin{equation}\label{eq:separator-fourier}
+ \widehat f_*(z)=\sqrt{\frac{\pi}{c}}e^{-z^2/(4c)}
+ \sum_{k=-3}^{3}b_ke^{ck^2}e^{-ikz}.
+\end{equation}
+Put \(w=e^{-iz}\) and \(u=w+w^{-1}\).  The Laurent factor in
+\eqref{eq:separator-fourier} vanishes exactly when
+\begin{equation}\label{eq:separator-cubic}
+ R_c(u)=2e^{9c}u^3+10e^{4c}u^2
+ +(23e^c-6e^{9c})u+30-20e^{4c}
+\end{equation}
+vanishes. At \(c=1/64\), the exact calculation in
+\appref{app:separator} gives \(\operatorname{disc}(R_c)<0\). Thus the real
+cubic has a nonreal conjugate pair.
+For \(|w|=1\), however, \(w+w^{-1}\) is real. The corresponding \(w\)-roots
+therefore lie off the unit circle and lift through \(w=e^{-iz}\) to zeros
+with \(\operatorname{Im}z\neq0\). The Gaussian factor is zero-free. This
+completes the proof of Theorem~\ref{thm:separator}.
+\section{Reproducibility and evidence boundary}\label{sec:reproducibility}
+
+The maintained paper has five active replay boundaries.
+\begin{center}
+\small
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.25\textwidth}
+>{\raggedright\arraybackslash}p{0.46\textwidth}
+>{\raggedright\arraybackslash}p{0.20\textwidth}@{}}
+\toprule
+Object & Repository verifier & Role \\
+\midrule
+Global \(q,F_2,\Cfour\) &
+\path{scripts/verify_riemann_signs_exact.py} & exact analytic inequalities \\
+Quotient reduction &
+\path{scripts/verify_pf4_wronskian_reduction.py} & exact generic algebra \\
+Transport completion &
+\path{scripts/verify_pf4_transport_kernel.py} & exact algebra and checks \\
+Origin order-five obstruction &
+\path{scripts/verify_pf5_origin.py} & exact rational enclosures \\
+Continuous strict-\(\PF_4\) separator &
+\texttt{scripts/verify\_continuous\_}\newline
+\texttt{pf4\_separator.py} & exact polynomial algebra \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The global-sign verifier retains two theta modes exactly, checks 361 rational
+Bernstein or decay coefficients and 140 derivative-envelope coefficients,
+and bounds all modes \(n\geq3\) by the analytic estimates in
+\appref{app:tail}. Its launcher forces SymPy's pure-Python rational domain and
+rejects every attempted FLINT import. There is no interval subdivision and no
+floating-point sign decision.
+
+The origin order-five certificate is independent. It uses only
+standard-library integer arithmetic with outward rounding on a
+\(10^{-36}\)-rational grid, Machin's formula, alternating Taylor sums, three
+retained theta modes, and one geometric tail bound. The separator certificate
+reconstructs all 73 positive coefficients of its order-four numerator and
+checks the discriminant inequality in \appref{app:separator} over the exact
+rationals.
+
+The quotient, curvature, primitive, endpoint, density-ratio, and
+confluent-limit statements are mathematical identities for generic smooth
+functions. The paper displays their derivations; the symbolic scripts replay
+the algebra. High-precision values at \(t=1/3,1,4\) and several Riemann-kernel
+points are regression checks only and are not premises of a sign conclusion.
+
+The former 192-bit Arb covers of 7731 and 8050 cells are retained in the
+repository as historical certificates, but they are archived and are not
+dependencies of this paper or of routine replay. The collision, Hermite,
+escape, and spatial-atlas computations are likewise outside the proof graph.
+
+A focused independent audit should proceed in this order:
+\begin{enumerate}
+ \item verify the analytic theta normalization in \eqref{eq:kernel-series};
+ \item check \eqref{eq:raw-signs}, the two-mode Bernstein domains, and the
+       later-mode estimates in \appref{app:tail};
+ \item check the two weighted-mean splits in \secref{sec:pf3};
+ \item expand the determinant and curvature identity in
+       \appref{app:algebra};
+ \item check the endpoint identity in \appref{app:endpoints};
+ \item differentiate the density ratio in
+       \eqref{eq:density-ratio-derivative};
+ \item derive the parity factorization and divided-difference limit in
+       \secref{sec:completion}, then replay the rational origin certificate;
+ \item reconstruct the separator determinant and exact discriminant proof in
+       \appref{app:separator}.
+\end{enumerate}
+No numerical scan is used as evidence for global nonconfluent positivity of
+either kernel.
+
+The non-mutating entry point \path{scripts/replay_paper.py} checks all five
+registered verifier outputs. Exact package versions are in
+\path{requirements-paper.txt}; python-flint is not a paper dependency.
+\section{Declarations, availability, and computational provenance}
+
+\paragraph{Author contribution.}
+Joshua Rainstar conceived and directed the project, developed the proof
+architecture, assembled and audited the computational evidence, and prepared
+the manuscript.
+
+\paragraph{Acknowledgments and computational assistance.}
+The author acknowledges the use of OpenAI Codex and other disclosed AI systems
+for symbolic derivation, implementation, drafting, and adversarial audit. The
+proof records preserve the resulting calculations and their replay boundaries;
+the author takes responsibility for the mathematical claims.
+
+\paragraph{Conflict of interest.}
+The author declares no competing interests.
+
+\paragraph{Code and data availability.}
+
+The public repository is
+\url{https://github.com/falseywinchnet/zeta}. The sweep-free analytic advance
+audited in this revision is frozen at MIND epoch \texttt{P000072}, Git commit
+\href{https://github.com/falseywinchnet/zeta/commit/66ba7f983a21972d0af6c6041fcee3bda7727945}{\texttt{66ba7f983a21}}.
+Its audited paper integration is MIND epoch \texttt{P000073}.
+A submission release must
+freeze this revised source, its generated coefficient table, replay tool,
+environment lock, and built PDF under one versioned archive record; the PDF
+hash belongs in that release manifest rather than recursively inside the PDF.
+
+All theorem-bearing sign decisions are exact. Numerical values produced by
+the repository scripts are diagnostic only; there is no separate experimental
+dataset.
+\clearpage
+\begin{thebibliography}{9}
+\bibitem{belton}
+A. Belton, D. Guillot, A. Khare, and M. Putinar,
+\emph{Preservers of totally positive kernels and Polya frequency functions},
+arXiv:2110.08206.
+
+\bibitem{khare}
+A. Khare,
+\emph{Multiply positive functions, critical exponent phenomena, and the
+Jain--Karlin--Schoenberg kernel},
+arXiv:2008.05121v2.
+
+\bibitem{dimitrov-xu}
+D. K. Dimitrov and Y. Xu,
+\emph{Wronskians of Fourier and Laplace transforms},
+arXiv:1606.05011.
+
+\bibitem{csordas-varga}
+G. Csordas and R. S. Varga,
+\emph{Moment inequalities and the Riemann Hypothesis},
+Constructive Approximation \textbf{4} (1988), 175--198,
+doi:10.1007/BF02075457.
+\end{thebibliography}
+
+\appendix
+\section{Confluent and curvature algebra}\label{app:algebra}
+
+The central-moment Hankel matrix is
+\[
+ \begin{pmatrix}
+ 1&0&m_2&m_3\\
+ 0&m_2&m_3&m_4\\
+ m_2&m_3&m_4&m_5\\
+ m_3&m_4&m_5&m_6
+ \end{pmatrix}.
+\]
+Taking the Schur complement of the upper-left entry reduces its determinant to
+\[
+ \det\begin{pmatrix}
+ m_2&m_3&m_4\\
+ m_3&m_4-m_2^2&m_5-m_2m_3\\
+ m_4&m_5-m_2m_3&m_6-m_3^2
+ \end{pmatrix}.
+\]
+Substitution of the moments from \secref{sec:inputs} and ordinary
+three-by-three expansion gives
+\begin{align}\label{eq:C4-expanded}
+\Cfour={}&12c_2^6+24c_2^4c_4-24c_2^3c_3^2+2c_2^3c_6
+-12c_2^2c_3c_5+7c_2^2c_4^2\\
+&+12c_2c_3^2c_4+c_2c_4c_6-c_2c_5^2-9c_3^4-c_3^2c_6
++2c_3c_4c_5-c_4^3.
+\end{align}
+
+In the curvature coordinate, repeated application of
+\(Q\dd/\dd y\) to \(c_2=-Q\) gives
+\begin{align*}
+c_2={}&-Q,\\
+c_3={}&-QQ',\\
+c_4={}&-Q\{(Q')^2+QQ''\},\\
+c_5={}&-Q\{(Q')^3+4QQ'Q''+Q^2Q'''\},\\
+c_6={}&-Q\{(Q')^4+11Q(Q')^2Q''+4Q^2(Q'')^2
+ +7Q^2Q'Q'''+Q^3Q''''\}.
+\end{align*}
+Substitution in the preceding polynomial gives
+\[
+ \Cfour=-Q^6\mathcal P,
+\]
+where
+\begin{align*}
+\mathcal P={}&QQ''Q''''-Q(Q''')^2-2QQ''''+Q'Q''Q'''-2Q'Q'''\\
+&+3(Q'')^3-15(Q'')^2+24Q''-12.
+\end{align*}
+Now \(\kappa=2-Q''\), and direct differentiation gives
+\[
+ 3(\kappa-1)-\{Q(\log\kappa)'\}'
+ =-\frac{\mathcal P}{(Q''-2)^2}
+ =-\frac{\mathcal P}{\kappa^2}.
+\]
+Therefore \(\Cfour=Q^6\kappa^2D\), proving
+\eqref{eq:C4-curvature} by an exposed common numerator.
+\section{Sweep-free proof of the certified input}\label{app:tail}
+
+This appendix proves Lemma~\ref{lem:certified-input}. The positive-side
+theta series has \(j\)-th derivative
+\[
+ 2\pi n^2e^{5u/2-n^2x}P_j(n^2x),\qquad x=\pi e^{2u},
+\]
+where the polynomials \(P_j\) satisfy the recurrence in
+\secref{sec:inputs}. Machin's identity and alternating series give
+\(\pi>157/50\); hence \(P_0(x)=2x-3>0\).
+
+\subsection{Cleared sign polynomials}
+
+In addition to \(a_j\), define the normalized remaining modes
+\[
+ e_j(x)=\sum_{n\geq3}
+ \frac{n^2e^{-(n^2-1)x}P_j(n^2x)}{P_0(x)},
+ \qquad b_j=a_j+e_j.
+\]
+For an indeterminate raw jet \((b_0,\ldots,b_6)\), put
+\[
+ N_q=b_1^2-b_0b_2,
+\]
+\begin{align*}
+N_{F_2}={}&-b_0^4b_2b_4+b_0^4b_3^2+b_0^3b_1^2b_4
+-2b_0^3b_1b_2b_3+2b_0^3b_2^3\\
+&-3b_0^2b_1^2b_2^2+3b_0b_1^4b_2-b_1^6,
+\end{align*}
+and
+\[
+ N_{\Cfour}=\det[b_{i+j}]_{i,j=0}^3.
+\]
+Direct logarithmic differentiation and the central-moment determinant give
+\begin{equation}\label{eq:raw-signs}
+ q=\frac{N_q}{b_0^2},\qquad
+ F_2=\frac{N_{F_2}}{b_0^6},\qquad
+ \Cfour=\frac{N_{\Cfour}}{b_0^4}.
+\end{equation}
+The thirteen-term cumulant expansion obtained from the last identity agrees
+with \eqref{eq:C4-expanded}; this is an exact polynomial identity.
+
+For orientation, retaining only the first mode gives
+\[
+q_1=\frac{4x(4x^2-12x+15)}{(2x-3)^2},
+\]
+\[
+(F_2)_1=\frac{64x^3(64x^6-576x^5+2448x^4-6432x^3
++10044x^2-8100x+2295)}{(2x-3)^6},
+\]
+\[
+(\Cfour)_1=\frac{49152x^6(16x^4-96x^3+360x^2-840x+945)}{(2x-3)^4}.
+\]
+After \(x=5+z\), every numerator has positive coefficients. The second
+mode is retained exactly because it supplies the larger margin near the
+origin.
+
+\subsection{Exact two-mode margin}
+
+Alternating Taylor bounds for the exponential imply
+\[
+ 0<y<\frac1{12000}\quad(x\geq\pi),
+\]
+and
+\[
+ \frac1{23000}<y<\frac1{12000}
+ \quad\left(\frac{157}{50}\leq x\leq\frac{10}{3}\right).
+\]
+We use the following elementary certificate lemma. If
+\(p(s,t)=\sum p_{ij}s^it^j\) has bidegree \((d,e)\), its Bernstein
+coefficients on the unit square are
+\[
+ \beta_{k\ell}=\sum_{i\leq k,\,j\leq\ell}
+ p_{ij}\frac{\binom{k}{i}}{\binom{d}{i}}
+       \frac{\binom{\ell}{j}}{\binom{e}{j}}.
+\]
+The power-to-Bernstein identity proves that \(\beta_{k\ell}>0\) for every
+\(k,\ell\) implies \(p>0\) on the square.
+
+Apply this lemma after affine rational changes of variables. For \(q\), one
+rectangle ends at \(x=10/3\), followed by a positive base polynomial minus
+exponentially decreasing corrections. For \(F_2\), dependent bounds on the
+first rectangle are followed by a rectangle through \(x=5\) and a positive
+half-strip expansion. For \(\Cfour\), the first rectangle is followed by two
+negative odd-power corrections whose ratios to the positive base decrease.
+The derivative of each ratio has a numerator with positive coefficients after
+the indicated shift. The 361 resulting rational coefficient inequalities give
+\begin{equation}\label{eq:two-mode-margin}
+ q_{1,2}>10,\qquad (F_2)_{1,2}>1000,\qquad
+ (\Cfour)_{1,2}>50{,}000{,}000.
+\end{equation}
+This is a finite algebraic proof on fixed domains, not an interval sweep.
+
+\subsection{All later modes}
+
+For \(t\geq27\), shifting \(t=27+z\) gives positive coefficients in
+\((-1)^jP_j(t)\) and in
+\(2^{j+1}t^{j+1}-(-1)^jP_j(t)\). Therefore
+\begin{equation}\label{eq:P-envelope}
+ 0<(-1)^jP_j(t)\leq2^{j+1}t^{j+1},
+ \qquad 0\leq j\leq6.
+\end{equation}
+The derivative numerator of the normalized \(n=3\) term is another positive
+shifted polynomial, so its absolute value decreases for \(x\geq3\). For
+\(n\geq4\), successive majorants have ratio at most
+\[
+ \left(\frac54\right)^{16}e^{-27}<10^{-9}.
+\]
+Rational Taylor lower bounds for \(e^{24},e^{27},e^{45}\) then yield, on
+\(\pi\leq x\leq5\),
+\begin{equation}\label{eq:core-tail}
+(|e_0|,\ldots,|e_6|)<
+(7\!\cdot\!10^{-9},4\!\cdot\!10^{-7},2\!\cdot\!10^{-4},
+7\!\cdot\!10^{-4},3\!\cdot\!10^{-2},1.1,41).
+\end{equation}
+The same Bernstein lemma gives
+\[
+(|a_0|,\ldots,|a_6|)<(2,5,20,200,2000,60000,1000000).
+\]
+Expanding the three polynomials in \eqref{eq:raw-signs} and using absolute
+coefficients gives
+\begin{equation}\label{eq:core-perturbation}
+ |\Delta N_q|<0.000405,\quad
+ |\Delta N_{F_2}|<37.959,\quad
+ |\Delta N_{\Cfour}|<31{,}549{,}532.
+\end{equation}
+
+For \(x\geq5\), \eqref{eq:P-envelope} gives
+\[
+ |a_j|\leq2^{j+2}x^j,\qquad
+ |e_j|\leq2^{j+2}3^{2j+4}x^je^{-8x}.
+\]
+The raw weights of \(N_q,N_{F_2},N_{\Cfour}\) are respectively \(2,6,12\).
+Thus every perturbation majorant is a positive multiple of
+\(x^we^{-8x}\), or a faster-decaying term, with \(w\leq12\); it decreases
+for \(x\geq5\). A single rational Taylor bound at \(x=5\) gives
+\begin{equation}\label{eq:outer-perturbation}
+ |\Delta N_q|<6.49\cdot10^{-11},\quad
+ |\Delta N_{F_2}|<0.03,\quad
+ |\Delta N_{\Cfour}|<418{,}287.
+\end{equation}
+The bounds \eqref{eq:core-perturbation} and
+\eqref{eq:outer-perturbation} are strictly smaller than
+\eqref{eq:two-mode-margin}. Since \(b_0>0\), \eqref{eq:raw-signs} proves all
+three signs for \(u\geq0\). Evenness proves Lemma~\ref{lem:certified-input}.
+\section{Endpoint audit of the transport cancellation}\label{app:endpoints}
+
+This appendix records the algebra suppressed by the phrase ``simplifying the
+endpoint expression.'' Put
+\[
+ z=p+L,\qquad w=z+R,\qquad
+ a=\frac{Q(z)-Q(p)}L,\qquad b=\frac{Q(w)-Q(z)}R.
+\]
+Direct integration of \(2-Q''\) gives
+\begin{equation}\label{eq:endpoint-delta-Lambda}
+ \delta=\frac{L+Q'(p)-a}{L},\qquad
+ \Lambda=L+R+a-b.
+\end{equation}
+Define
+\[
+ J_y=y^3-3yQ(y)+Q(y)Q'(y),
+\]
+\[
+ H_p=3p^2-3Q(p)-3pQ'(p)+Q'(p)^2+Q(p)Q''(p),
+\]
+and, for endpoint data,
+\[
+ U(c,d)=Q(c)+Q(d)-\frac{Q(d)Q'(d)-Q(c)Q'(c)}{d-c}
+ +\frac{(Q(d)-Q(c))^2}{(d-c)^2}.
+\]
+With \(I_L=J_z-J_p\) and \(I_R=J_w-J_z\), the identity needed in
+Lemma~\ref{lem:transport} is exactly
+\begin{align*}
+&\frac{-(J_z-J_p)/L+(J_w-J_z)/R}{\Lambda}
+ +\frac{LH_p-(J_z-J_p)}{L^2\delta}\\
+&\quad=\Lambda+Q'(p)-a
+ +\frac{U(p,z)-U(z,w)}{\Lambda}
+ +\frac{U(p,z)-Q(p)(2-Q''(p))}{L\delta}.
+\end{align*}
+To check it, substitute \eqref{eq:endpoint-delta-Lambda}, replace
+\(z\) by \(p+L\) and \(w\) by \(p+L+R\), and multiply by the common
+denominator \(L^2R\delta\Lambda\). The terms containing \(Q'(w)\), then
+\(Q'(z)\), then \(Q''(p)\) cancel pairwise; the remaining endpoint values and
+position terms cancel after inserting \(a=(Q(z)-Q(p))/L\) and
+\(b=(Q(w)-Q(z))/R\). No differential equation for \(Q\) is used, so the
+identity holds for arbitrary smooth \(Q\).
+\section{Proof provenance}\label{app:provenance}
+
+The maintained source map is \texttt{paper/PAPER\_MAP.md}. The principal
+repository proof records are:
+\begin{center}
+\begin{tabular}{@{}ll@{}}
+\toprule
+Claim & Proof record \\
+\midrule
+Global \(q,F_2,\Cfour\), order three &
+\texttt{sources/riemann-signs-analytic-certificate.md} \\
+Quotient and three-point equivalence &
+\texttt{sources/pf4-wronskian-reduction-certificate.md} \\
+Transport identity and completion &
+\texttt{sources/pf4-transport-kernel-certificate.md} \\
+Origin order-five obstruction &
+\texttt{sources/pf5-origin-certificate.md} \\
+Continuous strict-\(\PF_4\) Fourier separator &
+\begin{tabular}[t]{@{}l@{}}
+\texttt{sources/continuous-pf4-separator-}\\
+\texttt{certificate.md}
+\end{tabular} \\
+\bottomrule
+\end{tabular}
+\end{center}
+The corresponding MIND identities are
+\[
+\begin{gathered}
+ R140,R141,R147,R149,\quad R154\text{--}R156,\quad
+ R153,R164,R171\text{--}R173,\\
+ R14,R37,R50,R72,\quad R165\text{--}R170.
+\end{gathered}
+\]
+The active replay boundaries are
+\[
+ CERT12,\ CERT5,\ CERT9,\ CERT11,\ CERT10.
+\]
+The former CERT2 and CERT3 Arb boundaries remain archived historical evidence.
+These identifiers are evidence anchors, not bibliographic citations.
+\section{Exact separator audit}
+\label{app:separator}
+
+This appendix records the algebraic boundary behind
+\eqref{eq:separator-c4}.  Starting from the cumulants
+\(\ell_2,\ldots,\ell_6\), the verifier reconstructs the central moments
+\[
+ m_0=1,\quad m_1=0,\quad m_2=\ell_2,\quad m_3=\ell_3,
+\]
+\[
+ m_4=\ell_4+3\ell_2^2,\qquad
+ m_5=\ell_5+10\ell_3\ell_2,
+\]
+\[
+ m_6=\ell_6+15\ell_4\ell_2+10\ell_3^2+15\ell_2^3,
+\]
+and then forms \(\det[m_{i+j}]_{i,j=0}^3\) directly.  This independently
+regenerates the thirteen-term \(\Cfour\) polynomial; it does not import the
+expansion used for the Riemann kernel.
+
+The recurrence \eqref{eq:separator-N-recurrence} is then applied over
+\(\mathbb Q[t]\).  Substitution of \eqref{eq:separator-logjets} shows that
+each of the thirteen determinant monomials has common denominator \(P^{12}\).
+After collecting the numerator \(H\), exact rational arithmetic verifies
+\[
+ \deg H=72,\qquad [t^j]H=[t^{72-j}]H>0\quad(0\leq j\leq72),
+\]
+with
+\[
+ \min_{0\leq j\leq72}[t^j]H=\frac3{65536}.
+\]
+For a printable certificate, write
+\[
+ 2^{54}H(t)=\sum_{j=0}^{72}a_jt^j,
+ \qquad a_j=a_{72-j}.
+\]
+The 37 independent integer coefficients are:
+\begin{center}
+\tiny
+\begin{tabular}{@{}r r@{\qquad}r r@{}}
+\toprule
+$j$ & $a_j$ & $j$ & $a_j$ \\
+\midrule
+0 & $824633720832$ & 19 & $6987741510406573876435979520$ \\
+1 & $48712961228800$ & 20 & $17092065810580803244866465328$ \\
+2 & $1429432562155520$ & 21 & $39268975295924090460974938880$ \\
+3 & $27770895893217280$ & 22 & $84898287500864044148851126266$ \\
+4 & $401708065273655296$ & 23 & $173000552553192254015824625680$ \\
+5 & $4613079582269972480$ & 24 & $332750476261206454685845998080$ \\
+6 & $43792294989734840832$ & 25 & $604872001890033837007447191280$ \\
+7 & $353349130016052428800$ & 26 & $1040322081625845770286033564593$ \\
+8 & $2472885380960577236992$ & 27 & $1694567248719256234936725175440$ \\
+9 & $15243207814279730964480$ & 28 & $2616435044092694236816009466532$ \\
+10 & $83763600430517403650816$ & 29 & $3832176384214979954574258944560$ \\
+11 & $414327966630038761815040$ & 30 & $5327751824843881176247055457873$ \\
+12 & $1859451652398640291313152$ & 31 & $7034632066783174173709968967280$ \\
+13 & $7621494792057501544629760$ & 32 & $8825381090424751586774701723088$ \\
+14 & $28689460125397617502291392$ & 33 & $10523927205327676216804189288720$ \\
+15 & $99652010444258917615558400$ & 34 & $11931512643001413047042570621636$ \\
+16 & $320698275507551388688130816$ & 35 & $12863883307375841645695614141760$ \\
+17 & $959582391519228973730931840$ & 36 & $13190420295966739733605724579768$ \\
+18 & $2677774483831421514536291072$ & & \\
+\bottomrule
+\end{tabular}
+\end{center}
+This table is generated by
+\path{scripts/generate_separator_coefficients.py}. Its machine-readable
+companion \path{generated/separator-coefficients.json} has SHA-256 prefix
+\texttt{87af00802c0929ca}; the complete hash is recorded in the release
+manifest.
+Coefficient positivity is a proof on the full domain \(t>0\), not a sampled
+test. Exact spot reconstructions at \(t=1/3,1,4\) independently compare the
+central determinant with \(H/P^{12}\).
+
+For the Fourier step, the identities
+\[
+ w+w^{-1}=u,\quad w^2+w^{-2}=u^2-2,\quad
+ w^3+w^{-3}=u^3-3u
+\]
+give \eqref{eq:separator-cubic} directly. Put
+\[
+ r=e^{1/64},\qquad x=r^2=e^{1/32}.
+\]
+Exact expansion gives
+\[
+ \operatorname{disc}(R_c)=4r^{10}G(x),
+\]
+where
+\begin{align*}
+G(x)={}&432x^{13}-4968x^9+900x^8+16200x^6+19044x^5\\
+&-72600x^4+20000x^3+62100x^2-54334x+13225.
+\end{align*}
+Writing \(y=x-1\) gives
+\begin{align*}
+G(1+y)={}&-1-10y-12y^2+680y^3+11532y^4+96660y^5\\
+&+365400y^6+569664y^7+512172y^8+303912y^9\\
+&+123552y^{10}+33696y^{11}+5616y^{12}+432y^{13}.
+\end{align*}
+Moreover \(0<y<1/30\). Indeed,
+\[
+ e<1+1+\frac12+\frac16+\frac1{18}
+ =\frac{49}{18}<\frac{11}{4},
+\]
+where \(1/18=(1/24)\sum_{j\geq0}4^{-j}\) bounds the tail beginning with
+\(1/4!\). The binomial theorem gives
+\[
+ \frac{11}{4}<1+\frac{32}{30}
+ +\frac{\binom{32}{2}}{30^2}+\frac{\binom{32}{3}}{30^3}
+ =\frac{1891}{675}<\left(\frac{31}{30}\right)^{32}.
+\]
+The sum of the positive terms at \(y=1/30\) is exactly
+\[
+ \sum_{j=3}^{13}\frac{[y^j]G(1+y)}{30^j}
+ =\frac{1621193195302591}{36905625000000000}<1.
+\]
+The two omitted terms \(-10y-12y^2\) are negative. Consequently
+\[
+ G(1+y)<-1+
+ \sum_{j=3}^{13}\frac{[y^j]G(1+y)}{30^j}<0,
+\]
+and hence \(\operatorname{disc}(R_c)<0\) without numerical evaluation.
+\end{document}
+\typeout{get arXiv to do 4 passes: Label(s) may have changed. Rerun}

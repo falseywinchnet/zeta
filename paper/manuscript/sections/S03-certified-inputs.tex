@@ -25,29 +25,28 @@ For the kernel \(\Phi\),
 \]
 \end{lemma}
 
-The compact interval \([0,1]\) is covered with directed Arb balls at 192-bit
-precision. The retained lower bounds are
+The proof is analytic and sweep-free. For \(u\geq0\), put
 \[
- q\geq18.7268,\qquad F_2\geq3889.2,
- \qquad \Cfour\geq2.817\times10^7.
+ x=\pi e^{2u},\qquad y=e^{-3x},\qquad P_0(z)=2z-3,
 \]
-The first certificate uses 7731 adaptive second-order Taylor cells and the
-second 8050. Evenness covers \([-1,1]\).
-
-For \(t\geq1\), put \(x=\pi e^{2t}\). The cumulants have directed enclosures
+and recursively
 \[
- c_j=-2^jx+\varepsilon_j,\qquad
- |\varepsilon_j|\leq\frac{E_j}{x},\qquad 2\leq j\leq6,
+ P_{j+1}(z)=\left(\frac52-2z\right)P_j(z)+2zP_j'(z).
 \]
-where
+After division by the positive first theta mode, the first two normalized
+derivatives are
 \[
- (E_2,E_3,E_4,E_5,E_6)=(19.8,176,2082,30770,545900).
+ a_j(x,y)=\frac{P_j(x)+4yP_j(4x)}{P_0(x)}.
 \]
-They imply \(q,F_2>0\) on the tail. Substitution in the determinant
-\eqref{eq:C4-def} gives
+Exact rational Bernstein coefficients on three fixed algebraic domains prove
 \[
- \frac{\Cfour(t)}{x^6}>44392\qquad(x\geq\pi e^2).
+ q_{1,2}>10,\qquad (F_2)_{1,2}>1000,
+ \qquad (\Cfour)_{1,2}>50{,}000{,}000.
 \]
-The derivation of the \(E_j\), the exact lower polynomial, and its monotonic
-normalized margin are recorded in \appref{app:tail}. These are the only
-directed numerical inputs to the main positive proof.
+The complete contribution of modes \(n\geq3\) is then bounded by one
+monotone polynomial-geometric estimate. Its changes in the cleared sign
+numerators are smaller than the three displayed margins, both on
+\(\pi\leq x\leq5\) and on \(x\geq5\). Evenness completes the real line.
+All inequalities, including the derivative paddings formerly used on the
+tail, are derived in \appref{app:tail}. The exact replay uses no floating
+point, no interval subdivision, and no FLINT or Arb arithmetic.

@@ -50,6 +50,45 @@ For the Fourier step, the identities
  w+w^{-1}=u,\quad w^2+w^{-2}=u^2-2,\quad
  w^3+w^{-3}=u^3-3u
 \]
-give \eqref{eq:separator-cubic} directly.  The only directed numerical step is
-the 192-bit Arb enclosure of its discriminant.  All remaining checks are
-symbolic or exact rational arithmetic.
+give \eqref{eq:separator-cubic} directly. Put
+\[
+ r=e^{1/64},\qquad x=r^2=e^{1/32}.
+\]
+Exact expansion gives
+\[
+ \operatorname{disc}(R_c)=4r^{10}G(x),
+\]
+where
+\begin{align*}
+G(x)={}&432x^{13}-4968x^9+900x^8+16200x^6+19044x^5\\
+&-72600x^4+20000x^3+62100x^2-54334x+13225.
+\end{align*}
+Writing \(y=x-1\) gives
+\begin{align*}
+G(1+y)={}&-1-10y-12y^2+680y^3+11532y^4+96660y^5\\
+&+365400y^6+569664y^7+512172y^8+303912y^9\\
+&+123552y^{10}+33696y^{11}+5616y^{12}+432y^{13}.
+\end{align*}
+Moreover \(0<y<1/30\). Indeed,
+\[
+ e<1+1+\frac12+\frac16+\frac1{18}
+ =\frac{49}{18}<\frac{11}{4},
+\]
+where \(1/18=(1/24)\sum_{j\geq0}4^{-j}\) bounds the tail beginning with
+\(1/4!\). The binomial theorem gives
+\[
+ \frac{11}{4}<1+\frac{32}{30}
+ +\frac{\binom{32}{2}}{30^2}+\frac{\binom{32}{3}}{30^3}
+ =\frac{1891}{675}<\left(\frac{31}{30}\right)^{32}.
+\]
+The sum of the positive terms at \(y=1/30\) is exactly
+\[
+ \sum_{j=3}^{13}\frac{[y^j]G(1+y)}{30^j}
+ =\frac{1621193195302591}{36905625000000000}<1.
+\]
+The two omitted terms \(-10y-12y^2\) are negative. Consequently
+\[
+ G(1+y)<-1+
+ \sum_{j=3}^{13}\frac{[y^j]G(1+y)}{30^j}<0,
+\]
+and hence \(\operatorname{disc}(R_c)<0\) without numerical evaluation.
