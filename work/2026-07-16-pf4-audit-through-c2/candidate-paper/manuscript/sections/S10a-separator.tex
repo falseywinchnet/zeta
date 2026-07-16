@@ -1,0 +1,113 @@
+\section{An explicit continuous \texorpdfstring{$\PF_4$}{PF4} separator}
+\label{sec:separator}
+
+We now prove Theorem~\ref{thm:separator}.  Put
+\[
+ c=\frac1{64},\qquad
+ B(w)=\sum_{k=-3}^{3}b_kw^k,\qquad
+ (b_{-3},\ldots,b_3)=(2,10,23,30,23,10,2),
+\]
+and define
+\begin{equation}\label{eq:separator-kernel}
+ f_*(x)=e^{-cx^2}B(e^{2cx})
+ =\sum_{k=-3}^{3}b_ke^{ck^2}e^{-c(x-k)^2}.
+\end{equation}
+The Gaussian-mixture expression proves positivity and Schwartz decay;
+palindromy of \((b_k)\) proves evenness.
+
+\subsection{Strict \texorpdfstring{$\PF_3$}{PF3}}
+
+For fixed \(x\), give \(K\in\{-3,\ldots,3\}\) probability proportional to
+\(b_ke^{2ckx}\), and write \(\kappa_j\) for its cumulants. Differentiation of
+the finite log-partition function gives
+\begin{equation}\label{eq:separator-cumulants}
+ q=2c-(2c)^2\kappa_2,\qquad
+ q'=-(2c)^3\kappa_3,\qquad
+ q''=-(2c)^4\kappa_4.
+\end{equation}
+If \(\mu=\mathbb EK\), then
+\(0\leq\mathbb E[(K+3)(3-K)]=9-\kappa_2-\mu^2\).
+Thus \(0\leq\kappa_2\leq9\), and hence
+\begin{equation}\label{eq:separator-q}
+ q\geq2c(1-18c)=2c\frac{23}{32}>0.
+\end{equation}
+Moreover,
+\begin{align}
+ F_2
+ &=q^3-\{qq''-(q')^2\}\notag\\
+ &=q^3+q(2c)^4\kappa_4+(2c)^6\kappa_3^2.       \label{eq:separator-f2}
+\end{align}
+The identity \(\kappa_4=\mathbb E(K-\mathbb EK)^4-3\kappa_2^2\) gives
+\(\kappa_4\geq-243\).  Dropping the final nonnegative term in
+\eqref{eq:separator-f2} gives
+\[
+ F_2\geq q\{q^2-3888c^4\}.
+\]
+At \(c=1/64\), the two coefficients after division by \(c^2\) are
+\[
+ q^2/c^2\geq\frac{529}{256},\qquad
+ 3888c^2=\frac{243}{256}.
+\]
+Thus \(F_2\geq q c^2(143/128)>0\) globally.  The weighted-mean criterion of
+\secref{sec:pf3} proves strict \(\PF_3\).
+
+\subsection{Exact order-four density}
+
+Let \(\epsilon=2c=1/32\), \(t=e^{\epsilon x}\), and
+\[
+ P(t)=t^3B(t)=2+10t+23t^2+30t^3+23t^4+10t^5+2t^6.
+\]
+For \(E=t\frac{\dd}{\dd t}\), define
+\begin{equation}\label{eq:separator-N-recurrence}
+ N_1=tP',\qquad N_{j+1}=t(N_j'P-jN_jP').
+\end{equation}
+The quotient rule gives \(E^j\log P=N_j/P^j\). Therefore, for
+\(\ell_j=(\log f_*)^{(j)}\),
+\begin{equation}\label{eq:separator-logjets}
+ \ell_2=\frac{-\epsilon P^2+\epsilon^2N_2}{P^2},
+ \qquad
+ \ell_j=\frac{\epsilon^jN_j}{P^j}\quad(3\leq j\leq6).
+\end{equation}
+Insert these jets into the central-moment determinant
+\eqref{eq:C4-def}. Every monomial has derivative weight twelve,
+so the common denominator is \(P^{12}\):
+\begin{equation}\label{eq:separator-c4}
+ \Cfour[f_*](x)=\frac{H(t)}{P(t)^{12}}.
+\end{equation}
+The exact expansion printed in \appref{app:separator} proves that \(H\) is
+palindromic of degree 72 and that all 73 coefficients are strictly positive.
+Hence \(\Cfour[f_*]>0\) on \(\R\).
+
+The established inequalities \(q>0\) and \(F_2>0\) also give
+\[
+ \kappa=2-Q''=\frac{q^3+F_2}{q^3}>0.
+\]
+The generic transport identity \eqref{eq:central-identity} now has strictly
+positive density and crossing weight for \(f_*\).  Thus
+\(\partial_\xi\Psi<0\), and Proposition~\ref{prop:equivalence} proves that
+\(f_*\) is strict \(\PF_4\).
+
+\subsection{Nonreal Fourier zeros}
+
+With \(\widehat f(z)=\int_\R f(x)e^{-izx}\dd x\), Gaussian translation gives
+\begin{equation}\label{eq:separator-fourier}
+ \widehat f_*(z)=\sqrt{\frac{\pi}{c}}e^{-z^2/(4c)}
+ \sum_{k=-3}^{3}b_ke^{ck^2}e^{-ikz}.
+\end{equation}
+Put \(w=e^{-iz}\) and \(u=w+w^{-1}\).  The Laurent factor in
+\eqref{eq:separator-fourier} vanishes exactly when
+\begin{equation}\label{eq:separator-cubic}
+ R_c(u)=2e^{9c}u^3+10e^{4c}u^2
+ +(23e^c-6e^{9c})u+30-20e^{4c}
+\end{equation}
+vanishes. At \(c=1/64\), directed 192-bit arithmetic gives
+\[
+ \operatorname{disc}(R_c)
+ \in -6.0446137251764984704554480068690598
+       +[-3.14,3.14]10^{-34},
+\]
+which is strictly negative. Thus the real cubic has a nonreal conjugate pair.
+For \(|w|=1\), however, \(w+w^{-1}\) is real. The corresponding \(w\)-roots
+therefore lie off the unit circle and lift through \(w=e^{-iz}\) to zeros
+with \(\operatorname{Im}z\neq0\). The Gaussian factor is zero-free. This
+completes the proof of Theorem~\ref{thm:separator}.

@@ -1,0 +1,41 @@
+\section{Endpoint audit of the transport cancellation}\label{app:endpoints}
+
+This appendix records the algebra suppressed by the phrase ``simplifying the
+endpoint expression.'' Put
+\[
+ z=p+L,\qquad w=z+R,\qquad
+ a=\frac{Q(z)-Q(p)}L,\qquad b=\frac{Q(w)-Q(z)}R.
+\]
+Direct integration of \(2-Q''\) gives
+\begin{equation}\label{eq:endpoint-delta-Lambda}
+ \delta=\frac{L+Q'(p)-a}{L},\qquad
+ \Lambda=L+R+a-b.
+\end{equation}
+Define
+\[
+ J_y=y^3-3yQ(y)+Q(y)Q'(y),
+\]
+\[
+ H_p=3p^2-3Q(p)-3pQ'(p)+Q'(p)^2+Q(p)Q''(p),
+\]
+and, for endpoint data,
+\[
+ U(c,d)=Q(c)+Q(d)-\frac{Q(d)Q'(d)-Q(c)Q'(c)}{d-c}
+ +\frac{(Q(d)-Q(c))^2}{(d-c)^2}.
+\]
+With \(I_L=J_z-J_p\) and \(I_R=J_w-J_z\), the identity needed in
+Lemma~\ref{lem:transport} is exactly
+\begin{align*}
+&\frac{-(J_z-J_p)/L+(J_w-J_z)/R}{\Lambda}
+ +\frac{LH_p-(J_z-J_p)}{L^2\delta}\\
+&\quad=\Lambda+Q'(p)-a
+ +\frac{U(p,z)-U(z,w)}{\Lambda}
+ +\frac{U(p,z)-Q(p)(2-Q''(p))}{L\delta}.
+\end{align*}
+To check it, substitute \eqref{eq:endpoint-delta-Lambda}, replace
+\(z\) by \(p+L\) and \(w\) by \(p+L+R\), and multiply by the common
+denominator \(L^2R\delta\Lambda\). The terms containing \(Q'(w)\), then
+\(Q'(z)\), then \(Q''(p)\) cancel pairwise; the remaining endpoint values and
+position terms cancel after inserting \(a=(Q(z)-Q(p))/L\) and
+\(b=(Q(w)-Q(z))/R\). No differential equation for \(Q\) is used, so the
+identity holds for arbitrary smooth \(Q\).

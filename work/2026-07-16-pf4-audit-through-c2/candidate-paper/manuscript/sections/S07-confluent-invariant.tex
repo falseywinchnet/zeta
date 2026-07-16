@@ -1,0 +1,34 @@
+\section{The confluent invariant in curvature form}\label{sec:confluent}
+
+Define
+\begin{equation}\label{eq:D-def}
+ D=3(\kappa-1)-\{Q(\log\kappa)'\}'.
+\end{equation}
+
+\begin{lemma}[Confluent-to-curvature identity]\label{lem:C4-curvature}
+The determinant \eqref{eq:C4-def} satisfies
+\begin{equation}\label{eq:C4-curvature}
+ \Cfour=Q^6\kappa^2D.
+\end{equation}
+Consequently \(D>0\) on \(\R\).
+\end{lemma}
+
+\begin{proof}
+The change of variable gives \(\dd/\dd t=Q\dd/\dd y\) and \(c_2=-Q\).
+Recursively applying this operator produces the five cumulants listed in
+\appref{app:algebra}. Substitution into the Schur-complement form of
+\eqref{eq:C4-def} factors out \(Q^6\). The remaining factor is
+\[
+ \kappa^2\left(3(\kappa-1)-\{Q(\log\kappa)'\}'\right),
+\]
+as shown by the common expanded numerator in \appref{app:algebra}. This proves
+\eqref{eq:C4-curvature} without a numerical assumption. Lemma
+\ref{lem:certified-input}, \(Q>0\), and \(\kappa>0\) then imply \(D>0\).
+\end{proof}
+
+The determinant definition is primary: it is the doubly confluent
+fourth-order translation minor after division by the positive row and column
+Vandermonde factors and by \(\Phi^4\). The explicit thirteen-term expansion is
+included in \appref{app:algebra} for independent checking of the certificate
+input.
+

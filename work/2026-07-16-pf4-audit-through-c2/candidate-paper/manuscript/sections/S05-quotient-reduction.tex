@@ -1,0 +1,105 @@
+\section{Quotient-Wronskian reduction}\label{sec:quotient}
+
+Fix \(y_1<y_2<y_3<y_4\), put \(u_j(t)=\Phi(t-y_j)\), and write
+\(p_j=t-y_j\), so \(p_4<p_3<p_2<p_1\). Define
+\[
+ v_j=(u_j/u_1)',\qquad w_j=(v_j/v_2)'.
+\]
+Successive column division and differentiation give
+\begin{align}
+ W(u_1,u_2,u_3)&=u_1^3W(v_2,v_3),\label{eq:W3-quotient}\\
+ W(u_1,u_2,u_3,u_4)&=u_1^4v_2^3w_3^2
+ \frac{\dd}{\dd t}\left(\frac{w_4}{w_3}\right).
+ \label{eq:W4-quotient}
+\end{align}
+
+Let \(\T\) denote simultaneous translation of all point arguments. From
+\eqref{eq:AM},
+\begin{equation}\label{eq:TlogA}
+ \T A(a,b)=q(b)-q(a),\qquad \T\log A(a,b)=M(a,b).
+\end{equation}
+This sign is load-bearing. Since
+\[
+ \frac{v_j}{v_2}=\frac{u_j}{u_2}
+ \frac{A(p_j,p_1)}{A(p_2,p_1)},
+\]
+direct differentiation gives
+\begin{equation}\label{eq:gj-expanded}
+ g_j:=\T\log(v_j/v_2)
+ =A(p_j,p_2)+M(p_j,p_1)-M(p_2,p_1).
+\end{equation}
+The exact weighted-mean split
+\[
+ A(p_j,p_1)M(p_j,p_1)
+ =A(p_j,p_2)M(p_j,p_2)+A(p_2,p_1)M(p_2,p_1)
+\]
+turns \eqref{eq:gj-expanded} into
+\begin{equation}\label{eq:gj-Lambda}
+ g_j=\frac{A(p_j,p_2)}{A(p_j,p_1)}
+ \Lambda(p_j;p_2,p_1)>0.
+\end{equation}
+Thus \(w_j=(v_j/v_2)g_j>0\), and
+\eqref{eq:W3-quotient} has the strict order-three sign.
+
+Define
+\[
+ \Psi(\xi;m,r)=\Lambda(\xi;m,r)+\T\log\Lambda(\xi;m,r).
+\]
+Because \(w_j=(v_j/v_2)g_j\),
+\begin{equation}\label{eq:L4-first}
+ \T\log(w_4/w_3)
+ =(g_4+\T\log g_4)-(g_3+\T\log g_3).
+\end{equation}
+Equation \eqref{eq:gj-Lambda} and \eqref{eq:TlogA} give
+\[
+ \T\log g_j=M(p_j,p_2)-M(p_j,p_1)+\T\log\Lambda_j,
+\]
+where \(\Lambda_j=\Lambda(p_j;p_2,p_1)\). A second use of the same mean split
+gives
+\[
+ g_j+M(p_j,p_2)-M(p_j,p_1)=\Lambda_j-A(p_2,p_1).
+\]
+The common last term cancels in \eqref{eq:L4-first}, yielding the exact
+identity
+\begin{equation}\label{eq:L4-Psi}
+ \T\log(w_4/w_3)
+ =\Psi(p_4;p_2,p_1)-\Psi(p_3;p_2,p_1).
+\end{equation}
+
+\begin{proposition}[Three-point equivalence]\label{prop:equivalence}
+Under the strict lower-order positivity already proved, global \(\PF_4\) is
+equivalent to
+\[
+ \partial_\xi\Psi(\xi;m,r)\leq0\qquad(\xi<m<r).
+\]
+Strict inequality implies strict global \(\PF_4\).
+\end{proposition}
+
+\begin{proof}
+If \(\partial_\xi\Psi\leq0\), then \(p_4<p_3\) makes the right side of
+\eqref{eq:L4-Psi} nonnegative. All prefactors in
+\eqref{eq:W4-quotient} are positive. The Wronskian is therefore
+nonnegative, and is positive in the strict case.
+
+For increasing row nodes \(t_1<\cdots<t_k\), divide columns by \(u_1(t_i)\)
+and take consecutive row differences from the bottom upward. The fundamental
+theorem of calculus and determinant multilinearity give
+\[
+ \det[U_j(t_i)]_{i,j=1}^k
+ =\int_{t_1}^{t_2}\!\cdots\!\int_{t_{k-1}}^{t_k}
+ \det[U'_{j+1}(\tau_i)]_{i,j=1}^{k-1}
+ \dd\tau_1\cdots\dd\tau_{k-1},
+\]
+where \(U_1=1\). Repeating the quotient reduction converts the Wronskian sign
+to every collocation minor; positivity of the integrand on a product of
+positive-length intervals gives the strict conclusion.
+
+Conversely, assume global \(\PF_4\). Let all four row nodes coalesce, divide
+by their positive Vandermonde, and pass to the limit. The resulting translate
+Wronskian is nonnegative. Equations \eqref{eq:W4-quotient} and
+\eqref{eq:L4-Psi} imply
+\(\Psi(p_4;p_2,p_1)\geq\Psi(p_3;p_2,p_1)\) whenever \(p_4<p_3\).
+Thus \(\Psi(\cdot;m,r)\) is nonincreasing, which is equivalent to the stated
+differential inequality because it is smooth.
+\end{proof}
+

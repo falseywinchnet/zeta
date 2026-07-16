@@ -1,0 +1,40 @@
+\section{Order three and the positive slope functional}\label{sec:pf3}
+
+For \(\xi<m<r\), define
+\begin{equation}\label{eq:Lambda}
+ \Lambda(\xi;m,r)=A(\xi,r)+M(\xi,m)-M(m,r).
+\end{equation}
+We give the full estimate used to prove its positivity.
+
+Set \(f_0=q'/q\). Because \(s'=-q\),
+\[
+ M(a,b)=\frac{\int_a^bq'(t)\dd t}{\int_a^bq(t)\dd t}
+       =\frac{\int_a^b f_0(t)q(t)\dd t}{\int_a^bq(t)\dd t};
+\]
+thus \(M(a,b)\) is a \(q\)-weighted mean of \(f_0\). Choose a point
+\(u\in[\xi,m]\) where \(f_0\) is minimal on the left interval and a point
+\(v\in[m,r]\) where it is maximal on the right. Then
+\[
+ M(m,r)-M(\xi,m)\leq f_0(v)-f_0(u)
+ \leq\int_\xi^r\max(f_0'(t),0)\dd t.
+\]
+Since
+\[
+ f_0'=\frac{qq''-(q')^2}{q^2}=\frac{F_1}{q^2}
+\]
+and \(A(\xi,r)=\int_\xi^r q(t)\dd t\), equation
+\eqref{eq:Lambda} yields
+\begin{align}
+ \Lambda(\xi;m,r)
+ &\geq\int_\xi^r\left(q-\frac{\max(F_1,0)}{q^2}\right)\dd t\\
+ &=\int_\xi^r\frac{q^3-\max(F_1,0)}{q^2}\dd t
+ =\int_\xi^r\frac{\min(q^3,F_2)}{q^2}\dd t>0.
+ \label{eq:Lambda-lower}
+\end{align}
+The last inequality follows from Lemma~\ref{lem:certified-input} and
+\(q>0\).
+
+The same quantity is the logarithmic slope derivative in the normalized
+order-three determinant. Hence \eqref{eq:Lambda-lower}, together with strict
+log-concavity, proves strict global \(\PF_3\). We rederive the needed
+Wronskian form in the next section because its signs also control order four.

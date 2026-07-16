@@ -1,0 +1,53 @@
+\section{Certified one-variable inputs}\label{sec:inputs}
+
+Define
+\[
+ F_1=qq''-(q')^2,\qquad F_2=q^3-F_1.
+\]
+For the logarithmic cumulants \(c_j=\ell^{(j)}\), set
+\[
+\begin{aligned}
+ &m_0=1,\quad m_1=0,\quad m_2=c_2,\quad m_3=c_3,\\
+ &m_4=c_4+3c_2^2,\quad m_5=c_5+10c_2c_3,\\
+ &m_6=c_6+15c_2c_4+10c_3^2+15c_2^3,
+\end{aligned}
+\]
+and
+\begin{equation}\label{eq:C4-def}
+ \Cfour(t)=\det[m_{i+j-2}(t)]_{i,j=1}^4.
+\end{equation}
+
+\begin{lemma}[Certified input]\label{lem:certified-input}
+For the kernel \(\Phi\),
+\[
+ q(t)>0,\qquad F_2(t)>0,\qquad \Cfour(t)>0
+ \quad(t\in\R).
+\]
+\end{lemma}
+
+The compact interval \([0,1]\) is covered with directed Arb balls at 192-bit
+precision. The retained lower bounds are
+\[
+ q\geq18.7268,\qquad F_2\geq3889.2,
+ \qquad \Cfour\geq2.817\times10^7.
+\]
+The first certificate uses 7731 adaptive second-order Taylor cells and the
+second 8050. Evenness covers \([-1,1]\).
+
+For \(t\geq1\), put \(x=\pi e^{2t}\). The cumulants have directed enclosures
+\[
+ c_j=-2^jx+\varepsilon_j,\qquad
+ |\varepsilon_j|\leq\frac{E_j}{x},\qquad 2\leq j\leq6,
+\]
+where
+\[
+ (E_2,E_3,E_4,E_5,E_6)=(19.8,176,2082,30770,545900).
+\]
+They imply \(q,F_2>0\) on the tail. Substitution in the determinant
+\eqref{eq:C4-def} gives
+\[
+ \frac{\Cfour(t)}{x^6}>44392\qquad(x\geq\pi e^2).
+\]
+The derivation of the \(E_j\), the exact lower polynomial, and its monotonic
+normalized margin are recorded in \appref{app:tail}. These are the only
+directed numerical inputs to the main positive proof.

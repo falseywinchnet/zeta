@@ -1,0 +1,72 @@
+\section{Tail envelopes and normalized margin}\label{app:tail}
+
+For \(x=\pi e^{2t}\), write
+\[
+ \Phi(t)=4\pi x e^{5t/2-x}(1+\rho(x)),\qquad
+ \rho(x)=-\frac{3}{2x}+\sigma(x),\qquad w=\log(1+\rho).
+\]
+The \(n\geq2\) theta terms satisfy, with their first six derivatives,
+an exponentially small bound absorbed into the following rational paddings
+for \(x\geq\pi e^2\):
+\[
+ |w^{(k)}(x)|\leq\frac{C_k}{x^{k+1}},
+\]
+\[
+\begin{array}{c|rrrrrr}
+k&1&2&3&4&5&6\\ \hline
+C_k&1.61&3.33&10.4&42.8&222&1376
+\end{array}
+\]
+For \(D_x=2x\dd/\dd x\), induction gives the Stirling identity
+\[
+ D_x^j\psi=2^j\sum_{k=1}^j S(j,k)x^k\psi^{(k)},
+\]
+where \(S(j,k)\) are Stirling numbers of the second kind. Since only \(w\)
+contributes to the error in derivatives of order at least two,
+\[
+ |\varepsilon_j|\leq\frac{E_j}{x},\qquad
+ E_j=2^j\sum_{k=1}^jS(j,k)C_k.
+\]
+Rounding each sum upward gives
+\[
+\begin{array}{c|rrrrr}
+j&2&3&4&5&6\\ \hline
+E_j&19.8&176&2082&30770&545900.
+\end{array}
+\]
+For example,
+\[
+ E_4\leq16(C_1+7C_2+6C_3+C_4)=2081.92<2082.
+\]
+The logarithmic derivative formulas for \(w\) are finite Faa di Bruno sums;
+the \(n=1\) contribution uses
+\(\rho'\sim3/(2x^2),\rho''\sim-3/x^3,\ldots\), while the common theta-tail
+padding controls \(\sigma\) and all its derivatives. These finite derivative
+paddings are a directed certificate boundary: the verifier evaluates their
+Faa di Bruno inequalities with outward-rounded balls. The article records the
+resulting constants and the analytic monotonicity argument below, but does not
+claim to print every interval operation.
+
+Substituting \(c_j=-2^jx+\delta_jE_j/x\), \(|\delta_j|\leq1\), into the
+thirteen-term polynomial and collecting absolute coefficients gives
+\begin{align*}
+P(x)={}&49152x^6-\frac{7299072}{5}x^4-\frac{88018944}{5}x^3
+-\frac{756929024}{5}x^2-\frac{9307871232}{25}x\\
+&-\frac{90509073984}{25}-\frac{1807239327472}{125x}
+-\frac{3528006311808}{125x^2}-\frac{62513985514124}{625x^3}\\
+&-\frac{220885105972212}{3125x^4}
+-\frac{8406623961648}{625x^5}
+-\frac{11297761792812}{15625x^6}.
+\end{align*}
+Every subtracted term in \(P(x)/x^6\) has the form \(b_dx^{d-6}\) with
+\(b_d>0\) and \(d<6\). Therefore
+\[
+ \frac{\dd}{\dd x}\frac{P(x)}{x^6}
+ =\sum_{d<6}(6-d)b_dx^{d-7}>0.
+\]
+The normalized margin is increasing, so its minimum on
+\(x\geq\pi e^2\) occurs at the left endpoint. Evaluation at the rational
+lower bound \(x>1157/50\) gives
+\[
+ \frac{\Cfour}{x^6}\geq\frac{P(x)}{x^6}>44392.80919.
+\]

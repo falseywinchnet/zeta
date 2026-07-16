@@ -1,0 +1,22 @@
+\contentsline {section}{\numberline {1}Introduction}{2}{section.1}%
+\contentsline {section}{\numberline {2}Relation to earlier work}{3}{section.2}%
+\contentsline {section}{\numberline {3}The kernel and smooth even continuation}{3}{section.3}%
+\contentsline {section}{\numberline {4}Certified one-variable inputs}{4}{section.4}%
+\contentsline {section}{\numberline {5}Order three and the positive slope functional}{5}{section.5}%
+\contentsline {section}{\numberline {6}Quotient-Wronskian reduction}{5}{section.6}%
+\contentsline {section}{\numberline {7}Curvature coordinate and sign bridge}{7}{section.7}%
+\contentsline {section}{\numberline {8}The confluent invariant in curvature form}{7}{section.8}%
+\contentsline {section}{\numberline {9}Exact transport identity}{8}{section.9}%
+\contentsline {section}{\numberline {10}The positive crossing kernel}{9}{section.10}%
+\contentsline {section}{\numberline {11}Completion and exact order}{9}{section.11}%
+\contentsline {section}{\numberline {12}An explicit continuous $\mathrm {PF}_4$ separator}{11}{section.12}%
+\contentsline {subsection}{\numberline {12.1}Strict $\mathrm {PF}_3$}{11}{subsection.12.1}%
+\contentsline {subsection}{\numberline {12.2}Exact order-four density}{11}{subsection.12.2}%
+\contentsline {subsection}{\numberline {12.3}Nonreal Fourier zeros}{12}{subsection.12.3}%
+\contentsline {section}{\numberline {13}Reproducibility and evidence boundary}{12}{section.13}%
+\contentsline {section}{\numberline {14}Availability and computational provenance}{14}{section.14}%
+\contentsline {section}{\numberline {A}Confluent and curvature algebra}{14}{appendix.A}%
+\contentsline {section}{\numberline {B}Tail envelopes and normalized margin}{15}{appendix.B}%
+\contentsline {section}{\numberline {C}Endpoint audit of the transport cancellation}{16}{appendix.C}%
+\contentsline {section}{\numberline {D}Proof provenance}{16}{appendix.D}%
+\contentsline {section}{\numberline {E}Exact separator audit}{17}{appendix.E}%
