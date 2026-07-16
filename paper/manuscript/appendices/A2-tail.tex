@@ -41,8 +41,11 @@ For example,
 The logarithmic derivative formulas for \(w\) are finite Faa di Bruno sums;
 the \(n=1\) contribution uses
 \(\rho'\sim3/(2x^2),\rho''\sim-3/x^3,\ldots\), while the common theta-tail
-padding controls \(\sigma\) and all its derivatives. The verifier evaluates
-these inequalities with directed balls.
+padding controls \(\sigma\) and all its derivatives. These finite derivative
+paddings are a directed certificate boundary: the verifier evaluates their
+Faa di Bruno inequalities with outward-rounded balls. The article records the
+resulting constants and the analytic monotonicity argument below, but does not
+claim to print every interval operation.
 
 Substituting \(c_j=-2^jx+\delta_jE_j/x\), \(|\delta_j|\leq1\), into the
 thirteen-term polynomial and collecting absolute coefficients gives
@@ -67,4 +70,3 @@ lower bound \(x>1157/50\) gives
 \[
  \frac{\Cfour}{x^6}\geq\frac{P(x)}{x^6}>44392.80919.
 \]
-

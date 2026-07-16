@@ -195,6 +195,10 @@ path until `R93` is resolved.
   as independent positive-tail results. They are not needed for the global
   theorem. This classification remains RH-neutral (`R81`): PF4
   alone does not force Fourier real-rootedness.
+  The `P000070` paper audit through C2 is promoted in the maintained modular
+  manuscript: quick wrappers are separated from full directed covers, the
+  exact separator coefficient certificate is printed, elementary exposition
+  gaps are closed, and release-only metadata gates remain explicit.
 - Jensen and Li families: exact but unbounded coordinate tests (`R62`, `R79`,
   `R85`).
 - De Bruijn–Newman: exact transition boundary, but RH is the endpoint statement

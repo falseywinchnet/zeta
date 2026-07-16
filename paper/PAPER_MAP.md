@@ -33,22 +33,24 @@ its displayed section number changes.
 |---|---|---|---|---|
 | `S00` | `sections/S00-abstract.tex` | Claim, method, evidence boundary | `R145`, `R164`, `R170`, `CERT9`, `CERT10`, `CERT11` | ready |
 | `S01` | `sections/S01-introduction.tex` | Scope, exact-order and separator statements, RH boundary | `R14`, `R81`, `R145`, `R164`, `R170`, `CERT11` | ready |
-| `S02` | `sections/S02-kernel.tex` | Analytic even kernel; smoothness at zero | `R4`, `CERT2` | ready |
+| `S01a` | `sections/S01a-related-work.tex` | Bounded finite-order, Riemann-kernel, moment, and Wronskian context | `CITE5`, `CITE6`, `CITE25`, `CITE27` | ready |
+| `S02` | `sections/S02-kernel.tex` | Analytic even kernel; smoothness at zero; positivity before `log Phi` | `R4`, `CERT2` | ready |
 | `S03` | `sections/S03-certified-inputs.tex` | Global `q>0`, `F2>0`, `C4>0` and what computation certifies | `R142`, `R143`, `R150`, `R151`, `CERT2`, `CERT3` | ready; replay-dependent |
 | `S04` | `sections/S04-pf3.tex` | Full weighted-mean proof of `Lambda>0` and strict PF3 | `R140`-`R144`, `CERT2` | ready |
 | `S05` | `sections/S05-quotient-reduction.tex` | Correct `T log(v3/v2)` derivation; fourth-order reduction; equivalence | `R154`-`R156`, `CERT5` | ready |
-| `S06` | `sections/S06-curvature-coordinate.tex` | Increasing coordinate, triangular weights, sign bridge | `R153`, `CERT9` | ready |
+| `S06` | `sections/S06-curvature-coordinate.tex` | Increasing coordinate on its image, triangular weights, sign bridge | `R153`, `CERT9` | ready |
 | `S07` | `sections/S07-confluent-invariant.tex` | Central-moment determinant and `C4=Q^6 kappa^2 D` | `R147`-`R152`, `CERT3`, `CERT9` | ready |
 | `S08` | `sections/S08-transport-identity.tex` | Exact expectation identity and endpoint cancellation | `R153`, `CERT9` | ready |
 | `S09` | `sections/S09-crossing-kernel.tex` | Strict density-ratio monotonicity and positive integral | `R153`, `CERT9` | ready |
 | `S10` | `sections/S10-completion.tex` | Strict minors, origin parity obstruction, exact order four, no RH implication | `R14`, `R72`, `R81`, `R145`, `R164`, `CERT11` | ready; exact rational replay |
 | `S10a` | `sections/S10a-separator.tex` | Explicit positive even Schwartz strict-PF4 kernel with nonreal Fourier zeros | `R165`-`R170`, `CERT10` | ready; exact/direct replay |
-| `S11` | `sections/S11-reproducibility.tex` | Human proof vs replay boundary and audit order | `CERT2`, `CERT3`, `CERT5`, `CERT9`, `CERT10`, `CERT11` | ready |
+| `S11` | `sections/S11-reproducibility.tex` | Quick wrappers vs full directed covers, hashes, and audit order | `CERT2`, `CERT3`, `CERT5`, `CERT9`, `CERT10`, `CERT11` | ready |
+| `S11a` | `sections/S11a-availability.tex` | Public evidence anchor, availability, AI provenance, release gates | `P000069`, `P000070` | ready; release-gated |
 | `A1` | `appendices/A1-algebra.tex` | Cumulant expansion and curvature factorization line by line | `R149`, `CERT3`, `CERT9` | ready |
 | `A2` | `appendices/A2-tail.tex` | Tail constants, polynomial, normalized monotonicity | `R143`, `R151`, `CERT2`, `CERT3` | ready; replay-dependent |
 | `A3` | `appendices/A3-endpoints.tex` | `(50)->(45)` endpoint algebra with all substitutions exposed | `R153`, `CERT9` | ready |
 | `A4` | `appendices/A4-provenance.tex` | Claim-to-file replay table | `CERT2`, `CERT3`, `CERT5`, `CERT9`, `CERT10`, `CERT11` | ready |
-| `A5` | `appendices/A5-separator.tex` | Independent central-determinant reconstruction, coefficient positivity, Fourier discriminant | `R167`, `R168`, `CERT10` | ready |
+| `A5` | `appendices/A5-separator.tex` | Independent central-determinant reconstruction, 37 printed palindromic coefficients, Fourier discriminant | `R167`, `R168`, `CERT10` | ready |
 
 ## Review verdict ledger
 
@@ -74,6 +76,27 @@ directed-rounding boundary is named.
 No critique position is currently unfilled. CERT10 and S10a additionally
 close the continuous PF3/PF4 insufficiency position that remained open after
 the original discrete smoothing proposal was rejected.
+
+### P000070 audit promotion through C2
+
+The sibling audit is preserved under
+`sources/pf4-paper-audit-2026-07-16/`; its advancement triage and replayable
+candidate are retained in `work/2026-07-16-pf4-audit-through-c2/`.
+
+| Audit item | Maintained resolution |
+|---|---|
+| V1 | Public repository and immutable `P000069` theorem-evidence commit are printed; `paper/RELEASE_MANIFEST.md` names the final tag/DOI and clean-platform replay as release gates. |
+| V2 | `S11` separates quick wrappers from the full 192-bit 7731- and 8050-cell covers; `scripts/replay_paper.py --full` executes both tiers without mutating MIND. |
+| V3 | The categorical human-readable claim is removed; `A5` prints the 37 independent exact coefficients, while `A2` names the directed tail-padding boundary honestly. |
+| V4 | `S01a` adds the supplied Khare, Dimitrov--Xu, and Csordas--Varga context; comprehensive priority search remains the explicitly deferred Q1 item. |
+| V5 | `CERT11` and `S10` already replaced the external decimal PF5 witness. |
+| V6 | `S00` separately discloses the directed 192-bit separator discriminant. |
+| V7 | `S02` proves `Phi>0` before defining `log Phi`. |
+| V8 | `S11`, the proof records, and certificate metadata distinguish base-cover and wrapper precision/dependencies. |
+| V9 | `S10a` attributes positive `kappa` to the established `q>0,F2>0` inequalities. |
+| V10 | Joshua Rainstar, Airspy, Inc., contact, contribution, acknowledgments, competing-interests statement, keywords, MSC, PDF metadata, availability, and AI provenance are present; tagged-PDF compliance remains a toolchain gate. |
+| C1 | `sharp` is removed from the title and Fourier-separator framing. |
+| C2 | `S06` says the increasing coordinate is global on its image; unused surjectivity is not implied. |
 
 ### Additional audit correction
 

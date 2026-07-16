@@ -266,8 +266,26 @@
         "T000007"
       ],
       "updated_at": "2026-07-13T05:00:35+00:00"
+    },
+    "C000027": {
+      "artifacts": [
+        {
+          "path": "papers/dimitrov-xu-wronskians.pdf",
+          "sha256": "677a06e64446378862dab59a3789098b202fda894d267b3bc6404828a58ce5cd"
+        }
+      ],
+      "author": "Dimitar K. Dimitrov and Yuan Xu",
+      "body": "Wronskians of Fourier and Laplace Transforms, arXiv:1606.05011 (2016).",
+      "created_at": "2026-07-16T18:26:38+00:00",
+      "paper": null,
+      "source_url": "https://arxiv.org/abs/1606.05011",
+      "topics": [
+        "T000005",
+        "T000006"
+      ],
+      "updated_at": "2026-07-16T18:26:38+00:00"
     }
   },
-  "next_id": 27,
+  "next_id": 28,
   "version": 1
 }

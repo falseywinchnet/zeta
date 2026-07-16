@@ -1,4 +1,4 @@
-\section{A sharp continuous \texorpdfstring{$\PF_4$}{PF4} separator}
+\section{An explicit continuous \texorpdfstring{$\PF_4$}{PF4} separator}
 \label{sec:separator}
 
 We now prove Theorem~\ref{thm:separator}.  Put
@@ -25,8 +25,9 @@ the finite log-partition function gives
  q'=-(2c)^3\kappa_3,\qquad
  q''=-(2c)^4\kappa_4.
 \end{equation}
-Since the support interval has length six, Popoviciu's inequality yields
-\(0\leq\kappa_2\leq9\), and hence
+If \(\mu=\mathbb EK\), then
+\(0\leq\mathbb E[(K+3)(3-K)]=9-\kappa_2-\mu^2\).
+Thus \(0\leq\kappa_2\leq9\), and hence
 \begin{equation}\label{eq:separator-q}
  q\geq2c(1-18c)=2c\frac{23}{32}>0.
 \end{equation}
@@ -73,11 +74,11 @@ so the common denominator is \(P^{12}\):
 \begin{equation}\label{eq:separator-c4}
  \Cfour[f_*](x)=\frac{H(t)}{P(t)^{12}}.
 \end{equation}
-The exact expansion in \appref{app:separator} proves that \(H\) is
+The exact expansion printed in \appref{app:separator} proves that \(H\) is
 palindromic of degree 72 and that all 73 coefficients are strictly positive.
 Hence \(\Cfour[f_*]>0\) on \(\R\).
 
-Strict \(\PF_3\) also gives
+The established inequalities \(q>0\) and \(F_2>0\) also give
 \[
  \kappa=2-Q''=\frac{q^3+F_2}{q^3}>0.
 \]

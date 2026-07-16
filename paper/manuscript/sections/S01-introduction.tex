@@ -8,7 +8,8 @@ is nonnegative for \(1\leq k\leq r\) and increasing node tuples. We call the
 property strict when the determinant is positive whenever both tuples are
 strictly increasing. This paper determines the exact finite Polya-frequency
 order of the Riemann kernel; see \cite{belton} for modern background and
-Schoenberg's characterization.
+Schoenberg's characterization. Related finite-order and Riemann-kernel work is
+placed in \secref{sec:related-work}.
 
 \begin{theorem}[Strict global \(\PF_4\)]\label{thm:main}
 For every \(1\leq k\leq4\) and strictly increasing real tuples
@@ -22,13 +23,15 @@ A parity factorization of the fully confluent derivative matrix at the origin
 gives a negative order-five limit. Divided differences then transfer that sign
 to equally spaced translation minors at sufficiently small positive spacing;
 see Theorem~\ref{thm:not-pf5}. Hence Theorem~\ref{thm:main} has the following
-sharp consequence.
+exact consequence.
 
 \begin{corollary}\label{cor:exact-order}
 The exact global Polya-frequency order of \(\Phi\) is four.
 \end{corollary}
 
-The classification is sharp as a condition on Fourier zeros, even within the
+The exact-order classification and the Fourier question are distinct. At the
+proved order-four level, the following example shows that finite-order
+membership alone does not force Fourier real-rootedness, even within the
 positive even Schwartz class.
 
 \begin{theorem}[Continuous \(\PF_4\) Fourier separator]\label{thm:separator}
@@ -49,10 +52,13 @@ the derivative of \(\Psi\) into a positive crossing-kernel integral of
 
 The distinction between a human derivation and a computer certificate is
 maintained throughout. Directed interval arithmetic proves the compact and
-tail inequalities stated in \secref{sec:inputs}; exact algebra is written in
-the paper and independently replayed by the repository verifiers. The short
+tail inequalities stated in \secref{sec:inputs}; the structural transport
+algebra is written in the paper and independently replayed by repository
+verifiers. The exact separator coefficient list is printed in
+\appref{app:separator}. The short
 order-five certificate uses only exact rational arithmetic and elementary
 series bounds. The classification concerns finite-order total positivity
 only. It neither proves nor disproves the Riemann Hypothesis.
-Theorem~\ref{thm:separator}, proved in \secref{sec:separator}, makes the
-finite-order boundary explicit rather than leaving it as a logical caveat.
+Theorem~\ref{thm:separator}, proved in \secref{sec:separator}, supplies an
+explicit order-four counterexample rather than a finite-order sufficiency
+threshold.

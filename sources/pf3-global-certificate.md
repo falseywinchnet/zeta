@@ -33,6 +33,12 @@ nonnegative for strictly increasing tuples.
    `q >= 18.726`, `F1 >= 0.181`, `F2 >= 3889.2`. Evenness of `q`, `F1`, `F2`
    extends this to `[-1,1]`. Output: `pf3-curvature-certificate.txt`.
 
+   This 192-bit, 7731-cell base cover is distinct from
+   `scripts/verify_pf3_reduction.py`. The latter is a quick audit wrapper: its
+   imported Arb jet comparison uses 256 bits and its mpmath diagnostics use
+   40--60 decimal digits. `scripts/replay_paper.py --full` executes the base
+   cover first and then the wrapper, checking both registered output hashes.
+
 5. Tail. For `|u| >= 1`, with `x = pi e^{2u} >= pi e^2 > 23.14`, explicit
    enclosures of the log-correction `w = log(1+rho)` of the dominant theta
    term give `|q-4x| <= 19.8/x`, `|qdot-8x| <= 176/x`, `|qddot-16x| <= 2082/x`,

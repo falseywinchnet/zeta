@@ -37,6 +37,12 @@ transfers to distinct order-five minors by the confluent limit.
    adaptive cells; startup self-checks tie the cumulant recursion to the
    audited hardcoded `ell_2..ell_6` and the decomposition to the direct form).
    Evenness of `C_4` extends this to `[-1,1]`.
+
+   This theorem-producing base cover uses python-flint/Arb at 192-bit
+   precision with seven retained theta terms. It is distinct from the quick
+   `scripts/verify_c4_confluent.py` wrapper, which uses exact SymPy algebra and
+   50--120 digit mpmath diagnostics. `scripts/replay_paper.py --full` executes
+   and hash-checks both layers.
 2. Tail: with `x = pi e^{2u}`, the Stirling identity
    `D^j psi = 2^j sum_k S(j,k) x^k psi^(k)` for `D = 2x d/dx` gives
    `kappa_j = -2^j x + eps_j`, `|eps_j| <= E_j/x`, with
@@ -66,10 +72,8 @@ Laurent expansion (44392.81).
 
 The interval computations are machine-certified with directed rounding. The
 reduction, decomposition, Stirling/cumulant algebra, and tail enclosures are
-derivations produced in P000025 and audited here; they are not published
-literature. Global PF4 itself remains open: this certificate closes the full
-collision boundary; the non-confluent surface has scan evidence only
-(Wronskian faces W3/W4 at 2^21 samples each, clustered minors at 2x2^21,
-generic Sobol at 2^20 — no negative anywhere). The named continuation is the
-ECT route: certified `W_3 > 0` and `W_4 > 0` over all translates would give
-global PF4 by the Chebyshev-system theorem.
+repository-local derivations, not published literature. This certificate
+proves the fully confluent inequality `C_4>0`; it does not alone prove global
+PF4. The formerly open nonconfluent step is now closed independently by the
+positive transport-kernel identity in `CERT9`, and the complete strict global
+PF4 conclusion is `R164`.

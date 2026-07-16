@@ -24,6 +24,14 @@ Thus the positive-side formula often written with \(|t|\) is the restriction
 of a real-analytic even function. In particular, smoothness at the origin is
 not inferred from numerical coverage.
 
+For \(t\geq0\), the coefficient of the \(n\)-th exponential can be factored as
+\[
+ 2\pi n^2e^{5t/2}\bigl(2\pi n^2e^{2t}-3\bigr)>0,
+\]
+because \(2\pi>3\). Hence every term in \eqref{eq:kernel-series} is positive
+and \(\Phi(t)>0\) on \([0,\infty)\). Evenness gives \(\Phi(t)>0\) on all of
+\(\R\), so the following logarithm is globally defined.
+
 Write
 \[
  \ell=\log\Phi,\qquad s=\ell',\qquad q=-s'=-\ell''.
@@ -34,4 +42,3 @@ For \(a<b\), define
  M(a,b)=\frac{q(b)-q(a)}{A(a,b)}.
 \end{equation}
 When \(q>0\), \(s\) is strictly decreasing and \(A(a,b)>0\).
-

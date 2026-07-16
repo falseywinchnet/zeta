@@ -7,12 +7,12 @@ The paper has six replay boundaries.
 >{\raggedright\arraybackslash}p{0.46\textwidth}
 >{\raggedright\arraybackslash}p{0.20\textwidth}@{}}
 \toprule
-Object & Repository verifier & Role \\
+Object & Quick repository verifier & Role \\
 \midrule
 Global \(q,F_2\), strict \(\PF_3\) &
-\path{scripts/verify_pf3_reduction.py} & directed and exact \\
+\path{scripts/verify_pf3_reduction.py} & algebra, tail, and cross-check audit \\
 Global \(\Cfour>0\) &
-\path{scripts/verify_c4_confluent.py} & directed and exact \\
+\path{scripts/verify_c4_confluent.py} & algebra, tail, and cross-check audit \\
 Quotient reduction &
 \path{scripts/verify_pf4_wronskian_reduction.py} & exact generic algebra \\
 Transport completion &
@@ -25,6 +25,34 @@ Continuous strict-\(\PF_4\) separator &
 \bottomrule
 \end{tabular}
 \end{center}
+
+The two theorem-producing compact covers are separate from the quick wrappers:
+\begin{center}
+\small
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.27\textwidth}
+>{\raggedright\arraybackslash}p{0.62\textwidth}@{}}
+\toprule
+Cover & Full directed command \\
+\midrule
+\(q,F_2\), 7731 cells &
+\path{work/2026-07-12-riemann-kernel-pf34-classification/}
+\path{certify_pf3_curvature.py} \\
+\(\Cfour\), 8050 cells &
+\path{work/2026-07-13-riemann-kernel-pf4-verification/}
+\path{certify_c4.py} \\
+\bottomrule
+\end{tabular}
+\end{center}
+Both use Arb at 192-bit precision and seven retained theta terms. The release
+manifest records the complete expected stdout hashes. Their identifying
+prefixes are
+\[
+ \texttt{a52a360cdc5e0}\quad(q,F_2),\qquad
+ \texttt{bf2436a454ece2c4}\quad(\Cfour).
+\]
+The PF3 quick wrapper separately uses a 256-bit Arb jet cross-check; the C4
+quick wrapper uses exact SymPy algebra and mpmath diagnostics. Thus wrapper
+precision is not reported as base-cover precision.
 
 The compact inequalities are directed Arb calculations at 192-bit precision;
 the tail uses explicit analytic envelopes and rational coefficient bounds.
@@ -54,3 +82,8 @@ A focused independent audit should proceed in this order:
 \end{enumerate}
 No numerical scan is used as evidence for global nonconfluent positivity of
 either kernel.
+
+The non-mutating entry point \path{scripts/replay_paper.py} checks all six
+registered verifier outputs in quick mode. The option \texttt{--full} first
+reruns both compact covers. Exact package versions are in
+\path{requirements-paper.txt}.
