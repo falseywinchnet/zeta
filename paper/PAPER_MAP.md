@@ -66,16 +66,15 @@ No critique position is currently unfilled. A new advancement round is not
 needed to address this verdict. A future advancement round would be justified
 only by a new mathematical objection or a failed independent replay.
 
-### Additional preliminary correction
+### Additional audit correction
 
-The reviewed PDF's equation (30) prints `T delta` where differentiation of
+The reviewed equation (30) prints `T delta` where differentiation of
 `Psi` requires `Lambda T delta`. Its equation (32), the exact verifier, and
 the maintained manuscript all use
 
 `N = delta Lambda^2 + Lambda(Q'(p)delta + T delta) - delta T Lambda`.
 
-This is a transcription/typesetting defect in the preliminary draft, not an
-unfilled research position.
+This is a transcription/typesetting defect, not an unfilled research position.
 
 ## Retired material
 
@@ -92,7 +91,5 @@ the main proof as if they were still necessary. This retirement is `R163`.
    inequalities; they are not prose substitutes.
 3. Computational statements say exactly what interval, precision, cells,
    tail enclosure, and verifier establish them.
-4. The preliminary draft is immutable historical evidence. Corrections go in
-   `manuscript/` and this map.
-5. PF4 is never presented as an RH proof or as a continuous PF4 Fourier
+4. PF4 is never presented as an RH proof or as a continuous PF4 Fourier
    separator. `R81` and `R58` remain the boundary.

@@ -255,8 +255,12 @@
     "P000064": {
       "blurb": "Build a mapped modular PF4 paper, archive the reviewed preliminary draft, and close its proof-audit ledger",
       "created_at": "2026-07-16T16:22:12+00:00"
+    },
+    "P000065": {
+      "blurb": "Rebase the PF4 paper workspace, remove preliminary-paper artifacts, and retain the maintained modular manuscript",
+      "created_at": "2026-07-16T16:32:45+00:00"
     }
   },
-  "next_id": 65,
+  "next_id": 66,
   "version": 1
 }
