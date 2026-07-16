@@ -1,0 +1,5 @@
+compact_power 19/5 -819/200 1809/800 -729/800
+compact_bernstein 19/5 487/200 1459/800 211/200
+tail_exp_lower 435659713/250000000
+tail_ratio 12/7
+tail_margin 49617991/1750000000

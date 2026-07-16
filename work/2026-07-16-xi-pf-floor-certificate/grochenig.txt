@@ -1,0 +1,584 @@
+                                                   SCHOENBERG’S THEORY OF TOTALLY POSITIVE
+                                                  FUNCTIONS AND THE RIEMANN ZETA FUNCTION
+
+                                                                            KARLHEINZ GRÖCHENIG
+
+                                                  Abstract. We review Schoenberg’s characterization of totally positive func-
+
+
+
+
+arXiv:2007.12889v1 [math.NT] 25 Jul 2020
+                                                  tions and its connection to the Laguerre-Polya class. This characterization yields
+                                                  a new condition that is equivalent to the truth of the Riemann hypothesis.
+
+
+                                             In a series of papers in the 1950s Schoenberg investigated the properties of totally
+                                           positive functions [10, 29–31, 34]. He found several characterizations and used total
+                                           positivity to prove fundamental properties of splines [33, 34]. The purpose of this
+                                           note is to survey some aspects of Schoenberg’s work on totally positive functions,
+                                           to advertize the connection between totally positive functions and the Riemann
+                                           hypothesis, and to provide some mathematical entertainment.
+                                             One may speculate whether Schoenberg himself thought about the Riemann zeta
+                                           function. He was the son-in-law of the eminent number theorist Edmund Landau,
+                                           he collaborated with Polya, he knew deeply the work of Polya and Schur about
+                                           the Laguerre-Polya class of entire functions that remains influential in the study of
+                                           the Riemann hypothesis. Yet, to my knowledge, he never mentioned any number
+                                           theory in his work on totally positive functions and splines; by the same token,
+                                           Schoenberg’s name is not mentioned in analytic number theory.
+                                              Totally positive functions. A measurable function Λ on R is totally positive, if
+                                           for every n ∈ N and every twosets of increasing
+                                                                                           numbers x1 < x2 < · · · < xn and
+                                           y1 < y2 < · · · < yn the matrix Λ(xj − yk )        has non-negative determinant:
+                                                                                               j,k=1,...,n
+                                                                                           
+                                           (1)                           det(Λ(xj − yk )                     ≥ 0.
+                                                                                              j,k=1,...,n
+
+                                           If in addition Λ is integrable, then Λ is called a Polya frequency function.
+                                              If Λ is totally positive and not equal to eax+b , there exist an exponential ecx ,
+                                           such that Λ1 (x) = ecx Λ(x) is a Polya frequency function, i.e., Λ1 is totally positive
+                                           and integrable [31, Lemma 4]. It is usually no loss of generality to restrict to Polya
+                                           frequency functions.
+                                              The class of totally positive functions played and plays an important role in
+                                           approximation theory, in particular in spline theory [34], and in statistics [11, 19].
+                                           In a different and rather surprising direction, totally positive functions appear in the
+                                           representation theory of infinite dimensional motion groups [23]. Recently, totally
+                                           positive functions appeared in sampling theory and in time-frequency analysis [13–
+                                           15], where they were instrumental in the derivation of optimal results.
+
+                                             K. G. was supported in part by the project P31887-N32 of the Austrian Science Fund (FWF).
+                                                                                          1
+2                             KARLHEINZ GRÖCHENIG
+
+  The Laguerre-Polya class. An entire function Ψ of order at most 2 belongs to
+the Laguerre-Polya class, if its Hadamard factorization is of the form
+                                       ∞
+                                       Y
+                            m −γs2 +δs
+(2)             Ψ(s) = Cs e              (1 + δj s)e−δj s  s ∈ C,
+                                       j=1
+
+where δj−1 ∈ R are the zeros of Ψ, m is the order of the zero at 0, γ ≥ 0, δ ∈ R,
+and
+                                         ∞
+                                         X
+(3)                             0<γ+           δj2 < ∞ .
+                                         j=1
+
+Thus the Laguerre-Polya class consists of entire functions of order two with con-
+vergence exponent two with only real zeros. While the study of the distribution of
+zeros of entire functions is a perennial topic in complex analysis and of interest in
+its own right [21], the Laguerre-Polya class has gained special prominence in ana-
+lytic number theory: the Riemann hypothesis says that a relative of the Riemann
+zeta function belongs to the Laguerre-Polya class.
+  Schoenberg’s characterization of totally positive functions. The fundamental re-
+sults about totally positive functions were derived by Schoenberg in a series of
+papers [29–31, 34]. A comprehensive treatment is contained in Karlin’s mono-
+graph [19, Ch. 7].
+  The notions of totally positive functions and Laguerre-Polya class are seemingly
+unrelated, yet there is a deep connection between them through the following char-
+acterization of Schoenberg [31].
+Theorem 1. (i) If Λ is a Polya frequency function, then its (two-sided) Laplace
+transform converges in a vertical strip {z ∈ C : α < Re z < β}, α < 0 < β, and
+                            Z ∞
+                                                   1
+(4)                               Λ(x)e−sx dx =
+                              −∞                  Ψ(s)
+is the reciprocal of a function Ψ in the Laguerre-Polya class with Ψ(0) > 0.
+   (ii) Conversely, if Ψ is in the Laguerre-Polya class with Ψ(0) > 0, then its
+reciprocal 1/Ψ is the Laplace transform of a Polya frequency function Λ.
+   This is a fascinating theorem, because it relates two function classes that seem to
+bear absolutely no resemblance to each other. Schoenberg’s theorem establishes a
+bijection between the class of Polya frequency functions, the Laguerre-Polya class,
+and yields a parametrization by the set (0, ∞) × R × ℓ2 (Z).
+   By using the Fourier transform instead of the Laplace transform, Schoenberg’s
+theorem can be recast as follows: A function Λ is totally positive and integrable,
+if and only if its Fourier transform possesses the factorization
+                                           ∞
+                                           Y
+                                   2
+(5)                  Λ̂(τ ) = Ce−γτ +2πiδτ   (1 + 2πiδj τ )−1 e2πiδj τ
+                                         j=1
+                                    P∞      2
+where C > 0, γ ≥ 0, δ, δj ∈ R and      j=1 δj < ∞ (and the product in (5) may also
+be finite).
+             TOTALLY POSITIVE FUNCTIONS AND THE ZETA FUNCTION                         3
+
+  If we drop the condition of integrability and exclude exponential functions,
+then the representation (5) still holds for every totally positive function, but their
+Laplace transform of Λ converges in some vertical strip {z ∈ C : α < Re z < β}
+that does not contain 0.
+  A similar result holds for one-sided totally positive functions [31, Thm. 2].
+
+Theorem 2. (i) If Λ is a Polya frequency function with support in [0, ∞), then its
+Laplace transform converges in a half-plane {z ∈ C : −α < Re z}, α > 0, and
+                            Z ∞
+                                                 1
+(6)                              Λ(x)e−sx dx =
+                              0                 Ψ(s)
+is the reciprocal of an entire function Ψ with Hadamard factorization
+                                              ∞
+                                              Y
+                                         δs
+(7)                           Ψ(s) = Ce             (1 + δj s) ,
+                                              j=1
+                   P
+with δ ∈ R, δj ≥ 0, δj < ∞.
+  (ii) Conversely, if Ψ possesses the factorization (7), then its reciprocal 1/Ψ is
+the Laplace transform of a Polya frequency function Λ with support in [0, ∞).
+
+   Elementary examples. If Λ̂(τ ) = (1 + 2πiδτ )−1 , then Λ(x) = δ −1 e−x/δ χ[0,∞) (x)
+                                                            2
+is the one-sided exponential function. For Λ̂(τ ) = e−πγτ for γ > 0, we obtain the
+                            2
+Gaussian Λ(x) = γ −1/2 e−πx /γ . In both cases, it is easy to check directly that these
+functions are totally positive.
+   The proof of the implication (ii) of Theorem 1 is based on the (non-trivial) fact
+that the convolution Λ = Λ1 ∗ Λ2 of two Polya frequency functions Λ1 , Λ2 is again
+a Polya frequency function. The converse in Theorem 1 lies much deeper, and
+Schoenberg used heavily several results of Polya about functions in the Laguerre-
+Polya class [24, 27]. See the end of this note for the essential step of the argument.
+   Schoenberg’s motivation was the characterization and deeper understanding of
+totally positive functions, and thus the implication (i) and the factorization (5) can
+be considered his main insight about totally positive functions. However, instead
+of reading Schoenberg’s theorem as a characterization of totally positive functions,
+one may read it as a characterization of the Laguerre-Polya class. A function Ψ
+with Ψ(0) > 0 and Ψ 6= eas+b is in the Laguerre-Polya class, if and only if the
+Fourier transform of 1/Ψ is a Polya frequency function.
+   The Riemann hypothesis and totally positive functions. Let ζ(s) = ∞           −s
+                                                                          P
+                                                                            n=1 n   for
+s ∈ C, Re s > 1, be the Riemann zeta function and let
+                                                      s
+(8)                        ξ(s) = 21 s(s − 1)π −s/2 Γ     ζ(s)
+                                                       2
+                                    1        
+(9)                        Ξ(s) = ξ      + is
+                                      2
+4                              KARLHEINZ GRÖCHENIG
+
+be the Riemann xi-functions (where Γ is the usual gamma function). Then the
+functional equation for the Riemann zeta function is expressed by the symmetry
+(10)                ξ(s) = ξ(1 − s)       and       Ξ(s) = Ξ(−s)
+for the xi-functions.
+   The Riemann hypothesis conjectures that all non-trivial zeros of the zeta function
+lie on the critical line 1/2 + it. See the monographs [17, 18, 35], the two volumes
+about equivalents of the Riemann hypothesis [3, 4] or the survey articles [2, 5].
+   Expressed in terms of the xi-functions, the Riemann hypothesis states that Ξ
+has only real zeros, in other words, Ξ belongs to the Laguerre-Polya class. Thus
+many investigations of the zeta function involve complex analysis related to the
+Laguerre-Polya class. Schoenberg’s theorem immediately leads to the following
+equivalent condition for the Riemann hypothesis to hold.
+Theorem 3. The Riemann hypothesis holds, if and only if there exists a Polya
+frequency function Λ, such that
+                       Z ∞
+                 1
+(11)                 =      Λ(x)e−sx dx for s ∈ C, |Re s| < t0 ,
+                Ξ(s)    −∞
+
+where 1/2 + it0 is the first zero of the zeta function on the critical line.
+   Let us make this statement a bit more explicit by taking the Fourier transform
+instead of the Laplace transform.
+Theorem 4. The Riemann hypothesis holds, if and only if
+                              Z ∞
+                            1           1
+(12)                Λ(x) =            1      e−ixτ dτ
+                           2π −∞ ξ( 2 + τ )
+is a Polya frequency function.
+                                                                               
+                                                                  A|s| ln |s|
+  The growth of ξ in the complex plane is [35] |ξ(s)| = O e                         , and on the
+positive real line
+                         ln ξ(σ) ≍ 12 σ log σ   σ > 1.
+                  1
+Consequently ξ(σ)    ≤ Ce−|σ| log |σ|/2 decays super-exponentially. Since ζ and thus ξ
+do not have any real zeros in the interval [0, 1] and ζ > 0 on (1, ∞), the function ξ
+is therefore strictly positive on R and 1/ξ is integrable. Thus its Fourier transform
+is well-defined.
+   Using s = 2πiτ , we can rewrite (13) as a Fourier transform. The inversion
+formula for the Fourier transform now yields
+                                    Z ∞
+                                             1
+                          Λ(x) =                  e2πixτ dτ
+                                         Ξ(2πiτ )
+                                    Z−∞∞
+                                               1
+                                =                        e2πixτ dτ ,
+                                      −∞ ξ(1/2 −  2πτ  )
+which is (12).
+              TOTALLY POSITIVE FUNCTIONS AND THE ZETA FUNCTION                         5
+
+   Using the symmetry of Ξ, there is an alternative formulation of Theorem 3 with
+the restricted Laguerre-Polya class defined in (7). Since Ξ is symmetric, it can be
+written as Ξ(s) = Ξ1 (−s2 ) for an entire function Ξ1 of order 1/2. Furthermore,
+Ξ has only real zeros, if and only if Ξ1 has only negative zeros (with convergence
+exponent at most 1). The characterization of one-sided Polya frequency functions
+yields the following equivalence.
+Theorem 5. The Riemann hypothesis holds, if and only if there exists a Polya
+frequency function Λ with support in [0, ∞), such that
+                         Z ∞
+                  1
+(13)                   =     Λ(x)e−sx dx      for s ∈ C, Re s > α ,
+                Ξ1 (s)    0
+
+for some α < 0.
+   These equivalences seem to be new. Schoenberg’s name is not even mentioned
+in [3, 4] on equivalents of the Riemann hypothesis.
+   It is interesting that the characterization of Theorem 4 is “orthogonal” to most
+research on ζ and to the well-known criteria for the Riemann hypothesis. Theorem 4
+requires only the values of ζ on the real line to probe the secrets of ζ in the critical
+strip. This fact is remarkable, but the price to pay is the added difficulty to extract
+any meaningful statements about ξ on the critical strip from its restriction to R.
+This seems much harder, if not impossible.
+   To work with Theorem 4, one would need a viable expression for the Fourier-
+Laplace transform of 1/ξ, but there seems to be none. The 1-positivity in (1) says
+that Λ ≥ 0, which is equivalent to the Fourier transform Λ̂ = 1/ξ to be positive
+definite by Bochner’s theorem. Explicitly, we would need to know     P that, for all
+choices of cj ∈ C, τj ∈ R, j = 1, . . . , n, and all n ∈ N, we have nj,k=1 cj ck ξ( 12 +
+τj − τk )−1 ≥ 0. Not even this property of 1/ξ seems to be known. It is therefore
+unlikely that much is gained by Theorems 3 – 5.
+   By contrast, the Fourier transform of Ξ(x) on the critical line (!) was already
+known to Riemann (see [35, 2.16.1]) and is the starting point of a program to prove
+the Riemann hypothesis that goes back to Polya [25]. After important work of de
+Bruijn, Hejhal, and Newman this line of thought has recently culminated in the
+resolution of the Newman conjecture by Rodgers and Tao [28].
+  Some non-trivial Polya frequency functions. Perhaps Schoenberg had also the
+Riemann hypothesis in mind, when he investigated Polya frequency functions. The
+examples in [29, 31] of totally positive functions smell of the zeta function.
+  (i) The zero set {0, −1, −2, . . . } with multiplicity one yields the entire function
+                                          ∞
+                                     γs
+                                          Y          s −s/n
+(14)                        Ψ(s) = e s        (1 +     )e   ,
+                                          n=1
+                                                     n
+
+where γ is the Euler   constant. By a classical result Ψ is the reciprocal of the Γ-
+                 R ∞ s−1
+function Γ(s) = 0 x e−x dx. Consequently, the Laplace transform of Ψ(s)−1 =
+Γ(s) is a totally positive function. Indeed, using the substitution x = e−t in the
+6                               KARLHEINZ GRÖCHENIG
+
+definition of Γ, one obtains
+                                Z ∞
+                                       e−e e−sx dx
+                                           −x
+(15)                   Γ(s) =                            Re s > 0 .
+                                  −∞
+
+Theorem 1 implies that
+                                   Λ(x) = e−e
+                                                   −x
+
+
+
+is totally positive. By removing the pole of Γ at 0, we obtain
+                  Z ∞                Z ∞
+                        ′   −sx
+                                          e−x e−e e−sx dx ,
+                                                 −x
+         sΓ(s) =      Λ (x)e dx =                              Res > −1 .
+                  −∞                        −∞
+                         −x−e−x
+Consequently Λ1 (x) = e         is a Polya frequency function.
+  (ii) The zero set Z with simple zeros yields Ψ(s) = sinππs . By Theorem 1, 1/Ψ is
+the Laplace transform of a totally positive function on a suitable strip of conver-
+gence. Schoenberg’s calculation yields the totally positive function
+                                              1
+                                  Λ(x) =          .
+                                          1 + e−x
+  (iii) Finally the zero set {−n2 : n ∈ N} yields the entire function
+                                ∞
+                                Y          s        1√          √
+                    Ψ(s) = s        (1 +      ) = −    −s sin π   −s .
+                                n=1
+                                           n2       π
+The associated totally positive function is the Jacobi theta function
+                             (P
+                                 ∞          j −j 2 x
+                                 j=−∞ (−1) e         for x > 0
+                    Λ(x) =
+                               0                     for x ≤ 0 .
+All three functions show up prominently in the treatment of the functional equation
+of the zeta function: Γ is contained in the definition of the xi-function, sin in the
+formulation of the functional equation, and a Jacobi theta function is used in several
+proofs of the functional equation (Riemann’s original proof, see [35]).
+   Intrinsic characterization of Polya frequency functions. The fundamental prop-
+erty of Polya frequency functions is their smoothing property or variation dimin-
+ishing property. The relevance of smoothing properties for many applications is
+outlined in Schoenberg’s survey [32]. In this context the variation of a real-valued
+function on R is measured either by the number of sign changes or by the number
+of real zeros. Formally, given f : R → R let
+(16)
+    v(f ) = max #{n ∈ N : ∃xj ∈ R, x0 < x1 < · · · < xn with f (xj )f (xj+1 ) < 0} ,
+and let N(f ) be the number of real zeros of f counted with multiplicity.
+  Given a function Λ, let TΛ be the convolution operator TΛ f = f ∗Λ. Schoenberg’s
+second characterization of Polya frequency functions is as follows [30].
+Theorem 6. Let Λ be integrable and continuous. Then Λ is variation diminishing,
+i.e.,
+                               v(TΛ f ) ≤ v(f )
+              TOTALLY POSITIVE FUNCTIONS AND THE ZETA FUNCTION                           7
+
+for all functions that are locally Riemann integrable, if and only if either Λ or −Λ
+is a Polya frequency function.
+   This characterization is “intrinsic” in the sense that it uses only the properties
+of the matrices occurring in the definition (1) of total positivity.
+   With a perturbation argument one can replace sign changes with zeros and ob-
+tains the following consequence.
+Corollary 7. Let Λ be a Polya frequency function. Then for every real-valued
+polynomial p the convolution TΛ is zero-decreasing, i.e.,
+                                   N(TΛ p) ≤ N(p) .
+
+   Intrinsic characterizations of the Laguerre-Polya class. There are several char-
+acterizations of the Laguerre-Polya class that require only their properties as en-
+tire functions. This is part of classical complex analysis and the results are due to
+Polya and Schur [24,27] building on work of Laguerre, Hadamard, and many others.
+These results relate the properties of the zero set to properties of the power series
+expansion of an entire function. Before formulating           a sequence of equivalences, we
+note that every formal power series F (s) ∼ ∞                  j
+                                                   P
+                                                      j=0 ja s   yields a differential operator
+               P∞         j                    d
+F (D)p(x) = j=0 aj D p(x) with D = dx . The differential operator is well-defined
+at least on polynomials, and the mapping F 7→ F (D) is an algebra homomorphism
+and thus provides a simple functional calculus.
+                                        βj j
+Theorem 8. Let Ψ(s) = ∞
+                                P
+                                   j=0 j! s be an entire function. Then the following are
+equivalent:
+   (i) Ψ belongs to the Laguerre-Polya class.
+   (ii) Ψ can be approximated uniformly on compact sets by polynomials with only
+real zeros.
+   (iii) For all n ∈ N the polynomials pn (x) = nj=0 βj nj xj and qn (x) = nj=0 βj nj xn−j
+                                                    P                              P         
+
+have only real zeros.
+   (iv) If p(x) = m            j
+                   P
+                      j=0 c j x is a polynomial with only real, non-positive zeros, then
+                               βj cj xj has only P
+                          P
+the polynomial q(x) =                            real zeros.
+                                                       γj j
+   If, in addition, Ψ(0) > 0 and Ψ(s) = ∞  1
+                                                   j=0 j! s , then the following property is
+equivalent to (i) – (iv).
+                                     1
+   (v) The transform p 7→ Ψ(D)          p is zero-decreasing, i.e., the polynomial q(x) =
+  1
+              P  ∞ γj (j)
+Ψ(D)
+      p(x) = j=0 j! p (x) has at most as many real zeros as p (real-valued):
+                                         1      
+                                      N         p ≤ N(p) .
+                                          Ψ(D)
+  Applying condition (iv) to the polynomials xn−1 (1 + x)2 , one obtains a neces-
+sary condition on the Taylor coefficients of a function in the Laguerre-Polya class,
+namely the so-called Turan inequalities.
+                               βj j
+Corollary 9. If Ψ(s) = ∞
+                        P
+                           j=0 j! s belongs to the Laguerre-Polya class, then
+
+                        βn2 − βn−1 βn+1 ≥ 0        for all n ∈ N
+8                              KARLHEINZ GRÖCHENIG
+
+  Applying condition (v) to polynomials of the form p(x) = ( nk=1 ak xk )2 and
+                                                                  P
+working out Ψ(D)−1 p, one obtains the following necessary condition for the Laguerre-
+Polya class [24, p. 235].
+Corollary 10. Assume that Ψ belongs to the Laguerre-Polya
+                                                      P∞ γj jclass, Ψ(0) > 0,
+          as+b                                   1
+Ψ(s) 6= e      and 1/Ψ has the Taylor expansion Ψ(s) = j=0 j! s . Then for every
+                                        
+n ∈ N the n × n Hankel matrix γj+k j,k=0,...,n−1 is positive definite (and thus
+invertible).
+   However, the positivity of the Hankel matrices is not sufficient for Ψ to be in the
+Laguerre-Polya class, as was proved already by Hamburger [16].
+   Theorem 8 and its corollaries are all contained in the seminal papers of Polya
+and Schur [24, 27] from 1914 and 1915 and have inspired a century of exciting
+mathematics. Each of the equivalent conditions in Theorem 8 is a point of departure
+for the study of the Riemann hypothesis.
+   No list can do justice to all contributions between 1914 and 2020, so let us
+mention only a few directions whose origin is in Polya’s work. Further references
+and more detailed history can be found in the cited articles.
+   Condition (iii) applied to the Riemann function Ξ yields an important equiva-
+lence of the Riemann hypothesis. The polynomials in condition (iii) are nowadays
+called Jensen polynomials. In modern language (iii) says that “the Jensen poly-
+nomials for the Riemann function Ξ(s) must be hyperbolic”. Significant recent
+progress on this equivalence is reported in [12].
+   The relations between the Jensen polynomials, the multiplier sequences of con-
+dition (iv), and the Turan inequalities and their generalizations have been studied
+in depth by Craven, Csordas, and Varga [6, 7, 9] who found many additional equiv-
+alences to the Riemann hypothesis. √A particular highlight is their proof that Ξ, or
+rather the Taylor coefficients of Ξ( s) satisfy the Turan inequalities [8], thereby
+resolving a 60 year old conjecture going back to — Polya.
+   Finally let us mention that total positivity enters the investigation of the Laguerre-
+Polya class in yet another way. A entire function belongs to the restricted Laguerre-
+Polya class defined by (7), if and only if the sequence of its Taylor coefficients (an )
+is a Polya frequency sequence [1]. This means that the infinite upper triangular
+Toeplitz matrix A with entries Ajk = ak−j , if k ≥ j and Ajk = 0, if k < j has only
+positive minors. This aspect of total positivity has been used in [20, 22] for the
+investigation of the zeta function.
+  From total positivity to the Laguerre-Polya class. By comparing the two intrinsic
+characterizations in Theorems 6 and 8 one may guess that the respective conditions
+on zero diminishing must play the decisive role in the proof of Theorem 1(i). To give
+the gist of this argument, we cannot do better than repeat Schoenberg’s beautiful
+argument.
+  First, since Λ is assumed to be a Polya frequency function, Λ must decay expo-
+nentially [31, Lemma 2], therefore its moments of all orders exist. Let
+                                      Z
+                                 µn =    xn Λ(x) dx
+                                         R
+               TOTALLY POSITIVE FUNCTIONS AND THE ZETA FUNCTION                       9
+
+                                                                (−s)j j
+be the n-th moment. By expanding the exponential e−sx = ∞
+                                                          P
+                                                             j=1 j! x we express
+the Laplace transform of Λ as a power series
+                                      ∞
+                                         (−1)j
+                    Z               X
+(17)                     −sx
+                        e Λ(x) dx =            µj sj := F (s) .
+                      R              j=0
+                                           j!
+
+Since Λ 6≡ 0 and Λ ≥ 0, we have F (0) > 0, and its reciprocal also possesses a power
+series expansion around 0 with a positive radius of convergence
+                                                   ∞
+                                            1     X   βj j
+                                 Ψ(s) =         =        s .
+                                          F (s)   j=0
+                                                      j!
+
+Next, we consider the convolution of Λ with a polynomial p of degree N and relate
+it to the moments of Λ:
+                                                     N
+                                                        (−t)j (j) 
+                           Z                     Z X
+       q(x) = (Λ ∗ p)(x) =     p(x − t)Λ(t) dt =             p (x) Λ(t) dt
+                             R                    R j=0
+                                                         j!
+               n
+               X (−1)j
+           =                µj p(j) (x) = F (D)p(x) .
+               j=0
+                       j!
+
+By Corollary 7 the number of real zeros of q (counted with multiplicity) does not
+exceed the number of real zeros of p,
+(18)                           N(q) = N(F (D)p) ≤ N(p) .
+Using the functional calculus, we can invert F (D) and recover p from q = Λ ∗ p via
+                                                     ∞
+                              1                     X   βj (j)
+                     p(x) =       q(x) = Ψ(D)q(x) =        q (x) .
+                            F (D)                   j=0
+                                                        j!
+
+For the monomial q(x) = xn we obtain the polynomial
+                                          n      
+                                    n
+                                        X        n n−j
+                      qn (x) = Ψ(D)x =       βj    x
+                                         j=0
+                                                 j
+
+of degree n. Since xn = F (D)qn , (18) implies the count of zeros (with multiplicities)
+                                 n = N(xn ) ≤ N(qn ) ≤ n .
+For every n, qn therefore has only real zeros. This is precisely condition (iii) of
+Theorem 8, and we conclude that Ψ is in the Laguerre-Polya class.
+   Summary. Schoenberg’s characterization of totally positive functions implies a
+condition equivalent to the Riemann hypothesis. The characterization is interesting
+in itself because it involves only the values of the Riemann zeta function on the
+real axis. To the best of our knowledge, the characterization of the Laguerre-Polya
+class by means of totally positive functions has not yet been tested on the Riemann
+zeta function.
+10                                 KARLHEINZ GRÖCHENIG
+
+                                         References
+ [1] M. Aissen, I. J. Schoenberg, and A. M. Whitney. On the generating functions of totally
+     positive sequences. I. J. Analyse Math., 2:93–103, 1952.
+ [2] E. Bombieri. The classical theory of zeta and L-functions. Milan J. Math., 78(1):11–59, 2010.
+ [3] K. Broughan. Equivalents of the Riemann hypothesis. Vol. 1, volume 164 of Encyclopedia of
+     Mathematics and its Applications. Cambridge University Press, Cambridge, 2017. Arithmetic
+     equivalents.
+ [4] K. Broughan. Equivalents of the Riemann hypothesis. Vol. 2, volume 165 of Encyclopedia of
+     Mathematics and its Applications. Cambridge University Press, Cambridge, 2017. Analytic
+     equivalents.
+ [5] J. B. Conrey. The Riemann hypothesis. Notices Amer. Math. Soc., 50(3):341–353, 2003.
+ [6] T. Craven and G. Csordas. Jensen polynomials and the Turán and Laguerre inequalities.
+     Pacific J. Math., 136(2):241–260, 1989.
+ [7] G. Csordas. Fourier transforms of positive definite kernels and the Riemann ξ-function.
+     Comput. Methods Funct. Theory, 15(3):373–391, 2015.
+ [8] G. Csordas, T. S. Norfolk, and R. S. Varga. The Riemann hypothesis and the Turán inequal-
+     ities. Trans. Amer. Math. Soc., 296(2):521–541, 1986.
+ [9] G. Csordas and R. S. Varga. Necessary and sufficient conditions and the Riemann hypothesis.
+     Adv. in Appl. Math., 11(3):328–357, 1990.
+[10] H. B. Curry and I. J. Schoenberg. On Pólya frequency functions. IV. The fundamental spline
+     functions and their limits. J. Analyse Math., 17:71–107, 1966.
+[11] B. Efron. Increasing properties of Pólya frequency functions. Ann. Math. Statist., 36:272–279,
+     1965.
+[12] M. Griffin, K. Ono, L. Rolen, and D. Zagier. Jensen polynomials for the Riemann zeta
+     function and other sequences. Proc. Natl. Acad. Sci. USA, 116(23):11103–11110, 2019.
+[13] K. Gröchenig, J. L. Romero, and J. Stöckler. Sampling theorems for shift-invariant spaces,
+     Gabor frames, and totally positive functions. Invent. Math., 211(3):1119–1148, 2018.
+[14] K. Gröchenig, J. L. Romero, and J. Stöckler. Sharp results on sampling with derivatives in
+     shift-invariant spaces and multi-window Gabor frames. Constr. Approx., 51(1):1–25, 2020.
+[15] K. Gröchenig and J. Stöckler. Gabor frames and totally positive functions. Duke Math. J.,
+     162(6):1003–1031, 2013.
+[16] H. Hamburger. Bemerkungen zu einer Fragestellung des Herrn Pólya. Math. Z., 7(1-4):302–
+     322, 1920.
+[17] A. Ivić. The Riemann zeta-function. Dover Publications, Inc., Mineola, NY, 2003. Theory
+     and applications, Reprint of the 1985 original [Wiley, New York; MR0792089 (87d:11062)].
+[18] H. Iwaniec. Lectures on the Riemann zeta function, volume 62 of University Lecture Series.
+     American Mathematical Society, Providence, RI, 2014.
+[19] S. Karlin. Total positivity. Vol. I. Stanford University Press, Stanford, Calif, 1968.
+[20] O. M. Katkova. Multiple positivity and the Riemann zeta-function. Comput. Methods Funct.
+     Theory, 7(1):13–31, 2007.
+[21] B. J. Levin. Distribution of zeros of entire functions, volume 5 of Translations of Mathemat-
+     ical Monographs. American Mathematical Society, Providence, R.I., revised edition, 1980.
+     Translated from the Russian by R. P. Boas, J. M. Danskin, F. M. Goodspeed, J. Korevaar,
+     A. L. Shields and H. P. Thielman.
+[22] J. Nuttall. Wronskians, cumulants, and the Riemann hypothesis. Constr. Approx., 38(2):193–
+     212, 2013.
+[23] D. Pickrell. Mackey analysis of infinite classical motion groups. Pacific J. Math., 150(1):139–
+     166, 1991.
+[24] G. Pólya. Algebraische Untersuchungen über ganze Funktionen vom Geschlechte Null und
+     Eins. J. Reine Angew. Math., 145: 224–249, 1915.
+               TOTALLY POSITIVE FUNCTIONS AND THE ZETA FUNCTION                                 11
+
+[25] G. Pólya. Bemerkung Über die Integraldarstellung der Riemannschen ξ-Funktion. Acta
+     Math., 48(3-4):305–317, 1926.
+[26] G. Pólya. Collected papers. The MIT Press, Cambridge, Mass.-London, 1974. Vol. II: Location
+     of zeros, Edited by R. P. Boas, Mathematicians of Our Time, Vol. 8.
+[27] G. Pólya and J. Schur. Über zwei Arten von Faktorenfolgen in der Theorie der algebraischen
+     Gleichungen. J. Reine Angew. Math., 144:89–113, 1914.
+[28] B. Rodgers and T. Tao. The de Bruijn–Newman constant is non-negative. Forum Math. Pi,
+     8:e6, 62, 2020.
+[29] I. J. Schoenberg. On totally positive functions, Laplace integrals and entire functions of the
+     Laguerre-Polya-Schur type. Proc. Nat. Acad. Sci. U. S. A., 33:11–17, 1947.
+[30] I. J. Schoenberg. On Pólya frequency functions. II. Variation-diminishing integral operators
+     of the convolution type. Acta Sci. Math. (Szeged), 12:97–106, 1950.
+[31] I. J. Schoenberg. On Pólya frequency functions. I. The totally positive functions and their
+     Laplace transforms. J. Analyse Math., 1:331–374, 1951.
+[32] I. J. Schoenberg. On smoothing operations and their generating functions. Bull. Amer. Math.
+     Soc., 59:199–230, 1953.
+[33] I. J. Schoenberg. Cardinal spline interpolation. Society for Industrial and Applied Mathe-
+     matics, Philadelphia, Pa., 1973. Conference Board of the Mathematical Sciences Regional
+     Conference Series in Applied Mathematics, No. 12.
+[34] I. J. Schoenberg and A. Whitney. On Pólya frequence functions. III. The positivity of trans-
+     lation determinants with an application to the interpolation problem by spline curves. Trans.
+     Amer. Math. Soc., 74:246–259, 1953.
+[35] E. C. Titchmarsh. The theory of the Riemann zeta-function. The Clarendon Press, Oxford
+     University Press, New York, second edition, 1986. Edited and with a preface by D. R. Heath-
+     Brown.
+
+  Faculty of Mathematics, University of Vienna, Oskar-Morgenstern-Platz 1,
+A-1090 Vienna, Austria
+  E-mail address: karlheinz.groechenig@univie.ac.at
+
