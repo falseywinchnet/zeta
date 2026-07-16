@@ -1,0 +1,43 @@
+\section{Exact separator audit}
+\label{app:separator}
+
+This appendix records the algebraic boundary behind
+\eqref{eq:separator-c4}.  Starting from the cumulants
+\(\ell_2,\ldots,\ell_6\), the verifier reconstructs the central moments
+\[
+ m_0=1,\quad m_1=0,\quad m_2=\ell_2,\quad m_3=\ell_3,
+\]
+\[
+ m_4=\ell_4+3\ell_2^2,\qquad
+ m_5=\ell_5+10\ell_3\ell_2,
+\]
+\[
+ m_6=\ell_6+15\ell_4\ell_2+10\ell_3^2+15\ell_2^3,
+\]
+and then forms \(\det[m_{i+j}]_{i,j=0}^3\) directly.  This independently
+regenerates the thirteen-term \(\Cfour\) polynomial; it does not import the
+expansion used for the Riemann kernel.
+
+The recurrence \eqref{eq:separator-N-recurrence} is then applied over
+\(\mathbb Q[t]\).  Substitution of \eqref{eq:separator-logjets} shows that
+each of the thirteen determinant monomials has common denominator \(P^{12}\).
+After collecting the numerator \(H\), exact rational arithmetic verifies
+\[
+ \deg H=72,\qquad [t^j]H=[t^{72-j}]H>0\quad(0\leq j\leq72),
+\]
+with
+\[
+ \min_{0\leq j\leq72}[t^j]H=\frac3{65536}.
+\]
+Coefficient positivity is a proof on the full domain \(t>0\), not a sampled
+test. Exact spot reconstructions at \(t=1/3,1,4\) independently compare the
+central determinant with \(H/P^{12}\).
+
+For the Fourier step, the identities
+\[
+ w+w^{-1}=u,\quad w^2+w^{-2}=u^2-2,\quad
+ w^3+w^{-3}=u^3-3u
+\]
+give \eqref{eq:separator-cubic} directly.  The only directed numerical step is
+the 192-bit Arb enclosure of its discriminant.  All remaining checks are
+symbolic or exact rational arithmetic.

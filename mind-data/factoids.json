@@ -1031,14 +1031,14 @@
     },
     "F000058": {
       "because": [],
-      "content": "Construct and certify a valid continuous PF3 or PF4 separator, then formalize the proposed nowhere-density theorem by specifying a kernel topology and proving the required approximate-identity convergence; CERT1 supplies only the discrete PF4 sequence premise.",
+      "content": "Formalize the proposed nowhere-density theorem by specifying a kernel topology and proving the required approximate-identity convergence; the continuous strict-PF4 separator is now certified separately by CERT10.",
       "created_at": "2026-07-12T19:22:05+00:00",
       "relates_to": [
         "T000032",
         "T000022"
       ],
       "status": "todo",
-      "updated_at": "2026-07-15T05:01:51+00:00"
+      "updated_at": "2026-07-16T16:57:48+00:00"
     },
     "F000059": {
       "because": [
@@ -1400,10 +1400,6 @@
     "F000081": {
       "because": [
         {
-          "id": "F000054",
-          "type": "factoid"
-        },
-        {
           "id": "F000145",
           "type": "factoid"
         },
@@ -1414,9 +1410,17 @@
         {
           "id": "K000009",
           "type": "certificate"
+        },
+        {
+          "id": "F000170",
+          "type": "factoid"
+        },
+        {
+          "id": "K000010",
+          "type": "certificate"
         }
       ],
-      "content": "The Riemann kernel is strictly PF4 but not PF5, so its exact global Polya-frequency order is four; the current separator does not establish whether continuous PF4 membership alone is insufficient for Fourier real-rootedness, and any kernel-specific transition invariant requires a separate theorem.",
+      "content": "The Riemann kernel is strictly PF4 but not PF5, while an explicit positive even Schwartz strict-PF4 kernel has nonreal Fourier zeros; PF4 alone therefore cannot force Fourier real-rootedness, and any successful extra invariant must distinguish the Riemann kernel from this certified separator.",
       "created_at": "2026-07-12T21:49:42+00:00",
       "relates_to": [
         "T000012",
@@ -1424,7 +1428,7 @@
         "T000003"
       ],
       "status": "established",
-      "updated_at": "2026-07-15T05:02:06+00:00"
+      "updated_at": "2026-07-16T16:57:48+00:00"
     },
     "F000082": {
       "because": [
@@ -3008,8 +3012,130 @@
       ],
       "status": "established",
       "updated_at": "2026-07-15T03:54:46+00:00"
+    },
+    "F000165": {
+      "because": [
+        {
+          "id": "K000010",
+          "type": "certificate"
+        }
+      ],
+      "content": "For c=1/64 and B(w)=sum from k=-3 to 3 of b_k w^k with coefficients (2,10,23,30,23,10,2), the kernel f(x)=exp(-c x^2) B(exp(2c x)) is positive, even, smooth, and Schwartz.",
+      "created_at": "2026-07-16T16:57:27+00:00",
+      "relates_to": [
+        "T000012",
+        "T000006"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-16T16:57:27+00:00"
+    },
+    "F000166": {
+      "because": [
+        {
+          "id": "F000141",
+          "type": "factoid"
+        },
+        {
+          "id": "K000010",
+          "type": "certificate"
+        }
+      ],
+      "content": "The explicit kernel f(x)=exp(-x^2/64) B(exp(x/32)) is strictly PF3: its curvature satisfies q>0 and F2=q^3-(q q-double-prime-(q-prime)^2)>0 globally, so the certified PF3 slope criterion applies.",
+      "created_at": "2026-07-16T16:57:27+00:00",
+      "relates_to": [
+        "T000011"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-16T16:57:27+00:00"
+    },
+    "F000167": {
+      "because": [
+        {
+          "id": "K000010",
+          "type": "certificate"
+        }
+      ],
+      "content": "For the explicit separator kernel, the confluent order-four invariant is C4=H(t)/P(t)^12 with t=exp(x/32), where H is a degree-72 palindromic polynomial whose 73 coefficients are strictly positive; hence C4>0 globally.",
+      "created_at": "2026-07-16T16:57:27+00:00",
+      "relates_to": [
+        "T000012"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-16T16:57:27+00:00"
+    },
+    "F000168": {
+      "because": [
+        {
+          "id": "K000010",
+          "type": "certificate"
+        },
+        {
+          "id": "F000165",
+          "type": "factoid"
+        }
+      ],
+      "content": "The entire Fourier transform of the explicit strict-PF4 separator has nonreal zeros: its Gaussian factor is zero-free and its palindromic Laurent factor reduces to a real cubic with strictly negative directed discriminant.",
+      "created_at": "2026-07-16T16:57:27+00:00",
+      "relates_to": [
+        "T000006",
+        "T000012"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-16T16:57:48+00:00"
+    },
+    "F000169": {
+      "because": [
+        {
+          "id": "F000166",
+          "type": "factoid"
+        },
+        {
+          "id": "F000167",
+          "type": "factoid"
+        },
+        {
+          "id": "K000009",
+          "type": "certificate"
+        },
+        {
+          "id": "K000010",
+          "type": "certificate"
+        }
+      ],
+      "content": "The explicit positive even Schwartz separator kernel is strictly PF4: strict PF3 and global C4>0 feed the certified positive crossing-kernel transport identity and quotient-Wronskian equivalence.",
+      "created_at": "2026-07-16T16:57:35+00:00",
+      "relates_to": [
+        "T000012"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-16T16:57:35+00:00"
+    },
+    "F000170": {
+      "because": [
+        {
+          "id": "F000169",
+          "type": "factoid"
+        },
+        {
+          "id": "F000168",
+          "type": "factoid"
+        },
+        {
+          "id": "K000010",
+          "type": "certificate"
+        }
+      ],
+      "content": "Continuous PF3 membership and continuous PF4 membership are each insufficient by themselves to force Fourier real-rootedness, even among positive even Schwartz kernels.",
+      "created_at": "2026-07-16T16:57:35+00:00",
+      "relates_to": [
+        "T000011",
+        "T000012",
+        "T000006"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-16T16:57:48+00:00"
     }
   },
-  "next_id": 165,
+  "next_id": 171,
   "version": 1
 }

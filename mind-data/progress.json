@@ -263,8 +263,12 @@
     "P000066": {
       "blurb": "Construct an explicit positive even Schwartz strict-PF4 kernel with certified nonreal Fourier zeros, closing the continuous PF3/PF4 insufficiency gaps in the advancement work layer",
       "created_at": "2026-07-16T16:47:00+00:00"
+    },
+    "P000067": {
+      "blurb": "Audit and certify the continuous strict-PF4 Fourier separator, integrate R165-R170, and add the complete insufficiency proof to the maintained paper",
+      "created_at": "2026-07-16T17:05:36+00:00"
     }
   },
-  "next_id": 67,
+  "next_id": 68,
   "version": 1
 }

@@ -1,6 +1,6 @@
 \section{Reproducibility and evidence boundary}\label{sec:reproducibility}
 
-The proof has four replay boundaries.
+The paper has five replay boundaries.
 \begin{center}
 \small
 \begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.25\textwidth}
@@ -17,6 +17,9 @@ Quotient reduction &
 \path{scripts/verify_pf4_wronskian_reduction.py} & exact generic algebra \\
 Transport completion &
 \path{scripts/verify_pf4_transport_kernel.py} & exact algebra and checks \\
+Continuous strict-\(\PF_4\) separator &
+\texttt{scripts/verify\_continuous\_}\newline
+\texttt{pf4\_separator.py} & exact and directed \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -39,5 +42,8 @@ A focused independent audit should proceed in this order:
  \item check the endpoint identity in \appref{app:endpoints};
  \item differentiate the density ratio in
        \eqref{eq:density-ratio-derivative}.
+ \item reconstruct the separator's central determinant; then verify the
+       coefficient signs and Fourier discriminant in \appref{app:separator}.
 \end{enumerate}
-No numerical scan is used as evidence for global nonconfluent positivity.
+No numerical scan is used as evidence for global nonconfluent positivity of
+either kernel.
