@@ -2,15 +2,16 @@
 
 Let \(F_\mu,F_\nu\) be the CDFs of \eqref{eq:mu}--\eqref{eq:nu}, and put
 \[
- W(y)=F_\mu(y)-F_\nu(y).
+ \Delta(y)=F_\mu(y)-F_\nu(y).
 \]
 
 \begin{lemma}[Strict stochastic ordering]\label{lem:crossing}
-One has \(W(y)>0\) for \(p<y<w\), while \(W(p)=W(w)=0\).
+One has \(\Delta(y)>0\) for \(p<y<w\), while
+\(\Delta(p)=\Delta(w)=0\).
 \end{lemma}
 
 \begin{proof}
-On \([z,w]\), \(F_\mu=1\), so \(W=1-F_\nu>0\) before \(w\). On
+On \([z,w]\), \(F_\mu=1\), so \(\Delta=1-F_\nu>0\) before \(w\). On
 \((p,z)\), the ratio of the two positive densities is
 \begin{equation}\label{eq:density-ratio}
  R_0(y)=\frac{\dd\mu/\dd y}{\dd\nu/\dd y}
@@ -21,10 +22,10 @@ Writing \(C=\Lambda/(L\delta)>0\), direct differentiation gives
  R_0'(y)=-\frac{C(z-p)}{(y-p)^2}<0.
 \end{equation}
 Thus \(R_0\) decreases strictly from \(+\infty\) to \(0\). Hence
-\(W'=\mu'-\nu'\) changes sign exactly once, from positive to negative. Since
-\(W(p)=0\) and
+\(\Delta'=\mu'-\nu'\) changes sign exactly once, from positive to negative.
+Since \(\Delta(p)=0\) and
 \[
- W(z)=1-F_\nu(z)=\nu((z,w])>0,
+ \Delta(z)=1-F_\nu(z)=\nu((z,w])>0,
 \]
 the function cannot return to zero on \((p,z]\). The right interval was
 already handled.
@@ -33,13 +34,12 @@ already handled.
 Integration by parts for CDFs, using \(A_0'=D\) and the common total mass,
 turns Lemma~\ref{lem:transport} into
 \begin{equation}\label{eq:crossing-integral}
- K=\int_p^w W(y)D(y)\dd y.
+ K=\int_p^w \Delta(y)D(y)\dd y.
 \end{equation}
 Combining \eqref{eq:K-def}, \eqref{eq:C4-curvature}, and
 \eqref{eq:crossing-integral} gives the central identity
 \begin{equation}\label{eq:central-identity}
  \mathcal N=\delta\Lambda\int_p^w
- W(y)\frac{\Cfour(y)}{Q(y)^6\kappa(y)^2}\dd y>0.
+ \Delta(y)\frac{\Cfour(y)}{Q(y)^6\kappa(y)^2}\dd y>0.
 \end{equation}
 Every factor in the interior is strictly positive.
-

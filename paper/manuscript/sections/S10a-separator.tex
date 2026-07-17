@@ -17,17 +17,18 @@ palindromy of \((b_k)\) proves evenness.
 
 \subsection{Strict \texorpdfstring{$\PF_3$}{PF3}}
 
-For fixed \(x\), give \(K\in\{-3,\ldots,3\}\) probability proportional to
-\(b_ke^{2ckx}\), and write \(\kappa_j\) for its cumulants. Differentiation of
+For fixed \(x\), give \(\mathsf X\in\{-3,\ldots,3\}\) probability
+proportional to \(b_ke^{2ckx}\), and write \(\chi_j\) for its cumulants.
+Differentiation of
 the finite log-partition function gives
 \begin{equation}\label{eq:separator-cumulants}
- q=2c-(2c)^2\kappa_2,\qquad
- q'=-(2c)^3\kappa_3,\qquad
- q''=-(2c)^4\kappa_4.
+ q=2c-(2c)^2\chi_2,\qquad
+ q'=-(2c)^3\chi_3,\qquad
+ q''=-(2c)^4\chi_4.
 \end{equation}
-If \(\mu=\mathbb EK\), then
-\(0\leq\mathbb E[(K+3)(3-K)]=9-\kappa_2-\mu^2\).
-Thus \(0\leq\kappa_2\leq9\), and hence
+If \(\bar x=\mathbb E\mathsf X\), then
+\(0\leq\mathbb E[(\mathsf X+3)(3-\mathsf X)]=9-\chi_2-\bar x^2\).
+Thus \(0\leq\chi_2\leq9\), and hence
 \begin{equation}\label{eq:separator-q}
  q\geq2c(1-18c)=2c\frac{23}{32}>0.
 \end{equation}
@@ -35,10 +36,11 @@ Moreover,
 \begin{align}
  F_2
  &=q^3-\{qq''-(q')^2\}\notag\\
- &=q^3+q(2c)^4\kappa_4+(2c)^6\kappa_3^2.       \label{eq:separator-f2}
+ &=q^3+q(2c)^4\chi_4+(2c)^6\chi_3^2.       \label{eq:separator-f2}
 \end{align}
-The identity \(\kappa_4=\mathbb E(K-\mathbb EK)^4-3\kappa_2^2\) gives
-\(\kappa_4\geq-243\).  Dropping the final nonnegative term in
+The identity
+\(\chi_4=\mathbb E(\mathsf X-\mathbb E\mathsf X)^4-3\chi_2^2\) gives
+\(\chi_4\geq-243\). Dropping the final nonnegative term in
 \eqref{eq:separator-f2} gives
 \[
  F_2\geq q\{q^2-3888c^4\}.
@@ -73,10 +75,10 @@ Insert these jets into the central-moment determinant
 term may first be put over the common denominator \(P^{12}\). The resulting
 numerator has the exact factor \(P^8\). After cancellation,
 \begin{equation}\label{eq:separator-c4}
- \Cfour[f_*](x)=\frac{\widetilde H(t)}{2^{54}P(t)^4}.
+ \Cfour[f_*](x)=\frac{\mathcal G(t)}{2^{54}P(t)^4}.
 \end{equation}
 The exact expansion printed in \appref{app:separator} proves that
-\(\widetilde H\) is palindromic of degree 24 and that all 25 integer
+\(\mathcal G\) is palindromic of degree 24 and that all 25 integer
 coefficients are strictly positive. Hence \(\Cfour[f_*]>0\) on \(\R\).
 
 The established inequalities \(q>0\) and \(F_2>0\) also give

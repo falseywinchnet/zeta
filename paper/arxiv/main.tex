@@ -7,9 +7,9 @@
 \usepackage{xcolor}
 \hypersetup{
   pdftitle={Strict Global PF4 for the Riemann Kernel and a Continuous Fourier Separator},
-  pdfauthor={Joshua Rainstar},
+  pdfauthor={Joshuah Rainstar},
   pdfsubject={Finite-order total positivity of the Riemann kernel},
-  pdfkeywords={Polya-frequency function, total positivity, Riemann kernel, entire function, characteristic function, Wronskian, Fourier transform}
+  pdfkeywords={Polya-frequency function, total positivity, Riemann kernel, entire function, Wronskian, Fourier transform, exact certificate}
 }
 
 \newtheorem{theorem}{Theorem}[section]
@@ -34,8 +34,8 @@
 
 \title{Strict Global \texorpdfstring{$\PF_4$}{PF4} for the Riemann Kernel\\
 and a Continuous Fourier Separator}
-\author{Joshua Rainstar\\
-\small OpenAI\\
+\author{Joshuah Rainstar\\
+\small Airspy, Inc.\\
 \small\href{mailto:joshuah.rainstar@gmail.com}{\texttt{joshuah.rainstar@gmail.com}}}
 \date{16 July 2026}
 
@@ -57,24 +57,25 @@ quotient-Wronskian argument reduces arbitrary fourth-order minors to
 is
 \[
  \delta\Lambda\int_p^w
- W(t)\frac{\Cfour(t)}{Q(t)^6\kappa(t)^2}\dd t.
+ \Delta(t)\frac{\Cfour(t)}{Q(t)^6\kappa(t)^2}\dd t.
 \]
-Here \(W\) is the difference of two explicitly normalized triangular CDFs.
-Its strict positivity follows from a one-crossing density ratio. The transport
+Here \(\Delta\) is the difference of the CDFs of two explicitly normalized,
+curvature-tilted triangular densities. Its strict positivity follows from a
+one-crossing density ratio. The transport
 reductions and analytic sign estimates are given explicitly, with a table of
 the finite polynomial inequalities used for the three global signs.
 We then construct an explicit positive even Schwartz kernel which is itself
 strictly \(\PF_4\) but whose entire Fourier transform has nonreal zeros; the
-latter conclusion follows from a short exact discriminant inequality. Thus
-continuous \(\PF_3\) and \(\PF_4\) membership alone do not force Fourier
-real-rootedness.
+latter conclusion follows from a short exact discriminant inequality. This
+delimits the finite-order reach of Schoenberg's infinite-order transform
+correspondence.
 \end{abstract}
 \noindent\textbf{2020 Mathematics Subject Classification.}
 15B48 (primary); 42A38, 30D15, 11M26 (secondary).
 
 \noindent\textbf{Keywords.}
 Polya-frequency function, total positivity, Riemann kernel, entire function,
-characteristic function, Wronskian, Fourier transform, computer-assisted proof.
+Wronskian, Fourier transform, exact certificate.
 \tableofcontents
 
 \section{Introduction}\label{sec:introduction}
@@ -108,10 +109,10 @@ exact consequence.
 The exact global Polya-frequency order of \(\Phi\) is four.
 \end{corollary}
 
-The exact-order classification and the Fourier question are distinct. At the
-proved order-four level, the following example shows that finite-order
-membership alone does not force Fourier real-rootedness, even within the
-positive even Schwartz class.
+The exact-order classification and the Fourier question are distinct. The
+following example marks a precise finite-order boundary for Schoenberg's
+infinite-order transform correspondence, even within the positive even
+Schwartz class.
 
 \begin{theorem}[Continuous \(\PF_4\) Fourier separator]\label{thm:separator}
 There is an explicit positive even Schwartz function \(f_*\) which is strict
@@ -131,8 +132,10 @@ the derivative of \(\Psi\) into a positive crossing-kernel integral of
 
 The finite part of the first input consists of exact rational Bernstein
 coefficients on fixed algebraic domains, followed by analytic bounds for all
-remaining theta modes; \appref{app:tail} lists the domains, degrees, and minimum
-coefficients. The transport algebra is proved in the text, and the order-five
+remaining theta modes; \appref{app:tail} lists the transformed target
+polynomials, domains, degrees, minimum coefficients, derivative envelopes,
+and the surviving relative margins. The transport algebra is proved in the
+text, and the order-five
 calculation uses rational enclosures and elementary series bounds.
 Theorem~\ref{thm:separator}, proved in \secref{sec:separator}, supplies an
 explicit order-four counterexample rather than a finite-order sufficiency
@@ -162,11 +165,32 @@ correspondence relevant to the Riemann Hypothesis: the PF function there is
 recovered from the reciprocal of a Laguerre--Polya entire function, rather than
 identified with the original Riemann kernel~\cite{grochenig}.
 
-A preliminary version of the present work containing a \(\PF_5\)
-counterexample was sent to a publisher in July 2025. The order-five argument
-below uses an exact origin-confluent sign. The classification proved here is
-global strict \(\PF_4\), hence exact order four; Theorem~\ref{thm:separator}
-separately gives a continuous finite-order Fourier separator.
+Micha\l{}owski first published an explicit negative \(5\times5\) Toeplitz
+minor for this kernel, supported by an interval computation, together with
+single-configuration positivity checks at orders at most
+four~\cite{michalowski}. Global \(\PF_4\) and a symbolic proof of the order-five
+leading sign are posed there as Open Problems 1 and 2. Theorem~\ref{thm:main}
+resolves the first, and Lemma~\ref{lem:origin-pf5-sign} resolves the second in
+strengthened form. Indeed, for the Toeplitz determinant
+\[
+ D_r(u_0,h)=\det[\Phi(u_0+(i-j)h)]_{i,j=0}^{r-1},
+\]
+Lemma~\ref{lem:confluent-limit} gives its leading coefficient as
+\[
+ C_r(u_0)=
+ \frac{(-1)^{r(r-1)/2}V(0,\ldots,r-1)^2}
+ {\prod_{k=0}^{r-1}(k!)^2}
+ \det[\Phi^{(i+j)}(u_0)]_{i,j=0}^{r-1}.
+\]
+For \(r=5\) the sign factor is positive, only derivatives through order eight
+occur, and the limit as \(u_0\to0^+\) is a positive multiple of the
+parity-factorized determinant \(\mathsf H_5=CB<0\) computed exactly in
+Lemma~\ref{lem:origin-pf5-sign}. Continuity therefore gives
+\(C_5(u_0)<0\) for every sufficiently small positive \(u_0\).
+
+Theorem~\ref{thm:separator} further shows where the infinite-order transform
+conclusion ceases to follow from finite-order positivity: even strict
+\(\PF_3\) or \(\PF_4\) does not control all Fourier zeros.
 \section{The kernel and smooth even continuation}\label{sec:kernel}
 
 Put
@@ -183,6 +207,8 @@ real analytic and even. Define
 \[
  \Phi(t)=\frac12\left(H''(t)-\frac14H(t)\right).
 \]
+This is twice the common de Bruijn kernel normalization; multiplication by a
+positive constant changes none of the PF signs or strictness statements.
 Termwise differentiation gives, for every real \(t\),
 \begin{equation}\label{eq:kernel-series}
  \Phi(t)=\sum_{n\geq1}
@@ -241,25 +267,29 @@ For the kernel \(\Phi\),
 The proof combines exact rational polynomial inequalities with analytic
 theta-tail bounds. For \(u\geq0\), put
 \[
- x=\pi e^{2u},\qquad y=e^{-3x},\qquad P_0(z)=2z-3,
+ x=\pi e^{2u},\qquad \eta=e^{-3x},\qquad R_0(z)=2z-3,
 \]
 and recursively
 \[
- P_{j+1}(z)=\left(\frac52-2z\right)P_j(z)+2zP_j'(z).
+ R_{j+1}(z)=\left(\frac52-2z\right)R_j(z)+2zR_j'(z).
 \]
 After division by the positive first theta mode, the first two modes give the
 normalized jet entries
 \[
- a_j(x,y)=\frac{P_j(x)+4yP_j(4x)}{P_0(x)}.
+ a_j(x,\eta)=\frac{R_j(x)+4\eta R_j(4x)}{R_0(x)}.
 \]
 Exact rational Bernstein coefficients on three fixed algebraic domains prove
 \[
  q_{1,2}>10,\qquad (F_2)_{1,2}>1000,
  \qquad (\Cfour)_{1,2}>50{,}000{,}000.
 \]
-The complete contribution of modes \(n\geq3\) is then bounded by one
-monotone polynomial-geometric estimate. Its changes in the cleared sign
-numerators are smaller than the three displayed margins, both on
+Here the half-line certificates are applied directly to the cleared
+numerators of the shifted targets \(q_{1,2}-10\),
+\((F_2)_{1,2}-1000\), and
+\((\Cfour)_{1,2}-50{,}000{,}000\). The complete contribution of modes
+\(n\geq3\) is bounded by one monotone polynomial-geometric estimate. Its
+changes in the same cleared sign numerators are smaller than the three
+displayed margins, both on
 \(\pi\leq x\leq5\) and on \(x\geq5\). Evenness completes the real line.
 All inequalities, including the derivative envelopes used on the tail, are
 derived in \appref{app:tail}. The exact replay uses no floating
@@ -279,7 +309,13 @@ Set \(f_0=q'/q\). Because \(s'=-q\),
 \]
 thus \(M(a,b)\) is a \(q\)-weighted mean of \(f_0\). Choose a point
 \(u\in[\xi,m]\) where \(f_0\) is minimal on the left interval and a point
-\(v\in[m,r]\) where it is maximal on the right. Then
+\(v\in[m,r]\) where it is maximal on the right. The weighted-mean bounds and
+the ordering of the extremizers are
+\[
+ M(\xi,m)\geq f_0(u),\qquad M(m,r)\leq f_0(v),
+ \qquad u\leq m\leq v.
+\]
+Consequently
 \[
  M(m,r)-M(\xi,m)\leq f_0(v)-f_0(u)
  \leq\int_\xi^r\max(f_0'(t),0)\dd t.
@@ -297,13 +333,15 @@ and \(A(\xi,r)=\int_\xi^r q(t)\dd t\), equation
  =\int_\xi^r\frac{\min(q^3,F_2)}{q^2}\dd t>0.
  \label{eq:Lambda-lower}
 \end{align}
-The last inequality follows from Lemma~\ref{lem:certified-input} and
-\(q>0\).
+The second equality uses
+\(q^3-\max(F_1,0)=\min(q^3,q^3-F_1)=\min(q^3,F_2)\); the last inequality
+follows from Lemma~\ref{lem:certified-input} and \(q>0\).
 
 The same quantity is the logarithmic slope derivative in the normalized
 order-three determinant. Hence \eqref{eq:Lambda-lower}, together with strict
 log-concavity, proves strict global \(\PF_3\). We rederive the needed
-Wronskian form in the next section because its signs also control order four.
+Wronskian form in the next section, where the quotient integral transfers
+these confluent signs to every ordered collocation minor.
 \section{Quotient-Wronskian reduction}\label{sec:quotient}
 
 Fix \(y_1<y_2<y_3<y_4\), put \(u_j(t)=\Phi(t-y_j)\), and write
@@ -311,6 +349,12 @@ Fix \(y_1<y_2<y_3<y_4\), put \(u_j(t)=\Phi(t-y_j)\), and write
 \[
  v_j=(u_j/u_1)',\qquad w_j=(v_j/v_2)'.
 \]
+Strict log-concavity gives
+\[
+ v_j=\frac{u_j}{u_1}A(p_j,p_1)>0\qquad(j\geq2).
+\]
+The case \(k=2\) of Lemma~\ref{lem:quotient-integral} below therefore proves
+strict order two directly.
 Successive column division and differentiation give
 \begin{align}
  W(u_1,u_2,u_3)&=u_1^3W(v_2,v_3),\label{eq:W3-quotient}\\
@@ -397,6 +441,39 @@ Determinant multilinearity gives \eqref{eq:iterated-determinant}. Since
 argument applies to the derivative determinant.
 \end{proof}
 
+\begin{lemma}[Confluent divided-difference limit]\label{lem:confluent-limit}
+Let \(f\in C^{2k-2}\), let
+\(V(a)=\prod_{0\leq i<j<k}(a_j-a_i)\), and let \(a,b\) be fixed strictly
+increasing \(k\)-tuples. Then
+\begin{equation}\label{eq:two-sided-confluence}
+ \lim_{h\downarrow0}
+ \frac{\det[f(z+h(a_i-b_j))]_{i,j=0}^{k-1}}
+ {h^{k(k-1)}V(a)V(b)}
+ =\frac{(-1)^{k(k-1)/2}}
+ {\prod_{r=0}^{k-1}(r!)^2}
+ \det[f^{(i+j)}(z)]_{i,j=0}^{k-1}.
+\end{equation}
+If only the row nodes coalesce while \(y_0<\cdots<y_{k-1}\) remain fixed,
+then
+\begin{equation}\label{eq:one-sided-confluence}
+ \lim_{h\downarrow0}
+ \frac{\det[f(z+ha_i-y_j)]_{i,j=0}^{k-1}}
+ {h^{k(k-1)/2}V(a)}
+ =\frac{\det[f^{(i)}(z-y_j)]_{i,j=0}^{k-1}}
+ {\prod_{r=0}^{k-1}r!}.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Apply successive Newton divided-difference row operations, whose divisors
+are the positive numbers \(h(a_j-a_i)\), and let \(h\downarrow0\). This gives
+\eqref{eq:one-sided-confluence}. Applying the same operation to the columns
+gives derivatives with respect to \(-y\), hence the factor
+\((-1)^{0+\cdots+(k-1)}\), and proves
+\eqref{eq:two-sided-confluence}. This records the factorial normalization and
+does not assume a nonzero leading coefficient.
+\end{proof}
+
 \begin{proposition}[Three-point equivalence]\label{prop:equivalence}
 Under the strict lower-order positivity already proved, global \(\PF_4\) is
 equivalent to
@@ -428,13 +505,20 @@ Every factor is positive in the strict case, and every integration interval
 has positive length. This proves positivity of every ordered collocation minor,
 not only of the confluent Wronskian.
 
-Conversely, assume global \(\PF_4\). Let all four row nodes coalesce, divide
-by their positive Vandermonde, and pass to the limit. The resulting translate
-Wronskian is nonnegative. Equations \eqref{eq:W4-quotient} and
-\eqref{eq:L4-Psi} imply
-\(\Psi(p_4;p_2,p_1)\geq\Psi(p_3;p_2,p_1)\) whenever \(p_4<p_3\).
-Thus \(\Psi(\cdot;m,r)\) is nonincreasing, which is equivalent to the stated
-differential inequality because it is smooth.
+Conversely, assume global \(\PF_4\). Fix arbitrary
+\(\xi_1<\xi_2<m<r\), choose any \(t\), and choose the columns so that
+\((p_4,p_3,p_2,p_1)=(\xi_1,\xi_2,m,r)\) at \(t\); explicitly,
+\(y_j=t-p_j\), which preserves \(y_1<\cdots<y_4\). Coalesce arbitrary
+strictly ordered row nodes at \(t\). Equation
+\eqref{eq:one-sided-confluence} and global \(\PF_4\) make the resulting
+translate Wronskian nonnegative. Equations \eqref{eq:W4-quotient} and
+\eqref{eq:L4-Psi} therefore give
+\[
+ \Psi(\xi_1;m,r)\geq\Psi(\xi_2;m,r).
+\]
+Because both the pair \(\xi_1<\xi_2\) and the pair \(m<r\) were arbitrary,
+\(\Psi(\cdot;m,r)\) is nonincreasing for every admissible \(m,r\). Smoothness
+makes this equivalent to the stated differential inequality.
 \end{proof}
 \section{Curvature coordinate and sign bridge}\label{sec:coordinate}
 
@@ -553,17 +637,19 @@ With \(K\) as in \eqref{eq:K-def},
 \begin{proof}
 Two elementary primitives carry the complete cancellation:
 \begin{align}
- \kappa A_0&=H',& H&=3y^2-3Q-3yQ'+(Q')^2+QQ'',\label{eq:H}\\
- H&=J',& J&=y^3-3yQ+QQ'.\label{eq:J}
+ \kappa A_0&=\mathcal H',&
+ \mathcal H&=3y^2-3Q-3yQ'+(Q')^2+QQ'',\label{eq:H}\\
+ \mathcal H&=\mathcal J',& \mathcal J&=y^3-3yQ+QQ'.\label{eq:J}
 \end{align}
 Both identities follow by one differentiation.
 
-Let \(I_L=J(z)-J(p)\) and \(I_R=J(w)-J(z)\). Integrating the linear weights
+Let \(I_L=\mathcal J(z)-\mathcal J(p)\) and
+\(I_R=\mathcal J(w)-\mathcal J(z)\). Integrating the linear weights
 in \eqref{eq:mu}--\eqref{eq:nu} by parts once gives
 \begin{equation}\label{eq:expectation-endpoint}
  \E_\nu[A_0]-\E_\mu[A_0]
  =\frac{-I_L/L+I_R/R}{\Lambda}
- +\frac{LH(p)-I_L}{L^2\delta}.
+ +\frac{L\mathcal H(p)-I_L}{L^2\delta}.
 \end{equation}
 On the other hand, differentiation of the triangular integrals along \(\T\)
 gives
@@ -589,20 +675,20 @@ The endpoint identity equating \eqref{eq:expectation-endpoint} and
 values of \(Q,Q',Q''\); no bound or polynomial model is used. This proves
 \eqref{eq:transport-expectation}.
 \end{proof}
-
 \section{The positive crossing kernel}\label{sec:crossing}
 
 Let \(F_\mu,F_\nu\) be the CDFs of \eqref{eq:mu}--\eqref{eq:nu}, and put
 \[
- W(y)=F_\mu(y)-F_\nu(y).
+ \Delta(y)=F_\mu(y)-F_\nu(y).
 \]
 
 \begin{lemma}[Strict stochastic ordering]\label{lem:crossing}
-One has \(W(y)>0\) for \(p<y<w\), while \(W(p)=W(w)=0\).
+One has \(\Delta(y)>0\) for \(p<y<w\), while
+\(\Delta(p)=\Delta(w)=0\).
 \end{lemma}
 
 \begin{proof}
-On \([z,w]\), \(F_\mu=1\), so \(W=1-F_\nu>0\) before \(w\). On
+On \([z,w]\), \(F_\mu=1\), so \(\Delta=1-F_\nu>0\) before \(w\). On
 \((p,z)\), the ratio of the two positive densities is
 \begin{equation}\label{eq:density-ratio}
  R_0(y)=\frac{\dd\mu/\dd y}{\dd\nu/\dd y}
@@ -613,10 +699,10 @@ Writing \(C=\Lambda/(L\delta)>0\), direct differentiation gives
  R_0'(y)=-\frac{C(z-p)}{(y-p)^2}<0.
 \end{equation}
 Thus \(R_0\) decreases strictly from \(+\infty\) to \(0\). Hence
-\(W'=\mu'-\nu'\) changes sign exactly once, from positive to negative. Since
-\(W(p)=0\) and
+\(\Delta'=\mu'-\nu'\) changes sign exactly once, from positive to negative.
+Since \(\Delta(p)=0\) and
 \[
- W(z)=1-F_\nu(z)=\nu((z,w])>0,
+ \Delta(z)=1-F_\nu(z)=\nu((z,w])>0,
 \]
 the function cannot return to zero on \((p,z]\). The right interval was
 already handled.
@@ -625,16 +711,15 @@ already handled.
 Integration by parts for CDFs, using \(A_0'=D\) and the common total mass,
 turns Lemma~\ref{lem:transport} into
 \begin{equation}\label{eq:crossing-integral}
- K=\int_p^w W(y)D(y)\dd y.
+ K=\int_p^w \Delta(y)D(y)\dd y.
 \end{equation}
 Combining \eqref{eq:K-def}, \eqref{eq:C4-curvature}, and
 \eqref{eq:crossing-integral} gives the central identity
 \begin{equation}\label{eq:central-identity}
  \mathcal N=\delta\Lambda\int_p^w
- W(y)\frac{\Cfour(y)}{Q(y)^6\kappa(y)^2}\dd y>0.
+ \Delta(y)\frac{\Cfour(y)}{Q(y)^6\kappa(y)^2}\dd y>0.
 \end{equation}
 Every factor in the interior is strictly positive.
-
 \section{Completion and exact order}\label{sec:completion}
 
 Equation \eqref{eq:sign-bridge} and \eqref{eq:central-identity} imply
@@ -644,18 +729,15 @@ Equation \eqref{eq:sign-bridge} and \eqref{eq:central-identity} imply
 Proposition~\ref{prop:equivalence} therefore proves
 Theorem~\ref{thm:main}.
 
-Micha\l{}owski also studied order-five Toeplitz obstructions numerically
-\cite{michalowski}; here a direct origin-confluent determinant suffices.
-
 We now prove directly that the classification stops at order four. Put
 \[
- H_k=\det[\Phi^{(i+j)}(0)]_{i,j=0}^{k-1},\qquad
+ \mathsf H_k=\det[\Phi^{(i+j)}(0)]_{i,j=0}^{k-1},\qquad
  s_j=\Phi^{(j)}(0).
 \]
 Since \(\Phi\) is even, simultaneous parity permutations of the rows and
 columns give
 \[
- H_4=AB,\qquad H_5=CB,
+ \mathsf H_4=AB,\qquad \mathsf H_5=CB,
 \]
 where
 \[
@@ -676,19 +758,19 @@ For the Riemann kernel,
  445<A<446,\qquad 189223<B<189228,
  \qquad -674000000<C<-614000000.
 \]
-In particular, \(H_4>0\) and \(H_5<0\).
+In particular, \(\mathsf H_4>0\) and \(\mathsf H_5<0\).
 \end{lemma}
 
 \begin{proof}
 For \(x=\pi n^2e^{2u}\), the \(n\)-th summand of \(\Phi(u)\) is
-\(e^{u/2-x}P_0(x)\), where \(P_0(x)=2x(2x-3)\). If its \(j\)-th derivative
-is \(e^{u/2-x}P_j(x)\), then
+\(e^{u/2-x}T_0(x)\), where \(T_0(x)=2x(2x-3)\). If its \(j\)-th derivative
+is \(e^{u/2-x}T_j(x)\), then
 \[
- P_{j+1}=2xP_j'+(1/2-2x)P_j.
+ T_{j+1}=2xT_j'+(1/2-2x)T_j.
 \]
 Thus
 \[
- s_j=\sum_{n\ge1}e^{-\pi n^2}P_j(\pi n^2).
+ s_j=\sum_{n\ge1}e^{-\pi n^2}T_j(\pi n^2).
 \]
 The first three modes are enclosed by rational alternating-series bounds.
 Machin's identity
@@ -697,10 +779,10 @@ and argument division followed by the degree-29 and degree-30 alternating
 Taylor sums supplies rational bounds for each exponential.
 
 For the omitted modes, let \(S_j\) be the sum of the absolute coefficients of
-\(P_j\). Since \(\deg P_j=j+2\), \(3<\pi<22/7\), and
+\(T_j\). Since \(\deg T_j=j+2\), \(3<\pi<22/7\), and
 \(e^3>\sum_{r=0}^8 3^r/r!>20\),
 \[
- \sum_{n\ge4}|P_j(\pi n^2)|e^{-\pi n^2}
+ \sum_{n\ge4}|T_j(\pi n^2)|e^{-\pi n^2}
  \leq
  \frac{S_j(22/7)^{j+2}4^{2j+4}20^{-16}}
  {1-(5/4)^{20}20^{-9}}
@@ -725,17 +807,8 @@ The Riemann kernel is not \(\PF_5\).
 \end{theorem}
 
 \begin{proof}
-For a \(C^{2k-2}\) function \(f\), repeated row and column divided differences
-give, for increasing fixed tuples \(a,b\),
-\[
- \lim_{h\downarrow0}
- \frac{\det[f(z+h(a_i-b_j))]_{i,j=0}^{k-1}}
- {h^{k(k-1)}V(a)V(b)}
- =\frac{(-1)^{k(k-1)/2}}
- {\prod_{r=0}^{k-1}(r!)^2}
- \det[f^{(i+j)}(z)]_{i,j=0}^{k-1}.
-\]
-Take \(k=5\), \(z=0\), and \(a_i=b_i=i\). The sign factor is one, both
+Apply Lemma~\ref{lem:confluent-limit} with \(k=5\), \(z=0\), and
+\(a_i=b_i=i\). The sign factor in \eqref{eq:two-sided-confluence} is one, both
 Vandermonde factors are positive, and Lemma~\ref{lem:origin-pf5-sign} makes
 the limit strictly negative. Hence
 \(\det[\Phi((i-j)h)]_{i,j=0}^4<0\) for every sufficiently small positive
@@ -776,17 +849,18 @@ palindromy of \((b_k)\) proves evenness.
 
 \subsection{Strict \texorpdfstring{$\PF_3$}{PF3}}
 
-For fixed \(x\), give \(K\in\{-3,\ldots,3\}\) probability proportional to
-\(b_ke^{2ckx}\), and write \(\kappa_j\) for its cumulants. Differentiation of
+For fixed \(x\), give \(\mathsf X\in\{-3,\ldots,3\}\) probability
+proportional to \(b_ke^{2ckx}\), and write \(\chi_j\) for its cumulants.
+Differentiation of
 the finite log-partition function gives
 \begin{equation}\label{eq:separator-cumulants}
- q=2c-(2c)^2\kappa_2,\qquad
- q'=-(2c)^3\kappa_3,\qquad
- q''=-(2c)^4\kappa_4.
+ q=2c-(2c)^2\chi_2,\qquad
+ q'=-(2c)^3\chi_3,\qquad
+ q''=-(2c)^4\chi_4.
 \end{equation}
-If \(\mu=\mathbb EK\), then
-\(0\leq\mathbb E[(K+3)(3-K)]=9-\kappa_2-\mu^2\).
-Thus \(0\leq\kappa_2\leq9\), and hence
+If \(\bar x=\mathbb E\mathsf X\), then
+\(0\leq\mathbb E[(\mathsf X+3)(3-\mathsf X)]=9-\chi_2-\bar x^2\).
+Thus \(0\leq\chi_2\leq9\), and hence
 \begin{equation}\label{eq:separator-q}
  q\geq2c(1-18c)=2c\frac{23}{32}>0.
 \end{equation}
@@ -794,10 +868,11 @@ Moreover,
 \begin{align}
  F_2
  &=q^3-\{qq''-(q')^2\}\notag\\
- &=q^3+q(2c)^4\kappa_4+(2c)^6\kappa_3^2.       \label{eq:separator-f2}
+ &=q^3+q(2c)^4\chi_4+(2c)^6\chi_3^2.       \label{eq:separator-f2}
 \end{align}
-The identity \(\kappa_4=\mathbb E(K-\mathbb EK)^4-3\kappa_2^2\) gives
-\(\kappa_4\geq-243\).  Dropping the final nonnegative term in
+The identity
+\(\chi_4=\mathbb E(\mathsf X-\mathbb E\mathsf X)^4-3\chi_2^2\) gives
+\(\chi_4\geq-243\). Dropping the final nonnegative term in
 \eqref{eq:separator-f2} gives
 \[
  F_2\geq q\{q^2-3888c^4\}.
@@ -832,10 +907,10 @@ Insert these jets into the central-moment determinant
 term may first be put over the common denominator \(P^{12}\). The resulting
 numerator has the exact factor \(P^8\). After cancellation,
 \begin{equation}\label{eq:separator-c4}
- \Cfour[f_*](x)=\frac{\widetilde H(t)}{2^{54}P(t)^4}.
+ \Cfour[f_*](x)=\frac{\mathcal G(t)}{2^{54}P(t)^4}.
 \end{equation}
 The exact expansion printed in \appref{app:separator} proves that
-\(\widetilde H\) is palindromic of degree 24 and that all 25 integer
+\(\mathcal G\) is palindromic of degree 24 and that all 25 integer
 coefficients are strictly positive. Hence \(\Cfour[f_*]>0\) on \(\R\).
 
 The established inequalities \(q>0\) and \(F_2>0\) also give
@@ -932,14 +1007,15 @@ Package versions and the complete artifact hashes are also recorded in
 \section{Declarations, availability, and computational provenance}
 
 \paragraph{Author contribution.}
-Joshua Rainstar conceived and directed the project, developed the proof
+Joshuah Rainstar conceived and directed the project, developed the proof
 architecture, verified the exact computations, and prepared
 the manuscript.
 
 \paragraph{Acknowledgments and computational assistance.}
-The author acknowledges the use of OpenAI Codex and other disclosed AI systems
-for symbolic calculation, implementation, drafting, and review. The author
-takes responsibility for the mathematical claims and the final manuscript.
+The author acknowledges the use of OpenAI Codex and ChatGPT, Anthropic Claude,
+and Moonshot AI Kimi for symbolic calculation, implementation, drafting, and
+review. The author takes responsibility for the mathematical claims and the
+final manuscript.
 
 \paragraph{Conflict of interest.}
 The author declares no competing interests.
@@ -1083,38 +1159,42 @@ Therefore \(\Cfour=Q^6\kappa^2D\), proving
 This appendix proves Lemma~\ref{lem:certified-input}. The positive-side
 theta series has \(j\)-th derivative
 \[
- 2\pi n^2e^{5u/2-n^2x}P_j(n^2x),\qquad x=\pi e^{2u},
+ 2\pi n^2e^{5u/2-n^2x}R_j(n^2x),\qquad x=\pi e^{2u},
 \]
-where the polynomials \(P_j\) satisfy the recurrence in
+where the polynomials \(R_j\) satisfy the recurrence in
 \secref{sec:inputs}. Machin's identity and alternating series give
-\(\pi>157/50\); hence \(P_0(x)=2x-3>0\).
+\(\pi>157/50\); hence \(R_0(x)=2x-3>0\).
 
 \subsection{Cleared sign polynomials}
 
 In addition to \(a_j\), define the normalized remaining modes
 \[
  e_j(x)=\sum_{n\geq3}
- \frac{n^2e^{-(n^2-1)x}P_j(n^2x)}{P_0(x)},
- \qquad b_j=a_j+e_j.
+ \frac{n^2e^{-(n^2-1)x}R_j(n^2x)}{R_0(x)},
+ \qquad \widehat a_j=a_j+e_j.
 \]
-For an indeterminate raw jet \((b_0,\ldots,b_6)\), put
+For an indeterminate raw jet \((\widehat a_0,\ldots,\widehat a_6)\), put
 \[
- N_q=b_1^2-b_0b_2,
+ N_q=\widehat a_1^2-\widehat a_0\widehat a_2,
 \]
 \begin{align*}
-N_{F_2}={}&-b_0^4b_2b_4+b_0^4b_3^2+b_0^3b_1^2b_4
--2b_0^3b_1b_2b_3+2b_0^3b_2^3\\
-&-3b_0^2b_1^2b_2^2+3b_0b_1^4b_2-b_1^6,
+N_{F_2}={}&-\widehat a_0^4\widehat a_2\widehat a_4
++\widehat a_0^4\widehat a_3^2
++\widehat a_0^3\widehat a_1^2\widehat a_4
+-2\widehat a_0^3\widehat a_1\widehat a_2\widehat a_3
++2\widehat a_0^3\widehat a_2^3\\
+&-3\widehat a_0^2\widehat a_1^2\widehat a_2^2
++3\widehat a_0\widehat a_1^4\widehat a_2-\widehat a_1^6,
 \end{align*}
 and
 \[
- N_{\Cfour}=\det[b_{i+j}]_{i,j=0}^3.
+ N_{\Cfour}=\det[\widehat a_{i+j}]_{i,j=0}^3.
 \]
 Direct logarithmic differentiation and the central-moment determinant give
 \begin{equation}\label{eq:raw-signs}
- q=\frac{N_q}{b_0^2},\qquad
- F_2=\frac{N_{F_2}}{b_0^6},\qquad
- \Cfour=\frac{N_{\Cfour}}{b_0^4}.
+ q=\frac{N_q}{\widehat a_0^2},\qquad
+ F_2=\frac{N_{F_2}}{\widehat a_0^6},\qquad
+ \Cfour=\frac{N_{\Cfour}}{\widehat a_0^4}.
 \end{equation}
 The thirteen-term cumulant expansion obtained from the last identity agrees
 with \eqref{eq:C4-expanded}; this is an exact polynomial identity.
@@ -1136,15 +1216,31 @@ origin.
 
 \subsection{Exact two-mode margin}
 
-Alternating Taylor bounds for the exponential imply
+Rational Taylor bounds for the exponential imply
 \[
- 0<y<\frac1{12000}\quad(x\geq\pi),
+ 0<\eta<\frac1{12000}\quad(x\geq\pi),
 \]
 and
 \[
- \frac1{23000}<y<\frac1{12000}
+ \frac1{23000}<\eta<\frac1{12000}
  \quad\left(\frac{157}{50}\leq x\leq\frac{10}{3}\right).
 \]
+The close endpoints are entirely rational checks. Namely,
+\[
+ \sum_{k=0}^{16}\frac{(471/50)^k}{k!}>12000,\qquad
+ \sum_{k=0}^{21}\frac{10^k}{k!}>22000,
+\]
+and the geometric bound for the tail after degree \(13\) gives
+\[
+ e^{10}<
+ \sum_{k=0}^{13}\frac{10^k}{k!}
+ \frac{10^{14}/14!}{1-10/15}
+ =\frac{3480060751}{154791}<23000.
+\]
+These prove, respectively, the upper \(\eta\)-cap, the cap
+\(e^{-10}<1/22000\), and the lower bound \(e^{-10}>1/23000\).
+Likewise \(\sum_{k=0}^{21}15^k/k!>3{,}000{,}000\), which gives
+\(\eta<1/3{,}000{,}000\) for \(x\geq5\).
 We use the following elementary certificate lemma. If
 \(p(s,t)=\sum p_{ij}s^it^j\) has bidegree \((d,e)\), its Bernstein
 coefficients on the unit square are
@@ -1170,8 +1266,30 @@ the indicated shift. The 361 resulting rational coefficient inequalities give
 \end{equation}
 This is a finite algebraic proof on fixed domains.
 
+Here is the precise connection between those coefficient checks and the
+quantitative margins. Evaluate the raw polynomials at the two-mode jet and set
+\[
+ \mathcal Q=N_q-10a_0^2,
+ \qquad \mathcal F=N_{F_2}-1000a_0^6,
+ \qquad \mathcal C=N_{\Cfour}-50{,}000{,}000a_0^4.
+\]
+The rows labelled \(Q,F,C\) below certify the cleared numerators of
+\(\mathcal Q,\mathcal F,\mathcal C\), respectively. Thus their positivity is
+exactly, rather than merely qualitatively, the three inequalities in
+\eqref{eq:two-mode-margin}. For a ratio row, write the shifted target as
+\(B_0(x)+\sum_{j\geq1}\eta^jB_j(x)\), where \(B_0\) has positive shifted
+coefficients. Whenever \(B_j\) is adverse, put \(D_j=-B_j\). Positivity of
+\[
+ 3jD_jB_0-D_j'B_0+D_jB_0'
+\]
+after the same shift proves that
+\(e^{-3jx}D_j(x)/B_0(x)\) decreases. The displayed endpoint ratio is the sum
+of all such adverse ratios at the left endpoint; being less than one proves
+the target positive on the entire half-line. Coefficientwise nonnegative
+pieces only increase it.
+
 For reference, the complete finite certificate is summarized below.  Write
-\(\mathcal A=(2x-3)+4(8x-3)y\), which is positive on every listed domain.
+\(\mathcal A=(2x-3)+4(8x-3)\eta\), which is positive on every listed domain.
 Rows \(Q_0,F_0,F_1,C_0\) are Bernstein certificates after the indicated
 affine change to the unit square; the remaining rows use coefficient
 positivity after a half-line shift. In the two ``ratio'' rows, the listed
@@ -1183,19 +1301,19 @@ the adverse coefficient ratios and is strictly less than one.
 \toprule
 ID & Variables and domain & Degree & Positive denominator & Exact lower datum \\
 \midrule
-\(Q_0\) & \(157/50\le x\le10/3,\ 0\le y\le1/12000\)
+\(Q_0\) & \(157/50\le x\le10/3,\ 0\le \eta\le1/12000\)
  & \((4,2)\) & \(\mathcal A^2\) & \(6613625187767/70312500000\) \\
-\(Q_\infty\) & \(x=10/3+z,\ 0\le y\le1/12000\)
+\(Q_\infty\) & \(x=10/3+z,\ 0\le \eta\le1/12000\)
  & \((4,2)\) & \(\mathcal A^2\) & ratio \(47333/505500\) \\
-\(F_0\) & \(157/50\le x\le10/3,\ 1/23000\le y\le1/12000\)
+\(F_0\) & \(157/50\le x\le10/3,\ 1/23000\le \eta\le1/12000\)
  & \((12,6)\) & \(\mathcal A^6\) & minimum \(>1610047\) \\
-\(F_1\) & \(10/3\le x\le5,\ 0\le y\le1/22000\)
+\(F_1\) & \(10/3\le x\le5,\ 0\le \eta\le1/22000\)
  & \((12,6)\) & \(\mathcal A^6\) & \(29124973000/19683\) \\
-\(F_\infty\) & \(x=5+z,\ y=v/3000000\)
+\(F_\infty\) & \(x=5+z,\ \eta=v/3000000,\ 0\leq v\leq1\)
  & \((12,6)\) & \(\mathcal A^6\) & \(432/19073486328125\) \\
-\(C_0\) & \(157/50\le x\le10/3,\ 0\le y\le1/12000\)
+\(C_0\) & \(157/50\le x\le10/3,\ 0\le \eta\le1/12000\)
  & \((14,4)\) & \(\mathcal A^4\) & minimum \(>9546672947\) \\
-\(C_\infty\) & \(x=10/3+z,\ 0\le y\le1/12000\)
+\(C_\infty\) & \(x=10/3+z,\ 0\le \eta\le1/12000\)
  & \((14,4)\) & \(\mathcal A^4\) & ratio \(65989337396066791/77165720550000000\) \\
 \bottomrule
 \end{tabular}
@@ -1208,11 +1326,25 @@ majorants belong to the same exact certificate.
 
 \subsection{All later modes}
 
+For direct reconstruction of the derivative bounds, put
+\(S_j(t)=2^j(-1)^jR_j(t)\). The recurrence gives
+\begin{align*}
+S_0={}&2t-3,\\
+S_1={}&8t^2-30t+15,\\
+S_2={}&32t^3-224t^2+330t-75,\\
+S_3={}&128t^4-1440t^3+4232t^2-3270t+375,\\
+S_4={}&512t^5-8448t^4+41408t^3-68096t^2+30930t-1875,\\
+S_5={}&2048t^6-46592t^5+343040t^4-976320t^3
+       +1008968t^2-285870t+9375,\\
+S_6={}&8192t^7-245760t^6+2536960t^5-11109120t^4
+       +20633312t^3-14260064t^2+2610330t-46875.
+\end{align*}
+
 For \(t\geq27\), shifting \(t=27+z\) gives positive coefficients in
-\((-1)^jP_j(t)\) and in
-\(2^{j+1}t^{j+1}-(-1)^jP_j(t)\). Therefore
-\begin{equation}\label{eq:P-envelope}
- 0<(-1)^jP_j(t)\leq2^{j+1}t^{j+1},
+\((-1)^jR_j(t)\) and in
+\(2^{j+1}t^{j+1}-(-1)^jR_j(t)\). Therefore
+\begin{equation}\label{eq:R-envelope}
+ 0<(-1)^jR_j(t)\leq2^{j+1}t^{j+1},
  \qquad 0\leq j\leq6.
 \end{equation}
 The derivative numerator of the normalized \(n=3\) term is another positive
@@ -1228,19 +1360,56 @@ Rational Taylor lower bounds for \(e^{24},e^{27},e^{45}\) then yield, on
 (7\!\cdot\!10^{-9},4\!\cdot\!10^{-7},2\!\cdot\!10^{-4},
 7\!\cdot\!10^{-4},3\!\cdot\!10^{-2},1.1,41).
 \end{equation}
+Indeed, the normalized \(n=3\) term decreases on \(x\geq3\), and
+\(e^{24}>25{,}000{,}000{,}000\), so it is bounded by
+\(3|R_j(27)|/25{,}000{,}000{,}000\). The sum of the \(n\geq4\) majorants is
+at most
+\[
+ \frac{2^{j+2}3^j4^{2j+4}}{3\cdot10^{19}}.
+\]
+The data entering these two expressions are
+\begin{center}
+\small
+\begin{tabular}{@{}ccl@{}}
+\toprule
+\(j\) & \( |R_j(27)| \) & chosen upper bound for \( |e_j| \)\\
+\midrule
+0 & \(51\) & \(7\cdot10^{-9}\)\\
+1 & \(5037/2\) & \(4\cdot10^{-7}\)\\
+2 & \(475395/4\) & \(2\cdot10^{-4}\)\\
+3 & \(42678141/8\) & \(7\cdot10^{-4}\)\\
+4 & \(3623251731/16\) & \(3\cdot10^{-2}\)\\
+5 & \(288709329165/32\) & \(11/10\)\\
+6 & \(21373315648611/64\) & \(41\)\\
+\bottomrule
+\end{tabular}
+\end{center}
+For each row the later-mode expression is less than one thousandth of the
+\(n=3\) expression, and their sum is strictly below the chosen bound. This
+derives every constant in \eqref{eq:core-tail} from the printed recurrence and
+three rational exponential inequalities.
 The same Bernstein lemma gives
 \[
 (|a_0|,\ldots,|a_6|)<(2,5,20,200,2000,60000,1000000).
 \]
-Expanding the three polynomials in \eqref{eq:raw-signs} and using absolute
-coefficients gives
+For any one of the printed raw polynomials
+\(N=\sum_\alpha c_\alpha X^\alpha\), the perturbation estimate used here is
+the explicit finite sum
+\begin{equation}\label{eq:perturbation-formula}
+ |N(a+e)-N(a)|
+ \leq\sum_\alpha |c_\alpha|
+ \left\{\prod_{j=0}^6(A_j+E_j)^{\alpha_j}
+              -\prod_{j=0}^6A_j^{\alpha_j}\right\},
+\end{equation}
+whenever \(|a_j|\leq A_j\) and \(|e_j|\leq E_j\). Substitution of the two
+displayed seven-tuples into \eqref{eq:perturbation-formula} gives
 \begin{equation}\label{eq:core-perturbation}
  |\Delta N_q|<0.000405,\quad
  |\Delta N_{F_2}|<37.959,\quad
  |\Delta N_{\Cfour}|<31{,}549{,}532.
 \end{equation}
 
-For \(x\geq5\), \eqref{eq:P-envelope} gives
+For \(x\geq5\), \eqref{eq:R-envelope} gives
 \[
  |a_j|\leq2^{j+2}x^j,\qquad
  |e_j|\leq2^{j+2}3^{2j+4}x^je^{-8x}.
@@ -1248,7 +1417,13 @@ For \(x\geq5\), \eqref{eq:P-envelope} gives
 The raw weights of \(N_q,N_{F_2},N_{\Cfour}\) are respectively \(2,6,12\).
 Thus every perturbation majorant is a positive multiple of
 \(x^we^{-8x}\), or a faster-decaying term, with \(w\leq12\); it decreases
-for \(x\geq5\). A single rational Taylor bound at \(x=5\) gives
+for \(x\geq5\). In \eqref{eq:perturbation-formula} take
+\[
+ A_j=2^{j+2}5^j,\qquad
+ E_j=\frac{2^{j+1}3^{2j+4}5^j}{10^{17}}.
+\]
+The latter follows from the displayed tail bound and
+\(\sum_{k=0}^{47}40^k/k!>2\cdot10^{17}\). Direct substitution gives
 \begin{equation}\label{eq:outer-perturbation}
  |\Delta N_q|<6.49\cdot10^{-11},\quad
  |\Delta N_{F_2}|<0.03,\quad
@@ -1256,7 +1431,7 @@ for \(x\geq5\). A single rational Taylor bound at \(x=5\) gives
 \end{equation}
 To compare like quantities, note that
 \[
- a_0=1+4y\frac{P_0(4x)}{P_0(x)}>1,
+ a_0=1+4\eta\frac{R_0(4x)}{R_0(x)}>1,
 \]
 and, by homogeneity,
 \[
@@ -1268,7 +1443,24 @@ Consequently \eqref{eq:two-mode-margin} supplies the same respective lower
 margins \(10\), \(1000\), and \(50{,}000{,}000\) for the cleared
 numerators.  Both perturbation bounds
 \eqref{eq:core-perturbation} and \eqref{eq:outer-perturbation} are strictly
-smaller.  Finally \(b_0=a_0+e_0>0\), so \eqref{eq:raw-signs} proves all three
+smaller. Their scale relative to the corresponding cleared-numerator margin
+is recorded here:
+\begin{center}
+\small
+\begin{tabular}{@{}lcc@{}}
+\toprule
+target & surviving fraction on \(\pi\leq x\leq5\)
+       & surviving fraction on \(x\geq5\)\\
+\midrule
+\(q\) & \(>0.9999595\) & \(>0.99999999999351\)\\
+\(F_2\) & \(>0.962041\) & \(>0.99997\)\\
+\(\Cfour\) & \(>0.36900936\) & \(>0.99163426\)\\
+\bottomrule
+\end{tabular}
+\end{center}
+Thus even the least relative margin, the compact \(\Cfour\) bound, retains
+more than \(36.9\) percent of its certified two-mode numerator margin.
+Finally \(\widehat a_0=a_0+e_0>0\), so \eqref{eq:raw-signs} proves all three
 signs for \(u\geq0\). Evenness proves Lemma~\ref{lem:certified-input}.
 \section{Endpoint algebra for the transport cancellation}\label{app:endpoints}
 
@@ -1285,21 +1477,23 @@ Direct integration of \(2-Q''\) gives
 \end{equation}
 Define
 \[
- J_y=y^3-3yQ(y)+Q(y)Q'(y),
+ \mathcal J_y=y^3-3yQ(y)+Q(y)Q'(y),
 \]
 \[
- H_p=3p^2-3Q(p)-3pQ'(p)+Q'(p)^2+Q(p)Q''(p),
+ \mathcal H_p=3p^2-3Q(p)-3pQ'(p)+Q'(p)^2+Q(p)Q''(p),
 \]
 and, for endpoint data,
 \[
  U(c,d)=Q(c)+Q(d)-\frac{Q(d)Q'(d)-Q(c)Q'(c)}{d-c}
  +\frac{(Q(d)-Q(c))^2}{(d-c)^2}.
 \]
-With \(I_L=J_z-J_p\) and \(I_R=J_w-J_z\), the identity needed in
+With \(I_L=\mathcal J_z-\mathcal J_p\) and
+\(I_R=\mathcal J_w-\mathcal J_z\), the identity needed in
 Lemma~\ref{lem:transport} is exactly
 \begin{align*}
-&\frac{-(J_z-J_p)/L+(J_w-J_z)/R}{\Lambda}
- +\frac{LH_p-(J_z-J_p)}{L^2\delta}\\
+&\frac{-(\mathcal J_z-\mathcal J_p)/L
+ +(\mathcal J_w-\mathcal J_z)/R}{\Lambda}
+ +\frac{L\mathcal H_p-(\mathcal J_z-\mathcal J_p)}{L^2\delta}\\
 &\quad=\Lambda+Q'(p)-a
  +\frac{U(p,z)-U(z,w)}{\Lambda}
  +\frac{U(p,z)-Q(p)(2-Q''(p))}{L\delta}.
@@ -1311,6 +1505,12 @@ denominator \(L^2R\delta\Lambda\). The terms containing \(Q'(w)\), then
 position terms cancel after inserting \(a=(Q(z)-Q(p))/L\) and
 \(b=(Q(w)-Q(z))/R\). No differential equation for \(Q\) is used, so the
 identity holds for arbitrary smooth \(Q\).
+Equivalently, regard the endpoint jets
+\(Q(p),Q(z),Q(w),Q'(p),Q'(z),Q'(w),Q''(p)\) and \(p,L,R\) as independent
+indeterminates subject only to the displayed definitions of \(a,b,\delta\),
+and \(\Lambda\). Clearing \(L^2R\delta\Lambda\) first and then expanding gives
+the zero polynomial. Expanding the uncleared rational expression need not
+expose this cancellation.
 \section{Certificate inventory}\label{app:provenance}
 
 The finite and symbolic parts of the proof are recorded in the following
@@ -1366,22 +1566,22 @@ each of the thirteen determinant monomials has common denominator \(P^{12}\).
 After collecting, the numerator is divisible by \(P^8\) in \(\mathbb Q[t]\).
 Cancel this factor and clear the remaining powers of two, writing
 \[
- \Cfour[f_*](x)=\frac{\widetilde H(t)}{2^{54}P(t)^4}.
+ \Cfour[f_*](x)=\frac{\mathcal G(t)}{2^{54}P(t)^4}.
 \]
 Exact rational arithmetic verifies
 \[
- \deg\widetilde H=24,\qquad
- [t^j]\widetilde H=[t^{24-j}]\widetilde H>0
+ \deg\mathcal G=24,\qquad
+ [t^j]\mathcal G=[t^{24-j}]\mathcal G>0
  \quad(0\leq j\leq24),
 \]
 with smallest integer coefficient
 \[
- \min_{0\leq j\leq24}[t^j]\widetilde H=3221225472.
+ \min_{0\leq j\leq24}[t^j]\mathcal G=3221225472.
 \]
 Equivalently, the smallest coefficient before multiplication by \(2^{54}\)
 is \(3/2^{24}\). Write
 \[
- \widetilde H(t)=\sum_{j=0}^{24}a_jt^j,\qquad a_j=a_{24-j}.
+ \mathcal G(t)=\sum_{j=0}^{24}a_jt^j,\qquad a_j=a_{24-j}.
 \]
 The 13 independent integer coefficients are:
 \begin{center}
@@ -1407,7 +1607,7 @@ companion \path{generated/separator-coefficients.json} has SHA-256 prefix
 manifest.
 Coefficient positivity proves the sign on the full domain \(t>0\). Exact spot
 reconstructions at \(t=1/3,1,4\) independently compare the
-central determinant with \(\widetilde H/(2^{54}P^4)\).
+central determinant with \(\mathcal G/(2^{54}P^4)\).
 
 For the Fourier step, the identities
 \[
@@ -1457,4 +1657,3 @@ The two omitted terms \(-10y-12y^2\) are negative. Consequently
 \]
 and hence \(\operatorname{disc}(R_c)<0\) without numerical evaluation.
 \end{document}
-\typeout{get arXiv to do 4 passes: Label(s) may have changed. Rerun}

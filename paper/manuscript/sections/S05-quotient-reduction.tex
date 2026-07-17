@@ -5,6 +5,12 @@ Fix \(y_1<y_2<y_3<y_4\), put \(u_j(t)=\Phi(t-y_j)\), and write
 \[
  v_j=(u_j/u_1)',\qquad w_j=(v_j/v_2)'.
 \]
+Strict log-concavity gives
+\[
+ v_j=\frac{u_j}{u_1}A(p_j,p_1)>0\qquad(j\geq2).
+\]
+The case \(k=2\) of Lemma~\ref{lem:quotient-integral} below therefore proves
+strict order two directly.
 Successive column division and differentiation give
 \begin{align}
  W(u_1,u_2,u_3)&=u_1^3W(v_2,v_3),\label{eq:W3-quotient}\\
@@ -91,6 +97,39 @@ Determinant multilinearity gives \eqref{eq:iterated-determinant}. Since
 argument applies to the derivative determinant.
 \end{proof}
 
+\begin{lemma}[Confluent divided-difference limit]\label{lem:confluent-limit}
+Let \(f\in C^{2k-2}\), let
+\(V(a)=\prod_{0\leq i<j<k}(a_j-a_i)\), and let \(a,b\) be fixed strictly
+increasing \(k\)-tuples. Then
+\begin{equation}\label{eq:two-sided-confluence}
+ \lim_{h\downarrow0}
+ \frac{\det[f(z+h(a_i-b_j))]_{i,j=0}^{k-1}}
+ {h^{k(k-1)}V(a)V(b)}
+ =\frac{(-1)^{k(k-1)/2}}
+ {\prod_{r=0}^{k-1}(r!)^2}
+ \det[f^{(i+j)}(z)]_{i,j=0}^{k-1}.
+\end{equation}
+If only the row nodes coalesce while \(y_0<\cdots<y_{k-1}\) remain fixed,
+then
+\begin{equation}\label{eq:one-sided-confluence}
+ \lim_{h\downarrow0}
+ \frac{\det[f(z+ha_i-y_j)]_{i,j=0}^{k-1}}
+ {h^{k(k-1)/2}V(a)}
+ =\frac{\det[f^{(i)}(z-y_j)]_{i,j=0}^{k-1}}
+ {\prod_{r=0}^{k-1}r!}.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Apply successive Newton divided-difference row operations, whose divisors
+are the positive numbers \(h(a_j-a_i)\), and let \(h\downarrow0\). This gives
+\eqref{eq:one-sided-confluence}. Applying the same operation to the columns
+gives derivatives with respect to \(-y\), hence the factor
+\((-1)^{0+\cdots+(k-1)}\), and proves
+\eqref{eq:two-sided-confluence}. This records the factorial normalization and
+does not assume a nonzero leading coefficient.
+\end{proof}
+
 \begin{proposition}[Three-point equivalence]\label{prop:equivalence}
 Under the strict lower-order positivity already proved, global \(\PF_4\) is
 equivalent to
@@ -122,11 +161,18 @@ Every factor is positive in the strict case, and every integration interval
 has positive length. This proves positivity of every ordered collocation minor,
 not only of the confluent Wronskian.
 
-Conversely, assume global \(\PF_4\). Let all four row nodes coalesce, divide
-by their positive Vandermonde, and pass to the limit. The resulting translate
-Wronskian is nonnegative. Equations \eqref{eq:W4-quotient} and
-\eqref{eq:L4-Psi} imply
-\(\Psi(p_4;p_2,p_1)\geq\Psi(p_3;p_2,p_1)\) whenever \(p_4<p_3\).
-Thus \(\Psi(\cdot;m,r)\) is nonincreasing, which is equivalent to the stated
-differential inequality because it is smooth.
+Conversely, assume global \(\PF_4\). Fix arbitrary
+\(\xi_1<\xi_2<m<r\), choose any \(t\), and choose the columns so that
+\((p_4,p_3,p_2,p_1)=(\xi_1,\xi_2,m,r)\) at \(t\); explicitly,
+\(y_j=t-p_j\), which preserves \(y_1<\cdots<y_4\). Coalesce arbitrary
+strictly ordered row nodes at \(t\). Equation
+\eqref{eq:one-sided-confluence} and global \(\PF_4\) make the resulting
+translate Wronskian nonnegative. Equations \eqref{eq:W4-quotient} and
+\eqref{eq:L4-Psi} therefore give
+\[
+ \Psi(\xi_1;m,r)\geq\Psi(\xi_2;m,r).
+\]
+Because both the pair \(\xi_1<\xi_2\) and the pair \(m<r\) were arbitrary,
+\(\Psi(\cdot;m,r)\) is nonincreasing for every admissible \(m,r\). Smoothness
+makes this equivalent to the stated differential inequality.
 \end{proof}

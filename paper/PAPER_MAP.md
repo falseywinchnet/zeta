@@ -65,7 +65,7 @@ directed-rounding boundary is named.
 | 2. Density-ratio monotonicity | `S09` differentiates `C(z-y)/(y-p)` and obtains `-C(z-p)/(y-p)^2<0`. | closed |
 | 3. Confluent expansion | `S07` and `A1` give the moment matrix, its Schur complement, and the thirteen-term polynomial. | closed |
 | 4. `C4=Q^6 kappa^2 D` | `A1` lists `c2,...,c6`, the factored determinant, and the expanded form of `D`. | closed |
-| 5. Transport endpoint algebra | `S08` derives the primitives; `A3` substitutes `J,H,U,delta,Lambda` into one explicit rational identity. | closed |
+| 5. Transport endpoint algebra | `S08` derives the primitives; `A3` substitutes `mathcal J, mathcal H, U, delta, Lambda` into one explicit rational identity. | closed |
 | 6. Tail constants | `A2` replaces the old derivative paddings by a two-mode normalization and one analytic bound for every mode `n>=3`, including all derivatives through order six. | closed / exact certificate |
 | 7. Tail monotonicity | `A2` proves the `n=3` derivative sign and the decreasing weighted-homogeneous outer perturbation explicitly. | closed |
 | 8. Smoothness at zero | `S02` defines `H(t)=e^{t/2} theta(e^{2t})`, proves `H(-t)=H(t)`, and writes `Phi=(H''-H/4)/2`. | closed |
@@ -76,6 +76,11 @@ directed-rounding boundary is named.
 No critique position is currently unfilled. CERT10 and S10a additionally
 close the continuous PF3/PF4 insufficiency position that remained open after
 the original discrete smoothing proposal was rejected.
+
+An explicit largest interval \(0<h\leq h_0\) for the negative equally spaced
+order-five minor would strengthen the present confluent existence statement
+but is not needed for exact order four. Producing \(h_0\) requires a new
+remainder or interval certificate and is reserved for an advancement round.
 
 ### P000070 audit promotion through C2
 
@@ -94,7 +99,7 @@ candidate are retained in `work/2026-07-16-pf4-audit-through-c2/`.
 | V7 | `S02` proves `Phi>0` before defining `log Phi`. |
 | V8 | `S11`, the proof records, and certificate metadata distinguish base-cover and wrapper precision/dependencies. |
 | V9 | `S10a` attributes positive `kappa` to the established `q>0,F2>0` inequalities. |
-| V10 | Joshua Rainstar, OpenAI, contact, contribution, acknowledgments, competing-interests statement, keywords, MSC, PDF metadata, availability, and AI provenance are present; tagged-PDF compliance remains a toolchain gate. |
+| V10 | Joshuah Rainstar, Airspy, Inc., contact, contribution, acknowledgments, competing-interests statement, keywords, MSC, PDF metadata, availability, and AI provenance are present; tagged-PDF compliance remains a toolchain gate. |
 | C1 | `sharp` is removed from the title and Fourier-separator framing. |
 | C2 | `S06` says the increasing coordinate is global on its image; unused surjectivity is not implied. |
 

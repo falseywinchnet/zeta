@@ -13,21 +13,23 @@ Direct integration of \(2-Q''\) gives
 \end{equation}
 Define
 \[
- J_y=y^3-3yQ(y)+Q(y)Q'(y),
+ \mathcal J_y=y^3-3yQ(y)+Q(y)Q'(y),
 \]
 \[
- H_p=3p^2-3Q(p)-3pQ'(p)+Q'(p)^2+Q(p)Q''(p),
+ \mathcal H_p=3p^2-3Q(p)-3pQ'(p)+Q'(p)^2+Q(p)Q''(p),
 \]
 and, for endpoint data,
 \[
  U(c,d)=Q(c)+Q(d)-\frac{Q(d)Q'(d)-Q(c)Q'(c)}{d-c}
  +\frac{(Q(d)-Q(c))^2}{(d-c)^2}.
 \]
-With \(I_L=J_z-J_p\) and \(I_R=J_w-J_z\), the identity needed in
+With \(I_L=\mathcal J_z-\mathcal J_p\) and
+\(I_R=\mathcal J_w-\mathcal J_z\), the identity needed in
 Lemma~\ref{lem:transport} is exactly
 \begin{align*}
-&\frac{-(J_z-J_p)/L+(J_w-J_z)/R}{\Lambda}
- +\frac{LH_p-(J_z-J_p)}{L^2\delta}\\
+&\frac{-(\mathcal J_z-\mathcal J_p)/L
+ +(\mathcal J_w-\mathcal J_z)/R}{\Lambda}
+ +\frac{L\mathcal H_p-(\mathcal J_z-\mathcal J_p)}{L^2\delta}\\
 &\quad=\Lambda+Q'(p)-a
  +\frac{U(p,z)-U(z,w)}{\Lambda}
  +\frac{U(p,z)-Q(p)(2-Q''(p))}{L\delta}.
@@ -39,3 +41,9 @@ denominator \(L^2R\delta\Lambda\). The terms containing \(Q'(w)\), then
 position terms cancel after inserting \(a=(Q(z)-Q(p))/L\) and
 \(b=(Q(w)-Q(z))/R\). No differential equation for \(Q\) is used, so the
 identity holds for arbitrary smooth \(Q\).
+Equivalently, regard the endpoint jets
+\(Q(p),Q(z),Q(w),Q'(p),Q'(z),Q'(w),Q''(p)\) and \(p,L,R\) as independent
+indeterminates subject only to the displayed definitions of \(a,b,\delta\),
+and \(\Lambda\). Clearing \(L^2R\delta\Lambda\) first and then expanding gives
+the zero polynomial. Expanding the uncleared rational expression need not
+expose this cancellation.

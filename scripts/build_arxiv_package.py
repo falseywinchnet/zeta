@@ -59,9 +59,6 @@ def main() -> None:
     lines = expand(MANUSCRIPT / "main.tex")
     if any(INPUT.match(line) for line in lines):
         raise RuntimeError("flattening left an input directive")
-    lines.append(
-        r"\typeout{get arXiv to do 4 passes: Label(s) may have changed. Rerun}"
-    )
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT.write_text("\n".join(lines) + "\n", encoding="ascii")
     print(f"wrote {OUTPUT.relative_to(ROOT)} with {len(lines)} lines")

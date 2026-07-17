@@ -28,25 +28,29 @@ For the kernel \(\Phi\),
 The proof combines exact rational polynomial inequalities with analytic
 theta-tail bounds. For \(u\geq0\), put
 \[
- x=\pi e^{2u},\qquad y=e^{-3x},\qquad P_0(z)=2z-3,
+ x=\pi e^{2u},\qquad \eta=e^{-3x},\qquad R_0(z)=2z-3,
 \]
 and recursively
 \[
- P_{j+1}(z)=\left(\frac52-2z\right)P_j(z)+2zP_j'(z).
+ R_{j+1}(z)=\left(\frac52-2z\right)R_j(z)+2zR_j'(z).
 \]
 After division by the positive first theta mode, the first two modes give the
 normalized jet entries
 \[
- a_j(x,y)=\frac{P_j(x)+4yP_j(4x)}{P_0(x)}.
+ a_j(x,\eta)=\frac{R_j(x)+4\eta R_j(4x)}{R_0(x)}.
 \]
 Exact rational Bernstein coefficients on three fixed algebraic domains prove
 \[
  q_{1,2}>10,\qquad (F_2)_{1,2}>1000,
  \qquad (\Cfour)_{1,2}>50{,}000{,}000.
 \]
-The complete contribution of modes \(n\geq3\) is then bounded by one
-monotone polynomial-geometric estimate. Its changes in the cleared sign
-numerators are smaller than the three displayed margins, both on
+Here the half-line certificates are applied directly to the cleared
+numerators of the shifted targets \(q_{1,2}-10\),
+\((F_2)_{1,2}-1000\), and
+\((\Cfour)_{1,2}-50{,}000{,}000\). The complete contribution of modes
+\(n\geq3\) is bounded by one monotone polynomial-geometric estimate. Its
+changes in the same cleared sign numerators are smaller than the three
+displayed margins, both on
 \(\pi\leq x\leq5\) and on \(x\geq5\). Evenness completes the real line.
 All inequalities, including the derivative envelopes used on the tail, are
 derived in \appref{app:tail}. The exact replay uses no floating

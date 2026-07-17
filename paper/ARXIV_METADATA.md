@@ -6,9 +6,9 @@ Strict Global PF4 for the Riemann Kernel and a Continuous Fourier Separator
 
 ## Author
 
-Joshua Rainstar
+Joshuah Rainstar
 
-Affiliation: OpenAI
+Affiliation: Airspy, Inc.
 
 Email: joshuah.rainstar@gmail.com
 
@@ -31,14 +31,14 @@ geometric bounds control every later theta mode. A quotient-Wronskian argument
 then reduces arbitrary fourth-order minors to a one-crossing transport
 integral with positive density. We also construct an explicit positive even
 Schwartz kernel that is strictly PF4 but whose entire Fourier transform has
-nonreal zeros; the latter follows from an exact discriminant inequality.
-Therefore continuous PF3 and PF4 membership alone do not force Fourier
-real-rootedness.
+nonreal zeros; the latter follows from an exact discriminant inequality. This
+delimits the finite-order reach of Schoenberg's infinite-order transform
+correspondence.
 
 ## Keywords
 
 Polya-frequency function; total positivity; Riemann kernel; entire function;
-characteristic function; Wronskian; Fourier transform; computer-assisted proof.
+Wronskian; Fourier transform; exact certificate.
 
 ## 2020 MSC
 

@@ -33,13 +33,13 @@
 ## Maintained PDF
 
 - File: `../strict-global-pf4-riemann-kernel.pdf`
-- SHA-256: `b4950b0b138bda24e92588d27032783268259472aab138d9b2c87a7f01cd99f3`
+- SHA-256: `6e59f961d382e0de378955795acebe48272c77edd7d932a5b830625fc86890f9`
 
 ## arXiv package
 
 - Directory: `arxiv/`
 - Upload archive: `ax.tar`
-- SHA-256: `8fd1587badd88eddda6071d43f0582451ab2d06387c529df15253b7de2ff4c09`
+- SHA-256: `fcddeb7fb873aad0bfed7803fc9a780ebef1961a3f37e57bd2cdc2da9c3a6ae7`
 
 The archive contains the flattened LaTeX source only. The PDF, auxiliary
 files, logs, repository metadata, and hidden files are excluded.

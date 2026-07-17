@@ -13,7 +13,13 @@ Set \(f_0=q'/q\). Because \(s'=-q\),
 \]
 thus \(M(a,b)\) is a \(q\)-weighted mean of \(f_0\). Choose a point
 \(u\in[\xi,m]\) where \(f_0\) is minimal on the left interval and a point
-\(v\in[m,r]\) where it is maximal on the right. Then
+\(v\in[m,r]\) where it is maximal on the right. The weighted-mean bounds and
+the ordering of the extremizers are
+\[
+ M(\xi,m)\geq f_0(u),\qquad M(m,r)\leq f_0(v),
+ \qquad u\leq m\leq v.
+\]
+Consequently
 \[
  M(m,r)-M(\xi,m)\leq f_0(v)-f_0(u)
  \leq\int_\xi^r\max(f_0'(t),0)\dd t.
@@ -31,10 +37,12 @@ and \(A(\xi,r)=\int_\xi^r q(t)\dd t\), equation
  =\int_\xi^r\frac{\min(q^3,F_2)}{q^2}\dd t>0.
  \label{eq:Lambda-lower}
 \end{align}
-The last inequality follows from Lemma~\ref{lem:certified-input} and
-\(q>0\).
+The second equality uses
+\(q^3-\max(F_1,0)=\min(q^3,q^3-F_1)=\min(q^3,F_2)\); the last inequality
+follows from Lemma~\ref{lem:certified-input} and \(q>0\).
 
 The same quantity is the logarithmic slope derivative in the normalized
 order-three determinant. Hence \eqref{eq:Lambda-lower}, together with strict
 log-concavity, proves strict global \(\PF_3\). We rederive the needed
-Wronskian form in the next section because its signs also control order four.
+Wronskian form in the next section, where the quotient integral transfers
+these confluent signs to every ordered collocation minor.

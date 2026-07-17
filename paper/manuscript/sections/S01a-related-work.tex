@@ -23,8 +23,29 @@ correspondence relevant to the Riemann Hypothesis: the PF function there is
 recovered from the reciprocal of a Laguerre--Polya entire function, rather than
 identified with the original Riemann kernel~\cite{grochenig}.
 
-A preliminary version of the present work containing a \(\PF_5\)
-counterexample was sent to a publisher in July 2025. The order-five argument
-below uses an exact origin-confluent sign. The classification proved here is
-global strict \(\PF_4\), hence exact order four; Theorem~\ref{thm:separator}
-separately gives a continuous finite-order Fourier separator.
+Micha\l{}owski first published an explicit negative \(5\times5\) Toeplitz
+minor for this kernel, supported by an interval computation, together with
+single-configuration positivity checks at orders at most
+four~\cite{michalowski}. Global \(\PF_4\) and a symbolic proof of the order-five
+leading sign are posed there as Open Problems 1 and 2. Theorem~\ref{thm:main}
+resolves the first, and Lemma~\ref{lem:origin-pf5-sign} resolves the second in
+strengthened form. Indeed, for the Toeplitz determinant
+\[
+ D_r(u_0,h)=\det[\Phi(u_0+(i-j)h)]_{i,j=0}^{r-1},
+\]
+Lemma~\ref{lem:confluent-limit} gives its leading coefficient as
+\[
+ C_r(u_0)=
+ \frac{(-1)^{r(r-1)/2}V(0,\ldots,r-1)^2}
+ {\prod_{k=0}^{r-1}(k!)^2}
+ \det[\Phi^{(i+j)}(u_0)]_{i,j=0}^{r-1}.
+\]
+For \(r=5\) the sign factor is positive, only derivatives through order eight
+occur, and the limit as \(u_0\to0^+\) is a positive multiple of the
+parity-factorized determinant \(\mathsf H_5=CB<0\) computed exactly in
+Lemma~\ref{lem:origin-pf5-sign}. Continuity therefore gives
+\(C_5(u_0)<0\) for every sufficiently small positive \(u_0\).
+
+Theorem~\ref{thm:separator} further shows where the infinite-order transform
+conclusion ceases to follow from finite-order positivity: even strict
+\(\PF_3\) or \(\PF_4\) does not control all Fourier zeros.

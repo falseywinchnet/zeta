@@ -27,17 +27,19 @@ With \(K\) as in \eqref{eq:K-def},
 \begin{proof}
 Two elementary primitives carry the complete cancellation:
 \begin{align}
- \kappa A_0&=H',& H&=3y^2-3Q-3yQ'+(Q')^2+QQ'',\label{eq:H}\\
- H&=J',& J&=y^3-3yQ+QQ'.\label{eq:J}
+ \kappa A_0&=\mathcal H',&
+ \mathcal H&=3y^2-3Q-3yQ'+(Q')^2+QQ'',\label{eq:H}\\
+ \mathcal H&=\mathcal J',& \mathcal J&=y^3-3yQ+QQ'.\label{eq:J}
 \end{align}
 Both identities follow by one differentiation.
 
-Let \(I_L=J(z)-J(p)\) and \(I_R=J(w)-J(z)\). Integrating the linear weights
+Let \(I_L=\mathcal J(z)-\mathcal J(p)\) and
+\(I_R=\mathcal J(w)-\mathcal J(z)\). Integrating the linear weights
 in \eqref{eq:mu}--\eqref{eq:nu} by parts once gives
 \begin{equation}\label{eq:expectation-endpoint}
  \E_\nu[A_0]-\E_\mu[A_0]
  =\frac{-I_L/L+I_R/R}{\Lambda}
- +\frac{LH(p)-I_L}{L^2\delta}.
+ +\frac{L\mathcal H(p)-I_L}{L^2\delta}.
 \end{equation}
 On the other hand, differentiation of the triangular integrals along \(\T\)
 gives
@@ -63,4 +65,3 @@ The endpoint identity equating \eqref{eq:expectation-endpoint} and
 values of \(Q,Q',Q''\); no bound or polynomial model is used. This proves
 \eqref{eq:transport-expectation}.
 \end{proof}
-

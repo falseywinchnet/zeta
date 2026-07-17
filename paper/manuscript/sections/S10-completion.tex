@@ -7,18 +7,15 @@ Equation \eqref{eq:sign-bridge} and \eqref{eq:central-identity} imply
 Proposition~\ref{prop:equivalence} therefore proves
 Theorem~\ref{thm:main}.
 
-Micha\l{}owski also studied order-five Toeplitz obstructions numerically
-\cite{michalowski}; here a direct origin-confluent determinant suffices.
-
 We now prove directly that the classification stops at order four. Put
 \[
- H_k=\det[\Phi^{(i+j)}(0)]_{i,j=0}^{k-1},\qquad
+ \mathsf H_k=\det[\Phi^{(i+j)}(0)]_{i,j=0}^{k-1},\qquad
  s_j=\Phi^{(j)}(0).
 \]
 Since \(\Phi\) is even, simultaneous parity permutations of the rows and
 columns give
 \[
- H_4=AB,\qquad H_5=CB,
+ \mathsf H_4=AB,\qquad \mathsf H_5=CB,
 \]
 where
 \[
@@ -39,19 +36,19 @@ For the Riemann kernel,
  445<A<446,\qquad 189223<B<189228,
  \qquad -674000000<C<-614000000.
 \]
-In particular, \(H_4>0\) and \(H_5<0\).
+In particular, \(\mathsf H_4>0\) and \(\mathsf H_5<0\).
 \end{lemma}
 
 \begin{proof}
 For \(x=\pi n^2e^{2u}\), the \(n\)-th summand of \(\Phi(u)\) is
-\(e^{u/2-x}P_0(x)\), where \(P_0(x)=2x(2x-3)\). If its \(j\)-th derivative
-is \(e^{u/2-x}P_j(x)\), then
+\(e^{u/2-x}T_0(x)\), where \(T_0(x)=2x(2x-3)\). If its \(j\)-th derivative
+is \(e^{u/2-x}T_j(x)\), then
 \[
- P_{j+1}=2xP_j'+(1/2-2x)P_j.
+ T_{j+1}=2xT_j'+(1/2-2x)T_j.
 \]
 Thus
 \[
- s_j=\sum_{n\ge1}e^{-\pi n^2}P_j(\pi n^2).
+ s_j=\sum_{n\ge1}e^{-\pi n^2}T_j(\pi n^2).
 \]
 The first three modes are enclosed by rational alternating-series bounds.
 Machin's identity
@@ -60,10 +57,10 @@ and argument division followed by the degree-29 and degree-30 alternating
 Taylor sums supplies rational bounds for each exponential.
 
 For the omitted modes, let \(S_j\) be the sum of the absolute coefficients of
-\(P_j\). Since \(\deg P_j=j+2\), \(3<\pi<22/7\), and
+\(T_j\). Since \(\deg T_j=j+2\), \(3<\pi<22/7\), and
 \(e^3>\sum_{r=0}^8 3^r/r!>20\),
 \[
- \sum_{n\ge4}|P_j(\pi n^2)|e^{-\pi n^2}
+ \sum_{n\ge4}|T_j(\pi n^2)|e^{-\pi n^2}
  \leq
  \frac{S_j(22/7)^{j+2}4^{2j+4}20^{-16}}
  {1-(5/4)^{20}20^{-9}}
@@ -88,17 +85,8 @@ The Riemann kernel is not \(\PF_5\).
 \end{theorem}
 
 \begin{proof}
-For a \(C^{2k-2}\) function \(f\), repeated row and column divided differences
-give, for increasing fixed tuples \(a,b\),
-\[
- \lim_{h\downarrow0}
- \frac{\det[f(z+h(a_i-b_j))]_{i,j=0}^{k-1}}
- {h^{k(k-1)}V(a)V(b)}
- =\frac{(-1)^{k(k-1)/2}}
- {\prod_{r=0}^{k-1}(r!)^2}
- \det[f^{(i+j)}(z)]_{i,j=0}^{k-1}.
-\]
-Take \(k=5\), \(z=0\), and \(a_i=b_i=i\). The sign factor is one, both
+Apply Lemma~\ref{lem:confluent-limit} with \(k=5\), \(z=0\), and
+\(a_i=b_i=i\). The sign factor in \eqref{eq:two-sided-confluence} is one, both
 Vandermonde factors are positive, and Lemma~\ref{lem:origin-pf5-sign} makes
 the limit strictly negative. Hence
 \(\det[\Phi((i-j)h)]_{i,j=0}^4<0\) for every sufficiently small positive
