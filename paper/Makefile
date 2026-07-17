@@ -5,12 +5,15 @@ BUILD_DIR := build
 OUTPUT := $(BUILD_DIR)/strict-global-pf4-riemann-kernel.pdf
 PUBLIC_OUTPUT := ../strict-global-pf4-riemann-kernel.pdf
 
-.PHONY: all publish clean
+.PHONY: all publish arxiv clean
 
 all: publish
 
 publish: $(OUTPUT)
 	cp $(OUTPUT) $(PUBLIC_OUTPUT)
+
+arxiv:
+	cd .. && python3 scripts/build_arxiv_package.py
 
 $(OUTPUT): $(MANUSCRIPT) $(shell find manuscript -type f -name '*.tex' -o -name '*.bib')
 	@command -v tectonic >/dev/null 2>&1 || { echo "tectonic is required"; exit 1; }

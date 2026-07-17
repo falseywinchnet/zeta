@@ -1,0 +1,21 @@
+{
+  "title": "The Riemann Kernel Is Globally PF4: Proof Source and Exact Certificates",
+  "description": "Camera-ready manuscript, exact rational and symbolic certificates, proof records, and replay tooling for the strict global PF4 classification of the Riemann kernel.",
+  "upload_type": "software",
+  "version": "1.1.0",
+  "language": "eng",
+  "creators": [
+    {
+      "name": "Rainstar, Joshuah"
+    }
+  ],
+  "access_right": "open",
+  "license": "mit",
+  "keywords": [
+    "Polya-frequency functions",
+    "total positivity",
+    "Riemann kernel",
+    "exact certificates",
+    "symbolic computation"
+  ]
+}

@@ -2,7 +2,7 @@
 
 ## Title
 
-Strict Global PF4 for the Riemann Kernel and a Continuous Fourier Separator
+The Riemann Kernel Is Globally PF4
 
 ## Author
 

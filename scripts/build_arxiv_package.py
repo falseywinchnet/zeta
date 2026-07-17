@@ -1,16 +1,21 @@
 #!/usr/bin/env python3
-"""Build the flattened, comment-free arXiv source for the PF4 paper."""
+"""Build the flattened, comment-free arXiv source archive for the PF4 paper."""
 
 from __future__ import annotations
 
 from pathlib import Path
 import re
+import tarfile
 
 
 ROOT = Path(__file__).resolve().parents[1]
 MANUSCRIPT = ROOT / "paper" / "manuscript"
 OUTPUT = ROOT / "paper" / "arxiv" / "main.tex"
+ARCHIVE = ROOT / "paper" / "ax.tar"
 INPUT = re.compile(r"^\s*\\input\{([^}]+)\}\s*$")
+FOUR_PASS_SIGNAL = (
+    r"\typeout{get arXiv to do 4 passes: Label(s) may have changed. Rerun}"
+)
 
 
 def resolve_input(name: str, parent: Path) -> Path:
@@ -59,9 +64,32 @@ def main() -> None:
     lines = expand(MANUSCRIPT / "main.tex")
     if any(INPUT.match(line) for line in lines):
         raise RuntimeError("flattening left an input directive")
+    if sum(line.startswith(r"\documentclass") for line in lines) != 1:
+        raise RuntimeError("flattened source must contain one document class")
+    if lines.count(r"\begin{document}") != 1:
+        raise RuntimeError("flattened source must contain one document beginning")
+    if lines.count(r"\end{document}") != 1 or lines[-1] != r"\end{document}":
+        raise RuntimeError("flattened source must end at its sole document boundary")
+    lines.append(FOUR_PASS_SIGNAL)
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
-    OUTPUT.write_text("\n".join(lines) + "\n", encoding="ascii")
-    print(f"wrote {OUTPUT.relative_to(ROOT)} with {len(lines)} lines")
+    data = ("\n".join(lines) + "\n").encode("ascii")
+    OUTPUT.write_bytes(data)
+
+    info = tarfile.TarInfo("main.tex")
+    info.size = len(data)
+    info.mode = 0o644
+    info.mtime = 0
+    with ARCHIVE.open("wb") as stream, tarfile.open(
+        fileobj=stream, mode="w", format=tarfile.USTAR_FORMAT
+    ) as archive:
+        from io import BytesIO
+
+        archive.addfile(info, BytesIO(data))
+
+    print(
+        f"wrote {OUTPUT.relative_to(ROOT)} with {len(lines)} lines and "
+        f"{ARCHIVE.relative_to(ROOT)}"
+    )
 
 
 if __name__ == "__main__":

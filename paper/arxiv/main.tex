@@ -6,9 +6,9 @@
 \usepackage[hidelinks]{hyperref}
 \usepackage{xcolor}
 \hypersetup{
-  pdftitle={Strict Global PF4 for the Riemann Kernel and a Continuous Fourier Separator},
+  pdftitle={The Riemann Kernel Is Globally PF4},
   pdfauthor={Joshuah Rainstar},
-  pdfsubject={Finite-order total positivity of the Riemann kernel},
+  pdfsubject={Strict global PF4 classification of the Riemann kernel},
   pdfkeywords={Polya-frequency function, total positivity, Riemann kernel, entire function, Wronskian, Fourier transform, exact certificate}
 }
 
@@ -32,10 +32,9 @@
 
 \numberwithin{equation}{section}
 
-\title{Strict Global \texorpdfstring{$\PF_4$}{PF4} for the Riemann Kernel\\
-and a Continuous Fourier Separator}
-\author{Joshuah Rainstar\\
-\small\href{mailto:joshuah.rainstar@gmail.com}{\texttt{joshuah.rainstar@gmail.com}}}
+\title{The Riemann Kernel Is Globally \texorpdfstring{$\PF_4$}{PF4}}
+\author{Joshuah Rainstar\thanks{Email:
+\href{mailto:joshuah.rainstar@gmail.com}{\texttt{joshuah.rainstar@gmail.com}}}}
 \date{16 July 2026}
 
 \begin{document}
@@ -44,7 +43,7 @@ and a Continuous Fourier Separator}
 Let \(\Phi\) be the classical Riemann, or de Bruijn--Newman, kernel. We prove
 that every translation minor of \(\Phi\) of order at most four is strictly
 positive at strictly ordered nodes, and an exact origin-confluent calculation
-gives a negative order-five minor. Thus the exact global Polya-frequency order
+gives a negative order-five minor. Thus the exact global P\'olya-frequency order
 is four. The order-five confluent coefficient changes sign exactly once on the
 positive half-line, at
 \(0.0622795266356<u_*<0.0622795266357\), and a rational finite-spacing
@@ -78,7 +77,7 @@ correspondence.
 15B48 (primary); 42A38, 30D15, 11M26 (secondary).
 
 \noindent\textbf{Keywords.}
-Polya-frequency function, total positivity, Riemann kernel, entire function,
+P\'olya-frequency function, total positivity, Riemann kernel, entire function,
 Wronskian, Fourier transform, exact certificate.
 \tableofcontents
 
@@ -90,7 +89,7 @@ A function \(f:\R\to\R\) is \(\PF_r\) when every translation-kernel minor
 \]
 is nonnegative for \(1\leq k\leq r\) and increasing node tuples. We call the
 property strict when the determinant is positive whenever both tuples are
-strictly increasing. This paper determines the exact finite Polya-frequency
+strictly increasing. This paper determines the exact finite P\'olya-frequency
 order of the Riemann kernel; see \cite{belton} for modern background and
 Schoenberg's characterization. Related finite-order and Riemann-kernel work is
 placed in \secref{sec:related-work}.
@@ -110,7 +109,7 @@ see Theorem~\ref{thm:not-pf5}. Hence Theorem~\ref{thm:main} has the following
 exact consequence.
 
 \begin{corollary}\label{cor:exact-order}
-The exact global Polya-frequency order of \(\Phi\) is four.
+The exact global P\'olya-frequency order of \(\Phi\) is four.
 \end{corollary}
 
 The exact-order classification and the Fourier question are distinct. The
@@ -151,7 +150,7 @@ explicit order-four counterexample rather than a finite-order sufficiency
 threshold.
 \section{Relation to earlier work}\label{sec:related-work}
 
-Schoenberg introduced Polya-frequency functions and connected translation
+Schoenberg introduced P\'olya-frequency functions and connected translation
 minors with bilateral Laplace transforms and variation-diminishing convolution
 operators~\cite{schoenberg-ii,belton}. Karlin's monograph remains the
 standard systematic account of total positivity and its composition
@@ -171,7 +170,7 @@ real-zero criteria~\cite{dimitrov-xu}, while Csordas and Varga obtain strict
 concavity and moment inequalities connected with the Riemann
 Hypothesis~\cite{csordas-varga}. Grochenig explains the distinct Schoenberg
 correspondence relevant to the Riemann Hypothesis: the PF function there is
-recovered from the reciprocal of a Laguerre--Polya entire function, rather than
+recovered from the reciprocal of a Laguerre--P\'olya entire function, rather than
 identified with the original Riemann kernel~\cite{grochenig}.
 
 Micha\l{}owski first published an explicit negative \(5\times5\) Toeplitz
@@ -904,13 +903,13 @@ Corollary~\ref{cor:exact-order}.
 
 \begin{remark}[Riemann Hypothesis boundary]
 Schoenberg's transform theorem says that the bilateral Laplace transform of a
-\(\PF_\infty\) function is the reciprocal of a Laguerre--Polya entire function
+\(\PF_\infty\) function is the reciprocal of a Laguerre--P\'olya entire function
 on its strip of convergence~\cite{schoenberg-ii,belton}. The Fourier transform
 of \(\Phi\), up to the standard normalization, is the Riemann \(\Xi\)-function,
 which has known real zeros; hence \(\Phi\) is unconditionally not
 \(\PF_\infty\). The Schoenberg formulation related to the Riemann Hypothesis
 instead asks for the inverse transform of the reciprocal of \(\Xi\) to be a
-Polya-frequency function~\cite{grochenig}. Thus the finite-order classification
+P\'olya-frequency function~\cite{grochenig}. Thus the finite-order classification
 proved here is a different statement. The next section further shows that
 strict \(\PF_4\) alone does not imply Fourier real-rootedness.
 \end{remark}
@@ -1119,7 +1118,8 @@ promoted in commit
 \href{https://github.com/falseywinchnet/zeta/commit/8a4db9e24b3a47a3eb4d35b89eb1a3f8e80eab9d}{\texttt{8a4db9e24b3a}}.
 That immutable snapshot contains the submission source, coefficient records,
 environment lock, replay tool, and PDF; their SHA-256 values are listed in
-\path{paper/RELEASE_MANIFEST.md}. The complete evidence replay is
+\path{paper/RELEASE_MANIFEST.md}. The complete repository release is assigned
+the DOI \url{https://doi.org/10.5281/zenodo.21404360}. The complete evidence replay is
 \texttt{python scripts/replay\_paper.py} from the repository root.
 
 All theorem-bearing sign decisions are exact. Numerical values produced by
@@ -1129,7 +1129,7 @@ dataset.
 \begin{thebibliography}{99}
 \bibitem{schoenberg-ii}
 I. J. Schoenberg,
-\emph{On Polya frequency functions. II. Variation-diminishing integral
+\emph{On P\'olya frequency functions. II. Variation-diminishing integral
 operators of the convolution type},
 Acta Sci. Math. (Szeged) \textbf{12} (1950), 97--106.
 
@@ -1140,7 +1140,7 @@ Stanford University Press, Stanford, 1968.
 
 \bibitem{belton}
 A. Belton, D. Guillot, A. Khare, and M. Putinar,
-\emph{Preservers of totally positive kernels and Polya frequency functions},
+\emph{Preservers of totally positive kernels and P\'olya frequency functions},
 Math. Res. Rep. \textbf{3} (2022), 35--56,
 arXiv:2110.08206.
 
@@ -1176,7 +1176,7 @@ arXiv:2007.12889.
 
 \bibitem{michalowski}
 W. Micha\l{}owski,
-\emph{On the Polya frequency order of the de Bruijn--Newman kernel:
+\emph{On the P\'olya frequency order of the de Bruijn--Newman kernel:
 certified failure at order five and the Toeplitz threshold phenomenon},
 arXiv:2602.20313.
 \end{thebibliography}
@@ -1806,3 +1806,4 @@ The symbolic reconstruction is
 Bernstein, tail, root, and finite-witness replay is
 \path{scripts/verify_pf5_threshold.py}.
 \end{document}
+\typeout{get arXiv to do 4 passes: Label(s) may have changed. Rerun}

@@ -50,3 +50,9 @@ zeta factoids by implication.
 See [AGENTS.md](AGENTS.md) for repository discipline.
 The current mathematical route, proof chain, gates, and next work packages are
 in [ZETA_PATHWAY.md](ZETA_PATHWAY.md).
+
+## Archival release
+
+The camera-ready PF4 paper, exact certificates, proof records, and replay
+tooling are assigned DOI
+[10.5281/zenodo.21404360](https://doi.org/10.5281/zenodo.21404360).

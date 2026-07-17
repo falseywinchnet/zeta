@@ -18,6 +18,16 @@ Build the maintained paper with:
 make -C paper
 ```
 
+Build the flattened, comment-free arXiv source and deterministic upload archive
+with:
+
+```sh
+make -C paper arxiv
+```
+
+The archive contains only root-level `main.tex`. The packaging step verifies a
+single complete document boundary and appends the arXiv four-pass rerun signal.
+
 The build requires `tectonic`. The source tree is also conventional LaTeX and
 can be compiled from `manuscript/main.tex` with another engine.
 
