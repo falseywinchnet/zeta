@@ -3334,8 +3334,50 @@
       ],
       "status": "established",
       "updated_at": "2026-07-16T22:58:14+00:00"
+    },
+    "F000178": {
+      "because": [
+        {
+          "id": "F000147",
+          "type": "factoid"
+        },
+        {
+          "id": "K000016",
+          "type": "certificate"
+        },
+        {
+          "id": "K000017",
+          "type": "certificate"
+        }
+      ],
+      "content": "For the Riemann kernel, the consecutive-node order-five confluent coefficient C5(u)=det[Phi^(i+j)(u)] for i,j=0,...,4 has a unique positive zero u_* with 0.0622795266356<u_*<0.0622795266357; it is negative for 0<=u<u_* and positive for u>u_*.",
+      "created_at": "2026-07-17T02:29:46+00:00",
+      "relates_to": [
+        "T000003"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-17T02:29:46+00:00"
+    },
+    "F000179": {
+      "because": [
+        {
+          "id": "F000004",
+          "type": "factoid"
+        },
+        {
+          "id": "K000017",
+          "type": "certificate"
+        }
+      ],
+      "content": "At the exact rational configuration u=0 and h=211/2000, the order-five Toeplitz determinant det[Phi((i-j)h)] for i,j=0,...,4 lies between -1.08e-7 and -1.05e-7, giving a finite negative PF5 witness without floating-point sign assumptions.",
+      "created_at": "2026-07-17T02:29:46+00:00",
+      "relates_to": [
+        "T000003"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-17T02:29:46+00:00"
     }
   },
-  "next_id": 178,
+  "next_id": 180,
   "version": 1
 }

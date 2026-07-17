@@ -1,0 +1,57 @@
+\section{Exact order-five threshold certificate}\label{app:pf5-threshold}
+
+This appendix records the finite inequalities used in
+Theorem~\ref{thm:confluent-threshold}. All endpoints lie on
+\(10^{-50}\mathbb Z\), and every product and rational scaling is rounded
+outward on that lattice. Machin's identity bounds \(\pi\); positive Taylor
+sums with a geometric remainder bound \(e^{2u}\); and argument division with
+alternating sums bounds the negative exponentials.
+
+The recurrence in the theorem reconstructs \(P_0,\ldots,P_{10}\) over
+\(\mathbb Q[x]\). Independently expanding the determinant
+\eqref{eq:three-mode-C5} gives a polynomial of degree 23 in \(x\), degree
+at most five in each of \(y,z\), and 231 nonzero monomials. On a cell
+\(x=a+w\), \(0\leq w\leq d\leq1/10\), the verifier keeps the correlation
+between the exponential variables by using
+\[
+ e^{-rx}=e^{-ra}\sum_{k=0}^8\frac{(-rw)^k}{k!}+E_r(w),
+ \qquad
+ |E_r(w)|\leq e^{-ra}\frac{(rd)^9}{9!},\qquad r=3,8.
+\]
+It substitutes these interval polynomials into \(G_3\) and converts the result
+to the Bernstein basis in \(w\). The later-mode boxes
+\eqref{eq:C5-tail} are propagated through the 120 determinant monomials.
+
+\begin{center}
+\small
+\begin{tabular}{@{}llll@{}}
+\toprule
+Object & Domain & Cells & Certified sign \\
+\midrule
+\(C_5\) & \(0\leq u\leq1/50\) & 2 & negative \\
+\(C_5'\) & \(3/200\leq u,\ x\leq4\) & 22 & positive \\
+root endpoints & \(u=0.0622795266356,\ 0.0622795266357\) & 2 & \((-,+)\) \\
+\(C_5\) & \(4\leq x\leq40\) & 4 & positive \\
+one-mode tail & \(x\geq40\) & 1 & positive \\
+finite witness & \(u=0,\ h=211/2000\) & 1 & negative \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+At the two root endpoints the fourth theta mode is retained explicitly and
+only \(n\geq5\) is bounded. This gives the rational sign margins needed for
+the interval of width \(10^{-13}\). For \(x\geq40\), the one-mode determinant
+is
+\[
+ 2\cdot150994944\,x^{10}
+ (32x^5-240x^4+1200x^3-4200x^2+9450x-10395).
+\]
+After subtracting \(x^5\), the polynomial has positive coefficients in
+\(x-40\). The remaining modes are smaller than this lower bound because
+\(x^{10}e^{-3x}\) decreases there; the verifier checks the resulting exact
+rational ratio is below one.
+
+The symbolic reconstruction is
+\path{scripts/verify_pf5_threshold_symbolic.py}. The independent lattice,
+Bernstein, tail, root, and finite-witness replay is
+\path{scripts/verify_pf5_threshold.py}.

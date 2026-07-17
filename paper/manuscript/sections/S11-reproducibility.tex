@@ -1,6 +1,6 @@
 \section{Exact verification and reproduction}\label{sec:reproducibility}
 
-The repository supplies five independent verifiers for the finite algebra and
+The repository supplies independent verifiers for the finite algebra and
 rational inequalities used above.
 \begin{center}
 \small
@@ -18,6 +18,10 @@ Transport identity &
 \path{scripts/verify_pf4_transport_kernel.py} & symbolic exact \\
 Origin order-five sign &
 \path{scripts/verify_pf5_origin.py} & rational enclosures \\
+Three-mode order-five polynomial &
+\texttt{scripts/verify\_pf5\_threshold\_symbolic.py} & symbolic exact \\
+Order-five threshold and witness &
+\path{scripts/verify_pf5_threshold.py} & rational Bernstein \\
 Continuous separator &
 \texttt{scripts/verify\_continuous\_pf4\_separator.py} & rational polynomial \\
 \bottomrule
@@ -31,10 +35,13 @@ all modes \(n\geq3\). Its launcher selects SymPy's pure-Python rational domain
 and refuses a FLINT import. No floating-point comparison or interval
 subdivision decides a sign.
 
-The order-five verifier is independent of that calculation. It uses integer
+The origin order-five verifier is independent of that calculation. It uses integer
 arithmetic with outward rounding on \(10^{-36}\mathbb Z\), Machin bounds for
 \(\pi\), alternating Taylor bounds for three theta modes, and the geometric
-tail in Lemma~\ref{lem:origin-pf5-sign}. The separator verifier reconstructs
+tail in Lemma~\ref{lem:origin-pf5-sign}. The threshold verifiers reconstruct
+the 231-monomial three-mode determinant, certify the unique crossing by
+correlated rational Bernstein cells, and directly enclose
+\eqref{eq:finite-pf5-witness}. The separator verifier reconstructs
 the central determinant, checks the exact \(P^8\) cancellation, verifies all
 25 coefficients in \eqref{eq:separator-c4}, and reproduces the rational
 discriminant inequality in \appref{app:separator}. The generated coefficient
@@ -52,11 +59,11 @@ single replay command is
 \begin{center}
 \texttt{python scripts/replay\_paper.py}.
 \end{center}
-It prints five lines beginning \texttt{PASS}, one for each row above, followed
+It prints one line beginning \texttt{PASS} for each certificate boundary, followed
 by \texttt{status=paper evidence replay passed}. The SHA-256 of its complete
 standard output is
 \begin{center}
-\texttt{ec48df7f12724a948075be71d1b6771e8fb2ea735ab74fb490ab61eafcb7eea3}.
+\texttt{5204f9fa12bf539edc245c257db285ab42e2041e4735f782a84852e5c7f0a592}.
 \end{center}
 Package versions and the complete artifact hashes are also recorded in
 \path{requirements-paper.txt} and \path{paper/RELEASE_MANIFEST.md}.

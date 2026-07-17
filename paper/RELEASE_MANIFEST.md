@@ -14,7 +14,7 @@
 - Command: `python scripts/replay_paper.py`
 - Expected final line: `status=paper evidence replay passed`
 - Complete stdout SHA-256:
-  `ec48df7f12724a948075be71d1b6771e8fb2ea735ab74fb490ab61eafcb7eea3`
+  `5204f9fa12bf539edc245c257db285ab42e2041e4735f782a84852e5c7f0a592`
 - Environment: Python 3.13, SymPy 1.14.0, mpmath 1.3.0
 - TeX engine: Tectonic 0.16.9
 - Theorem-supporting sign arithmetic: exact rational and symbolic
@@ -25,6 +25,13 @@
 
 - Global-sign launcher: `../scripts/verify_riemann_signs_exact.py`
 - Maintained global-sign core: `../scripts/verify_riemann_signs_core.py`
+- Order-five symbolic reconstruction:
+  `../scripts/verify_pf5_threshold_symbolic.py`
+- Order-five threshold and finite-witness certificate:
+  `../scripts/verify_pf5_threshold.py`
+- Order-five threshold core: `../scripts/pf5_threshold_core.py`
+- Order-five certificate description:
+  `../sources/pf5-threshold-certificate.md`
 - Separator coefficients:
   `manuscript/generated/separator-coefficients.json`
 - Separator coefficient SHA-256:
@@ -33,13 +40,13 @@
 ## Maintained PDF
 
 - File: `../strict-global-pf4-riemann-kernel.pdf`
-- SHA-256: `1eb53123f3029a08303d058ffe70183c3ce32fea150b7a0eab915d67c096ecc4`
+- SHA-256: `e14c492943acc691e13dfc4ae797b8e364c5a8b106b874c53f12ea6e982d1fa0`
 
 ## arXiv package
 
 - Directory: `arxiv/`
 - Upload archive: `ax.tar`
-- SHA-256: `b64c5b51f90549a326fdd9aeb4bcee79ee4f8bf2f531629c9320e20066bf81c9`
+- SHA-256: `9c05d8d5c7a1dccbd53326ec9106952fec1bc2e18a22377bb1b142531bc253f0`
 
 The archive contains the flattened LaTeX source only. The PDF, auxiliary
 files, logs, repository metadata, and hidden files are excluded.

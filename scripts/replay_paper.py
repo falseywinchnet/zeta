@@ -1,13 +1,12 @@
 #!/usr/bin/env python3
 """Non-mutating replay entry point for the PF4 paper evidence.
 
-The maintained proof uses five active certificate boundaries.  The former Arb
+The maintained proof uses seven active certificate boundaries.  The former Arb
 compact covers are historical records and are intentionally absent here.
 """
 
 from __future__ import annotations
 
-from concurrent.futures import ThreadPoolExecutor
 import hashlib
 import importlib.metadata
 import json
@@ -17,7 +16,7 @@ import sys
 
 
 PAPER_CERTIFICATES = (
-    "K000005", "K000009", "K000010", "K000011", "K000012"
+    "K000005", "K000009", "K000010", "K000011", "K000012", "K000016", "K000017"
 )
 
 
@@ -78,9 +77,10 @@ def replay_paper_certificates(root: Path) -> None:
             item["runner"]["stdout_sha256"],
             item["runner"]["stderr_sha256"],
         ))
-    with ThreadPoolExecutor(max_workers=min(4, len(tasks))) as executor:
-        for message in executor.map(lambda task: run_checked(*task), tasks):
-            print(message)
+    # Sequential replay keeps the two polynomial-heavy PF5 checks within the
+    # memory budget of an ordinary laptop.
+    for task in tasks:
+        print(run_checked(*task))
 
 
 def main() -> None:

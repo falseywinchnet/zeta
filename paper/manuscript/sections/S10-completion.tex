@@ -93,6 +93,77 @@ the limit strictly negative. Hence
 \(h\). These are translation minors at strictly increasing nodes.
 \end{proof}
 
+For the equal-step family put
+\[
+ D_5(u,h)=\det[\Phi(u+(i-j)h)]_{i,j=0}^4,\qquad
+ C_5(u)=\lim_{h\downarrow0}\frac{D_5(u,h)}{h^{20}}.
+\]
+Because \(V(0,\ldots,4)=\prod_{j=1}^4j!\), the Vandermonde and factorial
+factors in Lemma~\ref{lem:confluent-limit} cancel, and therefore
+\begin{equation}\label{eq:C5-H5}
+ C_5(u)=\det[\Phi^{(i+j)}(u)]_{i,j=0}^4.
+\end{equation}
+
+\begin{theorem}[Confluent order-five threshold]\label{thm:confluent-threshold}
+There is a unique \(u_*>0\) such that \(C_5(u_*)=0\), and
+\[
+ 0.0622795266356<u_*<0.0622795266357.
+\]
+Moreover \(C_5(u)<0\) for \(0\leq u<u_*\), while \(C_5(u)>0\) for
+\(u>u_*\).
+\end{theorem}
+
+\begin{proof}
+Put \(x=\pi e^{2u}\), \(y=e^{-3x}\), and \(z=e^{-8x}\). After removing the
+positive first-mode amplitude \(2xe^{5u/2-x}\), the first three theta modes of
+the derivative jet are
+\[
+ b_j=P_j(x)+4yP_j(4x)+9zP_j(9x),
+\]
+where
+\[
+ P_0(x)=2x-3,\qquad
+ P_{j+1}(x)=\left(\frac52-2x\right)P_j(x)+2xP_j'(x).
+\]
+Thus the three-mode part of \(C_5\), apart from a positive fifth power, is the
+closed determinant
+\begin{equation}\label{eq:three-mode-C5}
+ G_3(x,y,z)=\det[b_{i+j}]_{i,j=0}^4.
+\end{equation}
+Its exact expansion has 231 monomials. The path derivative is obtained without
+another expansion from
+\[
+ \frac{d}{du}=2x(\partial_x-3y\partial_y-8z\partial_z).
+\]
+
+For \(j\leq9\), the omitted modes satisfy
+\begin{equation}\label{eq:C5-tail}
+ |e_j(x)|\leq
+ \frac{S_jx^{j+1}4^{2j+4}e^{-15x}}
+ {1-(5/4)^{22}e^{-9x}},
+\end{equation}
+where \(S_j\) is the sum of the absolute coefficients of \(P_j\). Exact
+rational Bernstein bounds, preserving the common \(x\)-dependence of
+\(e^{-3x}\) and \(e^{-8x}\), give \(C_5<0\) from \(u=0\) through \(u=1/50\)
+and \(C_5'>0\) on the overlapping range from \(u=3/200\) through \(x=4\).
+Direct four-mode endpoint enclosures give opposite signs at
+\(u=0.0622795266356\) and \(u=0.0622795266357\). Four further Bernstein cells
+give \(C_5>0\) for \(4\leq x\leq40\), and the exact one-mode determinant plus
+\eqref{eq:C5-tail} gives positivity for \(x\geq40\). These overlapping signs
+prove existence, uniqueness, and the stated classification. The domains and
+cell counts are listed in \appref{app:pf5-threshold}.
+\end{proof}
+
+The same rational evaluator gives a finite, nonconfluent witness:
+\begin{equation}\label{eq:finite-pf5-witness}
+ -1.08\mathbin{\cdot}10^{-7}
+ <\det[\Phi((i-j)211/2000)]_{i,j=0}^4
+ <-1.05\mathbin{\cdot}10^{-7}.
+\end{equation}
+This is a direct translation minor at distinct equally spaced nodes. The
+outermost center over all finite spacings is a separate two-variable extremal
+problem; no such global extremality is used here.
+
 Theorem~\ref{thm:main} and Theorem~\ref{thm:not-pf5} prove
 Corollary~\ref{cor:exact-order}.
 

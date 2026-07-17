@@ -781,8 +781,94 @@
         "T000003"
       ],
       "updated_at": "2026-07-16T23:45:10+00:00"
+    },
+    "K000016": {
+      "artifacts": [
+        {
+          "path": "work/2026-07-16-pf5-extremal-search/c5-two-mode-expression.txt",
+          "sha256": "62f57e886661c1fda58fb4724c83c7714af8c89b124c23a4e5be90d813a80d82"
+        }
+      ],
+      "attestation": {
+        "manifest_sha256": "10f5c9897695c2738d31df61cf1b195c8dd8f4b880d8347f16bb06e468f10012",
+        "method": "executed",
+        "schema": 1,
+        "verified_at": "2026-07-17T02:27:51+00:00"
+      },
+      "created_at": "2026-07-17T02:27:25+00:00",
+      "dependencies": [],
+      "description": "Exact symbolic reconstruction of the three-mode order-five confluent determinant and its 231-monomial closed polynomial",
+      "environment": null,
+      "file": {
+        "path": "scripts/verify_pf5_threshold_symbolic.py",
+        "sha256": "91c15a257d57cb02926069a50a8c392309bc6262322e91eb1316b9d5178d91e5"
+      },
+      "precision": "exact rational polynomial algebra; pure-Python SymPy; 231 monomials",
+      "requirements": [
+        "sympy==1.14.0"
+      ],
+      "runner": {
+        "argv": [
+          "{python}",
+          "scripts/verify_pf5_threshold_symbolic.py"
+        ],
+        "expected_exit_code": 0,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "65831fab11e3e89be7041272bfd5960bcb80232244b5db65bd40213728e24240",
+        "timeout_seconds": 60
+      },
+      "topics": [
+        "T000003"
+      ],
+      "updated_at": "2026-07-17T02:27:25+00:00"
+    },
+    "K000017": {
+      "artifacts": [
+        {
+          "path": "scripts/pf5_threshold_core.py",
+          "sha256": "dabf219f6616bcbee2a06aba76444c5a1a86054e50481f58d84b70dd3b6d7504"
+        },
+        {
+          "path": "sources/pf5-threshold-certificate.md",
+          "sha256": "f9bbf9c43225afdd387bc2130b822fb828fa78c5ce7ebcbf8853387c268e30d0"
+        }
+      ],
+      "attestation": {
+        "manifest_sha256": "16af825f2bf8c4e47a57e3de4e6c5d13174edbeb7e1c792ab318662fdb8cee55",
+        "method": "executed",
+        "schema": 1,
+        "verified_at": "2026-07-17T02:28:22+00:00"
+      },
+      "created_at": "2026-07-17T02:28:01+00:00",
+      "dependencies": [
+        "K000016"
+      ],
+      "description": "Exact rational certificate for the unique positive order-five confluent threshold and a finite rational negative Toeplitz witness",
+      "environment": null,
+      "file": {
+        "path": "scripts/verify_pf5_threshold.py",
+        "sha256": "149f62376507be9d6c76f14da3185c325eb3b25db0032bba8f183ce43a2e7360"
+      },
+      "precision": "10^-50 fixed rational lattice; exact Bernstein coefficients and analytic mode tails; no floating-point sign decision",
+      "requirements": [
+        "sympy==1.14.0"
+      ],
+      "runner": {
+        "argv": [
+          "{python}",
+          "scripts/verify_pf5_threshold.py"
+        ],
+        "expected_exit_code": 0,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "022acda4b1b9ae25a6f22bbbc23e15fdb08abb8080da41f7dcf7cbbbf47c66e0",
+        "timeout_seconds": 120
+      },
+      "topics": [
+        "T000003"
+      ],
+      "updated_at": "2026-07-17T02:28:01+00:00"
     }
   },
-  "next_id": 16,
+  "next_id": 18,
   "version": 1
 }

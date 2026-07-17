@@ -42,15 +42,16 @@ its displayed section number changes.
 | `S07` | `sections/S07-confluent-invariant.tex` | Central-moment determinant and `C4=Q^6 kappa^2 D` | `R147`, `R149`, `R171`, `R173`, `CERT9`, `CERT12` | ready |
 | `S08` | `sections/S08-transport-identity.tex` | Exact expectation identity and endpoint cancellation | `R153`, `CERT9` | ready |
 | `S09` | `sections/S09-crossing-kernel.tex` | Strict density-ratio monotonicity and positive integral | `R153`, `CERT9` | ready |
-| `S10` | `sections/S10-completion.tex` | Strict minors, origin parity obstruction, exact order four, no RH implication | `R14`, `R72`, `R81`, `R145`, `R164`, `CERT11` | ready; exact rational replay |
+| `S10` | `sections/S10-completion.tex` | Strict minors, origin parity obstruction, unique order-five confluent threshold, finite rational witness, exact order four | `R14`, `R72`, `R145`, `R164`, `R178`, `R179`, `CERT11`, `CERT16`, `CERT17` | ready |
 | `S10a` | `sections/S10a-separator.tex` | Explicit positive even Schwartz strict-PF4 kernel with nonreal Fourier zeros | `R165`-`R170`, `CERT10` | ready; exact/direct replay |
-| `S11` | `sections/S11-reproducibility.tex` | Exact active replay, fixed artifacts, and software versions | `CERT5`, `CERT9`-`CERT12` | ready |
+| `S11` | `sections/S11-reproducibility.tex` | Exact active replay, fixed artifacts, and software versions | `CERT5`, `CERT9`-`CERT12`, `CERT16`, `CERT17` | ready |
 | `S11a` | `sections/S11a-availability.tex` | Public evidence anchor, availability, AI provenance, release gates | `P000069`, `P000070` | ready; release-gated |
 | `A1` | `appendices/A1-algebra.tex` | Cumulant expansion and curvature factorization line by line | `R149`, `CERT9`, `CERT12` | ready |
 | `A2` | `appendices/A2-tail.tex` | Two-mode margins and analytic all-mode perturbation | `R171`, `CERT12` | ready; exact replay |
 | `A3` | `appendices/A3-endpoints.tex` | `(50)->(45)` endpoint algebra with all substitutions exposed | `R153`, `CERT9` | ready |
-| `A4` | `appendices/A4-provenance.tex` | Claim-to-file replay table | `CERT5`, `CERT9`-`CERT12` | ready |
+| `A4` | `appendices/A4-provenance.tex` | Claim-to-file replay table | `CERT5`, `CERT9`-`CERT12`, `CERT16`, `CERT17` | ready |
 | `A5` | `appendices/A5-separator.tex` | Independent central determinant, reduced 13-coefficient certificate, exact Fourier discriminant | `R167`, `R168`, `CERT10` | ready |
+| `A6` | `appendices/A6-pf5-threshold.tex` | Three-mode closed determinant, correlated Bernstein crossing, one-mode tail, finite witness | `R178`, `R179`, `CERT16`, `CERT17` | ready; exact replay |
 
 ## Review verdict ledger
 
@@ -77,10 +78,10 @@ No critique position is currently unfilled. CERT10 and S10a additionally
 close the continuous PF3/PF4 insufficiency position that remained open after
 the original discrete smoothing proposal was rejected.
 
-An explicit largest interval \(0<h\leq h_0\) for the negative equally spaced
-order-five minor would strengthen the present confluent existence statement
-but is not needed for exact order four. Producing \(h_0\) requires a new
-remainder or interval certificate and is reserved for an advancement round.
+The maintained paper now gives the unique confluent center threshold and a
+robust finite rational witness. Determining the outermost center over all
+finite spacings remains a separate two-variable extremal problem and is not
+claimed by the paper.
 
 ### P000070 audit promotion through C2
 

@@ -24,6 +24,9 @@ Let Phi be the classical Riemann, or de Bruijn-Newman, kernel. We prove that
 every translation minor of Phi of order at most four is strictly positive at
 strictly ordered nodes, while an exact origin-confluent calculation gives a
 negative order-five minor. Thus its exact global Polya-frequency order is four.
+The order-five confluent coefficient has one positive zero, enclosed between
+0.0622795266356 and 0.0622795266357, and an explicit rational finite-spacing
+witness has determinant of order 10^-7.
 The positive theorem uses a two-mode argument: exact rational
 polynomial inequalities prove global positivity of the log-curvature
 quantities q and F2 and of the fully confluent invariant C4, while analytic
