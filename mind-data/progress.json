@@ -323,8 +323,12 @@
     "P000081": {
       "blurb": "Versioned the refined PF4 submission as immutable release pf4-paper-v1.0.1 and refreshed verified PDF and arXiv artifact hashes",
       "created_at": "2026-07-17T01:18:33+00:00"
+    },
+    "P000082": {
+      "blurb": "Mapped the PF5 confluent threshold and outer finite Toeplitz intercept with normalized scaling and an exact three-mode polynomial reduction",
+      "created_at": "2026-07-17T01:38:45+00:00"
     }
   },
-  "next_id": 82,
+  "next_id": 83,
   "version": 1
 }
