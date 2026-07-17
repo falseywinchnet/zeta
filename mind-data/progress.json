@@ -335,8 +335,12 @@
     "P000084": {
       "blurb": "Updated publication provenance to the promoted P000083 proof snapshot and regenerated the PDF and arXiv archive hashes",
       "created_at": "2026-07-17T02:39:21+00:00"
+    },
+    "P000085": {
+      "blurb": "Removed institutional affiliation from the PF4 manuscript and arXiv metadata, then rebuilt and verified the publication artifacts",
+      "created_at": "2026-07-17T03:05:21+00:00"
     }
   },
-  "next_id": 85,
+  "next_id": 86,
   "version": 1
 }

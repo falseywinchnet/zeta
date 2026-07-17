@@ -100,7 +100,7 @@ candidate are retained in `work/2026-07-16-pf4-audit-through-c2/`.
 | V7 | `S02` proves `Phi>0` before defining `log Phi`. |
 | V8 | `S11`, the proof records, and certificate metadata distinguish base-cover and wrapper precision/dependencies. |
 | V9 | `S10a` attributes positive `kappa` to the established `q>0,F2>0` inequalities. |
-| V10 | Joshuah Rainstar, Airspy, Inc., contact, contribution, acknowledgments, competing-interests statement, keywords, MSC, PDF metadata, availability, and AI provenance are present; tagged-PDF compliance remains a toolchain gate. |
+| V10 | Joshuah Rainstar, contact, contribution, acknowledgments, competing-interests statement, keywords, MSC, PDF metadata, availability, and AI provenance are present; no institutional affiliation is claimed; tagged-PDF compliance remains a toolchain gate. |
 | C1 | `sharp` is removed from the title and Fourier-separator framing. |
 | C2 | `S06` says the increasing coordinate is global on its image; unused surjectivity is not implied. |
 
