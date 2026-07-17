@@ -5,7 +5,7 @@
 - Repository: `https://github.com/falseywinchnet/zeta`
 - Exact analytic proof promotion: commit
   `0ebb95b141a109f88dc0c0218a9840e01eba9790`
-- Submission snapshot tag: `pf4-paper-v1.0.0`
+- Submission snapshot tag: `pf4-paper-v1.0.1`
 - Manuscript: `paper/manuscript/main.tex`
 - Flattened arXiv source: `paper/arxiv/main.tex`
 
@@ -33,13 +33,13 @@
 ## Maintained PDF
 
 - File: `../strict-global-pf4-riemann-kernel.pdf`
-- SHA-256: `6e59f961d382e0de378955795acebe48272c77edd7d932a5b830625fc86890f9`
+- SHA-256: `1eb53123f3029a08303d058ffe70183c3ce32fea150b7a0eab915d67c096ecc4`
 
 ## arXiv package
 
 - Directory: `arxiv/`
 - Upload archive: `ax.tar`
-- SHA-256: `fcddeb7fb873aad0bfed7803fc9a780ebef1961a3f37e57bd2cdc2da9c3a6ae7`
+- SHA-256: `b64c5b51f90549a326fdd9aeb4bcee79ee4f8bf2f531629c9320e20066bf81c9`
 
 The archive contains the flattened LaTeX source only. The PDF, auxiliary
 files, logs, repository metadata, and hidden files are excluded.

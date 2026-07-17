@@ -319,8 +319,12 @@
     "P000080": {
       "blurb": "Refined PF4 paper: exposed exact half-line and tail certificates, proved confluent transfer quantifiers, resolved notation and metadata, integrated precise Michałowski comparison, and rebuilt verified PDF/arXiv package",
       "created_at": "2026-07-17T01:15:47+00:00"
+    },
+    "P000081": {
+      "blurb": "Versioned the refined PF4 submission as immutable release pf4-paper-v1.0.1 and refreshed verified PDF and arXiv artifact hashes",
+      "created_at": "2026-07-17T01:18:33+00:00"
     }
   },
-  "next_id": 81,
+  "next_id": 82,
   "version": 1
 }
