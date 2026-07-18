@@ -50,7 +50,8 @@ Implemented modules:
   explicit triangular antiderivatives, strict normalizer positivity, density
   integrability, and the resulting concrete probability measures;
 - `PF4.Cumulative`: endpoint primitives, the two closed cumulative weights,
-  the piecewise coordinate gap, and their exact normalized-integral identities;
+  the piecewise coordinate gap, exact normalized-integral identities, direct
+  strict interior positivity, and continuity from exact branch matching;
 - `PF4.CDF`: concrete measure CDFs, their identification with mathlib's
   probability CDF, thin equality bridges to `PF4.Cumulative`, and
   kernel-checked strict gap proofs before the crossing, from the crossing
@@ -62,13 +63,14 @@ Implemented modules:
   primitives, the independent endpoint transport object, and the exact
   object-level equality with the concrete Bochner expectation difference,
   including the specialization to the coordinate-derived normalizers;
-- `PF4.Transport`: the positive curvature-weighted CDF integral, positive
-  numerator assembly, and the exact final negative-sign bridge.
+- `PF4.Transport`: both the measure/CDF and deterministic closed-coordinate
+  routes to the positive curvature-weighted numerator, plus the exact final
+  negative-sign bridge.
 
 No stub theorem with `sorry` is used. The proof-facing cumulative object is
 `PF4.Cumulative.coordinateGap`; the measure-backed CDF is retained as a
-validation interface. The next conversion boundary is strict positivity of
-the coordinate gap from its closed endpoint formulas.
+validation interface. The next conversion boundary is the exact PO-0027
+identity connecting the checked coordinate transport numerator to `∂ξΨ`.
 
 ## Required build gates
 

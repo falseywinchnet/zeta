@@ -203,6 +203,7 @@ theorem coordinateGap_continuous_of_normalized
   apply continuous_if_le continuous_id continuous_const
     hleft.continuousOn hright.continuousOn
   intro y hyz
+  change y = z at hyz
   subst y
   exact hmatch
 

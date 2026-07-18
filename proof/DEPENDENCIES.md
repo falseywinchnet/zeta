@@ -57,8 +57,8 @@ their conclusions backward.
 2. Formal analytic construction and differentiation of `Φ`.
 3. Formal statement bridges for CERT12 and CERT17.
 4. Formal generic quotient/integral determinant engine.
-5. Fully derived measure normalization and curvature-coordinate instantiation
-   of the crossing theorem.
+5. Exact PO-0027 object identity from the differentiated coordinate primitive
+   to the now-checked positive transport numerator.
 
-PO-0038 and PO-0039 are `FORMALLY_PROVED`; every route to T1–T3 still has
-unresolved prerequisites.
+PO-0037 through PO-0040 are `FORMALLY_PROVED`; every route to T1–T3 still has
+unresolved prerequisites, beginning at the exact PO-0027 sign identity.

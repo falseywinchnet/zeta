@@ -108,7 +108,10 @@ then keeps `Δ` positive on the post-crossing segment. The left segment is
 positive because it rises from zero. On `(z,w)`, positive remaining `ν` mass
 gives `Δ > 0` directly.
 
-Open: PO-0037.
+Closed: `PF4.Cumulative.coordinateGap_pos` derives the normalizers and mass
+identities, proves the positive pre-crossing integral, and rewrites the
+post-crossing gap using a concrete positive right-tail integral. No endpoint
+gap or tail mass is assumed.
 
 ## NV-010 — positive transport integral
 
@@ -117,7 +120,9 @@ Strict positivity requires more than nonnegative factors. The interval
 integrand is positive on a nonempty open set. This discharges the equality
 case.
 
-Open: PO-0040.
+Closed: `PF4.Transport.coordinateTransportNumerator_pos_closed` derives the
+closed-gap sign and continuity and supplies an explicit midpoint witness for
+the positive weighted integrand. No positive integral is passed as a premise.
 
 ## NV-011 — finite PF5 witness
 

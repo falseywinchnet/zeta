@@ -2,7 +2,7 @@
 
 Target: `PF4-CORE-v1`
 
-Formal completion: **6/46 obligations**
+Formal completion: **8/46 obligations**
 
 Current strongest result: a conventional proof supported by exact symbolic and
 rational certificates. Lean 4.32.0 and mathlib 4.32.0 are pinned; target
@@ -14,7 +14,10 @@ bridge are now also kernel-checked. PO-0038 and PO-0039 are complete atomic
 obligations promoted to `FORMALLY_PROVED`: the paper primitive, elementary
 primitives, actual Bochner expectations, retained boundary terms, cleared
 endpoint cancellation, CDF formulas, and final integration identity are
-checked. PO-0023, PO-0024, PO-0030, and PO-0031 are now complete atomic
+checked. PO-0037 is now proved directly on the closed coordinate gap without
+measures or CDF complement identities, and PO-0040 derives continuity of its
+displayed weighted integrand and strict positivity of the coordinate transport
+numerator. PO-0023, PO-0024, PO-0030, and PO-0031 are complete atomic
 obligations: the coordinate normalizers, endpoint derivative, strict
 positivity, integrability, and concrete normalized laws are constructed in
 Lean and connected to PO-0038.
@@ -79,7 +82,7 @@ Lean and connected to PO-0038.
 | PO-0034 | Ratio is strictly decreasing with endpoint limits `∞,0` | CONVENTIONALLY_PROVED | formal derivative/extended-real limits |
 | PO-0035 | The explicit strict-convex-combination crossing exists | FORMAL_FRAGMENT | crossing algebra checked; upstream parameter instantiation |
 | PO-0036 | Crossing is unique and `Δ'` has the claimed sign pattern | FORMAL_FRAGMENT | unique density crossing/sign checked; derivative-of-CDF bridge remains |
-| PO-0037 | `Δ>0` on `(p,w)` with endpoint zeros | FORMAL_FRAGMENT | deterministic endpoint closed forms, endpoint zeros, and CDF bridges checked; prove strict positivity directly from the closed coordinate gap |
+| PO-0037 | `Δ>0` on `(p,w)` with endpoint zeros | FORMALLY_PROVED | none; direct closed-gap positivity, endpoint zeros, and branch matching checked without measures |
 
 ## Assembly
 
@@ -87,7 +90,7 @@ Lean and connected to PO-0038.
 |---|---|---|---|
 | PO-0038 | `K=Eν[A₀]-Eμ[A₀]` | FORMALLY_PROVED | none; independent primitive, expectations, and endpoint object identity checked |
 | PO-0039 | Expectation difference equals `∫ΔD` | FORMALLY_PROVED | none; actual measures, expectations, CDFs, and boundary terms checked |
-| PO-0040 | Transport integral and `N` are strictly positive | FORMAL_FRAGMENT | positive weighted integral checked from CDF/C₄ inputs; PO-0029/0039 instantiation |
+| PO-0040 | Transport integral and `N` are strictly positive | FORMALLY_PROVED | none; coordinate normalizers, closed-gap continuity/sign, weight continuity/sign, and strict integral checked |
 | PO-0041 | `∂ξΨ<0` globally | FORMAL_FRAGMENT | final exact sign bridge checked; derive PO-0027 identity and instantiate `N>0` |
 | PO-0042 | Strict global order-four minors | CERTIFIED | PO-0020/0041 formal bridge |
 | PO-0043 | Strict minors of orders one through three | CERTIFIED | assemble PO-0008/0016/0018 |
@@ -97,7 +100,7 @@ Lean and connected to PO-0038.
 
 ## Immediate next work
 
-1. Prove strict positivity directly from the piecewise closed coordinate gap,
-   using the measure-backed CDF theorem only as an independent bridge check.
+1. Formalize the exact PO-0027 object identity connecting the coordinate
+   transport numerator to `∂ξΨ`, then assemble PO-0041.
 2. Write the generic statement of PO-0018 in Lean-ready form and design
    canonical certificate statements for PO-0011–PO-0013 and PO-0045.

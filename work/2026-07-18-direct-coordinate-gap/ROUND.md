@@ -6,7 +6,7 @@
 - Starting MIND references: R101, R111, R112, R113, R137, R138, R153, R83, R94
 - Starting progress: P000097
 - Target obligation: PO-0037
-- Status: complete candidate; awaiting refine integration
+- Status: integrated at P000099
 
 ## Question
 
@@ -51,9 +51,9 @@ curvature weight.
 
 ## Next boundary
 
-A refine round should audit and integrate the direct PO-0037 and PO-0040
-candidates into `PF4.Cumulative` and `PF4.Transport`, update the obligation
-ledger, and preserve the older measure/CDF route only as an independent
-validation interface. The subsequent advancement boundary is the exact
-object-level identity connecting this deterministic transport numerator to the
-displayed partial-xi expression; its sign implication already exists.
+P000099 audited and integrated the direct PO-0037 and PO-0040 candidates into
+`PF4.Cumulative` and `PF4.Transport`, updated the obligation ledger to 8/46,
+and retained the older measure/CDF route as an independent validation
+interface. The next advancement boundary is the exact object-level identity
+connecting this deterministic transport numerator to the displayed partial-xi
+expression; its sign implication already exists.

@@ -22,6 +22,7 @@ namespace PF4.Transport
 open MeasureTheory Set
 open scoped Interval
 open PF4.CDF PF4.Densities PF4.Normalization PF4.Measures PF4.Expectation
+open PF4.Cumulative PF4.Curvature
 
 /-- The curvature weight which appears after the transport integration by
 parts. -/
@@ -199,5 +200,116 @@ theorem concrete_transportNumerator_pos_from_measures
   · exact hκ
   · exact hC4
   · exact hcont
+
+/-- Deterministic PO-0040 handoff: the actual coordinate gap produces a
+strictly positive transport numerator. The only remaining analytic interface
+is continuity of the displayed closed-form integrand; gap sign is not assumed. -/
+theorem coordinateTransportNumerator_pos
+    {Q Q1 Q2 C4 : ℝ → ℝ} {p z w : ℝ}
+    (hpz : p < z) (hzw : z < w)
+    (hQ : ∀ t ∈ Icc p w, HasDerivAt Q (Q1 t) t)
+    (hQ1 : ∀ t ∈ Icc p w, HasDerivAt Q1 (Q2 t) t)
+    (hQpos : ∀ t ∈ Icc p w, 0 < Q t)
+    (hκpos : ∀ t ∈ Icc p w, 0 < curvature Q2 t)
+    (hκcont : Continuous (curvature Q2))
+    (hC4pos : ∀ t ∈ Icc p w, 0 < C4 t)
+    (hintegrand : ContinuousOn
+      (fun t => coordinateGap Q Q1 p z w
+          (coordinateDelta Q Q1 p z) (coordinateLambda Q p z w) t *
+        curvatureWeight Q (curvature Q2) C4 t) (Icc p w)) :
+    0 < transportNumerator (coordinateDelta Q Q1 p z)
+      (coordinateLambda Q p z w)
+      (coordinateGap Q Q1 p z w (coordinateDelta Q Q1 p z)
+        (coordinateLambda Q p z w)) Q (curvature Q2) C4 p w := by
+  have hδ : 0 < coordinateDelta Q Q1 p z :=
+    coordinateDelta_pos hpz
+      (fun t ht => hQ t ⟨ht.1, ht.2.trans hzw.le⟩)
+      (fun t ht => hQ1 t ⟨ht.1, ht.2.trans hzw.le⟩)
+      hκcont.continuousOn
+      (fun t ht => hκpos t ⟨ht.1, ht.2.trans hzw.le⟩)
+  have hΛ : 0 < coordinateLambda Q p z w :=
+    coordinateLambda_pos hpz hzw hQ hQ1 hκcont.continuousOn hκpos
+  apply transportNumerator_pos hδ hΛ
+  apply transportIntegral_pos (hpz.trans hzw)
+  · intro t ht
+    by_cases htp : t = p
+    · subst t
+      rw [coordinateGap_at_p hpz.le]
+    by_cases htw : t = w
+    · subst t
+      rw [coordinateGap_at_w hzw]
+    exact (coordinateGap_pos hpz hzw
+      (lt_of_le_of_ne ht.1 (Ne.symm htp))
+      (lt_of_le_of_ne ht.2 htw) hQ hQ1 hκpos hκcont).le
+  · intro t ht
+    exact coordinateGap_pos hpz hzw ht.1 ht.2 hQ hQ1 hκpos hκcont
+  · exact hQpos
+  · exact hκpos
+  · exact hC4pos
+  · exact hintegrand
+
+/-- Closed deterministic PO-0040 candidate. Continuity of the transport
+integrand is derived from the closed coordinate formulas and their exact mass
+matching at `z`; no gap, measure, or CDF premise remains. -/
+theorem coordinateTransportNumerator_pos_closed
+    {Q Q1 Q2 C4 : ℝ → ℝ} {p z w : ℝ}
+    (hpz : p < z) (hzw : z < w)
+    (hQ : ∀ t ∈ Icc p w, HasDerivAt Q (Q1 t) t)
+    (hQ1 : ∀ t ∈ Icc p w, HasDerivAt Q1 (Q2 t) t)
+    (hQcont : Continuous Q) (hQ1cont : Continuous Q1)
+    (hQpos : ∀ t ∈ Icc p w, 0 < Q t)
+    (hκpos : ∀ t ∈ Icc p w, 0 < curvature Q2 t)
+    (hκcont : Continuous (curvature Q2))
+    (hC4cont : Continuous C4)
+    (hC4pos : ∀ t ∈ Icc p w, 0 < C4 t) :
+    0 < transportNumerator (coordinateDelta Q Q1 p z)
+      (coordinateLambda Q p z w)
+      (coordinateGap Q Q1 p z w (coordinateDelta Q Q1 p z)
+        (coordinateLambda Q p z w)) Q (curvature Q2) C4 p w := by
+  have hδ : 0 < coordinateDelta Q Q1 p z :=
+    coordinateDelta_pos hpz
+      (fun t ht => hQ t ⟨ht.1, ht.2.trans hzw.le⟩)
+      (fun t ht => hQ1 t ⟨ht.1, ht.2.trans hzw.le⟩)
+      hκcont.continuousOn
+      (fun t ht => hκpos t ⟨ht.1, ht.2.trans hzw.le⟩)
+  have hΛ : 0 < coordinateLambda Q p z w :=
+    coordinateLambda_pos hpz hzw hQ hQ1 hκcont.continuousOn hκpos
+  have hμmass :
+      (∫ t in p..z, leftMuDensity (curvature Q2) z (z - p)
+        (coordinateDelta Q Q1 p z) t) = 1 := by
+    apply leftMuDensity_intervalIntegral_eq_one (sub_pos.mpr hpz) hδ
+    rw [coordinateDelta_eq_triangular hpz
+      (fun t ht => hQ t ⟨ht.1, ht.2.trans hzw.le⟩)
+      (fun t ht => hQ1 t ⟨ht.1, ht.2.trans hzw.le⟩)
+      hκcont.continuousOn]
+    field_simp [sub_ne_zero.mpr hpz.ne']
+  have hνmass :
+      (∫ t in p..z, leftNuDensity (curvature Q2) p (z - p)
+        (coordinateLambda Q p z w) t) +
+        (∫ t in z..w, rightNuDensity (curvature Q2) w (w - z)
+          (coordinateLambda Q p z w) t) = 1 := by
+    apply nuDensities_intervalIntegral_eq_one (sub_pos.mpr hpz)
+      (sub_pos.mpr hzw) hΛ
+    exact (coordinateLambda_eq_triangular hpz hzw hQ hQ1
+      hκcont.continuousOn).symm
+  have hgapcont : Continuous
+      (coordinateGap Q Q1 p z w (coordinateDelta Q Q1 p z)
+        (coordinateLambda Q p z w)) :=
+    coordinateGap_continuous_of_normalized hpz hzw hQ hQ1 hQcont hQ1cont
+      hκcont hμmass hνmass
+  have hdencont : Continuous
+      (fun t => Q t ^ 6 * curvature Q2 t ^ 2) := by
+    fun_prop
+  have hweightcont : ContinuousOn
+      (curvatureWeight Q (curvature Q2) C4) (Icc p w) := by
+    unfold curvatureWeight
+    exact hC4cont.continuousOn.div hdencont.continuousOn (by
+      intro t ht
+      exact mul_ne_zero
+        (pow_ne_zero 6 (ne_of_gt (hQpos t ht)))
+        (pow_ne_zero 2 (ne_of_gt (hκpos t ht))))
+  apply coordinateTransportNumerator_pos hpz hzw hQ hQ1 hQpos hκpos hκcont
+    hC4pos
+  exact hgapcont.continuousOn.mul hweightcont
 
 end PF4.Transport

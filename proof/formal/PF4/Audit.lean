@@ -32,6 +32,9 @@ set_option linter.style.header false
 #print axioms PF4.Cumulative.closedGapRight_eq_tail_integral
 #print axioms PF4.Cumulative.coordinateGap_at_p
 #print axioms PF4.Cumulative.coordinateGap_at_w
+#print axioms PF4.Cumulative.coordinateGap_pos_of_normalized
+#print axioms PF4.Cumulative.coordinateGap_continuous_of_normalized
+#print axioms PF4.Cumulative.coordinateGap_pos
 #print axioms PF4.CDF.cdfGap_pos_before_crossing
 #print axioms PF4.CDF.cdfGap_pos_from_crossing_to_z
 #print axioms PF4.CDF.cdfGap_pos_right
@@ -52,4 +55,6 @@ set_option linter.style.header false
 #print axioms PF4.Transport.concrete_expectationDifference_eq_transportIntegral
 #print axioms PF4.Transport.concrete_transportNumerator_pos
 #print axioms PF4.Transport.concrete_transportNumerator_pos_from_measures
+#print axioms PF4.Transport.coordinateTransportNumerator_pos
+#print axioms PF4.Transport.coordinateTransportNumerator_pos_closed
 #print axioms PF4.Transport.partialXiPsi_neg_of_transport
