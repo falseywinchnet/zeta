@@ -2,7 +2,7 @@
 
 Target: `PF4-CORE-v1`
 
-Formal completion: **2/46 obligations**
+Formal completion: **6/46 obligations**
 
 Current strongest result: a conventional proof supported by exact symbolic and
 rational certificates. Lean 4.32.0 and mathlib 4.32.0 are pinned; target
@@ -14,8 +14,10 @@ bridge are now also kernel-checked. PO-0038 and PO-0039 are complete atomic
 obligations promoted to `FORMALLY_PROVED`: the paper primitive, elementary
 primitives, actual Bochner expectations, retained boundary terms, cleared
 endpoint cancellation, CDF formulas, and final integration identity are
-checked. PO-0030/0031 still require the upstream Lean derivation of `δ,Λ`
-and integrability.
+checked. PO-0023, PO-0024, PO-0030, and PO-0031 are now complete atomic
+obligations: the coordinate normalizers, endpoint derivative, strict
+positivity, integrability, and concrete probability laws are constructed in
+Lean and connected to PO-0038.
 
 ## Analytic foundation
 
@@ -45,7 +47,7 @@ and integrability.
 | ID | Claim | Present status | Formal blocker |
 |---|---|---|---|
 | PO-0014 | Weighted-mean identities and variation bound | CONVENTIONALLY_PROVED | extrema/integral lemmas |
-| PO-0015 | `Λ(ξ;m,r) > 0` for `ξ < m < r` | CONVENTIONALLY_PROVED | PO-0011/0012 and strict integral |
+| PO-0015 | `Λ(ξ;m,r) > 0` for `ξ < m < r` | FORMAL_FRAGMENT | coordinate strict-integral theorem checked; instantiate coordinate map from PO-0021/0022 |
 | PO-0016 | Strict order-three Wronskian sign | CERTIFIED | quotient identity formalization |
 | PO-0017 | Quotient/Wronskian algebra through order four | SYMBOLICALLY_CHECKED | general Lean determinant proof |
 | PO-0018 | Iterated quotient-integral determinant identity | CONVENTIONALLY_PROVED | matrix integration/orientation |
@@ -58,8 +60,8 @@ and integrability.
 |---|---|---|---|
 | PO-0021 | `y=-s` is strictly increasing on its image | CONVENTIONALLY_PROVED | inverse-on-image calculus |
 | PO-0022 | `ρ=F₂/q³>0`, `κ=1+ρ>1` | CERTIFIED | coordinate derivative identities |
-| PO-0023 | Triangular integral formula for `Λ` | CONVENTIONALLY_PROVED | two integrations with endpoints |
-| PO-0024 | Triangular formula and positivity for `δ` | CONVENTIONALLY_PROVED | derivative under endpoint change |
+| PO-0023 | Triangular integral formula for `Λ` | FORMALLY_PROVED | none; explicit primitives and endpoint algebra checked |
+| PO-0024 | Triangular formula and positivity for `δ` | FORMALLY_PROVED | none; endpoint derivative, integral identity, and midpoint strictness checked |
 | PO-0025 | Simultaneous translation operator in coordinates | SYMBOLICALLY_CHECKED | multivariable chain rule |
 | PO-0026 | Definition/expansion of `N` from differentiating `Ψ` | SYMBOLICALLY_CHECKED | object-identity proof |
 | PO-0027 | `∂ξΨ = -Q(p)N/Λ²` | SYMBOLICALLY_CHECKED | commuting derivatives and signs |
@@ -70,8 +72,8 @@ and integrability.
 
 | ID | Claim | Present status | Formal blocker |
 |---|---|---|---|
-| PO-0030 | `μ` is a probability measure | FORMAL_FRAGMENT | concrete measure and mass theorem checked; derive `δ`, continuity, integrability |
-| PO-0031 | `ν` is a probability measure | FORMAL_FRAGMENT | concrete two-piece measure and mass theorem checked; derive `Λ`, integrability |
+| PO-0030 | `μ` is a probability measure | FORMALLY_PROVED | none; derived `δ`, continuity, integrability, and mass checked |
+| PO-0031 | `ν` is a probability measure | FORMALLY_PROVED | none; derived `Λ`, piecewise integrability, and mass checked |
 | PO-0032 | `ν((z,w]) > 0` | FORMAL_FRAGMENT | strict tail theorem checked from actual density; instantiate upstream regularity |
 | PO-0033 | Actual density ratio equals displayed rational function | FORMAL_FRAGMENT | object identity and denominator signs checked; upstream parameter instantiation |
 | PO-0034 | Ratio is strictly decreasing with endpoint limits `∞,0` | CONVENTIONALLY_PROVED | formal derivative/extended-real limits |
@@ -95,9 +97,7 @@ and integrability.
 
 ## Immediate next work
 
-1. Derive `δ`, `Λ`, continuity, and integrability from the curvature-coordinate
-   definitions, closing the remaining inputs of PO-0030/0031.
-2. Instantiate the checked unified CDF theorem from the curvature-coordinate
+1. Instantiate the checked unified CDF theorem from the curvature-coordinate
    definitions.
-3. Write the generic statement of PO-0018 in Lean-ready form and design
+2. Write the generic statement of PO-0018 in Lean-ready form and design
    canonical certificate statements for PO-0011–PO-0013 and PO-0045.

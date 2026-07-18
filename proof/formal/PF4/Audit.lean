@@ -20,6 +20,13 @@ set_option linter.style.header false
 #print axioms PF4.Measures.muMeasure_univ_eq_one
 #print axioms PF4.Measures.nuMeasure_univ_eq_one
 #print axioms PF4.Measures.nuMeasure_Ioc_pos
+#print axioms PF4.Curvature.coordinateLambda_eq_triangular
+#print axioms PF4.Curvature.hasDerivAt_coordinateLambda_left
+#print axioms PF4.Curvature.coordinateDelta_eq_triangular
+#print axioms PF4.Curvature.coordinateDelta_pos
+#print axioms PF4.Curvature.coordinateLambda_pos
+#print axioms PF4.Curvature.coordinate_mu_isProbabilityMeasure
+#print axioms PF4.Curvature.coordinate_nu_isProbabilityMeasure
 #print axioms PF4.CDF.cdfGap_pos_before_crossing
 #print axioms PF4.CDF.cdfGap_pos_from_crossing_to_z
 #print axioms PF4.CDF.cdfGap_pos_right
@@ -34,6 +41,7 @@ set_option linter.style.header false
 #print axioms PF4.TransportObject.concrete_expectationDifference_eq_expectationEndpoint
 #print axioms PF4.TransportObject.expectationEndpoint_eq_expandedTransportK
 #print axioms PF4.TransportObject.expandedTransportK_eq_concrete_expectationDifference
+#print axioms PF4.TransportObject.derived_expandedTransportK_eq_concrete_expectationDifference
 #print axioms PF4.Transport.concrete_expectationDifference_eq_transportIntegral
 #print axioms PF4.Transport.concrete_transportNumerator_pos
 #print axioms PF4.Transport.concrete_transportNumerator_pos_from_measures

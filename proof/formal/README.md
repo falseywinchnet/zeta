@@ -45,6 +45,9 @@ Implemented modules:
 - `PF4.Measures`: concrete restricted-density measures, mass-one interfaces,
   probability instances, support lemmas, and strict right-tail mass from a
   positive integral on a nonempty interval;
+- `PF4.Curvature`: the coordinate secant, `Λ` and derivative-defined `δ`,
+  explicit triangular antiderivatives, strict normalizer positivity, density
+  integrability, and the resulting concrete probability measures;
 - `PF4.CDF`: concrete measure CDFs, their identification with mathlib's
   probability CDF, and kernel-checked strict gap proofs before the crossing,
   from the crossing through `z`, and on the right interval;
@@ -53,13 +56,13 @@ Implemented modules:
   exact expectation-difference/CDF-gap identity;
 - `PF4.TransportObject`: the paper primitive `A₀`, its two elementary
   primitives, the independent endpoint transport object, and the exact
-  object-level equality with the concrete Bochner expectation difference;
+  object-level equality with the concrete Bochner expectation difference,
+  including the specialization to the coordinate-derived normalizers;
 - `PF4.Transport`: the positive curvature-weighted CDF integral, positive
   numerator assembly, and the exact final negative-sign bridge.
 
 No stub theorem with `sorry` is used. The next conversion boundary is the
-upstream derivation of the triangular normalizers from the curvature
-coordinate.
+curvature-coordinate instantiation of the unified CDF-gap theorem.
 
 ## Required build gates
 

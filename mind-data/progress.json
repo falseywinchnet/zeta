@@ -376,8 +376,12 @@
     "P000094": {
       "blurb": "derive curvature triangular normalizers and probability transport handoff",
       "created_at": "2026-07-18T21:52:46+00:00"
+    },
+    "P000095": {
+      "blurb": "Audit and integrate curvature normalizers and probability laws, raising formal completion to 6 of 46",
+      "created_at": "2026-07-18T22:03:28+00:00"
     }
   },
-  "next_id": 95,
+  "next_id": 96,
   "version": 1
 }

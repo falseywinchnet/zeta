@@ -1,4 +1,5 @@
 import PF4.Expectation
+import PF4.Curvature
 import Mathlib.MeasureTheory.Integral.IntervalIntegral.IntegrationByParts
 import Mathlib.Analysis.Calculus.Deriv.Pow
 
@@ -17,7 +18,7 @@ namespace PF4.TransportObject
 
 open MeasureTheory Set
 open scoped Interval
-open PF4.Densities PF4.Normalization PF4.Measures PF4.Expectation
+open PF4.Densities PF4.Normalization PF4.Measures PF4.Expectation PF4.Curvature
 
 /-- The paper's primitive `A₀`, with named jet functions kept independent. -/
 noncomputable def paperPrimitive
@@ -212,10 +213,6 @@ theorem concrete_expectationDifference_eq_expectationEndpoint
   field_simp [hL.ne', hR.ne', hδ.ne', hΛ.ne']
   ring
 
-/-- Secant slope `Q[c,d]` used in the paper's endpoint expansion. -/
-noncomputable def chordSlope (Q : ℝ → ℝ) (c d : ℝ) : ℝ :=
-  (Q d - Q c) / (d - c)
-
 /-- The endpoint chord moment `U(c,d)` from S08. -/
 noncomputable def chordMoment
     (Q Q1 : ℝ → ℝ) (c d : ℝ) : ℝ :=
@@ -278,5 +275,45 @@ theorem expandedTransportK_eq_concrete_expectationDifference
     hLgap hRgap hQ hQ1 hQ2 hκeq hκ1eq hκ hκcont hAcont hL hR hδ hΛ]
   exact (expectationEndpoint_eq_expandedTransportK hLgap hRgap hδid hΛid
     hL hR hδ hΛ).symm
+
+/-- The PO-0023/0024 coordinate constructions discharge the free normalizer
+identities and positivity assumptions in PO-0038. -/
+theorem derived_expandedTransportK_eq_concrete_expectationDifference
+    {Q Q1 Q2 Q3 κ1 : ℝ → ℝ} {p z w : ℝ}
+    (hpz : p < z) (hzw : z < w)
+    (hQ : ∀ t, HasDerivAt Q (Q1 t) t)
+    (hQ1 : ∀ t, HasDerivAt Q1 (Q2 t) t)
+    (hQ2 : ∀ t, HasDerivAt Q2 (Q3 t) t)
+    (hκ1 : ∀ t, κ1 t = -Q3 t)
+    (hκpos : ∀ t, 0 < curvature Q2 t)
+    (hκcont : Continuous (curvature Q2))
+    (hAcont : Continuous (paperPrimitive Q Q1 (curvature Q2) κ1)) :
+    expandedTransportK Q Q1 Q2 p z w (z - p) (w - z)
+        (coordinateDelta Q Q1 p z) (coordinateLambda Q p z w) =
+      measureExpectation
+          (nuMeasure (curvature Q2) p z w (z - p) (w - z)
+            (coordinateLambda Q p z w))
+          (paperPrimitive Q Q1 (curvature Q2) κ1) -
+        measureExpectation
+          (muMeasure (curvature Q2) p z (z - p) (coordinateDelta Q Q1 p z))
+          (paperPrimitive Q Q1 (curvature Q2) κ1) := by
+  apply expandedTransportK_eq_concrete_expectationDifference hpz hzw rfl rfl
+  · rfl
+  · unfold coordinateLambda
+    ring
+  · exact hQ
+  · exact hQ1
+  · exact hQ2
+  · intro t; rfl
+  · exact hκ1
+  · exact hκpos
+  · exact hκcont
+  · exact hAcont
+  · exact sub_pos.mpr hpz
+  · exact sub_pos.mpr hzw
+  · exact coordinateDelta_pos hpz (fun t _ => hQ t) (fun t _ => hQ1 t)
+      hκcont.continuousOn (fun t _ => hκpos t)
+  · exact coordinateLambda_pos hpz hzw (fun t _ => hQ t) (fun t _ => hQ1 t)
+      hκcont.continuousOn (fun t _ => hκpos t)
 
 end PF4.TransportObject
