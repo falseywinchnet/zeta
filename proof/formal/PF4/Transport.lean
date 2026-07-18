@@ -4,7 +4,7 @@ Released under the MIT license as described in the file LICENSE.
 Authors: Joshuah Rainstar
 -/
 
-import PF4.CDF
+import PF4.Expectation
 
 set_option linter.style.header false
 
@@ -21,7 +21,7 @@ namespace PF4.Transport
 
 open MeasureTheory Set
 open scoped Interval
-open PF4.CDF
+open PF4.CDF PF4.Densities PF4.Normalization PF4.Measures PF4.Expectation
 
 /-- The curvature weight which appears after the transport integration by
 parts. -/
@@ -40,6 +40,28 @@ theorem curvatureWeight_pos
 noncomputable def transportIntegral
     (gap Q κ C4 : ℝ → ℝ) (p w : ℝ) : ℝ :=
   ∫ t in p..w, gap t * curvatureWeight Q κ C4 t
+
+/-- The PO-0039 identity specialized to the independently defined curvature
+transport weight.  This is an object-level connection: neither the expectation
+difference nor `transportIntegral` is defined in terms of the other. -/
+theorem concrete_expectationDifference_eq_transportIntegral
+    {κ Q C4 A : ℝ → ℝ} {p z w L R δ Λ : ℝ}
+    (hpz : p < z) (hzw : z < w)
+    (hκ : ∀ t ∈ Icc p w, 0 < κ t) (hκcont : Continuous κ)
+    (hAcont : Continuous A)
+    (hA : ∀ t, HasDerivAt A (curvatureWeight Q κ C4 t) t)
+    (hweight : IntervalIntegrable (curvatureWeight Q κ C4) volume p w)
+    (hL : 0 < L) (hR : 0 < R) (hδ : 0 < δ) (hΛ : 0 < Λ)
+    (hμmass : (∫ t in p..z, leftMuDensity κ z L δ t) = 1)
+    (hνmass :
+      (∫ t in p..z, leftNuDensity κ p L Λ t) +
+        (∫ t in z..w, rightNuDensity κ w R Λ t) = 1) :
+    measureExpectation (nuMeasure κ p z w L R Λ) A -
+        measureExpectation (muMeasure κ p z L δ) A =
+      transportIntegral (cdfGap κ p z w L R δ Λ) Q κ C4 p w := by
+  rw [transportIntegral]
+  exact expectation_difference_eq_cdfGap_integral hpz hzw hκ hκcont
+    hAcont hA hweight hL hR hδ hΛ hμmass hνmass
 
 /-- A continuous nonnegative gap which is strict in the interior gives a
 strictly positive transport integral against a strictly positive curvature

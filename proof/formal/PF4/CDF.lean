@@ -89,6 +89,65 @@ theorem nuCDF_eq_leftIntegral
     exact (leftNuDensity_pos ht.1
       (hκ t ⟨le_of_lt ht.1, ht.2.trans hyz⟩) hL hΛ).le
 
+/-- To the right of `z`, `μ` has accumulated its full probability mass. -/
+theorem muCDF_eq_one
+    {κ : ℝ → ℝ} {p z L δ y : ℝ} (hzy : z ≤ y)
+    (hmass : muMeasure κ p z L δ Set.univ = 1) :
+    muCDF κ p z L δ y = 1 := by
+  letI : IsProbabilityMeasure (muMeasure κ p z L δ) :=
+    mu_isProbabilityMeasure hmass
+  have hright : muMeasure κ p z L δ (Ioi y) = 0 := by
+    rw [muMeasure]
+    exact restrictedDensityMeasure_Ioi_eq_zero hzy
+  have hprob := probReal_add_probReal_compl
+    (μ := muMeasure κ p z L δ) (s := Iic y) measurableSet_Iic
+  simp only [compl_Iic] at hprob
+  have hrightReal : (muMeasure κ p z L δ).real (Ioi y) = 0 := by
+    rw [Measure.real, hright]
+    simp
+  rw [hrightReal, add_zero] at hprob
+  exact hprob
+
+/-- On `[z,w]`, the CDF of `ν` is its complete left mass plus the accumulated
+right density. -/
+theorem nuCDF_eq_leftMass_add_rightIntegral
+    {κ : ℝ → ℝ} {p z w L R Λ y : ℝ}
+    (hpz : p < z) (hzy : z ≤ y) (hyw : y ≤ w)
+    (hκ : ∀ t ∈ Icc p w, 0 < κ t)
+    (hL : 0 < L) (hR : 0 < R) (hΛ : 0 < Λ)
+    (hleft : IntervalIntegrable (leftNuDensity κ p L Λ) volume p z)
+    (hright : IntervalIntegrable (rightNuDensity κ w R Λ) volume z y) :
+    nuCDF κ p z w L R Λ y =
+      (∫ t in p..z, leftNuDensity κ p L Λ t) +
+        ∫ t in z..y, rightNuDensity κ w R Λ t := by
+  have hleft0 : 0 ≤ ∫ t in p..z, leftNuDensity κ p L Λ t := by
+    apply intervalIntegral.integral_nonneg hpz.le
+    intro t ht
+    by_cases htp : t = p
+    · simp [leftNuDensity, htp]
+    · exact (leftNuDensity_pos (lt_of_le_of_ne ht.1 (Ne.symm htp))
+        (hκ t ⟨ht.1, ht.2.trans (hzy.trans hyw)⟩) hL hΛ).le
+  have hright0 : 0 ≤ ∫ t in z..y, rightNuDensity κ w R Λ t := by
+    apply intervalIntegral.integral_nonneg hzy
+    intro t ht
+    by_cases htw : t = w
+    · simp [rightNuDensity, htw]
+    · exact (rightNuDensity_pos (lt_of_le_of_ne (ht.2.trans hyw) htw)
+        (hκ t ⟨hpz.le.trans ht.1, ht.2.trans hyw⟩) hR hΛ).le
+  rw [nuCDF, nuMeasure, Measure.real, Measure.add_apply,
+    restrictedDensityMeasure_Iic_of_right hpz.le hzy hleft,
+    restrictedDensityMeasure_Iic hzy hyw hright]
+  · rw [← ENNReal.ofReal_add hleft0 hright0,
+      ENNReal.toReal_ofReal (add_nonneg hleft0 hright0)]
+  · intro t ht
+    by_cases htw : t = w
+    · simp [rightNuDensity, htw]
+    · exact (rightNuDensity_pos (lt_of_le_of_ne (ht.2.trans hyw) htw)
+        (hκ t ⟨hpz.le.trans (le_of_lt ht.1), ht.2.trans hyw⟩) hR hΛ).le
+  · intro t ht
+    exact (leftNuDensity_pos ht.1
+      (hκ t ⟨le_of_lt ht.1, ht.2.trans (hzy.trans hyw)⟩) hL hΛ).le
+
 /-- Before the unique density crossing, the actual CDF gap is strictly
 positive because it is the integral of the strictly positive density
 difference over a nonempty interval. -/

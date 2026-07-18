@@ -2,7 +2,7 @@
 
 Target: `PF4-CORE-v1`
 
-Formal completion: **0/46 obligations**
+Formal completion: **1/46 obligations**
 
 Current strongest result: a conventional proof supported by exact symbolic and
 rational certificates. Lean 4.32.0 and mathlib 4.32.0 are pinned; target
@@ -10,10 +10,12 @@ definitions, signed PF5 indices, constructive crossing algebra, and the actual
 left-density identity/sign bridge are kernel-checked. The actual restricted-
 density measures, mass-one interfaces, strict right mass, all three interior
 CDF-gap regions, the positive weighted transport numerator, and the final sign
-bridge are now also kernel-checked. No complete atomic obligation is yet
-promoted to `FORMALLY_PROVED`: PO-0030/0031 still require the upstream Lean
-derivation of `δ,Λ` and integrability, PO-0037 still requires endpoint assembly,
-and PO-0039 still requires the expectation integration-by-parts identity.
+bridge are now also kernel-checked. PO-0039 is the first complete atomic
+obligation promoted to `FORMALLY_PROVED`: its actual Bochner expectations,
+boundary terms, CDF formulas, and final integration identity are checked.
+PO-0030/0031 still require the upstream Lean derivation of `δ,Λ` and
+integrability; PO-0038 still requires the paper's primitive/endpoint object
+identity.
 
 ## Analytic foundation
 
@@ -75,14 +77,14 @@ and PO-0039 still requires the expectation integration-by-parts identity.
 | PO-0034 | Ratio is strictly decreasing with endpoint limits `∞,0` | CONVENTIONALLY_PROVED | formal derivative/extended-real limits |
 | PO-0035 | The explicit strict-convex-combination crossing exists | FORMAL_FRAGMENT | crossing algebra checked; upstream parameter instantiation |
 | PO-0036 | Crossing is unique and `Δ'` has the claimed sign pattern | FORMAL_FRAGMENT | unique density crossing/sign checked; derivative-of-CDF bridge remains |
-| PO-0037 | `Δ>0` on `(p,w)` with endpoint zeros | FORMAL_FRAGMENT | all three interior regions checked for concrete CDFs; endpoint/unified assembly remains |
+| PO-0037 | `Δ>0` on `(p,w)` with endpoint zeros | FORMAL_FRAGMENT | complete endpoint/unified theorem checked; upstream curvature-coordinate instantiation remains |
 
 ## Assembly
 
 | ID | Claim | Present status | Formal blocker |
 |---|---|---|---|
 | PO-0038 | `K=Eν[A₀]-Eμ[A₀]` | SYMBOLICALLY_CHECKED | primitives/endpoints in Lean |
-| PO-0039 | Expectation difference equals `∫ΔD` | CONVENTIONALLY_PROVED | compact-support integration by parts |
+| PO-0039 | Expectation difference equals `∫ΔD` | FORMALLY_PROVED | none; actual measures, expectations, CDFs, and boundary terms checked |
 | PO-0040 | Transport integral and `N` are strictly positive | FORMAL_FRAGMENT | positive weighted integral checked from CDF/C₄ inputs; PO-0029/0039 instantiation |
 | PO-0041 | `∂ξΨ<0` globally | FORMAL_FRAGMENT | final exact sign bridge checked; derive PO-0027 identity and instantiate `N>0` |
 | PO-0042 | Strict global order-four minors | CERTIFIED | PO-0020/0041 formal bridge |
@@ -93,10 +95,11 @@ and PO-0039 still requires the expectation integration-by-parts identity.
 
 ## Immediate next work
 
-1. Formalize PO-0039: the compact-support expectation difference equals the
-   CDF-weighted derivative integral.
+1. Formalize PO-0038: define the paper's primitive `A₀` and identify its
+   expectation difference with the expanded transport object `K`.
 2. Derive `δ`, `Λ`, continuity, and integrability from the curvature-coordinate
    definitions, closing the remaining inputs of PO-0030/0031.
-3. Assemble the three checked CDF regions with endpoint zeros into one theorem.
+3. Instantiate the checked unified CDF theorem from the curvature-coordinate
+   definitions.
 4. Write the generic statement of PO-0018 in Lean-ready form and design
    canonical certificate statements for PO-0011–PO-0013 and PO-0045.

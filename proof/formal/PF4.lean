@@ -4,4 +4,5 @@ import PF4.Densities
 import PF4.Normalization
 import PF4.Measures
 import PF4.CDF
+import PF4.Expectation
 import PF4.Transport

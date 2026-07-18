@@ -103,6 +103,28 @@ theorem restrictedDensityMeasure_Iic_eq_zero
   rw [hempty, Measure.restrict_empty]
   simp
 
+/-- Once `y` lies to the right of the support, the accumulated measure is its
+full interval mass. -/
+theorem restrictedDensityMeasure_Iic_of_right
+    {a b y : ℝ} {f : ℝ → ℝ}
+    (hab : a ≤ b) (hby : b ≤ y)
+    (hf : IntervalIntegrable f volume a b)
+    (hnonneg : ∀ t ∈ Ioc a b, 0 ≤ f t) :
+    restrictedDensityMeasure a b f (Iic y) =
+      ENNReal.ofReal (∫ t in a..b, f t) := by
+  rw [restrictedDensityMeasure, withDensity_apply _ measurableSet_Iic]
+  rw [Measure.restrict_restrict measurableSet_Iic]
+  have hinter : Iic y ∩ Ioc a b = Ioc a b := by
+    ext t
+    constructor
+    · exact fun ht => ht.2
+    · intro ht
+      exact ⟨ht.2.trans hby, ht⟩
+  rw [hinter, ← ofReal_integral_eq_lintegral_ofReal]
+  · rw [← intervalIntegral.integral_of_le hab]
+  · exact (intervalIntegrable_iff_integrableOn_Ioc_of_le hab).1 hf
+  · exact (ae_restrict_mem measurableSet_Ioc).mono hnonneg
+
 theorem restrictedDensityMeasure_real_Iic_eq_zero
     {a b y : ℝ} {f : ℝ → ℝ} (hya : y ≤ a) :
     (restrictedDensityMeasure a b f).real (Iic y) = 0 := by
@@ -229,6 +251,7 @@ theorem nuMeasure_Ioc_pos
     (show (0 : ℝ≥0∞) ≤ restrictedDensityMeasure p z
       (leftNuDensity κ p L Λ) (Ioc y w) from bot_le)
     (restrictedDensityMeasure z w (rightNuDensity κ w R Λ) (Ioc y w))
-  simpa [add_comm] using hle
+  simp [add_comm] at hle
+  exact hle
 
 end PF4.Measures

@@ -38,6 +38,10 @@ Audited declarations:
 - `PF4.CDF.cdfGap_left_endpoint`
 - `PF4.CDF.cdfGap_right_endpoint`
 - `PF4.CDF.cdfGap_pos`
+- `PF4.Expectation.expectation_restrictedDensityMeasure_eq`
+- `PF4.Expectation.intervalIntegral_mul_density_with_initial`
+- `PF4.Expectation.expectation_difference_eq_cdfGap_integral`
+- `PF4.Transport.concrete_expectationDifference_eq_transportIntegral`
 - `PF4.Transport.concrete_transportNumerator_pos`
 - `PF4.Transport.concrete_transportNumerator_pos_from_measures`
 - `PF4.Transport.partialXiPsi_neg_of_transport`

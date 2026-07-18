@@ -19,7 +19,7 @@
 | strict right mass | S09 | R153, CERT9 | PO-0032 | `PF4.Measures.nuMeasure_Ioc_pos` | FORMAL_FRAGMENT |
 | unique density crossing | S09 | R153, CERT9 | PO-0033–0036 | `PF4.Crossing.*`, `PF4.Densities.*` | FORMAL_FRAGMENT |
 | strict CDF gap | S09 | R153, CERT9 | PO-0037 | `PF4.CDF.cdfGap_pos`, endpoint theorems | FORMAL_FRAGMENT |
-| CDF integration identity | S09 | R153, CERT9 | PO-0039 | unset | CONVENTIONALLY_PROVED |
+| CDF integration identity | S09 | R153, CERT9 | PO-0039 | `PF4.Expectation.expectation_difference_eq_cdfGap_integral`, `PF4.Transport.concrete_expectationDifference_eq_transportIntegral` | FORMALLY_PROVED |
 | positive transport integral | S09 | R153, CERT9 | PO-0040 | `PF4.Transport.concrete_transportNumerator_pos_from_measures` | FORMAL_FRAGMENT |
 | `∂ξΨ < 0` | S10 | R153, CERT9 | PO-0041 | `PF4.Transport.partialXiPsi_neg_of_transport` | FORMAL_FRAGMENT |
 | strict PF4 | S01/S10 | R164, CERT5/9/12 | PO-0042 | unset | CERTIFIED |
@@ -28,7 +28,7 @@
 
 The measure and crossing claims were initially downgraded because the scripts'
 symbolic checks did not establish them. Their concrete measure, CDF, and
-positive-transport core is now Lean-checked. They remain below
-`FORMALLY_PROVED` until the upstream curvature-coordinate definitions discharge
-the generic regularity/normalization hypotheses and PO-0039 identifies the
-expectation difference with the checked weighted integral.
+positive-transport core is now Lean-checked. PO-0039 now identifies the actual
+expectation difference with the checked CDF integral. The surrounding claims
+remain below `FORMALLY_PROVED` until the upstream curvature-coordinate
+definitions discharge their generic regularity and normalization hypotheses.

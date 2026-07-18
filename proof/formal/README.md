@@ -46,11 +46,14 @@ Implemented modules:
 - `PF4.CDF`: concrete measure CDFs, their identification with mathlib's
   probability CDF, and kernel-checked strict gap proofs before the crossing,
   from the crossing through `z`, and on the right interval;
+- `PF4.Expectation`: actual Bochner expectations for the concrete measures,
+  compact-support integration by parts with explicit boundary terms, and the
+  exact expectation-difference/CDF-gap identity;
 - `PF4.Transport`: the positive curvature-weighted CDF integral, positive
   numerator assembly, and the exact final negative-sign bridge.
 
 No stub theorem with `sorry` is used. The next conversion boundary is the
-compact-support expectation/integration-by-parts identity and the upstream
+paper's primitive/endpoint object identity in PO-0038 and the upstream
 derivation of the triangular normalizers from the curvature coordinate.
 
 ## Required build gates

@@ -26,9 +26,10 @@ T3 exact PF order four
 - PO-0042 `because` PO-0041 and the strict local-to-global direction of
   PO-0020.
 - PO-0041 `because` PO-0026, PO-0027, and PO-0040.
-- PO-0040 `because` PO-0029, PO-0037, PO-0039, and strict integral positivity.
-- PO-0039 `because` PO-0038, common total mass, and compact-support integration
-  by parts.
+- PO-0040 `because` PO-0029, PO-0037, and strict integral positivity.
+- PO-0039 `because` common total mass, `A₀'=D`, and compact-support
+  integration by parts. Its transport-weight specialization is checked
+  independently of PO-0038.
 - PO-0038 `because` PO-0029 and PO-0030–PO-0031.
 - PO-0037 `because` PO-0032–PO-0036.
 - PO-0030–PO-0031 `because` PO-0023–PO-0025.
@@ -57,7 +58,8 @@ their conclusions backward.
 3. Formal statement bridges for CERT12 and CERT17.
 4. Formal generic quotient/integral determinant engine.
 5. Fully derived measure normalization and crossing theorem.
-6. Formal transport cancellation and endpoint algebra.
+6. Formal identification of the paper's expanded `K` with the checked
+   expectation difference (PO-0038).
 
-No target-reachable branch is currently `FORMALLY_PROVED`.
-
+PO-0039 is `FORMALLY_PROVED`; every route to T1–T3 still has unresolved
+prerequisites.
