@@ -1,0 +1,63 @@
+THE DARK COUNT AT 05:41
+
+At 05:41:19.884 Antarctic Plateau Time, one strip of niobium nitride forgot how to be superconducting.
+
+The strip was four nanometers thick, folded into a meander beneath a microscope lens, and held at eighty-two millikelvin inside Cryostat Six. No photon was known to have struck it. No particle track crossed the guard array. For eleven trillionths of a second, a microscopic region warmed above its critical threshold. Resistance appeared. Current crowded sideways, heat bred heat, and the disturbance ran down the wire as a voltage pulse no taller than a whisper.
+
+In the control room, a speaker clicked.
+
+Dr. Nara Vey looked up from her hands.
+
+Outside, late winter night pressed blue-black against the station windows. The Sun was still six degrees below the horizon, but a green atmospheric band had begun in the north, thin as oxidized copper. Wind drove ice grains across the floodlights at forty knots. They made no sound through the triple glass. Inside, fans sighed, relay cages hummed at B-flat, and somebody’s forgotten wool glove on the radiator smelled faintly of lanolin and singed dust.
+
+The detector log printed: DARK COUNT. LOW SIGNIFICANCE.
+
+Nara leaned toward the oscilloscope. The trace was a blue hook with a photon scar at its leading edge, beautiful only because she had spent five years teaching herself the difference between beauty and evidence. One click did not announce dark matter, alien intelligence, vacuum decay, or God. One click was one click.
+
+Then the floor alarm began.
+
+A pipe had split in the geothermal exchange gallery. Glycol mist crossed a power bus and turned orange. On the security feed, flame crawled along the ceiling toward the station’s two cryogenic vaults.
+
+Vault East held the seed archive: wheat from vanished valleys, spores collected before the equatorial blights, frozen gut cultures, lichen, moss, and the embryos of forty-three animals no longer alive in the wild. Vault West held the station reactor controls and the return fuel for eighty-seven people.
+
+Both coolant trunks had failed shut.
+
+The emergency manifold could save one side for twelve minutes. After that the fire team might restore the second line—or might not. The decision software was already dead; its fiber passed through the burning gallery.
+
+Station Chief Hall came over the radio, voice broken by static. “Vey, you’re nearest the manifold. Choose West. Repeat, preserve personnel.”
+
+Nara was already running.
+
+The corridor strobes made the walls advance in red increments. Frost cracked under her boots. At the manifold hatch, the wheel resisted until she struck it with an extinguisher. Air pushed out carrying the sugary chemical smell of glycol and the bitter edge of overheated copper.
+
+Inside were two identical valve levers and no indicator power.
+
+“West,” Hall said again.
+
+Nara put her glove on the west lever. Human lives were not an abstraction. Hall’s daughter slept in bunk twelve. Cook Deshmukh snored against the wall every night. Nara’s own return allotment was in that fuel.
+
+Then an explosion folded the hatch behind her.
+
+The ceiling dropped. Nara went to her knees under a spray of hot grit. Her radio vanished into static. Through a new seam in the wall she could see the gallery: flame white at the base, orange at the ragged edges, lighting the airborne glycol from below. The west coolant line had ruptured completely. Its pressure gauge hung open like a clock with its face shot away.
+
+Saving West was no longer a choice. It was a gesture toward a severed pipe.
+
+Nara dragged herself to the east lever. The handle was steel stippled with old paint, cold enough to seize damp skin. She pulled. Nothing moved.
+
+Behind the wall, at a scale invisible to her, the dark count’s pulse had traveled through a copper trace. The pulse entered a discriminator, became one stored bit, and waited in the isolated safety latch. The manifold had been designed after the Last Network Winter: no remote command could open a biological vault. A fresh local entropy bit was required so that captured control traffic could not be replayed. Normally the detector delivered thousands per second. During the evacuation test, every optical channel had been shuttered. Only the dark count at 05:41 had arrived.
+
+Nara found the mechanical arming key, turned it, and heard the faintest relay snap inside the wall.
+
+The east lever came free.
+
+She hauled it through ninety degrees. Liquid helium surged under the floor with a noise like distant rain. On the other side of insulated steel, capillaries opened around canisters smaller than coffins and larger than books. Frost flowered over their bolt heads. Temperatures stopped rising at 6.8 kelvin, then fell.
+
+Nara lay against the manifold until the fire crew cut her out at 05:53. The first oblique sunlight arrived while they carried her across the snow. It was coral-red from its long passage through the atmosphere and struck the station at three degrees, turning every wind-carved ridge into a knife with a violet shadow. Smoke tore flat toward the south. Her burned sleeve had frozen rigid. When she flexed her fingers, black flakes of fabric fell onto the white ground.
+
+The west vault was lost. So was the return fuel. No one died that morning, but eighty-seven people spent another winter on the plateau while aircraft ferried in new cells a crate at a time.
+
+The dark count became famous against Nara’s wishes. Reporters called it the photon that saved the world, though there had probably been no photon. Engineers called it a stochastic latch event. The instrument team called it run 6081, buffer 14, index 2,711,009. Nara’s report used the smallest true sentence: an unclassified fluctuation supplied the required entropy bit.
+
+Seventy-two years later, a child in what had once been Patagonia pressed a mitten to the first wild rhinoceros born in the southern refuges. The animal’s hide was warm, creased, and absurdly thick. Lichen from Vault East orange-starred the stones around its feet. Cameras crowded the fence, catching morning at a low angle in the wet black globe of its eye.
+
+No one could see the nanowire there. No one could see eleven trillionths of a second in the animal’s breath. The fluctuation had meant almost nothing in the language of physics. In the language of consequence, it had become grass, gut, horn, weather, and a child laughing into the enormous unfinished morning.
