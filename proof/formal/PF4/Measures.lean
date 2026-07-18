@@ -251,7 +251,6 @@ theorem nuMeasure_Ioc_pos
     (show (0 : ℝ≥0∞) ≤ restrictedDensityMeasure p z
       (leftNuDensity κ p L Λ) (Ioc y w) from bot_le)
     (restrictedDensityMeasure z w (rightNuDensity κ w R Λ) (Ioc y w))
-  simp [add_comm] at hle
-  exact hle
+  simpa [add_comm] using hle
 
 end PF4.Measures
