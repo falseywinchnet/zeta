@@ -16,7 +16,7 @@ primitives, actual Bochner expectations, retained boundary terms, cleared
 endpoint cancellation, CDF formulas, and final integration identity are
 checked. PO-0023, PO-0024, PO-0030, and PO-0031 are now complete atomic
 obligations: the coordinate normalizers, endpoint derivative, strict
-positivity, integrability, and concrete probability laws are constructed in
+positivity, integrability, and concrete normalized laws are constructed in
 Lean and connected to PO-0038.
 
 ## Analytic foundation
@@ -68,7 +68,7 @@ Lean and connected to PO-0038.
 | PO-0028 | `C₄ = Q⁶κ²D` | CERTIFIED | certificate-to-Lean polynomial identity |
 | PO-0029 | `D > 0` globally | CERTIFIED | PO-0013/0022/0028 formal bridge |
 
-## Non-vacuous probability and crossing layer
+## Non-vacuous normalization and crossing layer
 
 | ID | Claim | Present status | Formal blocker |
 |---|---|---|---|
@@ -79,7 +79,7 @@ Lean and connected to PO-0038.
 | PO-0034 | Ratio is strictly decreasing with endpoint limits `∞,0` | CONVENTIONALLY_PROVED | formal derivative/extended-real limits |
 | PO-0035 | The explicit strict-convex-combination crossing exists | FORMAL_FRAGMENT | crossing algebra checked; upstream parameter instantiation |
 | PO-0036 | Crossing is unique and `Δ'` has the claimed sign pattern | FORMAL_FRAGMENT | unique density crossing/sign checked; derivative-of-CDF bridge remains |
-| PO-0037 | `Δ>0` on `(p,w)` with endpoint zeros | FORMAL_FRAGMENT | complete endpoint/unified theorem checked; upstream curvature-coordinate instantiation remains |
+| PO-0037 | `Δ>0` on `(p,w)` with endpoint zeros | FORMAL_FRAGMENT | deterministic endpoint closed forms, endpoint zeros, and CDF bridges checked; prove strict positivity directly from the closed coordinate gap |
 
 ## Assembly
 
@@ -97,7 +97,7 @@ Lean and connected to PO-0038.
 
 ## Immediate next work
 
-1. Instantiate the checked unified CDF theorem from the curvature-coordinate
-   definitions.
+1. Prove strict positivity directly from the piecewise closed coordinate gap,
+   using the measure-backed CDF theorem only as an independent bridge check.
 2. Write the generic statement of PO-0018 in Lean-ready form and design
    canonical certificate statements for PO-0011–PO-0013 and PO-0045.

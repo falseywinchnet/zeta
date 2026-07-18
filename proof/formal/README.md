@@ -21,8 +21,9 @@ PF4/OrderedNodes.lean
 PF4/DeterminantIntegral.lean
 PF4/QuotientWronskian.lean
 PF4/CertifiedSigns.lean
-PF4/Curvature.lean
 PF4/Measures.lean
+PF4/Curvature.lean
+PF4/Cumulative.lean
 PF4/Crossing.lean
 PF4/CDF.lean
 PF4/Expectation.lean
@@ -48,9 +49,12 @@ Implemented modules:
 - `PF4.Curvature`: the coordinate secant, `Λ` and derivative-defined `δ`,
   explicit triangular antiderivatives, strict normalizer positivity, density
   integrability, and the resulting concrete probability measures;
+- `PF4.Cumulative`: endpoint primitives, the two closed cumulative weights,
+  the piecewise coordinate gap, and their exact normalized-integral identities;
 - `PF4.CDF`: concrete measure CDFs, their identification with mathlib's
-  probability CDF, and kernel-checked strict gap proofs before the crossing,
-  from the crossing through `z`, and on the right interval;
+  probability CDF, thin equality bridges to `PF4.Cumulative`, and
+  kernel-checked strict gap proofs before the crossing, from the crossing
+  through `z`, and on the right interval;
 - `PF4.Expectation`: actual Bochner expectations for the concrete measures,
   compact-support integration by parts with explicit boundary terms, and the
   exact expectation-difference/CDF-gap identity;
@@ -61,8 +65,10 @@ Implemented modules:
 - `PF4.Transport`: the positive curvature-weighted CDF integral, positive
   numerator assembly, and the exact final negative-sign bridge.
 
-No stub theorem with `sorry` is used. The next conversion boundary is the
-curvature-coordinate instantiation of the unified CDF-gap theorem.
+No stub theorem with `sorry` is used. The proof-facing cumulative object is
+`PF4.Cumulative.coordinateGap`; the measure-backed CDF is retained as a
+validation interface. The next conversion boundary is strict positivity of
+the coordinate gap from its closed endpoint formulas.
 
 ## Required build gates
 

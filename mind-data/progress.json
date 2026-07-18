@@ -384,8 +384,12 @@
     "P000096": {
       "blurb": "derive closed cumulative gap formulas and repair clean curvature FTC replay",
       "created_at": "2026-07-18T22:32:58+00:00"
+    },
+    "P000097": {
+      "blurb": "Integrate deterministic closed cumulative gap ahead of the measure CDF interface",
+      "created_at": "2026-07-18T22:44:38+00:00"
     }
   },
-  "next_id": 97,
+  "next_id": 98,
   "version": 1
 }

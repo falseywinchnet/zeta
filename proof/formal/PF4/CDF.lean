@@ -4,16 +4,18 @@ Released under the MIT license as described in the file LICENSE.
 Authors: Joshuah Rainstar
 -/
 
-import PF4.Measures
+import PF4.Cumulative
 
 set_option linter.style.header false
 
 /-!
-# CDF gap and its strict support
+# Measure bridge for the closed cumulative gap
 
-The CDFs below are taken from the concrete measures in `PF4.Measures`.  In
-particular, strict right mass is proved from a positive density on a nonempty
-interval and is never introduced as an unconstrained positive variable.
+The proof-facing object is `PF4.Cumulative.coordinateGap`. The CDFs below are
+taken from the concrete measures in `PF4.Measures` and provide an independent
+interface to that closed endpoint object. Strict right mass is proved from a
+positive density on a nonempty interval and is never introduced as an
+unconstrained positive variable.
 -/
 
 namespace PF4.CDF
@@ -21,6 +23,7 @@ namespace PF4.CDF
 open MeasureTheory ProbabilityTheory Set
 open scoped Interval ENNReal
 open PF4.Crossing PF4.Densities PF4.Normalization PF4.Measures
+  PF4.Curvature PF4.Cumulative
 
 noncomputable def muCDF
     (κ : ℝ → ℝ) (p z L δ t : ℝ) : ℝ :=
@@ -89,6 +92,30 @@ theorem nuCDF_eq_leftIntegral
     exact (leftNuDensity_pos ht.1
       (hκ t ⟨le_of_lt ht.1, ht.2.trans hyz⟩) hL hΛ).le
 
+/-- On the left interval, the measure-backed gap is exactly the deterministic
+endpoint closed form. Probability vocabulary is not used in the closed form. -/
+theorem cdfGap_eq_closedGapLeft
+    {Q Q1 Q2 : ℝ → ℝ} {p z w δ Λ y : ℝ}
+    (hpz : p < z) (hpy : p ≤ y) (hyz : y ≤ z)
+    (hκ : ∀ t ∈ Icc p z, 0 < curvature Q2 t)
+    (hδ : 0 < δ) (hΛ : 0 < Λ)
+    (hμdensity : IntervalIntegrable
+      (leftMuDensity (curvature Q2) z (z - p) δ) volume p y)
+    (hνdensity : IntervalIntegrable
+      (leftNuDensity (curvature Q2) p (z - p) Λ) volume p y)
+    (hQ : ∀ t ∈ uIcc p y, HasDerivAt Q (Q1 t) t)
+    (hQ1 : ∀ t ∈ uIcc p y, HasDerivAt Q1 (Q2 t) t)
+    (hμraw : IntervalIntegrable (fun t => (z - t) * curvature Q2 t) volume p y)
+    (hνraw : IntervalIntegrable (fun t => (t - p) * curvature Q2 t) volume p y) :
+    cdfGap (curvature Q2) p z w (z - p) (w - z) δ Λ y =
+      closedGapLeft Q Q1 p z δ Λ y := by
+  rw [cdfGap,
+    muCDF_eq_leftIntegral hpy hyz hκ (sub_pos.mpr hpz)
+      hδ hμdensity,
+    nuCDF_eq_leftIntegral hpy hyz hκ
+      (sub_pos.mpr hpz) hΛ hνdensity]
+  exact (closedGapLeft_eq_integral_difference hQ hQ1 hμraw hνraw).symm
+
 /-- To the right of `z`, `μ` has accumulated its full probability mass. -/
 theorem muCDF_eq_one
     {κ : ℝ → ℝ} {p z L δ y : ℝ} (hzy : z ≤ y)
@@ -147,6 +174,39 @@ theorem nuCDF_eq_leftMass_add_rightIntegral
   · intro t ht
     exact (leftNuDensity_pos ht.1
       (hκ t ⟨le_of_lt ht.1, ht.2.trans (hzy.trans hyw)⟩) hL hΛ).le
+
+/-- On the right interval, the measure-backed gap is the single closed
+right-tail expression. The normalization interface is used only for this
+identification. -/
+theorem cdfGap_eq_closedGapRight
+    {Q Q1 Q2 : ℝ → ℝ} {p z w δ Λ y : ℝ}
+    (hpz : p < z) (hzw : z < w) (hzy : z ≤ y) (hyw : y ≤ w)
+    (hκ : ∀ t ∈ Icc p w, 0 < curvature Q2 t)
+    (hΛ : 0 < Λ)
+    (hμmeasure : muMeasure (curvature Q2) p z (z - p) δ Set.univ = 1)
+    (hleft : IntervalIntegrable
+      (leftNuDensity (curvature Q2) p (z - p) Λ) volume p z)
+    (hrightPrefix : IntervalIntegrable
+      (rightNuDensity (curvature Q2) w (w - z) Λ) volume z y)
+    (hrightTail : IntervalIntegrable
+      (rightNuDensity (curvature Q2) w (w - z) Λ) volume y w)
+    (hνmass :
+      (∫ t in p..z, leftNuDensity (curvature Q2) p (z - p) Λ t) +
+        (∫ t in z..w, rightNuDensity (curvature Q2) w (w - z) Λ t) = 1)
+    (hQ : ∀ t ∈ uIcc y w, HasDerivAt Q (Q1 t) t)
+    (hQ1 : ∀ t ∈ uIcc y w, HasDerivAt Q1 (Q2 t) t)
+    (hrawTail : IntervalIntegrable (fun t => (w - t) * curvature Q2 t)
+      volume y w) :
+    cdfGap (curvature Q2) p z w (z - p) (w - z) δ Λ y =
+      closedGapRight Q Q1 z w Λ y := by
+  rw [cdfGap, muCDF_eq_one hzy hμmeasure,
+    nuCDF_eq_leftMass_add_rightIntegral hpz hzy hyw hκ
+      (sub_pos.mpr hpz) (sub_pos.mpr hzw) hΛ
+      hleft hrightPrefix]
+  rw [closedGapRight_eq_tail_integral hQ hQ1 hrawTail]
+  have hsplit := intervalIntegral.integral_add_adjacent_intervals
+    hrightPrefix hrightTail
+  linarith
 
 /-- Before the unique density crossing, the actual CDF gap is strictly
 positive because it is the integral of the strictly positive density

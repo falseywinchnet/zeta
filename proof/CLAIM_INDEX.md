@@ -19,7 +19,7 @@
 | transport expectation | S08 | R153, CERT9 | PO-0038 | `PF4.TransportObject.expandedTransportK_eq_concrete_expectationDifference` | FORMALLY_PROVED |
 | strict right mass | S09 | R153, CERT9 | PO-0032 | `PF4.Measures.nuMeasure_Ioc_pos` | FORMAL_FRAGMENT |
 | unique density crossing | S09 | R153, CERT9 | PO-0033–0036 | `PF4.Crossing.*`, `PF4.Densities.*` | FORMAL_FRAGMENT |
-| strict CDF gap | S09 | R153, CERT9 | PO-0037 | `PF4.CDF.cdfGap_pos`, endpoint theorems | FORMAL_FRAGMENT |
+| strict cumulative gap | S09 | R153, CERT9 | PO-0037 | `PF4.Cumulative.coordinateGap`, closed endpoint forms; `PF4.CDF.cdfGap_pos` and equality bridges | FORMAL_FRAGMENT |
 | CDF integration identity | S09 | R153, CERT9 | PO-0039 | `PF4.Expectation.expectation_difference_eq_cdfGap_integral`, `PF4.Transport.concrete_expectationDifference_eq_transportIntegral` | FORMALLY_PROVED |
 | positive transport integral | S09 | R153, CERT9 | PO-0040 | `PF4.Transport.concrete_transportNumerator_pos_from_measures` | FORMAL_FRAGMENT |
 | `∂ξΨ < 0` | S10 | R153, CERT9 | PO-0041 | `PF4.Transport.partialXiPsi_neg_of_transport` | FORMAL_FRAGMENT |
@@ -31,7 +31,7 @@ The measure and crossing claims were initially downgraded because the scripts'
 symbolic checks did not establish them. Their concrete measure, CDF, and
 positive-transport core is now Lean-checked. PO-0023/0024 derive the
 coordinate normalizers and strict positivity, and PO-0030/0031 use them to
-construct the actual probability measures. PO-0038 identifies the
+construct the actual normalized measures. PO-0038 identifies the
 independently expanded paper object with the actual expectation difference,
 and PO-0039 identifies that difference with the checked CDF integral. The
 surrounding claims remain below `FORMALLY_PROVED` until the upstream
