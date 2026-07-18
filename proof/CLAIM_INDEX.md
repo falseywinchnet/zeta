@@ -15,7 +15,7 @@
 | sign bridge | S06 | R153, CERT9 | PO-0026–0027 | unset | SYMBOLICALLY_CHECKED |
 | `C₄ = Q⁶κ²D` | S07 | R149, CERT9/12 | PO-0028–0029 | unset | CERTIFIED |
 | measure normalization | S08 | R153, CERT9 | PO-0030–0031 | `PF4.Measures.muMeasure_univ_eq_one`, `nuMeasure_univ_eq_one` | FORMAL_FRAGMENT |
-| transport expectation | S08 | R153, CERT9 | PO-0038 | unset | SYMBOLICALLY_CHECKED |
+| transport expectation | S08 | R153, CERT9 | PO-0038 | `PF4.TransportObject.expandedTransportK_eq_concrete_expectationDifference` | FORMALLY_PROVED |
 | strict right mass | S09 | R153, CERT9 | PO-0032 | `PF4.Measures.nuMeasure_Ioc_pos` | FORMAL_FRAGMENT |
 | unique density crossing | S09 | R153, CERT9 | PO-0033–0036 | `PF4.Crossing.*`, `PF4.Densities.*` | FORMAL_FRAGMENT |
 | strict CDF gap | S09 | R153, CERT9 | PO-0037 | `PF4.CDF.cdfGap_pos`, endpoint theorems | FORMAL_FRAGMENT |
@@ -28,7 +28,9 @@
 
 The measure and crossing claims were initially downgraded because the scripts'
 symbolic checks did not establish them. Their concrete measure, CDF, and
-positive-transport core is now Lean-checked. PO-0039 now identifies the actual
-expectation difference with the checked CDF integral. The surrounding claims
-remain below `FORMALLY_PROVED` until the upstream curvature-coordinate
-definitions discharge their generic regularity and normalization hypotheses.
+positive-transport core is now Lean-checked. PO-0038 identifies the
+independently expanded paper object with the actual expectation difference,
+and PO-0039 identifies that difference with the checked CDF integral. The
+surrounding claims remain below `FORMALLY_PROVED` until the upstream
+curvature-coordinate definitions discharge their generic regularity and
+normalization hypotheses.

@@ -60,8 +60,8 @@ assembly theorem, not merely matching script output.
 5. Prove the CDF gap is strictly positive on `(p,w)` — Lean-checked from the
    displayed density/mass inputs, including both endpoints.
 6. Prove the transport expectation identity and CDF integration by parts —
-   CDF integration by parts Lean-checked (PO-0039); the paper's `K`/primitive
-   object identity remains (PO-0038).
+   both the paper's `K`/primitive object identity (PO-0038) and CDF integration
+   by parts (PO-0039) are Lean-checked.
 7. Derive the positive integral and `∂ξΨ < 0` — positive numerator and final
    sign bridge Lean-checked; exact derivative object identity remains.
 
@@ -86,7 +86,8 @@ Exit gate: T1–T3 are kernel-checked and the target-reachable graph has no gaps
 
 The first deep proof task is the generic iterated-integral engine, because it
 is reusable and isolates finite-minor strictness from Riemann-specific
-analysis. The next adversarial transport task is PO-0038: define the paper's
-primitive and prove that its actual expectation difference is the expanded
-transport object, without a tautological definition. The first certificate
-task is statement reconstruction for CERT12, not a rewrite of its generator.
+analysis. The next adversarial transport task is to derive the triangular
+normalizers and their regularity directly from the curvature-coordinate
+definitions, closing the instance inputs of PO-0030/0031. The first
+certificate task is statement reconstruction for CERT12, not a rewrite of its
+generator.

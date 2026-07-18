@@ -57,9 +57,8 @@ their conclusions backward.
 2. Formal analytic construction and differentiation of `Φ`.
 3. Formal statement bridges for CERT12 and CERT17.
 4. Formal generic quotient/integral determinant engine.
-5. Fully derived measure normalization and crossing theorem.
-6. Formal identification of the paper's expanded `K` with the checked
-   expectation difference (PO-0038).
+5. Fully derived measure normalization and curvature-coordinate instantiation
+   of the crossing theorem.
 
-PO-0039 is `FORMALLY_PROVED`; every route to T1–T3 still has unresolved
-prerequisites.
+PO-0038 and PO-0039 are `FORMALLY_PROVED`; every route to T1–T3 still has
+unresolved prerequisites.

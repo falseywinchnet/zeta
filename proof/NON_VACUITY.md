@@ -128,3 +128,17 @@ upper bound below zero.
 
 Open: PO-0044 and PO-0045.
 
+## NV-012 — transport object identity
+
+The paper primitive `A₀`, the concrete measure integrals, and expanded `K` are
+separate definitions. In particular, `expandedTransportK` contains only
+endpoint jets, chord slopes, chord moments, gaps, and normalizers; it does not
+mention a measure, integral, expectation, or the equality to be proved. The
+expectation side uses the previously constructed `muMeasure`, `nuMeasure`, and
+`measureExpectation` objects. Appendix A3's `δ` and `Λ` endpoint formulas are
+explicit hypotheses, and every cleared denominator has a proved positivity
+hypothesis.
+
+Checked: `PF4.TransportObject.expandedTransportK_eq_concrete_expectationDifference`.
+The upstream derivation that makes the measures probabilities remains isolated
+in PO-0023/0024 and PO-0030/0031; it is not smuggled into PO-0038.

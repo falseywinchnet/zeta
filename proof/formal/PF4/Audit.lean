@@ -29,6 +29,11 @@ set_option linter.style.header false
 #print axioms PF4.Expectation.expectation_restrictedDensityMeasure_eq
 #print axioms PF4.Expectation.intervalIntegral_mul_density_with_initial
 #print axioms PF4.Expectation.expectation_difference_eq_cdfGap_integral
+#print axioms PF4.TransportObject.transportJ_hasDerivAt
+#print axioms PF4.TransportObject.transportH_hasDerivAt
+#print axioms PF4.TransportObject.concrete_expectationDifference_eq_expectationEndpoint
+#print axioms PF4.TransportObject.expectationEndpoint_eq_expandedTransportK
+#print axioms PF4.TransportObject.expandedTransportK_eq_concrete_expectationDifference
 #print axioms PF4.Transport.concrete_expectationDifference_eq_transportIntegral
 #print axioms PF4.Transport.concrete_transportNumerator_pos
 #print axioms PF4.Transport.concrete_transportNumerator_pos_from_measures

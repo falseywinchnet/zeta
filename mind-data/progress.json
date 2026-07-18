@@ -368,8 +368,12 @@
     "P000092": {
       "blurb": "Advance PO-0038 to a kernel-checked transport-object identity candidate with explicit primitives, endpoints, failures, and replay",
       "created_at": "2026-07-18T20:15:11+00:00"
+    },
+    "P000093": {
+      "blurb": "Audit and integrate PO-0038 as a non-vacuous Lean transport-object identity, raising formal completion to 2 of 46",
+      "created_at": "2026-07-18T20:22:14+00:00"
     }
   },
-  "next_id": 93,
+  "next_id": 94,
   "version": 1
 }

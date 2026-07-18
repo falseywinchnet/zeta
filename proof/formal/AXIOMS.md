@@ -41,6 +41,11 @@ Audited declarations:
 - `PF4.Expectation.expectation_restrictedDensityMeasure_eq`
 - `PF4.Expectation.intervalIntegral_mul_density_with_initial`
 - `PF4.Expectation.expectation_difference_eq_cdfGap_integral`
+- `PF4.TransportObject.transportJ_hasDerivAt`
+- `PF4.TransportObject.transportH_hasDerivAt`
+- `PF4.TransportObject.concrete_expectationDifference_eq_expectationEndpoint`
+- `PF4.TransportObject.expectationEndpoint_eq_expandedTransportK`
+- `PF4.TransportObject.expandedTransportK_eq_concrete_expectationDifference`
 - `PF4.Transport.concrete_expectationDifference_eq_transportIntegral`
 - `PF4.Transport.concrete_transportNumerator_pos`
 - `PF4.Transport.concrete_transportNumerator_pos_from_measures`

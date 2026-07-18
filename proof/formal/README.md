@@ -25,6 +25,8 @@ PF4/Curvature.lean
 PF4/Measures.lean
 PF4/Crossing.lean
 PF4/CDF.lean
+PF4/Expectation.lean
+PF4/TransportObject.lean
 PF4/Transport.lean
 PF4/Main.lean
 PF4/PF5Witness.lean
@@ -49,12 +51,15 @@ Implemented modules:
 - `PF4.Expectation`: actual Bochner expectations for the concrete measures,
   compact-support integration by parts with explicit boundary terms, and the
   exact expectation-difference/CDF-gap identity;
+- `PF4.TransportObject`: the paper primitive `A₀`, its two elementary
+  primitives, the independent endpoint transport object, and the exact
+  object-level equality with the concrete Bochner expectation difference;
 - `PF4.Transport`: the positive curvature-weighted CDF integral, positive
   numerator assembly, and the exact final negative-sign bridge.
 
 No stub theorem with `sorry` is used. The next conversion boundary is the
-paper's primitive/endpoint object identity in PO-0038 and the upstream
-derivation of the triangular normalizers from the curvature coordinate.
+upstream derivation of the triangular normalizers from the curvature
+coordinate.
 
 ## Required build gates
 
