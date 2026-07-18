@@ -29,7 +29,18 @@ Audited declarations:
 - `PF4.Densities.leftDensity_difference_neg_iff`
 - `PF4.Normalization.leftMuDensity_intervalIntegral_eq_one`
 - `PF4.Normalization.nuDensities_intervalIntegral_eq_one`
+- `PF4.Measures.muMeasure_univ_eq_one`
+- `PF4.Measures.nuMeasure_univ_eq_one`
+- `PF4.Measures.nuMeasure_Ioc_pos`
+- `PF4.CDF.cdfGap_pos_before_crossing`
+- `PF4.CDF.cdfGap_pos_from_crossing_to_z`
+- `PF4.CDF.cdfGap_pos_right`
+- `PF4.CDF.cdfGap_left_endpoint`
+- `PF4.CDF.cdfGap_right_endpoint`
+- `PF4.CDF.cdfGap_pos`
+- `PF4.Transport.concrete_transportNumerator_pos`
+- `PF4.Transport.concrete_transportNumerator_pos_from_measures`
+- `PF4.Transport.partialXiPsi_neg_of_transport`
 
 No custom project axiom, `sorry`, `admit`, unsafe theorem bridge, or external
 certificate result appears in these declarations.
-

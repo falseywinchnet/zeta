@@ -352,8 +352,12 @@
       "blurb": "Remove the retired Recaller Atlas and build the strict PF4 proof system with frozen targets, 46 atomic obligations, non-vacuity audits, a pinned Lean 4.32.0/mathlib project, kernel-checked translation-minor definitions, constructive crossing and density-sign proofs, and exact triangular normalization identities",
       "created_at": "2026-07-18T17:27:01+00:00",
       "updated_at": "2026-07-18T18:05:50+00:00"
+    },
+    "P000089": {
+      "blurb": "Construct concrete triangular measures in Lean, prove exact mass interfaces, strict right-tail mass, endpoint-zero and globally strict interior CDF gap without vacuous symbols, and route the resulting gap through the positive CERT9 curvature transport numerator and final derivative sign bridge",
+      "created_at": "2026-07-18T18:58:37+00:00"
     }
   },
-  "next_id": 89,
+  "next_id": 90,
   "version": 1
 }

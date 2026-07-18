@@ -24,6 +24,7 @@ PF4/CertifiedSigns.lean
 PF4/Curvature.lean
 PF4/Measures.lean
 PF4/Crossing.lean
+PF4/CDF.lean
 PF4/Transport.lean
 PF4/Main.lean
 PF4/PF5Witness.lean
@@ -39,9 +40,18 @@ Implemented modules:
   densities, including their unique crossing and strict sign pattern.
 - `PF4.Normalization`: exact interval-mass cancellation for the triangular
   `μ` and two-piece `ν` densities.
+- `PF4.Measures`: concrete restricted-density measures, mass-one interfaces,
+  probability instances, support lemmas, and strict right-tail mass from a
+  positive integral on a nonempty interval;
+- `PF4.CDF`: concrete measure CDFs, their identification with mathlib's
+  probability CDF, and kernel-checked strict gap proofs before the crossing,
+  from the crossing through `z`, and on the right interval;
+- `PF4.Transport`: the positive curvature-weighted CDF integral, positive
+  numerator assembly, and the exact final negative-sign bridge.
 
-No stub theorem with `sorry` is used. Construction of the actual measures,
-strict right mass, and CDF positivity are the next conversion boundary.
+No stub theorem with `sorry` is used. The next conversion boundary is the
+compact-support expectation/integration-by-parts identity and the upstream
+derivation of the triangular normalizers from the curvature coordinate.
 
 ## Required build gates
 

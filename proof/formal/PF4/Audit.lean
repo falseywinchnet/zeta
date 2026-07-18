@@ -17,3 +17,15 @@ set_option linter.style.header false
 #print axioms PF4.Densities.leftDensity_difference_neg_iff
 #print axioms PF4.Normalization.leftMuDensity_intervalIntegral_eq_one
 #print axioms PF4.Normalization.nuDensities_intervalIntegral_eq_one
+#print axioms PF4.Measures.muMeasure_univ_eq_one
+#print axioms PF4.Measures.nuMeasure_univ_eq_one
+#print axioms PF4.Measures.nuMeasure_Ioc_pos
+#print axioms PF4.CDF.cdfGap_pos_before_crossing
+#print axioms PF4.CDF.cdfGap_pos_from_crossing_to_z
+#print axioms PF4.CDF.cdfGap_pos_right
+#print axioms PF4.CDF.cdfGap_left_endpoint
+#print axioms PF4.CDF.cdfGap_right_endpoint
+#print axioms PF4.CDF.cdfGap_pos
+#print axioms PF4.Transport.concrete_transportNumerator_pos
+#print axioms PF4.Transport.concrete_transportNumerator_pos_from_measures
+#print axioms PF4.Transport.partialXiPsi_neg_of_transport

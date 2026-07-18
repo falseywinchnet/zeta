@@ -51,13 +51,18 @@ assembly theorem, not merely matching script output.
 
 ## Track E — transport and crossing
 
-1. Prove triangular formulas for `Λ` and `δ`.
-2. Prove normalization of `μ` and `ν` from those formulas.
-3. Prove `ν((z,w]) > 0` from positive density and `z < w`.
-4. Prove the density ratio formula, endpoint limits, and unique crossing.
-5. Prove the CDF gap is strictly positive on `(p,w)`.
-6. Prove the transport expectation identity and CDF integration by parts.
-7. Derive the positive integral and `∂ξΨ < 0`.
+1. Prove triangular formulas for `Λ` and `δ` — open upstream derivation.
+2. Prove normalization of `μ` and `ν` from those formulas — Lean interface
+   checked; upstream instantiation open.
+3. Prove `ν((z,w]) > 0` from positive density and `z < w` — Lean-checked.
+4. Prove the density ratio formula, endpoint limits, and unique crossing —
+   algebra and uniqueness Lean-checked; endpoint-limit theorem remains.
+5. Prove the CDF gap is strictly positive on `(p,w)` — Lean-checked from the
+   displayed density/mass inputs, including both endpoints.
+6. Prove the transport expectation identity and CDF integration by parts —
+   next open boundary (PO-0038/0039).
+7. Derive the positive integral and `∂ξΨ < 0` — positive numerator and final
+   sign bridge Lean-checked; exact derivative object identity remains.
 
 Exit gate: no positive symbol or probability measure is introduced before its
 positivity or total mass is derived.
@@ -80,7 +85,7 @@ Exit gate: T1–T3 are kernel-checked and the target-reachable graph has no gaps
 
 The first deep proof task is the generic iterated-integral engine, because it
 is reusable and isolates finite-minor strictness from Riemann-specific
-analysis. The first adversarial task is the `S09` crossing frame, because the
-current symbolic derivative check is far weaker than the claimed stochastic
-ordering. The first certificate task is statement reconstruction for CERT12,
-not a rewrite of its generator.
+analysis. The next adversarial transport task is PO-0039, where the expectation
+difference must be proved equal to the checked CDF integral without defining
+either side to make the result tautological. The first certificate task is
+statement reconstruction for CERT12, not a rewrite of its generator.
