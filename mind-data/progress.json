@@ -380,8 +380,12 @@
     "P000095": {
       "blurb": "Audit and integrate curvature normalizers and probability laws, raising formal completion to 6 of 46",
       "created_at": "2026-07-18T22:03:28+00:00"
+    },
+    "P000096": {
+      "blurb": "derive closed cumulative gap formulas and repair clean curvature FTC replay",
+      "created_at": "2026-07-18T22:32:58+00:00"
     }
   },
-  "next_id": 96,
+  "next_id": 97,
   "version": 1
 }
