@@ -1,0 +1,9 @@
+'PF4.TranslationQuotientTower.hasDerivAt_firstQuotD2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PF4.TranslationQuotientTower.hasDerivAt_secondQuotD' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PF4.TranslationQuotientTower.hasDerivAt_terminalQuot' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PF4.TranslationQuotientTower.translationMinor_eq_rawFactoredDet4' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PF4.TranslationQuotientTower.translationMinor_pos_of_quotient_tower_signs' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
