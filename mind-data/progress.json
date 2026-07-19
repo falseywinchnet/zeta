@@ -420,8 +420,12 @@
     "P000105": {
       "blurb": "Proved fixed order-four discrete quotient cascade and non-vacuous terminal derivative-to-determinant strictness bridge in Lean",
       "created_at": "2026-07-19T01:13:07+00:00"
+    },
+    "P000106": {
+      "blurb": "Proved the complete fixed order-four continuous quotient-integral strictness transfer from pointwise quotient derivatives to the original unnormalized minor in Lean",
+      "created_at": "2026-07-19T01:27:36+00:00"
     }
   },
-  "next_id": 106,
+  "next_id": 107,
   "version": 1
 }
