@@ -9,3 +9,7 @@ import PF4.CDF
 import PF4.Expectation
 import PF4.TransportObject
 import PF4.Transport
+import PF4.CoordinateSignBridge
+import PF4.CentralIdentity
+import PF4.C4Invariant
+import PF4.FinalAssembly

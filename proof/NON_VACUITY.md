@@ -26,7 +26,7 @@ Open: PO-0002 through PO-0007.
 Every quotient involving `q`, `A`, `Λ`, `δ`, or `κ` has a separate nonzero or
 positive-denominator obligation.
 
-Open: PO-0008, PO-0010, PO-0015, PO-0022, PO-0028.
+Open: PO-0008, PO-0010, PO-0015, PO-0022.
 
 ## NV-004 — curvature coordinate
 
@@ -54,7 +54,8 @@ and
 derive positivity because `L,R > 0`, `κ > 1`, and both intervals have positive
 length. Positivity is not attached to fresh symbols `Λ` or `δ`.
 
-Open: PO-0023 through PO-0025.
+Open: PO-0025. PO-0023 and PO-0024 are closed by the maintained coordinate
+integral and positivity theorems.
 
 ## NV-006 — probability measures
 
@@ -147,3 +148,16 @@ hypothesis.
 Checked: `PF4.TransportObject.expandedTransportK_eq_concrete_expectationDifference`.
 The upstream derivation that makes the measures probabilities remains isolated
 in PO-0023/0024 and PO-0030/0031; it is not smuggled into PO-0038.
+
+## NV-013 — final derivative assembly
+
+The final theorem differentiates the independently defined coordinate `Psi`;
+its conclusion is not a scalar carrying the desired sign. The primary sign
+input is positivity of the central-moment Hankel determinant `C₄`. The theorem
+derives curvature continuity, determinant-to-curvature identification, the
+central transport equality, numerator positivity, and the exact negative
+orientation internally.
+
+Closed: `PF4.FinalAssembly.coordinatePartialXiPsi_neg_from_determinantC4`.
+No central identity, positive transport integral, positive numerator, or
+derivative sign is a hypothesis.

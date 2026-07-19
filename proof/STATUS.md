@@ -2,7 +2,7 @@
 
 Target: `PF4-CORE-v1`
 
-Formal completion: **8/46 obligations**
+Formal completion: **13/46 obligations**
 
 Current strongest result: a conventional proof supported by exact symbolic and
 rational certificates. Lean 4.32.0 and mathlib 4.32.0 are pinned; target
@@ -20,7 +20,12 @@ displayed weighted integrand and strict positivity of the coordinate transport
 numerator. PO-0023, PO-0024, PO-0030, and PO-0031 are complete atomic
 obligations: the coordinate normalizers, endpoint derivative, strict
 positivity, integrability, and concrete normalized laws are constructed in
-Lean and connected to PO-0038.
+Lean and connected to PO-0038. PO-0026 through PO-0029 and PO-0041 are now
+complete atomic obligations: `Psi` is differentiated as an actual function,
+the exact sign orientation is checked, primary determinant `C₄` is identified
+with the curvature numerator, `D>0` is transferred through positive cleared
+factors, and the central transport theorem is assembled without an assumed
+positive numerator or identity.
 
 ## Analytic foundation
 
@@ -66,10 +71,10 @@ Lean and connected to PO-0038.
 | PO-0023 | Triangular integral formula for `Λ` | FORMALLY_PROVED | none; explicit primitives and endpoint algebra checked |
 | PO-0024 | Triangular formula and positivity for `δ` | FORMALLY_PROVED | none; endpoint derivative, integral identity, and midpoint strictness checked |
 | PO-0025 | Simultaneous translation operator in coordinates | SYMBOLICALLY_CHECKED | multivariable chain rule |
-| PO-0026 | Definition/expansion of `N` from differentiating `Ψ` | SYMBOLICALLY_CHECKED | object-identity proof |
-| PO-0027 | `∂ξΨ = -Q(p)N/Λ²` | SYMBOLICALLY_CHECKED | commuting derivatives and signs |
-| PO-0028 | `C₄ = Q⁶κ²D` | CERTIFIED | certificate-to-Lean polynomial identity |
-| PO-0029 | `D > 0` globally | CERTIFIED | PO-0013/0022/0028 formal bridge |
+| PO-0026 | Definition/expansion of `N` from differentiating `Ψ` | FORMALLY_PROVED | none; endpoint translation objects and actual derivative checked |
+| PO-0027 | `∂ξΨ = -Q(p)N/Λ²` | FORMALLY_PROVED | none; coordinate speed and exact negative orientation checked |
+| PO-0028 | `C₄ = Q⁶κ²D` | FORMALLY_PROVED | none; primary Hankel determinant, cumulant expansion, and curvature factorization checked |
+| PO-0029 | `D > 0` globally | FORMALLY_PROVED | none; determinant positivity transfers through positive `Q⁶κ²` |
 
 ## Non-vacuous normalization and crossing layer
 
@@ -91,7 +96,7 @@ Lean and connected to PO-0038.
 | PO-0038 | `K=Eν[A₀]-Eμ[A₀]` | FORMALLY_PROVED | none; independent primitive, expectations, and endpoint object identity checked |
 | PO-0039 | Expectation difference equals `∫ΔD` | FORMALLY_PROVED | none; actual measures, expectations, CDFs, and boundary terms checked |
 | PO-0040 | Transport integral and `N` are strictly positive | FORMALLY_PROVED | none; coordinate normalizers, closed-gap continuity/sign, weight continuity/sign, and strict integral checked |
-| PO-0041 | `∂ξΨ<0` globally | FORMAL_FRAGMENT | final exact sign bridge checked; derive PO-0027 identity and instantiate `N>0` |
+| PO-0041 | `∂ξΨ<0` globally | FORMALLY_PROVED | none; exact determinant sign, central transport, and differentiated `Ψ` assembled |
 | PO-0042 | Strict global order-four minors | CERTIFIED | PO-0020/0041 formal bridge |
 | PO-0043 | Strict minors of orders one through three | CERTIFIED | assemble PO-0008/0016/0018 |
 | PO-0044 | CERT17 evaluator denotes T2's exact determinant | OBLIGATION | primary-kernel equivalence |
@@ -100,7 +105,7 @@ Lean and connected to PO-0038.
 
 ## Immediate next work
 
-1. Formalize the exact PO-0027 object identity connecting the coordinate
-   transport numerator to `∂ξΨ`, then assemble PO-0041.
-2. Write the generic statement of PO-0018 in Lean-ready form and design
+1. Write the generic statement of PO-0018 in Lean-ready form and formalize the
+   quotient/Wronskian transfer through PO-0020 and PO-0042.
+2. Design
    canonical certificate statements for PO-0011–PO-0013 and PO-0045.

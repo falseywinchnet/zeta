@@ -57,8 +57,10 @@ their conclusions backward.
 2. Formal analytic construction and differentiation of `Φ`.
 3. Formal statement bridges for CERT12 and CERT17.
 4. Formal generic quotient/integral determinant engine.
-5. Exact PO-0027 object identity from the differentiated coordinate primitive
-   to the now-checked positive transport numerator.
+5. Generic quotient/Wronskian and iterated-integral transfer from the now-
+   checked strict derivative sign to strict finite order-four minors.
 
-PO-0037 through PO-0040 are `FORMALLY_PROVED`; every route to T1–T3 still has
-unresolved prerequisites, beginning at the exact PO-0027 sign identity.
+PO-0026 through PO-0029 and PO-0037 through PO-0041 are `FORMALLY_PROVED`;
+every route to T1–T3 still has unresolved prerequisites, beginning at the
+generic PO-0017/0018/0020 finite-minor transfer and the upstream analytic and
+certificate statement bridges.

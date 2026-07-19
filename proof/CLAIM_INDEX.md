@@ -13,8 +13,8 @@
 | PF4/`∂ξΨ` reduction | S05 | R156, CERT5 | PO-0020 | unset | CONVENTIONALLY_PROVED |
 | curvature coordinate map | S06 | R153, CERT9 | PO-0021–0022, PO-0025 | unset | CONVENTIONALLY_PROVED |
 | triangular coordinate normalizers | S06 | R153, CERT9 | PO-0023–0024 | `PF4.Curvature.coordinateLambda_eq_triangular`, `coordinateDelta_eq_triangular`, `coordinateDelta_pos` | FORMALLY_PROVED |
-| sign bridge | S06 | R153, CERT9 | PO-0026–0027 | unset | SYMBOLICALLY_CHECKED |
-| `C₄ = Q⁶κ²D` | S07 | R149, CERT9/12 | PO-0028–0029 | unset | CERTIFIED |
+| sign bridge | S06 | R153, CERT9 | PO-0026–0027 | `PF4.CoordinateSignBridge.coordinatePartialXiPsi_eq` | FORMALLY_PROVED |
+| `C₄ = Q⁶κ²D` | S07 | R149, CERT9/12 | PO-0028–0029 | `PF4.C4Invariant.coordinateDeterminantC4_eq_derivedC4`, `PF4.FinalAssembly.primitiveRate_pos_of_determinantC4_pos` | FORMALLY_PROVED |
 | measure normalization | S08 | R153, CERT9 | PO-0030–0031 | `PF4.Curvature.coordinate_mu_isProbabilityMeasure`, `coordinate_nu_isProbabilityMeasure` | FORMALLY_PROVED |
 | transport expectation | S08 | R153, CERT9 | PO-0038 | `PF4.TransportObject.expandedTransportK_eq_concrete_expectationDifference` | FORMALLY_PROVED |
 | strict right mass | S09 | R153, CERT9 | PO-0032 | `PF4.Measures.nuMeasure_Ioc_pos` | FORMAL_FRAGMENT |
@@ -22,7 +22,7 @@
 | strict cumulative gap | S09 | R153, CERT9 | PO-0037 | `PF4.Cumulative.coordinateGap_pos`, `coordinateGap_continuous_of_normalized`; CDF equality bridges retained independently | FORMALLY_PROVED |
 | CDF integration identity | S09 | R153, CERT9 | PO-0039 | `PF4.Expectation.expectation_difference_eq_cdfGap_integral`, `PF4.Transport.concrete_expectationDifference_eq_transportIntegral` | FORMALLY_PROVED |
 | positive transport integral | S09 | R153, CERT9 | PO-0040 | `PF4.Transport.coordinateTransportNumerator_pos_closed` | FORMALLY_PROVED |
-| `∂ξΨ < 0` | S10 | R153, CERT9 | PO-0041 | `PF4.Transport.partialXiPsi_neg_of_transport` | FORMAL_FRAGMENT |
+| `∂ξΨ < 0` | S10 | R153, CERT9 | PO-0041 | `PF4.FinalAssembly.coordinatePartialXiPsi_neg_from_determinantC4` | FORMALLY_PROVED |
 | strict PF4 | S01/S10 | R164, CERT5/9/12 | PO-0042 | unset | CERTIFIED |
 | exact finite PF5 witness | S10 | R179, CERT17 | PO-0044–0045 | unset | CERTIFIED |
 | exact order four | S01/S10 | R145 | PO-0046 | unset | CERTIFIED |

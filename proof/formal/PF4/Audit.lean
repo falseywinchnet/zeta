@@ -58,3 +58,9 @@ set_option linter.style.header false
 #print axioms PF4.Transport.coordinateTransportNumerator_pos
 #print axioms PF4.Transport.coordinateTransportNumerator_pos_closed
 #print axioms PF4.Transport.partialXiPsi_neg_of_transport
+#print axioms PF4.CoordinateSignBridge.coordinatePartialXiPsi_eq
+#print axioms PF4.CentralIdentity.expandedTransportK_eq_coordinateTransportIntegral
+#print axioms PF4.C4Invariant.determinantC4_eq_cumulantC4Polynomial
+#print axioms PF4.C4Invariant.coordinateDeterminantC4_eq_derivedC4
+#print axioms PF4.FinalAssembly.primitiveRate_pos_of_determinantC4_pos
+#print axioms PF4.FinalAssembly.coordinatePartialXiPsi_neg_from_determinantC4

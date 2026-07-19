@@ -29,6 +29,10 @@ PF4/CDF.lean
 PF4/Expectation.lean
 PF4/TransportObject.lean
 PF4/Transport.lean
+PF4/CoordinateSignBridge.lean
+PF4/CentralIdentity.lean
+PF4/C4Invariant.lean
+PF4/FinalAssembly.lean
 PF4/Main.lean
 PF4/PF5Witness.lean
 PF4/ExactOrder.lean
@@ -66,11 +70,20 @@ Implemented modules:
 - `PF4.Transport`: both the measure/CDF and deterministic closed-coordinate
   routes to the positive curvature-weighted numerator, plus the exact final
   negative-sign bridge.
+- `PF4.CoordinateSignBridge`: independent endpoint translation objects,
+  actual differentiation of `Psi`, and the exact PO-0026/0027 orientation;
+- `PF4.CentralIdentity`: exact expectation/CDF/closed-coordinate transport
+  composition and the primitive-derived curvature weight;
+- `PF4.C4Invariant`: primary central-moment Hankel determinant, its thirteen-
+  term cumulant expansion, coordinate recurrence, and curvature factorization;
+- `PF4.FinalAssembly`: determinant positivity through the central transport
+  identity to strict negativity of the actual coordinate derivative.
 
 No stub theorem with `sorry` is used. The proof-facing cumulative object is
 `PF4.Cumulative.coordinateGap`; the measure-backed CDF is retained as a
-validation interface. The next conversion boundary is the exact PO-0027
-identity connecting the checked coordinate transport numerator to `∂ξΨ`.
+validation interface. PO-0026 through PO-0029 and PO-0041 are now maintained
+kernel-checked theorems. The next conversion boundary is the generic
+quotient/Wronskian and iterated-integral transfer to strict order-four minors.
 
 ## Required build gates
 
