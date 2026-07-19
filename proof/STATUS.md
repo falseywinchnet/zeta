@@ -27,6 +27,13 @@ with the curvature numerator, `D>0` is transferred through positive cleared
 factors, and the central transport theorem is assembled without an assumed
 positive numerator or identity.
 
+The fixed order-four generic quotient engine is also maintained and
+kernel-checked: exact discrete factor extraction, the `4→3` triple-integral
+identity, the `3→2` double-integral identity, terminal strictness, and transfer
+to the original unnormalized minor are formal fragments of PO-0017, PO-0018,
+and PO-0020. They do not yet instantiate the actual translation quotients or
+the maintained `Ψ` sign, so the formal completion count is unchanged.
+
 ## Analytic foundation
 
 | ID | Claim | Present status | Formal blocker |
@@ -57,10 +64,10 @@ positive numerator or identity.
 | PO-0014 | Weighted-mean identities and variation bound | CONVENTIONALLY_PROVED | extrema/integral lemmas |
 | PO-0015 | `Λ(ξ;m,r) > 0` for `ξ < m < r` | FORMAL_FRAGMENT | coordinate strict-integral theorem checked; instantiate coordinate map from PO-0021/0022 |
 | PO-0016 | Strict order-three Wronskian sign | CERTIFIED | quotient identity formalization |
-| PO-0017 | Quotient/Wronskian algebra through order four | SYMBOLICALLY_CHECKED | general Lean determinant proof |
-| PO-0018 | Iterated quotient-integral determinant identity | CONVENTIONALLY_PROVED | matrix integration/orientation |
+| PO-0017 | Quotient/Wronskian algebra through order four | FORMAL_FRAGMENT | differential Wronskian quotient identities remain; fixed-size determinant algebra is checked |
+| PO-0018 | Iterated quotient-integral determinant identity | FORMAL_FRAGMENT | arbitrary finite `k`; exact sizes two through four and strict boxes are checked |
 | PO-0019 | One- and two-sided confluent limits | CONVENTIONALLY_PROVED | divided differences and limits |
-| PO-0020 | PF4 iff weak `∂ξΨ≤0`; strict sign implies strict PF4 | CONVENTIONALLY_PROVED | strict finite-minor transfer |
+| PO-0020 | PF4 iff weak `∂ξΨ≤0`; strict sign implies strict PF4 | FORMAL_FRAGMENT | instantiate actual translate quotients and formalize confluent converse; generic strict transfer is checked |
 
 ## Curvature and transport algebra
 
@@ -97,7 +104,7 @@ positive numerator or identity.
 | PO-0039 | Expectation difference equals `∫ΔD` | FORMALLY_PROVED | none; actual measures, expectations, CDFs, and boundary terms checked |
 | PO-0040 | Transport integral and `N` are strictly positive | FORMALLY_PROVED | none; coordinate normalizers, closed-gap continuity/sign, weight continuity/sign, and strict integral checked |
 | PO-0041 | `∂ξΨ<0` globally | FORMALLY_PROVED | none; exact determinant sign, central transport, and differentiated `Ψ` assembled |
-| PO-0042 | Strict global order-four minors | CERTIFIED | PO-0020/0041 formal bridge |
+| PO-0042 | Strict global order-four minors | CERTIFIED | actual translation-quotient/`Ψ` instance bridge from PO-0041 into the checked generic engine |
 | PO-0043 | Strict minors of orders one through three | CERTIFIED | assemble PO-0008/0016/0018 |
 | PO-0044 | CERT17 evaluator denotes T2's exact determinant | OBLIGATION | primary-kernel equivalence |
 | PO-0045 | Exact rational finite determinant is negative | CERTIFIED | port/check certificate in Lean |
@@ -105,7 +112,8 @@ positive numerator or identity.
 
 ## Immediate next work
 
-1. Write the generic statement of PO-0018 in Lean-ready form and formalize the
-   quotient/Wronskian transfer through PO-0020 and PO-0042.
+1. Execute `proof/NEXT_ADVANCEMENT.md`: instantiate the checked fixed-order
+   quotient engine with the actual translation quotients and maintained `Ψ`
+   orientation, without assuming any intermediate sign.
 2. Design
    canonical certificate statements for PO-0011–PO-0013 and PO-0045.

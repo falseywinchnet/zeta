@@ -78,12 +78,28 @@ Implemented modules:
   term cumulant expansion, coordinate recurrence, and curvature factorization;
 - `PF4.FinalAssembly`: determinant positivity through the central transport
   identity to strict negativity of the actual coordinate derivative.
+- `PF4.QuotientAlgebra`: fixed-size determinant normalization, forward-
+  difference orientation, and terminal discrete quotient factorization;
+- `PF4.QuotientIntegral`: exact fixed-order adjacent-box integral identities
+  and strict quotient-sign transfer to an unnormalized order-four minor.
 
 No stub theorem with `sorry` is used. The proof-facing cumulative object is
 `PF4.Cumulative.coordinateGap`; the measure-backed CDF is retained as a
 validation interface. PO-0026 through PO-0029 and PO-0041 are now maintained
-kernel-checked theorems. The next conversion boundary is the generic
-quotient/Wronskian and iterated-integral transfer to strict order-four minors.
+kernel-checked theorems. The next conversion boundary is the actual
+translation-quotient and `Ψ`-orientation instantiation of the checked generic
+engine.
+
+## Resource discipline
+
+Lean checks are serialized. Before starting a Lean or Lake command, verify that
+no existing Lean or Lake process is active. Never launch parallel Lean
+compilations. Prefer one directly targeted module check over a full rebuild;
+use the full `lake build` gate only once at the end of an epoch. The quotient
+modules use narrow imports rather than the `Mathlib` umbrella and contain no
+diagnostic `#print` commands, enlarged heartbeat limits, `native_decide`, or
+unsafe evaluation. If a single check sustains heavy resource use, stop it and
+refine the theorem/module structure before retrying.
 
 ## Required build gates
 

@@ -56,11 +56,12 @@ their conclusions backward.
 1. Lean/mathlib toolchain and exact formal statement representation.
 2. Formal analytic construction and differentiation of `Φ`.
 3. Formal statement bridges for CERT12 and CERT17.
-4. Formal generic quotient/integral determinant engine.
-5. Generic quotient/Wronskian and iterated-integral transfer from the now-
-   checked strict derivative sign to strict finite order-four minors.
+4. Actual translation-function quotient definitions and derivative identities
+   instantiating the maintained fixed-order quotient/integral engine.
+5. Exact bridge from the maintained strict `Ψ` derivative sign to positivity
+   of the terminal quotient derivative, with `p₄<p₃` orientation.
 
 PO-0026 through PO-0029 and PO-0037 through PO-0041 are `FORMALLY_PROVED`;
-every route to T1–T3 still has unresolved prerequisites, beginning at the
-generic PO-0017/0018/0020 finite-minor transfer and the upstream analytic and
-certificate statement bridges.
+every route to T1–T3 still has unresolved prerequisites. The fixed-order
+generic PO-0017/0018/0020 engine is now checked; its actual-kernel instance and
+the upstream analytic and certificate statement bridges remain unresolved.
