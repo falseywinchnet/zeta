@@ -64,3 +64,11 @@ set_option linter.style.header false
 #print axioms PF4.C4Invariant.coordinateDeterminantC4_eq_derivedC4
 #print axioms PF4.FinalAssembly.primitiveRate_pos_of_determinantC4_pos
 #print axioms PF4.FinalAssembly.coordinatePartialXiPsi_neg_from_determinantC4
+#print axioms PF4.GenericQuotientIntegral.normalizedDet4_eq_forwardDiffDet3
+#print axioms PF4.GenericQuotientIntegral.quotientChainDet4_eq_terminalProduct
+#print axioms PF4.GenericQuotientIntegral.quotientChainDet4_pos_of_terminal_deriv
+#print axioms PF4.ContinuousQuotientBox.normalizedDet4_eq_tripleIntegral
+#print axioms PF4.ContinuousQuotientBox.normalizedDet4_pos_of_derivativeDet_pos
+#print axioms PF4.ContinuousQuotientBox.normalizedDet3_pos_of_derivativeDet_pos
+#print axioms PF4.ContinuousQuotientBox.normalizedDet4_pos_of_full_quotient_chain
+#print axioms PF4.ContinuousQuotientBox.rawFactoredDet4_pos_of_full_quotient_chain

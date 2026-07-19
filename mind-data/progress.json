@@ -428,8 +428,12 @@
     "P000107": {
       "blurb": "Audit and integrate the fixed order-four quotient-integral Lean engine, serialize Lean checks, narrow imports, and stage the translation-Psi instance boundary",
       "created_at": "2026-07-19T01:57:09+00:00"
+    },
+    "P000108": {
+      "blurb": "Repair and kernel-check the order-four quotient Lean modules, extend the axiom audit, and add the Lean optimization directions sheet",
+      "created_at": "2026-07-19T03:14:04+00:00"
     }
   },
-  "next_id": 108,
+  "next_id": 109,
   "version": 1
 }

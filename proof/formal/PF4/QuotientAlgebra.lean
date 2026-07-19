@@ -7,7 +7,7 @@ set_option linter.style.header false
 
 namespace PF4.GenericQuotientIntegral
 
-open Matrix Set intervalIntegral
+open Matrix MeasureTheory Set intervalIntegral
 
 /-- A normalized order-four collocation determinant. -/
 noncomputable def normalizedDet4

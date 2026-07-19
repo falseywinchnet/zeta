@@ -1,3 +1,5 @@
+import Mathlib.Analysis.Calculus.Deriv.Add
+import Mathlib.Analysis.Calculus.Deriv.Mul
 import Mathlib.LinearAlgebra.Matrix.Determinant.Basic
 import Mathlib.MeasureTheory.Integral.IntervalIntegral.FundThmCalculus
 import Mathlib.Tactic.FunProp
@@ -8,7 +10,7 @@ set_option linter.style.header false
 
 namespace PF4.ContinuousQuotientBox
 
-open Matrix Set intervalIntegral
+open Matrix MeasureTheory Set intervalIntegral
 
 /-- The explicit determinant of three row vectors. -/
 def rowDet3
@@ -25,6 +27,17 @@ theorem rowDet3_eq_matrixDet
   simp [rowDet3, Matrix.det_fin_three]
   ring
 
+@[fun_prop]
+theorem continuous_rowDet3
+    {f₀ g₀ h₀ f₁ g₁ h₁ f₂ g₂ h₂ : ℝ → ℝ}
+    (hf₀ : Continuous f₀) (hg₀ : Continuous g₀) (hh₀ : Continuous h₀)
+    (hf₁ : Continuous f₁) (hg₁ : Continuous g₁) (hh₁ : Continuous h₁)
+    (hf₂ : Continuous f₂) (hg₂ : Continuous g₂) (hh₂ : Continuous h₂) :
+    Continuous fun t => rowDet3
+      (f₀ t) (g₀ t) (h₀ t) (f₁ t) (g₁ t) (h₁ t) (f₂ t) (g₂ t) (h₂ t) := by
+  unfold rowDet3
+  fun_prop
+
 theorem hasDerivAt_rowDet3_third
     {A B C A' B' C' : ℝ → ℝ} {t : ℝ}
     (a₀ b₀ c₀ a₁ b₁ c₁ : ℝ)
@@ -35,10 +48,9 @@ theorem hasDerivAt_rowDet3_third
       (fun s => rowDet3 a₀ b₀ c₀ a₁ b₁ c₁ (A s) (B s) (C s))
       (rowDet3 a₀ b₀ c₀ a₁ b₁ c₁ (A' t) (B' t) (C' t)) t := by
   unfold rowDet3
-  convert
-    (((hC.const_mul b₁).sub (hB.const_mul c₁)).const_mul a₀).sub
-      (((hC.const_mul a₁).sub (hA.const_mul c₁)).const_mul b₀) |>.add
-      (((hB.const_mul a₁).sub (hA.const_mul b₁)).const_mul c₀) using 1 <;> ring
+  exact ((((hC.const_mul b₁).sub (hB.const_mul c₁)).const_mul a₀).sub
+      (((hC.const_mul a₁).sub (hA.const_mul c₁)).const_mul b₀)).add
+      (((hB.const_mul a₁).sub (hA.const_mul b₁)).const_mul c₀)
 
 theorem hasDerivAt_rowDet3_second
     {A B C A' B' C' : ℝ → ℝ} {t : ℝ}
@@ -50,10 +62,9 @@ theorem hasDerivAt_rowDet3_second
       (fun s => rowDet3 a₀ b₀ c₀ (A s) (B s) (C s) a₂ b₂ c₂)
       (rowDet3 a₀ b₀ c₀ (A' t) (B' t) (C' t) a₂ b₂ c₂) t := by
   unfold rowDet3
-  convert
-    (((hB.const_mul c₂).sub (hC.const_mul b₂)).const_mul a₀).sub
-      (((hA.const_mul c₂).sub (hC.const_mul a₂)).const_mul b₀) |>.add
-      (((hA.const_mul b₂).sub (hB.const_mul a₂)).const_mul c₀) using 1 <;> ring
+  exact ((((hB.mul_const c₂).sub (hC.mul_const b₂)).const_mul a₀).sub
+      (((hA.mul_const c₂).sub (hC.mul_const a₂)).const_mul b₀)).add
+      (((hA.mul_const b₂).sub (hB.mul_const a₂)).const_mul c₀)
 
 theorem hasDerivAt_rowDet3_first
     {A B C A' B' C' : ℝ → ℝ} {t : ℝ}
@@ -65,10 +76,9 @@ theorem hasDerivAt_rowDet3_first
       (fun s => rowDet3 (A s) (B s) (C s) a₁ b₁ c₁ a₂ b₂ c₂)
       (rowDet3 (A' t) (B' t) (C' t) a₁ b₁ c₁ a₂ b₂ c₂) t := by
   unfold rowDet3
-  convert
-    (hA.const_mul (b₁*c₂-c₁*b₂)).sub
-      (hB.const_mul (a₁*c₂-c₁*a₂)) |>.add
-      (hC.const_mul (a₁*b₂-b₁*a₂)) using 1 <;> ring
+  exact ((hA.mul_const (b₁*c₂-c₁*b₂)).sub
+      (hB.mul_const (a₁*c₂-c₁*a₂))).add
+      (hC.mul_const (a₁*b₂-b₁*a₂))
 
 /-- Integrating the derivative row in the third slot replaces that row by
 its oriented endpoint difference. -/
@@ -198,6 +208,27 @@ theorem normalizedDet4_eq_tripleIntegral
         intro s₁ _
         exact integral_rowDet3_third
           (A' s₀) (B' s₀) (C' s₀) (A' s₁) (B' s₁) (C' s₁)
+          (fun t _ => hA t) (fun t _ => hB t) (fun t _ => hC t)
+          hA' hB' hC'
+    _ = ∫ s₀ in t₀..t₁,
+        rowDet3
+          (A' s₀) (B' s₀) (C' s₀)
+          (A t₂-A t₁) (B t₂-B t₁) (C t₂-C t₁)
+          (A t₃-A t₂) (B t₃-B t₂) (C t₃-C t₂) := by
+        apply intervalIntegral.integral_congr
+        intro s₀ _
+        exact integral_rowDet3_second
+          (A' s₀) (B' s₀) (C' s₀)
+          (A t₃-A t₂) (B t₃-B t₂) (C t₃-C t₂)
+          (fun t _ => hA t) (fun t _ => hB t) (fun t _ => hC t)
+          hA' hB' hC'
+    _ = rowDet3
+          (A t₁-A t₀) (B t₁-B t₀) (C t₁-C t₀)
+          (A t₂-A t₁) (B t₂-B t₁) (C t₂-C t₁)
+          (A t₃-A t₂) (B t₃-B t₂) (C t₃-C t₂) := by
+        exact integral_rowDet3_first
+          (A t₂-A t₁) (B t₂-B t₁) (C t₂-C t₁)
+          (A t₃-A t₂) (B t₃-B t₂) (C t₃-C t₂)
           (fun t _ => hA t) (fun t _ => hB t) (fun t _ => hC t)
           hA' hB' hC'
 
@@ -347,6 +378,15 @@ theorem normalizedDet4_pos_of_derivativeDet_pos
 /-- The explicit determinant of two row vectors. -/
 def rowDet2 (a₀ b₀ a₁ b₁ : ℝ) : ℝ := a₀*b₁-b₀*a₁
 
+@[fun_prop]
+theorem continuous_rowDet2
+    {f₀ g₀ f₁ g₁ : ℝ → ℝ}
+    (hf₀ : Continuous f₀) (hg₀ : Continuous g₀)
+    (hf₁ : Continuous f₁) (hg₁ : Continuous g₁) :
+    Continuous fun t => rowDet2 (f₀ t) (g₀ t) (f₁ t) (g₁ t) := by
+  unfold rowDet2
+  fun_prop
+
 theorem hasDerivAt_rowDet2_second
     {A B A' B' : ℝ → ℝ} {t : ℝ} (a₀ b₀ : ℝ)
     (hA : HasDerivAt A (A' t) t)
@@ -354,7 +394,7 @@ theorem hasDerivAt_rowDet2_second
     HasDerivAt (fun s => rowDet2 a₀ b₀ (A s) (B s))
       (rowDet2 a₀ b₀ (A' t) (B' t)) t := by
   unfold rowDet2
-  convert (hB.const_mul a₀).sub (hA.const_mul b₀) using 1 <;> ring
+  exact (hB.const_mul a₀).sub (hA.const_mul b₀)
 
 theorem hasDerivAt_rowDet2_first
     {A B A' B' : ℝ → ℝ} {t : ℝ} (a₁ b₁ : ℝ)
@@ -363,7 +403,7 @@ theorem hasDerivAt_rowDet2_first
     HasDerivAt (fun s => rowDet2 (A s) (B s) a₁ b₁)
       (rowDet2 (A' t) (B' t) a₁ b₁) t := by
   unfold rowDet2
-  convert (hA.const_mul b₁).sub (hB.const_mul a₁) using 1 <;> ring
+  exact (hA.mul_const b₁).sub (hB.mul_const a₁)
 
 theorem integral_rowDet2_second
     {A B A' B' : ℝ → ℝ} {x y : ℝ} (a₀ b₀ : ℝ)
@@ -491,7 +531,7 @@ theorem forwardDiff_pos_of_global_deriv_pos
     (hq : ∀ t, HasDerivAt q (q' t) t)
     (hq' : Continuous q') (hqpos : ∀ t, 0 < q' t) :
     0 < q y-q x := by
-  have hint : IntervalIntegrable q' volume x y := hq'.intervalIntegrable
+  have hint : IntervalIntegrable q' volume x y := hq'.intervalIntegrable x y
   rw [← integral_eq_sub_of_hasDerivAt (fun t _ => hq t) hint]
   exact intervalIntegral_pos_of_pos_on hint (fun t _ => hqpos t) hxy
 
@@ -538,11 +578,16 @@ theorem normalizedDet4_pos_of_full_quotient_chain
     rw [hWfactor r₀, hWfactor r₁, rowDet2_factored]
     have hqdiff : 0 < q r₁-q r₀ :=
       forwardDiff_pos_of_global_deriv_pos hr₀₁ hq hq' hqpos
+    have hV₀ := hVpos r₀
+    have hV₁ := hVpos r₁
     positivity
   rw [hBfactor s₀, hCfactor s₀,
     hBfactor s₁, hCfactor s₁,
     hBfactor s₂, hCfactor s₂,
     rowDet3_factored]
+  have hA₀ := hApos s₀
+  have hA₁ := hApos s₁
+  have hA₂ := hApos s₂
   positivity
 
 /-- The original four-row determinant after writing each row as its positive
@@ -597,26 +642,5 @@ theorem rawFactoredDet4_pos_of_full_quotient_chain
     ht₀₁ ht₁₂ ht₂₃ hA hB hC hV hW hq hA' hB' hC' hV' hW' hq'
     hBfactor hCfactor hWfactor hApos hVpos hqpos
   positivity
-    _ = ∫ s₀ in t₀..t₁,
-        rowDet3
-          (A' s₀) (B' s₀) (C' s₀)
-          (A t₂-A t₁) (B t₂-B t₁) (C t₂-C t₁)
-          (A t₃-A t₂) (B t₃-B t₂) (C t₃-C t₂) := by
-        apply intervalIntegral.integral_congr
-        intro s₀ _
-        exact integral_rowDet3_second
-          (A' s₀) (B' s₀) (C' s₀)
-          (A t₃-A t₂) (B t₃-B t₂) (C t₃-C t₂)
-          (fun t _ => hA t) (fun t _ => hB t) (fun t _ => hC t)
-          hA' hB' hC'
-    _ = rowDet3
-          (A t₁-A t₀) (B t₁-B t₀) (C t₁-C t₀)
-          (A t₂-A t₁) (B t₂-B t₁) (C t₂-C t₁)
-          (A t₃-A t₂) (B t₃-B t₂) (C t₃-C t₂) := by
-        exact integral_rowDet3_first
-          (A t₂-A t₁) (B t₂-B t₁) (C t₂-C t₁)
-          (A t₃-A t₂) (B t₃-B t₂) (C t₃-C t₂)
-          (fun t _ => hA t) (fun t _ => hB t) (fun t _ => hC t)
-          hA' hB' hC'
 
 end PF4.ContinuousQuotientBox
