@@ -1,70 +1,63 @@
-# Next advancement cycle — translation quotient instantiation
+# Next advancement cycle — quotient sign instance bridges
 
 Mode: advancement
 
-Starting progress: P000105–P000106 and their maintained refine integration.
+Starting progress: P000109 and its maintained refine integration.
 
 ## Boundary
 
-Instantiate
-`PF4.ContinuousQuotientBox.rawFactoredDet4_pos_of_full_quotient_chain`
-for the actual translation kernel. Do not reprove the generic integral engine.
-
-For fixed columns `y₁<y₂<y₃<y₄`, define
+The translate quotient objects, their derivative ladder, factor identities,
+and the identity with `PF4.translationMinor` are checked. The maintained final
+theorem is conditional on exactly three global signs:
 
 ```text
-uⱼ(t) = Φ(t-yⱼ)
-A = u₂/u₁,       B = u₃/u₁,       C = u₄/u₁
-A' = v₂,         B' = v₃,         C' = v₄
-V = v₃/v₂,       W = v₄/v₂
-V' = w₃,         W' = w₄
-q = w₄/w₃,       q' = (w₄/w₃)'
+firstQuotD  Φ Φ1 y₁ y₂ > 0
+secondQuotD Φ Φ1 Φ2 y₁ y₂ y₃ > 0
+terminalQuotD Φ Φ1 Φ2 Φ3 y₁ y₂ y₃ y₄ > 0
 ```
 
-The maintained generic theorem then expects exactly
-
-```text
-B' = A' * V
-C' = A' * W
-W' = V' * q
-```
-
-and positivity of `u₁`, `v₂`, `w₃`, and `q'`.
+For `y₁<y₂<y₃<y₄`, derive these signs from independently defined
+Riemann-kernel structure. Do not restate any of them as a renamed hypothesis.
 
 ## Required exact bridges
 
-1. Define the translate functions and their quotient tower as actual Lean
-   functions, not independent symbols.
-2. Prove every `HasDerivAt` statement using quotient rules and proved
-   denominator nonvanishing.
-3. Prove `v₂>0` from the positive kernel ratio and the strict `A` factor.
-4. Prove `w₃>0` from the exact `Λ` quotient identity and its maintained strict
-   sign input.
-5. Define `q=w₄/w₃`; prove its derivative exists and is continuous.
-6. Translate the maintained strict coordinate derivative of `Ψ` into
-   `q'>0`. Record the orientation explicitly:
-   `p₄<p₃` and decrease of `Ψ` give `Ψ(p₄)>Ψ(p₃)`.
-7. Prove the row factors in `rawFactoredDet4` are `u₁(tᵢ)>0`.
-8. Prove object identity with `PF4.translationMinor Φ x y` for `Fin 4`,
-   including the row/column indexing convention.
+1. Introduce only the minimum kernel/logarithmic-derivative objects needed for
+   the first sign, with explicit equality to the same `Φ` used by
+   `TranslationQuotientTower`.
+2. Prove the closed identity for `firstQuotD` corresponding to the paper's
+   `v₂=(u₂/u₁)A(p₂,p₁)`, including the ordered-column orientation and every
+   positive factor.
+3. Define the exact lower-order `Λ` object used by the second quotient and
+   prove the identity that makes `secondQuotD` positive. A similarly named
+   scalar is not an instance bridge.
+4. Identify `terminalQuot` with the paper's `w₄/w₃`, then identify its
+   logarithmic translation derivative with the difference of values of the
+   same `PF4.CoordinateSignBridge.coordinatePsi` object used by the maintained
+   conditional sign theorem.
+5. Record the orientation explicitly: `p₄<p₃<p₂<p₁`; strict decrease of
+   `Psi` gives `Psi(p₄)>Psi(p₃)`, hence the terminal derivative is positive
+   only after positivity of the terminal quotient itself is proved.
+6. Finish with a wrapper taking strict row and column order and concluding
+   positivity of the actual `PF4.translationMinor`.
 
 ## No-cheating gates
 
-- Do not assume positivity of a minor, Wronskian, finite difference, integral,
-  or terminal quotient derivative.
-- Do not introduce `v`, `w`, or `q` independently of the quotient definitions.
-- Every division must carry a proved nonzero denominator.
-- Every strict interval must be constructed from the original strict node
-  hypotheses.
-- The maintained PO-0041 theorem must be connected to the same `Ψ` object used
-  in the quotient tower; a similarly named function is insufficient.
-- Stop short of PO-0042 if the primary-kernel analytic construction or a
-  lower-order sign remains only certificate-backed.
+- Do not assume any of the three quotient signs, a minor sign, a Wronskian
+  sign, a finite-difference sign, an integral sign, or a renamed derivative
+  sign in the final actual-kernel theorem.
+- Do not call the conditional `coordinatePartialXiPsi_neg_from_determinantC4`
+  theorem an actual Riemann-kernel result until its `Q`, jet, curvature, and
+  determinant-positivity inputs are instantiated.
+- Preserve the exact `Phi`/`coordinatePsi` object identities across modules.
+- Every denominator carries an explicit nonzero proof derived from a prior
+  strict sign.
+- Every strict interval comes from strict order of the original nodes.
+- Stop before PO-0042 if any analytic sign remains certificate-only or only a
+  generic hypothesis.
 
 ## Intended result
 
-A theorem whose conclusion is positivity of the actual order-four
-`PF4.translationMinor`, with the only non-generic premises being named
-maintained analytic/sign inputs for the actual kernel. This should convert
-PO-0020 and PO-0042 from generic formal fragments to an explicit instance
-bridge without changing the submitted paper.
+The strongest honest result available at the end of the cycle, with every
+remaining certificate or instance premise named literally. Promotion to
+`FORMALLY_PROVED` requires an actual-kernel theorem with no undisclosed sign
+premise.

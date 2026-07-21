@@ -2,16 +2,17 @@
 
 Target: `PF4-CORE-v1`
 
-Formal completion: **13/46 obligations**
+Formal completion: **10/46 obligations**
 
 Current strongest result: a conventional proof supported by exact symbolic and
 rational certificates. Lean 4.32.0 and mathlib 4.32.0 are pinned; target
 definitions, signed PF5 indices, constructive crossing algebra, and the actual
 left-density identity/sign bridge are kernel-checked. The actual restricted-
 density measures, mass-one interfaces, strict right mass, all three interior
-CDF-gap regions, the positive weighted transport numerator, and the final sign
-bridge are now also kernel-checked. PO-0038 and PO-0039 are complete atomic
-obligations promoted to `FORMALLY_PROVED`: the paper primitive, elementary
+CDF-gap regions, the conditional weighted transport theorem, and the
+conditional final sign bridge are now also kernel-checked. PO-0038 and PO-0039
+are complete atomic obligations promoted to `FORMALLY_PROVED`: the paper
+primitive, elementary
 primitives, actual Bochner expectations, retained boundary terms, cleared
 endpoint cancellation, CDF formulas, and final integration identity are
 checked. PO-0037 is now proved directly on the closed coordinate gap without
@@ -20,19 +21,22 @@ displayed weighted integrand and strict positivity of the coordinate transport
 numerator. PO-0023, PO-0024, PO-0030, and PO-0031 are complete atomic
 obligations: the coordinate normalizers, endpoint derivative, strict
 positivity, integrability, and concrete normalized laws are constructed in
-Lean and connected to PO-0038. PO-0026 through PO-0029 and PO-0041 are now
-complete atomic obligations: `Psi` is differentiated as an actual function,
-the exact sign orientation is checked, primary determinant `C₄` is identified
-with the curvature numerator, `D>0` is transferred through positive cleared
-factors, and the central transport theorem is assembled without an assumed
-positive numerator or identity.
+Lean and connected to PO-0038. PO-0026 through PO-0028 are complete identity
+obligations: `Psi` is differentiated as an actual function, the exact sign
+orientation is checked, and the primary determinant `C₄` is identified with
+the curvature numerator. The maintained theorems for PO-0029, PO-0040, and
+PO-0041 are conditional implications from global positivity of the supplied
+`C₄` function. They do not construct the Riemann kernel or prove its `C₄`
+input, so those three obligations remain formal fragments.
 
 The fixed order-four generic quotient engine is also maintained and
 kernel-checked: exact discrete factor extraction, the `4→3` triple-integral
 identity, the `3→2` double-integral identity, terminal strictness, and transfer
 to the original unnormalized minor are formal fragments of PO-0017, PO-0018,
-and PO-0020. They do not yet instantiate the actual translation quotients or
-the maintained `Ψ` sign, so the formal completion count is unchanged.
+and PO-0020. The actual translation quotient object layer, derivative ladder,
+factor identities, and minor identity are now maintained. Its three strict
+quotient signs are still premises rather than derived Riemann-kernel facts, so
+the formal completion count is unchanged.
 
 ## Analytic foundation
 
@@ -81,7 +85,7 @@ the maintained `Ψ` sign, so the formal completion count is unchanged.
 | PO-0026 | Definition/expansion of `N` from differentiating `Ψ` | FORMALLY_PROVED | none; endpoint translation objects and actual derivative checked |
 | PO-0027 | `∂ξΨ = -Q(p)N/Λ²` | FORMALLY_PROVED | none; coordinate speed and exact negative orientation checked |
 | PO-0028 | `C₄ = Q⁶κ²D` | FORMALLY_PROVED | none; primary Hankel determinant, cumulant expansion, and curvature factorization checked |
-| PO-0029 | `D > 0` globally | FORMALLY_PROVED | none; determinant positivity transfers through positive `Q⁶κ²` |
+| PO-0029 | `D > 0` globally | FORMAL_FRAGMENT | exact transfer from `C₄>0` checked; actual Riemann-kernel `C₄` input remains PO-0013 |
 
 ## Non-vacuous normalization and crossing layer
 
@@ -102,9 +106,9 @@ the maintained `Ψ` sign, so the formal completion count is unchanged.
 |---|---|---|---|
 | PO-0038 | `K=Eν[A₀]-Eμ[A₀]` | FORMALLY_PROVED | none; independent primitive, expectations, and endpoint object identity checked |
 | PO-0039 | Expectation difference equals `∫ΔD` | FORMALLY_PROVED | none; actual measures, expectations, CDFs, and boundary terms checked |
-| PO-0040 | Transport integral and `N` are strictly positive | FORMALLY_PROVED | none; coordinate normalizers, closed-gap continuity/sign, weight continuity/sign, and strict integral checked |
-| PO-0041 | `∂ξΨ<0` globally | FORMALLY_PROVED | none; exact determinant sign, central transport, and differentiated `Ψ` assembled |
-| PO-0042 | Strict global order-four minors | CERTIFIED | actual translation-quotient/`Ψ` instance bridge from PO-0041 into the checked generic engine |
+| PO-0040 | Transport integral and `N` are strictly positive | FORMAL_FRAGMENT | strict integral checked from supplied `Q,κ,C₄` signs; actual-kernel sign inputs remain |
+| PO-0041 | `∂ξΨ<0` globally | FORMAL_FRAGMENT | conditional assembly from determinant positivity checked; actual Riemann-kernel instantiation remains |
+| PO-0042 | Strict global order-four minors | CERTIFIED | derive the three actual quotient signs and connect the terminal quotient to the same `Psi` object |
 | PO-0043 | Strict minors of orders one through three | CERTIFIED | assemble PO-0008/0016/0018 |
 | PO-0044 | CERT17 evaluator denotes T2's exact determinant | OBLIGATION | primary-kernel equivalence |
 | PO-0045 | Exact rational finite determinant is negative | CERTIFIED | port/check certificate in Lean |
@@ -112,8 +116,8 @@ the maintained `Ψ` sign, so the formal completion count is unchanged.
 
 ## Immediate next work
 
-1. Execute `proof/NEXT_ADVANCEMENT.md`: instantiate the checked fixed-order
-   quotient engine with the actual translation quotients and maintained `Ψ`
-   orientation, without assuming any intermediate sign.
+1. Execute `proof/NEXT_ADVANCEMENT.md`: derive the first two strict signs for
+   the maintained translation quotient tower and connect its terminal quotient
+   to the same `Psi` object used by the conditional coordinate-sign assembly.
 2. Design
    canonical certificate statements for PO-0011–PO-0013 and PO-0045.

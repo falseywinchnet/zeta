@@ -5,6 +5,7 @@ Authors: Joshuah Rainstar
 -/
 
 import PF4
+import PF4.TranslationQuotientTower
 
 set_option linter.style.header false
 
@@ -72,3 +73,8 @@ set_option linter.style.header false
 #print axioms PF4.ContinuousQuotientBox.normalizedDet3_pos_of_derivativeDet_pos
 #print axioms PF4.ContinuousQuotientBox.normalizedDet4_pos_of_full_quotient_chain
 #print axioms PF4.ContinuousQuotientBox.rawFactoredDet4_pos_of_full_quotient_chain
+#print axioms PF4.TranslationQuotientTower.hasDerivAt_firstQuotD2
+#print axioms PF4.TranslationQuotientTower.hasDerivAt_secondQuotD
+#print axioms PF4.TranslationQuotientTower.hasDerivAt_terminalQuot
+#print axioms PF4.TranslationQuotientTower.translationMinor_eq_rawFactoredDet4
+#print axioms PF4.TranslationQuotientTower.translationMinor_pos_of_quotient_tower_signs

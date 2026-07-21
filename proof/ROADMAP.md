@@ -62,9 +62,9 @@ assembly theorem, not merely matching script output.
 6. Prove the transport expectation identity and CDF integration by parts —
    both the paper's `K`/primitive object identity (PO-0038) and CDF integration
    by parts (PO-0039) are Lean-checked.
-7. Derive the positive integral and `∂ξΨ < 0` — complete in maintained Lean,
-   including the exact differentiated object identity and determinant `C₄`
-   normalization.
+7. Derive the positive integral and `∂ξΨ < 0` — the exact differentiated
+   object identity, determinant normalization, and conditional implication
+   from `C₄>0` are maintained; the actual Riemann-kernel sign inputs remain.
 
 Exit gate: no positive symbol or probability measure is introduced before its
 positivity or total mass is derived.

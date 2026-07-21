@@ -56,12 +56,15 @@ their conclusions backward.
 1. Lean/mathlib toolchain and exact formal statement representation.
 2. Formal analytic construction and differentiation of `Φ`.
 3. Formal statement bridges for CERT12 and CERT17.
-4. Actual translation-function quotient definitions and derivative identities
-   instantiating the maintained fixed-order quotient/integral engine.
-5. Exact bridge from the maintained strict `Ψ` derivative sign to positivity
-   of the terminal quotient derivative, with `p₄<p₃` orientation.
+4. Derive the first two strict signs for the maintained actual translation
+   quotient tower from ordered-column Riemann-kernel structure.
+5. Exact bridge from the conditional maintained `Ψ` derivative assembly to
+   positivity of the terminal quotient derivative, with the actual-kernel
+   inputs and `p₄<p₃` orientation.
 
-PO-0026 through PO-0029 and PO-0037 through PO-0041 are `FORMALLY_PROVED`;
-every route to T1–T3 still has unresolved prerequisites. The fixed-order
-generic PO-0017/0018/0020 engine is now checked; its actual-kernel instance and
-the upstream analytic and certificate statement bridges remain unresolved.
+PO-0026 through PO-0028 and PO-0037 through PO-0039 are `FORMALLY_PROVED`.
+PO-0029, PO-0040, and PO-0041 are checked conditional cores, not completed
+actual-kernel obligations. Every route to T1–T3 still has unresolved
+prerequisites. The fixed-order generic PO-0017/0018/0020 engine and its
+translation quotient object layer are checked; the quotient signs and upstream
+analytic and certificate statement bridges remain unresolved.

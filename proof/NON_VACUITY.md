@@ -121,9 +121,11 @@ Strict positivity requires more than nonnegative factors. The interval
 integrand is positive on a nonempty open set. This discharges the equality
 case.
 
-Closed: `PF4.Transport.coordinateTransportNumerator_pos_closed` derives the
-closed-gap sign and continuity and supplies an explicit midpoint witness for
-the positive weighted integrand. No positive integral is passed as a premise.
+Conditional core closed: `PF4.Transport.coordinateTransportNumerator_pos_closed`
+derives the closed-gap sign and continuity and supplies an explicit midpoint
+witness for the positive weighted integrand. No positive integral is passed as
+a premise, but positivity of the supplied `Q`, `κ`, and `C₄` functions remains
+an upstream instance obligation.
 
 ## NV-011 — finite PF5 witness
 
@@ -158,6 +160,9 @@ derives curvature continuity, determinant-to-curvature identification, the
 central transport equality, numerator positivity, and the exact negative
 orientation internally.
 
-Closed: `PF4.FinalAssembly.coordinatePartialXiPsi_neg_from_determinantC4`.
-No central identity, positive transport integral, positive numerator, or
-derivative sign is a hypothesis.
+Conditional core closed:
+`PF4.FinalAssembly.coordinatePartialXiPsi_neg_from_determinantC4`. No central
+identity, positive transport integral, positive numerator, or derivative sign
+is a hypothesis. Global positivity of the supplied determinant function is an
+explicit hypothesis, and the actual Riemann-kernel construction and proof of
+that hypothesis remain open.

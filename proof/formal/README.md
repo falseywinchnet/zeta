@@ -82,13 +82,20 @@ Implemented modules:
   difference orientation, and terminal discrete quotient factorization;
 - `PF4.QuotientIntegral`: exact fixed-order adjacent-box integral identities
   and strict quotient-sign transfer to an unnormalized order-four minor.
+- `PF4.TranslationQuotientTower`: the actual translate quotients, their exact
+  derivative ladder and factor identities, object identity with
+  `translationMinor`, and a conditional transfer theorem from three explicit
+  quotient-level sign premises.
 
 No stub theorem with `sorry` is used. The proof-facing cumulative object is
 `PF4.Cumulative.coordinateGap`; the measure-backed CDF is retained as a
-validation interface. PO-0026 through PO-0029 and PO-0041 are now maintained
-kernel-checked theorems. The next conversion boundary is the actual
-translation-quotient and `Ψ`-orientation instantiation of the checked generic
-engine.
+validation interface. The identities and conditional implications represented
+by PO-0026 through PO-0029 and PO-0041 are maintained kernel-checked theorems;
+this does not construct the Riemann kernel or discharge its global `C₄` sign.
+The translate quotient object layer is checked. The next conversion boundary
+is to derive its first two strict quotient signs and identify its terminal
+quotient derivative with the same `Psi` object used by the conditional
+coordinate-sign assembly.
 
 ## Resource discipline
 

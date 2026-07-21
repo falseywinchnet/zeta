@@ -5,8 +5,10 @@ Date: 2026-07-18. Scope: `proof/formal` (Lean 4.32.0, mathlib v4.32.0 pinned).
 ## Where we stand
 
 - 19 project modules, ~4,650 lines, all building cleanly as of this sheet.
-- `PF4/Audit.lean` now covers all maintained exported theorems, including the
-  order-four quotient engine; every audited theorem depends only on
+- `PF4/Audit.lean` covers the maintained target-facing theorem surface,
+  including the order-four quotient engine. It is a selected transitive audit,
+  not an exhaustive list of every exported helper theorem. Every declaration
+  actually listed in the audit depends only on
   `propext`, `Classical.choice`, `Quot.sound` — no `sorryAx`, no custom axioms.
 - Observed costs on this machine (mathlib oleans cached):
   - cold `lake` invocation overhead before any elaboration: ~10–40 s of

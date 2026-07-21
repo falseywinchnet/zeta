@@ -20,6 +20,9 @@ Quot.sound
 
 Audited declarations:
 
+This is a selected target-facing and transitive audit, not an enumeration of
+every exported helper theorem.
+
 - `PF4.StrictPFUpTo.pfUpTo`
 - `PF4.Crossing.crossingPoint_mem`
 - `PF4.Crossing.densityRatio_eq_one_iff`
@@ -56,6 +59,19 @@ Audited declarations:
 - `PF4.C4Invariant.coordinateDeterminantC4_eq_derivedC4`
 - `PF4.FinalAssembly.primitiveRate_pos_of_determinantC4_pos`
 - `PF4.FinalAssembly.coordinatePartialXiPsi_neg_from_determinantC4`
+- `PF4.GenericQuotientIntegral.normalizedDet4_eq_forwardDiffDet3`
+- `PF4.GenericQuotientIntegral.quotientChainDet4_eq_terminalProduct`
+- `PF4.GenericQuotientIntegral.quotientChainDet4_pos_of_terminal_deriv`
+- `PF4.ContinuousQuotientBox.normalizedDet4_eq_tripleIntegral`
+- `PF4.ContinuousQuotientBox.normalizedDet4_pos_of_derivativeDet_pos`
+- `PF4.ContinuousQuotientBox.normalizedDet3_pos_of_derivativeDet_pos`
+- `PF4.ContinuousQuotientBox.normalizedDet4_pos_of_full_quotient_chain`
+- `PF4.ContinuousQuotientBox.rawFactoredDet4_pos_of_full_quotient_chain`
+- `PF4.TranslationQuotientTower.hasDerivAt_firstQuotD2`
+- `PF4.TranslationQuotientTower.hasDerivAt_secondQuotD`
+- `PF4.TranslationQuotientTower.hasDerivAt_terminalQuot`
+- `PF4.TranslationQuotientTower.translationMinor_eq_rawFactoredDet4`
+- `PF4.TranslationQuotientTower.translationMinor_pos_of_quotient_tower_signs`
 
 No custom project axiom, `sorry`, `admit`, unsafe theorem bridge, or external
 certificate result appears in these declarations.
