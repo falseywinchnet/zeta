@@ -460,8 +460,12 @@
     "P000115": {
       "blurb": "Derived and kernel-checked the exact terminal quotient identity with the maintained coordinate-Psi object and strict sign from literal Psi decrease",
       "created_at": "2026-07-21T02:15:53+00:00"
+    },
+    "P000116": {
+      "blurb": "Derived strict coordinate-Psi decrease from the maintained determinant-driven derivative sign, removing the terminal monotonicity premise",
+      "created_at": "2026-07-21T02:26:16+00:00"
     }
   },
-  "next_id": 116,
+  "next_id": 117,
   "version": 1
 }
