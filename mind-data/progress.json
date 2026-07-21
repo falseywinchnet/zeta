@@ -540,8 +540,12 @@
     "P000135": {
       "blurb": "Reconstructed CERT12 Lean inequality foundations and reduced the two-mode core to a 38-coefficient exhaustive certificate; isolated the literal theta-tail bound as the remaining global seam",
       "created_at": "2026-07-21T17:26:28+00:00"
+    },
+    "P000136": {
+      "blurb": "Refactored and closed the literal infinite theta tail in Lean: every jet through six equals its first two modes plus the exact third mode times one plus a relative delta in [0,1e-3), reducing CERT12 to a finite robust three-mode theorem",
+      "created_at": "2026-07-21T18:05:20+00:00"
     }
   },
-  "next_id": 136,
+  "next_id": 137,
   "version": 1
 }
