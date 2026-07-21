@@ -492,8 +492,12 @@
     "P000123": {
       "blurb": "connected actual-coordinate Psi decrease and derived lower Lambda positivity to terminal cascade",
       "created_at": "2026-07-21T04:41:37+00:00"
+    },
+    "P000124": {
+      "blurb": "bridge cleared Riemann raw-jet signs through curvature tower to terminal cascade",
+      "created_at": "2026-07-21T05:10:18+00:00"
     }
   },
-  "next_id": 124,
+  "next_id": 125,
   "version": 1
 }
