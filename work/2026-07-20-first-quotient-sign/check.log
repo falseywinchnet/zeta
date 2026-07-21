@@ -1,0 +1,7 @@
+'PF4.Advancement.FirstQuotientSign.hasDerivAt_logSlope' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PF4.Advancement.FirstQuotientSign.firstQuotD_pos_of_kernelCurvature_pos' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+
+Command: lake env lean /Users/quentinkuttenkuler/zeta/work/2026-07-20-first-quotient-sign/FirstQuotientSign.lean
+Result: exit 0, one serialized Lean process.
