@@ -468,8 +468,12 @@
     "P000117": {
       "blurb": "Integrate terminal quotient and determinant-derived coordinate-Psi decrease into maintained Lean with replayable non-vacuity audit",
       "created_at": "2026-07-21T02:51:45+00:00"
+    },
+    "P000118": {
+      "blurb": "Construct the curvature-coordinate inverse on its open range, derive the complete coordinate jet, and identify curvature and determinant C4 exactly",
+      "created_at": "2026-07-21T03:09:05+00:00"
     }
   },
-  "next_id": 118,
+  "next_id": 119,
   "version": 1
 }
