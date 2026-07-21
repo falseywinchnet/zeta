@@ -448,8 +448,12 @@
     "P000112": {
       "blurb": "Proved the exact second translation-quotient derivative factorization through lower Lambda and derived its strict sign from the literal upstream Lambda premise",
       "created_at": "2026-07-21T01:01:25+00:00"
+    },
+    "P000113": {
+      "blurb": "Integrate the checked first and second translation-quotient sign conversions into maintained Lean, audit their standard axioms, and narrow the next boundary to the terminal coordinate-Psi bridge",
+      "created_at": "2026-07-21T01:17:57+00:00"
     }
   },
-  "next_id": 113,
+  "next_id": 114,
   "version": 1
 }

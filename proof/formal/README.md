@@ -36,6 +36,7 @@ PF4/FinalAssembly.lean
 PF4/Main.lean
 PF4/PF5Witness.lean
 PF4/ExactOrder.lean
+PF4/TranslationQuotientSigns.lean
 ```
 
 Implemented modules:
@@ -86,16 +87,22 @@ Implemented modules:
   derivative ladder and factor identities, object identity with
   `translationMinor`, and a conditional transfer theorem from three explicit
   quotient-level sign premises.
+- `PF4.TranslationQuotientSigns`: the exact logarithmic-slope and curvature
+  objects, derivation of the first quotient sign from positive curvature, and
+  factorization of the second quotient derivative through the S05
+  lower-order `Lambda`, with its analytic positivity retained as a literal
+  premise.
 
 No stub theorem with `sorry` is used. The proof-facing cumulative object is
 `PF4.Cumulative.coordinateGap`; the measure-backed CDF is retained as a
 validation interface. The identities and conditional implications represented
 by PO-0026 through PO-0029 and PO-0041 are maintained kernel-checked theorems;
 this does not construct the Riemann kernel or discharge its global `C₄` sign.
-The translate quotient object layer is checked. The next conversion boundary
-is to derive its first two strict quotient signs and identify its terminal
-quotient derivative with the same `Psi` object used by the conditional
-coordinate-sign assembly.
+The translate quotient object layer and its first two sign-conversion
+mechanisms are checked. This does not instantiate the actual Riemann-kernel
+`q > 0` or `Lambda > 0` proofs. The next algebraic conversion boundary is to
+identify the terminal quotient derivative with the same `Psi` object used by
+the conditional coordinate-sign assembly and verify the `p₄<p₃` orientation.
 
 ## Resource discipline
 

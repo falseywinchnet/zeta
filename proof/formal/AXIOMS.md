@@ -72,6 +72,11 @@ every exported helper theorem.
 - `PF4.TranslationQuotientTower.hasDerivAt_terminalQuot`
 - `PF4.TranslationQuotientTower.translationMinor_eq_rawFactoredDet4`
 - `PF4.TranslationQuotientTower.translationMinor_pos_of_quotient_tower_signs`
+- `PF4.TranslationQuotientSigns.hasDerivAt_logSlope`
+- `PF4.TranslationQuotientSigns.firstQuotD_pos_of_kernelCurvature_pos`
+- `PF4.TranslationQuotientSigns.firstQuotD2_eq_firstQuotD_mul_rate`
+- `PF4.TranslationQuotientSigns.secondQuotD_eq_lambdaProduct`
+- `PF4.TranslationQuotientSigns.secondQuotD_pos_of_lowerLambda_pos`
 
 No custom project axiom, `sorry`, `admit`, unsafe theorem bridge, or external
 certificate result appears in these declarations.

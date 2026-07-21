@@ -6,6 +6,7 @@ Authors: Joshuah Rainstar
 
 import PF4
 import PF4.TranslationQuotientTower
+import PF4.TranslationQuotientSigns
 
 set_option linter.style.header false
 
@@ -78,3 +79,8 @@ set_option linter.style.header false
 #print axioms PF4.TranslationQuotientTower.hasDerivAt_terminalQuot
 #print axioms PF4.TranslationQuotientTower.translationMinor_eq_rawFactoredDet4
 #print axioms PF4.TranslationQuotientTower.translationMinor_pos_of_quotient_tower_signs
+#print axioms PF4.TranslationQuotientSigns.hasDerivAt_logSlope
+#print axioms PF4.TranslationQuotientSigns.firstQuotD_pos_of_kernelCurvature_pos
+#print axioms PF4.TranslationQuotientSigns.firstQuotD2_eq_firstQuotD_mul_rate
+#print axioms PF4.TranslationQuotientSigns.secondQuotD_eq_lambdaProduct
+#print axioms PF4.TranslationQuotientSigns.secondQuotD_pos_of_lowerLambda_pos

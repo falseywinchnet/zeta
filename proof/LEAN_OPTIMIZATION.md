@@ -1,10 +1,10 @@
 # Lean optimization and performance directions
 
-Date: 2026-07-18. Scope: `proof/formal` (Lean 4.32.0, mathlib v4.32.0 pinned).
+Date: 2026-07-20. Scope: `proof/formal` (Lean 4.32.0, mathlib v4.32.0 pinned).
 
 ## Where we stand
 
-- 19 project modules, ~4,650 lines, all building cleanly as of this sheet.
+- 20 project modules, ~5,286 lines, all building cleanly as of this sheet.
 - `PF4/Audit.lean` covers the maintained target-facing theorem surface,
   including the order-four quotient engine. It is a selected transitive audit,
   not an exhaustive list of every exported helper theorem. Every declaration
@@ -15,6 +15,9 @@ Date: 2026-07-18. Scope: `proof/formal` (Lean 4.32.0, mathlib v4.32.0 pinned).
     trace-checking across ~2,700 targets;
   - `PF4.QuotientAlgebra`: ~38 s; `PF4.QuotientIntegral`: ~73–300 s (slowest
     module); `lake env lean PF4/Audit.lean`: ~65 s;
+  - `PF4.TranslationQuotientSigns`: 41 s through its Lake target; the
+    incremental full build after integration took 58 s and the warm axiom
+    audit took 32 s;
   - a full project rebuild is tens of minutes; incremental builds are fine.
 
 ## Incident recorded this session (drives several directions below)
@@ -57,14 +60,18 @@ the full library kernel-checks. Lesson: **a commit message is not a build.**
    `lake exe cache get` before building; never rebuild mathlib from source.
 3. **`lake build --no-build` is a cheap staleness probe** for "is my tree
    what I think it is" before claiming a clean state.
-4. **Respect the serialization policy** (one Lean process at a time), but
+4. **A direct `lake env lean PF4/Foo.lean` check does not emit `Foo.olean`.**
+   If another source imports a new module before the full build, first run the
+   single Lake target `lake build PF4.Foo`; otherwise the importer will report
+   a missing object file even though the source itself checked successfully.
+5. **Respect the serialization policy** (one Lean process at a time), but
    note the module DAG is nearly a single chain
    (`Crossing → Densities → Normalization → Measures → Curvature →
    Cumulative → CDF → Expectation → Transport/TransportObject →
    bridges → FinalAssembly`), so an edit to an early module re-elaborates
    almost everything. Put slow-moving algebra early in the chain and keep
    frequently edited assembly modules as leaves.
-5. **Split `PF4/QuotientIntegral.lean`** (622 lines, slowest module) into
+6. **Split `PF4/QuotientIntegral.lean`** (622 lines, slowest module) into
    (a) rowDet algebra + derivative lemmas, (b) integral engine,
    (c) strictness assembly. Then edits to the assembly stop paying the
    ~1–2 min re-elaboration of the whole engine.
@@ -116,10 +123,11 @@ the full library kernel-checks. Lesson: **a commit message is not a build.**
 2. `weak.linter.mathlibStandardSet = true` in `lakefile.toml` is good; also
    fix the outstanding `simpa`→`simp` lint in `Measures.lean:254` and keep
    the build warning-clean so real regressions are visible.
-3. When the translation-quotient instantiation lands
-   (`NEXT_ADVANCEMENT.md`), give it its own module importing
-   `QuotientIntegral` + the maintained `Ψ` modules rather than growing either
-   side, keeping both re-elaboration units small.
+3. The first two translation-quotient sign conversions now live in the leaf
+   module `PF4.TranslationQuotientSigns`. Keep the terminal coordinate-`Psi`
+   bridge in a separate leaf module rather than importing the transport stack
+   into this lower-level file; that preserves small re-elaboration units and
+   avoids a dependency cycle.
 4. Periodically capture per-module timings (`time lake build` after
    `touch`-ing one module, or `set_option profiler true` locally) and record
    the top offenders here so regressions are caught at the epoch gate rather

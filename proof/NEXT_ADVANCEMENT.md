@@ -1,63 +1,75 @@
-# Next advancement cycle — quotient sign instance bridges
+# Next advancement cycle — terminal quotient and coordinate Psi
 
 Mode: advancement
 
-Starting progress: P000109 and its maintained refine integration.
+Starting evidence: P000111–P000112 and their maintained refine integration in
+`PF4.TranslationQuotientSigns`.
 
-## Boundary
+## Maintained boundary
 
-The translate quotient objects, their derivative ladder, factor identities,
-and the identity with `PF4.translationMinor` are checked. The maintained final
-theorem is conditional on exactly three global signs:
+For ordered columns `a<c<b<d`, the proof system now contains:
 
 ```text
-firstQuotD  Φ Φ1 y₁ y₂ > 0
-secondQuotD Φ Φ1 Φ2 y₁ y₂ y₃ > 0
-terminalQuotD Φ Φ1 Φ2 Φ3 y₁ y₂ y₃ y₄ > 0
+firstQuotD > 0
 ```
 
-For `y₁<y₂<y₃<y₄`, derive these signs from independently defined
-Riemann-kernel structure. Do not restate any of them as a renamed hypothesis.
+from positive exact kernel curvature, and
+
+```text
+secondQuotD > 0
+```
+
+from the exact S05 `lowerLambda>0` premise. These are conversion theorems, not
+yet actual Riemann-kernel instances: the formal bridges for certified `q>0`
+and `Lambda>0` remain explicit upstream work.
+
+The sole new algebraic advancement boundary is the third sign:
+
+```text
+terminalQuotD Φ Φ1 Φ2 Φ3 a c b d > 0.
+```
 
 ## Required exact bridges
 
-1. Introduce only the minimum kernel/logarithmic-derivative objects needed for
-   the first sign, with explicit equality to the same `Φ` used by
-   `TranslationQuotientTower`.
-2. Prove the closed identity for `firstQuotD` corresponding to the paper's
-   `v₂=(u₂/u₁)A(p₂,p₁)`, including the ordered-column orientation and every
-   positive factor.
-3. Define the exact lower-order `Λ` object used by the second quotient and
-   prove the identity that makes `secondQuotD` positive. A similarly named
-   scalar is not an instance bridge.
-4. Identify `terminalQuot` with the paper's `w₄/w₃`, then identify its
-   logarithmic translation derivative with the difference of values of the
-   same `PF4.CoordinateSignBridge.coordinatePsi` object used by the maintained
-   conditional sign theorem.
-5. Record the orientation explicitly: `p₄<p₃<p₂<p₁`; strict decrease of
-   `Psi` gives `Psi(p₄)>Psi(p₃)`, hence the terminal derivative is positive
-   only after positivity of the terminal quotient itself is proved.
-6. Finish with a wrapper taking strict row and column order and concluding
-   positivity of the actual `PF4.translationMinor`.
+1. Record the moving-point order
+   `p_d=t-d < p_b=t-b < p_c=t-c < p_a=t-a` from strict column order.
+2. Identify the maintained `secondQuot`/`secondQuotD` objects with the paper's
+   `w_j` level using the checked lower quotient identities.
+3. Prove positivity of `terminalQuot` from the two required
+   `secondQuotD>0` instances; every denominator must use that strict sign.
+4. Derive the exact logarithmic translation rate of `terminalQuot` and reduce
+   it to
+
+   ```text
+   Psi(p_d;p_c,p_a) - Psi(p_b;p_c,p_a).
+   ```
+
+5. Prove that this `Psi` is the same endpoint object as
+   `PF4.CoordinateSignBridge.coordinatePsi`, under an explicit coordinate map.
+   Matching notation or an algebraically similar fresh definition is not an
+   instance bridge.
+6. Use `p_d<p_b` and strict decrease of that same coordinate `Psi` to obtain a
+   positive difference, then combine it with positive `terminalQuot`.
+7. State the strongest wrapper available. If `q>0`, `Lambda>0`, or coordinate
+   `Psi` strict decrease still enters as a premise, name it literally and stop
+   before claiming an unconditional actual-kernel theorem or completing
+   PO-0042.
 
 ## No-cheating gates
 
-- Do not assume any of the three quotient signs, a minor sign, a Wronskian
-  sign, a finite-difference sign, an integral sign, or a renamed derivative
-  sign in the final actual-kernel theorem.
-- Do not call the conditional `coordinatePartialXiPsi_neg_from_determinantC4`
-  theorem an actual Riemann-kernel result until its `Q`, jet, curvature, and
-  determinant-positivity inputs are instantiated.
-- Preserve the exact `Phi`/`coordinatePsi` object identities across modules.
-- Every denominator carries an explicit nonzero proof derived from a prior
-  strict sign.
-- Every strict interval comes from strict order of the original nodes.
-- Stop before PO-0042 if any analytic sign remains certificate-only or only a
-  generic hypothesis.
+- Do not assume `terminalQuotD>0`, an order-four Wronskian/minor sign, a finite
+  difference sign, or a renamed version of the target rate.
+- Do not replace `PF4.CoordinateSignBridge.coordinatePsi` with a detached
+  three-point object without proving equality.
+- Do not call `coordinatePartialXiPsi_neg_from_determinantC4` an actual
+  Riemann-kernel theorem until its kernel, jet, curvature, and determinant-sign
+  inputs are instantiated.
+- Preserve strict orientation: `p_d<p_b` and decreasing `Psi` imply
+  `Psi(p_d)>Psi(p_b)`.
+- Keep Lean compilations serialized and prefer derivative uniqueness over
+  expansion of nested rational quotients.
 
 ## Intended result
 
-The strongest honest result available at the end of the cycle, with every
-remaining certificate or instance premise named literally. Promotion to
-`FORMALLY_PROVED` requires an actual-kernel theorem with no undisclosed sign
-premise.
+An exact maintained terminal quotient/coordinate-`Psi` conversion theorem,
+with every remaining analytic or certificate instance premise exposed.
