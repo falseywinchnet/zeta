@@ -20,10 +20,13 @@ launder the central instance property.
 
 PO-0001 is closed by the literal `riemannTheta` construction and
 `PF4.summable_int_thetaTerms`. The positive-index split, six-level series jet,
-and nonnegative-axis kernel equality are also constructed. Open: global
-regularity/parity and the negative-half-line portions of PO-0002 through
-PO-0007. No positivity subtype, complex theta object, or Poisson theorem is
-used to manufacture the kernel.
+and nonnegative-axis kernel equality are also constructed. The exact
+Gaussian/Poisson transformation, Jacobi-theta analytic realization, global
+smoothness, parity, and reflected series formula are now maintained. These
+theorems prove properties of the independently defined real kernel; no
+positivity subtype, `abs` definition, or stored derivative jet manufactures
+the object. Open: identify the positive series jets with the global iterated
+derivatives.
 
 ## NV-003 — logarithmic derivatives
 
@@ -177,7 +180,9 @@ Conditional core closed in both global and actual-range forms:
 gap property, positive transport integral, positive numerator, or derivative
 sign is a hypothesis. The range-local theorem constructs the coordinate inverse
 and jet from the original variables. The actual Riemann-kernel derivative
-tower and certificate-to-Lean sign instances remain open.
+tower instance and CERT12 positivity proofs remain open. The exact
+raw-jet-to-curvature tower and cleared `q,F₂,C₄` proposition bridge are closed
+in `PF4.ClearedJetCertificateBridge`.
 
 ## NV-014 — terminal quotient sign
 
@@ -188,7 +193,10 @@ derivative for that `Psi`, then a strict antitone theorem, and only then the
 ordered-point difference. Neither terminal positivity nor `Psi` monotonicity
 is a hypothesis of the integrated wrapper.
 
-Conditional core closed:
-`PF4.TranslationQuotientPsi.terminalQuotD_pos_of_determinantC4`. The remaining
-premises are the explicit kernel regularity, positive curvature and lower
-`Lambda`, coordinate realization, coordinate jet, and determinant inputs.
+Conditional core closed in both determinant-input and canonical cleared-jet
+forms: `PF4.TranslationQuotientPsi.terminalQuotD_pos_of_determinantC4` and
+`PF4.ClearedJetCertificateBridge.terminalQuotD_pos_of_clearedJetSigns`. The
+second theorem derives curvature, lower `Lambda`, coordinate realization, and
+the terminal sign from a positive ordinary raw jet and the three cleared
+strict inequalities. The remaining boundary is the actual global kernel-jet
+identification and proof of those CERT12 inequalities.

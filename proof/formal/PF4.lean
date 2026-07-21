@@ -1,6 +1,8 @@
 import PF4.Kernel
+import PF4.KernelAnalytic
 import PF4.FinalAssembly
 import PF4.LocalFinalAssembly
+import PF4.ClearedJetCertificateBridge
 import PF4.QuotientAlgebra
 import PF4.TranslationQuotientSigns
 import PF4.TranslationQuotientPsi

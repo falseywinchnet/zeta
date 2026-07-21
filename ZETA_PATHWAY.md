@@ -202,11 +202,20 @@ path until `R93` is resolved.
   analytic foundation now defines the literal real integer theta sum, proves
   its summability and positive-mode split, constructs the positive-side kernel
   derivative tower through order six, and identifies the `H''-H/4` kernel with
-  that series on the nonnegative half-line (`R182`--`R184`, `CERT20`). These
-  project modules use no complex-valued object, Fourier transform, Poisson
-  theorem, or packaged Gaussian result. Global parity or an independent
-  negative-half-line argument, followed by the actual `q`, `F2`, and `C4`
-  certificate-to-Lean bridges, remains open. The former
+  that series on the nonnegative half-line (`R182`--`R184`, `CERT20`). The
+  maintained real definitions are now connected explicitly to mathlib's real
+  Gaussian/Poisson theta transformation and a Jacobi-theta analytic
+  realization. Consequently `H` and the kernel are globally analytic and
+  even, and the kernel equals the positive series at `|t|` (`R185`--`R188`,
+  `R191`, `CERT21`). The cleared raw
+  derivative propositions are also connected exactly to the maintained `q`,
+  `F2`, raw-Hankel `C4`, lower-`Lambda`, and terminal quotient objects. The
+  cleared polynomial identities and conditional terminal cascade are checked
+  by `R189`--`R190` and `R192`--`R194`/`CERT21`; they do not replay the
+  strict-sign proof in `CERT12`. The
+  remaining seams are identification of the six positive series jets with the
+  global iterated derivatives and replay of CERT12 positivity against those
+  canonical cleared propositions. The former
   escape/chart atlas is superseded (`R163`); `CERT6`--
   `CERT8` are archived, so routine certificate replay and progress commits skip
   them. Their manifests, supports, and explicit targeted replay remain available

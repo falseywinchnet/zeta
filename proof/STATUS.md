@@ -2,17 +2,18 @@
 
 Target: `PF4-CORE-v1`
 
-Formal completion: **12/46 obligations**
+Formal completion: **17/46 obligations**
 
 Current strongest result: a conventional proof supported by exact symbolic and
 rational certificates. Lean 4.32.0 and mathlib 4.32.0 are pinned. The analytic
 foundation now constructs the literal real integer theta sum, proves its
 summability by an elementary exponential comparison, splits off its positive
 modes, constructs the positive-mode kernel jet through order six on `t ≥ 0`,
-and proves the `H''-H/4` kernel equals that series there. These maintained
-modules contain no complex-valued object, Fourier transform, Poisson-summation
-theorem, or Gaussian-library import (`R182`--`R184`, `CERT20`). Global parity
-and negative-half-line jet transport remain open. Target
+and proves the `H''-H/4` kernel equals that series there. The integrated
+mathlib Gaussian/Poisson theorem proves the exact theta transformation; a
+Jacobi-theta realization proves global real analyticity, and parity gives the
+exact reflected representation `Φ(t)=thetaSeries |t|`. The real kernel
+definitions remain unchanged (`R185`--`R188`, `R191`, `CERT21`). Target
 definitions, signed PF5 indices, constructive crossing algebra, and the actual
 left-density identity/sign bridge are kernel-checked. The actual restricted-
 density measures, mass-one interfaces, strict right mass, all three interior
@@ -51,17 +52,26 @@ actual Riemann-kernel bridges for `q>0`, `Lambda>0`, the coordinate inverse and
 jet realization, and `C₄>0` remain open, so they do not complete additional
 obligations.
 
+The cleared raw-jet interface is also maintained. It reconstructs the
+curvature derivative tower from seven ordinary kernel jets, proves that the
+three cleared polynomials are exactly the denominators-cleared `q`, `F₂`, and
+raw-Hankel `C₄` propositions, and derives the terminal quotient sign from
+their strict positivity. CERT12's proof of those three strict propositions and
+the identification of the global kernel derivatives with the positive series
+jets remain separate evidence boundaries (`R189`--`R190`, `R192`--`R194`,
+`CERT21`).
+
 ## Analytic foundation
 
 | ID | Claim | Present status | Formal blocker |
 |---|---|---|---|
 | PO-0001 | Theta series is well-defined for `x > 0` | FORMALLY_PROVED | none; `PF4.summable_int_thetaTerms` and the literal `riemannTheta` construction close it |
-| PO-0002 | Required derivative series converge locally uniformly | FORMAL_FRAGMENT | explicit polynomial-geometric majorants justify six positive-mode derivatives on every bounded interval `(-1,B)`; an all-real or parity-transported statement remains |
-| PO-0003 | Theta transformation in the chosen normalization | OBLIGATION | deliberately not imported; either prove a real transformation theorem transparently or avoid parity with direct all-real estimates |
-| PO-0004 | `H` is real analytic and even | FORMAL_FRAGMENT | `H` and its positive-mode decomposition are constructed; global analyticity/evenness remain dependent on PO-0002/0003 or an alternative all-real route |
-| PO-0005 | Primary `Φ` equals the displayed positive-side series | FORMAL_FRAGMENT | `PF4.globalRiemannKernel_eq_thetaSeries_of_nonneg` proves the exact identity for `t ≥ 0`; the negative half-line remains |
-| PO-0006 | `Φ` has all derivatives used through the PF5 witness | FORMAL_FRAGMENT | `PF4.IntervalControl.derivativeTowerThroughSix_at_nonneg` gives the raw series jet through order six for `t ≥ 0`; global identification remains |
-| PO-0007 | `Φ` is even on `ℝ` | OBLIGATION | no complex/Poisson bridge is retained in the maintained project |
+| PO-0002 | Required derivative series converge locally uniformly | FORMAL_FRAGMENT | explicit polynomial-geometric majorants justify six positive-mode derivatives on every bounded interval `(-1,B)`; identification with the global iterated-derivative jet remains |
+| PO-0003 | Theta transformation in the chosen normalization | FORMALLY_PROVED | none; `PF4.riemannTheta_modular` is the exact real specialization of mathlib's Gaussian Poisson theorem |
+| PO-0004 | `H` is real analytic and even | FORMALLY_PROVED | none; `PF4.contDiff_riemannH` and `PF4.riemannH_even` close the global statement |
+| PO-0005 | Primary `Φ` equals the displayed positive-side series | FORMALLY_PROVED | none; `PF4.globalRiemannKernel_eq_thetaSeries_abs` proves the global reflected formula without defining the kernel using `abs` |
+| PO-0006 | `Φ` has all derivatives used through the PF5 witness | FORMALLY_PROVED | none; `PF4.contDiff_globalRiemannKernel` proves global smoothness to every finite order |
+| PO-0007 | `Φ` is even on `ℝ` | FORMALLY_PROVED | none; `PF4.globalRiemannKernel_even` |
 | PO-0008 | `Φ(t) > 0` for every real `t` | CONVENTIONALLY_PROVED | formal `2π > 3` and series positivity |
 | PO-0009 | `ℓ,s,q` are globally well-defined | OBLIGATION | PO-0008 plus differentiability |
 | PO-0010 | `A,M` are well-defined on ordered arguments when used | OBLIGATION | denominator positivity/provenance |
@@ -70,9 +80,9 @@ obligations.
 
 | ID | Claim | Present status | Formal blocker |
 |---|---|---|---|
-| PO-0011 | `q(t) > 0` globally | CERTIFIED | reconstruct CERT12 statement in Lean |
-| PO-0012 | `F₂(t) > 0` globally | CERTIFIED | cleared numerator/denominator bridge |
-| PO-0013 | `C₄(t) > 0` globally | CERTIFIED | determinant/cumulant identity bridge |
+| PO-0011 | `q(t) > 0` globally | CERTIFIED | exact `clearedQ` proposition and positive-denominator transfer are in Lean; replay its CERT12 positivity proof |
+| PO-0012 | `F₂(t) > 0` globally | CERTIFIED | exact `clearedF2` proposition and transfer are in Lean; replay its CERT12 positivity proof |
+| PO-0013 | `C₄(t) > 0` globally | CERTIFIED | `clearedC4` equals the literal raw Hankel determinant and transfers exactly; replay its CERT12 positivity proof |
 
 ## Generic PF machinery
 
@@ -129,7 +139,8 @@ obligations.
 
 ## Immediate next work
 
-1. Execute `proof/NEXT_ADVANCEMENT.md`: choose and close the parity/negative-
-   half-line fork without hiding a Poisson-equivalent theorem, then identify
-   the integrated raw series jet with the maintained actual-kernel package.
-2. Design canonical certificate statements for PO-0011–PO-0013 and PO-0045.
+1. Execute `proof/NEXT_ADVANCEMENT.md`: identify the integrated positive
+   series jets with the global kernel's iterated derivatives, including the
+   origin parity seam.
+2. Replay or reconstruct CERT12 as proofs of the now-canonical `clearedQ`,
+   `clearedF2`, and `clearedC4` propositions; keep PO-0045 separate.

@@ -3451,8 +3451,158 @@
       ],
       "status": "established",
       "updated_at": "2026-07-21T07:25:53+00:00"
+    },
+    "F000185": {
+      "because": [
+        {
+          "id": "K000021",
+          "type": "certificate"
+        }
+      ],
+      "content": "The maintained Lean Riemann theta sum satisfies the exact modular identity riemannTheta (-t) = exp (t / 2) * riemannTheta t for every real t.",
+      "created_at": "2026-07-21T16:19:59+00:00",
+      "relates_to": [
+        "T000012"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-21T16:19:59+00:00"
+    },
+    "F000186": {
+      "because": [
+        {
+          "id": "K000021",
+          "type": "certificate"
+        }
+      ],
+      "content": "The maintained Lean auxiliary function riemannH is real analytic at every real input.",
+      "created_at": "2026-07-21T16:20:00+00:00",
+      "relates_to": [
+        "T000012"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-21T16:25:46+00:00"
+    },
+    "F000187": {
+      "because": [
+        {
+          "id": "K000021",
+          "type": "certificate"
+        }
+      ],
+      "content": "The maintained Lean globalRiemannKernel is even.",
+      "created_at": "2026-07-21T16:20:00+00:00",
+      "relates_to": [
+        "T000012"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-21T16:20:00+00:00"
+    },
+    "F000188": {
+      "because": [
+        {
+          "id": "K000021",
+          "type": "certificate"
+        }
+      ],
+      "content": "The maintained Lean globalRiemannKernel equals thetaSeries evaluated at the absolute value of its input.",
+      "created_at": "2026-07-21T16:20:00+00:00",
+      "relates_to": [
+        "T000012"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-21T16:20:00+00:00"
+    },
+    "F000189": {
+      "because": [
+        {
+          "id": "K000021",
+          "type": "certificate"
+        }
+      ],
+      "content": "The maintained Lean canonical clearedQ polynomial is exactly the denominator-cleared q proposition under the stated nonzero denominator hypothesis.",
+      "created_at": "2026-07-21T16:20:00+00:00",
+      "relates_to": [
+        "T000012"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-21T16:26:07+00:00"
+    },
+    "F000190": {
+      "because": [
+        {
+          "id": "K000021",
+          "type": "certificate"
+        }
+      ],
+      "content": "The maintained Lean terminal quotient derivative is strictly positive from an ordinary raw derivative tower through order six, continuity of the sixth jet, positivity of the zeroth jet, strict positivity of the three canonical cleared polynomials, and the stated ordering of the four offsets.",
+      "created_at": "2026-07-21T16:20:00+00:00",
+      "relates_to": [
+        "T000012"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-21T16:27:03+00:00"
+    },
+    "F000191": {
+      "because": [
+        {
+          "id": "K000021",
+          "type": "certificate"
+        }
+      ],
+      "content": "The maintained Lean globalRiemannKernel is real analytic at every real input.",
+      "created_at": "2026-07-21T16:25:46+00:00",
+      "relates_to": [
+        "T000012"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-21T16:25:46+00:00"
+    },
+    "F000192": {
+      "because": [
+        {
+          "id": "K000021",
+          "type": "certificate"
+        }
+      ],
+      "content": "The maintained Lean canonical clearedF2 polynomial is exactly the denominator-cleared F2 proposition under the stated nonzero denominator hypothesis.",
+      "created_at": "2026-07-21T16:26:07+00:00",
+      "relates_to": [
+        "T000012"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-21T16:26:07+00:00"
+    },
+    "F000193": {
+      "because": [
+        {
+          "id": "K000021",
+          "type": "certificate"
+        }
+      ],
+      "content": "The maintained Lean canonical clearedC4 polynomial is exactly the determinant of the raw four-by-four Hankel matrix.",
+      "created_at": "2026-07-21T16:26:07+00:00",
+      "relates_to": [
+        "T000012"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-21T16:26:13+00:00"
+    },
+    "F000194": {
+      "because": [
+        {
+          "id": "K000021",
+          "type": "certificate"
+        }
+      ],
+      "content": "The maintained Lean canonical clearedC4 polynomial is exactly the denominator-cleared C4 proposition under the stated nonzero denominator hypothesis.",
+      "created_at": "2026-07-21T16:26:13+00:00",
+      "relates_to": [
+        "T000012"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-21T16:26:13+00:00"
     }
   },
-  "next_id": 185,
+  "next_id": 195,
   "version": 1
 }

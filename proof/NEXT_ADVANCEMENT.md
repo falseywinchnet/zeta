@@ -1,94 +1,93 @@
-# Next advancement cycle — actual-kernel analytic package
+# Next advancement cycle — global kernel jet identification
 
 Mode: advancement
 
-Starting evidence: P000118–P000130, R181–R184/CERT19–CERT20, and their maintained
-integration in `PF4.Theta`, `PF4.KernelSeries`, `PF4.Kernel`,
-`PF4.CurvatureCoordinateRealization`, `PF4.LocalCentralIntegration`, and
-`PF4.LocalFinalAssembly`.
+Starting evidence: P000124, P000128–P000132, R181–R194, CERT12, CERT19--21,
+and the maintained modules `PF4.KernelSeries`, `PF4.Kernel`,
+`PF4.KernelAnalytic`, and `PF4.ClearedJetCertificateBridge`.
 
 ## Maintained boundary
 
-For ordered original points `x<m<r`, maintained Lean now constructs the
-curvature-coordinate inverse only on its actual range, derives the complete
-coordinate jet, proves the closed coordinate gap and the direct central
-integration-by-parts identity on the resulting compact interval, and concludes
+Lean now proves all of the following.
+
+1. `globalRiemannKernel` is the real `H''-H/4` object, not an `abs` or
+   piecewise definition.
+2. It is globally analytic, smooth, and even.
+3. It equals `thetaSeries t` for `t ≥ 0` and `thetaSeries |t|` globally.
+4. `thetaSeriesJet 0,...,6` form an ordinary derivative tower at every
+   nonnegative point.
+5. Seven arbitrary ordinary kernel jets feed the canonical cleared
+   propositions `clearedQ`, `clearedF2`, and `clearedC4`; their positivity
+   implies the maintained `q`, `F₂`, `C₄`, lower-`Lambda`, coordinate, and
+   terminal quotient signs.
+
+The missing seam is not parity or proposition algebra. It is equality of the
+positive series jet values with the global kernel's iterated derivatives.
+
+## Next exact theorem
+
+Define, or use directly,
 
 ```text
-Q(y(x)) * deriv (fun p => coordinatePsi Q Q1 p y(m) y(r)) (y(x)) < 0
+Phi_j(t) = iteratedDeriv j globalRiemannKernel t,  0 ≤ j ≤ 6.
 ```
 
-from these literal analytic inputs:
+Prove
 
 ```text
-S' = -q,
-q' = q1, q1' = q2, q2' = q3, q3' = q4,
-Continuous q4,
-q > 0,
-kernelF2 q q1 q2 > 0,
-kernelDeterminantC4 q q1 q2 q3 q4 > 0.
+iteratedDeriv j globalRiemannKernel t = thetaSeriesJet j t
 ```
 
-There is no global-surjectivity premise, probability premise, gap premise,
-central-identity premise, positive-integral premise, or desired-sign premise.
+for `j ≤ 6` and `t ≥ 0`, with special attention to `t=0`.
 
-## Next exact boundary
+Recommended proof order:
 
-First resolve the analytic fork exposed by the real-only integration:
+1. For `t>0`, use equality of `globalRiemannKernel` and `thetaSeries` on an
+   open positive neighborhood, then induct through the maintained
+   `HasDerivAt` tower.
+2. At `t=0`, use global analyticity/evenness and continuity of the global
+   iterated derivatives together with right-hand convergence of the series
+   jets. Do not infer a two-sided derivative from a one-sided equality without
+   this argument.
+3. For `t<0`, use kernel evenness and `iteratedDeriv_comp_neg` to obtain the
+   factor `(-1)^j` at `-t`.
+4. Prove the three cleared polynomials are invariant under the alternating
+   parity substitution `a_j ↦ (-1)^j a_j`. This transports the half-line
+   CERT12 statements globally without restating the desired signs.
+5. Prove global `Phi_0>0` directly from the reflected positive series.
 
-1. either prove the required theta transformation/parity by a transparent
-   project-level real argument whose dependencies are fully expanded;
-2. or replace parity transport by direct all-real convergence and certificate
-   estimates for the literal kernel series.
+## Certificate propositions
 
-Do not import a complex Jacobi-theta or high-level Poisson/Gaussian theorem and
-describe it as eliminated. The quadratic exponential is intrinsic to the
-kernel; the objective is to remove opaque special-function bridges, not to
-rename them.
+CERT12 should enter Lean only through proofs of these literal statements on
+the nonnegative axis:
 
-After that fork is selected, construct the actual Riemann-kernel functions
-`S,q,q1,q2,q3,q4` from the integrated raw jet and connect their statements to
-the exact CERT12 sign propositions. Then feed that package into the maintained
-actual-range theorem and connect the resulting coordinate-`Psi` interval
-decrease directly to the terminal quotient cascade.
+```text
+0 < clearedQ  (Phi_0 t) ... (Phi_2 t)
+0 < clearedF2 (Phi_0 t) ... (Phi_4 t)
+0 < clearedC4 (Phi_0 t) ... (Phi_6 t).
+```
 
-## Required bridges
-
-1. Extend or transport `PF4.IntervalControl.derivativeTowerThroughSix_at_nonneg` to the exact
-   all-real domain needed by the target, and identify the resulting values as
-   derivatives of `PF4.globalRiemannKernel`.
-2. Define the logarithmic-slope/curvature derivative tower with enough
-   regularity to supply the five maintained derivative equalities and
-   `Continuous q4`.
-3. State the exact Lean propositions certified by CERT12 for `q>0`, `F₂>0`,
-   and determinant `C₄>0`; prove that their definitions are definitionally or
-   algebraically identical to the maintained kernel objects.
-4. Package those facts in one theorem without storing the desired derivative
-   sign or a coordinate object as a field.
-5. Upgrade the pointwise actual-coordinate derivative theorem to strict
-   decrease on each actual coordinate interval, using the checked derivative
-   sign and range inclusion.
-6. Identify that interval decrease with the two coordinate evaluations in
-   `terminalQuotD_eq_terminalQuot_mul_coordinatePsi_sub`.
-7. Separately construct the actual lower-`Lambda` positivity instance required
-   by the second quotient sign.
-8. Prefer cleared polynomial or integral forms for the highest jet identities
-   when they reduce denominator bookkeeping; retain explicit equivalence proofs.
-
-## No-cheating gates
-
-- A certificate label is not a Lean proposition bridge.
-- Do not assume global behavior of `Function.invFun` outside the coordinate
-  range.
-- Do not bundle gap positivity, the central identity, `Psi` decrease, or the
-  terminal quotient sign into an input structure.
-- Do not replace strict analytic signs by fresh positive scalars.
-- Keep every Lean compilation serialized and targeted.
+Do not use the label `CERT12` as a proposition. Either reconstruct the exact
+rational certificate in Lean or add a replayable verifier whose output is
+formally decoded into these statements with an explicit trust boundary.
 
 ## Intended result
 
-A kernel-checked actual-Riemann instance of the maintained range-local
-coordinate theorem, followed by a theorem that discharges the terminal
-translation-quotient sign without a coordinate-realization premise. The
-remaining boundary should then be the lower-`Lambda` analytic instance and the
-finite PF5 evaluator bridge, stated separately.
+Instantiate
+
+```text
+PF4.ClearedJetCertificateBridge.terminalQuotD_pos_of_clearedJetSigns
+```
+
+with the actual global Riemann kernel and its six iterated derivatives. The
+remaining main boundaries should then be the finite PF5 evaluator equivalence
+and assembly of the exported T1–T3 theorem statements.
+
+## No-cheating gates
+
+- Do not define the global kernel or its jet using `abs` or a sign branch.
+- Do not store derivative equalities or desired signs in a structure.
+- Do not claim the certificate propositions merely because their polynomial
+  names match the paper.
+- Keep the origin proof explicit.
+- Keep Lean compilation serialized.

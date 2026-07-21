@@ -29,6 +29,11 @@ every exported helper theorem.
 - `PF4.IntervalControl.derivativeTowerThroughSix_at_nonneg`
 - `PF4.globalRiemannKernel_eq_paper_form`
 - `PF4.globalRiemannKernel_eq_thetaSeries_of_nonneg`
+- `PF4.riemannTheta_modular`
+- `PF4.contDiff_riemannH`
+- `PF4.contDiff_globalRiemannKernel`
+- `PF4.globalRiemannKernel_even`
+- `PF4.globalRiemannKernel_eq_thetaSeries_abs`
 - `PF4.Crossing.crossingPoint_mem`
 - `PF4.Crossing.densityRatio_eq_one_iff`
 - `PF4.Densities.leftDensity_ratio`
@@ -96,6 +101,10 @@ every exported helper theorem.
 - `PF4.TranslationQuotientPsi.lowerPsi_eq_coordinatePsi`
 - `PF4.TranslationQuotientPsi.terminalQuotD_eq_terminalQuot_mul_coordinatePsi_sub`
 - `PF4.TranslationQuotientPsi.terminalQuotD_pos_of_determinantC4`
+- `PF4.ClearedJetCertificateBridge.clearedC4_eq_rawHankel4_det`
+- `PF4.ClearedJetCertificateBridge.curvatureDerivativeTower_of_rawJet`
+- `PF4.ClearedJetCertificateBridge.kernelSigns_of_clearedSigns`
+- `PF4.ClearedJetCertificateBridge.terminalQuotD_pos_of_clearedJetSigns`
 
 No custom project axiom, `sorry`, `admit`, unsafe theorem bridge, or external
 certificate result appears in these declarations.

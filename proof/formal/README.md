@@ -18,6 +18,7 @@ PF4/Definitions.lean
 PF4/Theta.lean
 PF4/Kernel.lean
 PF4/KernelSeries.lean
+PF4/KernelAnalytic.lean
 PF4/OrderedNodes.lean
 PF4/DeterminantIntegral.lean
 PF4/QuotientWronskian.lean
@@ -39,6 +40,7 @@ PF4/RangeLocalFinalAssembly.lean
 PF4/LocalGapClosure.lean
 PF4/LocalCentralIntegration.lean
 PF4/LocalFinalAssembly.lean
+PF4/ClearedJetCertificateBridge.lean
 PF4/Main.lean
 PF4/PF5Witness.lean
 PF4/ExactOrder.lean
@@ -58,7 +60,11 @@ Implemented modules:
   termwise derivatives at every nonnegative point;
 - `PF4.Kernel`: the legal `H''-H/4` kernel operator, real positive-mode
   decomposition, two-derivative bridge, and exact equality with the maintained
-  kernel series on `t ≥ 0`; parity and the negative half-line remain open;
+  kernel series on `t ≥ 0`;
+- `PF4.KernelAnalytic`: the exact real Gaussian/Poisson theta transformation,
+  Jacobi-theta analytic realization, global smoothness and parity of `H` and
+  the kernel, and the reflected identity `globalRiemannKernel t =
+  thetaSeries |t|`; the maintained definitions remain real;
 - `PF4.Definitions`: translation matrices/minors, PF order, strict PF order,
   and signed equally spaced matrices;
 - `PF4.Crossing`: explicit crossing-point algebra and exact ratio sign regions;
@@ -110,6 +116,10 @@ Implemented modules:
 - `PF4.LocalFinalAssembly`: composition of the local gap and central identity
   layers, including the ordered-original-point derivative sign from literal
   jet and `q`, `F₂`, and determinant-`C₄` sign inputs.
+- `PF4.ClearedJetCertificateBridge`: normalized raw cumulants, the derivative
+  tower from seven ordinary kernel jets, exact cleared `q`, `F₂`, and raw
+  Hankel `C₄` identities, and the terminal quotient cascade from the three
+  canonical cleared strict-sign propositions.
 - `PF4.QuotientAlgebra`: fixed-size determinant normalization, forward-
   difference orientation, and terminal discrete quotient factorization;
 - `PF4.QuotientIntegral`: exact fixed-order adjacent-box integral identities
@@ -132,10 +142,10 @@ Implemented modules:
   conditional transfer theorem from three explicit quotient-level sign
   premises. The theorem namespace and public names remain unchanged.
 
-No stub theorem with `sorry` is used. The analytic kernel modules use only
-real exponential series at the project level; they intentionally leave the
-theta transformation/evenness boundary open rather than importing an opaque
-complex or Poisson bridge. The proof-facing cumulative object is
+No stub theorem with `sorry` is used. The analytic kernel definitions use real
+exponential series. Their proofs now intentionally import mathlib's named real
+Gaussian Poisson theorem and a Jacobi-theta holomorphic realization; the exact
+normalization wrappers are maintained and audited. The proof-facing cumulative object is
 `PF4.Cumulative.coordinateGap`; the measure-backed CDF is retained as a
 validation interface. The identities and conditional implications represented
 by PO-0026 through PO-0029 and PO-0041 are maintained kernel-checked theorems;
@@ -144,7 +154,9 @@ The translate quotient object layer and all three sign-conversion mechanisms
 are checked. The terminal sign is derived through the same coordinate `Psi`
 used by the determinant/transport assembly, with the `p₄<p₃` orientation
 consumed explicitly. This does not instantiate the actual Riemann-kernel
-`q > 0`, `Lambda > 0`, or `C₄ > 0` proofs. The coordinate inverse,
+`q > 0` or `C₄ > 0` certificate proofs. The cleared-jet bridge derives the
+required lower `Lambda` once the actual `q,F₂` signs are supplied. The
+coordinate inverse,
 range-local jet, deterministic gap, and local central identity are now
 constructed rather than assumed.
 

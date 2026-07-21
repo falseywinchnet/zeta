@@ -14,6 +14,11 @@ set_option linter.style.header false
 #print axioms PF4.IntervalControl.derivativeTowerThroughSix_at_nonneg
 #print axioms PF4.globalRiemannKernel_eq_paper_form
 #print axioms PF4.globalRiemannKernel_eq_thetaSeries_of_nonneg
+#print axioms PF4.riemannTheta_modular
+#print axioms PF4.contDiff_riemannH
+#print axioms PF4.contDiff_globalRiemannKernel
+#print axioms PF4.globalRiemannKernel_even
+#print axioms PF4.globalRiemannKernel_eq_thetaSeries_abs
 #print axioms PF4.Crossing.crossingPoint_mem
 #print axioms PF4.Crossing.densityRatio_eq_one_iff
 #print axioms PF4.Densities.leftDensity_ratio
@@ -101,3 +106,7 @@ set_option linter.style.header false
 #print axioms PF4.TranslationQuotientPsi.lowerPsi_eq_coordinatePsi
 #print axioms PF4.TranslationQuotientPsi.terminalQuotD_eq_terminalQuot_mul_coordinatePsi_sub
 #print axioms PF4.TranslationQuotientPsi.terminalQuotD_pos_of_determinantC4
+#print axioms PF4.ClearedJetCertificateBridge.clearedC4_eq_rawHankel4_det
+#print axioms PF4.ClearedJetCertificateBridge.curvatureDerivativeTower_of_rawJet
+#print axioms PF4.ClearedJetCertificateBridge.kernelSigns_of_clearedSigns
+#print axioms PF4.ClearedJetCertificateBridge.terminalQuotD_pos_of_clearedJetSigns

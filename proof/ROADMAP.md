@@ -28,12 +28,15 @@ and instance layers is well-defined.
 
 Integrated status: the literal real theta sum, its positive-index split, the
 positive-mode kernel series, six derivatives on `t ≥ 0`, and the exact
-`H''-H/4` representation there are maintained Lean theorems. Their proofs use
-no project-level complex object, Fourier transform, Poisson theorem, or
-Gaussian-library import. The remaining Track B fork is explicit: prove parity
-and negative-half-line transport by a transparent real theorem, or replace
-parity with direct all-real estimates. `Φ>0`, logarithmic derivatives, and the
-actual CERT12 instance bridge remain downstream.
+`H''-H/4` representation there are maintained Lean theorems. A named mathlib
+Gaussian/Poisson theorem now proves the exact theta transformation, while a
+Jacobi-theta holomorphic realization proves global analyticity. The maintained
+real kernel is even, smooth, and globally equal to `thetaSeries |t|`. The
+cleared raw-jet interface and its exact `q`, `F₂`, and raw-Hankel `C₄`
+identities are also maintained. The remaining Track B seam is to identify the
+six positive series jets with the global iterated derivatives and replay
+CERT12 positivity against those canonical cleared propositions. `Φ>0` and the
+actual certificate instance remain downstream.
 
 ## Track C — generic determinant engine
 

@@ -53,20 +53,22 @@ their conclusions backward.
 
 ## Current unresolved leaves
 
-1. Complete the all-real analytic identity for `Φ`: the literal theta sum,
-   positive-mode bridge, and six-jet are checked on `t ≥ 0`, while parity or a
-   direct negative-half-line replacement remains open.
-2. Formal statement bridges for CERT12 and CERT17.
+1. Identify `thetaSeriesJet 0,...,6` with the global iterated derivatives of
+   `Φ`; analyticity, parity, and the global reflected value formula are closed,
+   but the derivative-value seam at the origin is not.
+2. Replay the CERT12 positivity proof against the maintained canonical
+   `clearedQ`, `clearedF2`, and `clearedC4` propositions; the
+   positive-denominator and raw-Hankel statement bridges are closed. The
+   CERT17 statement bridge remains open.
 3. Instantiate the maintained quotient sign conversions with the actual
    Riemann-kernel `q>0` and `Lambda>0` inputs.
-4. Identify the integrated raw kernel jets with `Q,Q₁,...,Q₄` on the actual
-   curvature-coordinate image and connect the certified `C₄>0` statement to
-   the determinant premise.
+4. Instantiate the maintained cleared-jet-to-`Q,Q₁,...,Q₄` theorem with the
+   actual global kernel jet once items 1 and 2 are closed.
 
 PO-0026 through PO-0028 and PO-0037 through PO-0039 are `FORMALLY_PROVED`.
 PO-0029, PO-0040, and PO-0041 are checked conditional cores, not completed
 actual-kernel obligations. Every route to T1–T3 still has unresolved
 prerequisites. The fixed-order generic PO-0017/0018/0020 engine, its
-translation quotient object layer, and all three sign-conversion mechanisms
-are checked. Their actual-kernel analytic/coordinate inputs and certificate
-statement bridges remain unresolved.
+translation quotient object layer, all three sign-conversion mechanisms, and
+the cleared raw-jet terminal interface are checked. Their concrete global
+kernel-jet instance and certificate positivity proofs remain unresolved.

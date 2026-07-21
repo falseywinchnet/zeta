@@ -10,16 +10,17 @@ Required statement: for `x > 0`,
 
 Used by: S02 even continuation.
 
-Current source: de Bruijn is cited for the kernel normalization, but the paper
-does not give a precise theorem locator for the theta transformation.
+Current source: mathlib 4.32.0,
+`Mathlib.Analysis.SpecialFunctions.Gaussian.PoissonSummation`, theorem
+`Real.tsum_exp_neg_mul_int_sq`. Its source proves the real identity from the
+Gaussian Fourier transform and Poisson summation.
 
-Status: `OBLIGATION`. The maintained `PF4.Theta`, `PF4.KernelSeries`, and
-`PF4.Kernel` modules deliberately do not import a Jacobi-theta theorem,
-Fourier transform, Poisson summation, or complex analysis. The transformation
-is still needed if parity transports positive-side certificates to the full
-line. A future proof must either expose a transparent real derivation of that
-statement or replace parity by direct all-real estimates; renaming an
-equivalent Poisson theorem does not close this import.
+Status: `FORMALLY_PROVED`. `PF4.riemannTheta_modular` displays the positivity
+hypothesis and exact normalization conversion. `PF4.riemannH_even` and
+`PF4.globalRiemannKernel_even` transport it to the maintained real definitions.
+The additional Jacobi-theta imports in `PF4.KernelAnalytic` provide global
+analyticity; they do not change the definitions of `riemannTheta`, `riemannH`,
+or `globalRiemannKernel`.
 
 ## I-002 — local uniform convergence and differentiation of theta series
 
@@ -33,7 +34,11 @@ Status: `FORMAL_FRAGMENT`. `PF4.KernelSeries` proves a literal six-level
 derivative tower on every interval `(-1,B)`, hence at every `t ≥ 0`, using
 finite polynomial coefficient bounds and polynomial-times-exponential
 comparison series. No special-function integration theorem is used. The
-all-real statement and its connection to parity remain open.
+global kernel is independently analytic and has the reflected representation
+`thetaSeries |t|`. The remaining seam is equality between
+`thetaSeriesJet 0,...,6` and the global iterated derivatives, especially at
+the origin; direct all-real convergence of the unreflected series is not
+claimed.
 
 ## I-003 — determinant and matrix integration facts
 

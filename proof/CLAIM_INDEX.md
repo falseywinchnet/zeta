@@ -2,12 +2,12 @@
 
 | Claim | Paper anchor | MIND / certificate | Obligation | Lean declaration | Status |
 |---|---|---|---|---|---|
-| Kernel definition/evenness | S02 | R171 context; P000128–P000130 | PO-0001–0007 | `PF4.riemannTheta`, `PF4.riemannH`, `PF4.globalRiemannKernel`, `PF4.globalRiemannKernel_eq_thetaSeries_of_nonneg`, `PF4.IntervalControl.derivativeTowerThroughSix_at_nonneg`; parity remains unset | FORMAL_FRAGMENT |
+| Kernel definition/evenness | S02 | R182–R188, R191, CERT20/21; P000128–P000132 | PO-0001–0007 | `PF4.riemannTheta_modular`, `PF4.contDiff_riemannH`, `PF4.contDiff_globalRiemannKernel`, `PF4.globalRiemannKernel_even`, and `PF4.globalRiemannKernel_eq_thetaSeries_abs`; the series-jet/global-derivative identification remains | FORMAL_FRAGMENT |
 | `Φ > 0` | S02 | R171 context | PO-0008 | unset | CONVENTIONALLY_PROVED |
-| `q > 0` | S03 | R171, CERT12 | PO-0011 | unset | CERTIFIED |
-| `F₂ > 0` | S03 | R171, CERT12 | PO-0012 | unset | CERTIFIED |
-| `C₄ > 0` | S03 | R171, CERT12 | PO-0013 | unset | CERTIFIED |
-| `Λ > 0` | S04 | R141, CERT12 | PO-0015 | `PF4.TranslationQuotientSigns.lowerLambda`; its positivity is still an analytic premise | FORMAL_FRAGMENT |
+| `q > 0` | S03 | R171, R189, CERT12/21 | PO-0011 | `PF4.ClearedJetCertificateBridge.clearedQ` and its exact transfer theorem; certificate positivity replay remains | CERTIFIED |
+| `F₂ > 0` | S03 | R171, R192, CERT12/21 | PO-0012 | `PF4.ClearedJetCertificateBridge.clearedF2` and its exact transfer theorem; certificate positivity replay remains | CERTIFIED |
+| `C₄ > 0` | S03 | R171, R193–R194, CERT12/21 | PO-0013 | `PF4.ClearedJetCertificateBridge.clearedC4_eq_rawHankel4_det` and exact transfer; certificate positivity replay remains | CERTIFIED |
+| `Λ > 0` | S04 | R141, CERT12 | PO-0015 | `PF4.ClearedJetCertificateBridge.lowerLambda_pos_of_actualCoordinate` derives it from actual `q,F₂` inputs | FORMAL_FRAGMENT |
 | strict PF2/PF3 | S04–S05 | R155, R172, CERT5/12 | PO-0016, PO-0043 | `firstQuotD_pos_of_kernelCurvature_pos`, `secondQuotD_pos_of_lowerLambda_pos`; actual-kernel inputs unset | CERTIFIED |
 | quotient identities | S05 | R154, CERT5 | PO-0017–0019 | `PF4.GenericQuotientIntegral.*`, `PF4.ContinuousQuotientBox.*`, `PF4.TranslationQuotientPsi.terminalQuotD_eq_terminalQuot_mul_coordinatePsi_sub` | FORMAL_FRAGMENT |
 | PF4/`∂ξΨ` reduction | S05 | R156, R180, CERT5/18 | PO-0020 | strict transfer connected to determinant-derived decrease of the maintained coordinate `Psi`; actual-kernel instances and converse remain | FORMAL_FRAGMENT |
@@ -23,7 +23,7 @@
 | CDF integration identity | S09 | R153, CERT9 | PO-0039 | `PF4.Expectation.expectation_difference_eq_cdfGap_integral`, `PF4.Transport.concrete_expectationDifference_eq_transportIntegral` | FORMALLY_PROVED |
 | positive transport integral | S09 | R153, CERT9 | PO-0040 | checked from explicit supplied `Q,κ,C₄` signs; actual-kernel input unset | FORMAL_FRAGMENT |
 | `∂ξΨ < 0` | S10 | R153, R181, CERT9/19 | PO-0041 | `PF4.LocalFinalAssembly.actualCoordinatePartialXiPsi_neg`; actual-kernel derivative and sign-certificate instances remain open | FORMAL_FRAGMENT |
-| strict PF4 | S01/S10 | R164, R180–R181, CERT5/9/12/18/19 | PO-0042 | all three quotient conversions and the actual-range coordinate construction are checked; actual-kernel derivative/sign and lower-`Lambda` instances remain open | CERTIFIED |
+| strict PF4 | S01/S10 | R164, R180–R181, R190, CERT5/9/12/18/19/21 | PO-0042 | `PF4.ClearedJetCertificateBridge.terminalQuotD_pos_of_clearedJetSigns` connects the raw jet and three canonical cleared signs to the terminal cascade; actual global jet identification and CERT12 positivity replay remain | CERTIFIED |
 | exact finite PF5 witness | S10 | R179, CERT17 | PO-0044–0045 | unset | CERTIFIED |
 | exact order four | S01/S10 | R145 | PO-0046 | unset | CERTIFIED |
 

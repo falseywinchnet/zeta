@@ -880,14 +880,14 @@
         },
         {
           "path": "proof/formal/PF4.lean",
-          "sha256": "d8a42d919a530ddb23505a2122872e075a554a1b9d7a5b68e962ee5f1a402433"
+          "sha256": "60a3e78f7a35973694958a7de6be71b0a2498688f2da4f85a1384c476ae08376"
         }
       ],
       "attestation": {
-        "manifest_sha256": "7cc32446ac532ce6209ae398160a6d19ac81b260b2631423c304a0e3d56a5b7f",
+        "manifest_sha256": "54a70776620d7c01778acda2c7a3d58f32210e4fc75734a9038345ec954afa2b",
         "method": "executed",
         "schema": 1,
-        "verified_at": "2026-07-21T07:27:50+00:00"
+        "verified_at": "2026-07-21T16:22:00+00:00"
       },
       "created_at": "2026-07-21T02:49:35+00:00",
       "dependencies": [],
@@ -895,7 +895,7 @@
       "environment": null,
       "file": {
         "path": "proof/formal/PF4/Audit.lean",
-        "sha256": "d7f3796603401d7ad1bbc97153a05a4f65294d7e891da888ff7abe8055bc3eb6"
+        "sha256": "ea077b5d9141bf4ed901e866f9f68f807b53fc8ea8262391bf849a4ae4c052c7"
       },
       "precision": "Lean v4.32.0/mathlib v4.32.0 kernel-checked symbolic proof; conditional theorem only, with no actual Riemann-kernel instance claimed",
       "requirements": [],
@@ -910,13 +910,13 @@
         ],
         "expected_exit_code": 0,
         "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "stdout_sha256": "f00454e2b5efa22c2fbc07b830f98a11eb3ad332fa62556eb71ff65e85ac1abf",
+        "stdout_sha256": "dfee71c5c89f878515a04d76528f8461d1545e5876acd4e7e399dfd6f0f7a5b5",
         "timeout_seconds": 180
       },
       "topics": [
         "T000012"
       ],
-      "updated_at": "2026-07-21T07:27:50+00:00"
+      "updated_at": "2026-07-21T16:22:00+00:00"
     },
     "K000019": {
       "artifacts": [
@@ -942,14 +942,14 @@
         },
         {
           "path": "proof/formal/PF4.lean",
-          "sha256": "d8a42d919a530ddb23505a2122872e075a554a1b9d7a5b68e962ee5f1a402433"
+          "sha256": "60a3e78f7a35973694958a7de6be71b0a2498688f2da4f85a1384c476ae08376"
         }
       ],
       "attestation": {
-        "manifest_sha256": "d5daf020e87ae21111d9b194de20e95cc272b1c222e3a093efeb02d7a005aaf4",
+        "manifest_sha256": "ca1b5ca6f18ed618e38e5eb2f23bf0b3d9d9d2ce8f426ac5e4d11095de6dcacc",
         "method": "executed",
         "schema": 1,
-        "verified_at": "2026-07-21T07:28:19+00:00"
+        "verified_at": "2026-07-21T16:23:05+00:00"
       },
       "created_at": "2026-07-21T04:26:48+00:00",
       "dependencies": [],
@@ -957,7 +957,7 @@
       "environment": "",
       "file": {
         "path": "proof/formal/PF4/Audit.lean",
-        "sha256": "d7f3796603401d7ad1bbc97153a05a4f65294d7e891da888ff7abe8055bc3eb6"
+        "sha256": "ea077b5d9141bf4ed901e866f9f68f807b53fc8ea8262391bf849a4ae4c052c7"
       },
       "precision": "Lean v4.32.0/mathlib v4.32.0 kernel-checked symbolic proof; conditional on explicit derivative tower and q/F2/C4 positivity, with no actual Riemann-kernel certificate bridge claimed",
       "requirements": [],
@@ -972,13 +972,13 @@
         ],
         "expected_exit_code": 0,
         "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "stdout_sha256": "f00454e2b5efa22c2fbc07b830f98a11eb3ad332fa62556eb71ff65e85ac1abf",
+        "stdout_sha256": "dfee71c5c89f878515a04d76528f8461d1545e5876acd4e7e399dfd6f0f7a5b5",
         "timeout_seconds": 180
       },
       "topics": [
         "T000012"
       ],
-      "updated_at": "2026-07-21T07:28:19+00:00"
+      "updated_at": "2026-07-21T16:23:05+00:00"
     },
     "K000020": {
       "artifacts": [
@@ -996,10 +996,10 @@
         }
       ],
       "attestation": {
-        "manifest_sha256": "d805214eb63a5fb5d28f4b6c0439aaf89a966f1dd89aba5ebf79fe8adea8eba2",
+        "manifest_sha256": "95b5f4707b64d73ba50f15e0b87b87a3d778a91dc33e06437c08ad15b61c46eb",
         "method": "executed",
         "schema": 1,
-        "verified_at": "2026-07-21T07:25:42+00:00"
+        "verified_at": "2026-07-21T16:24:24+00:00"
       },
       "created_at": "2026-07-21T07:25:15+00:00",
       "dependencies": [],
@@ -1007,7 +1007,7 @@
       "environment": null,
       "file": {
         "path": "proof/formal/PF4/Audit.lean",
-        "sha256": "d7f3796603401d7ad1bbc97153a05a4f65294d7e891da888ff7abe8055bc3eb6"
+        "sha256": "ea077b5d9141bf4ed901e866f9f68f807b53fc8ea8262391bf849a4ae4c052c7"
       },
       "precision": null,
       "requirements": [],
@@ -1022,15 +1022,65 @@
         ],
         "expected_exit_code": 0,
         "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "stdout_sha256": "f00454e2b5efa22c2fbc07b830f98a11eb3ad332fa62556eb71ff65e85ac1abf",
+        "stdout_sha256": "dfee71c5c89f878515a04d76528f8461d1545e5876acd4e7e399dfd6f0f7a5b5",
         "timeout_seconds": 300
       },
       "topics": [
         "T000012"
       ],
-      "updated_at": "2026-07-21T07:25:15+00:00"
+      "updated_at": "2026-07-21T16:24:24+00:00"
+    },
+    "K000021": {
+      "artifacts": [
+        {
+          "path": "proof/formal/PF4/KernelAnalytic.lean",
+          "sha256": "4fcc1f29c90948b72279ad779ab31434687b27acaf838996aba0f056b0102a48"
+        },
+        {
+          "path": "proof/formal/PF4/ClearedJetCertificateBridge.lean",
+          "sha256": "bb31bd29628ac61dab95954312d82ee1d9413078766b72246b7cd7401ed462ea"
+        },
+        {
+          "path": "proof/formal/PF4.lean",
+          "sha256": "60a3e78f7a35973694958a7de6be71b0a2498688f2da4f85a1384c476ae08376"
+        }
+      ],
+      "attestation": {
+        "manifest_sha256": "8d5e27876d94f865bdd02f91bca2a395b2c2d9dc848d605bb88076a1c6fd08c0",
+        "method": "executed",
+        "schema": 1,
+        "verified_at": "2026-07-21T16:19:43+00:00"
+      },
+      "created_at": "2026-07-21T16:18:42+00:00",
+      "dependencies": [],
+      "description": "Lean 4 Gaussian-Poisson theta normalization, global analytic and even Riemann kernel with reflected series, plus the canonical cleared raw-jet q/F2/C4 proposition and conditional terminal-cascade bridge",
+      "environment": null,
+      "file": {
+        "path": "proof/formal/PF4/Audit.lean",
+        "sha256": "ea077b5d9141bf4ed901e866f9f68f807b53fc8ea8262391bf849a4ae4c052c7"
+      },
+      "precision": null,
+      "requirements": [],
+      "runner": {
+        "argv": [
+          "lake",
+          "--dir",
+          "proof/formal",
+          "env",
+          "lean",
+          "proof/formal/PF4/Audit.lean"
+        ],
+        "expected_exit_code": 0,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "dfee71c5c89f878515a04d76528f8461d1545e5876acd4e7e399dfd6f0f7a5b5",
+        "timeout_seconds": 300
+      },
+      "topics": [
+        "T000012"
+      ],
+      "updated_at": "2026-07-21T16:18:42+00:00"
     }
   },
-  "next_id": 21,
+  "next_id": 22,
   "version": 1
 }
