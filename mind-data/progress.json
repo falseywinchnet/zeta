@@ -544,8 +544,12 @@
     "P000136": {
       "blurb": "Refactored and closed the literal infinite theta tail in Lean: every jet through six equals its first two modes plus the exact third mode times one plus a relative delta in [0,1e-3), reducing CERT12 to a finite robust three-mode theorem",
       "created_at": "2026-07-21T18:05:20+00:00"
+    },
+    "P000137": {
+      "blurb": "Closed literal PF4 normalized inequalities on the full compact continuum through x=5; proved complete infinite-tail and scaled outer half-line bounds; isolated the required x-dependent outer perturbation theorem.",
+      "created_at": "2026-07-21T18:39:05+00:00"
     }
   },
-  "next_id": 137,
+  "next_id": 138,
   "version": 1
 }
