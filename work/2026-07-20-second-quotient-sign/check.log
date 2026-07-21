@@ -1,0 +1,19 @@
+Lean check: PASS
+
+Command:
+lake env lean /Users/quentinkuttenkuler/zeta/work/2026-07-20-second-quotient-sign/SecondQuotientSign.lean
+
+Serialized execution: one Lean process; exit code 0.
+
+Printed axiom dependencies:
+
+PF4.Advancement.SecondQuotientSign.firstQuotD2_eq_firstQuotD_mul_rate
+  [propext, Classical.choice, Quot.sound]
+
+PF4.Advancement.SecondQuotientSign.secondQuotD_eq_lambdaProduct
+  [propext, Classical.choice, Quot.sound]
+
+PF4.Advancement.SecondQuotientSign.secondQuotD_pos_of_lowerLambda_pos
+  [propext, Classical.choice, Quot.sound]
+
+No declaration depends on `sorryAx`.

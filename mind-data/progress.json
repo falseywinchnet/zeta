@@ -444,8 +444,12 @@
     "P000111": {
       "blurb": "Derive and kernel-check the first translation-quotient sign from the exact closed kernel-curvature formula, positive Phi, and ordered columns",
       "created_at": "2026-07-21T00:31:20+00:00"
+    },
+    "P000112": {
+      "blurb": "Proved the exact second translation-quotient derivative factorization through lower Lambda and derived its strict sign from the literal upstream Lambda premise",
+      "created_at": "2026-07-21T01:01:25+00:00"
     }
   },
-  "next_id": 112,
+  "next_id": 113,
   "version": 1
 }
