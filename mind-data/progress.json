@@ -472,8 +472,12 @@
     "P000118": {
       "blurb": "Construct the curvature-coordinate inverse on its open range, derive the complete coordinate jet, and identify curvature and determinant C4 exactly",
       "created_at": "2026-07-21T03:09:05+00:00"
+    },
+    "P000119": {
+      "blurb": "Localize curvature-coordinate final assembly to the actual range",
+      "created_at": "2026-07-21T03:22:52+00:00"
     }
   },
-  "next_id": 119,
+  "next_id": 120,
   "version": 1
 }
