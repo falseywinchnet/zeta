@@ -9,8 +9,8 @@
 | `C₄ > 0` | S03 | R171, CERT12 | PO-0013 | unset | CERTIFIED |
 | `Λ > 0` | S04 | R141, CERT12 | PO-0015 | `PF4.TranslationQuotientSigns.lowerLambda`; its positivity is still an analytic premise | FORMAL_FRAGMENT |
 | strict PF2/PF3 | S04–S05 | R155, R172, CERT5/12 | PO-0016, PO-0043 | `firstQuotD_pos_of_kernelCurvature_pos`, `secondQuotD_pos_of_lowerLambda_pos`; actual-kernel inputs unset | CERTIFIED |
-| quotient identities | S05 | R154, CERT5 | PO-0017–0019 | `PF4.GenericQuotientIntegral.*`, `PF4.ContinuousQuotientBox.*`, `PF4.TranslationQuotientSigns.firstQuotD2_eq_firstQuotD_mul_rate`, `secondQuotD_eq_lambdaProduct` | FORMAL_FRAGMENT |
-| PF4/`∂ξΨ` reduction | S05 | R156, CERT5 | PO-0020 | generic strict transfer and lower quotient conversions checked; terminal coordinate-`Psi` bridge unset | FORMAL_FRAGMENT |
+| quotient identities | S05 | R154, CERT5 | PO-0017–0019 | `PF4.GenericQuotientIntegral.*`, `PF4.ContinuousQuotientBox.*`, `PF4.TranslationQuotientPsi.terminalQuotD_eq_terminalQuot_mul_coordinatePsi_sub` | FORMAL_FRAGMENT |
+| PF4/`∂ξΨ` reduction | S05 | R156, R180, CERT5/18 | PO-0020 | strict transfer connected to determinant-derived decrease of the maintained coordinate `Psi`; actual-kernel instances and converse remain | FORMAL_FRAGMENT |
 | curvature coordinate map | S06 | R153, CERT9 | PO-0021–0022, PO-0025 | unset | CONVENTIONALLY_PROVED |
 | triangular coordinate normalizers | S06 | R153, CERT9 | PO-0023–0024 | `PF4.Curvature.coordinateLambda_eq_triangular`, `coordinateDelta_eq_triangular`, `coordinateDelta_pos` | FORMALLY_PROVED |
 | sign bridge | S06 | R153, CERT9 | PO-0026–0027 | `PF4.CoordinateSignBridge.coordinatePartialXiPsi_eq` | FORMALLY_PROVED |
@@ -23,7 +23,7 @@
 | CDF integration identity | S09 | R153, CERT9 | PO-0039 | `PF4.Expectation.expectation_difference_eq_cdfGap_integral`, `PF4.Transport.concrete_expectationDifference_eq_transportIntegral` | FORMALLY_PROVED |
 | positive transport integral | S09 | R153, CERT9 | PO-0040 | checked from explicit supplied `Q,κ,C₄` signs; actual-kernel input unset | FORMAL_FRAGMENT |
 | `∂ξΨ < 0` | S10 | R153, CERT9 | PO-0041 | conditional assembly `PF4.FinalAssembly.coordinatePartialXiPsi_neg_from_determinantC4`; actual-kernel input unset | FORMAL_FRAGMENT |
-| strict PF4 | S01/S10 | R164, CERT5/9/12 | PO-0042 | first two quotient conversions checked with explicit analytic premises; terminal sign and actual-kernel instances remain open | CERTIFIED |
+| strict PF4 | S01/S10 | R164, R180, CERT5/9/12/18 | PO-0042 | all three quotient conversions checked with explicit analytic premises; actual-kernel coordinate and sign instances remain open | CERTIFIED |
 | exact finite PF5 witness | S10 | R179, CERT17 | PO-0044–0045 | unset | CERTIFIED |
 | exact order four | S01/S10 | R145 | PO-0046 | unset | CERTIFIED |
 

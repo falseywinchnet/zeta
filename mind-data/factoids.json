@@ -3376,8 +3376,23 @@
       ],
       "status": "established",
       "updated_at": "2026-07-17T02:29:46+00:00"
+    },
+    "F000180": {
+      "because": [
+        {
+          "id": "K000018",
+          "type": "certificate"
+        }
+      ],
+      "content": "Under explicit kernel regularity, positive kernel curvature and lower Lambda, a curvature-coordinate jet realization, positive coordinate curvature, and positive determinant C4 inputs, the maintained Lean quotient chain derives strict positivity of the terminal translation-quotient derivative by identifying its rate with the maintained coordinate Psi and deriving Psi decrease rather than assuming either monotonicity or the terminal sign.",
+      "created_at": "2026-07-21T02:51:17+00:00",
+      "relates_to": [
+        "T000012"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-21T02:51:17+00:00"
     }
   },
-  "next_id": 180,
+  "next_id": 181,
   "version": 1
 }

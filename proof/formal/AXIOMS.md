@@ -59,6 +59,8 @@ every exported helper theorem.
 - `PF4.C4Invariant.coordinateDeterminantC4_eq_derivedC4`
 - `PF4.FinalAssembly.primitiveRate_pos_of_determinantC4_pos`
 - `PF4.FinalAssembly.coordinatePartialXiPsi_neg_from_determinantC4`
+- `PF4.FinalAssembly.coordinatePsi_strictAntiOn_Iio_from_determinantC4`
+- `PF4.FinalAssembly.coordinatePsi_decreases_on_ordered_points_from_determinantC4`
 - `PF4.GenericQuotientIntegral.normalizedDet4_eq_forwardDiffDet3`
 - `PF4.GenericQuotientIntegral.quotientChainDet4_eq_terminalProduct`
 - `PF4.GenericQuotientIntegral.quotientChainDet4_pos_of_terminal_deriv`
@@ -77,6 +79,9 @@ every exported helper theorem.
 - `PF4.TranslationQuotientSigns.firstQuotD2_eq_firstQuotD_mul_rate`
 - `PF4.TranslationQuotientSigns.secondQuotD_eq_lambdaProduct`
 - `PF4.TranslationQuotientSigns.secondQuotD_pos_of_lowerLambda_pos`
+- `PF4.TranslationQuotientPsi.lowerPsi_eq_coordinatePsi`
+- `PF4.TranslationQuotientPsi.terminalQuotD_eq_terminalQuot_mul_coordinatePsi_sub`
+- `PF4.TranslationQuotientPsi.terminalQuotD_pos_of_determinantC4`
 
 No custom project axiom, `sorry`, `admit`, unsafe theorem bridge, or external
 certificate result appears in these declarations.

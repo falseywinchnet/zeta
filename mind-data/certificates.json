@@ -867,8 +867,58 @@
         "T000003"
       ],
       "updated_at": "2026-07-17T02:28:01+00:00"
+    },
+    "K000018": {
+      "artifacts": [
+        {
+          "path": "proof/formal/PF4/FinalAssembly.lean",
+          "sha256": "3e68bb66c6533288f11c4ecc932b73655c163dc530780984576244e9998c4387"
+        },
+        {
+          "path": "proof/formal/PF4/TranslationQuotientPsi.lean",
+          "sha256": "e60214e754ad3a04ad44a2419d8bfc0c3ef1e099a291aebc75d532ce8f481ff9"
+        },
+        {
+          "path": "proof/formal/PF4.lean",
+          "sha256": "9385206383d1d0259869578771c2452df58938febe0ad5cfc29d6eade9b95bce"
+        }
+      ],
+      "attestation": {
+        "manifest_sha256": "943c23124e2cef8457a2f850cf4ae0388a8654dabdb6f6563001524b66a7dbab",
+        "method": "executed",
+        "schema": 1,
+        "verified_at": "2026-07-21T02:51:06+00:00"
+      },
+      "created_at": "2026-07-21T02:49:35+00:00",
+      "dependencies": [],
+      "description": "Lean 4 terminal quotient-to-coordinate-Psi integration: exact terminal rate identity, determinant-derived strict Psi decrease, and terminal positivity under explicit kernel, coordinate-jet, lower-Lambda, and determinant inputs",
+      "environment": null,
+      "file": {
+        "path": "proof/formal/PF4/Audit.lean",
+        "sha256": "963cf0d51421e3638566df4edadba3287b2ebd550b1164fa0cd88789af6f3832"
+      },
+      "precision": "Lean v4.32.0/mathlib v4.32.0 kernel-checked symbolic proof; conditional theorem only, with no actual Riemann-kernel instance claimed",
+      "requirements": [],
+      "runner": {
+        "argv": [
+          "lake",
+          "--dir",
+          "proof/formal",
+          "env",
+          "lean",
+          "proof/formal/PF4/Audit.lean"
+        ],
+        "expected_exit_code": 0,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "3a26097f7569448d028e26ac25199f54edb10af6197dbd7db06ae4a19da411cb",
+        "timeout_seconds": 180
+      },
+      "topics": [
+        "T000012"
+      ],
+      "updated_at": "2026-07-21T02:49:35+00:00"
     }
   },
-  "next_id": 18,
+  "next_id": 19,
   "version": 1
 }

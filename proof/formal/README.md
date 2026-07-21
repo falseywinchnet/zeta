@@ -38,6 +38,7 @@ PF4/PF5Witness.lean
 PF4/ExactOrder.lean
 PF4/TranslationQuotientTower.lean
 PF4/TranslationQuotientSigns.lean
+PF4/TranslationQuotientPsi.lean
 PF4/TranslationQuotientAssembly.lean
 ```
 
@@ -93,6 +94,10 @@ Implemented modules:
   factorization of the second quotient derivative through the S05
   lower-order `Lambda`, with its analytic positivity retained as a literal
   premise.
+- `PF4.TranslationQuotientPsi`: the exact terminal logarithmic-rate identity,
+  equality of the S05 endpoint object with the maintained coordinate `Psi`,
+  and terminal positivity derived from the determinant-driven `Psi` sign.
+  Coordinate realization and actual-kernel sign inputs remain explicit.
 - `PF4.TranslationQuotientAssembly`: the isolated connection to the integral
   determinant engine: object identity with `translationMinor` and the
   conditional transfer theorem from three explicit quotient-level sign
@@ -103,11 +108,11 @@ No stub theorem with `sorry` is used. The proof-facing cumulative object is
 validation interface. The identities and conditional implications represented
 by PO-0026 through PO-0029 and PO-0041 are maintained kernel-checked theorems;
 this does not construct the Riemann kernel or discharge its global `C₄` sign.
-The translate quotient object layer and its first two sign-conversion
-mechanisms are checked. This does not instantiate the actual Riemann-kernel
-`q > 0` or `Lambda > 0` proofs. The next algebraic conversion boundary is to
-identify the terminal quotient derivative with the same `Psi` object used by
-the conditional coordinate-sign assembly and verify the `p₄<p₃` orientation.
+The translate quotient object layer and all three sign-conversion mechanisms
+are checked. The terminal sign is derived through the same coordinate `Psi`
+used by the determinant/transport assembly, with the `p₄<p₃` orientation
+consumed explicitly. This does not instantiate the actual Riemann-kernel
+`q > 0`, `Lambda > 0`, coordinate inverse, or `C₄ > 0` proofs.
 
 ## Resource discipline
 

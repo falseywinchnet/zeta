@@ -56,16 +56,16 @@ their conclusions backward.
 1. Lean/mathlib toolchain and exact formal statement representation.
 2. Formal analytic construction and differentiation of `Φ`.
 3. Formal statement bridges for CERT12 and CERT17.
-4. Instantiate the maintained first/second quotient sign conversions with the
-   actual Riemann-kernel `q>0` and `Lambda>0` inputs.
-5. Exact bridge from the conditional maintained `Ψ` derivative assembly to
-   positivity of the terminal quotient derivative, with the actual-kernel
-   inputs and `p₄<p₃` orientation.
+4. Instantiate the maintained quotient sign conversions with the actual
+   Riemann-kernel `q>0` and `Lambda>0` inputs.
+5. Construct the curvature coordinate on its image, identify the actual
+   kernel jets with `Q,Q₁,...,Q₄`, and connect the certified `C₄>0` statement
+   to the determinant premise.
 
 PO-0026 through PO-0028 and PO-0037 through PO-0039 are `FORMALLY_PROVED`.
 PO-0029, PO-0040, and PO-0041 are checked conditional cores, not completed
 actual-kernel obligations. Every route to T1–T3 still has unresolved
 prerequisites. The fixed-order generic PO-0017/0018/0020 engine, its
-translation quotient object layer, and the first two sign-conversion
-mechanisms are checked. Their actual-kernel analytic inputs, the terminal sign
-bridge, and certificate statement bridges remain unresolved.
+translation quotient object layer, and all three sign-conversion mechanisms
+are checked. Their actual-kernel analytic/coordinate inputs and certificate
+statement bridges remain unresolved.

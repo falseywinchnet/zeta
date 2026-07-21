@@ -35,11 +35,14 @@ identity, the `3→2` double-integral identity, terminal strictness, and transfe
 to the original unnormalized minor are formal fragments of PO-0017, PO-0018,
 and PO-0020. The actual translation quotient object layer, derivative ladder,
 factor identities, and minor identity are maintained. The first quotient sign
-is now derived from positive exact kernel curvature, and the second quotient
-derivative is factored through the exact S05 lower-order `Lambda`; its sign is
-derived from the literal `Lambda>0` premise. The actual Riemann-kernel bridges
-for `q>0` and `Lambda>0`, and the terminal quotient/`Psi` bridge, remain open,
-so the formal completion count is unchanged.
+is derived from positive exact kernel curvature, and the second quotient sign
+from the exact S05 lower-order `Lambda`. The terminal logarithmic-rate identity
+is now checked, its endpoint object is proved equal to the maintained
+coordinate `Psi`, and determinant positivity supplies strict `Psi` decrease
+and hence the terminal sign with the correct ordered-point orientation. The
+actual Riemann-kernel bridges for `q>0`, `Lambda>0`, the coordinate inverse and
+jet realization, and `C₄>0` remain open, so the formal completion count is
+unchanged.
 
 ## Analytic foundation
 
@@ -71,10 +74,10 @@ so the formal completion count is unchanged.
 | PO-0014 | Weighted-mean identities and variation bound | CONVENTIONALLY_PROVED | extrema/integral lemmas |
 | PO-0015 | `Λ(ξ;m,r) > 0` for `ξ < m < r` | FORMAL_FRAGMENT | exact S05 `lowerLambda` object and its second-quotient use are checked; formalize the analytic lower bound and actual-kernel instance |
 | PO-0016 | Strict order-three Wronskian sign | CERTIFIED | first/second quotient conversion is checked; instantiate certified `q>0` and `Λ>0` inputs |
-| PO-0017 | Quotient/Wronskian algebra through order four | FORMAL_FRAGMENT | first- and second-level differential identities are checked; terminal `Psi` identity remains |
+| PO-0017 | Quotient/Wronskian algebra through order four | FORMAL_FRAGMENT | all three differential quotient identities are checked; arbitrary-order and confluent algebra remain |
 | PO-0018 | Iterated quotient-integral determinant identity | FORMAL_FRAGMENT | arbitrary finite `k`; exact sizes two through four and strict boxes are checked |
 | PO-0019 | One- and two-sided confluent limits | CONVENTIONALLY_PROVED | divided differences and limits |
-| PO-0020 | PF4 iff weak `∂ξΨ≤0`; strict sign implies strict PF4 | FORMAL_FRAGMENT | terminal quotient/coordinate-`Psi` instance and confluent converse remain; generic strict transfer and lower quotient conversions are checked |
+| PO-0020 | PF4 iff weak `∂ξΨ≤0`; strict sign implies strict PF4 | FORMAL_FRAGMENT | strict direction is connected through the maintained coordinate `Psi`; actual-kernel instances and the confluent converse remain |
 
 ## Curvature and transport algebra
 
@@ -111,7 +114,7 @@ so the formal completion count is unchanged.
 | PO-0039 | Expectation difference equals `∫ΔD` | FORMALLY_PROVED | none; actual measures, expectations, CDFs, and boundary terms checked |
 | PO-0040 | Transport integral and `N` are strictly positive | FORMAL_FRAGMENT | strict integral checked from supplied `Q,κ,C₄` signs; actual-kernel sign inputs remain |
 | PO-0041 | `∂ξΨ<0` globally | FORMAL_FRAGMENT | conditional assembly from determinant positivity checked; actual Riemann-kernel instantiation remains |
-| PO-0042 | Strict global order-four minors | CERTIFIED | instantiate `q>0`/`Λ>0`, then connect and sign the terminal quotient using the same `Psi` object |
+| PO-0042 | Strict global order-four minors | CERTIFIED | instantiate actual-kernel `q>0`, `Λ>0`, coordinate jet realization, and `C₄>0` inputs in the checked quotient/`Psi` chain |
 | PO-0043 | Strict minors of orders one through three | CERTIFIED | assemble PO-0008/0016/0018 |
 | PO-0044 | CERT17 evaluator denotes T2's exact determinant | OBLIGATION | primary-kernel equivalence |
 | PO-0045 | Exact rational finite determinant is negative | CERTIFIED | port/check certificate in Lean |
@@ -119,8 +122,8 @@ so the formal completion count is unchanged.
 
 ## Immediate next work
 
-1. Execute `proof/NEXT_ADVANCEMENT.md`: identify the terminal quotient with
-   the same `Psi` object used by the conditional coordinate-sign assembly and
-   check its strict orientation, without hiding the analytic instance inputs.
+1. Execute `proof/NEXT_ADVANCEMENT.md`: construct the curvature coordinate on
+   its image and prove the actual-kernel `Q`/jet realization required by the
+   checked terminal quotient/coordinate-`Psi` chain.
 2. Design
    canonical certificate statements for PO-0011–PO-0013 and PO-0045.

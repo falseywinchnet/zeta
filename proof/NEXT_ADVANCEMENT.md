@@ -1,75 +1,82 @@
-# Next advancement cycle — terminal quotient and coordinate Psi
+# Next advancement cycle — curvature-coordinate realization
 
 Mode: advancement
 
-Starting evidence: P000111–P000112 and their maintained refine integration in
-`PF4.TranslationQuotientSigns`.
+Starting evidence: P000115–P000116, R180/CERT18, and their maintained
+integration in `PF4.TranslationQuotientPsi` and `PF4.FinalAssembly`.
 
 ## Maintained boundary
 
-For ordered columns `a<c<b<d`, the proof system now contains:
+For ordered columns `a<c<b<d`, the proof system now derives the terminal
+quotient sign from the following explicit inputs:
 
 ```text
-firstQuotD > 0
+q > 0,
+lowerLambda > 0,
+Q(y(u)) = q(u),
+Q₁(y(u)) = q₁(u)/q(u),
+the coordinate jet Q,Q₁,...,Q₄,
+curvature Q₂ > 0,
+determinantC4Function Q Q₁ Q₂ Q₃ Q₄ > 0.
 ```
 
-from positive exact kernel curvature, and
+The exact terminal rate, equality with the maintained coordinate `Psi`, strict
+decrease from its derivative, and the ordered-point orientation are no longer
+open. None of the displayed actual-kernel inputs has been silently discharged.
+
+## Next exact boundary
+
+Construct the curvature coordinate from
 
 ```text
-secondQuotD > 0
+y(u) = -logSlope Φ Φ₁ u
 ```
 
-from the exact S05 `lowerLambda>0` premise. These are conversion theorems, not
-yet actual Riemann-kernel instances: the formal bridges for certified `q>0`
-and `Lambda>0` remain explicit upstream work.
-
-The sole new algebraic advancement boundary is the third sign:
+on its image. Use strict monotonicity from `q>0` to obtain an inverse on that
+image, then define or characterize `Q` so that:
 
 ```text
-terminalQuotD Φ Φ1 Φ2 Φ3 a c b d > 0.
+Q(y(u)) = q(u),
+Q₁(y(u)) = q₁(u)/q(u).
 ```
+
+Continue the chain-rule calculation far enough to identify the coordinate jet
+used by `determinantC4Function` with the actual kernel derivatives and the
+CERT12 `F₂`/`C₄` expressions.
 
 ## Required exact bridges
 
-1. Record the moving-point order
-   `p_d=t-d < p_b=t-b < p_c=t-c < p_a=t-a` from strict column order.
-2. Identify the maintained `secondQuot`/`secondQuotD` objects with the paper's
-   `w_j` level using the checked lower quotient identities.
-3. Prove positivity of `terminalQuot` from the two required
-   `secondQuotD>0` instances; every denominator must use that strict sign.
-4. Derive the exact logarithmic translation rate of `terminalQuot` and reduce
-   it to
-
-   ```text
-   Psi(p_d;p_c,p_a) - Psi(p_b;p_c,p_a).
-   ```
-
-5. Prove that this `Psi` is the same endpoint object as
-   `PF4.CoordinateSignBridge.coordinatePsi`, under an explicit coordinate map.
-   Matching notation or an algebraically similar fresh definition is not an
-   instance bridge.
-6. Use `p_d<p_b` and strict decrease of that same coordinate `Psi` to obtain a
-   positive difference, then combine it with positive `terminalQuot`.
-7. State the strongest wrapper available. If `q>0`, `Lambda>0`, or coordinate
-   `Psi` strict decrease still enters as a premise, name it literally and stop
-   before claiming an unconditional actual-kernel theorem or completing
-   PO-0042.
+1. Prove `y` strictly increasing from the maintained derivative identity and
+   actual-kernel `q>0` input.
+2. Work on `Set.range y` or an equivalent subtype; do not assume `y` is
+   surjective onto `ℝ`.
+3. Construct an inverse with exact left-inverse and right-inverse statements
+   on the range.
+4. Establish `Q(y(u))=q(u)` as an object identity, not a premise copied into
+   the final theorem.
+5. Prove the first coordinate derivative identity
+   `Q₁(y(u))=q₁(u)/q(u)` by the chain rule and nonvanishing of `q`.
+6. Determine the minimum higher-jet identities required to match
+   `determinantC4Function` to the certified actual-kernel `C₄` statement.
+7. Preserve range restrictions until a theorem genuinely requires a global
+   function. If a global extension is introduced, prove that all derivative
+   and determinant claims are used only where the extension agrees with the
+   range construction.
 
 ## No-cheating gates
 
-- Do not assume `terminalQuotD>0`, an order-four Wronskian/minor sign, a finite
-  difference sign, or a renamed version of the target rate.
-- Do not replace `PF4.CoordinateSignBridge.coordinatePsi` with a detached
-  three-point object without proving equality.
-- Do not call `coordinatePartialXiPsi_neg_from_determinantC4` an actual
-  Riemann-kernel theorem until its kernel, jet, curvature, and determinant-sign
-  inputs are instantiated.
-- Preserve strict orientation: `p_d<p_b` and decreasing `Psi` imply
-  `Psi(p_d)>Psi(p_b)`.
-- Keep Lean compilations serialized and prefer derivative uniqueness over
-  expansion of nested rational quotients.
+- Do not assume the inverse or either coordinate realization identity.
+- Do not extend `Q` arbitrarily outside `range y` and then claim global
+  derivative or determinant identities.
+- Do not identify the maintained determinant with CERT12 by matching notation;
+  prove the cleared algebraic equality.
+- Keep `q>0`, `Lambda>0`, `F₂>0`, and `C₄>0` as named certificate-instance
+  boundaries until their Lean statements are constructed.
+- Keep Lean compilations serialized and target only changed modules.
 
 ## Intended result
 
-An exact maintained terminal quotient/coordinate-`Psi` conversion theorem,
-with every remaining analytic or certificate instance premise exposed.
+A kernel-checked curvature-coordinate realization theorem strong enough to
+instantiate the `Q` and `Q₁` premises of
+`terminalQuotD_pos_of_determinantC4`, together with an exact list of the
+remaining higher-jet and certificate bridges.

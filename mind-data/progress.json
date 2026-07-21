@@ -464,8 +464,12 @@
     "P000116": {
       "blurb": "Derived strict coordinate-Psi decrease from the maintained determinant-driven derivative sign, removing the terminal monotonicity premise",
       "created_at": "2026-07-21T02:26:16+00:00"
+    },
+    "P000117": {
+      "blurb": "Integrate terminal quotient and determinant-derived coordinate-Psi decrease into maintained Lean with replayable non-vacuity audit",
+      "created_at": "2026-07-21T02:51:45+00:00"
     }
   },
-  "next_id": 117,
+  "next_id": 118,
   "version": 1
 }

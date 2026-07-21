@@ -166,3 +166,17 @@ identity, positive transport integral, positive numerator, or derivative sign
 is a hypothesis. Global positivity of the supplied determinant function is an
 explicit hypothesis, and the actual Riemann-kernel construction and proof of
 that hypothesis remain open.
+
+## NV-014 — terminal quotient sign
+
+The terminal quotient derivative is identified algebraically with the
+positive terminal quotient times a difference of two evaluations of the same
+maintained coordinate `Psi`. Determinant positivity first yields a negative
+derivative for that `Psi`, then a strict antitone theorem, and only then the
+ordered-point difference. Neither terminal positivity nor `Psi` monotonicity
+is a hypothesis of the integrated wrapper.
+
+Conditional core closed:
+`PF4.TranslationQuotientPsi.terminalQuotD_pos_of_determinantC4`. The remaining
+premises are the explicit kernel regularity, positive curvature and lower
+`Lambda`, coordinate realization, coordinate jet, and determinant inputs.
