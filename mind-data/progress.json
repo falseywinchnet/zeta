@@ -516,8 +516,12 @@
     "P000129": {
       "blurb": "formalize theta modular continuation and global smooth even kernel; retire deleted Jacobian artifacts",
       "created_at": "2026-07-21T06:20:11+00:00"
+    },
+    "P000130": {
+      "blurb": "prove the global Riemann kernel equals the positive theta series on the nonnegative axis",
+      "created_at": "2026-07-21T07:01:49+00:00"
     }
   },
-  "next_id": 130,
+  "next_id": 131,
   "version": 1
 }

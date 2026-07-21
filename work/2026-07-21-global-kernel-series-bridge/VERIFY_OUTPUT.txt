@@ -1,0 +1,10 @@
+Lean command:
+lake env lean ../../work/2026-07-21-global-kernel-series-bridge/GlobalKernelSeriesBridge.lean
+
+Exit code: 0
+
+Output:
+Only non-fatal tactic suggestions; no warnings or errors.
+
+Text audit:
+No occurrences of `sorry`, `admit`, or custom `axiom`.
