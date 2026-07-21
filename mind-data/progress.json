@@ -512,8 +512,12 @@
     "P000128": {
       "blurb": "construct concrete polynomial-geometric theta-jet controls and close positive-side differentiation through order six",
       "created_at": "2026-07-21T06:01:02+00:00"
+    },
+    "P000129": {
+      "blurb": "formalize theta modular continuation and global smooth even kernel; retire deleted Jacobian artifacts",
+      "created_at": "2026-07-21T06:20:11+00:00"
     }
   },
-  "next_id": 129,
+  "next_id": 130,
   "version": 1
 }

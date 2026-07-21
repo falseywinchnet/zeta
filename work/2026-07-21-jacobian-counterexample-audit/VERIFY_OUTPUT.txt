@@ -1,4 +1,0 @@
-det JF = -2
-collision image = (-1/4, 0, 0)
-escaping curve image = (0, 2/s, 0)
-PASS: exact constant-Jacobian and noninjectivity certificates
