@@ -2,7 +2,8 @@
 
 Mode: advancement
 
-Starting evidence: P000118–P000121, R181/CERT19, and their maintained integration in
+Starting evidence: P000118–P000130, R181–R184/CERT19–CERT20, and their maintained
+integration in `PF4.Theta`, `PF4.KernelSeries`, `PF4.Kernel`,
 `PF4.CurvatureCoordinateRealization`, `PF4.LocalCentralIntegration`, and
 `PF4.LocalFinalAssembly`.
 
@@ -33,29 +34,45 @@ central-identity premise, positive-integral premise, or desired-sign premise.
 
 ## Next exact boundary
 
-Construct the actual Riemann-kernel functions `S,q,q1,q2,q3,q4` in Lean and
-connect their statements to the exact CERT12 sign propositions. Then feed that
-package into the maintained actual-range theorem and connect the resulting
-coordinate-`Psi` interval decrease directly to the terminal quotient cascade.
+First resolve the analytic fork exposed by the real-only integration:
+
+1. either prove the required theta transformation/parity by a transparent
+   project-level real argument whose dependencies are fully expanded;
+2. or replace parity transport by direct all-real convergence and certificate
+   estimates for the literal kernel series.
+
+Do not import a complex Jacobi-theta or high-level Poisson/Gaussian theorem and
+describe it as eliminated. The quadratic exponential is intrinsic to the
+kernel; the objective is to remove opaque special-function bridges, not to
+rename them.
+
+After that fork is selected, construct the actual Riemann-kernel functions
+`S,q,q1,q2,q3,q4` from the integrated raw jet and connect their statements to
+the exact CERT12 sign propositions. Then feed that package into the maintained
+actual-range theorem and connect the resulting coordinate-`Psi` interval
+decrease directly to the terminal quotient cascade.
 
 ## Required bridges
 
-1. Define the Riemann kernel and the logarithmic-slope/curvature derivative
-   tower with enough regularity to supply the five maintained derivative
-   equalities and `Continuous q4`.
-2. State the exact Lean propositions certified by CERT12 for `q>0`, `F₂>0`,
+1. Extend or transport `PF4.IntervalControl.derivativeTowerThroughSix_at_nonneg` to the exact
+   all-real domain needed by the target, and identify the resulting values as
+   derivatives of `PF4.globalRiemannKernel`.
+2. Define the logarithmic-slope/curvature derivative tower with enough
+   regularity to supply the five maintained derivative equalities and
+   `Continuous q4`.
+3. State the exact Lean propositions certified by CERT12 for `q>0`, `F₂>0`,
    and determinant `C₄>0`; prove that their definitions are definitionally or
    algebraically identical to the maintained kernel objects.
-3. Package those facts in one theorem without storing the desired derivative
+4. Package those facts in one theorem without storing the desired derivative
    sign or a coordinate object as a field.
-4. Upgrade the pointwise actual-coordinate derivative theorem to strict
+5. Upgrade the pointwise actual-coordinate derivative theorem to strict
    decrease on each actual coordinate interval, using the checked derivative
    sign and range inclusion.
-5. Identify that interval decrease with the two coordinate evaluations in
+6. Identify that interval decrease with the two coordinate evaluations in
    `terminalQuotD_eq_terminalQuot_mul_coordinatePsi_sub`.
-6. Separately construct the actual lower-`Lambda` positivity instance required
+7. Separately construct the actual lower-`Lambda` positivity instance required
    by the second quotient sign.
-7. Prefer cleared polynomial or integral forms for the highest jet identities
+8. Prefer cleared polynomial or integral forms for the highest jet identities
    when they reduce denominator bookkeeping; retain explicit equivalence proofs.
 
 ## No-cheating gates

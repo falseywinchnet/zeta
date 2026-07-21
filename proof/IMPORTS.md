@@ -13,9 +13,13 @@ Used by: S02 even continuation.
 Current source: de Bruijn is cited for the kernel normalization, but the paper
 does not give a precise theorem locator for the theta transformation.
 
-Status: `OBLIGATION`. Prefer a mathlib theorem if its normalization is proved
-equivalent; otherwise reconstruct from Poisson summation. Transitive
-dependencies are not yet closed.
+Status: `OBLIGATION`. The maintained `PF4.Theta`, `PF4.KernelSeries`, and
+`PF4.Kernel` modules deliberately do not import a Jacobi-theta theorem,
+Fourier transform, Poisson summation, or complex analysis. The transformation
+is still needed if parity transports positive-side certificates to the full
+line. A future proof must either expose a transparent real derivation of that
+statement or replace parity by direct all-real estimates; renaming an
+equivalent Poisson theorem does not close this import.
 
 ## I-002 — local uniform convergence and differentiation of theta series
 
@@ -25,9 +29,11 @@ used in the PF4 and PF5 paths.
 
 Used by: S02, S03, S10.
 
-Status: `OBLIGATION`. The paper states the result without a precise import.
-This is likely simpler to prove directly by uniform Gaussian majorants than to
-trust as a bibliographic leaf.
+Status: `FORMAL_FRAGMENT`. `PF4.KernelSeries` proves a literal six-level
+derivative tower on every interval `(-1,B)`, hence at every `t ≥ 0`, using
+finite polynomial coefficient bounds and polynomial-times-exponential
+comparison series. No special-function integration theorem is used. The
+all-real statement and its connection to parity remain open.
 
 ## I-003 — determinant and matrix integration facts
 
@@ -86,4 +92,3 @@ For every theorem-bearing import, add exact source version, theorem number or
 page, hypotheses, local substitution, formal-library declaration if any, and
 the dependencies used in its proof. Continue until the branch reaches a formal
 theorem, a locally reconstructed proof, or a visible unresolved leaf.
-

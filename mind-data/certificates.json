@@ -880,14 +880,14 @@
         },
         {
           "path": "proof/formal/PF4.lean",
-          "sha256": "88ba77c49d6ce03c41d0ae41d2bb3835a9f0d1093ca92df566d95b7f33d31a1f"
+          "sha256": "d8a42d919a530ddb23505a2122872e075a554a1b9d7a5b68e962ee5f1a402433"
         }
       ],
       "attestation": {
-        "manifest_sha256": "0cbc5b521ad4d431cb96bfda72606d341ea1512df1264951310b8a7cece2b867",
+        "manifest_sha256": "7cc32446ac532ce6209ae398160a6d19ac81b260b2631423c304a0e3d56a5b7f",
         "method": "executed",
         "schema": 1,
-        "verified_at": "2026-07-21T04:30:20+00:00"
+        "verified_at": "2026-07-21T07:27:50+00:00"
       },
       "created_at": "2026-07-21T02:49:35+00:00",
       "dependencies": [],
@@ -895,7 +895,7 @@
       "environment": null,
       "file": {
         "path": "proof/formal/PF4/Audit.lean",
-        "sha256": "fefe924e49cb23e57b3a41c906fd1e5c067dfc99df33c4d2a27e4fbc5f15d422"
+        "sha256": "d7f3796603401d7ad1bbc97153a05a4f65294d7e891da888ff7abe8055bc3eb6"
       },
       "precision": "Lean v4.32.0/mathlib v4.32.0 kernel-checked symbolic proof; conditional theorem only, with no actual Riemann-kernel instance claimed",
       "requirements": [],
@@ -910,13 +910,13 @@
         ],
         "expected_exit_code": 0,
         "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "stdout_sha256": "506c23385e342d1980d34f817c9c2c1821b822805ff07850e82858d593b58900",
+        "stdout_sha256": "f00454e2b5efa22c2fbc07b830f98a11eb3ad332fa62556eb71ff65e85ac1abf",
         "timeout_seconds": 180
       },
       "topics": [
         "T000012"
       ],
-      "updated_at": "2026-07-21T04:30:20+00:00"
+      "updated_at": "2026-07-21T07:27:50+00:00"
     },
     "K000019": {
       "artifacts": [
@@ -942,14 +942,14 @@
         },
         {
           "path": "proof/formal/PF4.lean",
-          "sha256": "88ba77c49d6ce03c41d0ae41d2bb3835a9f0d1093ca92df566d95b7f33d31a1f"
+          "sha256": "d8a42d919a530ddb23505a2122872e075a554a1b9d7a5b68e962ee5f1a402433"
         }
       ],
       "attestation": {
-        "manifest_sha256": "fb8ee5dfa37e7d64aee120707b863f4ba5acb755c2d9cdd8eab66c44db38b0bc",
+        "manifest_sha256": "d5daf020e87ae21111d9b194de20e95cc272b1c222e3a093efeb02d7a005aaf4",
         "method": "executed",
         "schema": 1,
-        "verified_at": "2026-07-21T04:31:39+00:00"
+        "verified_at": "2026-07-21T07:28:19+00:00"
       },
       "created_at": "2026-07-21T04:26:48+00:00",
       "dependencies": [],
@@ -957,7 +957,7 @@
       "environment": "",
       "file": {
         "path": "proof/formal/PF4/Audit.lean",
-        "sha256": "fefe924e49cb23e57b3a41c906fd1e5c067dfc99df33c4d2a27e4fbc5f15d422"
+        "sha256": "d7f3796603401d7ad1bbc97153a05a4f65294d7e891da888ff7abe8055bc3eb6"
       },
       "precision": "Lean v4.32.0/mathlib v4.32.0 kernel-checked symbolic proof; conditional on explicit derivative tower and q/F2/C4 positivity, with no actual Riemann-kernel certificate bridge claimed",
       "requirements": [],
@@ -972,15 +972,65 @@
         ],
         "expected_exit_code": 0,
         "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "stdout_sha256": "506c23385e342d1980d34f817c9c2c1821b822805ff07850e82858d593b58900",
+        "stdout_sha256": "f00454e2b5efa22c2fbc07b830f98a11eb3ad332fa62556eb71ff65e85ac1abf",
         "timeout_seconds": 180
       },
       "topics": [
         "T000012"
       ],
-      "updated_at": "2026-07-21T04:31:39+00:00"
+      "updated_at": "2026-07-21T07:28:19+00:00"
+    },
+    "K000020": {
+      "artifacts": [
+        {
+          "path": "proof/formal/PF4/Theta.lean",
+          "sha256": "9730bc72d7b541b046c84658cfc0ba64e5b5aae8ea92f5f5fa5f879f4dff9b74"
+        },
+        {
+          "path": "proof/formal/PF4/KernelSeries.lean",
+          "sha256": "78ac7fcf519efd9ff30427c906271a0c3c983fe7b4b45207b6267214db16d20c"
+        },
+        {
+          "path": "proof/formal/PF4/Kernel.lean",
+          "sha256": "c4e1c549c04326f8d2e064462336a73ba6e2f61e93441b98a88573e9c8ad9e87"
+        }
+      ],
+      "attestation": {
+        "manifest_sha256": "d805214eb63a5fb5d28f4b6c0439aaf89a966f1dd89aba5ebf79fe8adea8eba2",
+        "method": "executed",
+        "schema": 1,
+        "verified_at": "2026-07-21T07:25:42+00:00"
+      },
+      "created_at": "2026-07-21T07:25:15+00:00",
+      "dependencies": [],
+      "description": "Lean 4 real analytic foundation for the Riemann kernel: literal integer theta summability and positive-mode splitting, a positive-side derivative tower through order six, and the exact H-operator series identity on the nonnegative half-line",
+      "environment": null,
+      "file": {
+        "path": "proof/formal/PF4/Audit.lean",
+        "sha256": "d7f3796603401d7ad1bbc97153a05a4f65294d7e891da888ff7abe8055bc3eb6"
+      },
+      "precision": null,
+      "requirements": [],
+      "runner": {
+        "argv": [
+          "lake",
+          "--dir",
+          "proof/formal",
+          "env",
+          "lean",
+          "proof/formal/PF4/Audit.lean"
+        ],
+        "expected_exit_code": 0,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "f00454e2b5efa22c2fbc07b830f98a11eb3ad332fa62556eb71ff65e85ac1abf",
+        "timeout_seconds": 300
+      },
+      "topics": [
+        "T000012"
+      ],
+      "updated_at": "2026-07-21T07:25:15+00:00"
     }
   },
-  "next_id": 20,
+  "next_id": 21,
   "version": 1
 }

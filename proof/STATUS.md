@@ -2,10 +2,17 @@
 
 Target: `PF4-CORE-v1`
 
-Formal completion: **10/46 obligations**
+Formal completion: **12/46 obligations**
 
 Current strongest result: a conventional proof supported by exact symbolic and
-rational certificates. Lean 4.32.0 and mathlib 4.32.0 are pinned; target
+rational certificates. Lean 4.32.0 and mathlib 4.32.0 are pinned. The analytic
+foundation now constructs the literal real integer theta sum, proves its
+summability by an elementary exponential comparison, splits off its positive
+modes, constructs the positive-mode kernel jet through order six on `t ≥ 0`,
+and proves the `H''-H/4` kernel equals that series there. These maintained
+modules contain no complex-valued object, Fourier transform, Poisson-summation
+theorem, or Gaussian-library import (`R182`--`R184`, `CERT20`). Global parity
+and negative-half-line jet transport remain open. Target
 definitions, signed PF5 indices, constructive crossing algebra, and the actual
 left-density identity/sign bridge are kernel-checked. The actual restricted-
 density measures, mass-one interfaces, strict right mass, all three interior
@@ -41,20 +48,20 @@ is now checked, its endpoint object is proved equal to the maintained
 coordinate `Psi`, and determinant positivity supplies strict `Psi` decrease
 and hence the terminal sign with the correct ordered-point orientation. The
 actual Riemann-kernel bridges for `q>0`, `Lambda>0`, the coordinate inverse and
-jet realization, and `C₄>0` remain open, so the formal completion count is
-unchanged.
+jet realization, and `C₄>0` remain open, so they do not complete additional
+obligations.
 
 ## Analytic foundation
 
 | ID | Claim | Present status | Formal blocker |
 |---|---|---|---|
-| PO-0001 | Theta series is well-defined for `x > 0` | CONVENTIONALLY_PROVED | Lean series construction |
-| PO-0002 | Required derivative series converge locally uniformly | OBLIGATION | uniform majorants through required order |
-| PO-0003 | Theta transformation in the chosen normalization | IMPORTED/OPEN | exact formal import or reconstruction |
-| PO-0004 | `H` is real analytic and even | CONVENTIONALLY_PROVED | PO-0002/0003 formal bridge |
-| PO-0005 | Primary `Φ` equals the displayed positive-side series | CONVENTIONALLY_PROVED | termwise differentiation in Lean |
-| PO-0006 | `Φ` has all derivatives used through the PF5 witness | CONVENTIONALLY_PROVED | exact regularity order and proof |
-| PO-0007 | `Φ` is even on `ℝ` | CONVENTIONALLY_PROVED | PO-0004/0005 formal bridge |
+| PO-0001 | Theta series is well-defined for `x > 0` | FORMALLY_PROVED | none; `PF4.summable_int_thetaTerms` and the literal `riemannTheta` construction close it |
+| PO-0002 | Required derivative series converge locally uniformly | FORMAL_FRAGMENT | explicit polynomial-geometric majorants justify six positive-mode derivatives on every bounded interval `(-1,B)`; an all-real or parity-transported statement remains |
+| PO-0003 | Theta transformation in the chosen normalization | OBLIGATION | deliberately not imported; either prove a real transformation theorem transparently or avoid parity with direct all-real estimates |
+| PO-0004 | `H` is real analytic and even | FORMAL_FRAGMENT | `H` and its positive-mode decomposition are constructed; global analyticity/evenness remain dependent on PO-0002/0003 or an alternative all-real route |
+| PO-0005 | Primary `Φ` equals the displayed positive-side series | FORMAL_FRAGMENT | `PF4.globalRiemannKernel_eq_thetaSeries_of_nonneg` proves the exact identity for `t ≥ 0`; the negative half-line remains |
+| PO-0006 | `Φ` has all derivatives used through the PF5 witness | FORMAL_FRAGMENT | `PF4.IntervalControl.derivativeTowerThroughSix_at_nonneg` gives the raw series jet through order six for `t ≥ 0`; global identification remains |
+| PO-0007 | `Φ` is even on `ℝ` | OBLIGATION | no complex/Poisson bridge is retained in the maintained project |
 | PO-0008 | `Φ(t) > 0` for every real `t` | CONVENTIONALLY_PROVED | formal `2π > 3` and series positivity |
 | PO-0009 | `ℓ,s,q` are globally well-defined | OBLIGATION | PO-0008 plus differentiability |
 | PO-0010 | `A,M` are well-defined on ordered arguments when used | OBLIGATION | denominator positivity/provenance |
@@ -122,7 +129,7 @@ unchanged.
 
 ## Immediate next work
 
-1. Execute `proof/NEXT_ADVANCEMENT.md`: construct the actual Riemann-kernel
-   derivative/sign package consumed by the maintained range-local theorem and
-   connect its interval sign to the quotient cascade.
+1. Execute `proof/NEXT_ADVANCEMENT.md`: choose and close the parity/negative-
+   half-line fork without hiding a Poisson-equivalent theorem, then identify
+   the integrated raw series jet with the maintained actual-kernel package.
 2. Design canonical certificate statements for PO-0011–PO-0013 and PO-0045.

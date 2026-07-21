@@ -9,6 +9,11 @@ import PF4
 set_option linter.style.header false
 
 #print axioms PF4.StrictPFUpTo.pfUpTo
+#print axioms PF4.riemannTheta_eq_one_add_two_mul_positive
+#print axioms PF4.hasSum_positiveThetaTerms
+#print axioms PF4.IntervalControl.derivativeTowerThroughSix_at_nonneg
+#print axioms PF4.globalRiemannKernel_eq_paper_form
+#print axioms PF4.globalRiemannKernel_eq_thetaSeries_of_nonneg
 #print axioms PF4.Crossing.crossingPoint_mem
 #print axioms PF4.Crossing.densityRatio_eq_one_iff
 #print axioms PF4.Densities.leftDensity_ratio

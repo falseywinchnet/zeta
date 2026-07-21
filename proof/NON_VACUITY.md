@@ -18,7 +18,12 @@ analytic function. Its existence, differentiability, and equality to the
 positive-side series precede `Φ > 0`. Defining `Φ` as a positive function would
 launder the central instance property.
 
-Open: PO-0002 through PO-0007.
+PO-0001 is closed by the literal `riemannTheta` construction and
+`PF4.summable_int_thetaTerms`. The positive-index split, six-level series jet,
+and nonnegative-axis kernel equality are also constructed. Open: global
+regularity/parity and the negative-half-line portions of PO-0002 through
+PO-0007. No positivity subtype, complex theta object, or Poisson theorem is
+used to manufacture the kernel.
 
 ## NV-003 — logarithmic derivatives
 

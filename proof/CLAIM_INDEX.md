@@ -2,7 +2,7 @@
 
 | Claim | Paper anchor | MIND / certificate | Obligation | Lean declaration | Status |
 |---|---|---|---|---|---|
-| Kernel definition/evenness | S02 | R171 context | PO-0001–0007 | unset | CONVENTIONALLY_PROVED |
+| Kernel definition/evenness | S02 | R171 context; P000128–P000130 | PO-0001–0007 | `PF4.riemannTheta`, `PF4.riemannH`, `PF4.globalRiemannKernel`, `PF4.globalRiemannKernel_eq_thetaSeries_of_nonneg`, `PF4.IntervalControl.derivativeTowerThroughSix_at_nonneg`; parity remains unset | FORMAL_FRAGMENT |
 | `Φ > 0` | S02 | R171 context | PO-0008 | unset | CONVENTIONALLY_PROVED |
 | `q > 0` | S03 | R171, CERT12 | PO-0011 | unset | CERTIFIED |
 | `F₂ > 0` | S03 | R171, CERT12 | PO-0012 | unset | CERTIFIED |

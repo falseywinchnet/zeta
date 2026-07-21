@@ -198,8 +198,15 @@ path until `R93` is resolved.
   algebra. `R181`/`CERT19` additionally kernel-check the actual-range coordinate
   inverse and jet, local deterministic gap, direct compact-interval integration
   by parts, and the resulting coordinate-`Psi` derivative sign under explicit
-  original-variable derivative and `q`, `F2`, `C4` sign inputs. The actual
-  Riemann-kernel certificate-to-Lean bridge remains open. The former
+  original-variable derivative and `q`, `F2`, `C4` sign inputs. The maintained
+  analytic foundation now defines the literal real integer theta sum, proves
+  its summability and positive-mode split, constructs the positive-side kernel
+  derivative tower through order six, and identifies the `H''-H/4` kernel with
+  that series on the nonnegative half-line (`R182`--`R184`, `CERT20`). These
+  project modules use no complex-valued object, Fourier transform, Poisson
+  theorem, or packaged Gaussian result. Global parity or an independent
+  negative-half-line argument, followed by the actual `q`, `F2`, and `C4`
+  certificate-to-Lean bridges, remains open. The former
   escape/chart atlas is superseded (`R163`); `CERT6`--
   `CERT8` are archived, so routine certificate replay and progress commits skip
   them. Their manifests, supports, and explicit targeted replay remain available

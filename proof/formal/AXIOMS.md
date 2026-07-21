@@ -24,6 +24,11 @@ This is a selected target-facing and transitive audit, not an enumeration of
 every exported helper theorem.
 
 - `PF4.StrictPFUpTo.pfUpTo`
+- `PF4.riemannTheta_eq_one_add_two_mul_positive`
+- `PF4.hasSum_positiveThetaTerms`
+- `PF4.IntervalControl.derivativeTowerThroughSix_at_nonneg`
+- `PF4.globalRiemannKernel_eq_paper_form`
+- `PF4.globalRiemannKernel_eq_thetaSeries_of_nonneg`
 - `PF4.Crossing.crossingPoint_mem`
 - `PF4.Crossing.densityRatio_eq_one_iff`
 - `PF4.Densities.leftDensity_ratio`

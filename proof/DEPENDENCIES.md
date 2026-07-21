@@ -53,14 +53,15 @@ their conclusions backward.
 
 ## Current unresolved leaves
 
-1. Lean/mathlib toolchain and exact formal statement representation.
-2. Formal analytic construction and differentiation of `Φ`.
-3. Formal statement bridges for CERT12 and CERT17.
-4. Instantiate the maintained quotient sign conversions with the actual
+1. Complete the all-real analytic identity for `Φ`: the literal theta sum,
+   positive-mode bridge, and six-jet are checked on `t ≥ 0`, while parity or a
+   direct negative-half-line replacement remains open.
+2. Formal statement bridges for CERT12 and CERT17.
+3. Instantiate the maintained quotient sign conversions with the actual
    Riemann-kernel `q>0` and `Lambda>0` inputs.
-5. Construct the curvature coordinate on its image, identify the actual
-   kernel jets with `Q,Q₁,...,Q₄`, and connect the certified `C₄>0` statement
-   to the determinant premise.
+4. Identify the integrated raw kernel jets with `Q,Q₁,...,Q₄` on the actual
+   curvature-coordinate image and connect the certified `C₄>0` statement to
+   the determinant premise.
 
 PO-0026 through PO-0028 and PO-0037 through PO-0039 are `FORMALLY_PROVED`.
 PO-0029, PO-0040, and PO-0041 are checked conditional cores, not completed

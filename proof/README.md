@@ -2,7 +2,9 @@
 
 This directory reconstructs the submitted PF4 argument under the stricter
 standard in [SPECIFICATIONS.MD](SPECIFICATIONS.MD). It does not revise the
-submitted paper and does not claim a Lean proof yet.
+submitted paper. The Lean development is active but the target theorem is not
+yet complete; [STATUS.md](STATUS.md) records the exact formal fragments and
+open instance bridges.
 
 ## Current boundary
 
@@ -30,4 +32,3 @@ threshold refinement are outside the first formal target.
 
 `CONVENTIONALLY_PROVED` and `CERTIFIED` in these files report existing evidence.
 Neither means `FORMALLY_PROVED`.
-

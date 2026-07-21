@@ -3406,8 +3406,53 @@
       ],
       "status": "established",
       "updated_at": "2026-07-21T04:28:06+00:00"
+    },
+    "F000182": {
+      "because": [
+        {
+          "id": "K000020",
+          "type": "certificate"
+        }
+      ],
+      "content": "Maintained Lean defines the real Riemann theta function as a literal integer quadratic-exponential sum and proves its summability and positive-mode split.",
+      "created_at": "2026-07-21T07:25:53+00:00",
+      "relates_to": [
+        "T000012"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-21T07:25:53+00:00"
+    },
+    "F000183": {
+      "because": [
+        {
+          "id": "K000020",
+          "type": "certificate"
+        }
+      ],
+      "content": "Maintained Lean constructs the positive-mode Riemann-kernel derivative tower through order six at every nonnegative real point.",
+      "created_at": "2026-07-21T07:25:53+00:00",
+      "relates_to": [
+        "T000012"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-21T07:25:53+00:00"
+    },
+    "F000184": {
+      "because": [
+        {
+          "id": "K000020",
+          "type": "certificate"
+        }
+      ],
+      "content": "Maintained Lean proves that the real H-operator kernel equals the positive-mode theta kernel series at every nonnegative real point.",
+      "created_at": "2026-07-21T07:25:53+00:00",
+      "relates_to": [
+        "T000012"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-21T07:25:53+00:00"
     }
   },
-  "next_id": 182,
+  "next_id": 185,
   "version": 1
 }

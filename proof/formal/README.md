@@ -17,6 +17,7 @@ infrastructure and crossing theorems.
 PF4/Definitions.lean
 PF4/Theta.lean
 PF4/Kernel.lean
+PF4/KernelSeries.lean
 PF4/OrderedNodes.lean
 PF4/DeterminantIntegral.lean
 PF4/QuotientWronskian.lean
@@ -49,6 +50,15 @@ PF4/TranslationQuotientAssembly.lean
 
 Implemented modules:
 
+- `PF4.Theta`: the literal real integer theta sum, elementary exponential
+  summability, positive-index splitting, and the global `H` definition,
+  without complex values, Fourier/Poisson imports, or a Gaussian library;
+- `PF4.KernelSeries`: the literal positive-mode kernel series, the CERT12
+  polynomial recurrence, explicit bounded-interval majorants, and six
+  termwise derivatives at every nonnegative point;
+- `PF4.Kernel`: the legal `H''-H/4` kernel operator, real positive-mode
+  decomposition, two-derivative bridge, and exact equality with the maintained
+  kernel series on `t ≥ 0`; parity and the negative half-line remain open;
 - `PF4.Definitions`: translation matrices/minors, PF order, strict PF order,
   and signed equally spaced matrices;
 - `PF4.Crossing`: explicit crossing-point algebra and exact ratio sign regions;
@@ -122,7 +132,10 @@ Implemented modules:
   conditional transfer theorem from three explicit quotient-level sign
   premises. The theorem namespace and public names remain unchanged.
 
-No stub theorem with `sorry` is used. The proof-facing cumulative object is
+No stub theorem with `sorry` is used. The analytic kernel modules use only
+real exponential series at the project level; they intentionally leave the
+theta transformation/evenness boundary open rather than importing an opaque
+complex or Poisson bridge. The proof-facing cumulative object is
 `PF4.Cumulative.coordinateGap`; the measure-backed CDF is retained as a
 validation interface. The identities and conditional implications represented
 by PO-0026 through PO-0029 and PO-0041 are maintained kernel-checked theorems;

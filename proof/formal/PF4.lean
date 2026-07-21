@@ -1,3 +1,4 @@
+import PF4.Kernel
 import PF4.FinalAssembly
 import PF4.LocalFinalAssembly
 import PF4.QuotientAlgebra

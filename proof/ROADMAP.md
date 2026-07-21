@@ -26,6 +26,15 @@ what theorem it is meant to prove.
 Exit gate: every derivative, logarithm, inverse, and integral in the generic
 and instance layers is well-defined.
 
+Integrated status: the literal real theta sum, its positive-index split, the
+positive-mode kernel series, six derivatives on `t ≥ 0`, and the exact
+`H''-H/4` representation there are maintained Lean theorems. Their proofs use
+no project-level complex object, Fourier transform, Poisson theorem, or
+Gaussian-library import. The remaining Track B fork is explicit: prove parity
+and negative-half-line transport by a transparent real theorem, or replace
+parity with direct all-real estimates. `Φ>0`, logarithmic derivatives, and the
+actual CERT12 instance bridge remain downstream.
+
 ## Track C — generic determinant engine
 
 1. Formalize ordered nodes and translation minors.
