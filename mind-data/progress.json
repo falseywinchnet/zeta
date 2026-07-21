@@ -488,8 +488,12 @@
     "P000122": {
       "blurb": "Integrate the actual-range coordinate, local gap, and direct central identity into maintained Lean, closing the conditional coordinate-Psi sign without object premises",
       "created_at": "2026-07-21T04:28:53+00:00"
+    },
+    "P000123": {
+      "blurb": "connected actual-coordinate Psi decrease and derived lower Lambda positivity to terminal cascade",
+      "created_at": "2026-07-21T04:41:37+00:00"
     }
   },
-  "next_id": 123,
+  "next_id": 124,
   "version": 1
 }
