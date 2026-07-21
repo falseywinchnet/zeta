@@ -452,8 +452,12 @@
     "P000113": {
       "blurb": "Integrate the checked first and second translation-quotient sign conversions into maintained Lean, audit their standard axioms, and narrow the next boundary to the terminal coordinate-Psi bridge",
       "created_at": "2026-07-21T01:17:57+00:00"
+    },
+    "P000114": {
+      "blurb": "Refined Lean imports by isolating translation-quotient assembly, narrowing the umbrella graph, removing the style warning, and revalidating the full build and axiom audit",
+      "created_at": "2026-07-21T01:50:16+00:00"
     }
   },
-  "next_id": 114,
+  "next_id": 115,
   "version": 1
 }

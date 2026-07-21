@@ -4,7 +4,7 @@ Date: 2026-07-20. Scope: `proof/formal` (Lean 4.32.0, mathlib v4.32.0 pinned).
 
 ## Where we stand
 
-- 20 project modules, ~5,286 lines, all building cleanly as of this sheet.
+- 21 project modules, ~5,292 lines, all building cleanly as of this sheet.
 - `PF4/Audit.lean` covers the maintained target-facing theorem surface,
   including the order-four quotient engine. It is a selected transitive audit,
   not an exhaustive list of every exported helper theorem. Every declaration
@@ -15,9 +15,12 @@ Date: 2026-07-20. Scope: `proof/formal` (Lean 4.32.0, mathlib v4.32.0 pinned).
     trace-checking across ~2,700 targets;
   - `PF4.QuotientAlgebra`: ~38 s; `PF4.QuotientIntegral`: ~73–300 s (slowest
     module); `lake env lean PF4/Audit.lean`: ~65 s;
-  - `PF4.TranslationQuotientSigns`: 41 s through its Lake target; the
-    incremental full build after integration took 58 s and the warm axiom
-    audit took 32 s;
+  - after separating determinant assembly, `PF4.TranslationQuotientTower`
+    rebuilt in 32 s and `PF4.TranslationQuotientSigns` in 71 s in the refine
+    run; the assembly leaf rebuilt in 42 s;
+  - an earlier `PF4.TranslationQuotientSigns` check took 41 s through its Lake
+    target; the incremental full build after integration took 58 s and the
+    warm axiom audit took 32 s;
   - a full project rebuild is tens of minutes; incremental builds are fine.
 
 ## Incident recorded this session (drives several directions below)
@@ -71,7 +74,7 @@ the full library kernel-checks. Lesson: **a commit message is not a build.**
    bridges → FinalAssembly`), so an edit to an early module re-elaborates
    almost everything. Put slow-moving algebra early in the chain and keep
    frequently edited assembly modules as leaves.
-6. **Split `PF4/QuotientIntegral.lean`** (622 lines, slowest module) into
+6. **Split `PF4/QuotientIntegral.lean`** (646 lines, slowest module) into
    (a) rowDet algebra + derivative lemmas, (b) integral engine,
    (c) strictness assembly. Then edits to the assembly stop paying the
    ~1–2 min re-elaboration of the whole engine.
@@ -121,8 +124,8 @@ the full library kernel-checks. Lesson: **a commit message is not a build.**
    it for order four, but if an arbitrary-order generalization is attempted,
    switch to one `Fin n`-indexed slot lemma instead of quadratic file growth.
 2. `weak.linter.mathlibStandardSet = true` in `lakefile.toml` is good; also
-   fix the outstanding `simpa`→`simp` lint in `Measures.lean:254` and keep
-   the build warning-clean so real regressions are visible.
+   keep the build warning-clean so real regressions are visible. The
+   `simpa`→`simp` lint in `Measures.lean:254` was fixed in this refine round.
 3. The first two translation-quotient sign conversions now live in the leaf
    module `PF4.TranslationQuotientSigns`. Keep the terminal coordinate-`Psi`
    bridge in a separate leaf module rather than importing the transport stack
@@ -132,3 +135,27 @@ the full library kernel-checks. Lesson: **a commit message is not a build.**
    `touch`-ing one module, or `set_option profiler true` locally) and record
    the top offenders here so regressions are caught at the epoch gate rather
    than discovered mid-round.
+
+## 5. Import-graph refinements completed
+
+1. `PF4.TranslationQuotientTower` no longer imports the 646-line
+   `PF4.QuotientIntegral`. Its object identity and strictness transfer now
+   live in the leaf `PF4.TranslationQuotientAssembly`; the public theorem
+   names are unchanged because the namespace is unchanged. Edits to the
+   quotient objects or sign conversions therefore do not invalidate the
+   integral engine.
+2. The tower's hidden derivative dependency is explicit:
+   `Mathlib.Analysis.Calculus.Deriv.Add` is required for `HasDerivAt.sub`.
+   `Deriv.Comp` was removed as a redundant direct import because `Deriv.Inv`
+   already imports it. The compiled check improved from 45 s to 32 s in the
+   immediately adjacent runs; treat that as an observed run, not a stable
+   benchmark.
+3. The `PF4` umbrella now imports four graph leaves rather than directly
+   importing all twenty implementation modules: `FinalAssembly`,
+   `QuotientAlgebra`, `TranslationQuotientSigns`, and
+   `TranslationQuotientAssembly`. `Audit.lean` imports only that umbrella.
+4. Lake 5.0's `lake shake` cannot currently analyze these sources because
+   they use Lean's legacy import-header form rather than explicit `module`
+   declarations (`lake shake` reports that it only works with modules).
+   Continue compiled, one-import-at-a-time narrowing until a separately
+   reviewed module-header migration makes the automated audit available.

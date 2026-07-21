@@ -36,7 +36,9 @@ PF4/FinalAssembly.lean
 PF4/Main.lean
 PF4/PF5Witness.lean
 PF4/ExactOrder.lean
+PF4/TranslationQuotientTower.lean
 PF4/TranslationQuotientSigns.lean
+PF4/TranslationQuotientAssembly.lean
 ```
 
 Implemented modules:
@@ -84,14 +86,17 @@ Implemented modules:
 - `PF4.QuotientIntegral`: exact fixed-order adjacent-box integral identities
   and strict quotient-sign transfer to an unnormalized order-four minor.
 - `PF4.TranslationQuotientTower`: the actual translate quotients, their exact
-  derivative ladder and factor identities, object identity with
-  `translationMinor`, and a conditional transfer theorem from three explicit
-  quotient-level sign premises.
+  derivative ladder and factor identities, independent of the integral
+  determinant engine.
 - `PF4.TranslationQuotientSigns`: the exact logarithmic-slope and curvature
   objects, derivation of the first quotient sign from positive curvature, and
   factorization of the second quotient derivative through the S05
   lower-order `Lambda`, with its analytic positivity retained as a literal
   premise.
+- `PF4.TranslationQuotientAssembly`: the isolated connection to the integral
+  determinant engine: object identity with `translationMinor` and the
+  conditional transfer theorem from three explicit quotient-level sign
+  premises. The theorem namespace and public names remain unchanged.
 
 No stub theorem with `sorry` is used. The proof-facing cumulative object is
 `PF4.Cumulative.coordinateGap`; the measure-backed CDF is retained as a

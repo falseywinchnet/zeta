@@ -5,8 +5,6 @@ Authors: Joshuah Rainstar
 -/
 
 import PF4
-import PF4.TranslationQuotientTower
-import PF4.TranslationQuotientSigns
 
 set_option linter.style.header false
 
