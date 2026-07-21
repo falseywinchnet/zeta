@@ -548,8 +548,12 @@
     "P000137": {
       "blurb": "Closed literal PF4 normalized inequalities on the full compact continuum through x=5; proved complete infinite-tail and scaled outer half-line bounds; isolated the required x-dependent outer perturbation theorem.",
       "created_at": "2026-07-21T18:39:05+00:00"
+    },
+    "P000138": {
+      "blurb": "Audited and repaired the PF4 outer perturbation proof: replaced the leaking scaled constant box by a universal unscaled weighted-homogeneity argument, proved the missing s>=5 base envelope, and certified direct cleared q/F2/C4 margins.",
+      "created_at": "2026-07-21T18:47:49+00:00"
     }
   },
-  "next_id": 138,
+  "next_id": 139,
   "version": 1
 }
