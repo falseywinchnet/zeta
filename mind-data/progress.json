@@ -560,8 +560,12 @@
     "P000140": {
       "blurb": "Repair CERT12 Lean replay foundations with kernel-checked polynomial, exponential, contraction, and geometric tsum modules",
       "created_at": "2026-07-21T20:11:30+00:00"
+    },
+    "P000141": {
+      "blurb": "Build the maintained literal CERT12 theta-tail bridge: exact normalized thetaSeriesJet equals two leading modes plus the third mode times 1+delta with 0<=delta<1/1000 for every j<=6 and t>=0",
+      "created_at": "2026-07-21T20:30:37+00:00"
     }
   },
-  "next_id": 141,
+  "next_id": 142,
   "version": 1
 }
