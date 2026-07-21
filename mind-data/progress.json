@@ -496,8 +496,12 @@
     "P000124": {
       "blurb": "bridge cleared Riemann raw-jet signs through curvature tower to terminal cascade",
       "created_at": "2026-07-21T05:10:18+00:00"
+    },
+    "P000125": {
+      "blurb": "construct literal theta-series jet and isolate explicit interval majorant boundary",
+      "created_at": "2026-07-21T05:36:10+00:00"
     }
   },
-  "next_id": 125,
+  "next_id": 126,
   "version": 1
 }
