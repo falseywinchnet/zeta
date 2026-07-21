@@ -33,6 +33,11 @@ PF4/CoordinateSignBridge.lean
 PF4/CentralIdentity.lean
 PF4/C4Invariant.lean
 PF4/FinalAssembly.lean
+PF4/CurvatureCoordinateRealization.lean
+PF4/RangeLocalFinalAssembly.lean
+PF4/LocalGapClosure.lean
+PF4/LocalCentralIntegration.lean
+PF4/LocalFinalAssembly.lean
 PF4/Main.lean
 PF4/PF5Witness.lean
 PF4/ExactOrder.lean
@@ -82,6 +87,19 @@ Implemented modules:
   term cumulant expansion, coordinate recurrence, and curvature factorization;
 - `PF4.FinalAssembly`: determinant positivity through the central transport
   identity to strict negativity of the actual coordinate derivative.
+- `PF4.CurvatureCoordinateRealization`: inverse-on-the-actual-range calculus,
+  the complete coordinate jet through order four, and exact `F₂`/determinant
+  sign transport without assuming global coordinate surjectivity.
+- `PF4.RangeLocalFinalAssembly`: restriction of the coordinate jet, top-jet
+  continuity, and determinant sign assembly to coordinate intervals arising
+  from ordered original points.
+- `PF4.LocalGapClosure`: compact-interval branch matching, continuity, and
+  strict positivity for the deterministic closed coordinate gap.
+- `PF4.LocalCentralIntegration`: direct closed-gap integration by parts and
+  endpoint-primitive reduction of the central identity, without measures.
+- `PF4.LocalFinalAssembly`: composition of the local gap and central identity
+  layers, including the ordered-original-point derivative sign from literal
+  jet and `q`, `F₂`, and determinant-`C₄` sign inputs.
 - `PF4.QuotientAlgebra`: fixed-size determinant normalization, forward-
   difference orientation, and terminal discrete quotient factorization;
 - `PF4.QuotientIntegral`: exact fixed-order adjacent-box integral identities
@@ -97,7 +115,8 @@ Implemented modules:
 - `PF4.TranslationQuotientPsi`: the exact terminal logarithmic-rate identity,
   equality of the S05 endpoint object with the maintained coordinate `Psi`,
   and terminal positivity derived from the determinant-driven `Psi` sign.
-  Coordinate realization and actual-kernel sign inputs remain explicit.
+  The actual Riemann-kernel derivative tower, lower-`Lambda` estimate, and
+  certificate-to-Lean sign bridges remain explicit.
 - `PF4.TranslationQuotientAssembly`: the isolated connection to the integral
   determinant engine: object identity with `translationMinor` and the
   conditional transfer theorem from three explicit quotient-level sign
@@ -112,7 +131,9 @@ The translate quotient object layer and all three sign-conversion mechanisms
 are checked. The terminal sign is derived through the same coordinate `Psi`
 used by the determinant/transport assembly, with the `p₄<p₃` orientation
 consumed explicitly. This does not instantiate the actual Riemann-kernel
-`q > 0`, `Lambda > 0`, coordinate inverse, or `C₄ > 0` proofs.
+`q > 0`, `Lambda > 0`, or `C₄ > 0` proofs. The coordinate inverse,
+range-local jet, deterministic gap, and local central identity are now
+constructed rather than assumed.
 
 ## Resource discipline
 

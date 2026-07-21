@@ -195,7 +195,12 @@ path until `R93` is resolved.
   triangular measures. `CERT9` audits the sign orientation, reconstructs the
   `C4` normalization directly from the central-moment determinant, and proves
   the integration-by-parts cancellation with generic functions and endpoint
-  algebra. The former escape/chart atlas is superseded (`R163`); `CERT6`--
+  algebra. `R181`/`CERT19` additionally kernel-check the actual-range coordinate
+  inverse and jet, local deterministic gap, direct compact-interval integration
+  by parts, and the resulting coordinate-`Psi` derivative sign under explicit
+  original-variable derivative and `q`, `F2`, `C4` sign inputs. The actual
+  Riemann-kernel certificate-to-Lean bridge remains open. The former
+  escape/chart atlas is superseded (`R163`); `CERT6`--
   `CERT8` are archived, so routine certificate replay and progress commits skip
   them. Their manifests, supports, and explicit targeted replay remain available
   as independent positive-tail results. They are not needed for the global

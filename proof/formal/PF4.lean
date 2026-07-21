@@ -1,4 +1,5 @@
 import PF4.FinalAssembly
+import PF4.LocalFinalAssembly
 import PF4.QuotientAlgebra
 import PF4.TranslationQuotientSigns
 import PF4.TranslationQuotientPsi

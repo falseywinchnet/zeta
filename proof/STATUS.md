@@ -83,8 +83,8 @@ unchanged.
 
 | ID | Claim | Present status | Formal blocker |
 |---|---|---|---|
-| PO-0021 | `y=-s` is strictly increasing on its image | CONVENTIONALLY_PROVED | inverse-on-image calculus |
-| PO-0022 | `ρ=F₂/q³>0`, `κ=1+ρ>1` | CERTIFIED | coordinate derivative identities |
+| PO-0021 | `y=-s` is strictly increasing on its image | FORMALLY_PROVED | none; inverse-on-range calculus and derivative transport checked |
+| PO-0022 | `ρ=F₂/q³>0`, `κ=1+ρ>1` | FORMAL_FRAGMENT | exact coordinate identity and sign transfer checked; actual-kernel certificate bridge remains |
 | PO-0023 | Triangular integral formula for `Λ` | FORMALLY_PROVED | none; explicit primitives and endpoint algebra checked |
 | PO-0024 | Triangular formula and positivity for `δ` | FORMALLY_PROVED | none; endpoint derivative, integral identity, and midpoint strictness checked |
 | PO-0025 | Simultaneous translation operator in coordinates | SYMBOLICALLY_CHECKED | multivariable chain rule |
@@ -113,8 +113,8 @@ unchanged.
 | PO-0038 | `K=Eν[A₀]-Eμ[A₀]` | FORMALLY_PROVED | none; independent primitive, expectations, and endpoint object identity checked |
 | PO-0039 | Expectation difference equals `∫ΔD` | FORMALLY_PROVED | none; actual measures, expectations, CDFs, and boundary terms checked |
 | PO-0040 | Transport integral and `N` are strictly positive | FORMAL_FRAGMENT | strict integral checked from supplied `Q,κ,C₄` signs; actual-kernel sign inputs remain |
-| PO-0041 | `∂ξΨ<0` globally | FORMAL_FRAGMENT | conditional assembly from determinant positivity checked; actual Riemann-kernel instantiation remains |
-| PO-0042 | Strict global order-four minors | CERTIFIED | instantiate actual-kernel `q>0`, `Λ>0`, coordinate jet realization, and `C₄>0` inputs in the checked quotient/`Psi` chain |
+| PO-0041 | `∂ξΨ<0` globally | FORMAL_FRAGMENT | actual-range coordinate, gap, and central identity are checked; actual Riemann-kernel derivative/sign instantiation remains |
+| PO-0042 | Strict global order-four minors | CERTIFIED | instantiate actual-kernel `q>0`, lower `Λ>0`, derivative tower, and `C₄>0` certificate bridges in the checked quotient/`Psi` chain |
 | PO-0043 | Strict minors of orders one through three | CERTIFIED | assemble PO-0008/0016/0018 |
 | PO-0044 | CERT17 evaluator denotes T2's exact determinant | OBLIGATION | primary-kernel equivalence |
 | PO-0045 | Exact rational finite determinant is negative | CERTIFIED | port/check certificate in Lean |
@@ -122,8 +122,7 @@ unchanged.
 
 ## Immediate next work
 
-1. Execute `proof/NEXT_ADVANCEMENT.md`: construct the curvature coordinate on
-   its image and prove the actual-kernel `Q`/jet realization required by the
-   checked terminal quotient/coordinate-`Psi` chain.
-2. Design
-   canonical certificate statements for PO-0011–PO-0013 and PO-0045.
+1. Execute `proof/NEXT_ADVANCEMENT.md`: construct the actual Riemann-kernel
+   derivative/sign package consumed by the maintained range-local theorem and
+   connect its interval sign to the quotient cascade.
+2. Design canonical certificate statements for PO-0011–PO-0013 and PO-0045.

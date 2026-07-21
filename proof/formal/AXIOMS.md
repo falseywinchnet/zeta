@@ -61,6 +61,15 @@ every exported helper theorem.
 - `PF4.FinalAssembly.coordinatePartialXiPsi_neg_from_determinantC4`
 - `PF4.FinalAssembly.coordinatePsi_strictAntiOn_Iio_from_determinantC4`
 - `PF4.FinalAssembly.coordinatePsi_decreases_on_ordered_points_from_determinantC4`
+- `PF4.CurvatureCoordinateRealization.hasDerivAt_coordinateInverse`
+- `PF4.CurvatureCoordinateRealization.coordinateJet_on_range`
+- `PF4.CurvatureCoordinateRealization.coordinateSigns_on_range`
+- `PF4.RangeLocalFinalAssembly.coordinateQ4_continuousOn_kernelCoordinate_Icc`
+- `PF4.LocalGapClosure.actualCoordinateGap_properties`
+- `PF4.LocalCentralIntegration.coordinateGap_integral_eq_densityDifference`
+- `PF4.LocalCentralIntegration.expandedTransportK_eq_coordinateTransportIntegral_on_Icc`
+- `PF4.LocalFinalAssembly.coordinatePartialXiPsi_neg_on_Icc`
+- `PF4.LocalFinalAssembly.actualCoordinatePartialXiPsi_neg`
 - `PF4.GenericQuotientIntegral.normalizedDet4_eq_forwardDiffDet3`
 - `PF4.GenericQuotientIntegral.quotientChainDet4_eq_terminalProduct`
 - `PF4.GenericQuotientIntegral.quotientChainDet4_pos_of_terminal_deriv`

@@ -1,82 +1,77 @@
-# Next advancement cycle — curvature-coordinate realization
+# Next advancement cycle — actual-kernel analytic package
 
 Mode: advancement
 
-Starting evidence: P000115–P000116, R180/CERT18, and their maintained
-integration in `PF4.TranslationQuotientPsi` and `PF4.FinalAssembly`.
+Starting evidence: P000118–P000121, R181/CERT19, and their maintained integration in
+`PF4.CurvatureCoordinateRealization`, `PF4.LocalCentralIntegration`, and
+`PF4.LocalFinalAssembly`.
 
 ## Maintained boundary
 
-For ordered columns `a<c<b<d`, the proof system now derives the terminal
-quotient sign from the following explicit inputs:
+For ordered original points `x<m<r`, maintained Lean now constructs the
+curvature-coordinate inverse only on its actual range, derives the complete
+coordinate jet, proves the closed coordinate gap and the direct central
+integration-by-parts identity on the resulting compact interval, and concludes
 
 ```text
-q > 0,
-lowerLambda > 0,
-Q(y(u)) = q(u),
-Q₁(y(u)) = q₁(u)/q(u),
-the coordinate jet Q,Q₁,...,Q₄,
-curvature Q₂ > 0,
-determinantC4Function Q Q₁ Q₂ Q₃ Q₄ > 0.
+Q(y(x)) * deriv (fun p => coordinatePsi Q Q1 p y(m) y(r)) (y(x)) < 0
 ```
 
-The exact terminal rate, equality with the maintained coordinate `Psi`, strict
-decrease from its derivative, and the ordered-point orientation are no longer
-open. None of the displayed actual-kernel inputs has been silently discharged.
+from these literal analytic inputs:
+
+```text
+S' = -q,
+q' = q1, q1' = q2, q2' = q3, q3' = q4,
+Continuous q4,
+q > 0,
+kernelF2 q q1 q2 > 0,
+kernelDeterminantC4 q q1 q2 q3 q4 > 0.
+```
+
+There is no global-surjectivity premise, probability premise, gap premise,
+central-identity premise, positive-integral premise, or desired-sign premise.
 
 ## Next exact boundary
 
-Construct the curvature coordinate from
+Construct the actual Riemann-kernel functions `S,q,q1,q2,q3,q4` in Lean and
+connect their statements to the exact CERT12 sign propositions. Then feed that
+package into the maintained actual-range theorem and connect the resulting
+coordinate-`Psi` interval decrease directly to the terminal quotient cascade.
 
-```text
-y(u) = -logSlope Φ Φ₁ u
-```
+## Required bridges
 
-on its image. Use strict monotonicity from `q>0` to obtain an inverse on that
-image, then define or characterize `Q` so that:
-
-```text
-Q(y(u)) = q(u),
-Q₁(y(u)) = q₁(u)/q(u).
-```
-
-Continue the chain-rule calculation far enough to identify the coordinate jet
-used by `determinantC4Function` with the actual kernel derivatives and the
-CERT12 `F₂`/`C₄` expressions.
-
-## Required exact bridges
-
-1. Prove `y` strictly increasing from the maintained derivative identity and
-   actual-kernel `q>0` input.
-2. Work on `Set.range y` or an equivalent subtype; do not assume `y` is
-   surjective onto `ℝ`.
-3. Construct an inverse with exact left-inverse and right-inverse statements
-   on the range.
-4. Establish `Q(y(u))=q(u)` as an object identity, not a premise copied into
-   the final theorem.
-5. Prove the first coordinate derivative identity
-   `Q₁(y(u))=q₁(u)/q(u)` by the chain rule and nonvanishing of `q`.
-6. Determine the minimum higher-jet identities required to match
-   `determinantC4Function` to the certified actual-kernel `C₄` statement.
-7. Preserve range restrictions until a theorem genuinely requires a global
-   function. If a global extension is introduced, prove that all derivative
-   and determinant claims are used only where the extension agrees with the
-   range construction.
+1. Define the Riemann kernel and the logarithmic-slope/curvature derivative
+   tower with enough regularity to supply the five maintained derivative
+   equalities and `Continuous q4`.
+2. State the exact Lean propositions certified by CERT12 for `q>0`, `F₂>0`,
+   and determinant `C₄>0`; prove that their definitions are definitionally or
+   algebraically identical to the maintained kernel objects.
+3. Package those facts in one theorem without storing the desired derivative
+   sign or a coordinate object as a field.
+4. Upgrade the pointwise actual-coordinate derivative theorem to strict
+   decrease on each actual coordinate interval, using the checked derivative
+   sign and range inclusion.
+5. Identify that interval decrease with the two coordinate evaluations in
+   `terminalQuotD_eq_terminalQuot_mul_coordinatePsi_sub`.
+6. Separately construct the actual lower-`Lambda` positivity instance required
+   by the second quotient sign.
+7. Prefer cleared polynomial or integral forms for the highest jet identities
+   when they reduce denominator bookkeeping; retain explicit equivalence proofs.
 
 ## No-cheating gates
 
-- Do not assume the inverse or either coordinate realization identity.
-- Do not extend `Q` arbitrarily outside `range y` and then claim global
-  derivative or determinant identities.
-- Do not identify the maintained determinant with CERT12 by matching notation;
-  prove the cleared algebraic equality.
-- Keep `q>0`, `Lambda>0`, `F₂>0`, and `C₄>0` as named certificate-instance
-  boundaries until their Lean statements are constructed.
-- Keep Lean compilations serialized and target only changed modules.
+- A certificate label is not a Lean proposition bridge.
+- Do not assume global behavior of `Function.invFun` outside the coordinate
+  range.
+- Do not bundle gap positivity, the central identity, `Psi` decrease, or the
+  terminal quotient sign into an input structure.
+- Do not replace strict analytic signs by fresh positive scalars.
+- Keep every Lean compilation serialized and targeted.
 
 ## Intended result
 
-A kernel-checked curvature-coordinate realization theorem strong enough to
-instantiate the `Q` and `Q₁` premises of
-`terminalQuotD_pos_of_determinantC4`, together with an exact list of the
-remaining higher-jet and certificate bridges.
+A kernel-checked actual-Riemann instance of the maintained range-local
+coordinate theorem, followed by a theorem that discharges the terminal
+translation-quotient sign without a coordinate-realization premise. The
+remaining boundary should then be the lower-`Lambda` analytic instance and the
+finite PF5 evaluator bridge, stated separately.

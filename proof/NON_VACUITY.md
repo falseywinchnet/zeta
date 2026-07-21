@@ -34,7 +34,11 @@ The coordinate `y(t) = -s(t)` is strictly increasing because `dy/dt = q > 0`.
 Only its image is needed. No surjectivity onto all real numbers may be assumed.
 For `ξ < m < r`, strict monotonicity constructs `p < z < w`, hence `L,R > 0`.
 
-Open: formal inverse-on-image and derivative transport lemmas.
+Closed conditionally on the literal derivative and `q>0` inputs:
+`PF4.CurvatureCoordinateRealization` constructs the inverse extension, proves
+its derivative only at actual range points, transports the complete coordinate
+jet, and identifies the coordinate curvature and determinant there. No global
+surjectivity is assumed.
 
 ## NV-005 — triangular integrals
 
@@ -70,7 +74,9 @@ integral and positivity theorems.
 
 Until then, expectation and CDF notation is syntactic shorthand only.
 
-Open: PO-0030 and PO-0031.
+Closed: PO-0030 and PO-0031 construct the measures and prove mass one from the
+derived normalizers. The local deterministic route remains independently
+available and does not require probability notation.
 
 ## NV-007 — strict right mass
 
@@ -160,12 +166,13 @@ derives curvature continuity, determinant-to-curvature identification, the
 central transport equality, numerator positivity, and the exact negative
 orientation internally.
 
-Conditional core closed:
-`PF4.FinalAssembly.coordinatePartialXiPsi_neg_from_determinantC4`. No central
-identity, positive transport integral, positive numerator, or derivative sign
-is a hypothesis. Global positivity of the supplied determinant function is an
-explicit hypothesis, and the actual Riemann-kernel construction and proof of
-that hypothesis remain open.
+Conditional core closed in both global and actual-range forms:
+`PF4.FinalAssembly.coordinatePartialXiPsi_neg_from_determinantC4` and
+`PF4.LocalFinalAssembly.actualCoordinatePartialXiPsi_neg`. No central identity,
+gap property, positive transport integral, positive numerator, or derivative
+sign is a hypothesis. The range-local theorem constructs the coordinate inverse
+and jet from the original variables. The actual Riemann-kernel derivative
+tower and certificate-to-Lean sign instances remain open.
 
 ## NV-014 — terminal quotient sign
 
