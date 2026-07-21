@@ -508,8 +508,12 @@
     "P000127": {
       "blurb": "audit exact Jacobian counterexample and isolate escape-at-infinity relevance",
       "created_at": "2026-07-21T05:47:14+00:00"
+    },
+    "P000128": {
+      "blurb": "construct concrete polynomial-geometric theta-jet controls and close positive-side differentiation through order six",
+      "created_at": "2026-07-21T06:01:02+00:00"
     }
   },
-  "next_id": 128,
+  "next_id": 129,
   "version": 1
 }
