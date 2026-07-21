@@ -524,8 +524,12 @@
     "P000131": {
       "blurb": "Integrate real-only theta and nonnegative-axis kernel jet foundation into the PF4 Lean programme",
       "created_at": "2026-07-21T07:26:56+00:00"
+    },
+    "P000132": {
+      "blurb": "prove a library-backed Poisson parity, global analyticity, and reflected-series bridge for the maintained Riemann kernel",
+      "created_at": "2026-07-21T15:37:08+00:00"
     }
   },
-  "next_id": 132,
+  "next_id": 133,
   "version": 1
 }
