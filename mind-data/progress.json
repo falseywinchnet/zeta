@@ -504,8 +504,12 @@
     "P000126": {
       "blurb": "identify polynomial-geometric closure for theta-jet normal convergence",
       "created_at": "2026-07-21T05:42:52+00:00"
+    },
+    "P000127": {
+      "blurb": "audit exact Jacobian counterexample and isolate escape-at-infinity relevance",
+      "created_at": "2026-07-21T05:47:14+00:00"
     }
   },
-  "next_id": 127,
+  "next_id": 128,
   "version": 1
 }
