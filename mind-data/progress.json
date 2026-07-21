@@ -536,8 +536,12 @@
     "P000134": {
       "blurb": "prove global Riemann kernel jet identification and reduce terminal PF4 to normalized CERT12 signs",
       "created_at": "2026-07-21T16:42:16+00:00"
+    },
+    "P000135": {
+      "blurb": "Reconstructed CERT12 Lean inequality foundations and reduced the two-mode core to a 38-coefficient exhaustive certificate; isolated the literal theta-tail bound as the remaining global seam",
+      "created_at": "2026-07-21T17:26:28+00:00"
     }
   },
-  "next_id": 135,
+  "next_id": 136,
   "version": 1
 }
