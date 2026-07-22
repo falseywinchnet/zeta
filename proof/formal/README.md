@@ -51,6 +51,7 @@ PF4/TranslationQuotientAssembly.lean
 PF4/GlobalStrictPF4.lean
 PF4/PaperObjectClosure.lean
 PF4/SimultaneousCoordinateTranslation.lean
+PF4/WeightedMeanVariation.lean
 ```
 
 Implemented modules:
@@ -112,6 +113,9 @@ Implemented modules:
 - `PF4.SimultaneousCoordinateTranslation`: literal actual-endpoint coordinate
   velocities and exact simultaneous derivatives of `Lambda` and `delta`,
   including the nonconstant `Q(p)` coefficient correction.
+- `PF4.WeightedMeanVariation`: the literal S04 weighted-average identities,
+  compact extrema, positive-variation bound, and strict
+  `min(q³,F₂)/q²` integral lower bound for `Lambda`.
 - `PF4.RangeLocalFinalAssembly`: restriction of the coordinate jet, top-jet
   continuity, and determinant sign assembly to coordinate intervals arising
   from ordered original points.

@@ -1,0 +1,8 @@
+import PF4.WeightedMeanVariation
+
+#print axioms PF4.WeightedMeanVariation.actualM_eq_weightedMean
+#print axioms PF4.WeightedMeanVariation.sub_le_integral_max_deriv
+#print axioms PF4.WeightedMeanVariation.actual_weightedMean_extrema
+#print axioms PF4.WeightedMeanVariation.actual_weightedMean_difference_le_variation
+#print axioms PF4.WeightedMeanVariation.actual_lowerLambda_ge_integral_min
+#print axioms PF4.WeightedMeanVariation.actual_weightedMeanVariation_lowerLambda

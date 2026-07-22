@@ -880,14 +880,14 @@
         },
         {
           "path": "proof/formal/PF4.lean",
-          "sha256": "05d0a583d71f094f4d43b58a3ff332fdb80c86737c452a940b896b80cebee919"
+          "sha256": "f5720d29614c09ef87c9d6c8a457a1793d868bb9969ae2c0cf60ee6c4c90b152"
         }
       ],
       "attestation": {
-        "manifest_sha256": "2ecb975b0b9803af2b99676b014ef0b8275711259af95e336cdaafbf05b18786",
+        "manifest_sha256": "8609ab0933beab81012754bfd7eefe8e6b442f18d112806e4f848a57bbcf3be6",
         "method": "executed",
         "schema": 1,
-        "verified_at": "2026-07-22T06:37:24+00:00"
+        "verified_at": "2026-07-22T07:17:09+00:00"
       },
       "created_at": "2026-07-21T02:49:35+00:00",
       "dependencies": [],
@@ -916,7 +916,7 @@
       "topics": [
         "T000012"
       ],
-      "updated_at": "2026-07-22T06:37:24+00:00"
+      "updated_at": "2026-07-22T07:17:09+00:00"
     },
     "K000019": {
       "artifacts": [
@@ -942,14 +942,14 @@
         },
         {
           "path": "proof/formal/PF4.lean",
-          "sha256": "05d0a583d71f094f4d43b58a3ff332fdb80c86737c452a940b896b80cebee919"
+          "sha256": "f5720d29614c09ef87c9d6c8a457a1793d868bb9969ae2c0cf60ee6c4c90b152"
         }
       ],
       "attestation": {
-        "manifest_sha256": "1b83f04cd97f70f24b8b85477f76b6718ec29264b8baa369f6f6cecfbf48f85d",
+        "manifest_sha256": "e70e06db4461c991417e6c6d679485731e30ccc2c953b53143aae5027ac999ac",
         "method": "executed",
         "schema": 1,
-        "verified_at": "2026-07-22T06:38:58+00:00"
+        "verified_at": "2026-07-22T07:18:39+00:00"
       },
       "created_at": "2026-07-21T04:26:48+00:00",
       "dependencies": [],
@@ -978,7 +978,7 @@
       "topics": [
         "T000012"
       ],
-      "updated_at": "2026-07-22T06:38:58+00:00"
+      "updated_at": "2026-07-22T07:18:39+00:00"
     },
     "K000020": {
       "artifacts": [
@@ -1042,14 +1042,14 @@
         },
         {
           "path": "proof/formal/PF4.lean",
-          "sha256": "05d0a583d71f094f4d43b58a3ff332fdb80c86737c452a940b896b80cebee919"
+          "sha256": "f5720d29614c09ef87c9d6c8a457a1793d868bb9969ae2c0cf60ee6c4c90b152"
         }
       ],
       "attestation": {
-        "manifest_sha256": "2873c33ad0ab89a0b5a1253d449b773d71006e7ac42075204d663c132a3d3319",
+        "manifest_sha256": "d6ecb9bebe8a43c377d69834a6bfa3f571177a51f6c8f9a1717f75b3eba27d5d",
         "method": "executed",
         "schema": 1,
-        "verified_at": "2026-07-22T06:40:28+00:00"
+        "verified_at": "2026-07-22T07:20:14+00:00"
       },
       "created_at": "2026-07-21T16:18:42+00:00",
       "dependencies": [],
@@ -1078,7 +1078,7 @@
       "topics": [
         "T000012"
       ],
-      "updated_at": "2026-07-22T06:40:28+00:00"
+      "updated_at": "2026-07-22T07:20:14+00:00"
     },
     "K000022": {
       "artifacts": [
@@ -1100,14 +1100,14 @@
         },
         {
           "path": "proof/formal/PF4.lean",
-          "sha256": "05d0a583d71f094f4d43b58a3ff332fdb80c86737c452a940b896b80cebee919"
+          "sha256": "f5720d29614c09ef87c9d6c8a457a1793d868bb9969ae2c0cf60ee6c4c90b152"
         }
       ],
       "attestation": {
-        "manifest_sha256": "a6027de958e6642decdb92087b03984a6c76378a4a32dd22e1f432b651d2c2ec",
+        "manifest_sha256": "994ed3151e3defdc489a0f59964cd655165b451b35f8d1ef27f5fb34a64d36ec",
         "method": "executed",
         "schema": 1,
-        "verified_at": "2026-07-22T06:41:59+00:00"
+        "verified_at": "2026-07-22T07:22:06+00:00"
       },
       "created_at": "2026-07-22T01:57:02+00:00",
       "dependencies": [
@@ -1139,7 +1139,7 @@
       "topics": [
         "T000012"
       ],
-      "updated_at": "2026-07-22T06:41:59+00:00"
+      "updated_at": "2026-07-22T07:22:06+00:00"
     },
     "K000023": {
       "artifacts": [
@@ -1149,10 +1149,10 @@
         }
       ],
       "attestation": {
-        "manifest_sha256": "ef58229d8bfcb982655f555a6f14bc434609aa34d561a9d1fca4075bc1b14fee",
+        "manifest_sha256": "0061a99c084111fbd671ee8d3fff114fabe4cdfc2bc721e02c418251354fa6ba",
         "method": "executed",
         "schema": 1,
-        "verified_at": "2026-07-22T06:46:10+00:00"
+        "verified_at": "2026-07-22T07:26:56+00:00"
       },
       "created_at": "2026-07-22T02:46:47+00:00",
       "dependencies": [
@@ -1202,14 +1202,14 @@
         },
         {
           "path": "proof/formal/PF4.lean",
-          "sha256": "05d0a583d71f094f4d43b58a3ff332fdb80c86737c452a940b896b80cebee919"
+          "sha256": "f5720d29614c09ef87c9d6c8a457a1793d868bb9969ae2c0cf60ee6c4c90b152"
         }
       ],
       "attestation": {
-        "manifest_sha256": "f620470a8cfa5d7675effd7e873b23f27a4afa5ff772889121e4e0b6e494b4c7",
+        "manifest_sha256": "4b2362277cdc061839d76ee8476b2e9dde03424015630837c1c488b795aa160e",
         "method": "executed",
         "schema": 1,
-        "verified_at": "2026-07-22T06:44:23+00:00"
+        "verified_at": "2026-07-22T07:24:00+00:00"
       },
       "created_at": "2026-07-22T04:54:27+00:00",
       "dependencies": [
@@ -1240,7 +1240,7 @@
       "topics": [
         "T000012"
       ],
-      "updated_at": "2026-07-22T06:44:23+00:00"
+      "updated_at": "2026-07-22T07:24:00+00:00"
     },
     "K000025": {
       "artifacts": [
@@ -1250,10 +1250,10 @@
         }
       ],
       "attestation": {
-        "manifest_sha256": "83409ee76d772b6d21a603372c686714b8da8b6931e5e43eecebe5055a9a0793",
+        "manifest_sha256": "469c7046cd36eeb5d18295a4500d8dcf00bd98e578001715d847790b9354e94b",
         "method": "executed",
         "schema": 1,
-        "verified_at": "2026-07-22T06:48:13+00:00"
+        "verified_at": "2026-07-22T07:28:32+00:00"
       },
       "created_at": "2026-07-22T05:38:28+00:00",
       "dependencies": [
@@ -1294,10 +1294,10 @@
         }
       ],
       "attestation": {
-        "manifest_sha256": "3ab33df1880f405cce1749c3a093d2f7e0a10423f109c5524613fc417ce352b9",
+        "manifest_sha256": "3f68408c795f960090740c97a2525b0d7b1e899b9ace1f624943b631d48bfb8a",
         "method": "executed",
         "schema": 1,
-        "verified_at": "2026-07-22T06:49:53+00:00"
+        "verified_at": "2026-07-22T07:29:44+00:00"
       },
       "created_at": "2026-07-22T06:03:02+00:00",
       "dependencies": [
@@ -1338,10 +1338,10 @@
         }
       ],
       "attestation": {
-        "manifest_sha256": "0c87bb758a65bca3aee595580849db45006ff04e4d4ebd9074bdf58a75327467",
+        "manifest_sha256": "5596a33900b54cade083774efd13a6e4a138cd76b6627fe7b7399e68743d1615",
         "method": "executed",
         "schema": 1,
-        "verified_at": "2026-07-22T06:51:18+00:00"
+        "verified_at": "2026-07-22T07:31:14+00:00"
       },
       "created_at": "2026-07-22T06:33:56+00:00",
       "dependencies": [
@@ -1373,8 +1373,52 @@
         "T000012"
       ],
       "updated_at": "2026-07-22T06:33:56+00:00"
+    },
+    "K000028": {
+      "artifacts": [
+        {
+          "path": "proof/formal/PF4/WeightedMeanVariation.lean",
+          "sha256": "83406a2298c56f3257c87bdf7d1b2c8558f122fa47c3067ce5b848b82508067e"
+        }
+      ],
+      "attestation": {
+        "manifest_sha256": "57bf2da749bb98d4580b7c96535a51c05ca48b18ca57a6e9cd9419105d459f99",
+        "method": "executed",
+        "schema": 1,
+        "verified_at": "2026-07-22T07:31:14+00:00"
+      },
+      "created_at": "2026-07-22T07:12:43+00:00",
+      "dependencies": [
+        "K000026"
+      ],
+      "description": "Lean 4 literal S04 weighted-mean closure: actual M integral identity, compact extrema, positive variation, and strict min(q^3,F2)/q^2 lower bound for Lambda",
+      "environment": null,
+      "file": {
+        "path": "work/2026-07-22-po0014-weighted-mean/Audit.lean",
+        "sha256": "f39f9acd270389815f40442d28cde747a1a38b40010f837a9970024c6b7f1150"
+      },
+      "precision": "Lean v4.32.0/mathlib v4.32.0 kernel-checked exact proof; every ordered real triple and complete compact intervals; no sampling, assumed denominator, assumed Lambda sign, or reuse of the independent actual_lowerLambda_pos conclusion",
+      "requirements": [],
+      "runner": {
+        "argv": [
+          "lake",
+          "--dir",
+          "proof/formal",
+          "env",
+          "lean",
+          "work/2026-07-22-po0014-weighted-mean/Audit.lean"
+        ],
+        "expected_exit_code": 0,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "c098de948826c3f10c5bc1a6fdc37f20dd4c5039381fc75c7835c945828974a7",
+        "timeout_seconds": 300
+      },
+      "topics": [
+        "T000012"
+      ],
+      "updated_at": "2026-07-22T07:12:43+00:00"
     }
   },
-  "next_id": 28,
+  "next_id": 29,
   "version": 1
 }

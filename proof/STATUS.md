@@ -2,7 +2,7 @@
 
 Target: `PF4-CORE-v1`
 
-Active formal completion: **36/41 obligations**. The original ledger contains
+Active formal completion: **37/41 obligations**. The original ledger contains
 46 records; PO-0032 through PO-0036 are now `DEPRECATED_OPTIONAL` because the
 deterministic closed-gap route bypasses the crossing chain.
 
@@ -22,7 +22,8 @@ definitions remain unchanged (`R185`--`R188`, `R191`, `CERT21`). The global
 jet and sign closure is recorded by `R195`--`R202` and `CERT22`; exact T1 is
 recorded by `R203` and `CERT23`, exact T2/T3 by `R204`--`R205` and `CERT24`,
 the literal transport exports by `CERT25`, the literal paper-object closures
-by `CERT26`, and simultaneous coordinate translation by `CERT27`. Target
+by `CERT26`, simultaneous coordinate translation by `CERT27`, and the literal
+S04 weighted-mean route by `CERT28`. Target
 definitions, signed PF5 indices, constructive crossing algebra, and the actual
 left-density identity/sign bridge are kernel-checked. The actual restricted-
 density measures, mass-one interfaces, strict right mass, all three interior
@@ -104,7 +105,7 @@ perturbation coefficients to include every binomial multiplicity.
 
 | ID | Claim | Present status | Formal blocker |
 |---|---|---|---|
-| PO-0014 | Weighted-mean identities and variation bound | CONVENTIONALLY_PROVED | extrema/integral lemmas |
+| PO-0014 | Weighted-mean identities and variation bound | FORMALLY_PROVED | none; literal weighted means, compact extrema, positive variation, and the strict displayed `min(q³,F₂)/q²` lower integral are checked |
 | PO-0015 | `Λ(ξ;m,r) > 0` for `ξ < m < r` | FORMALLY_PROVED | none; `PF4.GlobalStrictPF4.actual_lowerLambda_pos` instantiates the actual kernel from its global jet and `q,F₂` signs |
 | PO-0016 | Strict order-three Wronskian sign | FORMALLY_PROVED | none; `actual_firstQuotD_pos` and `actual_secondQuotD_pos` close the actual-kernel quotient signs |
 | PO-0017 | Quotient/Wronskian algebra through order four | FORMAL_FRAGMENT | all three differential quotient identities are checked; arbitrary-order and confluent algebra remain |
@@ -155,8 +156,8 @@ perturbation coefficients to include every binomial multiplicity.
 
 ## Immediate next work
 
-1. Close support obligation PO-0014's weighted-mean and variation statements
-   before revisiting the aggregating fixed-order quotient records.
+1. Reconcile PO-0017's exact fixed-order quotient/Wronskian algebra with its
+   broader paper wording, proving only genuinely missing order-four identities.
 2. Keep deprecated crossing refinements and broader arbitrary-order work
    separate from the completed T1–T3 classification.
 3. Execute the paper backport series recorded in `backport/README.md` as

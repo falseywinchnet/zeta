@@ -9,6 +9,7 @@
 | `q > 0` | S03 | R171, R189, R198, R202, CERT12/21/22 | PO-0011 | `PF4.CERT12OuterClosure.normalized_clearedQ_pos` plus the exact cleared-sign transfer | FORMALLY_PROVED |
 | `F₂ > 0` | S03 | R171, R192, R199, R202, CERT12/21/22 | PO-0012 | `PF4.CERT12OuterClosure.normalized_clearedF2_pos` plus the exact cleared-sign transfer | FORMALLY_PROVED |
 | `C₄ > 0` | S03 | R171, R193–R194, R200, R202, CERT12/21/22 | PO-0013 | `PF4.CERT12OuterClosure.normalized_clearedC4_pos` plus `PF4.ClearedJetCertificateBridge.clearedC4_eq_rawHankel4_det` | FORMALLY_PROVED |
+| weighted-mean lower bound for `Λ` | S04 | CERT22/26/28 | PO-0014 | `PF4.WeightedMeanVariation.actual_weightedMeanVariation_lowerLambda` | FORMALLY_PROVED |
 | `Λ > 0` | S04 | R141, R203, CERT12/23 | PO-0015 | `PF4.GlobalStrictPF4.actual_lowerLambda_pos` | FORMALLY_PROVED |
 | strict PF2/PF3 | S04–S05 | R155, R172, R203, CERT5/12/23 | PO-0016, PO-0043 | `PF4.GlobalStrictPF4.actual_firstQuotD_pos`, `actual_secondQuotD_pos`, `translationMinor_two_pos`, and `translationMinor_three_pos` | FORMALLY_PROVED |
 | quotient identities | S05 | R154, CERT5 | PO-0017–0019 | `PF4.GenericQuotientIntegral.*`, `PF4.ContinuousQuotientBox.*`, `PF4.TranslationQuotientPsi.terminalQuotD_eq_terminalQuot_mul_coordinatePsi_sub` | FORMAL_FRAGMENT |
