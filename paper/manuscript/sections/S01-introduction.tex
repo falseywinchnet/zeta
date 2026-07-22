@@ -29,22 +29,7 @@ The exact global P\'olya-frequency order of \(\Phi\) is four. More precisely:
 The two theorem inputs are deliberately separated. The positive input is the
 universal strict-order theorem through four. The negative input is the direct
 rational order-five witness in part~(2), including proved strict ordering of
-its nodes and the signed Toeplitz-to-translation-matrix identification. In the
-maintained formal development these are assembled by
-\path{PF4.globalRiemannKernel_pfOrderExactly_four}; its axiom audit reports
-only \texttt{propext}, \texttt{Classical.choice}, and \texttt{Quot.sound}.
-
-The exact-order classification and the Fourier question are distinct. The
-following example marks a precise finite-order boundary for Schoenberg's
-infinite-order transform correspondence, even within the positive even
-Schwartz class.
-
-\begin{theorem}[Continuous \(\PF_4\) Fourier separator]\label{thm:separator}
-There is an explicit positive even Schwartz function \(f_*\) which is strict
-\(\PF_4\), while its entire Fourier transform has nonreal zeros.
-Consequently continuous \(\PF_3\) and continuous \(\PF_4\) membership are
-each insufficient to force Fourier real-rootedness.
-\end{theorem}
+its nodes and the signed Toeplitz-to-translation-matrix identification.
 
 The proof has two one-variable inputs and one exact transport
 mechanism. First, global inequalities \(q>0\) and \(F_2>0\) imply strict
@@ -62,11 +47,3 @@ polynomials, domains, degrees, minimum coefficients, derivative envelopes,
 and the surviving relative margins. The transport algebra is proved in the
 text, and the order-five
 calculation uses rational enclosures and elementary series bounds.
-An optional recurrence gives a global order-five refinement: its confluent
-coefficient has one positive zero, enclosed in a rational interval of width
-\(10^{-13}\), and an explicit rational spacing gives a comfortably negative
-finite determinant. Neither refinement is needed for the strict-\(\PF_4\)
-theorem; it records additional structure around the direct witness.
-Theorem~\ref{thm:separator}, proved in \secref{sec:separator}, supplies an
-explicit order-four counterexample rather than a finite-order sufficiency
-threshold.

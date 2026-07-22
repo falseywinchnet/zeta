@@ -26,30 +26,6 @@ identified with the original Riemann kernel~\cite{grochenig}.
 Micha\l{}owski first published an explicit negative \(5\times5\) Toeplitz
 minor for this kernel, supported by an interval computation, together with
 single-configuration positivity checks at orders at most
-four~\cite{michalowski}. Global \(\PF_4\) and a symbolic proof of the order-five
-leading sign are posed there as Open Problems 1 and 2. Theorem~\ref{thm:main}
-resolves the first, and Lemma~\ref{lem:origin-pf5-sign} resolves the second in
-strengthened form. Indeed, for the Toeplitz determinant
-\[
- D_r(u_0,h)=\det[\Phi(u_0+(i-j)h)]_{i,j=0}^{r-1},
-\]
-Lemma~\ref{lem:confluent-limit} gives its leading coefficient as
-\[
- C_r(u_0)=
- \frac{(-1)^{r(r-1)/2}V(0,\ldots,r-1)^2}
- {\prod_{k=0}^{r-1}(k!)^2}
- \det[\Phi^{(i+j)}(u_0)]_{i,j=0}^{r-1}.
-\]
-For \(r=5\) the sign factor is positive, only derivatives through order eight
-occur, and the limit as \(u_0\to0^+\) is a positive multiple of the
-parity-factorized determinant \(\mathsf H_5=CB<0\) computed exactly in
-Lemma~\ref{lem:origin-pf5-sign}. Theorem~\ref{thm:confluent-threshold}
-determines the complete sign change: \(C_5(u_0)<0\) precisely for
-\(0\leq u_0<u_*\), where
-\(0.0622795266356<u_*<0.0622795266357\). The normalization in
-\cite{michalowski} uses \(K_M(u)=\Phi(2u)/2\), so its corresponding center is
-\(u_*/2\in(0.0311397633178,0.03113976331785)\).
-
-Theorem~\ref{thm:separator} further shows where the infinite-order transform
-conclusion ceases to follow from finite-order positivity: even strict
-\(\PF_3\) or \(\PF_4\) does not control all Fourier zeros.
+four~\cite{michalowski}. Global \(\PF_4\) is posed there as Open Problem 1.
+Theorem~\ref{thm:main} resolves that problem and supplies an exact rational
+negative order-five minor, completing the finite-order classification.

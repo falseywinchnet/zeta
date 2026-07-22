@@ -1,96 +1,76 @@
-\section{Exact verification and reproduction}\label{sec:reproducibility}
+\section{Verification}\label{sec:reproducibility}
 
-The primary universal theorem is checked by the pinned Lean project in
-\path{proof/formal}. From that directory, \texttt{lake build} constructs the
-real theta series, analytic kernel and global derivative jet, universal
-cleared signs, fixed-order quotient and transport chain, arbitrary-node strict
-minors through order four, direct negative order-five witness, and exact-order
-assembly. The focused command
-\texttt{lake env lean PF4/Audit.lean} prints the axiom dependencies of the
-exported declarations. They are exactly \texttt{propext},
-\texttt{Classical.choice}, and \texttt{Quot.sound}. No \texttt{sorry},
-\texttt{admit}, custom axiom, or unsafe theorem bridge occurs in the target
-dependency tree.
+The verification boundary is the theorem
+\path{PF4.globalRiemannKernel_pfOrderExactly_four} in the project
+\path{proof/formal}. It has two immediate mathematical inputs:
+\path{PF4.globalRiemannKernel_strictPFUpTo_four}, which quantifies over every
+order \(1\leq k\leq4\) and every pair of strictly increasing real node tuples,
+and \path{PF4.globalRiemannKernel_orderFive_translationMinor_neg}, which proves
+the negative minor at \(h=211/2000\). The former depends on the analytic theta
+construction, the global \(q,F_2,\Cfour\) signs, and the quotient--transport
+argument developed in Sections~\ref{sec:kernel}--\ref{sec:crossing}.
 
-The principal claim boundaries are:
+The following criteria define the formal verification claim and make it
+reproducible.
+\begin{enumerate}
+\item \textbf{Pinned environment.} Lean \texttt{v4.32.0} is fixed in
+\path{lean-toolchain}; mathlib \texttt{v4.32.0} is fixed in
+\path{lake-manifest.json}. The resolved mathlib commit is
 \begin{center}
-\small
-\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.25\textwidth}
->{\raggedright\arraybackslash}p{0.66\textwidth}@{}}
+{\footnotesize\texttt{81a5d257c8e410db227a6665ed08f64fea08e997}}.
+\end{center}
+
+\item \textbf{Complete build.} From \path{proof/formal}, the command
+\begin{center}
+\texttt{lake build}
+\end{center}
+elaborates every imported declaration and checks every generated proof term
+with the Lean kernel. The recorded release build completes all 3737 jobs.
+
+\item \textbf{Axiom-closure audit.} The command
+\begin{center}
+\texttt{lake env lean PF4/Audit.lean}
+\end{center}
+runs \texttt{\#print axioms} on the final theorem, both immediate inputs, and
+the target-facing declarations in their proof chain. For every audited target
+the printed dependency set is exactly
+\[
+ \{\texttt{propext},\ \texttt{Classical.choice},\ \texttt{Quot.sound}\}.
+\]
+These are Lean's standard logical axioms. A declaration containing
+\texttt{sorry} or \texttt{admit} elaborates with the axiom
+\texttt{sorryAx}; consequently such a gap anywhere in an audited target's
+dependency closure would appear in this output. The observed output contains
+no \texttt{sorryAx} and no project-declared axiom.
+
+\item \textbf{Exact sign decisions.} The compact sign certificates, theta-tail
+bounds, and the order-five determinant enclosure enter the theorem as exact
+integer or rational inequalities. Floating-point values do not discharge a
+proposition in the final dependency closure.
+
+\item \textbf{Quantifier coverage.} The strict-order conclusion is a single
+universal theorem over arbitrary real node tuples; it is not a finite node
+sample. The negative order-five conclusion includes the strict ordering of
+the five rational nodes, the translation-matrix identity, and the determinant
+sign.
+\end{enumerate}
+
+Two independent Python replays expose the finite arithmetic printed in the
+paper. From the repository root,
+\begin{center}
+\begin{tabular}{@{}ll@{}}
 \toprule
-Object & Maintained boundary \\
+Claim & Command \\
 \midrule
-Analytic kernel and global jet &
-\path{PF4.globalRiemannKernel_eq_thetaSeries_abs};
-\path{PF4.GlobalKernelJetIdentification.iteratedDeriv_globalRiemannKernel_eq_thetaSeriesJet} \\
-Global \(q,F_2,\Cfour\) &
-\path{PF4.CERT12OuterClosure.normalized_cleared_signs_pos} and exact raw-jet transfer \\
-Lower \(\Lambda\) and orders two--three &
-\path{PF4.WeightedMeanVariation.actual_weightedMeanVariation_lowerLambda};
-\path{PF4.GlobalStrictPF4.translationMinor_two_pos};
-\path{PF4.GlobalStrictPF4.translationMinor_three_pos} \\
-Fixed-order quotient cascade &
-\path{PF4.FixedOrderQuotientWronskian.fixedOrderFour_quotientWronskian_package} \\
-Actual coordinate transport &
-\path{PF4.GlobalStrictPF4.globalRiemannKernel_coordinateNumerator_pos};
-\path{PF4.GlobalStrictPF4.globalRiemannKernel_coordinatePartialXiPsi_neg} \\
-Universal strict PF4 &
-\path{PF4.globalRiemannKernel_strictPFUpTo_four} \\
-Direct PF5 witness &
-\path{PF4.globalRiemannKernel_orderFive_translationMinor_neg} \\
-Exact order four &
-\path{PF4.globalRiemannKernel_pfOrderExactly_four} \\
+Global \(q,F_2,\Cfour\) signs &
+\texttt{python3 scripts/verify\_riemann\_signs\_exact.py} \\
+Negative minor at \(h=211/2000\) &
+\texttt{python3 scripts/verify\_pf5\_witness\_exact.py} \\
 \bottomrule
 \end{tabular}
 \end{center}
-
-Independent exact verifiers reconstruct the printed finite algebra and
-rational inequalities:
-\begin{center}
-\small
-\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.30\textwidth}
->{\raggedright\arraybackslash}p{0.51\textwidth}
->{\raggedright\arraybackslash}p{0.12\textwidth}@{}}
-\toprule
-Object & Repository replay & Role \\
-\midrule
-Global \(q,F_2,\Cfour\) &
-\path{scripts/verify_riemann_signs_exact.py} & exact arithmetic \\
-Fixed Wronskian algebra &
-\path{scripts/verify_pf4_wronskian_reduction.py} & independent \\
-Endpoint transport algebra &
-\path{scripts/verify_pf4_transport_kernel.py} & independent \\
-Direct PF5 witness and optional threshold &
-\path{scripts/verify_pf5_threshold.py} & exact arithmetic \\
-Optional threshold polynomial &
-\path{scripts/verify_pf5_threshold_symbolic.py} & independent \\
-Continuous separator &
-\path{scripts/verify_continuous_pf4_separator.py} & exact arithmetic \\
-\bottomrule
-\end{tabular}
-\end{center}
-
-The global-sign replay retains the first two theta modes exactly. It checks
-the 361 Bernstein and decay inequalities summarized in \appref{app:tail}, the
-140 derivative-envelope coefficients, and analytic geometric bounds for every
-mode \(n\geq3\). It uses a pure-Python rational domain and refuses a FLINT
-import. No floating-point comparison or interval subdivision decides a sign.
-
-The PF5 replay directly encloses the five kernel values at spacings
-\(0,h,2h,3h,4h\), \(h=211/2000\), and proves the determinant interval
-\eqref{eq:finite-pf5-witness}. Its additional cells reconstruct the optional
-231-monomial confluent determinant and unique threshold. The separator replay
-checks the exact \(P^8\) cancellation, all 25 coefficients in
-\eqref{eq:separator-c4}, and the rational discriminant inequality in
-\appref{app:separator}.
-
-From the repository root, the independent artifact command is
-\begin{center}
-\texttt{python scripts/replay\_paper.py}.
-\end{center}
-It prints one \texttt{PASS} line per active exact certificate followed by
-\texttt{status=paper evidence replay passed}. Package versions, the complete
-stdout digest, PDF digest, and arXiv archive digest are recorded in
-\path{paper/RELEASE_MANIFEST.md}. Earlier computer-algebra experiments are
-discovery provenance only; the maintained Lean declarations and exact replay
-boundaries above carry the final claims.
+Both use outward rational bounds. They are independently inspectable
+reconstructions of the finite certificates; the universal theorem remains the
+kernel-checked Lean declaration above. Tool versions, output digests, the PDF
+digest, and the source-archive digest are recorded in
+\path{paper/RELEASE_MANIFEST.md}.

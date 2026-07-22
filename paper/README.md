@@ -26,7 +26,7 @@ make -C paper arxiv
 ```
 
 The submitted `pf4-paper-v1.0.0` snapshot and the revised
-`PF4-paper-v2.0.0` Lean backport are recorded separately in
+`pf4-paper-v2.1.0` proof backport are recorded separately in
 `REVISION_HISTORY.md`. The current formal boundary is reproduced with
 `lake build` and `lake env lean PF4/Audit.lean` from `proof/formal`.
 
@@ -37,6 +37,5 @@ The build requires `tectonic`. The source tree is also conventional LaTeX and
 can be compiled from `manuscript/main.tex` with another engine.
 
 From the repository root, `python scripts/replay_paper.py` runs the complete
-non-mutating paper audit. The old Arb compact covers are archived historical
-evidence and are not invoked. Exact Python package versions are pinned in
-`requirements-paper.txt`.
+non-mutating finite-arithmetic replay. Exact Python package versions are pinned
+in `requirements-paper.txt`.

@@ -1,9 +1,5 @@
 #!/usr/bin/env python3
-"""Non-mutating replay entry point for the PF4 paper evidence.
-
-The maintained proof uses seven active certificate boundaries.  The former Arb
-compact covers are historical records and are intentionally absent here.
-"""
+"""Non-mutating replay entry point for the finite arithmetic in the PF4 paper."""
 
 from __future__ import annotations
 
@@ -15,9 +11,7 @@ import subprocess
 import sys
 
 
-PAPER_CERTIFICATES = (
-    "K000005", "K000009", "K000010", "K000011", "K000012", "K000016", "K000017"
-)
+PAPER_CERTIFICATES = ("K000012",)
 
 
 def find_repository() -> Path:
@@ -81,6 +75,18 @@ def replay_paper_certificates(root: Path) -> None:
     # memory budget of an ordinary laptop.
     for task in tasks:
         print(run_checked(*task))
+
+    witness = subprocess.run(
+        [sys.executable, "scripts/verify_pf5_witness_exact.py"],
+        cwd=root,
+        capture_output=True,
+        check=False,
+        text=True,
+    )
+    if witness.returncode:
+        sys.stderr.write(witness.stderr)
+        raise SystemExit(f"PF5 witness: exited {witness.returncode}")
+    print(witness.stdout.strip())
 
 
 def main() -> None:

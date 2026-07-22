@@ -29,8 +29,8 @@ Consequently
  W(u_1,u_2,u_3,u_4)=u_1^4v_2^3w_3^2
  \frac{\dd}{\dd t}\left(\frac{w_4}{w_3}\right).
 \end{equation}
-No sign premise is used in these algebraic identities beyond the stated
-nonvanishing needed to form the quotients.
+These algebraic identities require precisely the stated nonvanishing needed
+to form the quotients.
 
 Let \(\T\) denote simultaneous translation of all point arguments. From
 \eqref{eq:AM},
@@ -109,17 +109,6 @@ Determinant multilinearity gives \eqref{eq:iterated-determinant}. Since
 \(\tau_i\in[t_i,t_{i+1}]\), the integration nodes remain ordered, so the same
 argument applies to the derivative determinant.
 \end{proof}
-
-\begin{sloppypar}
-Only the instances of Lemma~\ref{lem:quotient-integral} of sizes two through
-four enter the theorem. The maintained formal engine proves exactly those
-instances and the corresponding strict integral boxes; no arbitrary-order
-quotient theorem is a premise of Theorem~\ref{thm:main}. In particular,
-\path{PF4.FixedOrderQuotientWronskian.fixedOrderFour_quotientWronskian_package}
-packages \eqref{eq:W3-quotient}--\eqref{eq:W4-third} together with the reversed
-endpoint orientation \(p_4<p_3<p_2<p_1\). Its independent replay boundary is
-\texttt{CERT29}.
-\end{sloppypar}
 
 \begin{lemma}[Confluent divided-difference limit]\label{lem:confluent-limit}
 Let \(f\in C^{2k-2}\), let

@@ -1,6 +1,6 @@
 \section{Completion and exact order}\label{sec:completion}
 
-Equation \eqref{eq:sign-bridge} and \eqref{eq:central-identity} imply
+Equations \eqref{eq:sign-bridge} and \eqref{eq:central-identity} imply
 \[
  \partial_\xi\Psi(\xi;m,r)<0\qquad(\xi<m<r).
 \]
@@ -23,171 +23,15 @@ The Riemann kernel is not \(\PF_5\).
 The nodes \(0,h,2h,3h,4h\) are strictly increasing. Evenness identifies the
 translation matrix with the symmetric Toeplitz matrix determined by the five
 kernel values \(\Phi(0),\Phi(h),\ldots,\Phi(4h)\). Each value is enclosed by
-exact Taylor bounds for the retained theta modes and the maintained infinite
-tail theorem; a rational determinant parity factorization then gives
+exact Taylor bounds for the retained theta modes and the infinite-tail theorem;
+a rational determinant parity factorization then gives
 \eqref{eq:finite-pf5-witness}. This is a negative translation minor at
-distinct nodes, with no limiting argument.
-
-\begin{sloppypar}
-In the formal development the node ordering, signed-index orientation,
-Toeplitz identification, value boxes, determinant sign, and primary-kernel
-identity are all premises of
-\path{PF4.globalRiemannKernel_orderFive_translationMinor_neg}. Thus the
-order-five obstruction used by Theorem~\ref{thm:main} does not depend on the
-confluent calculations below.
-\end{sloppypar}
+distinct nodes.
 \end{proof}
-
-\subsection*{Optional confluent structure}
-
-The origin and threshold calculations give independent information about the
-first order-five failure, but are not used in the exact-order assembly. Put
-\[
- \mathsf H_k=\det[\Phi^{(i+j)}(0)]_{i,j=0}^{k-1},\qquad
- s_j=\Phi^{(j)}(0).
-\]
-Since \(\Phi\) is even, simultaneous parity permutations of the rows and
-columns give
-\[
- \mathsf H_4=AB,\qquad \mathsf H_5=CB,
-\]
-where
-\[
- A=s_0s_4-s_2^2,\qquad B=s_2s_6-s_4^2,
-\]
-and
-\[
- C=\det\begin{pmatrix}
- s_0&s_2&s_4\\
- s_2&s_4&s_6\\
- s_4&s_6&s_8
- \end{pmatrix}.
-\]
-
-\begin{lemma}\label{lem:origin-pf5-sign}
-For the Riemann kernel,
-\[
- 445<A<446,\qquad 189223<B<189228,
- \qquad -674000000<C<-614000000.
-\]
-In particular, \(\mathsf H_4>0\) and \(\mathsf H_5<0\).
-\end{lemma}
-
-\begin{proof}
-For \(x=\pi n^2e^{2u}\), the \(n\)-th summand of \(\Phi(u)\) is
-\(e^{u/2-x}T_0(x)\), where \(T_0(x)=2x(2x-3)\). If its \(j\)-th derivative
-is \(e^{u/2-x}T_j(x)\), then
-\[
- T_{j+1}=2xT_j'+(1/2-2x)T_j.
-\]
-Thus
-\[
- s_j=\sum_{n\ge1}e^{-\pi n^2}T_j(\pi n^2).
-\]
-The first three modes are enclosed by rational alternating-series bounds.
-Machin's identity
-\(\pi=16\arctan(1/5)-4\arctan(1/239)\) supplies rational bounds for \(\pi\),
-and argument division followed by the degree-29 and degree-30 alternating
-Taylor sums supplies rational bounds for each exponential.
-
-For the omitted modes, let \(S_j\) be the sum of the absolute coefficients of
-\(T_j\). Since \(\deg T_j=j+2\), \(3<\pi<22/7\), and
-\(e^3>\sum_{r=0}^8 3^r/r!>20\),
-\[
- \sum_{n\ge4}|T_j(\pi n^2)|e^{-\pi n^2}
- \leq
- \frac{S_j(22/7)^{j+2}4^{2j+4}20^{-16}}
- {1-(5/4)^{20}20^{-9}}
- \qquad(j=0,2,4,6,8).
-\]
-All endpoints lie on \(10^{-36}\mathbb Z\), and every arithmetic operation is
-rounded outward. Substitution into the displayed formulas gives the entirely
-rational sign chain
-\[
- 0<445<A<446,\qquad 0<189223<B<189228,
-\]
-\[
- -674000000<C<-614000000<0.
-\]
-Thus \(AB>0\) and \(CB<0\) without a floating-point determinant. The full
-grid endpoints and the standard-library verifier are included in the
-reproducibility archive.
-\end{proof}
-
-Applying Lemma~\ref{lem:confluent-limit} with \(k=5\), \(z=0\), and
-\(a_i=b_i=i\) shows independently that
-\(\det[\Phi((i-j)\varepsilon)]_{i,j=0}^4<0\) for every sufficiently small
-positive \(\varepsilon\). This implication is not needed for
-Theorem~\ref{thm:not-pf5}, whose witness is the fixed rational spacing above.
-
-For the equal-step family put
-\[
- D_5(u,h)=\det[\Phi(u+(i-j)h)]_{i,j=0}^4,\qquad
- C_5(u)=\lim_{h\downarrow0}\frac{D_5(u,h)}{h^{20}}.
-\]
-Because \(V(0,\ldots,4)=\prod_{j=1}^4j!\), the Vandermonde and factorial
-factors in Lemma~\ref{lem:confluent-limit} cancel, and therefore
-\begin{equation}\label{eq:C5-H5}
- C_5(u)=\det[\Phi^{(i+j)}(u)]_{i,j=0}^4.
-\end{equation}
-
-\begin{theorem}[Confluent order-five threshold]\label{thm:confluent-threshold}
-There is a unique \(u_*>0\) such that \(C_5(u_*)=0\), and
-\[
- 0.0622795266356<u_*<0.0622795266357.
-\]
-Moreover \(C_5(u)<0\) for \(0\leq u<u_*\), while \(C_5(u)>0\) for
-\(u>u_*\).
-\end{theorem}
-
-\begin{proof}
-Put \(x=\pi e^{2u}\), \(y=e^{-3x}\), and \(z=e^{-8x}\). After removing the
-positive first-mode amplitude \(2xe^{5u/2-x}\), the first three theta modes of
-the derivative jet are
-\[
- b_j=P_j(x)+4yP_j(4x)+9zP_j(9x),
-\]
-where
-\[
- P_0(x)=2x-3,\qquad
- P_{j+1}(x)=\left(\frac52-2x\right)P_j(x)+2xP_j'(x).
-\]
-Thus the three-mode part of \(C_5\), apart from a positive fifth power, is the
-closed determinant
-\begin{equation}\label{eq:three-mode-C5}
- G_3(x,y,z)=\det[b_{i+j}]_{i,j=0}^4.
-\end{equation}
-Its exact expansion has 231 monomials. The path derivative is obtained without
-another expansion from
-\[
- \frac{d}{du}=2x(\partial_x-3y\partial_y-8z\partial_z).
-\]
-
-For \(j\leq9\), the omitted modes satisfy
-\begin{equation}\label{eq:C5-tail}
- |e_j(x)|\leq
- \frac{S_jx^{j+1}4^{2j+4}e^{-15x}}
- {1-(5/4)^{22}e^{-9x}},
-\end{equation}
-where \(S_j\) is the sum of the absolute coefficients of \(P_j\). Exact
-rational Bernstein bounds, preserving the common \(x\)-dependence of
-\(e^{-3x}\) and \(e^{-8x}\), give \(C_5<0\) from \(u=0\) through \(u=1/50\)
-and \(C_5'>0\) on the overlapping range from \(u=3/200\) through \(x=4\).
-Direct four-mode endpoint enclosures give opposite signs at
-\(u=0.0622795266356\) and \(u=0.0622795266357\). Four further Bernstein cells
-give \(C_5>0\) for \(4\leq x\leq40\), and the exact one-mode determinant plus
-\eqref{eq:C5-tail} gives positivity for \(x\geq40\). These overlapping signs
-prove existence, uniqueness, and the stated classification. The domains and
-cell counts are listed in \appref{app:pf5-threshold}.
-\end{proof}
-
-The outermost center over all finite spacings is a separate two-variable
-extremal problem; no such global extremality is used here.
 
 Equation~\eqref{eq:finite-pf5-witness} proves part~(2) of
 Theorem~\ref{thm:main}. Together with the strict minors through order four,
-this completes the exact-order classification. The preceding confluent
-theorem is not used in that assembly.
+this completes the exact-order classification.
 
 \begin{remark}[Riemann Hypothesis boundary]
 Schoenberg's transform theorem says that the bilateral Laplace transform of a
@@ -197,7 +41,6 @@ of \(\Phi\), up to the standard normalization, is the Riemann \(\Xi\)-function,
 which has known real zeros; hence \(\Phi\) is unconditionally not
 \(\PF_\infty\). The Schoenberg formulation related to the Riemann Hypothesis
 instead asks for the inverse transform of the reciprocal of \(\Xi\) to be a
-P\'olya-frequency function~\cite{grochenig}. Thus the finite-order classification
-proved here is a different statement. The next section further shows that
-strict \(\PF_4\) alone does not imply Fourier real-rootedness.
+P\'olya-frequency function~\cite{grochenig}. Thus the finite-order
+classification proved here is a different statement.
 \end{remark}

@@ -1,39 +1,27 @@
-\section{Declarations, availability, and computational provenance}
+\section{Declarations and availability}
 
 \paragraph{Author contribution.}
 Joshuah Rainstar conceived and directed the project, developed the proof
-architecture, verified the exact computations, and prepared
-the manuscript.
+architecture, verified the exact calculations, and prepared the manuscript.
 
-\paragraph{Acknowledgments and computational assistance.}
-The author acknowledges the use of OpenAI Codex and ChatGPT, Anthropic Claude,
-and Moonshot AI Kimi for symbolic calculation, implementation, drafting, and
-review. The author takes responsibility for the mathematical claims and the
-final manuscript.
+\paragraph{Acknowledgments.}
+The author acknowledges OpenAI Codex and ChatGPT, Anthropic Claude, and
+Moonshot AI Kimi for assistance with draft preparation and review. The author
+takes responsibility for the mathematical claims and the final manuscript.
 
 \paragraph{Conflict of interest.}
 The author declares no competing interests.
 
 \paragraph{Code and data availability.}
-
 The public repository is
 \url{https://github.com/falseywinchnet/zeta}. The submitted manuscript is
-preserved by the immutable tag \texttt{pf4-paper-v1.0.0}. Its commit is
-\begin{center}
-\texttt{4a14988093d7afaf05f453f8daf5441c09ba58b3}.
-\end{center}
-The present revised proof is release \texttt{PF4-paper-v2.0.0}, recorded by
-MIND epoch \texttt{P000163}.
+preserved by the immutable tag \texttt{pf4-paper-v1.0.0}, commit
+{\footnotesize\texttt{4a14988093d7afaf05f453f8daf5441c09ba58b3}}. The present revised proof is
+prepared as release \texttt{pf4-paper-v2.1.0}.
 Their distinct status and material proof changes are listed in
-\path{paper/REVISION_HISTORY.md}; current source, environment, replay, PDF, and
-archive digests are listed in \path{paper/RELEASE_MANIFEST.md}. The repository
-archive is assigned DOI \url{https://doi.org/10.5281/zenodo.21404360}.
-
-The formal replay is \texttt{lake build} followed by
-\texttt{lake env lean PF4/Audit.lean} from \path{proof/formal}. The independent
-exact arithmetic replay is \texttt{python scripts/replay\_paper.py} from the
-repository root.
-
-All theorem-bearing sign decisions are exact. Numerical values produced by
-the repository scripts are diagnostic only; there is no separate experimental
-dataset.
+\path{paper/REVISION_HISTORY.md}; current source, environment, verification,
+PDF, and archive digests are listed in \path{paper/RELEASE_MANIFEST.md}. The
+repository archive is assigned DOI
+\begin{center}
+\url{https://doi.org/10.5281/zenodo.21487371}.
+\end{center}

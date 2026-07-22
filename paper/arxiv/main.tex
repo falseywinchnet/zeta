@@ -43,12 +43,8 @@
 Let \(\Phi\) be the classical Riemann, or de Bruijn--Newman, kernel. We prove
 that its exact global P\'olya-frequency order is four: every translation minor
 of order at most four is strictly positive at strictly ordered nodes, whereas
-the order-five minor at the exact spacing \(211/2000\) is negative. Both
-halves of this classification are exported by a maintained Lean 4 theorem;
-the proof depends only on the standard Lean/mathlib axioms. The optional
-order-five confluent coefficient changes sign exactly once on the positive
-half-line, at \(0.0622795266356<u_*<0.0622795266357\). For the positive half,
-a two-mode
+the order-five minor at the exact spacing \(211/2000\) is negative. For the
+positive half, a two-mode
 argument proves global positivity of the log-curvature quantities \(q,F_2\)
 and of the fully confluent invariant \(\Cfour\). The finite verification uses
 only rational polynomial algebra, Taylor inequalities, and geometric tails.
@@ -63,16 +59,10 @@ is
 \]
 Here \(\Delta\) is a deterministic closed cumulative gap built from two
 explicitly normalized, curvature-tilted triangular weights. Its strict
-positivity follows on the actual coordinate interval from the exact mass
-identities and one explicit algebraic sign change; no probability or CDF
-premise is required. The transport
+positivity follows on the coordinate interval from the exact mass identities
+and one explicit algebraic sign change. The transport
 reductions and analytic sign estimates are given explicitly, with a table of
 the finite polynomial inequalities used for the three global signs.
-We then construct an explicit positive even Schwartz kernel which is itself
-strictly \(\PF_4\) but whose entire Fourier transform has nonreal zeros; the
-latter conclusion follows from a short exact discriminant inequality. This
-delimits the finite-order reach of Schoenberg's infinite-order transform
-correspondence.
 \end{abstract}
 \noindent\textbf{2020 Mathematics Subject Classification.}
 15B48 (primary); 42A38, 30D15, 11M26 (secondary).
@@ -113,22 +103,7 @@ The exact global P\'olya-frequency order of \(\Phi\) is four. More precisely:
 The two theorem inputs are deliberately separated. The positive input is the
 universal strict-order theorem through four. The negative input is the direct
 rational order-five witness in part~(2), including proved strict ordering of
-its nodes and the signed Toeplitz-to-translation-matrix identification. In the
-maintained formal development these are assembled by
-\path{PF4.globalRiemannKernel_pfOrderExactly_four}; its axiom audit reports
-only \texttt{propext}, \texttt{Classical.choice}, and \texttt{Quot.sound}.
-
-The exact-order classification and the Fourier question are distinct. The
-following example marks a precise finite-order boundary for Schoenberg's
-infinite-order transform correspondence, even within the positive even
-Schwartz class.
-
-\begin{theorem}[Continuous \(\PF_4\) Fourier separator]\label{thm:separator}
-There is an explicit positive even Schwartz function \(f_*\) which is strict
-\(\PF_4\), while its entire Fourier transform has nonreal zeros.
-Consequently continuous \(\PF_3\) and continuous \(\PF_4\) membership are
-each insufficient to force Fourier real-rootedness.
-\end{theorem}
+its nodes and the signed Toeplitz-to-translation-matrix identification.
 
 The proof has two one-variable inputs and one exact transport
 mechanism. First, global inequalities \(q>0\) and \(F_2>0\) imply strict
@@ -146,14 +121,6 @@ polynomials, domains, degrees, minimum coefficients, derivative envelopes,
 and the surviving relative margins. The transport algebra is proved in the
 text, and the order-five
 calculation uses rational enclosures and elementary series bounds.
-An optional recurrence gives a global order-five refinement: its confluent
-coefficient has one positive zero, enclosed in a rational interval of width
-\(10^{-13}\), and an explicit rational spacing gives a comfortably negative
-finite determinant. Neither refinement is needed for the strict-\(\PF_4\)
-theorem; it records additional structure around the direct witness.
-Theorem~\ref{thm:separator}, proved in \secref{sec:separator}, supplies an
-explicit order-four counterexample rather than a finite-order sufficiency
-threshold.
 \section{Relation to earlier work}\label{sec:related-work}
 
 Schoenberg introduced P\'olya-frequency functions and connected translation
@@ -182,33 +149,9 @@ identified with the original Riemann kernel~\cite{grochenig}.
 Micha\l{}owski first published an explicit negative \(5\times5\) Toeplitz
 minor for this kernel, supported by an interval computation, together with
 single-configuration positivity checks at orders at most
-four~\cite{michalowski}. Global \(\PF_4\) and a symbolic proof of the order-five
-leading sign are posed there as Open Problems 1 and 2. Theorem~\ref{thm:main}
-resolves the first, and Lemma~\ref{lem:origin-pf5-sign} resolves the second in
-strengthened form. Indeed, for the Toeplitz determinant
-\[
- D_r(u_0,h)=\det[\Phi(u_0+(i-j)h)]_{i,j=0}^{r-1},
-\]
-Lemma~\ref{lem:confluent-limit} gives its leading coefficient as
-\[
- C_r(u_0)=
- \frac{(-1)^{r(r-1)/2}V(0,\ldots,r-1)^2}
- {\prod_{k=0}^{r-1}(k!)^2}
- \det[\Phi^{(i+j)}(u_0)]_{i,j=0}^{r-1}.
-\]
-For \(r=5\) the sign factor is positive, only derivatives through order eight
-occur, and the limit as \(u_0\to0^+\) is a positive multiple of the
-parity-factorized determinant \(\mathsf H_5=CB<0\) computed exactly in
-Lemma~\ref{lem:origin-pf5-sign}. Theorem~\ref{thm:confluent-threshold}
-determines the complete sign change: \(C_5(u_0)<0\) precisely for
-\(0\leq u_0<u_*\), where
-\(0.0622795266356<u_*<0.0622795266357\). The normalization in
-\cite{michalowski} uses \(K_M(u)=\Phi(2u)/2\), so its corresponding center is
-\(u_*/2\in(0.0311397633178,0.03113976331785)\).
-
-Theorem~\ref{thm:separator} further shows where the infinite-order transform
-conclusion ceases to follow from finite-order positivity: even strict
-\(\PF_3\) or \(\PF_4\) does not control all Fourier zeros.
+four~\cite{michalowski}. Global \(\PF_4\) is posed there as Open Problem 1.
+Theorem~\ref{thm:main} resolves that problem and supplies an exact rational
+negative order-five minor, completing the finite-order classification.
 \section{The kernel and smooth even continuation}\label{sec:kernel}
 
 Put
@@ -261,12 +204,6 @@ For \(a<b\), define
  M(a,b)=\frac{q(b)-q(a)}{A(a,b)}.
 \end{equation}
 When \(q>0\), \(s\) is strictly decreasing and \(A(a,b)>0\).
-
-The maintained formal boundary mirrors this order of construction.
-It separately checks the Poisson step, analytic continuation, parity,
-reflected series, and the complete jet through order six. The exact
-declarations are listed in \appref{app:provenance}; none uses a
-project-specific axiom.
 \section{Certified one-variable inputs}\label{sec:inputs}
 
 Define
@@ -322,17 +259,9 @@ changes in the same cleared sign numerators are smaller than the three
 displayed margins, both on
 \(\pi\leq x\leq5\) and on \(x\geq5\). Evenness completes the real line.
 All inequalities, including the derivative envelopes used on the tail, are
-derived in \appref{app:tail}. The exact replay uses no floating
-point, no interval subdivision, and no FLINT or Arb arithmetic.
-
-In the maintained Lean development the compact and outer regions are one
-universal theorem, rather than sampled checks. The three positive-sign
-declarations prove the cleared \(q,F_2,\Cfour\) numerators for every
-\(t\geq0\). Exact raw-jet identities then remove the positive denominators,
-and the reflected global jet from \secref{sec:kernel} covers the negative
-half-line and the origin. The Python verifier remains an independent exact
-replay of the printed rational certificate; it is not the bridge from sampled
-arithmetic to the universal statement.
+derived in \appref{app:tail}. Exact raw-jet identities remove the positive
+denominators, and the reflected global jet from \secref{sec:kernel} covers the
+negative half-line and the origin.
 \section{Order three and the positive slope functional}\label{sec:pf3}
 
 For \(\xi<m<r\), define
@@ -412,8 +341,8 @@ Consequently
  W(u_1,u_2,u_3,u_4)=u_1^4v_2^3w_3^2
  \frac{\dd}{\dd t}\left(\frac{w_4}{w_3}\right).
 \end{equation}
-No sign premise is used in these algebraic identities beyond the stated
-nonvanishing needed to form the quotients.
+These algebraic identities require precisely the stated nonvanishing needed
+to form the quotients.
 
 Let \(\T\) denote simultaneous translation of all point arguments. From
 \eqref{eq:AM},
@@ -492,17 +421,6 @@ Determinant multilinearity gives \eqref{eq:iterated-determinant}. Since
 \(\tau_i\in[t_i,t_{i+1}]\), the integration nodes remain ordered, so the same
 argument applies to the derivative determinant.
 \end{proof}
-
-\begin{sloppypar}
-Only the instances of Lemma~\ref{lem:quotient-integral} of sizes two through
-four enter the theorem. The maintained formal engine proves exactly those
-instances and the corresponding strict integral boxes; no arbitrary-order
-quotient theorem is a premise of Theorem~\ref{thm:main}. In particular,
-\path{PF4.FixedOrderQuotientWronskian.fixedOrderFour_quotientWronskian_package}
-packages \eqref{eq:W3-quotient}--\eqref{eq:W4-third} together with the reversed
-endpoint orientation \(p_4<p_3<p_2<p_1\). Its independent replay boundary is
-\texttt{CERT29}.
-\end{sloppypar}
 
 \begin{lemma}[Confluent divided-difference limit]\label{lem:confluent-limit}
 Let \(f\in C^{2k-2}\), let
@@ -638,13 +556,10 @@ Equivalently,
 \end{equation}
 It remains to prove \(K>0\).
 
-All objects here are defined only on the image of \(y=-s\).
-The range-sign theorem in \path{PF4.PaperObjectClosure} proves the displayed
-\(\rho,\kappa\) inequalities at every actual coordinate point. The package in
-\path{PF4.SimultaneousCoordinateTranslation} identifies literal simultaneous
-translation of the original endpoints with \(\T\), including the derivative
-of the nonconstant coefficient \(Q(p)\). Neither result extends \(Q\) by an
-assumed inverse or asserts that the coordinate image is all of \(\mathbb R\).
+All objects in this coordinate are evaluated on the image \(y(\R)\), where
+the inverse coordinate is well defined. The displayed \(\rho,\kappa\) signs
+hold at every such point, and simultaneous translation of the original
+endpoints is exactly the operator \(\T\) above.
 \section{The confluent invariant in curvature form}\label{sec:confluent}
 
 Define
@@ -755,15 +670,8 @@ Substitution in \eqref{eq:K-def} yields
 The endpoint identity equating \eqref{eq:transport-endpoint} and
 \eqref{eq:K-endpoint}, with every substitution exposed, is
 \appref{app:endpoints}. It is an identity in the endpoint positions and the
-values of \(Q,Q',Q''\); no bound, coordinate-surjectivity assertion, or
-polynomial model is used.
+values of \(Q,Q',Q''\).
 \end{proof}
-
-The normalized weights may independently be regarded as probability measures
-\(\mu\) and \(\nu\). In that notation \eqref{eq:expectation-endpoint} says
-\(\mathcal E=\mathbb E_\nu[A_0]-\mathbb E_\mu[A_0]\). This interpretation is
-formally checked, but the deterministic proof in the next section uses only
-the displayed compact-interval densities and their masses.
 \section{The positive closed coordinate gap}\label{sec:crossing}
 
 Define a deterministic piecewise function on \([p,w]\) by
@@ -841,19 +749,9 @@ Combining \eqref{eq:K-def}, \eqref{eq:C4-curvature}, and
  \Delta(y)\frac{\Cfour(y)}{Q(y)^6\kappa(y)^2}\dd y>0.
 \end{equation}
 Every factor in the interior is strictly positive.
-
-The probability interpretation is optional: the same \(\Delta\) is
-\(F_\mu-F_\nu\), and the density ratio has one crossing. The proof above does
-not require probability instances, CDF complement identities, endpoint ratio
-limits, or a separate existence-and-uniqueness argument for that crossing.
-The two actual-kernel exports in \path{PF4.GlobalStrictPF4} prove, for every
-\(\xi<m<r\), respectively the strict positivity in
-\eqref{eq:central-identity} and the negative derivative in
-\eqref{eq:sign-bridge}. All coordinate points in these statements lie in the
-actual image of \(y=-s\); no surjectivity onto \(\mathbb R\) is asserted.
 \section{Completion and exact order}\label{sec:completion}
 
-Equation \eqref{eq:sign-bridge} and \eqref{eq:central-identity} imply
+Equations \eqref{eq:sign-bridge} and \eqref{eq:central-identity} imply
 \[
  \partial_\xi\Psi(\xi;m,r)<0\qquad(\xi<m<r).
 \]
@@ -876,171 +774,15 @@ The Riemann kernel is not \(\PF_5\).
 The nodes \(0,h,2h,3h,4h\) are strictly increasing. Evenness identifies the
 translation matrix with the symmetric Toeplitz matrix determined by the five
 kernel values \(\Phi(0),\Phi(h),\ldots,\Phi(4h)\). Each value is enclosed by
-exact Taylor bounds for the retained theta modes and the maintained infinite
-tail theorem; a rational determinant parity factorization then gives
+exact Taylor bounds for the retained theta modes and the infinite-tail theorem;
+a rational determinant parity factorization then gives
 \eqref{eq:finite-pf5-witness}. This is a negative translation minor at
-distinct nodes, with no limiting argument.
-
-\begin{sloppypar}
-In the formal development the node ordering, signed-index orientation,
-Toeplitz identification, value boxes, determinant sign, and primary-kernel
-identity are all premises of
-\path{PF4.globalRiemannKernel_orderFive_translationMinor_neg}. Thus the
-order-five obstruction used by Theorem~\ref{thm:main} does not depend on the
-confluent calculations below.
-\end{sloppypar}
+distinct nodes.
 \end{proof}
-
-\subsection*{Optional confluent structure}
-
-The origin and threshold calculations give independent information about the
-first order-five failure, but are not used in the exact-order assembly. Put
-\[
- \mathsf H_k=\det[\Phi^{(i+j)}(0)]_{i,j=0}^{k-1},\qquad
- s_j=\Phi^{(j)}(0).
-\]
-Since \(\Phi\) is even, simultaneous parity permutations of the rows and
-columns give
-\[
- \mathsf H_4=AB,\qquad \mathsf H_5=CB,
-\]
-where
-\[
- A=s_0s_4-s_2^2,\qquad B=s_2s_6-s_4^2,
-\]
-and
-\[
- C=\det\begin{pmatrix}
- s_0&s_2&s_4\\
- s_2&s_4&s_6\\
- s_4&s_6&s_8
- \end{pmatrix}.
-\]
-
-\begin{lemma}\label{lem:origin-pf5-sign}
-For the Riemann kernel,
-\[
- 445<A<446,\qquad 189223<B<189228,
- \qquad -674000000<C<-614000000.
-\]
-In particular, \(\mathsf H_4>0\) and \(\mathsf H_5<0\).
-\end{lemma}
-
-\begin{proof}
-For \(x=\pi n^2e^{2u}\), the \(n\)-th summand of \(\Phi(u)\) is
-\(e^{u/2-x}T_0(x)\), where \(T_0(x)=2x(2x-3)\). If its \(j\)-th derivative
-is \(e^{u/2-x}T_j(x)\), then
-\[
- T_{j+1}=2xT_j'+(1/2-2x)T_j.
-\]
-Thus
-\[
- s_j=\sum_{n\ge1}e^{-\pi n^2}T_j(\pi n^2).
-\]
-The first three modes are enclosed by rational alternating-series bounds.
-Machin's identity
-\(\pi=16\arctan(1/5)-4\arctan(1/239)\) supplies rational bounds for \(\pi\),
-and argument division followed by the degree-29 and degree-30 alternating
-Taylor sums supplies rational bounds for each exponential.
-
-For the omitted modes, let \(S_j\) be the sum of the absolute coefficients of
-\(T_j\). Since \(\deg T_j=j+2\), \(3<\pi<22/7\), and
-\(e^3>\sum_{r=0}^8 3^r/r!>20\),
-\[
- \sum_{n\ge4}|T_j(\pi n^2)|e^{-\pi n^2}
- \leq
- \frac{S_j(22/7)^{j+2}4^{2j+4}20^{-16}}
- {1-(5/4)^{20}20^{-9}}
- \qquad(j=0,2,4,6,8).
-\]
-All endpoints lie on \(10^{-36}\mathbb Z\), and every arithmetic operation is
-rounded outward. Substitution into the displayed formulas gives the entirely
-rational sign chain
-\[
- 0<445<A<446,\qquad 0<189223<B<189228,
-\]
-\[
- -674000000<C<-614000000<0.
-\]
-Thus \(AB>0\) and \(CB<0\) without a floating-point determinant. The full
-grid endpoints and the standard-library verifier are included in the
-reproducibility archive.
-\end{proof}
-
-Applying Lemma~\ref{lem:confluent-limit} with \(k=5\), \(z=0\), and
-\(a_i=b_i=i\) shows independently that
-\(\det[\Phi((i-j)\varepsilon)]_{i,j=0}^4<0\) for every sufficiently small
-positive \(\varepsilon\). This implication is not needed for
-Theorem~\ref{thm:not-pf5}, whose witness is the fixed rational spacing above.
-
-For the equal-step family put
-\[
- D_5(u,h)=\det[\Phi(u+(i-j)h)]_{i,j=0}^4,\qquad
- C_5(u)=\lim_{h\downarrow0}\frac{D_5(u,h)}{h^{20}}.
-\]
-Because \(V(0,\ldots,4)=\prod_{j=1}^4j!\), the Vandermonde and factorial
-factors in Lemma~\ref{lem:confluent-limit} cancel, and therefore
-\begin{equation}\label{eq:C5-H5}
- C_5(u)=\det[\Phi^{(i+j)}(u)]_{i,j=0}^4.
-\end{equation}
-
-\begin{theorem}[Confluent order-five threshold]\label{thm:confluent-threshold}
-There is a unique \(u_*>0\) such that \(C_5(u_*)=0\), and
-\[
- 0.0622795266356<u_*<0.0622795266357.
-\]
-Moreover \(C_5(u)<0\) for \(0\leq u<u_*\), while \(C_5(u)>0\) for
-\(u>u_*\).
-\end{theorem}
-
-\begin{proof}
-Put \(x=\pi e^{2u}\), \(y=e^{-3x}\), and \(z=e^{-8x}\). After removing the
-positive first-mode amplitude \(2xe^{5u/2-x}\), the first three theta modes of
-the derivative jet are
-\[
- b_j=P_j(x)+4yP_j(4x)+9zP_j(9x),
-\]
-where
-\[
- P_0(x)=2x-3,\qquad
- P_{j+1}(x)=\left(\frac52-2x\right)P_j(x)+2xP_j'(x).
-\]
-Thus the three-mode part of \(C_5\), apart from a positive fifth power, is the
-closed determinant
-\begin{equation}\label{eq:three-mode-C5}
- G_3(x,y,z)=\det[b_{i+j}]_{i,j=0}^4.
-\end{equation}
-Its exact expansion has 231 monomials. The path derivative is obtained without
-another expansion from
-\[
- \frac{d}{du}=2x(\partial_x-3y\partial_y-8z\partial_z).
-\]
-
-For \(j\leq9\), the omitted modes satisfy
-\begin{equation}\label{eq:C5-tail}
- |e_j(x)|\leq
- \frac{S_jx^{j+1}4^{2j+4}e^{-15x}}
- {1-(5/4)^{22}e^{-9x}},
-\end{equation}
-where \(S_j\) is the sum of the absolute coefficients of \(P_j\). Exact
-rational Bernstein bounds, preserving the common \(x\)-dependence of
-\(e^{-3x}\) and \(e^{-8x}\), give \(C_5<0\) from \(u=0\) through \(u=1/50\)
-and \(C_5'>0\) on the overlapping range from \(u=3/200\) through \(x=4\).
-Direct four-mode endpoint enclosures give opposite signs at
-\(u=0.0622795266356\) and \(u=0.0622795266357\). Four further Bernstein cells
-give \(C_5>0\) for \(4\leq x\leq40\), and the exact one-mode determinant plus
-\eqref{eq:C5-tail} gives positivity for \(x\geq40\). These overlapping signs
-prove existence, uniqueness, and the stated classification. The domains and
-cell counts are listed in \appref{app:pf5-threshold}.
-\end{proof}
-
-The outermost center over all finite spacings is a separate two-variable
-extremal problem; no such global extremality is used here.
 
 Equation~\eqref{eq:finite-pf5-witness} proves part~(2) of
 Theorem~\ref{thm:main}. Together with the strict minors through order four,
-this completes the exact-order classification. The preceding confluent
-theorem is not used in that assembly.
+this completes the exact-order classification.
 
 \begin{remark}[Riemann Hypothesis boundary]
 Schoenberg's transform theorem says that the bilateral Laplace transform of a
@@ -1050,257 +792,112 @@ of \(\Phi\), up to the standard normalization, is the Riemann \(\Xi\)-function,
 which has known real zeros; hence \(\Phi\) is unconditionally not
 \(\PF_\infty\). The Schoenberg formulation related to the Riemann Hypothesis
 instead asks for the inverse transform of the reciprocal of \(\Xi\) to be a
-P\'olya-frequency function~\cite{grochenig}. Thus the finite-order classification
-proved here is a different statement. The next section further shows that
-strict \(\PF_4\) alone does not imply Fourier real-rootedness.
+P\'olya-frequency function~\cite{grochenig}. Thus the finite-order
+classification proved here is a different statement.
 \end{remark}
-\section{An explicit continuous \texorpdfstring{$\PF_4$}{PF4} separator}
-\label{sec:separator}
+\section{Verification}\label{sec:reproducibility}
 
-We now prove Theorem~\ref{thm:separator}.  Put
-\[
- c=\frac1{64},\qquad
- B(w)=\sum_{k=-3}^{3}b_kw^k,\qquad
- (b_{-3},\ldots,b_3)=(2,10,23,30,23,10,2),
-\]
-and define
-\begin{equation}\label{eq:separator-kernel}
- f_*(x)=e^{-cx^2}B(e^{2cx})
- =\sum_{k=-3}^{3}b_ke^{ck^2}e^{-c(x-k)^2}.
-\end{equation}
-The Gaussian-mixture expression proves positivity and Schwartz decay;
-palindromy of \((b_k)\) proves evenness.
+The verification boundary is the theorem
+\path{PF4.globalRiemannKernel_pfOrderExactly_four} in the project
+\path{proof/formal}. It has two immediate mathematical inputs:
+\path{PF4.globalRiemannKernel_strictPFUpTo_four}, which quantifies over every
+order \(1\leq k\leq4\) and every pair of strictly increasing real node tuples,
+and \path{PF4.globalRiemannKernel_orderFive_translationMinor_neg}, which proves
+the negative minor at \(h=211/2000\). The former depends on the analytic theta
+construction, the global \(q,F_2,\Cfour\) signs, and the quotient--transport
+argument developed in Sections~\ref{sec:kernel}--\ref{sec:crossing}.
 
-\subsection{Strict \texorpdfstring{$\PF_3$}{PF3}}
-
-For fixed \(x\), give \(\mathsf X\in\{-3,\ldots,3\}\) probability
-proportional to \(b_ke^{2ckx}\), and write \(\chi_j\) for its cumulants.
-Differentiation of
-the finite log-partition function gives
-\begin{equation}\label{eq:separator-cumulants}
- q=2c-(2c)^2\chi_2,\qquad
- q'=-(2c)^3\chi_3,\qquad
- q''=-(2c)^4\chi_4.
-\end{equation}
-If \(\bar x=\mathbb E\mathsf X\), then
-\(0\leq\mathbb E[(\mathsf X+3)(3-\mathsf X)]=9-\chi_2-\bar x^2\).
-Thus \(0\leq\chi_2\leq9\), and hence
-\begin{equation}\label{eq:separator-q}
- q\geq2c(1-18c)=2c\frac{23}{32}>0.
-\end{equation}
-Moreover,
-\begin{align}
- F_2
- &=q^3-\{qq''-(q')^2\}\notag\\
- &=q^3+q(2c)^4\chi_4+(2c)^6\chi_3^2.       \label{eq:separator-f2}
-\end{align}
-The identity
-\(\chi_4=\mathbb E(\mathsf X-\mathbb E\mathsf X)^4-3\chi_2^2\) gives
-\(\chi_4\geq-243\). Dropping the final nonnegative term in
-\eqref{eq:separator-f2} gives
-\[
- F_2\geq q\{q^2-3888c^4\}.
-\]
-At \(c=1/64\), the two coefficients after division by \(c^2\) are
-\[
- q^2/c^2\geq\frac{529}{256},\qquad
- 3888c^2=\frac{243}{256}.
-\]
-Thus \(F_2\geq q c^2(143/128)>0\) globally.  The weighted-mean criterion of
-\secref{sec:pf3} proves strict \(\PF_3\).
-
-\subsection{Exact order-four density}
-
-Let \(\epsilon=2c=1/32\), \(t=e^{\epsilon x}\), and
-\[
- P(t)=t^3B(t)=2+10t+23t^2+30t^3+23t^4+10t^5+2t^6.
-\]
-For \(E=t\frac{\dd}{\dd t}\), define
-\begin{equation}\label{eq:separator-N-recurrence}
- N_1=tP',\qquad N_{j+1}=t(N_j'P-jN_jP').
-\end{equation}
-The quotient rule gives \(E^j\log P=N_j/P^j\). Therefore, for
-\(\ell_j=(\log f_*)^{(j)}\),
-\begin{equation}\label{eq:separator-logjets}
- \ell_2=\frac{-\epsilon P^2+\epsilon^2N_2}{P^2},
- \qquad
- \ell_j=\frac{\epsilon^jN_j}{P^j}\quad(3\leq j\leq6).
-\end{equation}
-Insert these jets into the central-moment determinant
-\eqref{eq:C4-def}. Every monomial has derivative weight twelve, so every
-term may first be put over the common denominator \(P^{12}\). The resulting
-numerator has the exact factor \(P^8\). After cancellation,
-\begin{equation}\label{eq:separator-c4}
- \Cfour[f_*](x)=\frac{\mathcal G(t)}{2^{54}P(t)^4}.
-\end{equation}
-The exact expansion printed in \appref{app:separator} proves that
-\(\mathcal G\) is palindromic of degree 24 and that all 25 integer
-coefficients are strictly positive. Hence \(\Cfour[f_*]>0\) on \(\R\).
-
-The established inequalities \(q>0\) and \(F_2>0\) also give
-\[
- \kappa=2-Q''=\frac{q^3+F_2}{q^3}>0.
-\]
-The generic transport identity \eqref{eq:central-identity} now has strictly
-positive density and crossing weight for \(f_*\).  Thus
-\(\partial_\xi\Psi<0\), and Proposition~\ref{prop:equivalence} proves that
-\(f_*\) is strict \(\PF_4\).
-
-\subsection{Nonreal Fourier zeros}
-
-With \(\widehat f(z)=\int_\R f(x)e^{-izx}\dd x\), Gaussian translation gives
-\begin{equation}\label{eq:separator-fourier}
- \widehat f_*(z)=\sqrt{\frac{\pi}{c}}e^{-z^2/(4c)}
- \sum_{k=-3}^{3}b_ke^{ck^2}e^{-ikz}.
-\end{equation}
-Put \(w=e^{-iz}\) and \(u=w+w^{-1}\).  The Laurent factor in
-\eqref{eq:separator-fourier} vanishes exactly when
-\begin{equation}\label{eq:separator-cubic}
- R_c(u)=2e^{9c}u^3+10e^{4c}u^2
- +(23e^c-6e^{9c})u+30-20e^{4c}
-\end{equation}
-vanishes. At \(c=1/64\), the exact calculation in
-\appref{app:separator} gives \(\operatorname{disc}(R_c)<0\). Thus the real
-cubic has a nonreal conjugate pair.
-For \(|w|=1\), however, \(w+w^{-1}\) is real. The corresponding \(w\)-roots
-therefore lie off the unit circle and lift through \(w=e^{-iz}\) to zeros
-with \(\operatorname{Im}z\neq0\). The Gaussian factor is zero-free. This
-completes the proof of Theorem~\ref{thm:separator}.
-\section{Exact verification and reproduction}\label{sec:reproducibility}
-
-The primary universal theorem is checked by the pinned Lean project in
-\path{proof/formal}. From that directory, \texttt{lake build} constructs the
-real theta series, analytic kernel and global derivative jet, universal
-cleared signs, fixed-order quotient and transport chain, arbitrary-node strict
-minors through order four, direct negative order-five witness, and exact-order
-assembly. The focused command
-\texttt{lake env lean PF4/Audit.lean} prints the axiom dependencies of the
-exported declarations. They are exactly \texttt{propext},
-\texttt{Classical.choice}, and \texttt{Quot.sound}. No \texttt{sorry},
-\texttt{admit}, custom axiom, or unsafe theorem bridge occurs in the target
-dependency tree.
-
-The principal claim boundaries are:
+The following criteria define the formal verification claim and make it
+reproducible.
+\begin{enumerate}
+\item \textbf{Pinned environment.} Lean \texttt{v4.32.0} is fixed in
+\path{lean-toolchain}; mathlib \texttt{v4.32.0} is fixed in
+\path{lake-manifest.json}. The resolved mathlib commit is
 \begin{center}
-\small
-\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.25\textwidth}
->{\raggedright\arraybackslash}p{0.66\textwidth}@{}}
+{\footnotesize\texttt{81a5d257c8e410db227a6665ed08f64fea08e997}}.
+\end{center}
+
+\item \textbf{Complete build.} From \path{proof/formal}, the command
+\begin{center}
+\texttt{lake build}
+\end{center}
+elaborates every imported declaration and checks every generated proof term
+with the Lean kernel. The recorded release build completes all 3737 jobs.
+
+\item \textbf{Axiom-closure audit.} The command
+\begin{center}
+\texttt{lake env lean PF4/Audit.lean}
+\end{center}
+runs \texttt{\#print axioms} on the final theorem, both immediate inputs, and
+the target-facing declarations in their proof chain. For every audited target
+the printed dependency set is exactly
+\[
+ \{\texttt{propext},\ \texttt{Classical.choice},\ \texttt{Quot.sound}\}.
+\]
+These are Lean's standard logical axioms. A declaration containing
+\texttt{sorry} or \texttt{admit} elaborates with the axiom
+\texttt{sorryAx}; consequently such a gap anywhere in an audited target's
+dependency closure would appear in this output. The observed output contains
+no \texttt{sorryAx} and no project-declared axiom.
+
+\item \textbf{Exact sign decisions.} The compact sign certificates, theta-tail
+bounds, and the order-five determinant enclosure enter the theorem as exact
+integer or rational inequalities. Floating-point values do not discharge a
+proposition in the final dependency closure.
+
+\item \textbf{Quantifier coverage.} The strict-order conclusion is a single
+universal theorem over arbitrary real node tuples; it is not a finite node
+sample. The negative order-five conclusion includes the strict ordering of
+the five rational nodes, the translation-matrix identity, and the determinant
+sign.
+\end{enumerate}
+
+Two independent Python replays expose the finite arithmetic printed in the
+paper. From the repository root,
+\begin{center}
+\begin{tabular}{@{}ll@{}}
 \toprule
-Object & Maintained boundary \\
+Claim & Command \\
 \midrule
-Analytic kernel and global jet &
-\path{PF4.globalRiemannKernel_eq_thetaSeries_abs};
-\path{PF4.GlobalKernelJetIdentification.iteratedDeriv_globalRiemannKernel_eq_thetaSeriesJet} \\
-Global \(q,F_2,\Cfour\) &
-\path{PF4.CERT12OuterClosure.normalized_cleared_signs_pos} and exact raw-jet transfer \\
-Lower \(\Lambda\) and orders two--three &
-\path{PF4.WeightedMeanVariation.actual_weightedMeanVariation_lowerLambda};
-\path{PF4.GlobalStrictPF4.translationMinor_two_pos};
-\path{PF4.GlobalStrictPF4.translationMinor_three_pos} \\
-Fixed-order quotient cascade &
-\path{PF4.FixedOrderQuotientWronskian.fixedOrderFour_quotientWronskian_package} \\
-Actual coordinate transport &
-\path{PF4.GlobalStrictPF4.globalRiemannKernel_coordinateNumerator_pos};
-\path{PF4.GlobalStrictPF4.globalRiemannKernel_coordinatePartialXiPsi_neg} \\
-Universal strict PF4 &
-\path{PF4.globalRiemannKernel_strictPFUpTo_four} \\
-Direct PF5 witness &
-\path{PF4.globalRiemannKernel_orderFive_translationMinor_neg} \\
-Exact order four &
-\path{PF4.globalRiemannKernel_pfOrderExactly_four} \\
+Global \(q,F_2,\Cfour\) signs &
+\texttt{python3 scripts/verify\_riemann\_signs\_exact.py} \\
+Negative minor at \(h=211/2000\) &
+\texttt{python3 scripts/verify\_pf5\_witness\_exact.py} \\
 \bottomrule
 \end{tabular}
 \end{center}
-
-Independent exact verifiers reconstruct the printed finite algebra and
-rational inequalities:
-\begin{center}
-\small
-\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.30\textwidth}
->{\raggedright\arraybackslash}p{0.51\textwidth}
->{\raggedright\arraybackslash}p{0.12\textwidth}@{}}
-\toprule
-Object & Repository replay & Role \\
-\midrule
-Global \(q,F_2,\Cfour\) &
-\path{scripts/verify_riemann_signs_exact.py} & exact arithmetic \\
-Fixed Wronskian algebra &
-\path{scripts/verify_pf4_wronskian_reduction.py} & independent \\
-Endpoint transport algebra &
-\path{scripts/verify_pf4_transport_kernel.py} & independent \\
-Direct PF5 witness and optional threshold &
-\path{scripts/verify_pf5_threshold.py} & exact arithmetic \\
-Optional threshold polynomial &
-\path{scripts/verify_pf5_threshold_symbolic.py} & independent \\
-Continuous separator &
-\path{scripts/verify_continuous_pf4_separator.py} & exact arithmetic \\
-\bottomrule
-\end{tabular}
-\end{center}
-
-The global-sign replay retains the first two theta modes exactly. It checks
-the 361 Bernstein and decay inequalities summarized in \appref{app:tail}, the
-140 derivative-envelope coefficients, and analytic geometric bounds for every
-mode \(n\geq3\). It uses a pure-Python rational domain and refuses a FLINT
-import. No floating-point comparison or interval subdivision decides a sign.
-
-The PF5 replay directly encloses the five kernel values at spacings
-\(0,h,2h,3h,4h\), \(h=211/2000\), and proves the determinant interval
-\eqref{eq:finite-pf5-witness}. Its additional cells reconstruct the optional
-231-monomial confluent determinant and unique threshold. The separator replay
-checks the exact \(P^8\) cancellation, all 25 coefficients in
-\eqref{eq:separator-c4}, and the rational discriminant inequality in
-\appref{app:separator}.
-
-From the repository root, the independent artifact command is
-\begin{center}
-\texttt{python scripts/replay\_paper.py}.
-\end{center}
-It prints one \texttt{PASS} line per active exact certificate followed by
-\texttt{status=paper evidence replay passed}. Package versions, the complete
-stdout digest, PDF digest, and arXiv archive digest are recorded in
-\path{paper/RELEASE_MANIFEST.md}. Earlier computer-algebra experiments are
-discovery provenance only; the maintained Lean declarations and exact replay
-boundaries above carry the final claims.
-\section{Declarations, availability, and computational provenance}
+Both use outward rational bounds. They are independently inspectable
+reconstructions of the finite certificates; the universal theorem remains the
+kernel-checked Lean declaration above. Tool versions, output digests, the PDF
+digest, and the source-archive digest are recorded in
+\path{paper/RELEASE_MANIFEST.md}.
+\section{Declarations and availability}
 
 \paragraph{Author contribution.}
 Joshuah Rainstar conceived and directed the project, developed the proof
-architecture, verified the exact computations, and prepared
-the manuscript.
+architecture, verified the exact calculations, and prepared the manuscript.
 
-\paragraph{Acknowledgments and computational assistance.}
-The author acknowledges the use of OpenAI Codex and ChatGPT, Anthropic Claude,
-and Moonshot AI Kimi for symbolic calculation, implementation, drafting, and
-review. The author takes responsibility for the mathematical claims and the
-final manuscript.
+\paragraph{Acknowledgments.}
+The author acknowledges OpenAI Codex and ChatGPT, Anthropic Claude, and
+Moonshot AI Kimi for assistance with draft preparation and review. The author
+takes responsibility for the mathematical claims and the final manuscript.
 
 \paragraph{Conflict of interest.}
 The author declares no competing interests.
 
 \paragraph{Code and data availability.}
-
 The public repository is
 \url{https://github.com/falseywinchnet/zeta}. The submitted manuscript is
-preserved by the immutable tag \texttt{pf4-paper-v1.0.0}. Its commit is
-\begin{center}
-\texttt{4a14988093d7afaf05f453f8daf5441c09ba58b3}.
-\end{center}
-The present revised proof is release \texttt{PF4-paper-v2.0.0}, recorded by
-MIND epoch \texttt{P000163}.
+preserved by the immutable tag \texttt{pf4-paper-v1.0.0}, commit
+{\footnotesize\texttt{4a14988093d7afaf05f453f8daf5441c09ba58b3}}. The present revised proof is
+prepared as release \texttt{pf4-paper-v2.1.0}.
 Their distinct status and material proof changes are listed in
-\path{paper/REVISION_HISTORY.md}; current source, environment, replay, PDF, and
-archive digests are listed in \path{paper/RELEASE_MANIFEST.md}. The repository
-archive is assigned DOI \url{https://doi.org/10.5281/zenodo.21404360}.
-
-The formal replay is \texttt{lake build} followed by
-\texttt{lake env lean PF4/Audit.lean} from \path{proof/formal}. The independent
-exact arithmetic replay is \texttt{python scripts/replay\_paper.py} from the
-repository root.
-
-All theorem-bearing sign decisions are exact. Numerical values produced by
-the repository scripts are diagnostic only; there is no separate experimental
-dataset.
+\path{paper/REVISION_HISTORY.md}; current source, environment, verification,
+PDF, and archive digests are listed in \path{paper/RELEASE_MANIFEST.md}. The
+repository archive is assigned DOI
+\begin{center}
+\url{https://doi.org/10.5281/zenodo.21487371}.
+\end{center}
 \clearpage
 \begin{thebibliography}{99}
 \bibitem{schoenberg-ii}
@@ -1430,11 +1027,6 @@ theta series has \(j\)-th derivative
 where the polynomials \(R_j\) satisfy the recurrence in
 \secref{sec:inputs}. Machin's identity and alternating series give
 \(\pi>157/50\); hence \(R_0(x)=2x-3>0\).
-The same recurrence, exponential bounds, compact Bernstein margins, and
-infinite-tail reduction are encoded in the maintained Lean modules
-\path{PF4.CERT12CompactClosure} and \path{PF4.CERT12OuterClosure}. The formulas
-below remain the human-readable certificate and the independent exact-Python
-replay.
 
 \subsection{Cleared sign polynomials}
 
@@ -1782,235 +1374,5 @@ indeterminates subject only to the displayed definitions of \(a,b,\delta\),
 and \(\Lambda\). Clearing \(L^2R\delta\Lambda\) first and then expanding gives
 the zero polynomial. Expanding the uncleared rational expression need not
 expose this cancellation.
-\section{Claim provenance}\label{app:provenance}
-
-Every theorem-sized claim in the main proof has one of three boundaries: a
-maintained Lean declaration, an exact local certificate, or a standard
-argument printed in full. The following table is the audit trace.
-\begin{center}
-\scriptsize
-\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.22\textwidth}
->{\raggedright\arraybackslash}p{0.30\textwidth}
->{\raggedright\arraybackslash}p{0.39\textwidth}@{}}
-\toprule
-Claim & Boundary & Exact anchor \\
-\midrule
-Theta, Poisson, analyticity, parity, global jet & Lean/mathlib &
-\path{PF4.KernelAnalytic}; \path{PF4.GlobalKernelJetIdentification};
-\texttt{CERT20--CERT22} \\
-Global \(q,F_2,\Cfour\) & Lean plus exact rational replay &
-\path{PF4.CERT12OuterClosure.normalized_cleared_signs_pos};
-\texttt{CERT22} \\
-Weighted-mean lower \(\Lambda\) & Lean &
-\path{PF4.WeightedMeanVariation.actual_weightedMeanVariation_lowerLambda};
-\texttt{CERT28} \\
-Fixed \(W_3,W_4\) identities & Lean and direct algebra &
-\path{PF4.FixedOrderQuotientWronskian}; \texttt{CERT29} \\
-Sizes two--four quotient integrals & Lean plus printed FTC proof &
-\path{PF4.GenericQuotientIntegral}; \path{PF4.ContinuousQuotientBox} \\
-Confluent limits & standard printed proof &
-Lemma~\ref{lem:confluent-limit}; successive divided differences \\
-Actual coordinate and translation & Lean &
-\path{PF4.CurvatureCoordinateRealization};
-\path{PF4.SimultaneousCoordinateTranslation}; \texttt{CERT19},
-\texttt{CERT27} \\
-\(\Cfour=Q^6\kappa^2D\) & Lean and printed algebra &
-\path{PF4.C4Invariant}; \appref{app:algebra}; \texttt{CERT25--CERT26} \\
-Endpoint cancellation and closed gap & Lean and printed integration &
-\path{PF4.LocalGapClosure}; \path{PF4.LocalCentralIntegration};
-\texttt{CERT19}, \texttt{CERT25} \\
-Strict PF4 at arbitrary nodes & Lean &
-\path{PF4.globalRiemannKernel_strictPFUpTo_four}; \texttt{CERT23} \\
-Direct negative PF5 minor & Lean plus exact rational replay &
-\path{PF4.globalRiemannKernel_orderFive_translationMinor_neg};
-\texttt{CERT24} \\
-Exact order four & Lean &
-\path{PF4.globalRiemannKernel_pfOrderExactly_four}; \texttt{CERT24} \\
-Optional PF5 threshold & exact local certificate &
-\texttt{CERT16--CERT17}; \appref{app:pf5-threshold} \\
-Continuous Fourier separator & exact local certificate &
-\texttt{CERT10}; \appref{app:separator} \\
-\bottomrule
-\end{tabular}
-\end{center}
-
-The detailed declaration-by-declaration map is
-\path{proof/CLAIM_INDEX.md}; the target axiom audit is
-\path{proof/formal/AXIOMS.md}. The frozen submitted version and this revised
-proof are identified separately in \path{paper/REVISION_HISTORY.md}.
-\section{Exact separator calculation}
-\label{app:separator}
-
-This appendix records the algebraic boundary behind
-\eqref{eq:separator-c4}.  Starting from the cumulants
-\(\ell_2,\ldots,\ell_6\), the verifier reconstructs the central moments
-\[
- m_0=1,\quad m_1=0,\quad m_2=\ell_2,\quad m_3=\ell_3,
-\]
-\[
- m_4=\ell_4+3\ell_2^2,\qquad
- m_5=\ell_5+10\ell_3\ell_2,
-\]
-\[
- m_6=\ell_6+15\ell_4\ell_2+10\ell_3^2+15\ell_2^3,
-\]
-and then forms \(\det[m_{i+j}]_{i,j=0}^3\) directly.  This independently
-regenerates the thirteen-term \(\Cfour\) polynomial; it does not import the
-expansion used for the Riemann kernel.
-
-The recurrence \eqref{eq:separator-N-recurrence} is then applied over
-\(\mathbb Q[t]\).  Substitution of \eqref{eq:separator-logjets} shows that
-each of the thirteen determinant monomials has common denominator \(P^{12}\).
-After collecting, the numerator is divisible by \(P^8\) in \(\mathbb Q[t]\).
-Cancel this factor and clear the remaining powers of two, writing
-\[
- \Cfour[f_*](x)=\frac{\mathcal G(t)}{2^{54}P(t)^4}.
-\]
-Exact rational arithmetic verifies
-\[
- \deg\mathcal G=24,\qquad
- [t^j]\mathcal G=[t^{24-j}]\mathcal G>0
- \quad(0\leq j\leq24),
-\]
-with smallest integer coefficient
-\[
- \min_{0\leq j\leq24}[t^j]\mathcal G=3221225472.
-\]
-Equivalently, the smallest coefficient before multiplication by \(2^{54}\)
-is \(3/2^{24}\). Write
-\[
- \mathcal G(t)=\sum_{j=0}^{24}a_jt^j,\qquad a_j=a_{24-j}.
-\]
-The 13 independent integer coefficients are:
-\begin{center}
-\tiny
-\begin{tabular}{@{}r r@{\qquad}r r@{}}
-\toprule
-$j$ & $a_j$ & $j$ & $a_j$ \\
-\midrule
-0 & $3221225472$ & 7 & $357704506872240$ \\
-1 & $61435985920$ & 8 & $701640591264080$ \\
-2 & $575070935296$ & 9 & $1172880923200640$ \\
-3 & $3512452441920$ & 10 & $1684288128586089$ \\
-4 & $15702254784944$ & 11 & $2088645133531440$ \\
-5 & $54633824917920$ & 12 & $2243243092164284$ \\
-6 & $153607464071178$ & & \\
-\bottomrule
-\end{tabular}
-\end{center}
-This table is generated by
-\path{scripts/generate_separator_coefficients.py}. Its machine-readable
-companion \path{generated/separator-coefficients.json} has SHA-256 prefix
-\texttt{d0f91259919c7f23}; the complete hash is recorded in the release
-manifest.
-Coefficient positivity proves the sign on the full domain \(t>0\). Exact spot
-reconstructions at \(t=1/3,1,4\) independently compare the
-central determinant with \(\mathcal G/(2^{54}P^4)\).
-
-For the Fourier step, the identities
-\[
- w+w^{-1}=u,\quad w^2+w^{-2}=u^2-2,\quad
- w^3+w^{-3}=u^3-3u
-\]
-give \eqref{eq:separator-cubic} directly. Put
-\[
- r=e^{1/64},\qquad x=r^2=e^{1/32}.
-\]
-Exact expansion gives
-\[
- \operatorname{disc}(R_c)=4r^{10}G(x),
-\]
-where
-\begin{align*}
-G(x)={}&432x^{13}-4968x^9+900x^8+16200x^6+19044x^5\\
-&-72600x^4+20000x^3+62100x^2-54334x+13225.
-\end{align*}
-Writing \(y=x-1\) gives
-\begin{align*}
-G(1+y)={}&-1-10y-12y^2+680y^3+11532y^4+96660y^5\\
-&+365400y^6+569664y^7+512172y^8+303912y^9\\
-&+123552y^{10}+33696y^{11}+5616y^{12}+432y^{13}.
-\end{align*}
-Moreover \(0<y<1/30\). Indeed,
-\[
- e<1+1+\frac12+\frac16+\frac1{18}
- =\frac{49}{18}<\frac{11}{4},
-\]
-where \(1/18=(1/24)\sum_{j\geq0}4^{-j}\) bounds the tail beginning with
-\(1/4!\). The binomial theorem gives
-\[
- \frac{11}{4}<1+\frac{32}{30}
- +\frac{\binom{32}{2}}{30^2}+\frac{\binom{32}{3}}{30^3}
- =\frac{1891}{675}<\left(\frac{31}{30}\right)^{32}.
-\]
-The sum of the positive terms at \(y=1/30\) is exactly
-\[
- \sum_{j=3}^{13}\frac{[y^j]G(1+y)}{30^j}
- =\frac{1621193195302591}{36905625000000000}<1.
-\]
-The two omitted terms \(-10y-12y^2\) are negative. Consequently
-\[
- G(1+y)<-1+
- \sum_{j=3}^{13}\frac{[y^j]G(1+y)}{30^j}<0,
-\]
-and hence \(\operatorname{disc}(R_c)<0\) without numerical evaluation.
-\section{Direct witness and optional order-five threshold}\label{app:pf5-threshold}
-
-The direct finite witness in \eqref{eq:finite-pf5-witness} is the order-five
-input to Theorem~\ref{thm:main}. The remaining cells in this appendix certify
-the optional Theorem~\ref{thm:confluent-threshold}. All endpoints lie on
-\(10^{-50}\mathbb Z\), and every product and rational scaling is rounded
-outward on that lattice. Machin's identity bounds \(\pi\); positive Taylor
-sums with a geometric remainder bound \(e^{2u}\); and argument division with
-alternating sums bounds the negative exponentials.
-
-The recurrence in the theorem reconstructs \(P_0,\ldots,P_{10}\) over
-\(\mathbb Q[x]\). Independently expanding the determinant
-\eqref{eq:three-mode-C5} gives a polynomial of degree 23 in \(x\), degree
-at most five in each of \(y,z\), and 231 nonzero monomials. On a cell
-\(x=a+w\), \(0\leq w\leq d\leq1/10\), the verifier keeps the correlation
-between the exponential variables by using
-\[
- e^{-rx}=e^{-ra}\sum_{k=0}^8\frac{(-rw)^k}{k!}+E_r(w),
- \qquad
- |E_r(w)|\leq e^{-ra}\frac{(rd)^9}{9!},\qquad r=3,8.
-\]
-It substitutes these interval polynomials into \(G_3\) and converts the result
-to the Bernstein basis in \(w\). The later-mode boxes
-\eqref{eq:C5-tail} are propagated through the 120 determinant monomials.
-
-\begin{center}
-\small
-\begin{tabular}{@{}llll@{}}
-\toprule
-Object & Domain & Cells & Certified sign \\
-\midrule
-\(C_5\) & \(0\leq u\leq1/50\) & 2 & negative \\
-\(C_5'\) & \(3/200\leq u,\ x\leq4\) & 22 & positive \\
-root endpoints & \(u=0.0622795266356,\ 0.0622795266357\) & 2 & \((-,+)\) \\
-\(C_5\) & \(4\leq x\leq40\) & 4 & positive \\
-one-mode tail & \(x\geq40\) & 1 & positive \\
-finite witness & \(u=0,\ h=211/2000\) & 1 & negative \\
-\bottomrule
-\end{tabular}
-\end{center}
-
-At the two root endpoints the fourth theta mode is retained explicitly and
-only \(n\geq5\) is bounded. This gives the rational sign margins needed for
-the interval of width \(10^{-13}\). For \(x\geq40\), the one-mode determinant
-is
-\[
- 2\cdot150994944\,x^{10}
- (32x^5-240x^4+1200x^3-4200x^2+9450x-10395).
-\]
-After subtracting \(x^5\), the polynomial has positive coefficients in
-\(x-40\). The remaining modes are smaller than this lower bound because
-\(x^{10}e^{-3x}\) decreases there; the verifier checks the resulting exact
-rational ratio is below one.
-
-The symbolic reconstruction is
-\path{scripts/verify_pf5_threshold_symbolic.py}. The independent lattice,
-Bernstein, tail, root, and finite-witness replay is
-\path{scripts/verify_pf5_threshold.py}.
 \end{document}
 \typeout{get arXiv to do 4 passes: Label(s) may have changed. Rerun}

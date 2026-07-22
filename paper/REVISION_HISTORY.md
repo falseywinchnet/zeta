@@ -7,7 +7,7 @@
 - MIND epoch: `P000074`
 - Status: frozen historical submission; preserved without rewriting
 
-## Revised release: PF4-paper-v2.0.0
+## Revised proof backport: PF4-paper-v2.0.0
 
 - MIND epoch: `P000163`
 - Revision date: 2026-07-22
@@ -25,3 +25,17 @@
 The v1 source remains reachable through its immutable tag. The v2 source is
 the content-addressed P000163 progress commit; the two versions are distinct
 repository releases rather than an in-place rewrite of the submission.
+
+## Publication release: pf4-paper-v2.1.0
+
+- Revision date: 2026-07-22
+- DOI: `10.5281/zenodo.21487371`
+- Git tag to create after the release commit: `pf4-paper-v2.1.0`
+- The mathematical sections contain only the exact-order theorem and its proof
+  dependencies. The exploratory order-five threshold, Fourier-separator, and
+  claim-provenance branches are absent from the manuscript.
+- Lean and Python appear only in the verification section, which states the
+  pinned environment, full build, axiom-closure audit, `sorryAx` criterion,
+  exact-arithmetic boundary, and universal quantifier coverage.
+- The independent finite replay contains the global sign certificate and a
+  standalone exact rational PF5 witness.

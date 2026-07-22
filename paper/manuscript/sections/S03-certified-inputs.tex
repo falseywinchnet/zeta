@@ -53,14 +53,6 @@ changes in the same cleared sign numerators are smaller than the three
 displayed margins, both on
 \(\pi\leq x\leq5\) and on \(x\geq5\). Evenness completes the real line.
 All inequalities, including the derivative envelopes used on the tail, are
-derived in \appref{app:tail}. The exact replay uses no floating
-point, no interval subdivision, and no FLINT or Arb arithmetic.
-
-In the maintained Lean development the compact and outer regions are one
-universal theorem, rather than sampled checks. The three positive-sign
-declarations prove the cleared \(q,F_2,\Cfour\) numerators for every
-\(t\geq0\). Exact raw-jet identities then remove the positive denominators,
-and the reflected global jet from \secref{sec:kernel} covers the negative
-half-line and the origin. The Python verifier remains an independent exact
-replay of the printed rational certificate; it is not the bridge from sampled
-arithmetic to the universal statement.
+derived in \appref{app:tail}. Exact raw-jet identities remove the positive
+denominators, and the reflected global jet from \secref{sec:kernel} covers the
+negative half-line and the origin.

@@ -652,8 +652,12 @@
     "P000163": {
       "blurb": "Complete the PF4 paper Lean backport, provenance audit, and revised release",
       "created_at": "2026-07-22T08:32:06+00:00"
+    },
+    "P000164": {
+      "blurb": "Backport the completed proof into a theory-only PF4 paper, isolate objective Lean and exact-Python criteria in Verification, remove optional threshold, provenance, and separator branches, and prepare DOI 10.5281/zenodo.21487371 with tag pf4-paper-v2.1.0",
+      "created_at": "2026-07-22T09:01:25+00:00"
     }
   },
-  "next_id": 164,
+  "next_id": 165,
   "version": 1
 }

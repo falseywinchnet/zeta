@@ -55,4 +55,5 @@ in [ZETA_PATHWAY.md](ZETA_PATHWAY.md).
 
 The camera-ready PF4 paper, exact certificates, proof records, and replay
 tooling are assigned DOI
-[10.5281/zenodo.21404360](https://doi.org/10.5281/zenodo.21404360).
+[10.5281/zenodo.21487371](https://doi.org/10.5281/zenodo.21487371).
+The corresponding GitHub release tag is `pf4-paper-v2.1.0`.
