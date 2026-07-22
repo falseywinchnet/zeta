@@ -5,19 +5,32 @@ Fix \(y_1<y_2<y_3<y_4\), put \(u_j(t)=\Phi(t-y_j)\), and write
 \[
  v_j=(u_j/u_1)',\qquad w_j=(v_j/v_2)'.
 \]
+These quotients are introduced only after their denominators are known to be
+positive: \(u_1>0\) by \secref{sec:kernel}, and \(v_2>0\) by the next
+display. Later division by \(w_3\) is likewise made only after
+\eqref{eq:gj-Lambda} proves \(w_3>0\).
 Strict log-concavity gives
 \[
  v_j=\frac{u_j}{u_1}A(p_j,p_1)>0\qquad(j\geq2).
 \]
 The case \(k=2\) of Lemma~\ref{lem:quotient-integral} below therefore proves
 strict order two directly.
-Successive column division and differentiation give
+At the fixed orders used in this paper, successive column division and
+differentiation give the exact three-stage cascade
 \begin{align}
  W(u_1,u_2,u_3)&=u_1^3W(v_2,v_3),\label{eq:W3-quotient}\\
- W(u_1,u_2,u_3,u_4)&=u_1^4v_2^3w_3^2
- \frac{\dd}{\dd t}\left(\frac{w_4}{w_3}\right).
- \label{eq:W4-quotient}
+ W(u_1,u_2,u_3,u_4)&=u_1^4W(v_2,v_3,v_4),\label{eq:W4-first}\\
+ W(v_2,v_3,v_4)&=v_2^3W(w_3,w_4),\label{eq:W4-second}\\
+ W(w_3,w_4)&=w_3^2\frac{\dd}{\dd t}
+ \left(\frac{w_4}{w_3}\right).\label{eq:W4-third}
 \end{align}
+Consequently
+\begin{equation}\label{eq:W4-quotient}
+ W(u_1,u_2,u_3,u_4)=u_1^4v_2^3w_3^2
+ \frac{\dd}{\dd t}\left(\frac{w_4}{w_3}\right).
+\end{equation}
+No sign premise is used in these algebraic identities beyond the stated
+nonvanishing needed to form the quotients.
 
 Let \(\T\) denote simultaneous translation of all point arguments. From
 \eqref{eq:AM},
@@ -96,6 +109,17 @@ Determinant multilinearity gives \eqref{eq:iterated-determinant}. Since
 \(\tau_i\in[t_i,t_{i+1}]\), the integration nodes remain ordered, so the same
 argument applies to the derivative determinant.
 \end{proof}
+
+\begin{sloppypar}
+Only the instances of Lemma~\ref{lem:quotient-integral} of sizes two through
+four enter the theorem. The maintained formal engine proves exactly those
+instances and the corresponding strict integral boxes; no arbitrary-order
+quotient theorem is a premise of Theorem~\ref{thm:main}. In particular,
+\path{PF4.FixedOrderQuotientWronskian.fixedOrderFour_quotientWronskian_package}
+packages \eqref{eq:W3-quotient}--\eqref{eq:W4-third} together with the reversed
+endpoint orientation \(p_4<p_3<p_2<p_1\). Its independent replay boundary is
+\texttt{CERT29}.
+\end{sloppypar}
 
 \begin{lemma}[Confluent divided-difference limit]\label{lem:confluent-limit}
 Let \(f\in C^{2k-2}\), let
