@@ -1,26 +1,41 @@
-\section{Exact transport identity}\label{sec:transport}
+\section{Exact endpoint transport identity}\label{sec:transport}
 
-Normalize the triangular weights in \eqref{eq:Lambda-triangular} and
-\eqref{eq:delta-triangular} as probability measures:
+Write the three normalized triangular densities from
+\eqref{eq:Lambda-triangular} and \eqref{eq:delta-triangular} as
 \begin{align}
- \dd\mu(y)&=\frac{(z-y)\kappa(y)}{L^2\delta}
- \mathbf1_{[p,z]}(y)\dd y,\label{eq:mu}\\
- \dd\nu(y)&=\frac{(y-p)\kappa(y)}{L\Lambda}
- \mathbf1_{[p,z]}(y)\dd y
- +\frac{(w-y)\kappa(y)}{R\Lambda}
- \mathbf1_{[z,w]}(y)\dd y.
- \label{eq:nu}
+ \mu_L(y)&=\frac{(z-y)\kappa(y)}{L^2\delta}
+ \quad(p\leq y\leq z),\label{eq:mu}\\
+ \nu_L(y)&=\frac{(y-p)\kappa(y)}{L\Lambda}
+ \quad(p\leq y\leq z),\nonumber\\
+ \nu_R(y)&=\frac{(w-y)\kappa(y)}{R\Lambda}
+ \quad(z\leq y\leq w).\label{eq:nu}
 \end{align}
+The triangular identities give
+\begin{equation}\label{eq:density-masses}
+ \int_p^z\mu_L=1,qquad
+ \int_p^z\nu_L+\int_z^w\nu_R=1.
+\end{equation}
+No measure theory is needed below; these are normalized continuous weights on
+compact intervals.
+
 Set
 \[
  A_0(y)=3(y-Q'(y))-Q(y)\frac{\kappa'(y)}{\kappa(y)}.
 \]
 Then \(A_0'=D\).
 
-\begin{lemma}[Transport cancellation]\label{lem:transport}
-With \(K\) as in \eqref{eq:K-def},
+\begin{lemma}[Endpoint transport cancellation]\label{lem:transport}
+With \(K\) as in \eqref{eq:K-def}, put
+\begin{equation}\label{eq:transport-endpoint}
+ \mathcal E=
+ \frac{-I_L/L+I_R/R}{\Lambda}
+ +\frac{L\mathcal H(p)-I_L}{L^2\delta},
+\end{equation}
+where \(I_L=\mathcal J(z)-\mathcal J(p)\) and
+\(I_R=\mathcal J(w)-\mathcal J(z)\), with \(\mathcal H,\mathcal J\) defined
+below. Then
 \begin{equation}\label{eq:transport-expectation}
- K=\E_\nu[A_0]-\E_\mu[A_0].
+ K=\mathcal E.
 \end{equation}
 \end{lemma}
 
@@ -31,16 +46,13 @@ Two elementary primitives carry the complete cancellation:
  \mathcal H&=3y^2-3Q-3yQ'+(Q')^2+QQ'',\label{eq:H}\\
  \mathcal H&=\mathcal J',& \mathcal J&=y^3-3yQ+QQ'.\label{eq:J}
 \end{align}
-Both identities follow by one differentiation.
-
-Let \(I_L=\mathcal J(z)-\mathcal J(p)\) and
-\(I_R=\mathcal J(w)-\mathcal J(z)\). Integrating the linear weights
-in \eqref{eq:mu}--\eqref{eq:nu} by parts once gives
+Both identities follow by one differentiation. Integrating the three linear
+weights once by parts gives
 \begin{equation}\label{eq:expectation-endpoint}
- \E_\nu[A_0]-\E_\mu[A_0]
- =\frac{-I_L/L+I_R/R}{\Lambda}
- +\frac{L\mathcal H(p)-I_L}{L^2\delta}.
+ \int_p^z A_0\nu_L+\int_z^w A_0\nu_R-\int_p^z A_0\mu_L
+ =\mathcal E.
 \end{equation}
+
 On the other hand, differentiation of the triangular integrals along \(\T\)
 gives
 \[
@@ -59,9 +71,15 @@ Substitution in \eqref{eq:K-def} yields
  +\frac{U(p,z)-U(z,w)}{\Lambda}
  +\frac{U(p,z)-Q(p)\kappa(p)}{L\delta}.
 \end{equation}
-The endpoint identity equating \eqref{eq:expectation-endpoint} and
+The endpoint identity equating \eqref{eq:transport-endpoint} and
 \eqref{eq:K-endpoint}, with every substitution exposed, is
 \appref{app:endpoints}. It is an identity in the endpoint positions and the
-values of \(Q,Q',Q''\); no bound or polynomial model is used. This proves
-\eqref{eq:transport-expectation}.
+values of \(Q,Q',Q''\); no bound, coordinate-surjectivity assertion, or
+polynomial model is used.
 \end{proof}
+
+The normalized weights may independently be regarded as probability measures
+\(\mu\) and \(\nu\). In that notation \eqref{eq:expectation-endpoint} says
+\(\mathcal E=\mathbb E_\nu[A_0]-\mathbb E_\mu[A_0]\). This interpretation is
+formally checked, but the deterministic proof in the next section uses only
+the displayed compact-interval densities and their masses.

@@ -61,9 +61,11 @@ is
  \delta\Lambda\int_p^w
  \Delta(t)\frac{\Cfour(t)}{Q(t)^6\kappa(t)^2}\dd t.
 \]
-Here \(\Delta\) is the difference of the CDFs of two explicitly normalized,
-curvature-tilted triangular densities. Its strict positivity follows from a
-one-crossing density ratio. The transport
+Here \(\Delta\) is a deterministic closed cumulative gap built from two
+explicitly normalized, curvature-tilted triangular weights. Its strict
+positivity follows on the actual coordinate interval from the exact mass
+identities and one explicit algebraic sign change; no probability or CDF
+premise is required. The transport
 reductions and analytic sign estimates are given explicitly, with a table of
 the finite polynomial inequalities used for the three global signs.
 We then construct an explicit positive even Schwartz kernel which is itself
@@ -133,9 +135,9 @@ mechanism. First, global inequalities \(q>0\) and \(F_2>0\) imply strict
 \(\PF_3\) and positivity of a three-point functional \(\Lambda\). Second, the
 fully confluent order-four invariant \(\Cfour\) is globally positive. Exact
 quotient identities reduce strict \(\PF_4\) to the monotonicity of a scalar
-three-point function \(\Psi\). An increasing curvature coordinate then turns
-the derivative of \(\Psi\) into a positive crossing-kernel integral of
-\(\Cfour\).
+three-point function \(\Psi\). On the actual image of an increasing curvature
+coordinate, the derivative of \(\Psi\) becomes a positive integral of
+\(\Cfour\) against a deterministic closed cumulative gap.
 
 The finite part of the positive input consists of exact rational Bernstein
 coefficients on fixed algebraic domains, followed by analytic bounds for all
@@ -645,6 +647,17 @@ Equivalently,
  =K:=\Lambda+Q'(p)+\T\log\delta-\T\log\Lambda.
 \end{equation}
 It remains to prove \(K>0\).
+
+\begin{sloppypar}
+All objects here are defined only on the image of \(y=-s\).
+\path{PF4.PaperObjectClosure.actualCoordinateRhoKappa_pos_on_range} proves the
+displayed \(\rho,\kappa\) signs at every actual coordinate point, while
+\path{PF4.SimultaneousCoordinateTranslation.actual_simultaneousCoordinateTranslation}
+identifies literal simultaneous translation of the original endpoints with
+the vector field \(\T\), including the derivative of the nonconstant
+coefficient \(Q(p)\). Neither declaration extends \(Q\) by an assumed inverse
+or asserts that the coordinate image is all of \(\mathbb R\).
+\end{sloppypar}
 \section{The confluent invariant in curvature form}\label{sec:confluent}
 
 Define
@@ -679,29 +692,44 @@ Vandermonde factors and by \(\Phi^4\). The explicit thirteen-term expansion is
 included in \appref{app:algebra} for independent checking of the certificate
 input.
 
-\section{Exact transport identity}\label{sec:transport}
+\section{Exact endpoint transport identity}\label{sec:transport}
 
-Normalize the triangular weights in \eqref{eq:Lambda-triangular} and
-\eqref{eq:delta-triangular} as probability measures:
+Write the three normalized triangular densities from
+\eqref{eq:Lambda-triangular} and \eqref{eq:delta-triangular} as
 \begin{align}
- \dd\mu(y)&=\frac{(z-y)\kappa(y)}{L^2\delta}
- \mathbf1_{[p,z]}(y)\dd y,\label{eq:mu}\\
- \dd\nu(y)&=\frac{(y-p)\kappa(y)}{L\Lambda}
- \mathbf1_{[p,z]}(y)\dd y
- +\frac{(w-y)\kappa(y)}{R\Lambda}
- \mathbf1_{[z,w]}(y)\dd y.
- \label{eq:nu}
+ \mu_L(y)&=\frac{(z-y)\kappa(y)}{L^2\delta}
+ \quad(p\leq y\leq z),\label{eq:mu}\\
+ \nu_L(y)&=\frac{(y-p)\kappa(y)}{L\Lambda}
+ \quad(p\leq y\leq z),\nonumber\\
+ \nu_R(y)&=\frac{(w-y)\kappa(y)}{R\Lambda}
+ \quad(z\leq y\leq w).\label{eq:nu}
 \end{align}
+The triangular identities give
+\begin{equation}\label{eq:density-masses}
+ \int_p^z\mu_L=1,qquad
+ \int_p^z\nu_L+\int_z^w\nu_R=1.
+\end{equation}
+No measure theory is needed below; these are normalized continuous weights on
+compact intervals.
+
 Set
 \[
  A_0(y)=3(y-Q'(y))-Q(y)\frac{\kappa'(y)}{\kappa(y)}.
 \]
 Then \(A_0'=D\).
 
-\begin{lemma}[Transport cancellation]\label{lem:transport}
-With \(K\) as in \eqref{eq:K-def},
+\begin{lemma}[Endpoint transport cancellation]\label{lem:transport}
+With \(K\) as in \eqref{eq:K-def}, put
+\begin{equation}\label{eq:transport-endpoint}
+ \mathcal E=
+ \frac{-I_L/L+I_R/R}{\Lambda}
+ +\frac{L\mathcal H(p)-I_L}{L^2\delta},
+\end{equation}
+where \(I_L=\mathcal J(z)-\mathcal J(p)\) and
+\(I_R=\mathcal J(w)-\mathcal J(z)\), with \(\mathcal H,\mathcal J\) defined
+below. Then
 \begin{equation}\label{eq:transport-expectation}
- K=\E_\nu[A_0]-\E_\mu[A_0].
+ K=\mathcal E.
 \end{equation}
 \end{lemma}
 
@@ -712,16 +740,13 @@ Two elementary primitives carry the complete cancellation:
  \mathcal H&=3y^2-3Q-3yQ'+(Q')^2+QQ'',\label{eq:H}\\
  \mathcal H&=\mathcal J',& \mathcal J&=y^3-3yQ+QQ'.\label{eq:J}
 \end{align}
-Both identities follow by one differentiation.
-
-Let \(I_L=\mathcal J(z)-\mathcal J(p)\) and
-\(I_R=\mathcal J(w)-\mathcal J(z)\). Integrating the linear weights
-in \eqref{eq:mu}--\eqref{eq:nu} by parts once gives
+Both identities follow by one differentiation. Integrating the three linear
+weights once by parts gives
 \begin{equation}\label{eq:expectation-endpoint}
- \E_\nu[A_0]-\E_\mu[A_0]
- =\frac{-I_L/L+I_R/R}{\Lambda}
- +\frac{L\mathcal H(p)-I_L}{L^2\delta}.
+ \int_p^z A_0\nu_L+\int_z^w A_0\nu_R-\int_p^z A_0\mu_L
+ =\mathcal E.
 \end{equation}
+
 On the other hand, differentiation of the triangular integrals along \(\T\)
 gives
 \[
@@ -740,50 +765,88 @@ Substitution in \eqref{eq:K-def} yields
  +\frac{U(p,z)-U(z,w)}{\Lambda}
  +\frac{U(p,z)-Q(p)\kappa(p)}{L\delta}.
 \end{equation}
-The endpoint identity equating \eqref{eq:expectation-endpoint} and
+The endpoint identity equating \eqref{eq:transport-endpoint} and
 \eqref{eq:K-endpoint}, with every substitution exposed, is
 \appref{app:endpoints}. It is an identity in the endpoint positions and the
-values of \(Q,Q',Q''\); no bound or polynomial model is used. This proves
-\eqref{eq:transport-expectation}.
+values of \(Q,Q',Q''\); no bound, coordinate-surjectivity assertion, or
+polynomial model is used.
 \end{proof}
-\section{The positive crossing kernel}\label{sec:crossing}
 
-Let \(F_\mu,F_\nu\) be the CDFs of \eqref{eq:mu}--\eqref{eq:nu}, and put
+The normalized weights may independently be regarded as probability measures
+\(\mu\) and \(\nu\). In that notation \eqref{eq:expectation-endpoint} says
+\(\mathcal E=\mathbb E_\nu[A_0]-\mathbb E_\mu[A_0]\). This interpretation is
+formally checked, but the deterministic proof in the next section uses only
+the displayed compact-interval densities and their masses.
+\section{The positive closed coordinate gap}\label{sec:crossing}
+
+Define a deterministic piecewise function on \([p,w]\) by
+\begin{equation}\label{eq:closed-gap}
+ \Delta(y)=
+ \begin{cases}
+ \displaystyle
+ \frac{-(z-y)^2-(z-y)Q'(y)-Q(y)+(z-p)^2+(z-p)Q'(p)+Q(p)}
+      {L^2\delta}\\[3pt]
+ \displaystyle\qquad
+ -\frac{(y-p)^2-(y-p)Q'(y)+Q(y)-Q(p)}{L\Lambda},
+ &p\leq y\leq z,\\[12pt]
+ \displaystyle
+ \frac{(w-y)^2+(w-y)Q'(y)+Q(y)-Q(w)}{R\Lambda},
+ &z<y\leq w.
+ \end{cases}
+\end{equation}
+The fundamental theorem of calculus and \(\kappa=2-Q''\) identify these
+closed expressions with
+\begin{equation}\label{eq:gap-integrals}
+ \Delta(y)=
+ \begin{cases}
+ \displaystyle\int_p^y(\mu_L(t)-\nu_L(t))\dd t,&p\leq y\leq z,\\[6pt]
+ \displaystyle\int_y^w\nu_R(t)\dd t,&z<y\leq w.
+ \end{cases}
+\end{equation}
+The two branches agree at \(z\) by \eqref{eq:density-masses}.
+
+\begin{lemma}[Strict closed gap]\label{lem:crossing}
+The function \(\Delta\) is continuous on \([p,w]\), satisfies
+\(\Delta(p)=\Delta(w)=0\), and
 \[
- \Delta(y)=F_\mu(y)-F_\nu(y).
+ \Delta(y)>0\qquad(p<y<w).
 \]
-
-\begin{lemma}[Strict stochastic ordering]\label{lem:crossing}
-One has \(\Delta(y)>0\) for \(p<y<w\), while
-\(\Delta(p)=\Delta(w)=0\).
 \end{lemma}
 
 \begin{proof}
-On \([z,w]\), \(F_\mu=1\), so \(\Delta=1-F_\nu>0\) before \(w\). On
-\((p,z)\), the ratio of the two positive densities is
-\begin{equation}\label{eq:density-ratio}
- R_0(y)=\frac{\dd\mu/\dd y}{\dd\nu/\dd y}
- =\frac{\Lambda(z-y)}{L\delta(y-p)}.
-\end{equation}
-Writing \(C=\Lambda/(L\delta)>0\), direct differentiation gives
-\begin{equation}\label{eq:density-ratio-derivative}
- R_0'(y)=-\frac{C(z-p)}{(y-p)^2}<0.
-\end{equation}
-Thus \(R_0\) decreases strictly from \(+\infty\) to \(0\). Hence
-\(\Delta'=\mu'-\nu'\) changes sign exactly once, from positive to negative.
-Since \(\Delta(p)=0\) and
+The endpoints and continuity follow from \eqref{eq:closed-gap},
+\eqref{eq:gap-integrals}, and the exact mass identities. On \((p,z)\), the
+difference of the positive left densities changes sign at the explicit strict
+convex combination
 \[
- \Delta(z)=1-F_\nu(z)=\nu((z,w])>0,
+ y_* = \frac{\Lambda z+L\delta p}{\Lambda+L\delta}\in(p,z).
 \]
-the function cannot return to zero on \((p,z]\). The right interval was
-already handled.
+Indeed, clearing the positive common factor \(\kappa(y)\) and the positive
+denominators gives
+\[
+ \mu_L(y)-\nu_L(y)>0\iff y<y_*,
+ \qquad
+ \mu_L(y)-\nu_L(y)<0\iff y>y_*.
+\]
+Thus \(\Delta(y)>0\) for \(p<y\leq y_*\). For \(y_*\leq y\leq z\), subtract
+the two identities in \eqref{eq:density-masses} and split at \(y\) to obtain
+\[
+ \Delta(y)=\int_y^z(\nu_L-\mu_L)\dd t+\int_z^w\nu_R\dd t>0.
+\]
+The first integral is nonnegative and the second is strictly positive because
+\(z<w\), \(\kappa>0\), and \(\Lambda>0\). On \((z,w)\), positivity follows
+directly from the positive tail integral in \eqref{eq:gap-integrals}.
 \end{proof}
 
-Integration by parts for CDFs, using \(A_0'=D\) and the common total mass,
-turns Lemma~\ref{lem:transport} into
-\begin{equation}\label{eq:crossing-integral}
- K=\int_p^w \Delta(y)D(y)\dd y.
-\end{equation}
+On the left branch \(\Delta'=\mu_L-\nu_L\), and on the right branch
+\(\Delta'=-\nu_R\). Direct integration by parts on \([p,z]\) and \([z,w]\),
+using \(A_0'=D\), the zero endpoint values, and the equality of the two
+branches at \(z\), gives
+\begin{align}
+ \int_p^w\Delta(y)D(y)\dd y
+ &=\int_p^zA_0\nu_L+\int_z^wA_0\nu_R-\int_p^zA_0\mu_L\nonumber\\
+ &=\mathcal E=K.\label{eq:crossing-integral}
+\end{align}
 Combining \eqref{eq:K-def}, \eqref{eq:C4-curvature}, and
 \eqref{eq:crossing-integral} gives the central identity
 \begin{equation}\label{eq:central-identity}
@@ -791,6 +854,20 @@ Combining \eqref{eq:K-def}, \eqref{eq:C4-curvature}, and
  \Delta(y)\frac{\Cfour(y)}{Q(y)^6\kappa(y)^2}\dd y>0.
 \end{equation}
 Every factor in the interior is strictly positive.
+
+The probability interpretation is optional: the same \(\Delta\) is
+\(F_\mu-F_\nu\), and the density ratio has one crossing. The proof above does
+not require probability instances, CDF complement identities, endpoint ratio
+limits, or a separate existence-and-uniqueness argument for that crossing.
+\begin{sloppypar}
+The maintained declarations
+\path{PF4.GlobalStrictPF4.globalRiemannKernel_coordinateNumerator_pos} and
+\path{PF4.GlobalStrictPF4.globalRiemannKernel_coordinatePartialXiPsi_neg}
+export, for the literal Riemann kernel and every \(\xi<m<r\), respectively the
+strict positivity in \eqref{eq:central-identity} and the negative derivative
+in \eqref{eq:sign-bridge}. All coordinate points in these statements lie in
+the actual image of \(y=-s\); no surjectivity onto \(\mathbb R\) is asserted.
+\end{sloppypar}
 \section{Completion and exact order}\label{sec:completion}
 
 Equation \eqref{eq:sign-bridge} and \eqref{eq:central-identity} imply
