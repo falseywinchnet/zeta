@@ -1,0 +1,6 @@
+import PF4.PaperObjectClosure
+
+#print axioms PF4.PaperObjectClosure.actualLogSlopeCurvature_globally_wellDefined
+#print axioms PF4.PaperObjectClosure.actualAM_wellDefined_on_ordered
+#print axioms PF4.PaperObjectClosure.actualCoordinateRhoKappa_pos_on_range
+#print axioms PF4.PaperObjectClosure.actualCoordinateD_pos_on_range

@@ -1,46 +1,41 @@
-# Next advancement cycle — actual-range curvature-rate exports
+# Next advancement cycle — simultaneous coordinate translation
 
 Mode: advancement
 
-Starting evidence: R181, R202–R205, CERT19, CERT22–CERT24, the public
-`PF4.GlobalStrictPF4.actualKernelSigns`, and the newly closed literal transport
-theorems:
-
-```lean
-PF4.GlobalStrictPF4.globalRiemannKernel_coordinateNumerator_pos
-PF4.GlobalStrictPF4.globalRiemannKernel_coordinatePartialXiPsi_neg
-```
+Starting evidence: CERT9, CERT19, CERT25, the actual coordinate jet in
+`PF4.CurvatureCoordinateRealization`, and the literal paper objects in
+`PF4.PaperObjectClosure`.
 
 ## Maintained boundary
 
-The frozen T1–T3 classification and the independent determinant/transport
-route are complete. The next useful work is statement packaging for two paper
-objects that are already used internally but are not exported in their exact
-actual-range forms.
+PO-0009, PO-0010, PO-0022, and PO-0029 are closed. The remaining support
+obligation in the curvature-coordinate frame is PO-0025: explicitly identify
+simultaneous translation in the original variable with the coordinate vector
+field used by the endpoint formulas.
 
 ## Next exact theorem family
 
-1. Export the literal identity
-   `rho = kernelF2 q q1 q2 / q^3 > 0` and hence `kappa = 1 + rho > 1` at every
-   actual coordinate point.
-2. Export positivity of the paper primitive rate `D` at every actual
-   coordinate point from the exact determinant identity and the public actual
-   `q`, `F2`, and `C4` signs.
-3. Close PO-0022 and PO-0029 only if the public statements name the maintained
-   paper objects and quantify over the complete actual coordinate range.
+For every actual endpoint `u`, prove the curve
+
+```text
+a |-> kernelCoordinate actualKernelSlope (u + a)
+```
+
+has derivative `actualCoordinateQ` at `a=0`. Extend this componentwise to the
+ordered endpoint triple, then connect differentiation of the maintained
+`coordinateLambda`, `coordinateDelta`, and `coordinatePsi` objects to their
+named simultaneous-translation formulas.
 
 ## No-cheating gates
 
-- Do not claim that the curvature coordinate is onto all of `ℝ`.
-- Do not use properties of the arbitrary `invFun` extension off the actual
-  coordinate range.
-- No positivity or determinant premise may remain in the actual-kernel public
-  statements.
-- No bounded or sampled domain.
-- Do not reopen T1–T3 or claim an RH consequence.
+- Include the derivative of the vector-field coefficient `Q(p)`; do not treat
+  the transformed translation field as constant.
+- Work only at actual coordinate points; no global surjectivity premise.
+- No symbolic-CAS equality may substitute for the Lean chain rule.
+- No bounded or sampled domain and no RH consequence.
 
 ## Exit condition
 
-The round closes when the literal `rho`, `kappa`, and primitive-rate statements
-are kernel-checked with standard axioms only, or when the remaining mismatch
-with the paper's notation is isolated as a precise backport decision.
+PO-0025 is closed only when the literal actual-endpoint curve and the paper's
+named translation objects are joined by kernel-checked derivative theorems
+with no uninstantiated analytic premise.

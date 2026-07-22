@@ -49,6 +49,7 @@ PF4/TranslationQuotientSigns.lean
 PF4/TranslationQuotientPsi.lean
 PF4/TranslationQuotientAssembly.lean
 PF4/GlobalStrictPF4.lean
+PF4/PaperObjectClosure.lean
 ```
 
 Implemented modules:
@@ -153,6 +154,9 @@ Implemented modules:
 - `PF4.GlobalStrictPF4`: actual-kernel lower-`Lambda` and first/second quotient
   signs, exact minor positivity at orders one through four, and the exported
   arbitrary-node target `PF4.globalRiemannKernel_strictPFUpTo_four`.
+- `PF4.PaperObjectClosure`: literal actual-kernel `ell,s,q,A,M` objects with
+  legal ordered denominators and integral provenance, plus actual-range
+  `rho,kappa,D` identities and strict signs without coordinate surjectivity.
 - `PF4.PF5WitnessAlgebra` and `PF4.PF5Witness`: exact Taylor enclosures for the
   five maintained kernel values, reuse of the closed infinite theta-tail
   theorem, signed-grid matrix identification, parity factorization of the
@@ -166,9 +170,9 @@ exponential series. Their proofs now intentionally import mathlib's named real
 Gaussian Poisson theorem and a Jacobi-theta holomorphic realization; the exact
 normalization wrappers are maintained and audited. The proof-facing cumulative object is
 `PF4.Cumulative.coordinateGap`; the measure-backed CDF is retained as a
-validation interface. The identities and conditional implications represented
-by PO-0026 through PO-0029 and PO-0041 are maintained kernel-checked theorems;
-this does not construct the Riemann kernel or discharge its global `C₄` sign.
+validation interface. PO-0009, PO-0010, PO-0022, and PO-0026 through PO-0029
+are now instantiated for the literal actual kernel on their honest domains;
+PO-0041 is also closed by the public actual-kernel transport theorem.
 The translate quotient object layer and all three sign-conversion mechanisms
 are checked. The terminal sign is derived through the same coordinate `Psi`
 used by the determinant/transport assembly, with the `p₄<p₃` orientation

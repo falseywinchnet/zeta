@@ -2,7 +2,7 @@
 
 Target: `PF4-CORE-v1`
 
-Active formal completion: **31/41 obligations**. The original ledger contains
+Active formal completion: **35/41 obligations**. The original ledger contains
 46 records; PO-0032 through PO-0036 are now `DEPRECATED_OPTIONAL` because the
 deterministic closed-gap route bypasses the crossing chain.
 
@@ -21,7 +21,8 @@ exact reflected representation `Φ(t)=thetaSeries |t|`. The real kernel
 definitions remain unchanged (`R185`--`R188`, `R191`, `CERT21`). The global
 jet and sign closure is recorded by `R195`--`R202` and `CERT22`; exact T1 is
 recorded by `R203` and `CERT23`, exact T2/T3 by `R204`--`R205` and `CERT24`,
-and the literal transport exports by `CERT25`. Target
+the literal transport exports by `CERT25`, and the literal paper-object
+closures by `CERT26`. Target
 definitions, signed PF5 indices, constructive crossing algebra, and the actual
 left-density identity/sign bridge are kernel-checked. The actual restricted-
 density measures, mass-one interfaces, strict right mass, all three interior
@@ -44,9 +45,10 @@ positivity, integrability, and concrete normalized laws are constructed in
 Lean and connected to PO-0038. PO-0026 through PO-0028 are complete identity
 obligations: `Psi` is differentiated as an actual function, the exact sign
 orientation is checked, and the primary determinant `C₄` is identified with
-the curvature numerator. PO-0029 remains an abstract positivity implication;
-its literal actual-range primitive-rate export is still open. PO-0040 and
-PO-0041 no longer have an actual-kernel instance gap.
+the curvature numerator. `PF4.PaperObjectClosure` now also closes the literal
+global logarithmic objects, ordered `A,M` denominators, actual-range `ρ,κ`
+signs, and actual-range primitive rate `D`. PO-0040 and PO-0041 have no
+actual-kernel instance gap.
 
 The fixed order-four generic quotient engine is also maintained and
 kernel-checked: exact discrete factor extraction, the `4→3` triple-integral
@@ -87,8 +89,8 @@ perturbation coefficients to include every binomial multiplicity.
 | PO-0006 | `Φ` has all derivatives used through the PF5 witness | FORMALLY_PROVED | none; `PF4.contDiff_globalRiemannKernel` proves global smoothness to every finite order |
 | PO-0007 | `Φ` is even on `ℝ` | FORMALLY_PROVED | none; `PF4.globalRiemannKernel_even` |
 | PO-0008 | `Φ(t) > 0` for every real `t` | FORMALLY_PROVED | none; `PF4.GlobalKernelJetIdentification.globalRiemannKernel_pos` |
-| PO-0009 | `ℓ,s,q` are globally well-defined | OBLIGATION | PO-0008 plus differentiability |
-| PO-0010 | `A,M` are well-defined on ordered arguments when used | OBLIGATION | denominator positivity/provenance |
+| PO-0009 | `ℓ,s,q` are globally well-defined | FORMALLY_PROVED | none; `PF4.PaperObjectClosure.actualLogSlopeCurvature_globally_wellDefined` proves the literal log and derivative identities globally |
+| PO-0010 | `A,M` are well-defined on ordered arguments when used | FORMALLY_PROVED | none; `actualAM_wellDefined_on_ordered` proves `A>0`, nonvanishing, the quotient identity, and `A=∫q` for every `a<b` |
 
 ## Exact sign inputs
 
@@ -115,14 +117,14 @@ perturbation coefficients to include every binomial multiplicity.
 | ID | Claim | Present status | Formal blocker |
 |---|---|---|---|
 | PO-0021 | `y=-s` is strictly increasing on its image | FORMALLY_PROVED | none; inverse-on-range calculus and derivative transport checked |
-| PO-0022 | `ρ=F₂/q³>0`, `κ=1+ρ>1` | FORMAL_FRAGMENT | exact coordinate identity and sign transfer checked; export the actual-kernel coordinate instance from the now-closed `q,F₂` signs |
+| PO-0022 | `ρ=F₂/q³>0`, `κ=1+ρ>1` | FORMALLY_PROVED | none; `actualCoordinateRhoKappa_pos_on_range` covers the complete actual coordinate range without a surjectivity claim |
 | PO-0023 | Triangular integral formula for `Λ` | FORMALLY_PROVED | none; explicit primitives and endpoint algebra checked |
 | PO-0024 | Triangular formula and positivity for `δ` | FORMALLY_PROVED | none; endpoint derivative, integral identity, and midpoint strictness checked |
 | PO-0025 | Simultaneous translation operator in coordinates | SYMBOLICALLY_CHECKED | multivariable chain rule |
 | PO-0026 | Definition/expansion of `N` from differentiating `Ψ` | FORMALLY_PROVED | none; endpoint translation objects and actual derivative checked |
 | PO-0027 | `∂ξΨ = -Q(p)N/Λ²` | FORMALLY_PROVED | none; coordinate speed and exact negative orientation checked |
 | PO-0028 | `C₄ = Q⁶κ²D` | FORMALLY_PROVED | none; primary Hankel determinant, cumulant expansion, and curvature factorization checked |
-| PO-0029 | `D > 0` globally | FORMAL_FRAGMENT | exact transfer from `C₄>0` checked; export the actual-kernel coordinate instance from the now-closed PO-0013 input |
+| PO-0029 | `D > 0` on the actual coordinate domain | FORMALLY_PROVED | none; `actualCoordinateD_pos_on_range` uses the pointwise determinant factorization at every actual coordinate point |
 
 ## Non-vacuous normalization and crossing layer
 
@@ -153,9 +155,8 @@ perturbation coefficients to include every binomial multiplicity.
 
 ## Immediate next work
 
-1. Export the literal actual-range `ρ>0`, `κ>1`, and primitive-rate `D>0`
-   statements for PO-0022 and PO-0029 without extending the inverse outside
-   the coordinate range.
+1. Close PO-0025 with an explicit simultaneous-translation chain rule for the
+   maintained actual coordinate endpoints and endpoint objects.
 2. Keep deprecated crossing refinements and broader generic-engine work
    separate from the completed T1–T3 classification.
 3. Execute the paper backport series recorded in `backport/README.md` as

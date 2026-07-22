@@ -608,8 +608,12 @@
     "P000152": {
       "blurb": "Close literal actual-kernel transport numerator and derivative, deprecate optional crossing blockers, and stage the paper backport series",
       "created_at": "2026-07-22T05:42:19+00:00"
+    },
+    "P000153": {
+      "blurb": "Close literal paper objects, ordered denominators, and actual-range rho kappa D support obligations in Lean",
+      "created_at": "2026-07-22T06:05:39+00:00"
     }
   },
-  "next_id": 153,
+  "next_id": 154,
   "version": 1
 }

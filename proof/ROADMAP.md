@@ -37,9 +37,9 @@ identities are also maintained. The positive series jet is now identified with
 the global iterated derivative jet through order six, including the origin and
 the reflected half-line. `Φ>0` is global. The compact CERT12 certificate and
 an analytic outer-tail proof jointly establish the canonical `q`, `F₂`, and
-`C₄` signs on the whole real line. Track B's remaining bookkeeping is the
-explicit well-definedness packaging for the paper's logarithmic and ordered-
-argument objects, not a missing kernel or certificate sign.
+`C₄` signs on the whole real line. `PF4.PaperObjectClosure` now completes the
+remaining logarithmic and ordered-argument well-definedness packaging, so the
+Track B exit gate is closed.
 
 ## Track C — generic determinant engine
 

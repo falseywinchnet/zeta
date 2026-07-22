@@ -4,6 +4,8 @@
 |---|---|---|---|---|---|
 | Kernel definition/evenness | S02 | R182–R188, R191, R195–R196, CERT20–22; P000128–P000132 | PO-0001–0007 | `PF4.riemannTheta_modular`, `PF4.contDiff_riemannH`, `PF4.contDiff_globalRiemannKernel`, `PF4.globalRiemannKernel_even`, `PF4.globalRiemannKernel_eq_thetaSeries_abs`, and `PF4.GlobalKernelJetIdentification.iteratedDeriv_globalRiemannKernel_eq_thetaSeriesJet` | FORMALLY_PROVED |
 | `Φ > 0` | S02 | R197, CERT22 | PO-0008 | `PF4.GlobalKernelJetIdentification.globalRiemannKernel_pos` | FORMALLY_PROVED |
+| global `ell,s,q` objects | S02 | CERT22/25/26 | PO-0009 | `PF4.PaperObjectClosure.actualLogSlopeCurvature_globally_wellDefined` | FORMALLY_PROVED |
+| ordered `A,M` legality | S02–S04 | CERT22/25/26 | PO-0010 | `PF4.PaperObjectClosure.actualAM_wellDefined_on_ordered` | FORMALLY_PROVED |
 | `q > 0` | S03 | R171, R189, R198, R202, CERT12/21/22 | PO-0011 | `PF4.CERT12OuterClosure.normalized_clearedQ_pos` plus the exact cleared-sign transfer | FORMALLY_PROVED |
 | `F₂ > 0` | S03 | R171, R192, R199, R202, CERT12/21/22 | PO-0012 | `PF4.CERT12OuterClosure.normalized_clearedF2_pos` plus the exact cleared-sign transfer | FORMALLY_PROVED |
 | `C₄ > 0` | S03 | R171, R193–R194, R200, R202, CERT12/21/22 | PO-0013 | `PF4.CERT12OuterClosure.normalized_clearedC4_pos` plus `PF4.ClearedJetCertificateBridge.clearedC4_eq_rawHankel4_det` | FORMALLY_PROVED |
@@ -11,13 +13,14 @@
 | strict PF2/PF3 | S04–S05 | R155, R172, R203, CERT5/12/23 | PO-0016, PO-0043 | `PF4.GlobalStrictPF4.actual_firstQuotD_pos`, `actual_secondQuotD_pos`, `translationMinor_two_pos`, and `translationMinor_three_pos` | FORMALLY_PROVED |
 | quotient identities | S05 | R154, CERT5 | PO-0017–0019 | `PF4.GenericQuotientIntegral.*`, `PF4.ContinuousQuotientBox.*`, `PF4.TranslationQuotientPsi.terminalQuotD_eq_terminalQuot_mul_coordinatePsi_sub` | FORMAL_FRAGMENT |
 | PF4/`∂ξΨ` reduction | S05 | R156, R180, CERT5/18 | PO-0020 | strict transfer connected to determinant-derived decrease of the maintained coordinate `Psi`; actual-kernel instances and converse remain | FORMAL_FRAGMENT |
-| curvature coordinate map | S06 | R153, R181, CERT9/19 | PO-0021–0022, PO-0025 | `PF4.CurvatureCoordinateRealization.*`; inverse, jet, `F₂`, and determinant identities are range-local, while the simultaneous-translation identification remains open | FORMAL_FRAGMENT |
+| curvature coordinate map | S06 | R153, R181, CERT9/19/25/26 | PO-0021–0022 | `PF4.CurvatureCoordinateRealization.*`, `PF4.PaperObjectClosure.actualCoordinateRhoKappa_pos_on_range` | FORMALLY_PROVED |
+| simultaneous coordinate translation | S06 | R153, CERT9 | PO-0025 | endpoint objects are maintained; the explicit multivariable chain-rule statement remains open | SYMBOLICALLY_CHECKED |
 | triangular coordinate normalizers | S06 | R153, CERT9 | PO-0023–0024 | `PF4.Curvature.coordinateLambda_eq_triangular`, `coordinateDelta_eq_triangular`, `coordinateDelta_pos` | FORMALLY_PROVED |
 | sign bridge | S06 | R153, CERT9 | PO-0026–0027 | `PF4.CoordinateSignBridge.coordinatePartialXiPsi_eq` | FORMALLY_PROVED |
-| `C₄ = Q⁶κ²D` | S07 | R149, CERT9/12 | PO-0028–0029 | exact identity checked; positivity transfer is conditional on `C₄>0` | FORMAL_FRAGMENT |
+| `C₄ = Q⁶κ²D`, `D>0` | S07 | R149, CERT9/12/25/26 | PO-0028–0029 | `PF4.PaperObjectClosure.actualCoordinateD_pos_on_range` | FORMALLY_PROVED |
 | measure normalization | S08 | R153, CERT9 | PO-0030–0031 | `PF4.Curvature.coordinate_mu_isProbabilityMeasure`, `coordinate_nu_isProbabilityMeasure` | FORMALLY_PROVED |
 | transport expectation | S08 | R153, CERT9 | PO-0038 | `PF4.TransportObject.expandedTransportK_eq_concrete_expectationDifference` | FORMALLY_PROVED |
-| strict right mass | S09 | R153, CERT9 | PO-0032 | `PF4.Measures.nuMeasure_Ioc_pos` | FORMAL_FRAGMENT |
+| strict right mass | S09 | R153, CERT9 | PO-0032 | `PF4.Measures.nuMeasure_Ioc_pos`; retained as interpretation | DEPRECATED_OPTIONAL |
 | unique density crossing | S09 | R153, CERT9 | PO-0033–0036 | `PF4.Crossing.*`, `PF4.Densities.*`; retained as interpretation | DEPRECATED_OPTIONAL |
 | strict cumulative gap | S09 | R153, CERT9 | PO-0037 | `PF4.Cumulative.coordinateGap_pos`, `coordinateGap_continuous_of_normalized`; CDF equality bridges retained independently | FORMALLY_PROVED |
 | CDF integration identity | S09 | R153, CERT9 | PO-0039 | `PF4.Expectation.expectation_difference_eq_cdfGap_integral`, `PF4.Transport.concrete_expectationDifference_eq_transportIntegral` | FORMALLY_PROVED |

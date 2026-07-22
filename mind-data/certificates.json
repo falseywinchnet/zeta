@@ -880,14 +880,14 @@
         },
         {
           "path": "proof/formal/PF4.lean",
-          "sha256": "d9e617d1157b9ba2f443172a8f59ff68eefe81e5278ab1205bf49da2063eb6a5"
+          "sha256": "215bfbc5d3e1081925564d9c9fa3d4c26d3113af3079c842f824fb908f8398d7"
         }
       ],
       "attestation": {
-        "manifest_sha256": "4d466ff0f53e559933e151953fa7d8c43d1179f5fbd9f0eef7e1e44c18d865eb",
+        "manifest_sha256": "b3b7c2bd337d4bbf76af3bb37074c834fb7450edf7227c79d5243cec571e244d",
         "method": "executed",
         "schema": 1,
-        "verified_at": "2026-07-22T04:47:04+00:00"
+        "verified_at": "2026-07-22T06:07:41+00:00"
       },
       "created_at": "2026-07-21T02:49:35+00:00",
       "dependencies": [],
@@ -916,7 +916,7 @@
       "topics": [
         "T000012"
       ],
-      "updated_at": "2026-07-22T04:47:04+00:00"
+      "updated_at": "2026-07-22T06:07:41+00:00"
     },
     "K000019": {
       "artifacts": [
@@ -942,14 +942,14 @@
         },
         {
           "path": "proof/formal/PF4.lean",
-          "sha256": "d9e617d1157b9ba2f443172a8f59ff68eefe81e5278ab1205bf49da2063eb6a5"
+          "sha256": "215bfbc5d3e1081925564d9c9fa3d4c26d3113af3079c842f824fb908f8398d7"
         }
       ],
       "attestation": {
-        "manifest_sha256": "5a861fb18f09ba099f894c701a2de611d120cf909ebe2b769dbc4fcfef460fe9",
+        "manifest_sha256": "3552d1fd08b94a316ae803979d615d422fcb651a5be4bab7e44e219723cd0b92",
         "method": "executed",
         "schema": 1,
-        "verified_at": "2026-07-22T04:48:44+00:00"
+        "verified_at": "2026-07-22T06:09:27+00:00"
       },
       "created_at": "2026-07-21T04:26:48+00:00",
       "dependencies": [],
@@ -978,7 +978,7 @@
       "topics": [
         "T000012"
       ],
-      "updated_at": "2026-07-22T04:48:44+00:00"
+      "updated_at": "2026-07-22T06:09:27+00:00"
     },
     "K000020": {
       "artifacts": [
@@ -1042,14 +1042,14 @@
         },
         {
           "path": "proof/formal/PF4.lean",
-          "sha256": "d9e617d1157b9ba2f443172a8f59ff68eefe81e5278ab1205bf49da2063eb6a5"
+          "sha256": "215bfbc5d3e1081925564d9c9fa3d4c26d3113af3079c842f824fb908f8398d7"
         }
       ],
       "attestation": {
-        "manifest_sha256": "cea34fb8bcaa67502aaaa344cae756736cfad1fc65695577752e9156ce2f5f91",
+        "manifest_sha256": "149f094d14e101dd5595085e8852a6a7c87e0256af0eeee8022fe85e306c0c37",
         "method": "executed",
         "schema": 1,
-        "verified_at": "2026-07-22T04:51:39+00:00"
+        "verified_at": "2026-07-22T06:11:01+00:00"
       },
       "created_at": "2026-07-21T16:18:42+00:00",
       "dependencies": [],
@@ -1078,7 +1078,7 @@
       "topics": [
         "T000012"
       ],
-      "updated_at": "2026-07-22T04:51:39+00:00"
+      "updated_at": "2026-07-22T06:11:01+00:00"
     },
     "K000022": {
       "artifacts": [
@@ -1100,14 +1100,14 @@
         },
         {
           "path": "proof/formal/PF4.lean",
-          "sha256": "d9e617d1157b9ba2f443172a8f59ff68eefe81e5278ab1205bf49da2063eb6a5"
+          "sha256": "215bfbc5d3e1081925564d9c9fa3d4c26d3113af3079c842f824fb908f8398d7"
         }
       ],
       "attestation": {
-        "manifest_sha256": "28f3a895793447f0c7accdbd5c5c6f3e7788983761606e9b14481a0a7b3e35e4",
+        "manifest_sha256": "c7b711a02e0ee0042cb1dc9ae5ce8b22e0da45b24949a629b801ce85c2a53708",
         "method": "executed",
         "schema": 1,
-        "verified_at": "2026-07-22T04:53:02+00:00"
+        "verified_at": "2026-07-22T06:12:21+00:00"
       },
       "created_at": "2026-07-22T01:57:02+00:00",
       "dependencies": [
@@ -1139,7 +1139,7 @@
       "topics": [
         "T000012"
       ],
-      "updated_at": "2026-07-22T04:53:02+00:00"
+      "updated_at": "2026-07-22T06:12:21+00:00"
     },
     "K000023": {
       "artifacts": [
@@ -1149,10 +1149,10 @@
         }
       ],
       "attestation": {
-        "manifest_sha256": "eea5dd071d9ac4857336d8bef4ef38c8cd04376568c551d422be43602e94baa2",
+        "manifest_sha256": "b1b11a9ff54af14d1ea6997f3ff6f9018ce10601098af16736f90e3456dfdf46",
         "method": "executed",
         "schema": 1,
-        "verified_at": "2026-07-22T05:38:17+00:00"
+        "verified_at": "2026-07-22T06:13:39+00:00"
       },
       "created_at": "2026-07-22T02:46:47+00:00",
       "dependencies": [
@@ -1202,14 +1202,14 @@
         },
         {
           "path": "proof/formal/PF4.lean",
-          "sha256": "d9e617d1157b9ba2f443172a8f59ff68eefe81e5278ab1205bf49da2063eb6a5"
+          "sha256": "215bfbc5d3e1081925564d9c9fa3d4c26d3113af3079c842f824fb908f8398d7"
         }
       ],
       "attestation": {
-        "manifest_sha256": "8043337e4ec958c6f0b021c8ee5fe6bff58961d27aac09d3df9bb91dd11e32e5",
+        "manifest_sha256": "23e996e968bdf0b526b1a217fc47031290d57ed725d17c5424b25f7aaffed492",
         "method": "executed",
         "schema": 1,
-        "verified_at": "2026-07-22T05:41:39+00:00"
+        "verified_at": "2026-07-22T06:15:03+00:00"
       },
       "created_at": "2026-07-22T04:54:27+00:00",
       "dependencies": [
@@ -1240,7 +1240,7 @@
       "topics": [
         "T000012"
       ],
-      "updated_at": "2026-07-22T05:41:39+00:00"
+      "updated_at": "2026-07-22T06:02:51+00:00"
     },
     "K000025": {
       "artifacts": [
@@ -1250,10 +1250,10 @@
         }
       ],
       "attestation": {
-        "manifest_sha256": "9775cbb9e918f1914da577a706383958b8d6ef587566b06b1367801227a92746",
+        "manifest_sha256": "1159d50371dd4b467405321a07e017abc796f55680890b387a7364545c6bb572",
         "method": "executed",
         "schema": 1,
-        "verified_at": "2026-07-22T05:39:58+00:00"
+        "verified_at": "2026-07-22T06:15:03+00:00"
       },
       "created_at": "2026-07-22T05:38:28+00:00",
       "dependencies": [
@@ -1285,8 +1285,52 @@
         "T000012"
       ],
       "updated_at": "2026-07-22T05:38:28+00:00"
+    },
+    "K000026": {
+      "artifacts": [
+        {
+          "path": "proof/formal/PF4/PaperObjectClosure.lean",
+          "sha256": "79c126e12415ca8bfcadeaf9b0be7f7baeeb48c1062d4546cfe67d955f423baf"
+        }
+      ],
+      "attestation": {
+        "manifest_sha256": "0bb0f2683fce632fd6f2888b9143c271ebf0b795956d11c6801dfff30becab84",
+        "method": "executed",
+        "schema": 1,
+        "verified_at": "2026-07-22T06:16:13+00:00"
+      },
+      "created_at": "2026-07-22T06:03:02+00:00",
+      "dependencies": [
+        "K000025"
+      ],
+      "description": "Lean 4 literal paper-object support closure: global logarithmic ell s q objects, legal ordered A M denominators with integral provenance, and actual-range rho kappa D positivity",
+      "environment": null,
+      "file": {
+        "path": "work/2026-07-22-paper-object-support-closure/Audit.lean",
+        "sha256": "b199d494f250afd4ab198ac824da6f0100fd4dfc22be37d1d88e2735c00ca104"
+      },
+      "precision": "Lean v4.32.0/mathlib v4.32.0 kernel-checked exact proof; complete real and actual-coordinate domains; no sampling, floating-point decision, coordinate surjectivity, off-range inverse premise, or illegal denominator",
+      "requirements": [],
+      "runner": {
+        "argv": [
+          "lake",
+          "--dir",
+          "proof/formal",
+          "env",
+          "lean",
+          "work/2026-07-22-paper-object-support-closure/Audit.lean"
+        ],
+        "expected_exit_code": 0,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "606f7e4abc7bbc2c1989983ced4230248298d5b70d57533dc953d8c86db86ec8",
+        "timeout_seconds": 300
+      },
+      "topics": [
+        "T000012"
+      ],
+      "updated_at": "2026-07-22T06:03:02+00:00"
     }
   },
-  "next_id": 26,
+  "next_id": 27,
   "version": 1
 }
