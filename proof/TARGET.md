@@ -73,6 +73,15 @@ enclosure may be formalized, but strict negativity is the target conclusion.
 Counterexample condition: the exact determinant at this exact rational spacing
 is nonnegative.
 
+Maintained theorem:
+
+```lean
+PF4.globalRiemannKernel_orderFive_translationMinor_neg :
+  PF4.translationMinor PF4.globalRiemannKernel
+    (fun i : Fin 5 => ((i : ℕ) : ℝ) * (211 / 2000 : ℝ))
+    (fun j : Fin 5 => ((j : ℕ) : ℝ) * (211 / 2000 : ℝ)) < 0
+```
+
 ## T3 — exact global order four
 
 Define `PFOrderExactly f r` to mean:

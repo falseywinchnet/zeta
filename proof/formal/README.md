@@ -153,6 +153,10 @@ Implemented modules:
 - `PF4.GlobalStrictPF4`: actual-kernel lower-`Lambda` and first/second quotient
   signs, exact minor positivity at orders one through four, and the exported
   arbitrary-node target `PF4.globalRiemannKernel_strictPFUpTo_four`.
+- `PF4.PF5WitnessAlgebra` and `PF4.PF5Witness`: exact Taylor enclosures for the
+  five maintained kernel values, reuse of the closed infinite theta-tail
+  theorem, signed-grid matrix identification, parity factorization of the
+  symmetric Toeplitz determinant, and the exported exact T2 negative minor.
 
 No stub theorem with `sorry` is used. The analytic kernel definitions use real
 exponential series. Their proofs now intentionally import mathlib's named real

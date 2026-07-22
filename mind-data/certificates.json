@@ -880,14 +880,14 @@
         },
         {
           "path": "proof/formal/PF4.lean",
-          "sha256": "3161c6e94d5eb3de9295b4133f3b35e09a13d2caad00056eabd9c62b615285a6"
+          "sha256": "46affddc662170f3214e571abb355c759b9cbbd791f237b5280f7826fc2ba72e"
         }
       ],
       "attestation": {
-        "manifest_sha256": "737c5545e8bf972c2b2e9c60f55f3df954a5da05ee0ed4b71770ad69b70a1892",
+        "manifest_sha256": "87a54215889a2d4a9ef420dc7f34a34330e47ec8e212e8e2c9d4121a1e2faffc",
         "method": "executed",
         "schema": 1,
-        "verified_at": "2026-07-22T02:52:09+00:00"
+        "verified_at": "2026-07-22T04:24:19+00:00"
       },
       "created_at": "2026-07-21T02:49:35+00:00",
       "dependencies": [],
@@ -895,7 +895,7 @@
       "environment": null,
       "file": {
         "path": "proof/formal/PF4/Audit.lean",
-        "sha256": "6d73a41ae9be14eafb98c393eb95d6e8f214c3fdfd88136b33b2242a3981ef32"
+        "sha256": "1f269dc03e00fe14cbc20efafd2f02b494862a42a8b5165d028ef0b97d458782"
       },
       "precision": "Lean v4.32.0/mathlib v4.32.0 kernel-checked symbolic proof; conditional theorem only, with no actual Riemann-kernel instance claimed",
       "requirements": [],
@@ -910,13 +910,13 @@
         ],
         "expected_exit_code": 0,
         "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "stdout_sha256": "524ddfefc25732328d93902ad64bfb42700bb6c30a75e954066bcb38786c456d",
+        "stdout_sha256": "2c27a50ce600dcf2d3d32d93c5d555d427643a9cf801e14b2cc26c53225d2a11",
         "timeout_seconds": 180
       },
       "topics": [
         "T000012"
       ],
-      "updated_at": "2026-07-22T02:52:09+00:00"
+      "updated_at": "2026-07-22T04:24:19+00:00"
     },
     "K000019": {
       "artifacts": [
@@ -942,14 +942,14 @@
         },
         {
           "path": "proof/formal/PF4.lean",
-          "sha256": "3161c6e94d5eb3de9295b4133f3b35e09a13d2caad00056eabd9c62b615285a6"
+          "sha256": "46affddc662170f3214e571abb355c759b9cbbd791f237b5280f7826fc2ba72e"
         }
       ],
       "attestation": {
-        "manifest_sha256": "8084ed094bd6c43ef71ab4b4677a777178a78b42e43892d8b2f31133df393b08",
+        "manifest_sha256": "1f64a6f3eee74a17ad2f73b48d36caeb9051406d60fbf6a3b41b26f63a90c738",
         "method": "executed",
         "schema": 1,
-        "verified_at": "2026-07-22T02:53:46+00:00"
+        "verified_at": "2026-07-22T04:25:33+00:00"
       },
       "created_at": "2026-07-21T04:26:48+00:00",
       "dependencies": [],
@@ -957,7 +957,7 @@
       "environment": "",
       "file": {
         "path": "proof/formal/PF4/Audit.lean",
-        "sha256": "6d73a41ae9be14eafb98c393eb95d6e8f214c3fdfd88136b33b2242a3981ef32"
+        "sha256": "1f269dc03e00fe14cbc20efafd2f02b494862a42a8b5165d028ef0b97d458782"
       },
       "precision": "Lean v4.32.0/mathlib v4.32.0 kernel-checked symbolic proof; conditional on explicit derivative tower and q/F2/C4 positivity, with no actual Riemann-kernel certificate bridge claimed",
       "requirements": [],
@@ -972,13 +972,13 @@
         ],
         "expected_exit_code": 0,
         "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "stdout_sha256": "524ddfefc25732328d93902ad64bfb42700bb6c30a75e954066bcb38786c456d",
+        "stdout_sha256": "2c27a50ce600dcf2d3d32d93c5d555d427643a9cf801e14b2cc26c53225d2a11",
         "timeout_seconds": 180
       },
       "topics": [
         "T000012"
       ],
-      "updated_at": "2026-07-22T02:53:46+00:00"
+      "updated_at": "2026-07-22T04:25:33+00:00"
     },
     "K000020": {
       "artifacts": [
@@ -996,10 +996,10 @@
         }
       ],
       "attestation": {
-        "manifest_sha256": "faf1239ca5b51450eab2cc955867bf0837c64f3d9c528547c854acaa88715caa",
+        "manifest_sha256": "47b62fa46fe3e6a71f552b067ecc08e97bfe5fcfa8b3504e31adb03399c3fa76",
         "method": "executed",
         "schema": 1,
-        "verified_at": "2026-07-22T02:55:01+00:00"
+        "verified_at": "2026-07-22T04:26:55+00:00"
       },
       "created_at": "2026-07-21T07:25:15+00:00",
       "dependencies": [],
@@ -1007,7 +1007,7 @@
       "environment": null,
       "file": {
         "path": "proof/formal/PF4/Audit.lean",
-        "sha256": "6d73a41ae9be14eafb98c393eb95d6e8f214c3fdfd88136b33b2242a3981ef32"
+        "sha256": "1f269dc03e00fe14cbc20efafd2f02b494862a42a8b5165d028ef0b97d458782"
       },
       "precision": null,
       "requirements": [],
@@ -1022,13 +1022,13 @@
         ],
         "expected_exit_code": 0,
         "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "stdout_sha256": "524ddfefc25732328d93902ad64bfb42700bb6c30a75e954066bcb38786c456d",
+        "stdout_sha256": "2c27a50ce600dcf2d3d32d93c5d555d427643a9cf801e14b2cc26c53225d2a11",
         "timeout_seconds": 300
       },
       "topics": [
         "T000012"
       ],
-      "updated_at": "2026-07-22T02:55:01+00:00"
+      "updated_at": "2026-07-22T04:26:55+00:00"
     },
     "K000021": {
       "artifacts": [
@@ -1042,14 +1042,14 @@
         },
         {
           "path": "proof/formal/PF4.lean",
-          "sha256": "3161c6e94d5eb3de9295b4133f3b35e09a13d2caad00056eabd9c62b615285a6"
+          "sha256": "46affddc662170f3214e571abb355c759b9cbbd791f237b5280f7826fc2ba72e"
         }
       ],
       "attestation": {
-        "manifest_sha256": "28f0d66d376bf533ddc1c6b4bb1ce4d478cbcc68fc4c91f75f772413afe44f71",
+        "manifest_sha256": "49a01dc8ba59f68e35ed2a9a83652eb921c0465085c64bcfad471ce7930171ea",
         "method": "executed",
         "schema": 1,
-        "verified_at": "2026-07-22T02:56:30+00:00"
+        "verified_at": "2026-07-22T04:28:26+00:00"
       },
       "created_at": "2026-07-21T16:18:42+00:00",
       "dependencies": [],
@@ -1057,7 +1057,7 @@
       "environment": null,
       "file": {
         "path": "proof/formal/PF4/Audit.lean",
-        "sha256": "6d73a41ae9be14eafb98c393eb95d6e8f214c3fdfd88136b33b2242a3981ef32"
+        "sha256": "1f269dc03e00fe14cbc20efafd2f02b494862a42a8b5165d028ef0b97d458782"
       },
       "precision": null,
       "requirements": [],
@@ -1072,13 +1072,13 @@
         ],
         "expected_exit_code": 0,
         "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "stdout_sha256": "524ddfefc25732328d93902ad64bfb42700bb6c30a75e954066bcb38786c456d",
+        "stdout_sha256": "2c27a50ce600dcf2d3d32d93c5d555d427643a9cf801e14b2cc26c53225d2a11",
         "timeout_seconds": 300
       },
       "topics": [
         "T000012"
       ],
-      "updated_at": "2026-07-22T02:56:30+00:00"
+      "updated_at": "2026-07-22T04:28:26+00:00"
     },
     "K000022": {
       "artifacts": [
@@ -1100,14 +1100,14 @@
         },
         {
           "path": "proof/formal/PF4.lean",
-          "sha256": "3161c6e94d5eb3de9295b4133f3b35e09a13d2caad00056eabd9c62b615285a6"
+          "sha256": "46affddc662170f3214e571abb355c759b9cbbd791f237b5280f7826fc2ba72e"
         }
       ],
       "attestation": {
-        "manifest_sha256": "a79000e81d739b2c2d02abda36f8a87aa59ff566e8fb3b3892cbbc8a303d49a0",
+        "manifest_sha256": "ab297e4d5556b65c6605fc20c7512da2b701b3bb495a8be3ed7e85bf7f4e7768",
         "method": "executed",
         "schema": 1,
-        "verified_at": "2026-07-22T02:57:58+00:00"
+        "verified_at": "2026-07-22T04:29:50+00:00"
       },
       "created_at": "2026-07-22T01:57:02+00:00",
       "dependencies": [
@@ -1118,7 +1118,7 @@
       "environment": null,
       "file": {
         "path": "proof/formal/PF4/Audit.lean",
-        "sha256": "6d73a41ae9be14eafb98c393eb95d6e8f214c3fdfd88136b33b2242a3981ef32"
+        "sha256": "1f269dc03e00fe14cbc20efafd2f02b494862a42a8b5165d028ef0b97d458782"
       },
       "precision": "exact Lean kernel checking; compact rational certificates plus analytic exponential tail inequalities; no finite sampling",
       "requirements": [],
@@ -1133,13 +1133,13 @@
         ],
         "expected_exit_code": 0,
         "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "stdout_sha256": "524ddfefc25732328d93902ad64bfb42700bb6c30a75e954066bcb38786c456d",
+        "stdout_sha256": "2c27a50ce600dcf2d3d32d93c5d555d427643a9cf801e14b2cc26c53225d2a11",
         "timeout_seconds": 300
       },
       "topics": [
         "T000012"
       ],
-      "updated_at": "2026-07-22T02:57:58+00:00"
+      "updated_at": "2026-07-22T04:29:50+00:00"
     },
     "K000023": {
       "artifacts": [
@@ -1149,10 +1149,10 @@
         }
       ],
       "attestation": {
-        "manifest_sha256": "8e7fa09cbe9f511abb80486f96656354d8aa6d39c7a8166fcbaa17de144a6754",
+        "manifest_sha256": "c075daf25f9adecab670c7fac20f5649a317ae2446274e2dd9f3340875514276",
         "method": "executed",
         "schema": 1,
-        "verified_at": "2026-07-22T02:59:26+00:00"
+        "verified_at": "2026-07-22T04:31:20+00:00"
       },
       "created_at": "2026-07-22T02:46:47+00:00",
       "dependencies": [
@@ -1163,7 +1163,7 @@
       "environment": null,
       "file": {
         "path": "proof/formal/PF4/Audit.lean",
-        "sha256": "6d73a41ae9be14eafb98c393eb95d6e8f214c3fdfd88136b33b2242a3981ef32"
+        "sha256": "1f269dc03e00fe14cbc20efafd2f02b494862a42a8b5165d028ef0b97d458782"
       },
       "precision": null,
       "requirements": [],
@@ -1178,13 +1178,13 @@
         ],
         "expected_exit_code": 0,
         "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "stdout_sha256": "524ddfefc25732328d93902ad64bfb42700bb6c30a75e954066bcb38786c456d",
+        "stdout_sha256": "2c27a50ce600dcf2d3d32d93c5d555d427643a9cf801e14b2cc26c53225d2a11",
         "timeout_seconds": 300
       },
       "topics": [
         "T000012"
       ],
-      "updated_at": "2026-07-22T02:59:26+00:00"
+      "updated_at": "2026-07-22T04:31:20+00:00"
     }
   },
   "next_id": 24,

@@ -141,6 +141,10 @@ every exported helper theorem.
 - `PF4.GlobalStrictPF4.translationMinor_three_pos`
 - `PF4.GlobalStrictPF4.translationMinor_four_pos`
 - `PF4.globalRiemannKernel_strictPFUpTo_four`
+- `PF4.pf5WitnessNodes_strictMono`
+- `PF4.translationMatrix_pf5WitnessNodes_eq_equallySpaced`
+- `PF4.equallySpacedMatrix_pf5Witness_det_neg`
+- `PF4.globalRiemannKernel_orderFive_translationMinor_neg`
 
 No custom project axiom, `sorry`, `admit`, unsafe theorem bridge, or external
 certificate result appears in these declarations.

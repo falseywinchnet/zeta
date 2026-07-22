@@ -2,9 +2,9 @@
 
 This directory reconstructs the submitted PF4 argument under the stricter
 standard in [SPECIFICATIONS.MD](SPECIFICATIONS.MD). It does not revise the
-submitted paper. Lean now proves T1, strict global PF4 for the actual kernel;
-the full exact-order target still requires the independent T2 order-five
-obstruction and final T3 assembly. [STATUS.md](STATUS.md) records the exact
+submitted paper. Lean now proves T1, strict global PF4 for the actual kernel,
+and T2, an exact negative order-five minor at spacing `211/2000`; the full
+exact-order target requires only the final T3 assembly. [STATUS.md](STATUS.md) records the exact
 formal fragments and open bridges.
 
 ## Current boundary

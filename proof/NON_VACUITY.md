@@ -153,7 +153,10 @@ is strictly positive, so row and column nodes are distinct and ordered. The
 certificate must reconstruct the same `Φ` as T0 and must prove a rational
 upper bound below zero.
 
-Open: PO-0044 and PO-0045.
+Checked: `PF4.pf5WitnessNodes_strictMono` proves the rational grid is genuinely
+ordered; `translationMatrix_pf5WitnessNodes_eq_equallySpaced` proves signed
+index subtraction; and `globalRiemannKernel_orderFive_translationMinor_neg`
+closes PO-0044 and PO-0045 against the maintained primary kernel.
 
 ## NV-012 — transport object identity
 

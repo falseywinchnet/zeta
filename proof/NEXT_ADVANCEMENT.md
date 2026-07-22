@@ -1,77 +1,58 @@
-# Next advancement cycle — exact T2 order-five obstruction
+# Next round — exact T3 assembly
 
-Mode: advancement
+Mode: refine
 
-Starting evidence: R179, R203, CERT11, CERT16, CERT17, CERT23, the maintained target
-definitions in `PF4.Definitions`, the actual kernel in `PF4.KernelAnalytic`, and
-the exact evaluator in `scripts/pf5_threshold_core.py`.
+Starting evidence: R203, CERT23, the maintained T1 declaration
+`PF4.globalRiemannKernel_strictPFUpTo_four`, and the newly maintained T2
+declaration `PF4.globalRiemannKernel_orderFive_translationMinor_neg`.
 
 ## Maintained boundary
 
-Lean now proves target T1 exactly:
+Lean now proves both substantive target inputs:
 
 ```lean
 PF4.globalRiemannKernel_strictPFUpTo_four :
   PF4.StrictPFUpTo PF4.globalRiemannKernel 4
+
+PF4.globalRiemannKernel_orderFive_translationMinor_neg :
+  PF4.translationMinor PF4.globalRiemannKernel
+    (fun i : Fin 5 => ((i : ℕ) : ℝ) * (211 / 2000 : ℝ))
+    (fun j : Fin 5 => ((j : ℕ) : ℝ) * (211 / 2000 : ℝ)) < 0
 ```
 
-The theorem quantifies over arbitrary strictly increasing real row and column
-maps at every order from one through four. No finite node scan or bounded node
-domain is used.
-
-CERT17 independently proves, by exact rational enclosure, that the order-five
-Toeplitz determinant evaluated at spacing `211/2000` is negative. The missing
-target seam is Lean statement fidelity: identify the certificate evaluator
-with the determinant of the maintained `globalRiemannKernel`, including signed
-index subtraction, then close strict negativity.
+T2 is tied to the primary kernel, signed integer index subtraction, and exact
+rational Taylor/tail bounds. The witness nodes are proved strictly increasing.
 
 ## Next exact theorem
 
-Prove a maintained theorem of the form
+Prove and export:
 
 ```lean
-PF4.translationMinor PF4.globalRiemannKernel
-  (fun i : Fin 5 => ((i : ℕ) : ℝ) * (211 / 2000 : ℝ))
-  (fun j : Fin 5 => ((j : ℕ) : ℝ) * (211 / 2000 : ℝ)) < 0
+PF4.globalRiemannKernel_pfOrderExactly_four :
+  PF4.PFOrderExactly PF4.globalRiemannKernel 4
 ```
-
-or the definitionally equivalent `equallySpacedMatrix` determinant statement
-whose entries are exactly
-
-```lean
-globalRiemannKernel (((i : ℤ) - (j : ℤ) : ℤ) * (211 / 2000 : ℝ)).
-```
-
-The exported theorem must be proved equal to T2's frozen orientation rather
-than relying on an informal Toeplitz convention.
 
 ## Proof order
 
-1. Freeze the exact `Fin 5` row and column maps and prove their translation
-   matrix equals the signed equally spaced matrix already defined in
-   `PF4.Definitions`.
-2. Reconstruct the finite kernel values used by CERT17 from the maintained
-   global kernel definition. Keep theta truncation and tail enclosure
-   statements exact and reusable.
-3. Port the rational upper enclosure for the five-by-five determinant into a
-   kernel-checked Lean proposition, or replace it with a smaller exact Lean
-   certificate if the existing evaluator contains unnecessary threshold work.
-4. Export T2 and audit its axioms.
-5. Do not assemble `PFOrderExactly` in this advancement round; that is the
-   following refine/assembly boundary once T2 is secure.
+1. Obtain `PFUpTo globalRiemannKernel 4` from T1 through
+   `StrictPFUpTo.pfUpTo`.
+2. Refute `PFUpTo globalRiemannKernel 5` by instantiating it at the maintained
+   strictly increasing T2 nodes and contradicting the negative determinant.
+3. Export T3, audit its axioms, and perform the two-way statement comparison
+   against `proof/TARGET.md`.
+4. Integrate this advancement round into MIND only after replaying the complete
+   maintained Lean certificate.
 
 ## No-cheating gates
 
-- Use signed integer subtraction; natural subtraction is invalid.
-- Prove equality to the maintained primary kernel, not a fresh finite table.
-- A floating-point determinant or sampled error estimate is not evidence.
-- The rational enclosure must have an upper endpoint strictly below zero.
-- Keep the optional unique confluent threshold and extremality searches out of
-  the shortest T2 path.
+- Do not redefine exact PF order.
+- Use the public T1 and T2 declarations; do not repeat their analytic proofs.
+- The PF5 refutation must instantiate the universal `PFUpTo` quantifiers at
+  the proved-strict witness nodes.
+- Do not claim any RH consequence.
 
 ## Exit condition
 
-The round closes only when the exact primary-kernel order-five determinant at
-spacing `211/2000` is kernel-checked negative, with standard axioms only. If
-the complete CERT17 evaluator is too large to port directly, isolate the
-smallest exact rational lemma that remains and name it without claiming T2.
+The round closes when T3 is kernel-checked with standard axioms only, the full
+build and structural gates pass, and T1–T3 are all indexed as maintained exact
+target declarations.

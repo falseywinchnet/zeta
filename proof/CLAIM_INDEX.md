@@ -24,7 +24,7 @@
 | positive transport integral | S09 | R153, CERT9 | PO-0040 | checked from explicit supplied `Q,κ,C₄` signs; actual coordinate-transport instance unset | FORMAL_FRAGMENT |
 | `∂ξΨ < 0` | S10 | R153, R181, CERT9/19 | PO-0041 | `PF4.LocalFinalAssembly.actualCoordinatePartialXiPsi_neg`; the transport-route actual-kernel instance remains open, while the terminal quotient is closed independently | FORMAL_FRAGMENT |
 | strict PF4 | S01/S10 | R164, R180–R181, R190, R201, R203, CERT5/9/12/18/19/21–23 | PO-0042 | `PF4.globalRiemannKernel_strictPFUpTo_four : StrictPFUpTo globalRiemannKernel 4` | FORMALLY_PROVED |
-| exact finite PF5 witness | S10 | R179, CERT17 | PO-0044–0045 | unset | CERTIFIED |
+| exact finite PF5 witness | S10 | R179, CERT17 | PO-0044–0045 | `PF4.globalRiemannKernel_orderFive_translationMinor_neg`; supporting signed-matrix equality, exact kernel boxes, determinant parity factorization, and ordered-node theorem | FORMALLY_PROVED |
 | exact order four | S01/S10 | R145 | PO-0046 | unset | CERTIFIED |
 
 The measure and crossing claims were initially downgraded because the scripts'

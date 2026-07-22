@@ -56,13 +56,11 @@ their conclusions backward.
 
 ## Current unresolved target leaves
 
-T1 is closed by `PF4.globalRiemannKernel_strictPFUpTo_four`. The remaining
-target-reachable leaves are:
+T1 and T2 are closed by `PF4.globalRiemannKernel_strictPFUpTo_four` and
+`PF4.globalRiemannKernel_orderFive_translationMinor_neg`. The remaining
+target-reachable leaf is:
 
-1. Prove that the CERT17 evaluator denotes the primary kernel's exact finite
-   order-five determinant, and port or replay its rational negativity check in
-   Lean.
-2. Combine the completed T1 and T2 declarations with the formal definition of
+1. Combine the completed T1 and T2 declarations with the formal definition of
    exact PF order at the final T3 boundary.
 
 PO-0026 through PO-0028 and PO-0037 through PO-0039 are `FORMALLY_PROVED`.
@@ -71,4 +69,4 @@ actual-kernel obligations. The global derivative jet, kernel positivity,
 canonical `q,F₂,C₄` signs, and actual-kernel terminal quotient are now
 closed. The fixed-order quotient route now exports the arbitrary-node T1
 theorem without claiming the broader confluent or converse portions of
-PO-0017/0018/0020. The independent CERT17/T2 bridge remains open.
+PO-0017/0018/0020. The independent CERT17/T2 bridge is now closed.

@@ -126,3 +126,7 @@ set_option linter.style.header false
 #print axioms PF4.GlobalStrictPF4.translationMinor_three_pos
 #print axioms PF4.GlobalStrictPF4.translationMinor_four_pos
 #print axioms PF4.globalRiemannKernel_strictPFUpTo_four
+#print axioms PF4.pf5WitnessNodes_strictMono
+#print axioms PF4.translationMatrix_pf5WitnessNodes_eq_equallySpaced
+#print axioms PF4.equallySpacedMatrix_pf5Witness_det_neg
+#print axioms PF4.globalRiemannKernel_orderFive_translationMinor_neg

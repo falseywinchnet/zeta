@@ -103,6 +103,6 @@ Exit gate: T1–T3 are kernel-checked and the target-reachable graph has no gaps
 
 T1 is closed by `PF4.globalRiemannKernel_strictPFUpTo_four`, including the
 actual lower-order quotient signs and arbitrary-node orders one through four.
-The next deep proof task is the independent CERT17 evaluator equivalence and
-rational PF5 witness for T2. Combine T1 and T2 only after that exact determinant
-is kernel-checked, at the final T3 boundary.
+T2 is closed by `PF4.globalRiemannKernel_orderFive_translationMinor_neg`, with
+signed indices, exact kernel reconstruction, and a rational negative
+determinant bound. The next round is the final T3 definition-level assembly.
