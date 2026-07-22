@@ -5,26 +5,32 @@ Put
  \vartheta(x)=\sum_{n\in\mathbb Z}e^{-\pi n^2x},\qquad
  \Theta(t)=\vartheta(e^{2t}),\qquad H(t)=e^{t/2}\Theta(t).
 \]
-The theta transformation \(\vartheta(x)=x^{-1/2}\vartheta(1/x)\) gives
+This is a real-valued definition: summability is first proved directly for
+every \(x>0\), before any analytic continuation is invoked. The real
+specialization of Gaussian Poisson summation gives the exact normalization
+\(\vartheta(x)=x^{-1/2}\vartheta(1/x)\), and hence
 \[
  \Theta(-t)=e^t\Theta(t),\qquad H(-t)=H(t).
 \]
-The series and all its derivatives converge locally uniformly, so \(H\) is
-real analytic and even. Define
+A Jacobi-theta realization supplies a globally analytic function agreeing
+with this real series. Thus \(H\) is real analytic and even. Define
 \[
  \Phi(t)=\frac12\left(H''(t)-\frac14H(t)\right).
 \]
 This is twice the common de Bruijn kernel normalization; multiplication by a
 positive constant changes none of the PF signs or strictness statements.
-Termwise differentiation gives, for every real \(t\),
+On \(t\geq0\), locally uniform polynomial--geometric majorants justify
+termwise differentiation through order six and give
 \begin{equation}\label{eq:kernel-series}
  \Phi(t)=\sum_{n\geq1}
  \left(4\pi^2n^4e^{9t/2}-6\pi n^2e^{5t/2}\right)
  e^{-\pi n^2e^{2t}}.
 \end{equation}
-Thus the positive-side formula often written with \(|t|\) is the restriction
-of a real-analytic even function. In particular, smoothness at the origin is
-not inferred from numerical coverage.
+Parity reflects this identity to every real \(t\), equivalently by replacing
+\(t\) on the right by \(|t|\). Thus the positive-side formula is the
+restriction of a real-analytic even function. Smoothness and every derivative
+used later at the origin are consequences of that analytic realization, not
+of numerical coverage or of differentiating an absolute-value definition.
 
 For \(t\geq0\), the coefficient of the \(n\)-th exponential can be factored as
 \[
@@ -44,3 +50,15 @@ For \(a<b\), define
  M(a,b)=\frac{q(b)-q(a)}{A(a,b)}.
 \end{equation}
 When \(q>0\), \(s\) is strictly decreasing and \(A(a,b)>0\).
+
+\begin{sloppypar}
+The maintained formal boundary mirrors this order of construction.
+\path{PF4.riemannTheta_modular} is the library-backed Poisson step;
+\path{PF4.contDiff_riemannH},
+\path{PF4.globalRiemannKernel_even}, and
+\path{PF4.globalRiemannKernel_eq_thetaSeries_abs} give analytic continuation,
+parity, and the reflected series; and
+\path{PF4.GlobalKernelJetIdentification.iteratedDeriv_globalRiemannKernel_eq_thetaSeriesJet}
+identifies the complete jet through order six. No project-specific axiom is
+used by these declarations.
+\end{sloppypar}

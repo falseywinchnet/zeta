@@ -1,5 +1,16 @@
 \section{Exact verification and reproduction}\label{sec:reproducibility}
 
+The primary universal theorem is checked by the pinned Lean project in
+\path{proof/formal}. Running \texttt{lake build} constructs the real theta
+series, the analytic kernel and global derivative jet, the universal cleared
+signs, the arbitrary-node strict minors through order four, and the exact
+negative order-five witness. Running
+\texttt{lake env lean PF4/Audit.lean} prints the axiom dependencies of the
+exported declarations. They are exactly the standard Lean/mathlib axioms
+\texttt{propext}, \texttt{Classical.choice}, and \texttt{Quot.sound}; the
+dependency tree contains no \texttt{sorry}, \texttt{admit}, custom axiom, or
+unsafe theorem bridge.
+
 The repository supplies independent verifiers for the finite algebra and
 rational inequalities used above.
 \begin{center}

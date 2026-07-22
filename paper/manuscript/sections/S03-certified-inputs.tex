@@ -55,3 +55,16 @@ displayed margins, both on
 All inequalities, including the derivative envelopes used on the tail, are
 derived in \appref{app:tail}. The exact replay uses no floating
 point, no interval subdivision, and no FLINT or Arb arithmetic.
+
+\begin{sloppypar}
+In the maintained Lean development the compact and outer regions are one
+universal theorem, rather than sampled checks. The declarations
+\path{PF4.CERT12OuterClosure.normalized_clearedQ_pos},
+\path{PF4.CERT12OuterClosure.normalized_clearedF2_pos}, and
+\path{PF4.CERT12OuterClosure.normalized_clearedC4_pos} prove the three cleared
+signs for every \(t\geq0\). Exact raw-jet identities then remove the positive
+denominators, and the reflected global jet from \secref{sec:kernel} covers the
+negative half-line and the origin. The Python verifier remains an independent
+exact replay of the printed rational certificate; it is not the trusted bridge
+from sampled arithmetic to the universal statement.
+\end{sloppypar}
