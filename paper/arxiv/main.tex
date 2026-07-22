@@ -41,19 +41,18 @@
 \maketitle
 \begin{abstract}
 Let \(\Phi\) be the classical Riemann, or de Bruijn--Newman, kernel. We prove
-that every translation minor of \(\Phi\) of order at most four is strictly
-positive at strictly ordered nodes, and an exact origin-confluent calculation
-gives a negative order-five minor. Thus the exact global P\'olya-frequency order
-is four. The order-five confluent coefficient changes sign exactly once on the
-positive half-line, at
-\(0.0622795266356<u_*<0.0622795266357\), and a rational finite-spacing
-witness has determinant between \(-1.08\mathbin{\cdot}10^{-7}\) and
-\(-1.05\mathbin{\cdot}10^{-7}\). For the positive theorem, a two-mode
+that its exact global P\'olya-frequency order is four: every translation minor
+of order at most four is strictly positive at strictly ordered nodes, whereas
+the order-five minor at the exact spacing \(211/2000\) is negative. Both
+halves of this classification are exported by a maintained Lean 4 theorem;
+the proof depends only on the standard Lean/mathlib axioms. The optional
+order-five confluent coefficient changes sign exactly once on the positive
+half-line, at \(0.0622795266356<u_*<0.0622795266357\). For the positive half,
+a two-mode
 argument proves global positivity of the log-curvature quantities \(q,F_2\)
 and of the fully confluent invariant \(\Cfour\). The finite verification uses
 only rational polynomial algebra, Taylor inequalities, and geometric tails.
-The order-five origin, threshold, and finite-witness certificates likewise use
-exact rational arithmetic.
+The direct finite-witness certificate likewise uses exact rational arithmetic.
 A
 quotient-Wronskian argument reduces arbitrary fourth-order minors to
 \(\partial_\xi\Psi<0\). In the increasing curvature coordinate, its numerator
@@ -94,23 +93,28 @@ order of the Riemann kernel; see \cite{belton} for modern background and
 Schoenberg's characterization. Related finite-order and Riemann-kernel work is
 placed in \secref{sec:related-work}.
 
-\begin{theorem}[Strict global \(\PF_4\)]\label{thm:main}
-For every \(1\leq k\leq4\) and strictly increasing real tuples
+\begin{theorem}[Exact global PF order]\label{thm:main}
+The exact global P\'olya-frequency order of \(\Phi\) is four. More precisely:
+\begin{enumerate}
+\item for every \(1\leq k\leq4\) and strictly increasing real tuples
 \(x_1<\cdots<x_k\) and \(y_1<\cdots<y_k\),
 \[
  \det[\Phi(x_i-y_j)]_{i,j=1}^k>0.
 \]
+\item with \(h=211/2000\),
+\[
+ \det[\Phi((i-j)h)]_{i,j=0}^4<0.
+\]
+\end{enumerate}
 \end{theorem}
 
-A parity factorization of the fully confluent derivative matrix at the origin
-gives a negative order-five limit. Divided differences then transfer that sign
-to equally spaced translation minors at sufficiently small positive spacing;
-see Theorem~\ref{thm:not-pf5}. Hence Theorem~\ref{thm:main} has the following
-exact consequence.
-
-\begin{corollary}\label{cor:exact-order}
-The exact global P\'olya-frequency order of \(\Phi\) is four.
-\end{corollary}
+The two theorem inputs are deliberately separated. The positive input is the
+universal strict-order theorem through four. The negative input is the direct
+rational order-five witness in part~(2), including proved strict ordering of
+its nodes and the signed Toeplitz-to-translation-matrix identification. In the
+maintained formal development these are assembled by
+\path{PF4.globalRiemannKernel_pfOrderExactly_four}; its axiom audit reports
+only \texttt{propext}, \texttt{Classical.choice}, and \texttt{Quot.sound}.
 
 The exact-order classification and the Fourier question are distinct. The
 following example marks a precise finite-order boundary for Schoenberg's
@@ -133,18 +137,18 @@ three-point function \(\Psi\). An increasing curvature coordinate then turns
 the derivative of \(\Psi\) into a positive crossing-kernel integral of
 \(\Cfour\).
 
-The finite part of the first input consists of exact rational Bernstein
+The finite part of the positive input consists of exact rational Bernstein
 coefficients on fixed algebraic domains, followed by analytic bounds for all
 remaining theta modes; \appref{app:tail} lists the transformed target
 polynomials, domains, degrees, minimum coefficients, derivative envelopes,
 and the surviving relative margins. The transport algebra is proved in the
 text, and the order-five
 calculation uses rational enclosures and elementary series bounds.
-The same recurrence gives a global order-five refinement: its confluent
+An optional recurrence gives a global order-five refinement: its confluent
 coefficient has one positive zero, enclosed in a rational interval of width
 \(10^{-13}\), and an explicit rational spacing gives a comfortably negative
 finite determinant. Neither refinement is needed for the strict-\(\PF_4\)
-theorem, but both make the first failure quantitatively reproducible.
+theorem; it records additional structure around the direct witness.
 Theorem~\ref{thm:separator}, proved in \secref{sec:separator}, supplies an
 explicit order-four counterexample rather than a finite-order sufficiency
 threshold.
@@ -738,7 +742,7 @@ Equation \eqref{eq:sign-bridge} and \eqref{eq:central-identity} imply
 \[
  \partial_\xi\Psi(\xi;m,r)<0\qquad(\xi<m<r).
 \]
-Proposition~\ref{prop:equivalence} therefore proves
+Proposition~\ref{prop:equivalence} therefore proves part~(1) of
 Theorem~\ref{thm:main}.
 
 We now prove directly that the classification stops at order four. Put
@@ -898,8 +902,10 @@ This is a direct translation minor at distinct equally spaced nodes. The
 outermost center over all finite spacings is a separate two-variable extremal
 problem; no such global extremality is used here.
 
-Theorem~\ref{thm:main} and Theorem~\ref{thm:not-pf5} prove
-Corollary~\ref{cor:exact-order}.
+Equation~\eqref{eq:finite-pf5-witness} proves part~(2) of
+Theorem~\ref{thm:main}. Together with the strict minors through order four,
+this completes the exact-order classification. The preceding confluent
+theorem is not used in that assembly.
 
 \begin{remark}[Riemann Hypothesis boundary]
 Schoenberg's transform theorem says that the bilateral Laplace transform of a

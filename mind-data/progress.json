@@ -628,8 +628,12 @@
     "P000157": {
       "blurb": "Integrate fixed-order quotient-Wronskian closure into MIND and the paper backport pathway",
       "created_at": "2026-07-22T08:05:39+00:00"
+    },
+    "P000158": {
+      "blurb": "Backport exact-order proof architecture into the PF4 manuscript",
+      "created_at": "2026-07-22T08:13:09+00:00"
     }
   },
-  "next_id": 158,
+  "next_id": 159,
   "version": 1
 }

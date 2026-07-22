@@ -11,23 +11,28 @@ order of the Riemann kernel; see \cite{belton} for modern background and
 Schoenberg's characterization. Related finite-order and Riemann-kernel work is
 placed in \secref{sec:related-work}.
 
-\begin{theorem}[Strict global \(\PF_4\)]\label{thm:main}
-For every \(1\leq k\leq4\) and strictly increasing real tuples
+\begin{theorem}[Exact global PF order]\label{thm:main}
+The exact global P\'olya-frequency order of \(\Phi\) is four. More precisely:
+\begin{enumerate}
+\item for every \(1\leq k\leq4\) and strictly increasing real tuples
 \(x_1<\cdots<x_k\) and \(y_1<\cdots<y_k\),
 \[
  \det[\Phi(x_i-y_j)]_{i,j=1}^k>0.
 \]
+\item with \(h=211/2000\),
+\[
+ \det[\Phi((i-j)h)]_{i,j=0}^4<0.
+\]
+\end{enumerate}
 \end{theorem}
 
-A parity factorization of the fully confluent derivative matrix at the origin
-gives a negative order-five limit. Divided differences then transfer that sign
-to equally spaced translation minors at sufficiently small positive spacing;
-see Theorem~\ref{thm:not-pf5}. Hence Theorem~\ref{thm:main} has the following
-exact consequence.
-
-\begin{corollary}\label{cor:exact-order}
-The exact global P\'olya-frequency order of \(\Phi\) is four.
-\end{corollary}
+The two theorem inputs are deliberately separated. The positive input is the
+universal strict-order theorem through four. The negative input is the direct
+rational order-five witness in part~(2), including proved strict ordering of
+its nodes and the signed Toeplitz-to-translation-matrix identification. In the
+maintained formal development these are assembled by
+\path{PF4.globalRiemannKernel_pfOrderExactly_four}; its axiom audit reports
+only \texttt{propext}, \texttt{Classical.choice}, and \texttt{Quot.sound}.
 
 The exact-order classification and the Fourier question are distinct. The
 following example marks a precise finite-order boundary for Schoenberg's
@@ -50,18 +55,18 @@ three-point function \(\Psi\). An increasing curvature coordinate then turns
 the derivative of \(\Psi\) into a positive crossing-kernel integral of
 \(\Cfour\).
 
-The finite part of the first input consists of exact rational Bernstein
+The finite part of the positive input consists of exact rational Bernstein
 coefficients on fixed algebraic domains, followed by analytic bounds for all
 remaining theta modes; \appref{app:tail} lists the transformed target
 polynomials, domains, degrees, minimum coefficients, derivative envelopes,
 and the surviving relative margins. The transport algebra is proved in the
 text, and the order-five
 calculation uses rational enclosures and elementary series bounds.
-The same recurrence gives a global order-five refinement: its confluent
+An optional recurrence gives a global order-five refinement: its confluent
 coefficient has one positive zero, enclosed in a rational interval of width
 \(10^{-13}\), and an explicit rational spacing gives a comfortably negative
 finite determinant. Neither refinement is needed for the strict-\(\PF_4\)
-theorem, but both make the first failure quantitatively reproducible.
+theorem; it records additional structure around the direct witness.
 Theorem~\ref{thm:separator}, proved in \secref{sec:separator}, supplies an
 explicit order-four counterexample rather than a finite-order sufficiency
 threshold.
