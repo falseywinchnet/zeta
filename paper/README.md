@@ -25,6 +25,11 @@ with:
 make -C paper arxiv
 ```
 
+The submitted `pf4-paper-v1.0.0` snapshot and the revised
+`PF4-paper-v2.0.0` Lean backport are recorded separately in
+`REVISION_HISTORY.md`. The current formal boundary is reproduced with
+`lake build` and `lake env lean PF4/Audit.lean` from `proof/formal`.
+
 The archive contains only root-level `main.tex`. The packaging step verifies a
 single complete document boundary and appends the arXiv four-pass rerun signal.
 

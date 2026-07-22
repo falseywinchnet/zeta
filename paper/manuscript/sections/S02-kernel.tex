@@ -51,14 +51,8 @@ For \(a<b\), define
 \end{equation}
 When \(q>0\), \(s\) is strictly decreasing and \(A(a,b)>0\).
 
-\begin{sloppypar}
 The maintained formal boundary mirrors this order of construction.
-\path{PF4.riemannTheta_modular} is the library-backed Poisson step;
-\path{PF4.contDiff_riemannH},
-\path{PF4.globalRiemannKernel_even}, and
-\path{PF4.globalRiemannKernel_eq_thetaSeries_abs} give analytic continuation,
-parity, and the reflected series; and
-\path{PF4.GlobalKernelJetIdentification.iteratedDeriv_globalRiemannKernel_eq_thetaSeriesJet}
-identifies the complete jet through order six. No project-specific axiom is
-used by these declarations.
-\end{sloppypar}
+It separately checks the Poisson step, analytic continuation, parity,
+reflected series, and the complete jet through order six. The exact
+declarations are listed in \appref{app:provenance}; none uses a
+project-specific axiom.

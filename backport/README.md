@@ -45,6 +45,14 @@ For each backport round:
    local exact certificate, or clearly named standard import. Remove stale
    symbolic-computation language and any result not used by the final proof.
 
+## Completion
+
+The six rounds were completed as refine epochs `P000158` through `P000163`.
+The frozen submitted release is `pf4-paper-v1.0.0`/`P000074`; the revised
+release is `PF4-paper-v2.0.0`/`P000163`. The exact changes and artifact hashes
+are recorded in `paper/REVISION_HISTORY.md` and
+`paper/RELEASE_MANIFEST.md`.
+
 ## Deprecated status group: crossing support
 
 The former status-list group containing PO-0032 through PO-0036 is deprecated

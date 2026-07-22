@@ -35,7 +35,7 @@
 \title{The Riemann Kernel Is Globally \texorpdfstring{$\PF_4$}{PF4}}
 \author{Joshuah Rainstar\thanks{Email:
 \href{mailto:joshuah.rainstar@gmail.com}{\texttt{joshuah.rainstar@gmail.com}}}}
-\date{16 July 2026}
+\date{Revised 22 July 2026}
 
 \begin{document}
 \maketitle
@@ -262,17 +262,11 @@ For \(a<b\), define
 \end{equation}
 When \(q>0\), \(s\) is strictly decreasing and \(A(a,b)>0\).
 
-\begin{sloppypar}
 The maintained formal boundary mirrors this order of construction.
-\path{PF4.riemannTheta_modular} is the library-backed Poisson step;
-\path{PF4.contDiff_riemannH},
-\path{PF4.globalRiemannKernel_even}, and
-\path{PF4.globalRiemannKernel_eq_thetaSeries_abs} give analytic continuation,
-parity, and the reflected series; and
-\path{PF4.GlobalKernelJetIdentification.iteratedDeriv_globalRiemannKernel_eq_thetaSeriesJet}
-identifies the complete jet through order six. No project-specific axiom is
-used by these declarations.
-\end{sloppypar}
+It separately checks the Poisson step, analytic continuation, parity,
+reflected series, and the complete jet through order six. The exact
+declarations are listed in \appref{app:provenance}; none uses a
+project-specific axiom.
 \section{Certified one-variable inputs}\label{sec:inputs}
 
 Define
@@ -331,18 +325,14 @@ All inequalities, including the derivative envelopes used on the tail, are
 derived in \appref{app:tail}. The exact replay uses no floating
 point, no interval subdivision, and no FLINT or Arb arithmetic.
 
-\begin{sloppypar}
 In the maintained Lean development the compact and outer regions are one
-universal theorem, rather than sampled checks. The declarations
-\path{PF4.CERT12OuterClosure.normalized_clearedQ_pos},
-\path{PF4.CERT12OuterClosure.normalized_clearedF2_pos}, and
-\path{PF4.CERT12OuterClosure.normalized_clearedC4_pos} prove the three cleared
-signs for every \(t\geq0\). Exact raw-jet identities then remove the positive
-denominators, and the reflected global jet from \secref{sec:kernel} covers the
-negative half-line and the origin. The Python verifier remains an independent
-exact replay of the printed rational certificate; it is not the trusted bridge
-from sampled arithmetic to the universal statement.
-\end{sloppypar}
+universal theorem, rather than sampled checks. The three positive-sign
+declarations prove the cleared \(q,F_2,\Cfour\) numerators for every
+\(t\geq0\). Exact raw-jet identities then remove the positive denominators,
+and the reflected global jet from \secref{sec:kernel} covers the negative
+half-line and the origin. The Python verifier remains an independent exact
+replay of the printed rational certificate; it is not the bridge from sampled
+arithmetic to the universal statement.
 \section{Order three and the positive slope functional}\label{sec:pf3}
 
 For \(\xi<m<r\), define
@@ -648,16 +638,13 @@ Equivalently,
 \end{equation}
 It remains to prove \(K>0\).
 
-\begin{sloppypar}
 All objects here are defined only on the image of \(y=-s\).
-\path{PF4.PaperObjectClosure.actualCoordinateRhoKappa_pos_on_range} proves the
-displayed \(\rho,\kappa\) signs at every actual coordinate point, while
-\path{PF4.SimultaneousCoordinateTranslation.actual_simultaneousCoordinateTranslation}
-identifies literal simultaneous translation of the original endpoints with
-the vector field \(\T\), including the derivative of the nonconstant
-coefficient \(Q(p)\). Neither declaration extends \(Q\) by an assumed inverse
-or asserts that the coordinate image is all of \(\mathbb R\).
-\end{sloppypar}
+The range-sign theorem in \path{PF4.PaperObjectClosure} proves the displayed
+\(\rho,\kappa\) inequalities at every actual coordinate point. The package in
+\path{PF4.SimultaneousCoordinateTranslation} identifies literal simultaneous
+translation of the original endpoints with \(\T\), including the derivative
+of the nonconstant coefficient \(Q(p)\). Neither result extends \(Q\) by an
+assumed inverse or asserts that the coordinate image is all of \(\mathbb R\).
 \section{The confluent invariant in curvature form}\label{sec:confluent}
 
 Define
@@ -706,7 +693,7 @@ Write the three normalized triangular densities from
 \end{align}
 The triangular identities give
 \begin{equation}\label{eq:density-masses}
- \int_p^z\mu_L=1,qquad
+ \int_p^z\mu_L=1,\qquad
  \int_p^z\nu_L+\int_z^w\nu_R=1.
 \end{equation}
 No measure theory is needed below; these are normalized continuous weights on
@@ -859,15 +846,11 @@ The probability interpretation is optional: the same \(\Delta\) is
 \(F_\mu-F_\nu\), and the density ratio has one crossing. The proof above does
 not require probability instances, CDF complement identities, endpoint ratio
 limits, or a separate existence-and-uniqueness argument for that crossing.
-\begin{sloppypar}
-The maintained declarations
-\path{PF4.GlobalStrictPF4.globalRiemannKernel_coordinateNumerator_pos} and
-\path{PF4.GlobalStrictPF4.globalRiemannKernel_coordinatePartialXiPsi_neg}
-export, for the literal Riemann kernel and every \(\xi<m<r\), respectively the
-strict positivity in \eqref{eq:central-identity} and the negative derivative
-in \eqref{eq:sign-bridge}. All coordinate points in these statements lie in
-the actual image of \(y=-s\); no surjectivity onto \(\mathbb R\) is asserted.
-\end{sloppypar}
+The two actual-kernel exports in \path{PF4.GlobalStrictPF4} prove, for every
+\(\xi<m<r\), respectively the strict positivity in
+\eqref{eq:central-identity} and the negative derivative in
+\eqref{eq:sign-bridge}. All coordinate points in these statements lie in the
+actual image of \(y=-s\); no surjectivity onto \(\mathbb R\) is asserted.
 \section{Completion and exact order}\label{sec:completion}
 
 Equation \eqref{eq:sign-bridge} and \eqref{eq:central-identity} imply
@@ -1186,83 +1169,99 @@ completes the proof of Theorem~\ref{thm:separator}.
 \section{Exact verification and reproduction}\label{sec:reproducibility}
 
 The primary universal theorem is checked by the pinned Lean project in
-\path{proof/formal}. Running \texttt{lake build} constructs the real theta
-series, the analytic kernel and global derivative jet, the universal cleared
-signs, the arbitrary-node strict minors through order four, and the exact
-negative order-five witness. Running
+\path{proof/formal}. From that directory, \texttt{lake build} constructs the
+real theta series, analytic kernel and global derivative jet, universal
+cleared signs, fixed-order quotient and transport chain, arbitrary-node strict
+minors through order four, direct negative order-five witness, and exact-order
+assembly. The focused command
 \texttt{lake env lean PF4/Audit.lean} prints the axiom dependencies of the
-exported declarations. They are exactly the standard Lean/mathlib axioms
-\texttt{propext}, \texttt{Classical.choice}, and \texttt{Quot.sound}; the
-dependency tree contains no \texttt{sorry}, \texttt{admit}, custom axiom, or
-unsafe theorem bridge.
+exported declarations. They are exactly \texttt{propext},
+\texttt{Classical.choice}, and \texttt{Quot.sound}. No \texttt{sorry},
+\texttt{admit}, custom axiom, or unsafe theorem bridge occurs in the target
+dependency tree.
 
-The repository supplies independent verifiers for the finite algebra and
-rational inequalities used above.
+The principal claim boundaries are:
 \begin{center}
 \small
 \begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.25\textwidth}
->{\raggedright\arraybackslash}p{0.47\textwidth}
->{\raggedright\arraybackslash}p{0.19\textwidth}@{}}
+>{\raggedright\arraybackslash}p{0.66\textwidth}@{}}
 \toprule
-Object & Repository verifier & Arithmetic \\
+Object & Maintained boundary \\
 \midrule
+Analytic kernel and global jet &
+\path{PF4.globalRiemannKernel_eq_thetaSeries_abs};
+\path{PF4.GlobalKernelJetIdentification.iteratedDeriv_globalRiemannKernel_eq_thetaSeriesJet} \\
 Global \(q,F_2,\Cfour\) &
-\path{scripts/verify_riemann_signs_exact.py} & rational polynomial \\
-Quotient reduction &
-\path{scripts/verify_pf4_wronskian_reduction.py} & symbolic exact \\
-Transport identity &
-\path{scripts/verify_pf4_transport_kernel.py} & symbolic exact \\
-Origin order-five sign &
-\path{scripts/verify_pf5_origin.py} & rational enclosures \\
-Three-mode order-five polynomial &
-\texttt{scripts/verify\_pf5\_threshold\_symbolic.py} & symbolic exact \\
-Order-five threshold and witness &
-\path{scripts/verify_pf5_threshold.py} & rational Bernstein \\
-Continuous separator &
-\texttt{scripts/verify\_continuous\_pf4\_separator.py} & rational polynomial \\
+\path{PF4.CERT12OuterClosure.normalized_cleared_signs_pos} and exact raw-jet transfer \\
+Lower \(\Lambda\) and orders two--three &
+\path{PF4.WeightedMeanVariation.actual_weightedMeanVariation_lowerLambda};
+\path{PF4.GlobalStrictPF4.translationMinor_two_pos};
+\path{PF4.GlobalStrictPF4.translationMinor_three_pos} \\
+Fixed-order quotient cascade &
+\path{PF4.FixedOrderQuotientWronskian.fixedOrderFour_quotientWronskian_package} \\
+Actual coordinate transport &
+\path{PF4.GlobalStrictPF4.globalRiemannKernel_coordinateNumerator_pos};
+\path{PF4.GlobalStrictPF4.globalRiemannKernel_coordinatePartialXiPsi_neg} \\
+Universal strict PF4 &
+\path{PF4.globalRiemannKernel_strictPFUpTo_four} \\
+Direct PF5 witness &
+\path{PF4.globalRiemannKernel_orderFive_translationMinor_neg} \\
+Exact order four &
+\path{PF4.globalRiemannKernel_pfOrderExactly_four} \\
 \bottomrule
 \end{tabular}
 \end{center}
 
-The global-sign verifier retains the first two theta modes exactly. It checks
-the 361 Bernstein and decay inequalities summarized in \appref{app:tail}, the
-140 derivative-envelope coefficients, and the analytic geometric bounds for
-all modes \(n\geq3\). Its launcher selects SymPy's pure-Python rational domain
-and refuses a FLINT import. No floating-point comparison or interval
-subdivision decides a sign.
-
-The origin order-five verifier is independent of that calculation. It uses integer
-arithmetic with outward rounding on \(10^{-36}\mathbb Z\), Machin bounds for
-\(\pi\), alternating Taylor bounds for three theta modes, and the geometric
-tail in Lemma~\ref{lem:origin-pf5-sign}. The threshold verifiers reconstruct
-the 231-monomial three-mode determinant, certify the unique crossing by
-correlated rational Bernstein cells, and directly enclose
-\eqref{eq:finite-pf5-witness}. The separator verifier reconstructs
-the central determinant, checks the exact \(P^8\) cancellation, verifies all
-25 coefficients in \eqref{eq:separator-c4}, and reproduces the rational
-discriminant inequality in \appref{app:separator}. The generated coefficient
-record has SHA-256
+Independent exact verifiers reconstruct the printed finite algebra and
+rational inequalities:
 \begin{center}
-\texttt{d0f91259919c7f237ef65068041122656636ca990fe6ef41a146dd53eaa1dba9}.
+\small
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.30\textwidth}
+>{\raggedright\arraybackslash}p{0.51\textwidth}
+>{\raggedright\arraybackslash}p{0.12\textwidth}@{}}
+\toprule
+Object & Repository replay & Role \\
+\midrule
+Global \(q,F_2,\Cfour\) &
+\path{scripts/verify_riemann_signs_exact.py} & exact arithmetic \\
+Fixed Wronskian algebra &
+\path{scripts/verify_pf4_wronskian_reduction.py} & independent \\
+Endpoint transport algebra &
+\path{scripts/verify_pf4_transport_kernel.py} & independent \\
+Direct PF5 witness and optional threshold &
+\path{scripts/verify_pf5_threshold.py} & exact arithmetic \\
+Optional threshold polynomial &
+\path{scripts/verify_pf5_threshold_symbolic.py} & independent \\
+Continuous separator &
+\path{scripts/verify_continuous_pf4_separator.py} & exact arithmetic \\
+\bottomrule
+\end{tabular}
 \end{center}
 
-The quotient and transport scripts check identities for generic smooth jets.
-Their numerical evaluations at selected points are regression tests only; all
-sign conclusions follow from the displayed identities and exact inequalities.
+The global-sign replay retains the first two theta modes exactly. It checks
+the 361 Bernstein and decay inequalities summarized in \appref{app:tail}, the
+140 derivative-envelope coefficients, and analytic geometric bounds for every
+mode \(n\geq3\). It uses a pure-Python rational domain and refuses a FLINT
+import. No floating-point comparison or interval subdivision decides a sign.
 
-From a clean checkout with Python 3.13, SymPy 1.14.0, and mpmath 1.3.0, the
-single replay command is
+The PF5 replay directly encloses the five kernel values at spacings
+\(0,h,2h,3h,4h\), \(h=211/2000\), and proves the determinant interval
+\eqref{eq:finite-pf5-witness}. Its additional cells reconstruct the optional
+231-monomial confluent determinant and unique threshold. The separator replay
+checks the exact \(P^8\) cancellation, all 25 coefficients in
+\eqref{eq:separator-c4}, and the rational discriminant inequality in
+\appref{app:separator}.
+
+From the repository root, the independent artifact command is
 \begin{center}
 \texttt{python scripts/replay\_paper.py}.
 \end{center}
-It prints one line beginning \texttt{PASS} for each certificate boundary, followed
-by \texttt{status=paper evidence replay passed}. The SHA-256 of its complete
-standard output is
-\begin{center}
-\texttt{5204f9fa12bf539edc245c257db285ab42e2041e4735f782a84852e5c7f0a592}.
-\end{center}
-Package versions and the complete artifact hashes are also recorded in
-\path{requirements-paper.txt} and \path{paper/RELEASE_MANIFEST.md}.
+It prints one \texttt{PASS} line per active exact certificate followed by
+\texttt{status=paper evidence replay passed}. Package versions, the complete
+stdout digest, PDF digest, and arXiv archive digest are recorded in
+\path{paper/RELEASE_MANIFEST.md}. Earlier computer-algebra experiments are
+discovery provenance only; the maintained Lean declarations and exact replay
+boundaries above carry the final claims.
 \section{Declarations, availability, and computational provenance}
 
 \paragraph{Author contribution.}
@@ -1282,14 +1281,22 @@ The author declares no competing interests.
 \paragraph{Code and data availability.}
 
 The public repository is
-\url{https://github.com/falseywinchnet/zeta}. The exact analytic proof was
-promoted in commit
-\href{https://github.com/falseywinchnet/zeta/commit/8a4db9e24b3a47a3eb4d35b89eb1a3f8e80eab9d}{\texttt{8a4db9e24b3a}}.
-That immutable snapshot contains the submission source, coefficient records,
-environment lock, replay tool, and PDF; their SHA-256 values are listed in
-\path{paper/RELEASE_MANIFEST.md}. The complete repository release is assigned
-the DOI \url{https://doi.org/10.5281/zenodo.21404360}. The complete evidence replay is
-\texttt{python scripts/replay\_paper.py} from the repository root.
+\url{https://github.com/falseywinchnet/zeta}. The submitted manuscript is
+preserved by the immutable tag \texttt{pf4-paper-v1.0.0}. Its commit is
+\begin{center}
+\texttt{4a14988093d7afaf05f453f8daf5441c09ba58b3}.
+\end{center}
+The present revised proof is release \texttt{PF4-paper-v2.0.0}, recorded by
+MIND epoch \texttt{P000163}.
+Their distinct status and material proof changes are listed in
+\path{paper/REVISION_HISTORY.md}; current source, environment, replay, PDF, and
+archive digests are listed in \path{paper/RELEASE_MANIFEST.md}. The repository
+archive is assigned DOI \url{https://doi.org/10.5281/zenodo.21404360}.
+
+The formal replay is \texttt{lake build} followed by
+\texttt{lake env lean PF4/Audit.lean} from \path{proof/formal}. The independent
+exact arithmetic replay is \texttt{python scripts/replay\_paper.py} from the
+repository root.
 
 All theorem-bearing sign decisions are exact. Numerical values produced by
 the repository scripts are diagnostic only; there is no separate experimental
@@ -1775,37 +1782,62 @@ indeterminates subject only to the displayed definitions of \(a,b,\delta\),
 and \(\Lambda\). Clearing \(L^2R\delta\Lambda\) first and then expanding gives
 the zero polynomial. Expanding the uncleared rational expression need not
 expose this cancellation.
-\section{Certificate inventory}\label{app:provenance}
+\section{Claim provenance}\label{app:provenance}
 
-The finite and symbolic parts of the proof are recorded in the following
-plain-text source files. Each record states the exact claim, its inputs, and
-the corresponding verifier.
+Every theorem-sized claim in the main proof has one of three boundaries: a
+maintained Lean declaration, an exact local certificate, or a standard
+argument printed in full. The following table is the audit trace.
 \begin{center}
-\begin{tabular}{@{}ll@{}}
+\scriptsize
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.22\textwidth}
+>{\raggedright\arraybackslash}p{0.30\textwidth}
+>{\raggedright\arraybackslash}p{0.39\textwidth}@{}}
 \toprule
-Claim & Proof record \\
+Claim & Boundary & Exact anchor \\
 \midrule
-Global \(q,F_2,\Cfour\), order three &
-\texttt{sources/riemann-signs-analytic-certificate.md} \\
-Quotient and three-point equivalence &
-\texttt{sources/pf4-wronskian-reduction-certificate.md} \\
-Transport identity and completion &
-\texttt{sources/pf4-transport-kernel-certificate.md} \\
-Origin order-five obstruction &
-\texttt{sources/pf5-origin-certificate.md} \\
-Confluent threshold and finite witness &
-\texttt{sources/pf5-threshold-certificate.md} \\
-Continuous strict-\(\PF_4\) Fourier separator &
-\begin{tabular}[t]{@{}l@{}}
-\texttt{sources/continuous-pf4-separator-}\\
-\texttt{certificate.md}
-\end{tabular} \\
+Theta, Poisson, analyticity, parity, global jet & Lean/mathlib &
+\path{PF4.KernelAnalytic}; \path{PF4.GlobalKernelJetIdentification};
+\texttt{CERT20--CERT22} \\
+Global \(q,F_2,\Cfour\) & Lean plus exact rational replay &
+\path{PF4.CERT12OuterClosure.normalized_cleared_signs_pos};
+\texttt{CERT22} \\
+Weighted-mean lower \(\Lambda\) & Lean &
+\path{PF4.WeightedMeanVariation.actual_weightedMeanVariation_lowerLambda};
+\texttt{CERT28} \\
+Fixed \(W_3,W_4\) identities & Lean and direct algebra &
+\path{PF4.FixedOrderQuotientWronskian}; \texttt{CERT29} \\
+Sizes two--four quotient integrals & Lean plus printed FTC proof &
+\path{PF4.GenericQuotientIntegral}; \path{PF4.ContinuousQuotientBox} \\
+Confluent limits & standard printed proof &
+Lemma~\ref{lem:confluent-limit}; successive divided differences \\
+Actual coordinate and translation & Lean &
+\path{PF4.CurvatureCoordinateRealization};
+\path{PF4.SimultaneousCoordinateTranslation}; \texttt{CERT19},
+\texttt{CERT27} \\
+\(\Cfour=Q^6\kappa^2D\) & Lean and printed algebra &
+\path{PF4.C4Invariant}; \appref{app:algebra}; \texttt{CERT25--CERT26} \\
+Endpoint cancellation and closed gap & Lean and printed integration &
+\path{PF4.LocalGapClosure}; \path{PF4.LocalCentralIntegration};
+\texttt{CERT19}, \texttt{CERT25} \\
+Strict PF4 at arbitrary nodes & Lean &
+\path{PF4.globalRiemannKernel_strictPFUpTo_four}; \texttt{CERT23} \\
+Direct negative PF5 minor & Lean plus exact rational replay &
+\path{PF4.globalRiemannKernel_orderFive_translationMinor_neg};
+\texttt{CERT24} \\
+Exact order four & Lean &
+\path{PF4.globalRiemannKernel_pfOrderExactly_four}; \texttt{CERT24} \\
+Optional PF5 threshold & exact local certificate &
+\texttt{CERT16--CERT17}; \appref{app:pf5-threshold} \\
+Continuous Fourier separator & exact local certificate &
+\texttt{CERT10}; \appref{app:separator} \\
 \bottomrule
 \end{tabular}
 \end{center}
-The maintained source map \path{paper/PAPER_MAP.md} identifies the manuscript
-section in which each record is used. The single replay command in
-\secref{sec:reproducibility} checks the corresponding verifier outputs.
+
+The detailed declaration-by-declaration map is
+\path{proof/CLAIM_INDEX.md}; the target axiom audit is
+\path{proof/formal/AXIOMS.md}. The frozen submitted version and this revised
+proof are identified separately in \path{paper/REVISION_HISTORY.md}.
 \section{Exact separator calculation}
 \label{app:separator}
 

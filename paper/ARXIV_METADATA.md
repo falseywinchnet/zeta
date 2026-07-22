@@ -20,17 +20,18 @@ Secondary subject context: math.NT, math.PR
 
 Let Phi be the classical Riemann, or de Bruijn-Newman, kernel. We prove that
 every translation minor of Phi of order at most four is strictly positive at
-strictly ordered nodes, while an exact origin-confluent calculation gives a
-negative order-five minor. Thus its exact global Polya-frequency order is four.
-The order-five confluent coefficient has one positive zero, enclosed between
-0.0622795266356 and 0.0622795266357, and an explicit rational finite-spacing
-witness has determinant of order 10^-7.
+strictly ordered nodes, while the minor at the exact order-five spacing
+211/2000 is negative. Thus its exact global Polya-frequency order is four.
+Both halves are exported by a maintained Lean 4 theorem with only standard
+Lean/mathlib axioms. The optional order-five confluent coefficient has one
+positive zero, enclosed between 0.0622795266356 and 0.0622795266357.
 The positive theorem uses a two-mode argument: exact rational
 polynomial inequalities prove global positivity of the log-curvature
 quantities q and F2 and of the fully confluent invariant C4, while analytic
-geometric bounds control every later theta mode. A quotient-Wronskian argument
-then reduces arbitrary fourth-order minors to a one-crossing transport
-integral with positive density. We also construct an explicit positive even
+geometric bounds control every later theta mode. A fixed-order
+quotient-Wronskian argument reduces arbitrary fourth-order minors to a
+deterministic closed-gap transport integral on the actual curvature-coordinate
+range. We also construct an explicit positive even
 Schwartz kernel that is strictly PF4 but whose entire Fourier transform has
 nonreal zeros; the latter follows from an exact discriminant inequality. This
 delimits the finite-order reach of Schoenberg's infinite-order transform

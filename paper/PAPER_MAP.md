@@ -4,10 +4,10 @@
 
 For the Riemann/de Bruijn-Newman kernel `Phi`, every translation minor of
 order at most four is strictly positive at strictly ordered nodes. At the
-origin, exact rational enclosure gives `H4(0)>0` and `H5(0)<0`; the confluent
-limit transfers the latter sign to distinct order-five translation minors.
-Its exact global Polya-frequency order is four. This classification is
-finite-order and RH-neutral.
+exact spacing `211/2000`, a maintained rational certificate gives a negative
+order-five translation minor. Its exact global Polya-frequency order is
+therefore four. The origin and threshold calculations are optional structure,
+not inputs to the classification. This result is finite-order and RH-neutral.
 
 The paper also constructs an explicit positive even Schwartz strict-PF4
 kernel with nonreal Fourier zeros. This proves that continuous PF3 and PF4
@@ -20,8 +20,8 @@ The paper proves the positive half by the dependency chain
 
 The last inequality is obtained from
 
-`C4 > 0` -> `C4 = Q^6 kappa^2 D` -> `transport identity` ->
-`positive CDF crossing kernel` -> `partial_xi Psi < 0`.
+`C4 > 0` -> `C4 = Q^6 kappa^2 D` -> `endpoint transport identity` ->
+`positive deterministic closed gap` -> `partial_xi Psi < 0`.
 
 ## Section shorthand
 
@@ -31,27 +31,27 @@ its displayed section number changes.
 
 | ID | File | Object and burden | MIND / certificate anchors | Status |
 |---|---|---|---|---|
-| `S00` | `sections/S00-abstract.tex` | Claim, method, evidence boundary | `R145`, `R164`, `R170`, `CERT9`-`CERT12` | ready |
-| `S01` | `sections/S01-introduction.tex` | Scope, exact-order and separator statements, RH boundary | `R14`, `R81`, `R145`, `R164`, `R170`, `CERT11` | ready |
+| `S00` | `sections/S00-abstract.tex` | Exact-order claim, deterministic method, formal boundary | `R203`-`R205`, `CERT23`-`CERT24` | revised / Lean-backed |
+| `S01` | `sections/S01-introduction.tex` | Organizing exact-order theorem and its T1/T2 inputs | `R203`-`R205`, `CERT23`-`CERT24` | revised / Lean-backed |
 | `S01a` | `sections/S01a-related-work.tex` | Bounded finite-order, Riemann-kernel, moment, and Wronskian context | `CITE5`, `CITE6`, `CITE25`, `CITE27` | ready |
-| `S02` | `sections/S02-kernel.tex` | Analytic even kernel; smoothness at zero; positivity before `log Phi` | `R4`, `R171`, `CERT12` | ready |
-| `S03` | `sections/S03-certified-inputs.tex` | Sweep-free global `q>0`, `F2>0`, `C4>0` | `R171`, `CERT12` | ready; exact replay |
-| `S04` | `sections/S04-pf3.tex` | Full weighted-mean proof of `Lambda>0` and strict PF3 | `R140`, `R141`, `R172`, `CERT12` | ready |
-| `S05` | `sections/S05-quotient-reduction.tex` | Correct `T log(v3/v2)` derivation; fourth-order reduction; equivalence | `R154`-`R156`, `CERT5` | ready |
-| `S06` | `sections/S06-curvature-coordinate.tex` | Increasing coordinate on its image, triangular weights, sign bridge | `R153`, `CERT9` | ready |
-| `S07` | `sections/S07-confluent-invariant.tex` | Central-moment determinant and `C4=Q^6 kappa^2 D` | `R147`, `R149`, `R171`, `R173`, `CERT9`, `CERT12` | ready |
-| `S08` | `sections/S08-transport-identity.tex` | Exact expectation identity and endpoint cancellation | `R153`, `CERT9` | ready |
-| `S09` | `sections/S09-crossing-kernel.tex` | Strict density-ratio monotonicity and positive integral | `R153`, `CERT9` | ready |
-| `S10` | `sections/S10-completion.tex` | Strict minors, origin parity obstruction, unique order-five confluent threshold, finite rational witness, exact order four | `R14`, `R72`, `R145`, `R164`, `R178`, `R179`, `CERT11`, `CERT16`, `CERT17` | ready |
+| `S02` | `sections/S02-kernel.tex` | Real theta definition, Poisson bridge, analytic parity, global jet | `R182`-`R188`, `R191`, `R195`-`R197`, `CERT20`-`CERT22` | revised / Lean-backed |
+| `S03` | `sections/S03-certified-inputs.tex` | Universal global `q>0`, `F2>0`, `C4>0` | `R198`-`R202`, `CERT22` | revised / Lean-backed |
+| `S04` | `sections/S04-pf3.tex` | Literal weighted-mean proof of `Lambda>0` and strict PF3 | `R203`, `CERT23`, `CERT28` | revised / Lean-backed |
+| `S05` | `sections/S05-quotient-reduction.tex` | Fixed-order W3/W4 cascade and strict quotient integrals | `R206`-`R208`, `CERT23`, `CERT29` | revised / Lean-backed at active sizes |
+| `S06` | `sections/S06-curvature-coordinate.tex` | Actual-range coordinate, simultaneous translation, sign bridge | `R181`, `CERT25`-`CERT27` | revised / Lean-backed |
+| `S07` | `sections/S07-confluent-invariant.tex` | Central determinant and `C4=Q^6 kappa^2 D` | `R193`-`R194`, `CERT21`, `CERT25`-`CERT26` | revised / Lean-backed |
+| `S08` | `sections/S08-transport-identity.tex` | Deterministic endpoint cancellation; measures optional | `R181`, `CERT19`, `CERT25` | revised / Lean-backed |
+| `S09` | `sections/S09-crossing-kernel.tex` | Positive closed coordinate gap and direct integration by parts | `R181`, `CERT19`, `CERT25` | revised / Lean-backed |
+| `S10` | `sections/S10-completion.tex` | Direct rational PF5 witness; optional origin/threshold structure | `R204`-`R205`, `CERT24`; optional `CERT16`-`CERT17` | revised / Lean-backed main path |
 | `S10a` | `sections/S10a-separator.tex` | Explicit positive even Schwartz strict-PF4 kernel with nonreal Fourier zeros | `R165`-`R170`, `CERT10` | ready; exact/direct replay |
-| `S11` | `sections/S11-reproducibility.tex` | Exact active replay, fixed artifacts, and software versions | `CERT5`, `CERT9`-`CERT12`, `CERT16`, `CERT17` | ready |
-| `S11a` | `sections/S11a-availability.tex` | Public evidence anchor, availability, AI provenance, release gates | `P000069`, `P000070` | ready; release-gated |
+| `S11` | `sections/S11-reproducibility.tex` | Lean build/axiom audit plus independent exact replay | `CERT20`-`CERT29`; optional `CERT10`, `CERT16`-`CERT17` | revised |
+| `S11a` | `sections/S11a-availability.tex` | Submitted/revised release identities and provenance | `P000074`, `P000158`-`P000163` | revised |
 | `A1` | `appendices/A1-algebra.tex` | Cumulant expansion and curvature factorization line by line | `R149`, `CERT9`, `CERT12` | ready |
 | `A2` | `appendices/A2-tail.tex` | Two-mode margins and analytic all-mode perturbation | `R171`, `CERT12` | ready; exact replay |
 | `A3` | `appendices/A3-endpoints.tex` | `(50)->(45)` endpoint algebra with all substitutions exposed | `R153`, `CERT9` | ready |
-| `A4` | `appendices/A4-provenance.tex` | Claim-to-file replay table | `CERT5`, `CERT9`-`CERT12`, `CERT16`, `CERT17` | ready |
+| `A4` | `appendices/A4-provenance.tex` | Claim-to-Lean/certificate/standard-proof trace | `CERT20`-`CERT29` | revised |
 | `A5` | `appendices/A5-separator.tex` | Independent central determinant, reduced 13-coefficient certificate, exact Fourier discriminant | `R167`, `R168`, `CERT10` | ready |
-| `A6` | `appendices/A6-pf5-threshold.tex` | Three-mode closed determinant, correlated Bernstein crossing, one-mode tail, finite witness | `R178`, `R179`, `CERT16`, `CERT17` | ready; exact replay |
+| `A6` | `appendices/A6-pf5-threshold.tex` | Direct finite witness and optional threshold certificate | `R204`, `CERT24`; optional `CERT16`-`CERT17` | revised |
 
 ## Review verdict ledger
 
@@ -72,7 +72,7 @@ directed-rounding boundary is named.
 | 8. Smoothness at zero | `S02` defines `H(t)=e^{t/2} theta(e^{2t})`, proves `H(-t)=H(t)`, and writes `Phi=(H''-H/4)/2`. | closed |
 | 9. Order-three bound | `S04` gives the two weighted means, extrema argument, integral of `max(F1,0)/q^2`, and final lower bound. | closed |
 | 10. PF4 equivalence | `S05` gives both directions: confluent row limits imply Wronskian sign and monotonicity; iterated integrals give the converse. Strict and weak cases are separated. | closed |
-| 11. PF5 decimal and geometry audit | `S10` replaces the decimal witness entirely. `CERT11` uses no coordinates or floating determinant: exact rational enclosures give `H5(0)<0`, and the displayed confluent limit supplies equally spaced distinct nodes for every sufficiently small positive step. | closed / certificate |
+| 11. PF5 decimal and geometry audit | `S10` uses the exact `211/2000` distinct-node witness directly. `CERT24` checks node order, signed orientation, primary-kernel boxes, and determinant negativity; confluence is optional. | closed / Lean certificate |
 
 No critique position is currently unfilled. CERT10 and S10a additionally
 close the continuous PF3/PF4 insufficiency position that remained open after
@@ -91,11 +91,11 @@ candidate are retained in `work/2026-07-16-pf4-audit-through-c2/`.
 
 | Audit item | Maintained resolution |
 |---|---|
-| V1 | Public repository and immutable `P000069` theorem-evidence commit are printed; `paper/RELEASE_MANIFEST.md` names the final tag/DOI and clean-platform replay as release gates. |
+| V1 | `paper/REVISION_HISTORY.md` distinguishes submitted `pf4-paper-v1.0.0`/P000074 from revised `PF4-paper-v2.0.0`/P000163; the release manifest records the formal and exact replay gates. |
 | V2 | `S11` identifies the sweep-free exact active replay; the 7731- and 8050-cell Arb covers are archived historical evidence and cannot run during routine replay. |
 | V3 | `A5` prints the 13 independent coefficients of the reduced degree-24 numerator, while `A2` supplies the complete finite-domain table and analytic later-mode bounds. |
 | V4 | `S01a` adds the supplied Khare, Dimitrov--Xu, and Csordas--Varga context; comprehensive priority search remains the explicitly deferred Q1 item. |
-| V5 | `CERT11` and `S10` already replaced the external decimal PF5 witness. |
+| V5 | `CERT24` and `S10` use the direct exact rational PF5 witness; the older confluent calculation is explicitly optional. |
 | V6 | `S00` and `A5` replace the directed separator discriminant by an exact rational inequality. |
 | V7 | `S02` proves `Phi>0` before defining `log Phi`. |
 | V8 | `S11`, the proof records, and certificate metadata distinguish base-cover and wrapper precision/dependencies. |

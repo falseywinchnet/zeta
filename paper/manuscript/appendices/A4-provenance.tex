@@ -1,31 +1,56 @@
-\section{Certificate inventory}\label{app:provenance}
+\section{Claim provenance}\label{app:provenance}
 
-The finite and symbolic parts of the proof are recorded in the following
-plain-text source files. Each record states the exact claim, its inputs, and
-the corresponding verifier.
+Every theorem-sized claim in the main proof has one of three boundaries: a
+maintained Lean declaration, an exact local certificate, or a standard
+argument printed in full. The following table is the audit trace.
 \begin{center}
-\begin{tabular}{@{}ll@{}}
+\scriptsize
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.22\textwidth}
+>{\raggedright\arraybackslash}p{0.30\textwidth}
+>{\raggedright\arraybackslash}p{0.39\textwidth}@{}}
 \toprule
-Claim & Proof record \\
+Claim & Boundary & Exact anchor \\
 \midrule
-Global \(q,F_2,\Cfour\), order three &
-\texttt{sources/riemann-signs-analytic-certificate.md} \\
-Quotient and three-point equivalence &
-\texttt{sources/pf4-wronskian-reduction-certificate.md} \\
-Transport identity and completion &
-\texttt{sources/pf4-transport-kernel-certificate.md} \\
-Origin order-five obstruction &
-\texttt{sources/pf5-origin-certificate.md} \\
-Confluent threshold and finite witness &
-\texttt{sources/pf5-threshold-certificate.md} \\
-Continuous strict-\(\PF_4\) Fourier separator &
-\begin{tabular}[t]{@{}l@{}}
-\texttt{sources/continuous-pf4-separator-}\\
-\texttt{certificate.md}
-\end{tabular} \\
+Theta, Poisson, analyticity, parity, global jet & Lean/mathlib &
+\path{PF4.KernelAnalytic}; \path{PF4.GlobalKernelJetIdentification};
+\texttt{CERT20--CERT22} \\
+Global \(q,F_2,\Cfour\) & Lean plus exact rational replay &
+\path{PF4.CERT12OuterClosure.normalized_cleared_signs_pos};
+\texttt{CERT22} \\
+Weighted-mean lower \(\Lambda\) & Lean &
+\path{PF4.WeightedMeanVariation.actual_weightedMeanVariation_lowerLambda};
+\texttt{CERT28} \\
+Fixed \(W_3,W_4\) identities & Lean and direct algebra &
+\path{PF4.FixedOrderQuotientWronskian}; \texttt{CERT29} \\
+Sizes two--four quotient integrals & Lean plus printed FTC proof &
+\path{PF4.GenericQuotientIntegral}; \path{PF4.ContinuousQuotientBox} \\
+Confluent limits & standard printed proof &
+Lemma~\ref{lem:confluent-limit}; successive divided differences \\
+Actual coordinate and translation & Lean &
+\path{PF4.CurvatureCoordinateRealization};
+\path{PF4.SimultaneousCoordinateTranslation}; \texttt{CERT19},
+\texttt{CERT27} \\
+\(\Cfour=Q^6\kappa^2D\) & Lean and printed algebra &
+\path{PF4.C4Invariant}; \appref{app:algebra}; \texttt{CERT25--CERT26} \\
+Endpoint cancellation and closed gap & Lean and printed integration &
+\path{PF4.LocalGapClosure}; \path{PF4.LocalCentralIntegration};
+\texttt{CERT19}, \texttt{CERT25} \\
+Strict PF4 at arbitrary nodes & Lean &
+\path{PF4.globalRiemannKernel_strictPFUpTo_four}; \texttt{CERT23} \\
+Direct negative PF5 minor & Lean plus exact rational replay &
+\path{PF4.globalRiemannKernel_orderFive_translationMinor_neg};
+\texttt{CERT24} \\
+Exact order four & Lean &
+\path{PF4.globalRiemannKernel_pfOrderExactly_four}; \texttt{CERT24} \\
+Optional PF5 threshold & exact local certificate &
+\texttt{CERT16--CERT17}; \appref{app:pf5-threshold} \\
+Continuous Fourier separator & exact local certificate &
+\texttt{CERT10}; \appref{app:separator} \\
 \bottomrule
 \end{tabular}
 \end{center}
-The maintained source map \path{paper/PAPER_MAP.md} identifies the manuscript
-section in which each record is used. The single replay command in
-\secref{sec:reproducibility} checks the corresponding verifier outputs.
+
+The detailed declaration-by-declaration map is
+\path{proof/CLAIM_INDEX.md}; the target axiom audit is
+\path{proof/formal/AXIOMS.md}. The frozen submitted version and this revised
+proof are identified separately in \path{paper/REVISION_HISTORY.md}.

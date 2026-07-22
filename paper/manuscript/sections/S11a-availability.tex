@@ -17,14 +17,22 @@ The author declares no competing interests.
 \paragraph{Code and data availability.}
 
 The public repository is
-\url{https://github.com/falseywinchnet/zeta}. The exact analytic proof was
-promoted in commit
-\href{https://github.com/falseywinchnet/zeta/commit/8a4db9e24b3a47a3eb4d35b89eb1a3f8e80eab9d}{\texttt{8a4db9e24b3a}}.
-That immutable snapshot contains the submission source, coefficient records,
-environment lock, replay tool, and PDF; their SHA-256 values are listed in
-\path{paper/RELEASE_MANIFEST.md}. The complete repository release is assigned
-the DOI \url{https://doi.org/10.5281/zenodo.21404360}. The complete evidence replay is
-\texttt{python scripts/replay\_paper.py} from the repository root.
+\url{https://github.com/falseywinchnet/zeta}. The submitted manuscript is
+preserved by the immutable tag \texttt{pf4-paper-v1.0.0}. Its commit is
+\begin{center}
+\texttt{4a14988093d7afaf05f453f8daf5441c09ba58b3}.
+\end{center}
+The present revised proof is release \texttt{PF4-paper-v2.0.0}, recorded by
+MIND epoch \texttt{P000163}.
+Their distinct status and material proof changes are listed in
+\path{paper/REVISION_HISTORY.md}; current source, environment, replay, PDF, and
+archive digests are listed in \path{paper/RELEASE_MANIFEST.md}. The repository
+archive is assigned DOI \url{https://doi.org/10.5281/zenodo.21404360}.
+
+The formal replay is \texttt{lake build} followed by
+\texttt{lake env lean PF4/Audit.lean} from \path{proof/formal}. The independent
+exact arithmetic replay is \texttt{python scripts/replay\_paper.py} from the
+repository root.
 
 All theorem-bearing sign decisions are exact. Numerical values produced by
 the repository scripts are diagnostic only; there is no separate experimental
