@@ -57,3 +57,5 @@ The camera-ready PF4 paper, exact certificates, proof records, and replay
 tooling are assigned DOI
 [10.5281/zenodo.21487371](https://doi.org/10.5281/zenodo.21487371).
 The corresponding GitHub release tag is `pf4-paper-v2.1.0`.
+
+The revised manuscript, lean verification, etc, have been released with tag `pf4-paper-v2.2.0`
