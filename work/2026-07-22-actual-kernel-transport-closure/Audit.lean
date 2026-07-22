@@ -1,0 +1,5 @@
+import PF4.GlobalStrictPF4
+
+#print axioms PF4.GlobalStrictPF4.actualKernelSigns
+#print axioms PF4.GlobalStrictPF4.globalRiemannKernel_coordinatePartialXiPsi_neg
+#print axioms PF4.GlobalStrictPF4.globalRiemannKernel_coordinateNumerator_pos

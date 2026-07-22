@@ -2,7 +2,9 @@
 
 Target: `PF4-CORE-v1`
 
-Formal completion: **29/46 obligations**
+Active formal completion: **31/41 obligations**. The original ledger contains
+46 records; PO-0032 through PO-0036 are now `DEPRECATED_OPTIONAL` because the
+deterministic closed-gap route bypasses the crossing chain.
 
 Current strongest target result: T3, exact global PF order four for the actual
 Riemann kernel, is kernel-checked in Lean from the maintained T1 strict PF4
@@ -18,13 +20,13 @@ Jacobi-theta realization proves global real analyticity, and parity gives the
 exact reflected representation `Φ(t)=thetaSeries |t|`. The real kernel
 definitions remain unchanged (`R185`--`R188`, `R191`, `CERT21`). The global
 jet and sign closure is recorded by `R195`--`R202` and `CERT22`; exact T1 is
-recorded by `R203` and `CERT23`, and exact T2/T3 by `R204`--`R205` and
-`CERT24`. Target
+recorded by `R203` and `CERT23`, exact T2/T3 by `R204`--`R205` and `CERT24`,
+and the literal transport exports by `CERT25`. Target
 definitions, signed PF5 indices, constructive crossing algebra, and the actual
 left-density identity/sign bridge are kernel-checked. The actual restricted-
 density measures, mass-one interfaces, strict right mass, all three interior
-CDF-gap regions, the conditional weighted transport theorem, and the
-conditional final sign bridge are now also kernel-checked. PO-0038 and PO-0039
+CDF-gap regions, the weighted transport theorem, and the final sign bridge are
+now also kernel-checked. PO-0038 and PO-0039
 are complete atomic obligations promoted to `FORMALLY_PROVED`: the paper
 primitive, elementary
 primitives, actual Bochner expectations, retained boundary terms, cleared
@@ -32,16 +34,19 @@ endpoint cancellation, CDF formulas, and final integration identity are
 checked. PO-0037 is now proved directly on the closed coordinate gap without
 measures or CDF complement identities, and PO-0040 derives continuity of its
 displayed weighted integrand and strict positivity of the coordinate transport
-numerator. PO-0023, PO-0024, PO-0030, and PO-0031 are complete atomic
+numerator. The literal actual-kernel numerator and negative coordinate-`Psi`
+derivative are exported by
+`PF4.GlobalStrictPF4.globalRiemannKernel_coordinateNumerator_pos` and
+`globalRiemannKernel_coordinatePartialXiPsi_neg`, closing PO-0040 and PO-0041.
+PO-0023, PO-0024, PO-0030, and PO-0031 are complete atomic
 obligations: the coordinate normalizers, endpoint derivative, strict
 positivity, integrability, and concrete normalized laws are constructed in
 Lean and connected to PO-0038. PO-0026 through PO-0028 are complete identity
 obligations: `Psi` is differentiated as an actual function, the exact sign
 orientation is checked, and the primary determinant `C₄` is identified with
-the curvature numerator. The maintained theorems for PO-0029, PO-0040, and
-PO-0041 are conditional implications from global positivity of the supplied
-`C₄` function. They do not construct the Riemann kernel or prove its `C₄`
-input, so those three obligations remain formal fragments.
+the curvature numerator. PO-0029 remains an abstract positivity implication;
+its literal actual-range primitive-rate export is still open. PO-0040 and
+PO-0041 no longer have an actual-kernel instance gap.
 
 The fixed order-four generic quotient engine is also maintained and
 kernel-checked: exact discrete factor extraction, the `4→3` triple-integral
@@ -125,11 +130,11 @@ perturbation coefficients to include every binomial multiplicity.
 |---|---|---|---|
 | PO-0030 | `μ` is a probability measure | FORMALLY_PROVED | none; derived `δ`, continuity, integrability, and mass checked |
 | PO-0031 | `ν` is a probability measure | FORMALLY_PROVED | none; derived `Λ`, piecewise integrability, and mass checked |
-| PO-0032 | `ν((z,w]) > 0` | FORMAL_FRAGMENT | strict tail theorem checked from actual density; instantiate upstream regularity |
-| PO-0033 | Actual density ratio equals displayed rational function | FORMAL_FRAGMENT | object identity and denominator signs checked; upstream parameter instantiation |
-| PO-0034 | Ratio is strictly decreasing with endpoint limits `∞,0` | CONVENTIONALLY_PROVED | formal derivative/extended-real limits |
-| PO-0035 | The explicit strict-convex-combination crossing exists | FORMAL_FRAGMENT | crossing algebra checked; upstream parameter instantiation |
-| PO-0036 | Crossing is unique and `Δ'` has the claimed sign pattern | FORMAL_FRAGMENT | unique density crossing/sign checked; derivative-of-CDF bridge remains |
+| PO-0032 | `ν((z,w]) > 0` | DEPRECATED_OPTIONAL | retained as measure-theoretic interpretation; the deterministic route does not use it |
+| PO-0033 | Actual density ratio equals displayed rational function | DEPRECATED_OPTIONAL | retained as an independent density identity; not an active blocker |
+| PO-0034 | Ratio is strictly decreasing with endpoint limits `∞,0` | DEPRECATED_OPTIONAL | crossing analysis is no longer on the required proof path |
+| PO-0035 | The explicit strict-convex-combination crossing exists | DEPRECATED_OPTIONAL | explicit crossing retained for interpretation only |
+| PO-0036 | Crossing is unique and `Δ'` has the claimed sign pattern | DEPRECATED_OPTIONAL | no longer required for strict gap or transport positivity |
 | PO-0037 | `Δ>0` on `(p,w)` with endpoint zeros | FORMALLY_PROVED | none; direct closed-gap positivity, endpoint zeros, and branch matching checked without measures |
 
 ## Assembly
@@ -138,8 +143,8 @@ perturbation coefficients to include every binomial multiplicity.
 |---|---|---|---|
 | PO-0038 | `K=Eν[A₀]-Eμ[A₀]` | FORMALLY_PROVED | none; independent primitive, expectations, and endpoint object identity checked |
 | PO-0039 | Expectation difference equals `∫ΔD` | FORMALLY_PROVED | none; actual measures, expectations, CDFs, and boundary terms checked |
-| PO-0040 | Transport integral and `N` are strictly positive | FORMAL_FRAGMENT | strict integral checked from supplied `Q,κ,C₄` signs; the actual-kernel coordinate instance has not been exported |
-| PO-0041 | `∂ξΨ<0` globally | FORMAL_FRAGMENT | actual-range coordinate, gap, and central identity are checked; the transport-route actual-kernel instance has not been exported (the terminal quotient is closed independently) |
+| PO-0040 | Coordinate transport numerator `N` is strictly positive | FORMALLY_PROVED | none; `PF4.GlobalStrictPF4.globalRiemannKernel_coordinateNumerator_pos` covers every `x<m<r` |
+| PO-0041 | `∂ξΨ<0` globally | FORMALLY_PROVED | none; `PF4.GlobalStrictPF4.globalRiemannKernel_coordinatePartialXiPsi_neg` has only the ordered-triple hypotheses |
 | PO-0042 | Strict global order-four minors | FORMALLY_PROVED | none; `PF4.GlobalStrictPF4.translationMinor_four_pos` and the exported T1 theorem cover arbitrary strictly ordered nodes |
 | PO-0043 | Strict minors of orders one through three | FORMALLY_PROVED | none; exact order-one, order-two, and order-three minor theorems are assembled into T1 |
 | PO-0044 | CERT17 evaluator denotes T2's exact determinant | FORMALLY_PROVED | none; `translationMatrix_pf5WitnessNodes_eq_equallySpaced` and `equallySpacedMatrix_pf5Witness_eq_toeplitz5` close signed orientation and primary-kernel fidelity |
@@ -148,7 +153,10 @@ perturbation coefficients to include every binomial multiplicity.
 
 ## Immediate next work
 
-1. Complete the final statement-fidelity, axiom, clean-build, and certificate
-   gates for `PF4-CORE-v1`.
-2. Keep the remaining non-target-reachable transport and generic-engine
-   refinements separate from the completed T1–T3 classification.
+1. Export the literal actual-range `ρ>0`, `κ>1`, and primitive-rate `D>0`
+   statements for PO-0022 and PO-0029 without extending the inverse outside
+   the coordinate range.
+2. Keep deprecated crossing refinements and broader generic-engine work
+   separate from the completed T1–T3 classification.
+3. Execute the paper backport series recorded in `backport/README.md` as
+   dedicated refine rounds.

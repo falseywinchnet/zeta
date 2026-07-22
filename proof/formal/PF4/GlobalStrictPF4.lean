@@ -22,9 +22,13 @@ order four passes through the full quotient-integral determinant assembly.
 namespace PF4.GlobalStrictPF4
 
 open PF4.ClearedJetCertificateBridge
+open PF4.CoordinateSignBridge
 open PF4.ContinuousQuotientBox
+open PF4.Curvature
 open PF4.CurvatureCoordinateRealization
 open PF4.GlobalKernelJetIdentification
+open PF4.Transport
+open PF4.TranslationQuotientPsi
 open PF4.TranslationQuotientSigns
 open PF4.TranslationQuotientTower
 
@@ -77,7 +81,11 @@ private theorem kernel0_pos : ∀ t, 0 < kernelJet 0 t := by
   intro t
   simpa [kernelJet, iteratedDeriv_zero] using globalRiemannKernel_pos t
 
-private theorem actualKernelSigns :
+/-- The literal global Riemann-kernel curvature jet satisfies all three sign
+inputs used by the coordinate transport route.  This is the narrow public
+handoff from the universal cleared CERT12 inequalities; it introduces no new
+analytic premise. -/
+theorem actualKernelSigns :
     (∀ t, 0 < kernelCurvature (kernelJet 0) (kernelJet 1) (kernelJet 2) t) ∧
     (∀ t, 0 < kernelF2
       (kernelCurvature (kernelJet 0) (kernelJet 1) (kernelJet 2))
@@ -95,6 +103,52 @@ private theorem actualKernelSigns :
         (kernelJet 4) (kernelJet 5) (kernelJet 6)) t) :=
   kernelSigns_of_clearedSigns kernel0_pos global_clearedQ_pos
     global_clearedF2_pos global_clearedC4_pos
+
+/-- The determinant/transport route is closed for the literal global Riemann
+kernel.  For every `x < m < r`, the maintained coordinate-`Psi` derivative has
+the strict negative orientation required by the quotient cascade. -/
+theorem globalRiemannKernel_coordinatePartialXiPsi_neg
+    {x m r : ℝ} (hxm : x < m) (hmr : m < r) :
+    coordinateQ
+        (logSlope (kernelJet 0) (kernelJet 1))
+        (kernelCurvature (kernelJet 0) (kernelJet 1) (kernelJet 2))
+        (kernelCoordinate (logSlope (kernelJet 0) (kernelJet 1)) x) *
+      deriv (fun y => coordinatePsi
+        (coordinateQ
+          (logSlope (kernelJet 0) (kernelJet 1))
+          (kernelCurvature (kernelJet 0) (kernelJet 1) (kernelJet 2)))
+        (coordinateQ1
+          (logSlope (kernelJet 0) (kernelJet 1))
+          (kernelCurvature (kernelJet 0) (kernelJet 1) (kernelJet 2))
+          (jetQ1 (kernelJet 0) (kernelJet 1) (kernelJet 2) (kernelJet 3)))
+        y
+        (kernelCoordinate (logSlope (kernelJet 0) (kernelJet 1)) m)
+        (kernelCoordinate (logSlope (kernelJet 0) (kernelJet 1)) r))
+        (kernelCoordinate (logSlope (kernelJet 0) (kernelJet 1)) x) < 0 := by
+  let q := kernelCurvature (kernelJet 0) (kernelJet 1) (kernelJet 2)
+  let q1 := jetQ1 (kernelJet 0) (kernelJet 1) (kernelJet 2) (kernelJet 3)
+  let q2 := jetQ2 (kernelJet 0) (kernelJet 1) (kernelJet 2) (kernelJet 3)
+    (kernelJet 4)
+  let q3 := jetQ3 (kernelJet 0) (kernelJet 1) (kernelJet 2) (kernelJet 3)
+    (kernelJet 4) (kernelJet 5)
+  let q4 := jetQ4 (kernelJet 0) (kernelJet 1) (kernelJet 2) (kernelJet 3)
+    (kernelJet 4) (kernelJet 5) (kernelJet 6)
+  have htower := curvatureDerivativeTower_of_rawJet
+    (hasDerivAt_kernelJet 0) (hasDerivAt_kernelJet 1)
+    (hasDerivAt_kernelJet 2) (hasDerivAt_kernelJet 3)
+    (hasDerivAt_kernelJet 4) (hasDerivAt_kernelJet 5) kernel0_pos
+  have hS : ∀ u, HasDerivAt (logSlope (kernelJet 0) (kernelJet 1))
+      (-q u) u := fun u =>
+    hasDerivAt_logSlope (hasDerivAt_kernelJet 0) (hasDerivAt_kernelJet 1)
+      kernel0_pos u
+  exact PF4.LocalFinalAssembly.actualCoordinatePartialXiPsi_neg
+    hS htower.1 htower.2.1 htower.2.2.1 htower.2.2.2
+    (continuous_jetQ4_of_rawJet
+      (hasDerivAt_kernelJet 0) (hasDerivAt_kernelJet 1)
+      (hasDerivAt_kernelJet 2) (hasDerivAt_kernelJet 3)
+      (hasDerivAt_kernelJet 4) (hasDerivAt_kernelJet 5)
+      (continuous_kernelJet 6) kernel0_pos)
+    actualKernelSigns.1 actualKernelSigns.2.1 actualKernelSigns.2.2 hxm hmr
 
 /-- The actual global kernel satisfies the strict lower-`Lambda` inequality
 needed by the second translation quotient for every ordered triple. -/
@@ -117,6 +171,75 @@ theorem actual_lowerLambda_pos : ∀ x m r, x < m → m < r →
   intro x m r hxm hmr
   exact lowerLambda_pos_of_actualCoordinate hS htower.1 htower.2.1
     htower.2.2.1 actualKernelSigns.1 actualKernelSigns.2.1 hxm hmr
+
+/-- The positive numerator produced inside the closed determinant/transport
+route, exported for the literal global Riemann kernel.  The `let` bindings are
+only readable names for the maintained kernel jet and coordinate objects. -/
+theorem globalRiemannKernel_coordinateNumerator_pos
+    {x m r : ℝ} (hxm : x < m) (hmr : m < r) :
+    let S := logSlope (kernelJet 0) (kernelJet 1)
+    let q := kernelCurvature (kernelJet 0) (kernelJet 1) (kernelJet 2)
+    let q1 := jetQ1 (kernelJet 0) (kernelJet 1) (kernelJet 2) (kernelJet 3)
+    let q2 := jetQ2 (kernelJet 0) (kernelJet 1) (kernelJet 2) (kernelJet 3)
+      (kernelJet 4)
+    0 < coordinateNumerator
+      (coordinateQ S q) (coordinateQ1 S q q1) (coordinateQ2 S q q1 q2)
+      (kernelCoordinate S x) (kernelCoordinate S m) (kernelCoordinate S r) := by
+  dsimp only
+  let S := logSlope (kernelJet 0) (kernelJet 1)
+  let q := kernelCurvature (kernelJet 0) (kernelJet 1) (kernelJet 2)
+  let q1 := jetQ1 (kernelJet 0) (kernelJet 1) (kernelJet 2) (kernelJet 3)
+  let q2 := jetQ2 (kernelJet 0) (kernelJet 1) (kernelJet 2) (kernelJet 3)
+    (kernelJet 4)
+  let Q := coordinateQ S q
+  let Q1 := coordinateQ1 S q q1
+  let Q2 := coordinateQ2 S q q1 q2
+  let p := kernelCoordinate S x
+  let z := kernelCoordinate S m
+  let w := kernelCoordinate S r
+  have hS : ∀ u, HasDerivAt S (-q u) u := fun u =>
+    hasDerivAt_logSlope (hasDerivAt_kernelJet 0) (hasDerivAt_kernelJet 1)
+      kernel0_pos u
+  have hpz : p < z := kernelCoordinate_strictMono hS actualKernelSigns.1 hxm
+  have hQreal : ∀ u, Q (kernelCoordinate S u) = q u := fun u =>
+    coordinateQ_apply_kernelCoordinate hS actualKernelSigns.1 u
+  have hLambda : 0 < coordinateLambda Q p z w := by
+    rw [← lowerLambda_eq_coordinateLambda hQreal]
+    exact actual_lowerLambda_pos x m r hxm hmr
+  have hQp : 0 < Q p := by
+    dsimp [Q, p]
+    rw [coordinateQ_apply_kernelCoordinate hS actualKernelSigns.1]
+    exact actualKernelSigns.1 x
+  have hQderiv : HasDerivAt Q (Q1 p) p := by
+    dsimp [Q, Q1, p]
+    rw [coordinateQ1_apply_kernelCoordinate hS actualKernelSigns.1]
+    exact hasDerivAt_coordinateQ hS (curvatureDerivativeTower_of_rawJet
+      (hasDerivAt_kernelJet 0) (hasDerivAt_kernelJet 1)
+      (hasDerivAt_kernelJet 2) (hasDerivAt_kernelJet 3)
+      (hasDerivAt_kernelJet 4) (hasDerivAt_kernelJet 5) kernel0_pos).1
+      actualKernelSigns.1 x
+  have hQ1deriv : HasDerivAt Q1 (Q2 p) p := by
+    dsimp [Q1, Q2, p]
+    rw [coordinateQ2_apply_kernelCoordinate hS actualKernelSigns.1]
+    have htower := curvatureDerivativeTower_of_rawJet
+      (hasDerivAt_kernelJet 0) (hasDerivAt_kernelJet 1)
+      (hasDerivAt_kernelJet 2) (hasDerivAt_kernelJet 3)
+      (hasDerivAt_kernelJet 4) (hasDerivAt_kernelJet 5) kernel0_pos
+    exact hasDerivAt_coordinateQ1 hS htower.1 htower.2.1
+      actualKernelSigns.1 x
+  have hneg : Q p * deriv (fun y => coordinatePsi Q Q1 y z w) p < 0 := by
+    simpa only [S, q, q1, Q, Q1, p, z, w] using
+      globalRiemannKernel_coordinatePartialXiPsi_neg hxm hmr
+  rw [coordinatePartialXiPsi_eq hpz hLambda.ne' hQderiv hQ1deriv] at hneg
+  unfold partialXiExpression at hneg
+  have hden : 0 < coordinateLambda Q p z w ^ 2 := pow_pos hLambda 2
+  have hnum : -Q p * coordinateNumerator Q Q1 Q2 p z w < 0 := by
+    rcases (div_neg_iff.mp hneg) with hbad | hgood
+    · exact (not_lt_of_ge hden.le hbad.2).elim
+    · exact hgood.1
+  have hN : 0 < coordinateNumerator Q Q1 Q2 p z w := by
+    nlinarith [hQp, hnum]
+  simpa only [Q, Q1, Q2, S, q, q1, q2, p, z, w] using hN
 
 /-- Strict positivity of the actual kernel's first quotient derivative. -/
 theorem actual_firstQuotD_pos {a b : ℝ} (hab : a < b) : ∀ t, 0 <

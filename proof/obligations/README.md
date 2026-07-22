@@ -7,6 +7,8 @@ are created when work on that obligation begins; each must use the schema in
 PO-0017, PO-0018, PO-0020, PO-0023 through PO-0029, and PO-0030 through
 PO-0041 are the first expanded records. The measure/CDF/transport core now has maintained Lean
 theorems through PO-0041; PO-0023/0024, PO-0026 through PO-0031, and PO-0037
-through PO-0041 are formally complete. PO-0017/0018/0020 now record the
+through PO-0041 are formally complete. PO-0032 through PO-0036 are retained as
+`DEPRECATED_OPTIONAL` crossing records and excluded from the active
+denominator. PO-0017/0018/0020 now record the
 maintained fixed-order quotient/integral fragments and their unresolved actual-
 kernel instance boundaries.

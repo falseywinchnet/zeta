@@ -69,18 +69,19 @@ assembly theorem, not merely matching script output.
 1. Prove triangular formulas for `Λ` and `δ` — open upstream derivation.
 2. Prove normalization of `μ` and `ν` from those formulas — Lean interface
    checked; upstream instantiation open.
-3. Prove `ν((z,w]) > 0` from positive density and `z < w` — Lean-checked.
-4. Prove the density ratio formula, endpoint limits, and unique crossing —
-   algebra and uniqueness Lean-checked; endpoint-limit theorem remains.
+3. The right-tail-mass and crossing chain is retained as an optional
+   measure-theoretic validation route; PO-0032 through PO-0036 are deprecated
+   as active blockers.
+4. Prefer the deterministic closed coordinate gap, which does not require a
+   density-ratio endpoint limit or unique crossing theorem.
 5. Prove the CDF gap is strictly positive on `(p,w)` — Lean-checked from the
    displayed density/mass inputs, including both endpoints.
 6. Prove the transport expectation identity and CDF integration by parts —
    both the paper's `K`/primitive object identity (PO-0038) and CDF integration
    by parts (PO-0039) are Lean-checked.
-7. Derive the positive integral and `∂ξΨ < 0` — the exact differentiated
-   object identity, determinant normalization, and conditional implication
-   from `C₄>0` are maintained; the actual coordinate-transport instance has
-   not been exported from the now-closed kernel signs.
+7. Derive the positive numerator and `∂ξΨ < 0` — closed for the literal global
+   kernel by `globalRiemannKernel_coordinateNumerator_pos` and
+   `globalRiemannKernel_coordinatePartialXiPsi_neg`.
 
 Exit gate: no positive symbol or probability measure is introduced before its
 positivity or total mass is derived.

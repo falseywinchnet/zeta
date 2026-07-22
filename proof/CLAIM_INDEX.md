@@ -18,11 +18,11 @@
 | measure normalization | S08 | R153, CERT9 | PO-0030–0031 | `PF4.Curvature.coordinate_mu_isProbabilityMeasure`, `coordinate_nu_isProbabilityMeasure` | FORMALLY_PROVED |
 | transport expectation | S08 | R153, CERT9 | PO-0038 | `PF4.TransportObject.expandedTransportK_eq_concrete_expectationDifference` | FORMALLY_PROVED |
 | strict right mass | S09 | R153, CERT9 | PO-0032 | `PF4.Measures.nuMeasure_Ioc_pos` | FORMAL_FRAGMENT |
-| unique density crossing | S09 | R153, CERT9 | PO-0033–0036 | `PF4.Crossing.*`, `PF4.Densities.*` | FORMAL_FRAGMENT |
+| unique density crossing | S09 | R153, CERT9 | PO-0033–0036 | `PF4.Crossing.*`, `PF4.Densities.*`; retained as interpretation | DEPRECATED_OPTIONAL |
 | strict cumulative gap | S09 | R153, CERT9 | PO-0037 | `PF4.Cumulative.coordinateGap_pos`, `coordinateGap_continuous_of_normalized`; CDF equality bridges retained independently | FORMALLY_PROVED |
 | CDF integration identity | S09 | R153, CERT9 | PO-0039 | `PF4.Expectation.expectation_difference_eq_cdfGap_integral`, `PF4.Transport.concrete_expectationDifference_eq_transportIntegral` | FORMALLY_PROVED |
-| positive transport integral | S09 | R153, CERT9 | PO-0040 | checked from explicit supplied `Q,κ,C₄` signs; actual coordinate-transport instance unset | FORMAL_FRAGMENT |
-| `∂ξΨ < 0` | S10 | R153, R181, CERT9/19 | PO-0041 | `PF4.LocalFinalAssembly.actualCoordinatePartialXiPsi_neg`; the transport-route actual-kernel instance remains open, while the terminal quotient is closed independently | FORMAL_FRAGMENT |
+| positive transport numerator | S09 | R153, CERT9/25 | PO-0040 | `PF4.GlobalStrictPF4.globalRiemannKernel_coordinateNumerator_pos` | FORMALLY_PROVED |
+| `∂ξΨ < 0` | S10 | R153, R181, CERT9/19/25 | PO-0041 | `PF4.GlobalStrictPF4.globalRiemannKernel_coordinatePartialXiPsi_neg` | FORMALLY_PROVED |
 | strict PF4 | S01/S10 | R164, R180–R181, R190, R201, R203, CERT5/9/12/18/19/21–23 | PO-0042 | `PF4.globalRiemannKernel_strictPFUpTo_four : StrictPFUpTo globalRiemannKernel 4` | FORMALLY_PROVED |
 | exact finite PF5 witness | S10 | R179, R204, CERT17/24 | PO-0044–0045 | `PF4.globalRiemannKernel_orderFive_translationMinor_neg`; supporting signed-matrix equality, exact kernel boxes, determinant parity factorization, and ordered-node theorem | FORMALLY_PROVED |
 | exact order four | S01/S10 | R145, R203–R205, CERT23/24 | PO-0046 | `PF4.globalRiemannKernel_pfOrderExactly_four : PFOrderExactly globalRiemannKernel 4` | FORMALLY_PROVED |
@@ -34,7 +34,8 @@ coordinate normalizers and strict positivity, and PO-0030/0031 use them to
 construct the actual normalized measures. PO-0038 identifies the
 independently expanded paper object with the actual expectation difference,
 and PO-0039 identifies that difference with the checked CDF integral. PO-0037
-and PO-0040 now provide a separate deterministic route from the closed
-coordinate gap through the positive transport numerator. The surrounding
-claims remain below `FORMALLY_PROVED` until their own atomic statements and
-upstream bridges are checked.
+and PO-0040 now provide a deterministic route from the closed coordinate gap
+through the positive actual-kernel transport numerator, and PO-0041 exports
+the resulting derivative sign. PO-0032 through PO-0036 are deprecated as
+required obligations but retained as independent measure and crossing
+interpretation.

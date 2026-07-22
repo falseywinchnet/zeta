@@ -145,12 +145,12 @@ Strict positivity requires more than nonnegative factors. The interval
 integrand is positive on a nonempty open set. This discharges the equality
 case.
 
-Conditional core closed: `PF4.Transport.coordinateTransportNumerator_pos_closed`
+Core closed: `PF4.Transport.coordinateTransportNumerator_pos_closed`
 derives the closed-gap sign and continuity and supplies an explicit midpoint
 witness for the positive weighted integrand. No positive integral is passed as
-a premise. The actual kernel's cleared `q,F₂,C₄` signs are now closed;
-exporting the corresponding `Q,κ,C₄` coordinate instance remains an
-upstream obligation for this transport route.
+a premise. `PF4.GlobalStrictPF4.globalRiemannKernel_coordinateNumerator_pos`
+exports the resulting literal actual-kernel numerator for every ordered
+triple.
 
 ## NV-011 — finite PF5 witness
 
@@ -188,15 +188,16 @@ derives curvature continuity, determinant-to-curvature identification, the
 central transport equality, numerator positivity, and the exact negative
 orientation internally.
 
-Conditional core closed in both global and actual-range forms:
+Core closed in global, actual-range, and literal actual-kernel forms:
 `PF4.FinalAssembly.coordinatePartialXiPsi_neg_from_determinantC4` and
-`PF4.LocalFinalAssembly.actualCoordinatePartialXiPsi_neg`. No central identity,
+`PF4.LocalFinalAssembly.actualCoordinatePartialXiPsi_neg`, followed by
+`PF4.GlobalStrictPF4.globalRiemannKernel_coordinatePartialXiPsi_neg`. No central identity,
 gap property, positive transport integral, positive numerator, or derivative
 sign is a hypothesis. The range-local theorem constructs the coordinate inverse
-and jet from the original variables. The actual Riemann-kernel derivative tower
-and canonical cleared signs are now closed. Exporting their full coordinate-
-transport instance remains open; the terminal quotient route closes its sign
-independently. The exact raw-jet-to-curvature tower and cleared `q,F₂,C₄`
+and jet from the original variables. The actual Riemann-kernel derivative
+tower, canonical cleared signs, transport numerator, and derivative sign are
+now closed. The terminal quotient route also closes its sign independently.
+The exact raw-jet-to-curvature tower and cleared `q,F₂,C₄`
 proposition bridge are maintained in `PF4.ClearedJetCertificateBridge`.
 
 ## NV-014 — terminal quotient sign
