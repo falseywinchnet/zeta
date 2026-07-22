@@ -880,14 +880,14 @@
         },
         {
           "path": "proof/formal/PF4.lean",
-          "sha256": "215bfbc5d3e1081925564d9c9fa3d4c26d3113af3079c842f824fb908f8398d7"
+          "sha256": "05d0a583d71f094f4d43b58a3ff332fdb80c86737c452a940b896b80cebee919"
         }
       ],
       "attestation": {
-        "manifest_sha256": "b3b7c2bd337d4bbf76af3bb37074c834fb7450edf7227c79d5243cec571e244d",
+        "manifest_sha256": "2ecb975b0b9803af2b99676b014ef0b8275711259af95e336cdaafbf05b18786",
         "method": "executed",
         "schema": 1,
-        "verified_at": "2026-07-22T06:07:41+00:00"
+        "verified_at": "2026-07-22T06:37:24+00:00"
       },
       "created_at": "2026-07-21T02:49:35+00:00",
       "dependencies": [],
@@ -916,7 +916,7 @@
       "topics": [
         "T000012"
       ],
-      "updated_at": "2026-07-22T06:07:41+00:00"
+      "updated_at": "2026-07-22T06:37:24+00:00"
     },
     "K000019": {
       "artifacts": [
@@ -942,14 +942,14 @@
         },
         {
           "path": "proof/formal/PF4.lean",
-          "sha256": "215bfbc5d3e1081925564d9c9fa3d4c26d3113af3079c842f824fb908f8398d7"
+          "sha256": "05d0a583d71f094f4d43b58a3ff332fdb80c86737c452a940b896b80cebee919"
         }
       ],
       "attestation": {
-        "manifest_sha256": "3552d1fd08b94a316ae803979d615d422fcb651a5be4bab7e44e219723cd0b92",
+        "manifest_sha256": "1b83f04cd97f70f24b8b85477f76b6718ec29264b8baa369f6f6cecfbf48f85d",
         "method": "executed",
         "schema": 1,
-        "verified_at": "2026-07-22T06:09:27+00:00"
+        "verified_at": "2026-07-22T06:38:58+00:00"
       },
       "created_at": "2026-07-21T04:26:48+00:00",
       "dependencies": [],
@@ -978,7 +978,7 @@
       "topics": [
         "T000012"
       ],
-      "updated_at": "2026-07-22T06:09:27+00:00"
+      "updated_at": "2026-07-22T06:38:58+00:00"
     },
     "K000020": {
       "artifacts": [
@@ -1042,14 +1042,14 @@
         },
         {
           "path": "proof/formal/PF4.lean",
-          "sha256": "215bfbc5d3e1081925564d9c9fa3d4c26d3113af3079c842f824fb908f8398d7"
+          "sha256": "05d0a583d71f094f4d43b58a3ff332fdb80c86737c452a940b896b80cebee919"
         }
       ],
       "attestation": {
-        "manifest_sha256": "149f094d14e101dd5595085e8852a6a7c87e0256af0eeee8022fe85e306c0c37",
+        "manifest_sha256": "2873c33ad0ab89a0b5a1253d449b773d71006e7ac42075204d663c132a3d3319",
         "method": "executed",
         "schema": 1,
-        "verified_at": "2026-07-22T06:11:01+00:00"
+        "verified_at": "2026-07-22T06:40:28+00:00"
       },
       "created_at": "2026-07-21T16:18:42+00:00",
       "dependencies": [],
@@ -1078,7 +1078,7 @@
       "topics": [
         "T000012"
       ],
-      "updated_at": "2026-07-22T06:11:01+00:00"
+      "updated_at": "2026-07-22T06:40:28+00:00"
     },
     "K000022": {
       "artifacts": [
@@ -1100,14 +1100,14 @@
         },
         {
           "path": "proof/formal/PF4.lean",
-          "sha256": "215bfbc5d3e1081925564d9c9fa3d4c26d3113af3079c842f824fb908f8398d7"
+          "sha256": "05d0a583d71f094f4d43b58a3ff332fdb80c86737c452a940b896b80cebee919"
         }
       ],
       "attestation": {
-        "manifest_sha256": "c7b711a02e0ee0042cb1dc9ae5ce8b22e0da45b24949a629b801ce85c2a53708",
+        "manifest_sha256": "a6027de958e6642decdb92087b03984a6c76378a4a32dd22e1f432b651d2c2ec",
         "method": "executed",
         "schema": 1,
-        "verified_at": "2026-07-22T06:12:21+00:00"
+        "verified_at": "2026-07-22T06:41:59+00:00"
       },
       "created_at": "2026-07-22T01:57:02+00:00",
       "dependencies": [
@@ -1139,7 +1139,7 @@
       "topics": [
         "T000012"
       ],
-      "updated_at": "2026-07-22T06:12:21+00:00"
+      "updated_at": "2026-07-22T06:41:59+00:00"
     },
     "K000023": {
       "artifacts": [
@@ -1149,10 +1149,10 @@
         }
       ],
       "attestation": {
-        "manifest_sha256": "b1b11a9ff54af14d1ea6997f3ff6f9018ce10601098af16736f90e3456dfdf46",
+        "manifest_sha256": "ef58229d8bfcb982655f555a6f14bc434609aa34d561a9d1fca4075bc1b14fee",
         "method": "executed",
         "schema": 1,
-        "verified_at": "2026-07-22T06:13:39+00:00"
+        "verified_at": "2026-07-22T06:46:10+00:00"
       },
       "created_at": "2026-07-22T02:46:47+00:00",
       "dependencies": [
@@ -1202,14 +1202,14 @@
         },
         {
           "path": "proof/formal/PF4.lean",
-          "sha256": "215bfbc5d3e1081925564d9c9fa3d4c26d3113af3079c842f824fb908f8398d7"
+          "sha256": "05d0a583d71f094f4d43b58a3ff332fdb80c86737c452a940b896b80cebee919"
         }
       ],
       "attestation": {
-        "manifest_sha256": "23e996e968bdf0b526b1a217fc47031290d57ed725d17c5424b25f7aaffed492",
+        "manifest_sha256": "f620470a8cfa5d7675effd7e873b23f27a4afa5ff772889121e4e0b6e494b4c7",
         "method": "executed",
         "schema": 1,
-        "verified_at": "2026-07-22T06:15:03+00:00"
+        "verified_at": "2026-07-22T06:44:23+00:00"
       },
       "created_at": "2026-07-22T04:54:27+00:00",
       "dependencies": [
@@ -1240,7 +1240,7 @@
       "topics": [
         "T000012"
       ],
-      "updated_at": "2026-07-22T06:02:51+00:00"
+      "updated_at": "2026-07-22T06:44:23+00:00"
     },
     "K000025": {
       "artifacts": [
@@ -1250,10 +1250,10 @@
         }
       ],
       "attestation": {
-        "manifest_sha256": "1159d50371dd4b467405321a07e017abc796f55680890b387a7364545c6bb572",
+        "manifest_sha256": "83409ee76d772b6d21a603372c686714b8da8b6931e5e43eecebe5055a9a0793",
         "method": "executed",
         "schema": 1,
-        "verified_at": "2026-07-22T06:15:03+00:00"
+        "verified_at": "2026-07-22T06:48:13+00:00"
       },
       "created_at": "2026-07-22T05:38:28+00:00",
       "dependencies": [
@@ -1294,10 +1294,10 @@
         }
       ],
       "attestation": {
-        "manifest_sha256": "0bb0f2683fce632fd6f2888b9143c271ebf0b795956d11c6801dfff30becab84",
+        "manifest_sha256": "3ab33df1880f405cce1749c3a093d2f7e0a10423f109c5524613fc417ce352b9",
         "method": "executed",
         "schema": 1,
-        "verified_at": "2026-07-22T06:16:13+00:00"
+        "verified_at": "2026-07-22T06:49:53+00:00"
       },
       "created_at": "2026-07-22T06:03:02+00:00",
       "dependencies": [
@@ -1329,8 +1329,52 @@
         "T000012"
       ],
       "updated_at": "2026-07-22T06:03:02+00:00"
+    },
+    "K000027": {
+      "artifacts": [
+        {
+          "path": "proof/formal/PF4/SimultaneousCoordinateTranslation.lean",
+          "sha256": "1670fccb4fdf26a318aacf1e840185b4489fcce953df90fd3f740bb51f548d8c"
+        }
+      ],
+      "attestation": {
+        "manifest_sha256": "0c87bb758a65bca3aee595580849db45006ff04e4d4ebd9074bdf58a75327467",
+        "method": "executed",
+        "schema": 1,
+        "verified_at": "2026-07-22T06:51:18+00:00"
+      },
+      "created_at": "2026-07-22T06:33:56+00:00",
+      "dependencies": [
+        "K000026"
+      ],
+      "description": "Lean 4 literal simultaneous coordinate translation: actual endpoint velocities and exact coordinate Lambda delta Psi chain-rule identities with nonconstant Q(p) correction",
+      "environment": null,
+      "file": {
+        "path": "work/2026-07-22-po0025-simultaneous-translation/Audit.lean",
+        "sha256": "471c51eb7d250d4895af0b6d4a9607f3d3ed45b5fd2500ec49b28eee0c3874af"
+      },
+      "precision": "Lean v4.32.0/mathlib v4.32.0 kernel-checked exact proof; every real translation parameter and ordered actual endpoint triple; no sampling, coordinate surjectivity, off-range inverse calculus, or constant-vector-field commutation",
+      "requirements": [],
+      "runner": {
+        "argv": [
+          "lake",
+          "--dir",
+          "proof/formal",
+          "env",
+          "lean",
+          "work/2026-07-22-po0025-simultaneous-translation/Audit.lean"
+        ],
+        "expected_exit_code": 0,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "e7d9a772097dec9e025015a48082a4930a8c81fd23024de8b112d6f4bed4ddc3",
+        "timeout_seconds": 300
+      },
+      "topics": [
+        "T000012"
+      ],
+      "updated_at": "2026-07-22T06:33:56+00:00"
     }
   },
-  "next_id": 27,
+  "next_id": 28,
   "version": 1
 }

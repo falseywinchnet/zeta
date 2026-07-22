@@ -612,8 +612,12 @@
     "P000153": {
       "blurb": "Close literal paper objects, ordered denominators, and actual-range rho kappa D support obligations in Lean",
       "created_at": "2026-07-22T06:05:39+00:00"
+    },
+    "P000154": {
+      "blurb": "Close exact simultaneous coordinate translation for actual endpoints and Lambda delta Psi in Lean",
+      "created_at": "2026-07-22T06:44:38+00:00"
     }
   },
-  "next_id": 154,
+  "next_id": 155,
   "version": 1
 }

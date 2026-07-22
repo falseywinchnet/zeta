@@ -50,6 +50,7 @@ PF4/TranslationQuotientPsi.lean
 PF4/TranslationQuotientAssembly.lean
 PF4/GlobalStrictPF4.lean
 PF4/PaperObjectClosure.lean
+PF4/SimultaneousCoordinateTranslation.lean
 ```
 
 Implemented modules:
@@ -108,6 +109,9 @@ Implemented modules:
 - `PF4.CurvatureCoordinateRealization`: inverse-on-the-actual-range calculus,
   the complete coordinate jet through order four, and exact `F₂`/determinant
   sign transport without assuming global coordinate surjectivity.
+- `PF4.SimultaneousCoordinateTranslation`: literal actual-endpoint coordinate
+  velocities and exact simultaneous derivatives of `Lambda` and `delta`,
+  including the nonconstant `Q(p)` coefficient correction.
 - `PF4.RangeLocalFinalAssembly`: restriction of the coordinate jet, top-jet
   continuity, and determinant sign assembly to coordinate intervals arising
   from ordered original points.

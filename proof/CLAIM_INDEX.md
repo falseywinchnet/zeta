@@ -14,7 +14,7 @@
 | quotient identities | S05 | R154, CERT5 | PO-0017–0019 | `PF4.GenericQuotientIntegral.*`, `PF4.ContinuousQuotientBox.*`, `PF4.TranslationQuotientPsi.terminalQuotD_eq_terminalQuot_mul_coordinatePsi_sub` | FORMAL_FRAGMENT |
 | PF4/`∂ξΨ` reduction | S05 | R156, R180, CERT5/18 | PO-0020 | strict transfer connected to determinant-derived decrease of the maintained coordinate `Psi`; actual-kernel instances and converse remain | FORMAL_FRAGMENT |
 | curvature coordinate map | S06 | R153, R181, CERT9/19/25/26 | PO-0021–0022 | `PF4.CurvatureCoordinateRealization.*`, `PF4.PaperObjectClosure.actualCoordinateRhoKappa_pos_on_range` | FORMALLY_PROVED |
-| simultaneous coordinate translation | S06 | R153, CERT9 | PO-0025 | endpoint objects are maintained; the explicit multivariable chain-rule statement remains open | SYMBOLICALLY_CHECKED |
+| simultaneous coordinate translation | S06 | R153, CERT9/27 | PO-0025 | `PF4.SimultaneousCoordinateTranslation.actual_simultaneousCoordinateTranslation` | FORMALLY_PROVED |
 | triangular coordinate normalizers | S06 | R153, CERT9 | PO-0023–0024 | `PF4.Curvature.coordinateLambda_eq_triangular`, `coordinateDelta_eq_triangular`, `coordinateDelta_pos` | FORMALLY_PROVED |
 | sign bridge | S06 | R153, CERT9 | PO-0026–0027 | `PF4.CoordinateSignBridge.coordinatePartialXiPsi_eq` | FORMALLY_PROVED |
 | `C₄ = Q⁶κ²D`, `D>0` | S07 | R149, CERT9/12/25/26 | PO-0028–0029 | `PF4.PaperObjectClosure.actualCoordinateD_pos_on_range` | FORMALLY_PROVED |

@@ -1,41 +1,32 @@
-# Next advancement cycle — simultaneous coordinate translation
+# Next advancement cycle — weighted-mean support closure
 
 Mode: advancement
 
-Starting evidence: CERT9, CERT19, CERT25, the actual coordinate jet in
-`PF4.CurvatureCoordinateRealization`, and the literal paper objects in
-`PF4.PaperObjectClosure`.
+Starting evidence: the actual ordered `A,M` objects from CERT26, the maintained
+quotient tower, and paper frame S04.
 
 ## Maintained boundary
 
-PO-0009, PO-0010, PO-0022, and PO-0029 are closed. The remaining support
-obligation in the curvature-coordinate frame is PO-0025: explicitly identify
-simultaneous translation in the original variable with the coordinate vector
-field used by the endpoint formulas.
+PO-0025 is closed.  The remaining active obligations are PO-0014 and the
+aggregating quotient records PO-0017 through PO-0020.  PO-0014 is the remaining
+support block and therefore comes first.
 
 ## Next exact theorem family
 
-For every actual endpoint `u`, prove the curve
-
-```text
-a |-> kernelCoordinate actualKernelSlope (u + a)
-```
-
-has derivative `actualCoordinateQ` at `a=0`. Extend this componentwise to the
-ordered endpoint triple, then connect differentiation of the maintained
-`coordinateLambda`, `coordinateDelta`, and `coordinatePsi` objects to their
-named simultaneous-translation formulas.
+Formalize the weighted-mean identities and variation bound used in S04 for the
+literal ordered `A,M` objects.  State exact extrema or integral hypotheses and
+connect the result to the maintained lower-`Lambda` formulas without widening
+the target to arbitrary-order PF machinery.
 
 ## No-cheating gates
 
-- Include the derivative of the vector-field coefficient `Q(p)`; do not treat
-  the transformed translation field as constant.
-- Work only at actual coordinate points; no global surjectivity premise.
-- No symbolic-CAS equality may substitute for the Lean chain rule.
-- No bounded or sampled domain and no RH consequence.
+- complete ordered real intervals, not sampled ranges;
+- legal positive `A` denominators from the actual object layer;
+- no detached symbolic mean or unproved extrema assertion;
+- no RH consequence and no reopening of T1–T3.
 
 ## Exit condition
 
-PO-0025 is closed only when the literal actual-endpoint curve and the paper's
-named translation objects are joined by kernel-checked derivative theorems
-with no uninstantiated analytic premise.
+PO-0014 is closed by actual-object Lean theorems, and the remaining four
+records are clearly classified as aggregation/generalization tasks rather
+than missing support for the proved exact PF4 result.

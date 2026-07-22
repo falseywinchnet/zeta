@@ -2,7 +2,7 @@
 
 Target: `PF4-CORE-v1`
 
-Active formal completion: **35/41 obligations**. The original ledger contains
+Active formal completion: **36/41 obligations**. The original ledger contains
 46 records; PO-0032 through PO-0036 are now `DEPRECATED_OPTIONAL` because the
 deterministic closed-gap route bypasses the crossing chain.
 
@@ -21,8 +21,8 @@ exact reflected representation `Φ(t)=thetaSeries |t|`. The real kernel
 definitions remain unchanged (`R185`--`R188`, `R191`, `CERT21`). The global
 jet and sign closure is recorded by `R195`--`R202` and `CERT22`; exact T1 is
 recorded by `R203` and `CERT23`, exact T2/T3 by `R204`--`R205` and `CERT24`,
-the literal transport exports by `CERT25`, and the literal paper-object
-closures by `CERT26`. Target
+the literal transport exports by `CERT25`, the literal paper-object closures
+by `CERT26`, and simultaneous coordinate translation by `CERT27`. Target
 definitions, signed PF5 indices, constructive crossing algebra, and the actual
 left-density identity/sign bridge are kernel-checked. The actual restricted-
 density measures, mass-one interfaces, strict right mass, all three interior
@@ -120,7 +120,7 @@ perturbation coefficients to include every binomial multiplicity.
 | PO-0022 | `ρ=F₂/q³>0`, `κ=1+ρ>1` | FORMALLY_PROVED | none; `actualCoordinateRhoKappa_pos_on_range` covers the complete actual coordinate range without a surjectivity claim |
 | PO-0023 | Triangular integral formula for `Λ` | FORMALLY_PROVED | none; explicit primitives and endpoint algebra checked |
 | PO-0024 | Triangular formula and positivity for `δ` | FORMALLY_PROVED | none; endpoint derivative, integral identity, and midpoint strictness checked |
-| PO-0025 | Simultaneous translation operator in coordinates | SYMBOLICALLY_CHECKED | multivariable chain rule |
+| PO-0025 | Simultaneous translation operator in coordinates | FORMALLY_PROVED | none; literal actual-endpoint curves differentiate to the coordinate vector field, with exact `TΛ`, `Tδ`, and `Ψ` connections |
 | PO-0026 | Definition/expansion of `N` from differentiating `Ψ` | FORMALLY_PROVED | none; endpoint translation objects and actual derivative checked |
 | PO-0027 | `∂ξΨ = -Q(p)N/Λ²` | FORMALLY_PROVED | none; coordinate speed and exact negative orientation checked |
 | PO-0028 | `C₄ = Q⁶κ²D` | FORMALLY_PROVED | none; primary Hankel determinant, cumulant expansion, and curvature factorization checked |
@@ -155,9 +155,9 @@ perturbation coefficients to include every binomial multiplicity.
 
 ## Immediate next work
 
-1. Close PO-0025 with an explicit simultaneous-translation chain rule for the
-   maintained actual coordinate endpoints and endpoint objects.
-2. Keep deprecated crossing refinements and broader generic-engine work
+1. Close support obligation PO-0014's weighted-mean and variation statements
+   before revisiting the aggregating fixed-order quotient records.
+2. Keep deprecated crossing refinements and broader arbitrary-order work
    separate from the completed T1–T3 classification.
 3. Execute the paper backport series recorded in `backport/README.md` as
    dedicated refine rounds.
