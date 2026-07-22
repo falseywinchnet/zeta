@@ -48,6 +48,7 @@ PF4/TranslationQuotientTower.lean
 PF4/TranslationQuotientSigns.lean
 PF4/TranslationQuotientPsi.lean
 PF4/TranslationQuotientAssembly.lean
+PF4/GlobalStrictPF4.lean
 ```
 
 Implemented modules:
@@ -149,6 +150,9 @@ Implemented modules:
   determinant engine: object identity with `translationMinor` and the
   conditional transfer theorem from three explicit quotient-level sign
   premises. The theorem namespace and public names remain unchanged.
+- `PF4.GlobalStrictPF4`: actual-kernel lower-`Lambda` and first/second quotient
+  signs, exact minor positivity at orders one through four, and the exported
+  arbitrary-node target `PF4.globalRiemannKernel_strictPFUpTo_four`.
 
 No stub theorem with `sorry` is used. The analytic kernel definitions use real
 exponential series. Their proofs now intentionally import mathlib's named real
@@ -162,9 +166,8 @@ The translate quotient object layer and all three sign-conversion mechanisms
 are checked. The terminal sign is derived through the same coordinate `Psi`
 used by the determinant/transport assembly, with the `p₄<p₃` orientation
 consumed explicitly. The actual global Riemann-kernel jet and canonical
-cleared `q`, `F₂`, and `C₄` signs are now instantiated. The remaining T1
-work is the exact arbitrary-node minor assembly around the checked terminal
-quotient theorem. The coordinate inverse,
+cleared `q`, `F₂`, and `C₄` signs are instantiated, and the exact
+arbitrary-node T1 theorem is maintained. The coordinate inverse,
 range-local jet, deterministic gap, and local central identity are now
 constructed rather than assumed.
 

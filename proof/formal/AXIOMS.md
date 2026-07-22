@@ -132,6 +132,15 @@ every exported helper theorem.
 - `PF4.CERT12OuterClosure.normalized_clearedC4_pos`
 - `PF4.CERT12OuterClosure.normalized_cleared_signs_pos`
 - `PF4.CERT12OuterClosure.terminalQuotD_global_kernel_pos`
+- `PF4.GlobalStrictPF4.actual_lowerLambda_pos`
+- `PF4.GlobalStrictPF4.finNodeWitness_strictMono`
+- `PF4.GlobalStrictPF4.actual_firstQuotD_pos`
+- `PF4.GlobalStrictPF4.actual_secondQuotD_pos`
+- `PF4.GlobalStrictPF4.translationMinor_one_pos`
+- `PF4.GlobalStrictPF4.translationMinor_two_pos`
+- `PF4.GlobalStrictPF4.translationMinor_three_pos`
+- `PF4.GlobalStrictPF4.translationMinor_four_pos`
+- `PF4.globalRiemannKernel_strictPFUpTo_four`
 
 No custom project axiom, `sorry`, `admit`, unsafe theorem bridge, or external
 certificate result appears in these declarations.

@@ -2,10 +2,12 @@
 
 Target: `PF4-CORE-v1`
 
-Formal completion: **22/46 obligations**
+Formal completion: **26/46 obligations**
 
-Current strongest result: a conventional proof supported by exact symbolic and
-rational certificates. Lean 4.32.0 and mathlib 4.32.0 are pinned. The analytic
+Current strongest target result: T1, strict global PF4 for the actual Riemann
+kernel, is kernel-checked in Lean. The complete exact-order theorem still
+requires the independent T2 order-five obstruction. Lean 4.32.0 and mathlib
+4.32.0 are pinned. The analytic
 foundation now constructs the literal real integer theta sum, proves its
 summability by an elementary exponential comparison, splits off its positive
 modes, constructs the positive-mode kernel jet through order six on `t ≥ 0`,
@@ -14,7 +16,8 @@ mathlib Gaussian/Poisson theorem proves the exact theta transformation; a
 Jacobi-theta realization proves global real analyticity, and parity gives the
 exact reflected representation `Φ(t)=thetaSeries |t|`. The real kernel
 definitions remain unchanged (`R185`--`R188`, `R191`, `CERT21`). The global
-jet and sign closure is recorded by `R195`--`R202` and `CERT22`. Target
+jet and sign closure is recorded by `R195`--`R202` and `CERT22`; exact T1 is
+recorded by `R203` and `CERT23`. Target
 definitions, signed PF5 indices, constructive crossing algebra, and the actual
 left-density identity/sign bridge are kernel-checked. The actual restricted-
 density measures, mass-one interfaces, strict right mass, all three interior
@@ -50,9 +53,12 @@ is now checked, its endpoint object is proved equal to the maintained
 coordinate `Psi`, and determinant positivity supplies strict `Psi` decrease
 and hence the terminal sign with the correct ordered-point orientation. The
 actual global Riemann-kernel jet through order six and the canonical cleared
-`q`, `F₂`, and `C₄` signs are now instantiated. The resulting terminal
-quotient is strictly positive for every real translation parameter and every
-ordered quadruple `a<c<b<d`. The exact arbitrary-node minor assembly remains.
+`q`, `F₂`, and `C₄` signs are now instantiated. The resulting terminal quotient
+is strictly positive for every real translation parameter and every ordered
+quadruple `a<c<b<d`. `PF4.GlobalStrictPF4` derives the actual lower-`Lambda`,
+first-quotient, and second-quotient signs, proves minors separately at orders
+one through four, and exports the exact arbitrary-node theorem
+`PF4.globalRiemannKernel_strictPFUpTo_four`.
 
 The cleared raw-jet interface is also maintained. It reconstructs the
 curvature derivative tower from seven ordinary kernel jets, proves that the
@@ -90,8 +96,8 @@ perturbation coefficients to include every binomial multiplicity.
 | ID | Claim | Present status | Formal blocker |
 |---|---|---|---|
 | PO-0014 | Weighted-mean identities and variation bound | CONVENTIONALLY_PROVED | extrema/integral lemmas |
-| PO-0015 | `Λ(ξ;m,r) > 0` for `ξ < m < r` | FORMAL_FRAGMENT | exact S05 `lowerLambda` object and its second-quotient use are checked; formalize the analytic lower bound and actual-kernel instance |
-| PO-0016 | Strict order-three Wronskian sign | CERTIFIED | first/second quotient conversion is checked; instantiate certified `q>0` and `Λ>0` inputs |
+| PO-0015 | `Λ(ξ;m,r) > 0` for `ξ < m < r` | FORMALLY_PROVED | none; `PF4.GlobalStrictPF4.actual_lowerLambda_pos` instantiates the actual kernel from its global jet and `q,F₂` signs |
+| PO-0016 | Strict order-three Wronskian sign | FORMALLY_PROVED | none; `actual_firstQuotD_pos` and `actual_secondQuotD_pos` close the actual-kernel quotient signs |
 | PO-0017 | Quotient/Wronskian algebra through order four | FORMAL_FRAGMENT | all three differential quotient identities are checked; arbitrary-order and confluent algebra remain |
 | PO-0018 | Iterated quotient-integral determinant identity | FORMAL_FRAGMENT | arbitrary finite `k`; exact sizes two through four and strict boxes are checked |
 | PO-0019 | One- and two-sided confluent limits | CONVENTIONALLY_PROVED | divided differences and limits |
@@ -132,15 +138,15 @@ perturbation coefficients to include every binomial multiplicity.
 | PO-0039 | Expectation difference equals `∫ΔD` | FORMALLY_PROVED | none; actual measures, expectations, CDFs, and boundary terms checked |
 | PO-0040 | Transport integral and `N` are strictly positive | FORMAL_FRAGMENT | strict integral checked from supplied `Q,κ,C₄` signs; the actual-kernel coordinate instance has not been exported |
 | PO-0041 | `∂ξΨ<0` globally | FORMAL_FRAGMENT | actual-range coordinate, gap, and central identity are checked; the transport-route actual-kernel instance has not been exported (the terminal quotient is closed independently) |
-| PO-0042 | Strict global order-four minors | FORMAL_FRAGMENT | actual-kernel terminal quotient positivity is universal; connect it to the exact arbitrary-node translation-minor statement |
-| PO-0043 | Strict minors of orders one through three | CERTIFIED | assemble PO-0008/0016/0018 |
+| PO-0042 | Strict global order-four minors | FORMALLY_PROVED | none; `PF4.GlobalStrictPF4.translationMinor_four_pos` and the exported T1 theorem cover arbitrary strictly ordered nodes |
+| PO-0043 | Strict minors of orders one through three | FORMALLY_PROVED | none; exact order-one, order-two, and order-three minor theorems are assembled into T1 |
 | PO-0044 | CERT17 evaluator denotes T2's exact determinant | OBLIGATION | primary-kernel equivalence |
 | PO-0045 | Exact rational finite determinant is negative | CERTIFIED | port/check certificate in Lean |
 | PO-0046 | Exact global PF order is four | CERTIFIED | formal definition plus T1/T2 |
 
 ## Immediate next work
 
-1. Execute `proof/NEXT_ADVANCEMENT.md`: assemble the universal terminal
-   quotient theorem into the exact arbitrary-node T1 minor statement.
-2. Keep the independent CERT17/PF5 witness and exact-order T3 assembly
-   separate.
+1. Execute `proof/NEXT_ADVANCEMENT.md`: bridge the exact CERT17 evaluator to
+   T2's primary-kernel order-five determinant and prove its strict negativity
+   in Lean.
+2. Keep the final T3 assembly separate until T2 is kernel-checked.

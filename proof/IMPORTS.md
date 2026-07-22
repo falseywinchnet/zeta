@@ -51,7 +51,10 @@ regularity used in the iterated quotient identity.
 
 Used by: S05.
 
-Status: `OBLIGATION`; expected mathlib imports, exact declaration names unset.
+Status for T1: `FORMALLY_PROVED`. `PF4.QuotientIntegral` proves the exact
+fixed-size determinant and interval-integral identities used at orders two
+through four, and `PF4.GlobalStrictPF4` instantiates them. No claim of an
+unused arbitrary-dimension integral theorem is needed for T1.
 
 ## I-004 — extrema and weighted means on compact intervals
 
@@ -82,7 +85,10 @@ positive on a nonempty open subinterval has strictly positive integral.
 
 Used by: S04, S06, S09, S10.
 
-Status: `OBLIGATION`; expected mathlib theorem or short local proof.
+Status for T1: `FORMALLY_PROVED`. The maintained quotient-integral lemmas prove
+strict positivity on positive-length adjacent intervals and are consumed by
+`translationMinor_two_pos`, `translationMinor_three_pos`, and
+`translationMinor_four_pos`.
 
 ## Background-only sources
 

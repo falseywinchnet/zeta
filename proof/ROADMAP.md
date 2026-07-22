@@ -101,11 +101,8 @@ Exit gate: T1–T3 are kernel-checked and the target-reachable graph has no gaps
 
 ## Priority order
 
-The next deep proof task is the exact T1 assembly: combine the global kernel
-derivative tower, strict first/second quotient signs, and the now-universal
-terminal quotient sign with the maintained fixed-size integral determinant
-engine to prove every strictly ordered order-four translation minor positive.
-Lower orders must be assembled into the same exported `StrictPFUpTo` theorem.
-After T1, keep the independent CERT17 evaluator equivalence and rational PF5
-witness as a separate T2 task, then combine T1 and T2 only at the exact-order
-T3 boundary.
+T1 is closed by `PF4.globalRiemannKernel_strictPFUpTo_four`, including the
+actual lower-order quotient signs and arbitrary-node orders one through four.
+The next deep proof task is the independent CERT17 evaluator equivalence and
+rational PF5 witness for T2. Combine T1 and T2 only after that exact determinant
+is kernel-checked, at the final T3 boundary.

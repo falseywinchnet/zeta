@@ -117,3 +117,12 @@ set_option linter.style.header false
 #print axioms PF4.CERT12OuterClosure.normalized_clearedC4_pos
 #print axioms PF4.CERT12OuterClosure.normalized_cleared_signs_pos
 #print axioms PF4.CERT12OuterClosure.terminalQuotD_global_kernel_pos
+#print axioms PF4.GlobalStrictPF4.actual_lowerLambda_pos
+#print axioms PF4.GlobalStrictPF4.finNodeWitness_strictMono
+#print axioms PF4.GlobalStrictPF4.actual_firstQuotD_pos
+#print axioms PF4.GlobalStrictPF4.actual_secondQuotD_pos
+#print axioms PF4.GlobalStrictPF4.translationMinor_one_pos
+#print axioms PF4.GlobalStrictPF4.translationMinor_two_pos
+#print axioms PF4.GlobalStrictPF4.translationMinor_three_pos
+#print axioms PF4.GlobalStrictPF4.translationMinor_four_pos
+#print axioms PF4.globalRiemannKernel_strictPFUpTo_four

@@ -40,13 +40,20 @@ prove
 \det[\Phi(x_i-y_j)]_{i,j\in\operatorname{Fin}k}>0.
 \]
 
-Formal statement decisions still to be resolved before Lean coding:
+Resolved Lean representation:
 
-- whether ordered nodes use `Fin k → ℝ`, `Finset`, or a strict-order subtype;
-- the exact matrix/determinant orientation used by mathlib;
-- whether `k=0` is excluded structurally or by the public hypothesis `1 ≤ k`.
+- ordered nodes are maps `Fin k → ℝ` with `StrictMono` proofs;
+- `translationMatrix f x y i j = f (x i - y j)` and mathlib's determinant;
+- `k=0` is excluded by the public hypothesis `1 ≤ k`.
 
 These representation choices may not change the mathematical quantifiers.
+
+Maintained theorem:
+
+```lean
+PF4.globalRiemannKernel_strictPFUpTo_four :
+  PF4.StrictPFUpTo PF4.globalRiemannKernel 4
+```
 
 Counterexample condition: some `1 ≤ k ≤ 4` and two strictly increasing real
 `k`-tuples give a determinant less than or equal to zero.
@@ -103,4 +110,3 @@ Before an exported Lean theorem is accepted, `CLAIM_INDEX.md` must contain its
 fully elaborated declaration, `#print axioms` output, and a two-way mathematical
 comparison against T1, T2, or T3. A theorem with stronger assumptions, fewer
 node configurations, or a weak inequality does not satisfy this contract.
-

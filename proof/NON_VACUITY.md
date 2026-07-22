@@ -9,7 +9,9 @@ are inhabited: `x_i = i` and `y_i = 2i` give concrete examples after the index
 coercion is fixed. This witness prevents the theorem from succeeding through
 an empty ordered-node subtype.
 
-Open: formalize the witness for the chosen Lean representation.
+Closed: `PF4.GlobalStrictPF4.finNodeWitness_strictMono` proves that
+`i ↦ (i : ℝ)` is strictly increasing on `Fin k` for every `k`; it supplies both
+node families required by the target domain.
 
 ## NV-002 — kernel existence before positivity
 
@@ -204,5 +206,8 @@ second theorem derives curvature, lower `Lambda`, coordinate realization, and
 the terminal sign from a positive ordinary raw jet and the three cleared
 strict inequalities. `PF4.CERT12OuterClosure.terminalQuotD_global_kernel_pos`
 instantiates that theorem for the actual kernel at every real translation and
-every ordered `a<c<b<d`. The remaining boundary is its conversion into the
-exact arbitrary-node translation minor used by T1.
+every ordered `a<c<b<d`. `PF4.GlobalStrictPF4.translationMinor_four_pos`
+converts this terminal sign through the exact quotient-integral determinant
+identity, and `PF4.globalRiemannKernel_strictPFUpTo_four` assembles orders one
+through four for arbitrary `StrictMono` real node maps. No ordered-node domain,
+target minor, or finite analytic range is assumed.

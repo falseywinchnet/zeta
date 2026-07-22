@@ -7,8 +7,8 @@
 | `q > 0` | S03 | R171, R189, R198, R202, CERT12/21/22 | PO-0011 | `PF4.CERT12OuterClosure.normalized_clearedQ_pos` plus the exact cleared-sign transfer | FORMALLY_PROVED |
 | `F₂ > 0` | S03 | R171, R192, R199, R202, CERT12/21/22 | PO-0012 | `PF4.CERT12OuterClosure.normalized_clearedF2_pos` plus the exact cleared-sign transfer | FORMALLY_PROVED |
 | `C₄ > 0` | S03 | R171, R193–R194, R200, R202, CERT12/21/22 | PO-0013 | `PF4.CERT12OuterClosure.normalized_clearedC4_pos` plus `PF4.ClearedJetCertificateBridge.clearedC4_eq_rawHankel4_det` | FORMALLY_PROVED |
-| `Λ > 0` | S04 | R141, CERT12 | PO-0015 | `PF4.ClearedJetCertificateBridge.lowerLambda_pos_of_actualCoordinate` derives it from actual `q,F₂` inputs | FORMAL_FRAGMENT |
-| strict PF2/PF3 | S04–S05 | R155, R172, CERT5/12 | PO-0016, PO-0043 | `firstQuotD_pos_of_kernelCurvature_pos`, `secondQuotD_pos_of_lowerLambda_pos`; actual-kernel lower-`Lambda` instance unset | CERTIFIED |
+| `Λ > 0` | S04 | R141, R203, CERT12/23 | PO-0015 | `PF4.GlobalStrictPF4.actual_lowerLambda_pos` | FORMALLY_PROVED |
+| strict PF2/PF3 | S04–S05 | R155, R172, R203, CERT5/12/23 | PO-0016, PO-0043 | `PF4.GlobalStrictPF4.actual_firstQuotD_pos`, `actual_secondQuotD_pos`, `translationMinor_two_pos`, and `translationMinor_three_pos` | FORMALLY_PROVED |
 | quotient identities | S05 | R154, CERT5 | PO-0017–0019 | `PF4.GenericQuotientIntegral.*`, `PF4.ContinuousQuotientBox.*`, `PF4.TranslationQuotientPsi.terminalQuotD_eq_terminalQuot_mul_coordinatePsi_sub` | FORMAL_FRAGMENT |
 | PF4/`∂ξΨ` reduction | S05 | R156, R180, CERT5/18 | PO-0020 | strict transfer connected to determinant-derived decrease of the maintained coordinate `Psi`; actual-kernel instances and converse remain | FORMAL_FRAGMENT |
 | curvature coordinate map | S06 | R153, R181, CERT9/19 | PO-0021–0022, PO-0025 | `PF4.CurvatureCoordinateRealization.*`; inverse, jet, `F₂`, and determinant identities are range-local, while the simultaneous-translation identification remains open | FORMAL_FRAGMENT |
@@ -23,7 +23,7 @@
 | CDF integration identity | S09 | R153, CERT9 | PO-0039 | `PF4.Expectation.expectation_difference_eq_cdfGap_integral`, `PF4.Transport.concrete_expectationDifference_eq_transportIntegral` | FORMALLY_PROVED |
 | positive transport integral | S09 | R153, CERT9 | PO-0040 | checked from explicit supplied `Q,κ,C₄` signs; actual coordinate-transport instance unset | FORMAL_FRAGMENT |
 | `∂ξΨ < 0` | S10 | R153, R181, CERT9/19 | PO-0041 | `PF4.LocalFinalAssembly.actualCoordinatePartialXiPsi_neg`; the transport-route actual-kernel instance remains open, while the terminal quotient is closed independently | FORMAL_FRAGMENT |
-| strict PF4 | S01/S10 | R164, R180–R181, R190, R201, CERT5/9/12/18/19/21/22 | PO-0042 | `PF4.CERT12OuterClosure.terminalQuotD_global_kernel_pos` closes the actual-kernel terminal quotient for every translation and ordered `a<c<b<d`; the exact arbitrary-node minor and lower-order T1 assembly remain | FORMAL_FRAGMENT |
+| strict PF4 | S01/S10 | R164, R180–R181, R190, R201, R203, CERT5/9/12/18/19/21–23 | PO-0042 | `PF4.globalRiemannKernel_strictPFUpTo_four : StrictPFUpTo globalRiemannKernel 4` | FORMALLY_PROVED |
 | exact finite PF5 witness | S10 | R179, CERT17 | PO-0044–0045 | unset | CERTIFIED |
 | exact order four | S01/S10 | R145 | PO-0046 | unset | CERTIFIED |
 

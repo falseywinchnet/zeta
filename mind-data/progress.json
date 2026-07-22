@@ -592,8 +592,12 @@
     "P000148": {
       "blurb": "Closed exact universal T1 StrictPFUpTo four candidate from maintained global kernel quotient signs",
       "created_at": "2026-07-22T02:22:01+00:00"
+    },
+    "P000149": {
+      "blurb": "Integrate and certify exact universal strict PF4 theorem T1 in maintained Lean",
+      "created_at": "2026-07-22T02:49:21+00:00"
     }
   },
-  "next_id": 149,
+  "next_id": 150,
   "version": 1
 }

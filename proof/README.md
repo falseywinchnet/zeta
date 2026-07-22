@@ -2,9 +2,10 @@
 
 This directory reconstructs the submitted PF4 argument under the stricter
 standard in [SPECIFICATIONS.MD](SPECIFICATIONS.MD). It does not revise the
-submitted paper. The Lean development is active but the target theorem is not
-yet complete; [STATUS.md](STATUS.md) records the exact formal fragments and
-open instance bridges.
+submitted paper. Lean now proves T1, strict global PF4 for the actual kernel;
+the full exact-order target still requires the independent T2 order-five
+obstruction and final T3 assembly. [STATUS.md](STATUS.md) records the exact
+formal fragments and open bridges.
 
 ## Current boundary
 

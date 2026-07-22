@@ -1,73 +1,77 @@
-# Next advancement cycle — terminal quotient to exact T1
+# Next advancement cycle — exact T2 order-five obstruction
 
 Mode: advancement
 
-Starting evidence: R164, R180–R202, CERT5, CERT12, CERT18–22, and the
-maintained modules `PF4.GlobalKernelJetIdentification`,
-`PF4.CERT12OuterClosure`, `PF4.TranslationQuotientSigns`,
-`PF4.TranslationQuotientTower`, and `PF4.TranslationQuotientAssembly`.
+Starting evidence: R179, R203, CERT11, CERT16, CERT17, CERT23, the maintained target
+definitions in `PF4.Definitions`, the actual kernel in `PF4.KernelAnalytic`, and
+the exact evaluator in `scripts/pf5_threshold_core.py`.
 
 ## Maintained boundary
 
-Lean now proves all of the following.
+Lean now proves target T1 exactly:
 
-1. `globalRiemannKernel` is globally smooth, even, positive, and equal to the
-   positive theta series after reflection.
-2. Its global iterated derivatives through order six equal the explicit
-   series jet, including at the origin.
-3. The canonical cleared `q`, `F₂`, and `C₄` polynomials are strictly
-   positive for every real kernel argument. The compact certificate and the
-   analytic outer tail cover complementary regions; no finite scan is used.
-4. For every `a<c<b<d`, the actual-kernel terminal quotient derivative is
-   strictly positive at every real translation parameter.
-5. The maintained fixed-size integral engine converts positive first,
-   second, and terminal quotient derivatives into a positive four-by-four
-   translation minor at strictly ordered row nodes.
+```lean
+PF4.globalRiemannKernel_strictPFUpTo_four :
+  PF4.StrictPFUpTo PF4.globalRiemannKernel 4
+```
 
-The missing seam is exact assembly. The terminal theorem fixes the column
-order `a<c<b<d`; T1 quantifies over arbitrary strictly increasing row and
-column maps and also includes orders one through three.
+The theorem quantifies over arbitrary strictly increasing real row and column
+maps at every order from one through four. No finite node scan or bounded node
+domain is used.
+
+CERT17 independently proves, by exact rational enclosure, that the order-five
+Toeplitz determinant evaluated at spacing `211/2000` is negative. The missing
+target seam is Lean statement fidelity: identify the certificate evaluator
+with the determinant of the maintained `globalRiemannKernel`, including signed
+index subtraction, then close strict negativity.
 
 ## Next exact theorem
 
-Prove an exported actual-kernel theorem of the form
+Prove a maintained theorem of the form
 
-```text
-StrictPFUpTo globalRiemannKernel 4
+```lean
+PF4.translationMinor PF4.globalRiemannKernel
+  (fun i : Fin 5 => ((i : ℕ) : ℝ) * (211 / 2000 : ℝ))
+  (fun j : Fin 5 => ((j : ℕ) : ℝ) * (211 / 2000 : ℝ)) < 0
 ```
 
-without weakening `StrictMono` or replacing arbitrary nodes by a grid.
+or the definitionally equivalent `equallySpacedMatrix` determinant statement
+whose entries are exactly
 
-Recommended proof order:
+```lean
+globalRiemannKernel (((i : ℤ) - (j : ℤ) : ℤ) * (211 / 2000 : ℝ)).
+```
 
-1. Isolate the order-four declaration for arbitrary `x y : Fin 4 → ℝ`.
-   Extract `x 0 < x 1 < x 2 < x 3` and
-   `y 0 < y 1 < y 2 < y 3` from strict monotonicity.
-2. Instantiate the derivative tower with
-   `kernelJet 0,...,3` and the global kernel positivity theorem.
-3. Supply the actual first- and second-quotient signs. If the maintained
-   lower-`Lambda` theorem still has an uninstantiated analytic premise, prove
-   that premise as its own theorem rather than hiding it in the assembly.
-4. Supply `terminalQuotD_global_kernel_pos` with the four column nodes and use
-   `translationMinor_pos_of_quotient_tower_signs` with the four row nodes.
-5. Prove orders one, two, and three independently from their maintained sign
-   conversions and fixed-size integral identities, then dispatch the finite
-   cases `1 ≤ k ≤ 4` to obtain `StrictPFUpTo`.
+The exported theorem must be proved equal to T2's frozen orientation rather
+than relying on an informal Toeplitz convention.
+
+## Proof order
+
+1. Freeze the exact `Fin 5` row and column maps and prove their translation
+   matrix equals the signed equally spaced matrix already defined in
+   `PF4.Definitions`.
+2. Reconstruct the finite kernel values used by CERT17 from the maintained
+   global kernel definition. Keep theta truncation and tail enclosure
+   statements exact and reusable.
+3. Port the rational upper enclosure for the five-by-five determinant into a
+   kernel-checked Lean proposition, or replace it with a smaller exact Lean
+   certificate if the existing evaluator contains unnecessary threshold work.
+4. Export T2 and audit its axioms.
+5. Do not assemble `PFOrderExactly` in this advancement round; that is the
+   following refine/assembly boundary once T2 is secure.
 
 ## No-cheating gates
 
-- Quantify over arbitrary strictly increasing nodes; do not test or discretize
-  a range.
-- Keep order and orientation conversions explicit.
-- Do not assume the target minor or any finite-difference/Wronskian surrogate.
-- Do not replace the lower-`Lambda` analytic estimate with a structure field
-  carrying the desired sign.
-- Keep the CERT17/PF5 witness out of this round.
-- Keep Lean compilation serialized.
+- Use signed integer subtraction; natural subtraction is invalid.
+- Prove equality to the maintained primary kernel, not a fresh finite table.
+- A floating-point determinant or sampled error estimate is not evidence.
+- The rational enclosure must have an upper endpoint strictly below zero.
+- Keep the optional unique confluent threshold and extremality searches out of
+  the shortest T2 path.
 
 ## Exit condition
 
-The round closes only when the public actual-kernel T1 theorem is
-kernel-checked and audited for axioms. If the lower-`Lambda` input blocks that
-theorem, the round must leave a named exact theorem statement for that single
-analytic inequality and report T1 as still open.
+The round closes only when the exact primary-kernel order-five determinant at
+spacing `211/2000` is kernel-checked negative, with standard axioms only. If
+the complete CERT17 evaluator is too large to port directly, isolate the
+smallest exact rational lemma that remains and name it without claiming T2.

@@ -23,8 +23,11 @@ T3 exact PF order four
 
 - T3 `because` T1, T2, and the definition of exact PF order.
 - T1 `because` PO-0042 and PO-0043.
-- PO-0042 `because` PO-0041 and the strict local-to-global direction of
-  PO-0020.
+- PO-0042 `because` the universal actual-kernel terminal quotient sign and the
+  exact order-four quotient-integral determinant transfer. This closes T1
+  independently of the still-useful transport-route PO-0041 formulation.
+- PO-0043 `because` actual kernel positivity, the global lower-`Lambda` sign,
+  and exact order-two/order-three quotient-integral transfers.
 - PO-0041 `because` PO-0026, PO-0027, and PO-0040.
 - PO-0040 `because` PO-0029, PO-0037, and strict integral positivity.
 - PO-0039 `because` common total mass, `A₀'=D`, and compact-support
@@ -51,25 +54,21 @@ T3 exact PF order four
 They remain separate claims and cannot make the core proof easier by lending
 their conclusions backward.
 
-## Current unresolved leaves
+## Current unresolved target leaves
 
-1. Convert the universal actual-kernel terminal quotient sign into the exact
-   arbitrary-node order-four translation-minor theorem using the maintained
-   fixed-size quotient-integral assembly.
-2. Instantiate and assemble the lower-order quotient signs so the exported T1
-   statement covers orders one through four, not only the terminal order-four
-   cascade. The analytic lower-`Lambda` bound remains the substantive lower-
-   order input.
-3. Prove that the CERT17 evaluator denotes the primary kernel's exact finite
+T1 is closed by `PF4.globalRiemannKernel_strictPFUpTo_four`. The remaining
+target-reachable leaves are:
+
+1. Prove that the CERT17 evaluator denotes the primary kernel's exact finite
    order-five determinant, and port or replay its rational negativity check in
    Lean.
-4. Combine the completed T1 and T2 declarations with the formal definition of
+2. Combine the completed T1 and T2 declarations with the formal definition of
    exact PF order at the final T3 boundary.
 
 PO-0026 through PO-0028 and PO-0037 through PO-0039 are `FORMALLY_PROVED`.
 PO-0029, PO-0040, and PO-0041 are checked conditional cores, not completed
 actual-kernel obligations. The global derivative jet, kernel positivity,
 canonical `q,F₂,C₄` signs, and actual-kernel terminal quotient are now
-closed. Every route to T1–T3 still has unresolved assembly prerequisites: the
-fixed-order generic PO-0017/0018/0020 engine has not yet been exported as the
-arbitrary-node T1 theorem, and the independent CERT17/T2 bridge remains open.
+closed. The fixed-order quotient route now exports the arbitrary-node T1
+theorem without claiming the broader confluent or converse portions of
+PO-0017/0018/0020. The independent CERT17/T2 bridge remains open.
