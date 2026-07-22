@@ -1,4 +1,4 @@
-# Next advancement cycle — fixed-order quotient algebra reconciliation
+# Next advancement cycle — fixed-order quotient-integral reconciliation
 
 Mode: advancement
 
@@ -7,26 +7,27 @@ Starting evidence: CERT5, CERT18, the maintained `QuotientAlgebra`,
 
 ## Maintained boundary
 
-PO-0014 is closed.  The only remaining active records are the aggregating
-quotient/confluence tasks PO-0017 through PO-0020.  The exact PF4 theorem and
-actual-kernel strict direction are already complete.
+PO-0014 and PO-0017 are closed. The only remaining active records are the
+aggregation/confluence tasks PO-0018 through PO-0020. The exact PF4 theorem
+and actual-kernel strict direction are already complete.
 
 ## Next exact theorem family
 
-Audit PO-0017 against the paper's fixed order-four claim.  Assemble the exact
-quotient/Wronskian identities already maintained, add only any genuinely
-missing order-four endpoint or orientation identity, and separate optional
-arbitrary-order generalization from the active denominator.
+Audit PO-0018 against the paper's fixed order-four use. Reconcile the already
+maintained `4→3` triple-integral, `3→2` double-integral, and terminal
+strictness theorems with the exact statement used by the paper. Add only a
+genuinely missing fixed-order aggregation theorem.
 
 ## No-cheating gates
 
 - primary order-four determinants and literal quotient objects;
 - exact signs and orientations, not symbolic aliases;
 - no promotion based only on the already-proved final PF4 conclusion;
-- no unnecessary arbitrary-order expansion.
+- arbitrary finite-`k` integration is optional unless the paper's active
+  order-four denominator actually invokes it.
 
 ## Exit condition
 
-PO-0017 is either closed at the paper's actual fixed order or narrowed to one
-specific missing identity.  PO-0018 through PO-0020 remain clearly classified
-as later aggregation/confluence work.
+PO-0018 is either closed at the paper's actual fixed order or narrowed to one
+specific missing aggregation identity. PO-0019 and PO-0020 remain clearly
+classified as later confluence/equivalence work.

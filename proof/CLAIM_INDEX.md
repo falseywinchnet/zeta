@@ -12,7 +12,9 @@
 | weighted-mean lower bound for `Λ` | S04 | CERT22/26/28 | PO-0014 | `PF4.WeightedMeanVariation.actual_weightedMeanVariation_lowerLambda` | FORMALLY_PROVED |
 | `Λ > 0` | S04 | R141, R203, CERT12/23 | PO-0015 | `PF4.GlobalStrictPF4.actual_lowerLambda_pos` | FORMALLY_PROVED |
 | strict PF2/PF3 | S04–S05 | R155, R172, R203, CERT5/12/23 | PO-0016, PO-0043 | `PF4.GlobalStrictPF4.actual_firstQuotD_pos`, `actual_secondQuotD_pos`, `translationMinor_two_pos`, and `translationMinor_three_pos` | FORMALLY_PROVED |
-| quotient identities | S05 | R154, CERT5 | PO-0017–0019 | `PF4.GenericQuotientIntegral.*`, `PF4.ContinuousQuotientBox.*`, `PF4.TranslationQuotientPsi.terminalQuotD_eq_terminalQuot_mul_coordinatePsi_sub` | FORMAL_FRAGMENT |
+| fixed-order quotient/Wronskian identities | S05 | R154, CERT5/29 | PO-0017 | `PF4.FixedOrderQuotientWronskian.fixedOrderFour_quotientWronskian_package`, `translateWronskian4_eq_terminalProduct`, `PF4.GenericQuotientIntegral.quotientChainDet4_eq_terminalProduct` | FORMALLY_PROVED |
+| iterated quotient-integral identity | S05 | R154, CERT5 | PO-0018 | `PF4.GenericQuotientIntegral.*`, `PF4.ContinuousQuotientBox.*` | FORMAL_FRAGMENT |
+| confluent limits | S05 | R154, CERT5 | PO-0019 | conventional divided-difference and one-/two-sided limit argument | CONVENTIONALLY_PROVED |
 | PF4/`∂ξΨ` reduction | S05 | R156, R180, CERT5/18 | PO-0020 | strict transfer connected to determinant-derived decrease of the maintained coordinate `Psi`; actual-kernel instances and converse remain | FORMAL_FRAGMENT |
 | curvature coordinate map | S06 | R153, R181, CERT9/19/25/26 | PO-0021–0022 | `PF4.CurvatureCoordinateRealization.*`, `PF4.PaperObjectClosure.actualCoordinateRhoKappa_pos_on_range` | FORMALLY_PROVED |
 | simultaneous coordinate translation | S06 | R153, CERT9/27 | PO-0025 | `PF4.SimultaneousCoordinateTranslation.actual_simultaneousCoordinateTranslation` | FORMALLY_PROVED |

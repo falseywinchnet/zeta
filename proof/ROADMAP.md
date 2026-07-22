@@ -44,10 +44,12 @@ Track B exit gate is closed.
 ## Track C — generic determinant engine
 
 1. Formalize ordered nodes and translation minors.
-2. Prove the quotient determinant identity for general dimension.
+2. Prove the quotient determinant identity at the dimensions used by the
+   active theorem; arbitrary dimension is an optional generalization.
 3. Prove the iterated quotient-integral identity with exact orientation.
 4. Prove one-sided and two-sided confluent divided-difference limits.
-5. Formalize quotient/Wronskian identities through order four.
+5. Formalize quotient/Wronskian identities through order four. **Closed by
+   `PF4.FixedOrderQuotientWronskian`.**
 6. Prove that strict positivity of the final derivative factor transfers to
    every distinct-node minor, with positive-length integration domains.
 

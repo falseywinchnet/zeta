@@ -880,14 +880,14 @@
         },
         {
           "path": "proof/formal/PF4.lean",
-          "sha256": "f5720d29614c09ef87c9d6c8a457a1793d868bb9969ae2c0cf60ee6c4c90b152"
+          "sha256": "002bf98005aaf7719834dfeaa9216633224acefa6679b0d9b7b76c1ea46f8c90"
         }
       ],
       "attestation": {
-        "manifest_sha256": "8609ab0933beab81012754bfd7eefe8e6b442f18d112806e4f848a57bbcf3be6",
+        "manifest_sha256": "e1bcfc09eab051db9481e31f4c768d077aefa3b9719cb59f436194d4218f42ac",
         "method": "executed",
         "schema": 1,
-        "verified_at": "2026-07-22T07:17:09+00:00"
+        "verified_at": "2026-07-22T07:49:28+00:00"
       },
       "created_at": "2026-07-21T02:49:35+00:00",
       "dependencies": [],
@@ -916,7 +916,7 @@
       "topics": [
         "T000012"
       ],
-      "updated_at": "2026-07-22T07:17:09+00:00"
+      "updated_at": "2026-07-22T07:49:28+00:00"
     },
     "K000019": {
       "artifacts": [
@@ -942,14 +942,14 @@
         },
         {
           "path": "proof/formal/PF4.lean",
-          "sha256": "f5720d29614c09ef87c9d6c8a457a1793d868bb9969ae2c0cf60ee6c4c90b152"
+          "sha256": "002bf98005aaf7719834dfeaa9216633224acefa6679b0d9b7b76c1ea46f8c90"
         }
       ],
       "attestation": {
-        "manifest_sha256": "e70e06db4461c991417e6c6d679485731e30ccc2c953b53143aae5027ac999ac",
+        "manifest_sha256": "4f36702fa9bcd62be451ff4e79bbd6f4d0e77c8834e988e969800483b8c452df",
         "method": "executed",
         "schema": 1,
-        "verified_at": "2026-07-22T07:18:39+00:00"
+        "verified_at": "2026-07-22T07:50:46+00:00"
       },
       "created_at": "2026-07-21T04:26:48+00:00",
       "dependencies": [],
@@ -978,7 +978,7 @@
       "topics": [
         "T000012"
       ],
-      "updated_at": "2026-07-22T07:18:39+00:00"
+      "updated_at": "2026-07-22T07:50:46+00:00"
     },
     "K000020": {
       "artifacts": [
@@ -1042,14 +1042,14 @@
         },
         {
           "path": "proof/formal/PF4.lean",
-          "sha256": "f5720d29614c09ef87c9d6c8a457a1793d868bb9969ae2c0cf60ee6c4c90b152"
+          "sha256": "002bf98005aaf7719834dfeaa9216633224acefa6679b0d9b7b76c1ea46f8c90"
         }
       ],
       "attestation": {
-        "manifest_sha256": "d6ecb9bebe8a43c377d69834a6bfa3f571177a51f6c8f9a1717f75b3eba27d5d",
+        "manifest_sha256": "7508490c00b62406f8fb4f43b2423e68ef4de644e91174dabdfba29834e8e546",
         "method": "executed",
         "schema": 1,
-        "verified_at": "2026-07-22T07:20:14+00:00"
+        "verified_at": "2026-07-22T07:52:32+00:00"
       },
       "created_at": "2026-07-21T16:18:42+00:00",
       "dependencies": [],
@@ -1078,7 +1078,7 @@
       "topics": [
         "T000012"
       ],
-      "updated_at": "2026-07-22T07:20:14+00:00"
+      "updated_at": "2026-07-22T07:52:32+00:00"
     },
     "K000022": {
       "artifacts": [
@@ -1100,14 +1100,14 @@
         },
         {
           "path": "proof/formal/PF4.lean",
-          "sha256": "f5720d29614c09ef87c9d6c8a457a1793d868bb9969ae2c0cf60ee6c4c90b152"
+          "sha256": "002bf98005aaf7719834dfeaa9216633224acefa6679b0d9b7b76c1ea46f8c90"
         }
       ],
       "attestation": {
-        "manifest_sha256": "994ed3151e3defdc489a0f59964cd655165b451b35f8d1ef27f5fb34a64d36ec",
+        "manifest_sha256": "78743e6b62c82077c4e631c1a50ed1d67de58dc5aa8af346290a6237314d7813",
         "method": "executed",
         "schema": 1,
-        "verified_at": "2026-07-22T07:22:06+00:00"
+        "verified_at": "2026-07-22T07:53:43+00:00"
       },
       "created_at": "2026-07-22T01:57:02+00:00",
       "dependencies": [
@@ -1139,7 +1139,7 @@
       "topics": [
         "T000012"
       ],
-      "updated_at": "2026-07-22T07:22:06+00:00"
+      "updated_at": "2026-07-22T07:53:43+00:00"
     },
     "K000023": {
       "artifacts": [
@@ -1149,10 +1149,10 @@
         }
       ],
       "attestation": {
-        "manifest_sha256": "0061a99c084111fbd671ee8d3fff114fabe4cdfc2bc721e02c418251354fa6ba",
+        "manifest_sha256": "6dfeea506281e3816e4b6ccf0275c46772d4215da675bc634538b29a1a825361",
         "method": "executed",
         "schema": 1,
-        "verified_at": "2026-07-22T07:26:56+00:00"
+        "verified_at": "2026-07-22T07:58:58+00:00"
       },
       "created_at": "2026-07-22T02:46:47+00:00",
       "dependencies": [
@@ -1202,14 +1202,14 @@
         },
         {
           "path": "proof/formal/PF4.lean",
-          "sha256": "f5720d29614c09ef87c9d6c8a457a1793d868bb9969ae2c0cf60ee6c4c90b152"
+          "sha256": "002bf98005aaf7719834dfeaa9216633224acefa6679b0d9b7b76c1ea46f8c90"
         }
       ],
       "attestation": {
-        "manifest_sha256": "4b2362277cdc061839d76ee8476b2e9dde03424015630837c1c488b795aa160e",
+        "manifest_sha256": "8b14ad4ad6826fbcf9ff14931404db459d7516bc34b2a1d1033e9974987a2c97",
         "method": "executed",
         "schema": 1,
-        "verified_at": "2026-07-22T07:24:00+00:00"
+        "verified_at": "2026-07-22T07:54:54+00:00"
       },
       "created_at": "2026-07-22T04:54:27+00:00",
       "dependencies": [
@@ -1240,7 +1240,7 @@
       "topics": [
         "T000012"
       ],
-      "updated_at": "2026-07-22T07:24:00+00:00"
+      "updated_at": "2026-07-22T07:54:54+00:00"
     },
     "K000025": {
       "artifacts": [
@@ -1250,10 +1250,10 @@
         }
       ],
       "attestation": {
-        "manifest_sha256": "469c7046cd36eeb5d18295a4500d8dcf00bd98e578001715d847790b9354e94b",
+        "manifest_sha256": "a1fd77c409fe8ec0a550b093732e4a803922067ea084d99d284a1141534727aa",
         "method": "executed",
         "schema": 1,
-        "verified_at": "2026-07-22T07:28:32+00:00"
+        "verified_at": "2026-07-22T07:59:54+00:00"
       },
       "created_at": "2026-07-22T05:38:28+00:00",
       "dependencies": [
@@ -1294,10 +1294,10 @@
         }
       ],
       "attestation": {
-        "manifest_sha256": "3f68408c795f960090740c97a2525b0d7b1e899b9ace1f624943b631d48bfb8a",
+        "manifest_sha256": "80d67cc9eacab11bcd988ae8a672b9ae6424d2f95d06820d959a5bfe46443fed",
         "method": "executed",
         "schema": 1,
-        "verified_at": "2026-07-22T07:29:44+00:00"
+        "verified_at": "2026-07-22T08:01:05+00:00"
       },
       "created_at": "2026-07-22T06:03:02+00:00",
       "dependencies": [
@@ -1338,10 +1338,10 @@
         }
       ],
       "attestation": {
-        "manifest_sha256": "5596a33900b54cade083774efd13a6e4a138cd76b6627fe7b7399e68743d1615",
+        "manifest_sha256": "ecb44c969f28bf806200634776a5e40bb497aed745f01bb6caf8c804849ef311",
         "method": "executed",
         "schema": 1,
-        "verified_at": "2026-07-22T07:31:14+00:00"
+        "verified_at": "2026-07-22T08:02:23+00:00"
       },
       "created_at": "2026-07-22T06:33:56+00:00",
       "dependencies": [
@@ -1382,10 +1382,10 @@
         }
       ],
       "attestation": {
-        "manifest_sha256": "57bf2da749bb98d4580b7c96535a51c05ca48b18ca57a6e9cd9419105d459f99",
+        "manifest_sha256": "00949f31496755c68131aedf3d3005db1dde7f74cc86839c4b0a7696035f9f07",
         "method": "executed",
         "schema": 1,
-        "verified_at": "2026-07-22T07:31:14+00:00"
+        "verified_at": "2026-07-22T08:02:23+00:00"
       },
       "created_at": "2026-07-22T07:12:43+00:00",
       "dependencies": [
@@ -1417,8 +1417,52 @@
         "T000012"
       ],
       "updated_at": "2026-07-22T07:12:43+00:00"
+    },
+    "K000029": {
+      "artifacts": [
+        {
+          "path": "proof/formal/PF4/FixedOrderQuotientWronskian.lean",
+          "sha256": "188a5ae77ae282bbc9efafed5493da12b2ba40c4ae4e1cb19140a4660dfbe9cc"
+        }
+      ],
+      "attestation": {
+        "manifest_sha256": "a650838399eda8e3f69feab44083265ffb0b0a0dfd1115537cf279b7f2715254",
+        "method": "executed",
+        "schema": 1,
+        "verified_at": "2026-07-22T07:57:33+00:00"
+      },
+      "created_at": "2026-07-22T07:45:31+00:00",
+      "dependencies": [
+        "K000018"
+      ],
+      "description": "Lean 4 fixed order-three/order-four quotient-Wronskian algebra: exact W3 and W4 factorizations through the literal translation quotient tower with reversed endpoint orientation",
+      "environment": null,
+      "file": {
+        "path": "work/2026-07-22-po0017-fixed-order-quotient-audit/Audit.lean",
+        "sha256": "2bcc2bc28c6accbb845a3bd921c1b6dc362e99a57be771d832cc7c8d8d953f26"
+      },
+      "precision": "Lean v4.32.0/mathlib v4.32.0 kernel-checked exact fixed sizes three and four; no sign premise, sampling, target determinant premise, confluent limit, or arbitrary-order claim",
+      "requirements": [],
+      "runner": {
+        "argv": [
+          "lake",
+          "--dir",
+          "proof/formal",
+          "env",
+          "lean",
+          "work/2026-07-22-po0017-fixed-order-quotient-audit/Audit.lean"
+        ],
+        "expected_exit_code": 0,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "a8d403c81a810337c307ff9693f2fe6ed22ccb866046225109955e78e3755687",
+        "timeout_seconds": 300
+      },
+      "topics": [
+        "T000012"
+      ],
+      "updated_at": "2026-07-22T07:45:31+00:00"
     }
   },
-  "next_id": 29,
+  "next_id": 30,
   "version": 1
 }

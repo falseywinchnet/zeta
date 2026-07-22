@@ -62,10 +62,10 @@ None. T1 and T2 are closed by
 `PF4.globalRiemannKernel_pfOrderExactly_four` through the unchanged
 `PFOrderExactly` definition.
 
-PO-0026 through PO-0028 and PO-0037 through PO-0039 are `FORMALLY_PROVED`.
-PO-0029, PO-0040, and PO-0041 are checked conditional cores, not completed
-actual-kernel obligations. The global derivative jet, kernel positivity,
-canonical `q,F₂,C₄` signs, and actual-kernel terminal quotient are now
-closed. The fixed-order quotient route now exports the arbitrary-node T1
-theorem without claiming the broader confluent or converse portions of
-PO-0017/0018/0020. The independent CERT17/T2 bridge is now closed.
+PO-0017, PO-0026 through PO-0029, and PO-0037 through PO-0041 are
+`FORMALLY_PROVED`. The global derivative jet, kernel positivity, canonical
+`q,F₂,C₄` signs, and actual-kernel terminal quotient are closed. The
+fixed-order quotient route now exports the paper's exact `W3`/`W4` identities
+and the arbitrary-node T1 theorem without claiming the broader aggregation or
+converse portions of PO-0018/0020. Arbitrary-order quotient generalization is
+optional. The independent CERT17/T2 bridge is closed.

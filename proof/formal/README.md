@@ -52,6 +52,7 @@ PF4/GlobalStrictPF4.lean
 PF4/PaperObjectClosure.lean
 PF4/SimultaneousCoordinateTranslation.lean
 PF4/WeightedMeanVariation.lean
+PF4/FixedOrderQuotientWronskian.lean
 ```
 
 Implemented modules:
@@ -140,6 +141,10 @@ Implemented modules:
   and the resulting global terminal-quotient positivity theorem.
 - `PF4.QuotientAlgebra`: fixed-size determinant normalization, forward-
   difference orientation, and terminal discrete quotient factorization;
+- `PF4.FixedOrderQuotientWronskian`: the paper's exact fixed-order `W3` and
+  three-stage `W4` quotient factorizations, terminal product, and reversed
+  translation-endpoint orientation. Arbitrary-order generalization is
+  deliberately outside this module and the active denominator.
 - `PF4.QuotientIntegral`: exact fixed-order adjacent-box integral identities
   and strict quotient-sign transfer to an unnormalized order-four minor.
 - `PF4.TranslationQuotientTower`: the actual translate quotients, their exact

@@ -12,5 +12,6 @@ import PF4.GlobalStrictPF4
 import PF4.PaperObjectClosure
 import PF4.SimultaneousCoordinateTranslation
 import PF4.WeightedMeanVariation
+import PF4.FixedOrderQuotientWronskian
 import PF4.PF5Witness
 import PF4.ExactOrder
