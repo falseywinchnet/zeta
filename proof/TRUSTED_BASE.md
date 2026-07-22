@@ -1,7 +1,6 @@
 # Trusted base
 
-Status: T1 formal proof claimed; the complete T1–T3 target remains incomplete
-until T2 and T3 are kernel-checked.
+Status: the complete T1–T3 target is kernel-checked.
 
 ## Intended final trusted base
 
@@ -21,11 +20,14 @@ until T2 and T3 are kernel-checked.
   implementation.
 - Local source files and checksums registered by MIND certificates.
 
-These items support remaining `CERTIFIED` claims such as T2. They become Lean
-evidence only when a separate maintained theorem reconstructs their exact
-proposition. CERT23 is a Lean replay certificate for T1; its theorem depends
-only on the pinned Lean/mathlib base and the standard reported axioms. Output
-hashes alone certify reproducibility, not theoremhood.
+These items support independent certificates and refinements. T1–T3 themselves
+are maintained Lean theorems and depend only on the pinned Lean/mathlib base
+and the standard reported axioms. Output hashes alone certify reproducibility,
+not theoremhood.
+
+`CERT24` replays the exact T2 witness and T3 assembly directly through Lean;
+the external CERT17 computation is retained as independent evidence, not as a
+trusted premise of the Lean theorem.
 
 ## Forbidden implicit trust
 
@@ -42,6 +44,6 @@ hashes alone certify reproducibility, not theoremhood.
 
 1. Decide whether certificates are replayed entirely in Lean or through a
    minimal external checker plus a declared trust bridge.
-2. Closed for T1: the quotient/integral assembly reports exactly `propext`,
+2. Closed for T1–T3: the target declarations report exactly `propext`,
    `Classical.choice`, and `Quot.sound`, with no custom axiom.
 3. Define the clean-build environment and reproducibility boundary.

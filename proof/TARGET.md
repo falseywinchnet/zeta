@@ -93,6 +93,19 @@ Prove `PFOrderExactly Φ 4` from T1 and T2. If the project instead defines exact
 order as the supremum of admissible finite orders, prove equivalence of the two
 definitions for this instance before changing the statement.
 
+Maintained theorem:
+
+```lean
+PF4.globalRiemannKernel_pfOrderExactly_four :
+  PF4.PFOrderExactly PF4.globalRiemannKernel 4
+```
+
+The first conjunct is obtained from T1 by the explicit
+`StrictPFUpTo.pfUpTo` theorem. The second conjunct instantiates a hypothetical
+PF5 statement at T2's proved-strict exact nodes and contradicts its negative
+minor. Thus the maintained declaration is definitionally the frozen T3
+statement in both directions; it adds no assumption and weakens no conclusion.
+
 ## Strict/non-strict relation
 
 T1 is stronger than the nonnegative half of T3. The implication from strict

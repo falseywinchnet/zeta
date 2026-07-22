@@ -2,12 +2,12 @@
 
 Target: `PF4-CORE-v1`
 
-Formal completion: **28/46 obligations**
+Formal completion: **29/46 obligations**
 
-Current strongest target results: T1, strict global PF4 for the actual Riemann
-kernel, and T2, the exact negative order-five minor at spacing `211/2000`, are
-kernel-checked in Lean. The complete exact-order theorem now requires only the
-T3 definition-level assembly. Lean 4.32.0 and mathlib
+Current strongest target result: T3, exact global PF order four for the actual
+Riemann kernel, is kernel-checked in Lean from the maintained T1 strict PF4
+theorem and T2 exact negative order-five minor. The frozen `PF4-CORE-v1`
+target is complete. Lean 4.32.0 and mathlib
 4.32.0 are pinned. The analytic
 foundation now constructs the literal real integer theta sum, proves its
 summability by an elementary exponential comparison, splits off its positive
@@ -18,7 +18,8 @@ Jacobi-theta realization proves global real analyticity, and parity gives the
 exact reflected representation `Φ(t)=thetaSeries |t|`. The real kernel
 definitions remain unchanged (`R185`--`R188`, `R191`, `CERT21`). The global
 jet and sign closure is recorded by `R195`--`R202` and `CERT22`; exact T1 is
-recorded by `R203` and `CERT23`. Target
+recorded by `R203` and `CERT23`, and exact T2/T3 by `R204`--`R205` and
+`CERT24`. Target
 definitions, signed PF5 indices, constructive crossing algebra, and the actual
 left-density identity/sign bridge are kernel-checked. The actual restricted-
 density measures, mass-one interfaces, strict right mass, all three interior
@@ -143,11 +144,11 @@ perturbation coefficients to include every binomial multiplicity.
 | PO-0043 | Strict minors of orders one through three | FORMALLY_PROVED | none; exact order-one, order-two, and order-three minor theorems are assembled into T1 |
 | PO-0044 | CERT17 evaluator denotes T2's exact determinant | FORMALLY_PROVED | none; `translationMatrix_pf5WitnessNodes_eq_equallySpaced` and `equallySpacedMatrix_pf5Witness_eq_toeplitz5` close signed orientation and primary-kernel fidelity |
 | PO-0045 | Exact rational finite determinant is negative | FORMALLY_PROVED | none; `globalRiemannKernel_orderFive_translationMinor_neg` uses exact Taylor bounds, the maintained infinite theta-tail theorem, and a rational parity-factor sign certificate |
-| PO-0046 | Exact global PF order is four | CERTIFIED | formal definition plus T1/T2 |
+| PO-0046 | Exact global PF order is four | FORMALLY_PROVED | none; `globalRiemannKernel_pfOrderExactly_four` converts T1 to `PFUpTo 4` and refutes `PFUpTo 5` at T2's proved-strict exact witness nodes |
 
 ## Immediate next work
 
-1. In a refine round, assemble T3 from the maintained T1 and T2 declarations
-   and `StrictPFUpTo.pfUpTo`.
-2. Audit the exact `PFOrderExactly globalRiemannKernel 4` statement and update
-   the target-facing ledgers without adding a new mathematical line.
+1. Complete the final statement-fidelity, axiom, clean-build, and certificate
+   gates for `PF4-CORE-v1`.
+2. Keep the remaining non-target-reachable transport and generic-engine
+   refinements separate from the completed T1–T3 classification.

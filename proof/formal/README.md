@@ -157,6 +157,9 @@ Implemented modules:
   five maintained kernel values, reuse of the closed infinite theta-tail
   theorem, signed-grid matrix identification, parity factorization of the
   symmetric Toeplitz determinant, and the exported exact T2 negative minor.
+- `PF4.ExactOrder`: definition-level T3 assembly from the public T1 and T2
+  declarations, exporting
+  `PF4.globalRiemannKernel_pfOrderExactly_four`.
 
 No stub theorem with `sorry` is used. The analytic kernel definitions use real
 exponential series. Their proofs now intentionally import mathlib's named real

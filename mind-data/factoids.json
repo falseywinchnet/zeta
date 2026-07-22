@@ -3736,8 +3736,46 @@
       ],
       "status": "established",
       "updated_at": "2026-07-22T02:47:56+00:00"
+    },
+    "F000204": {
+      "because": [
+        {
+          "id": "K000024",
+          "type": "certificate"
+        }
+      ],
+      "content": "Lean proves that the maintained global Riemann kernel has a strictly negative order-five translation minor at the exact strictly increasing nodes i*(211/2000), with signed index orientation and no floating-point sign decision.",
+      "created_at": "2026-07-22T04:56:03+00:00",
+      "relates_to": [
+        "T000012"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-22T04:56:03+00:00"
+    },
+    "F000205": {
+      "because": [
+        {
+          "id": "F000203",
+          "type": "factoid"
+        },
+        {
+          "id": "F000204",
+          "type": "factoid"
+        },
+        {
+          "id": "K000024",
+          "type": "certificate"
+        }
+      ],
+      "content": "Lean proves PFOrderExactly globalRiemannKernel 4: every translation minor through order four is nonnegative, while PF5 is false at the exact ordered rational witness.",
+      "created_at": "2026-07-22T04:56:16+00:00",
+      "relates_to": [
+        "T000012"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-22T04:56:16+00:00"
     }
   },
-  "next_id": 204,
+  "next_id": 206,
   "version": 1
 }

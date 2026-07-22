@@ -600,8 +600,12 @@
     "P000150": {
       "blurb": "Kernel-check exact CERT17 order-five negative translation minor for the maintained global Riemann kernel",
       "created_at": "2026-07-22T04:21:35+00:00"
+    },
+    "P000151": {
+      "blurb": "Integrate and certify exact global PF order four T3 in maintained Lean",
+      "created_at": "2026-07-22T04:57:12+00:00"
     }
   },
-  "next_id": 151,
+  "next_id": 152,
   "version": 1
 }

@@ -56,12 +56,11 @@ their conclusions backward.
 
 ## Current unresolved target leaves
 
-T1 and T2 are closed by `PF4.globalRiemannKernel_strictPFUpTo_four` and
-`PF4.globalRiemannKernel_orderFive_translationMinor_neg`. The remaining
-target-reachable leaf is:
-
-1. Combine the completed T1 and T2 declarations with the formal definition of
-   exact PF order at the final T3 boundary.
+None. T1 and T2 are closed by
+`PF4.globalRiemannKernel_strictPFUpTo_four` and
+`PF4.globalRiemannKernel_orderFive_translationMinor_neg`; T3 is closed by
+`PF4.globalRiemannKernel_pfOrderExactly_four` through the unchanged
+`PFOrderExactly` definition.
 
 PO-0026 through PO-0028 and PO-0037 through PO-0039 are `FORMALLY_PROVED`.
 PO-0029, PO-0040, and PO-0041 are checked conditional cores, not completed

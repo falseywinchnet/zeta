@@ -99,10 +99,17 @@ positivity or total mass is derived.
 
 Exit gate: T1–T3 are kernel-checked and the target-reachable graph has no gaps.
 
+Integrated status: achieved by
+`PF4.globalRiemannKernel_pfOrderExactly_four`.
+
 ## Priority order
 
 T1 is closed by `PF4.globalRiemannKernel_strictPFUpTo_four`, including the
 actual lower-order quotient signs and arbitrary-node orders one through four.
 T2 is closed by `PF4.globalRiemannKernel_orderFive_translationMinor_neg`, with
 signed indices, exact kernel reconstruction, and a rational negative
-determinant bound. The next round is the final T3 definition-level assembly.
+determinant bound. T3 is closed by
+`PF4.globalRiemannKernel_pfOrderExactly_four`, which converts T1 to weak PF4
+and contradicts hypothetical PF5 at T2's exact ordered nodes. The
+`PF4-CORE-v1` target-reachable graph is closed; remaining obligations are
+paper-expansion or independent-route refinements, not premises of T3.

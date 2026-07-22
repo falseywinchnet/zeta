@@ -13,6 +13,12 @@ Closed: `PF4.GlobalStrictPF4.finNodeWitness_strictMono` proves that
 `i ↦ (i : ℝ)` is strictly increasing on `Fin k` for every `k`; it supplies both
 node families required by the target domain.
 
+T3's PF5 refutation is also non-vacuous. The exact nodes
+`i ↦ i(211/2000)` are proved strictly increasing by
+`PF4.pf5WitnessNodes_strictMono`; a hypothetical universal `PFUpTo 5` is
+instantiated at those same nodes, where T2 proves the maintained translation
+minor strictly negative.
+
 ## NV-002 — kernel existence before positivity
 
 `Φ` must be constructed from a convergent series or an already constructed
