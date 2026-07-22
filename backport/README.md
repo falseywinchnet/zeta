@@ -27,15 +27,20 @@ For each backport round:
    maintained real kernel definition, the library-backed Gaussian/Poisson
    identity, global analytic realization, parity, and exact infinite-tail
    control. State the trusted-base boundary explicitly.
-3. **Fixed-order PF4 engine.** Prefer the checked order-four quotient-integral
-   argument over arbitrary-order divided-difference machinery where the latter
-   is not needed by the theorem.
-4. **Transport route.** Backport the actual-kernel coordinate transport
-   theorem once exported. Keep the coordinate range honest; do not assert
+3. **Fixed-order PF4 engine.** Backport
+   `PF4.FixedOrderQuotientWronskian.fixedOrderFour_quotientWronskian_package`
+   and the maintained fixed-size quotient-integral engine. The exact `W3`,
+   three-stage `W4`, and reversed endpoint identities are `R206`--`R208` and
+   `CERT29`. This is equivalent to the manuscript at the orders it uses, but
+   shorter and more explicit about denominator and orientation assumptions.
+   Keep arbitrary-order quotient algebra outside the critical path unless it
+   adds exposition rather than proof debt.
+4. **Transport route.** Backport the exported actual-kernel coordinate
+   transport theorems. Keep the coordinate range honest; do not assert
    surjectivity onto all real numbers.
 5. **PF5 obstruction.** Use the direct rational spacing `211/2000` witness as
    the main PF5 failure proof. Retain the confluent threshold analysis only as
-optional structure if it materially improves the paper.
+   optional structure if it materially improves the paper.
 6. **Final audit.** Trace every paper proposition to a maintained theorem,
    local exact certificate, or clearly named standard import. Remove stale
    symbolic-computation language and any result not used by the final proof.

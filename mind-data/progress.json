@@ -624,8 +624,12 @@
     "P000156": {
       "blurb": "Close fixed order-three and order-four quotient-Wronskian identities and endpoint orientation in Lean",
       "created_at": "2026-07-22T07:56:44+00:00"
+    },
+    "P000157": {
+      "blurb": "Integrate fixed-order quotient-Wronskian closure into MIND and the paper backport pathway",
+      "created_at": "2026-07-22T08:05:39+00:00"
     }
   },
-  "next_id": 157,
+  "next_id": 158,
   "version": 1
 }

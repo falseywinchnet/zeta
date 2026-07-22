@@ -24,7 +24,8 @@ recorded by `R203` and `CERT23`, exact T2/T3 by `R204`--`R205` and `CERT24`,
 the literal transport exports by `CERT25`, the literal paper-object closures
 by `CERT26`, simultaneous coordinate translation by `CERT27`, the literal
 S04 weighted-mean route by `CERT28`, and the fixed-order paper
-quotient/Wronskian equations and endpoint orientation by `CERT29`. Target
+quotient/Wronskian equations and endpoint orientation by `R206`--`R208` and
+`CERT29`. Target
 definitions, signed PF5 indices, constructive crossing algebra, and the actual
 left-density identity/sign bridge are kernel-checked. The actual restricted-
 density measures, mass-one interfaces, strict right mass, all three interior

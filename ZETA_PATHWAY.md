@@ -177,10 +177,10 @@ path until `R93` is resolved.
   verified-zero result and does not assume RH.  PF2 remains open.
 - Original-kernel PF-infinity: closed (`R16`–`R18`).
 - PF3/PF4 membership: resolved. The Riemann kernel is globally PF3
-  (`R140`--`R144`) and strictly PF4 (`R153`, `R164`, `CERT9`), while the
-  exact-rational origin certificate gives `H5(0)<0` and excludes PF5 through
-  the confluent distinct-node limit (`R14`, `R72`, `CERT11`). Its exact global
-  Polya-frequency order is four (`R145`). The proof connects the globally
+  (`R140`--`R144`) and strictly PF4 (`R153`, `R164`, `R203`, `CERT9`,
+  `CERT23`), while the exact rational finite witness excludes PF5
+  (`R204`, `CERT24`). Lean exports the exact global classification
+  `PFOrderExactly globalRiemannKernel 4` (`R205`, `CERT24`). The proof connects the globally
   positive confluent invariant `C4` from `CERT3` to the `CERT5` three-point
   criterion by an exact curvature-coordinate identity:
 
@@ -218,9 +218,13 @@ path until `R93` is resolved.
   cleared `q`, `F2`, and `C4` propositions (`R195`--`R200`, `R202`,
   `CERT22`). It consequently proves the actual-kernel terminal quotient
   derivative positive for every real translation and every ordered four
-  offsets (`R201`). The remaining Lean seam is the exact arbitrary-node
-  translation-minor and lower-order assembly required by the exported T1
-  statement; strict PF4 is not yet exported as `StrictPFUpTo`. The former
+  offsets (`R201`). The exact arbitrary-node and lower-order assembly is now
+  exported as `StrictPFUpTo globalRiemannKernel 4` (`R203`, `CERT23`). At the
+  paper's fixed orders, Lean also checks
+  `W3=u1^3 W(v2,v3)`,
+  `W4=u1^4 v2^3 w3^2 (w4/w3)'`, and the reversed translation orientation
+  (`R206`--`R208`, `CERT29`). Arbitrary-order quotient generalization is not
+  part of the active PF4 denominator. The former
   escape/chart atlas is superseded (`R163`); `CERT6`--
   `CERT8` are archived, so routine certificate replay and progress commits skip
   them. Their manifests, supports, and explicit targeted replay remain available
