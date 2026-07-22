@@ -35,10 +35,13 @@ derivative tower on every interval `(-1,B)`, hence at every `t ≥ 0`, using
 finite polynomial coefficient bounds and polynomial-times-exponential
 comparison series. No special-function integration theorem is used. The
 global kernel is independently analytic and has the reflected representation
-`thetaSeries |t|`. The remaining seam is equality between
-`thetaSeriesJet 0,...,6` and the global iterated derivatives, especially at
-the origin; direct all-real convergence of the unreflected series is not
-claimed.
+`thetaSeries |t|`. `PF4.GlobalKernelJetIdentification` now identifies
+`thetaSeriesJet 0,...,6` with the global iterated derivatives on the
+nonnegative half-line, including the origin, and transports the jet globally
+by parity. Direct all-real convergence of the unreflected series is not
+claimed. The higher derivative levels needed by the independent PF5 witness
+remain outside this six-jet theorem, so the combined PF4/PF5 import obligation
+is still a formal fragment.
 
 ## I-003 — determinant and matrix integration facts
 

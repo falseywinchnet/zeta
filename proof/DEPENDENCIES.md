@@ -53,22 +53,23 @@ their conclusions backward.
 
 ## Current unresolved leaves
 
-1. Identify `thetaSeriesJet 0,...,6` with the global iterated derivatives of
-   `Φ`; analyticity, parity, and the global reflected value formula are closed,
-   but the derivative-value seam at the origin is not.
-2. Replay the CERT12 positivity proof against the maintained canonical
-   `clearedQ`, `clearedF2`, and `clearedC4` propositions; the
-   positive-denominator and raw-Hankel statement bridges are closed. The
-   CERT17 statement bridge remains open.
-3. Instantiate the maintained quotient sign conversions with the actual
-   Riemann-kernel `q>0` and `Lambda>0` inputs.
-4. Instantiate the maintained cleared-jet-to-`Q,Q₁,...,Q₄` theorem with the
-   actual global kernel jet once items 1 and 2 are closed.
+1. Convert the universal actual-kernel terminal quotient sign into the exact
+   arbitrary-node order-four translation-minor theorem using the maintained
+   fixed-size quotient-integral assembly.
+2. Instantiate and assemble the lower-order quotient signs so the exported T1
+   statement covers orders one through four, not only the terminal order-four
+   cascade. The analytic lower-`Lambda` bound remains the substantive lower-
+   order input.
+3. Prove that the CERT17 evaluator denotes the primary kernel's exact finite
+   order-five determinant, and port or replay its rational negativity check in
+   Lean.
+4. Combine the completed T1 and T2 declarations with the formal definition of
+   exact PF order at the final T3 boundary.
 
 PO-0026 through PO-0028 and PO-0037 through PO-0039 are `FORMALLY_PROVED`.
 PO-0029, PO-0040, and PO-0041 are checked conditional cores, not completed
-actual-kernel obligations. Every route to T1–T3 still has unresolved
-prerequisites. The fixed-order generic PO-0017/0018/0020 engine, its
-translation quotient object layer, all three sign-conversion mechanisms, and
-the cleared raw-jet terminal interface are checked. Their concrete global
-kernel-jet instance and certificate positivity proofs remain unresolved.
+actual-kernel obligations. The global derivative jet, kernel positivity,
+canonical `q,F₂,C₄` signs, and actual-kernel terminal quotient are now
+closed. Every route to T1–T3 still has unresolved assembly prerequisites: the
+fixed-order generic PO-0017/0018/0020 engine has not yet been exported as the
+arbitrary-node T1 theorem, and the independent CERT17/T2 bridge remains open.

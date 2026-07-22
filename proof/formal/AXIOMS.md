@@ -105,6 +105,33 @@ every exported helper theorem.
 - `PF4.ClearedJetCertificateBridge.curvatureDerivativeTower_of_rawJet`
 - `PF4.ClearedJetCertificateBridge.kernelSigns_of_clearedSigns`
 - `PF4.ClearedJetCertificateBridge.terminalQuotD_pos_of_clearedJetSigns`
+- `PF4.Curvature.coordinateLambda_eq_triangular`
+- `PF4.Curvature.hasDerivAt_coordinateLambda_left`
+- `PF4.Curvature.coordinateDelta_eq_triangular`
+- `PF4.Curvature.coordinateDelta_pos`
+- `PF4.Curvature.coordinateLambda_pos`
+- `PF4.Curvature.coordinate_mu_isProbabilityMeasure`
+- `PF4.Curvature.coordinate_nu_isProbabilityMeasure`
+- `PF4.Cumulative.closedGapLeft_expanded`
+- `PF4.Cumulative.closedGapLeft_eq_integral_difference`
+- `PF4.Cumulative.closedGapRight_eq_tail_integral`
+- `PF4.Cumulative.coordinateGap_at_p`
+- `PF4.Cumulative.coordinateGap_at_w`
+- `PF4.Cumulative.coordinateGap_pos_of_normalized`
+- `PF4.Cumulative.coordinateGap_continuous_of_normalized`
+- `PF4.Cumulative.coordinateGap_pos`
+- `PF4.CDF.cdfGap_eq_closedGapLeft`
+- `PF4.CDF.cdfGap_eq_closedGapRight`
+- `PF4.TransportObject.derived_expandedTransportK_eq_concrete_expectationDifference`
+- `PF4.Transport.coordinateTransportNumerator_pos`
+- `PF4.Transport.coordinateTransportNumerator_pos_closed`
+- `PF4.GlobalKernelJetIdentification.iteratedDeriv_globalRiemannKernel_eq_thetaSeriesJet`
+- `PF4.GlobalKernelJetIdentification.globalRiemannKernel_pos`
+- `PF4.CERT12OuterClosure.normalized_clearedQ_pos`
+- `PF4.CERT12OuterClosure.normalized_clearedF2_pos`
+- `PF4.CERT12OuterClosure.normalized_clearedC4_pos`
+- `PF4.CERT12OuterClosure.normalized_cleared_signs_pos`
+- `PF4.CERT12OuterClosure.terminalQuotD_global_kernel_pos`
 
 No custom project axiom, `sorry`, `admit`, unsafe theorem bridge, or external
 certificate result appears in these declarations.

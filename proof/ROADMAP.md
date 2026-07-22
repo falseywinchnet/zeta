@@ -33,10 +33,13 @@ Gaussian/Poisson theorem now proves the exact theta transformation, while a
 Jacobi-theta holomorphic realization proves global analyticity. The maintained
 real kernel is even, smooth, and globally equal to `thetaSeries |t|`. The
 cleared raw-jet interface and its exact `q`, `F₂`, and raw-Hankel `C₄`
-identities are also maintained. The remaining Track B seam is to identify the
-six positive series jets with the global iterated derivatives and replay
-CERT12 positivity against those canonical cleared propositions. `Φ>0` and the
-actual certificate instance remain downstream.
+identities are also maintained. The positive series jet is now identified with
+the global iterated derivative jet through order six, including the origin and
+the reflected half-line. `Φ>0` is global. The compact CERT12 certificate and
+an analytic outer-tail proof jointly establish the canonical `q`, `F₂`, and
+`C₄` signs on the whole real line. Track B's remaining bookkeeping is the
+explicit well-definedness packaging for the paper's logarithmic and ordered-
+argument objects, not a missing kernel or certificate sign.
 
 ## Track C — generic determinant engine
 
@@ -76,7 +79,8 @@ assembly theorem, not merely matching script output.
    by parts (PO-0039) are Lean-checked.
 7. Derive the positive integral and `∂ξΨ < 0` — the exact differentiated
    object identity, determinant normalization, and conditional implication
-   from `C₄>0` are maintained; the actual Riemann-kernel sign inputs remain.
+   from `C₄>0` are maintained; the actual coordinate-transport instance has
+   not been exported from the now-closed kernel signs.
 
 Exit gate: no positive symbol or probability measure is introduced before its
 positivity or total mass is derived.
@@ -97,10 +101,11 @@ Exit gate: T1–T3 are kernel-checked and the target-reachable graph has no gaps
 
 ## Priority order
 
-The first deep proof task is the generic iterated-integral engine, because it
-is reusable and isolates finite-minor strictness from Riemann-specific
-analysis. The next adversarial transport task is to derive the triangular
-normalizers and their regularity directly from the curvature-coordinate
-definitions, closing the instance inputs of PO-0030/0031. The first
-certificate task is statement reconstruction for CERT12, not a rewrite of its
-generator.
+The next deep proof task is the exact T1 assembly: combine the global kernel
+derivative tower, strict first/second quotient signs, and the now-universal
+terminal quotient sign with the maintained fixed-size integral determinant
+engine to prove every strictly ordered order-four translation minor positive.
+Lower orders must be assembled into the same exported `StrictPFUpTo` theorem.
+After T1, keep the independent CERT17 evaluator equivalence and rational PF5
+witness as a separate T2 task, then combine T1 and T2 only at the exact-order
+T3 boundary.

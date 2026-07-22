@@ -7,3 +7,4 @@ import PF4.QuotientAlgebra
 import PF4.TranslationQuotientSigns
 import PF4.TranslationQuotientPsi
 import PF4.TranslationQuotientAssembly
+import PF4.CERT12OuterClosure

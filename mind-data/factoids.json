@@ -3601,8 +3601,128 @@
       ],
       "status": "established",
       "updated_at": "2026-07-21T16:26:13+00:00"
+    },
+    "F000195": {
+      "because": [
+        {
+          "id": "K000022",
+          "type": "certificate"
+        }
+      ],
+      "content": "Maintained Lean identifies every global Riemann-kernel iterated derivative through order six with the explicit positive theta-series jet on the nonnegative half-line, including the origin.",
+      "created_at": "2026-07-22T01:58:36+00:00",
+      "relates_to": [
+        "T000012"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-22T01:58:36+00:00"
+    },
+    "F000196": {
+      "because": [
+        {
+          "id": "K000022",
+          "type": "certificate"
+        }
+      ],
+      "content": "Maintained Lean gives the reflected parity formula for every global Riemann-kernel iterated derivative through order six on the whole real line.",
+      "created_at": "2026-07-22T01:58:36+00:00",
+      "relates_to": [
+        "T000012"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-22T01:58:36+00:00"
+    },
+    "F000197": {
+      "because": [
+        {
+          "id": "K000022",
+          "type": "certificate"
+        }
+      ],
+      "content": "The maintained Lean global Riemann kernel is strictly positive at every real input.",
+      "created_at": "2026-07-22T01:58:36+00:00",
+      "relates_to": [
+        "T000012"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-22T01:58:36+00:00"
+    },
+    "F000198": {
+      "because": [
+        {
+          "id": "K000022",
+          "type": "certificate"
+        }
+      ],
+      "content": "The maintained Lean canonical clearedQ polynomial evaluated on the actual global Riemann-kernel derivative jet is strictly positive at every real input.",
+      "created_at": "2026-07-22T01:58:36+00:00",
+      "relates_to": [
+        "T000012"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-22T01:58:36+00:00"
+    },
+    "F000199": {
+      "because": [
+        {
+          "id": "K000022",
+          "type": "certificate"
+        }
+      ],
+      "content": "The maintained Lean canonical clearedF2 polynomial evaluated on the actual global Riemann-kernel derivative jet is strictly positive at every real input.",
+      "created_at": "2026-07-22T01:58:36+00:00",
+      "relates_to": [
+        "T000012"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-22T01:58:36+00:00"
+    },
+    "F000200": {
+      "because": [
+        {
+          "id": "K000022",
+          "type": "certificate"
+        }
+      ],
+      "content": "The maintained Lean canonical clearedC4 polynomial evaluated on the actual global Riemann-kernel derivative jet is strictly positive at every real input.",
+      "created_at": "2026-07-22T01:58:36+00:00",
+      "relates_to": [
+        "T000012"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-22T01:58:36+00:00"
+    },
+    "F000201": {
+      "because": [
+        {
+          "id": "K000022",
+          "type": "certificate"
+        }
+      ],
+      "content": "For every ordered offsets a<c<b<d, maintained Lean proves the actual global Riemann-kernel terminal quotient derivative is strictly positive at every real translation parameter.",
+      "created_at": "2026-07-22T01:58:36+00:00",
+      "relates_to": [
+        "T000012"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-22T01:58:36+00:00"
+    },
+    "F000202": {
+      "because": [
+        {
+          "id": "K000022",
+          "type": "certificate"
+        }
+      ],
+      "content": "The maintained Lean CERT12 closure covers the compact region and the entire analytic outer tail, with all binomial multiplicities included in the q, F2, and C4 perturbation budgets; it uses no finite sampling claim.",
+      "created_at": "2026-07-22T01:58:36+00:00",
+      "relates_to": [
+        "T000012"
+      ],
+      "status": "established",
+      "updated_at": "2026-07-22T01:58:36+00:00"
     }
   },
-  "next_id": 195,
+  "next_id": 203,
   "version": 1
 }

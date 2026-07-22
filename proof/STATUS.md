@@ -2,7 +2,7 @@
 
 Target: `PF4-CORE-v1`
 
-Formal completion: **17/46 obligations**
+Formal completion: **22/46 obligations**
 
 Current strongest result: a conventional proof supported by exact symbolic and
 rational certificates. Lean 4.32.0 and mathlib 4.32.0 are pinned. The analytic
@@ -13,7 +13,8 @@ and proves the `H''-H/4` kernel equals that series there. The integrated
 mathlib Gaussian/Poisson theorem proves the exact theta transformation; a
 Jacobi-theta realization proves global real analyticity, and parity gives the
 exact reflected representation `Φ(t)=thetaSeries |t|`. The real kernel
-definitions remain unchanged (`R185`--`R188`, `R191`, `CERT21`). Target
+definitions remain unchanged (`R185`--`R188`, `R191`, `CERT21`). The global
+jet and sign closure is recorded by `R195`--`R202` and `CERT22`. Target
 definitions, signed PF5 indices, constructive crossing algebra, and the actual
 left-density identity/sign bridge are kernel-checked. The actual restricted-
 density measures, mass-one interfaces, strict right mass, all three interior
@@ -48,31 +49,31 @@ from the exact S05 lower-order `Lambda`. The terminal logarithmic-rate identity
 is now checked, its endpoint object is proved equal to the maintained
 coordinate `Psi`, and determinant positivity supplies strict `Psi` decrease
 and hence the terminal sign with the correct ordered-point orientation. The
-actual Riemann-kernel bridges for `q>0`, `Lambda>0`, the coordinate inverse and
-jet realization, and `C₄>0` remain open, so they do not complete additional
-obligations.
+actual global Riemann-kernel jet through order six and the canonical cleared
+`q`, `F₂`, and `C₄` signs are now instantiated. The resulting terminal
+quotient is strictly positive for every real translation parameter and every
+ordered quadruple `a<c<b<d`. The exact arbitrary-node minor assembly remains.
 
 The cleared raw-jet interface is also maintained. It reconstructs the
 curvature derivative tower from seven ordinary kernel jets, proves that the
 three cleared polynomials are exactly the denominators-cleared `q`, `F₂`, and
 raw-Hankel `C₄` propositions, and derives the terminal quotient sign from
-their strict positivity. CERT12's proof of those three strict propositions and
-the identification of the global kernel derivatives with the positive series
-jets remain separate evidence boundaries (`R189`--`R190`, `R192`--`R194`,
-`CERT21`).
+their strict positivity. The compact and unbounded CERT12 regions now replay
+as a single universal Lean theorem. Integration corrected the outer
+perturbation coefficients to include every binomial multiplicity.
 
 ## Analytic foundation
 
 | ID | Claim | Present status | Formal blocker |
 |---|---|---|---|
 | PO-0001 | Theta series is well-defined for `x > 0` | FORMALLY_PROVED | none; `PF4.summable_int_thetaTerms` and the literal `riemannTheta` construction close it |
-| PO-0002 | Required derivative series converge locally uniformly | FORMAL_FRAGMENT | explicit polynomial-geometric majorants justify six positive-mode derivatives on every bounded interval `(-1,B)`; identification with the global iterated-derivative jet remains |
+| PO-0002 | Required derivative series converge locally uniformly | FORMALLY_PROVED | none; `iteratedDeriv_globalRiemannKernel_eq_thetaSeriesJet` identifies the global derivative jet through order six, including the origin and reflected half-line |
 | PO-0003 | Theta transformation in the chosen normalization | FORMALLY_PROVED | none; `PF4.riemannTheta_modular` is the exact real specialization of mathlib's Gaussian Poisson theorem |
 | PO-0004 | `H` is real analytic and even | FORMALLY_PROVED | none; `PF4.contDiff_riemannH` and `PF4.riemannH_even` close the global statement |
 | PO-0005 | Primary `Φ` equals the displayed positive-side series | FORMALLY_PROVED | none; `PF4.globalRiemannKernel_eq_thetaSeries_abs` proves the global reflected formula without defining the kernel using `abs` |
 | PO-0006 | `Φ` has all derivatives used through the PF5 witness | FORMALLY_PROVED | none; `PF4.contDiff_globalRiemannKernel` proves global smoothness to every finite order |
 | PO-0007 | `Φ` is even on `ℝ` | FORMALLY_PROVED | none; `PF4.globalRiemannKernel_even` |
-| PO-0008 | `Φ(t) > 0` for every real `t` | CONVENTIONALLY_PROVED | formal `2π > 3` and series positivity |
+| PO-0008 | `Φ(t) > 0` for every real `t` | FORMALLY_PROVED | none; `PF4.GlobalKernelJetIdentification.globalRiemannKernel_pos` |
 | PO-0009 | `ℓ,s,q` are globally well-defined | OBLIGATION | PO-0008 plus differentiability |
 | PO-0010 | `A,M` are well-defined on ordered arguments when used | OBLIGATION | denominator positivity/provenance |
 
@@ -80,9 +81,9 @@ jets remain separate evidence boundaries (`R189`--`R190`, `R192`--`R194`,
 
 | ID | Claim | Present status | Formal blocker |
 |---|---|---|---|
-| PO-0011 | `q(t) > 0` globally | CERTIFIED | exact `clearedQ` proposition and positive-denominator transfer are in Lean; replay its CERT12 positivity proof |
-| PO-0012 | `F₂(t) > 0` globally | CERTIFIED | exact `clearedF2` proposition and transfer are in Lean; replay its CERT12 positivity proof |
-| PO-0013 | `C₄(t) > 0` globally | CERTIFIED | `clearedC4` equals the literal raw Hankel determinant and transfers exactly; replay its CERT12 positivity proof |
+| PO-0011 | `q(t) > 0` globally | FORMALLY_PROVED | none; universal canonical `normalized_clearedQ_pos` plus the exact cleared-sign transfer |
+| PO-0012 | `F₂(t) > 0` globally | FORMALLY_PROVED | none; universal canonical `normalized_clearedF2_pos` plus the exact cleared-sign transfer |
+| PO-0013 | `C₄(t) > 0` globally | FORMALLY_PROVED | none; universal canonical `normalized_clearedC4_pos` and `clearedC4_eq_rawHankel4_det` |
 
 ## Generic PF machinery
 
@@ -101,14 +102,14 @@ jets remain separate evidence boundaries (`R189`--`R190`, `R192`--`R194`,
 | ID | Claim | Present status | Formal blocker |
 |---|---|---|---|
 | PO-0021 | `y=-s` is strictly increasing on its image | FORMALLY_PROVED | none; inverse-on-range calculus and derivative transport checked |
-| PO-0022 | `ρ=F₂/q³>0`, `κ=1+ρ>1` | FORMAL_FRAGMENT | exact coordinate identity and sign transfer checked; actual-kernel certificate bridge remains |
+| PO-0022 | `ρ=F₂/q³>0`, `κ=1+ρ>1` | FORMAL_FRAGMENT | exact coordinate identity and sign transfer checked; export the actual-kernel coordinate instance from the now-closed `q,F₂` signs |
 | PO-0023 | Triangular integral formula for `Λ` | FORMALLY_PROVED | none; explicit primitives and endpoint algebra checked |
 | PO-0024 | Triangular formula and positivity for `δ` | FORMALLY_PROVED | none; endpoint derivative, integral identity, and midpoint strictness checked |
 | PO-0025 | Simultaneous translation operator in coordinates | SYMBOLICALLY_CHECKED | multivariable chain rule |
 | PO-0026 | Definition/expansion of `N` from differentiating `Ψ` | FORMALLY_PROVED | none; endpoint translation objects and actual derivative checked |
 | PO-0027 | `∂ξΨ = -Q(p)N/Λ²` | FORMALLY_PROVED | none; coordinate speed and exact negative orientation checked |
 | PO-0028 | `C₄ = Q⁶κ²D` | FORMALLY_PROVED | none; primary Hankel determinant, cumulant expansion, and curvature factorization checked |
-| PO-0029 | `D > 0` globally | FORMAL_FRAGMENT | exact transfer from `C₄>0` checked; actual Riemann-kernel `C₄` input remains PO-0013 |
+| PO-0029 | `D > 0` globally | FORMAL_FRAGMENT | exact transfer from `C₄>0` checked; export the actual-kernel coordinate instance from the now-closed PO-0013 input |
 
 ## Non-vacuous normalization and crossing layer
 
@@ -129,9 +130,9 @@ jets remain separate evidence boundaries (`R189`--`R190`, `R192`--`R194`,
 |---|---|---|---|
 | PO-0038 | `K=Eν[A₀]-Eμ[A₀]` | FORMALLY_PROVED | none; independent primitive, expectations, and endpoint object identity checked |
 | PO-0039 | Expectation difference equals `∫ΔD` | FORMALLY_PROVED | none; actual measures, expectations, CDFs, and boundary terms checked |
-| PO-0040 | Transport integral and `N` are strictly positive | FORMAL_FRAGMENT | strict integral checked from supplied `Q,κ,C₄` signs; actual-kernel sign inputs remain |
-| PO-0041 | `∂ξΨ<0` globally | FORMAL_FRAGMENT | actual-range coordinate, gap, and central identity are checked; actual Riemann-kernel derivative/sign instantiation remains |
-| PO-0042 | Strict global order-four minors | CERTIFIED | instantiate actual-kernel `q>0`, lower `Λ>0`, derivative tower, and `C₄>0` certificate bridges in the checked quotient/`Psi` chain |
+| PO-0040 | Transport integral and `N` are strictly positive | FORMAL_FRAGMENT | strict integral checked from supplied `Q,κ,C₄` signs; the actual-kernel coordinate instance has not been exported |
+| PO-0041 | `∂ξΨ<0` globally | FORMAL_FRAGMENT | actual-range coordinate, gap, and central identity are checked; the transport-route actual-kernel instance has not been exported (the terminal quotient is closed independently) |
+| PO-0042 | Strict global order-four minors | FORMAL_FRAGMENT | actual-kernel terminal quotient positivity is universal; connect it to the exact arbitrary-node translation-minor statement |
 | PO-0043 | Strict minors of orders one through three | CERTIFIED | assemble PO-0008/0016/0018 |
 | PO-0044 | CERT17 evaluator denotes T2's exact determinant | OBLIGATION | primary-kernel equivalence |
 | PO-0045 | Exact rational finite determinant is negative | CERTIFIED | port/check certificate in Lean |
@@ -139,8 +140,7 @@ jets remain separate evidence boundaries (`R189`--`R190`, `R192`--`R194`,
 
 ## Immediate next work
 
-1. Execute `proof/NEXT_ADVANCEMENT.md`: identify the integrated positive
-   series jets with the global kernel's iterated derivatives, including the
-   origin parity seam.
-2. Replay or reconstruct CERT12 as proofs of the now-canonical `clearedQ`,
-   `clearedF2`, and `clearedC4` propositions; keep PO-0045 separate.
+1. Execute `proof/NEXT_ADVANCEMENT.md`: assemble the universal terminal
+   quotient theorem into the exact arbitrary-node T1 minor statement.
+2. Keep the independent CERT17/PF5 witness and exact-order T3 assembly
+   separate.

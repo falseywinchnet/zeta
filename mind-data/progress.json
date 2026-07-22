@@ -584,8 +584,12 @@
     "P000146": {
       "blurb": "closed literal CERT12 q F2 C4 signs on the complete compact band",
       "created_at": "2026-07-22T00:04:40+00:00"
+    },
+    "P000147": {
+      "blurb": "Integrate global kernel jet and universal CERT12 sign closure into maintained Lean and set exact T1 assembly boundary",
+      "created_at": "2026-07-22T02:02:01+00:00"
     }
   },
-  "next_id": 147,
+  "next_id": 148,
   "version": 1
 }

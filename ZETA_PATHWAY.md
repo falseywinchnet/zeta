@@ -211,11 +211,16 @@ path until `R93` is resolved.
   derivative propositions are also connected exactly to the maintained `q`,
   `F2`, raw-Hankel `C4`, lower-`Lambda`, and terminal quotient objects. The
   cleared polynomial identities and conditional terminal cascade are checked
-  by `R189`--`R190` and `R192`--`R194`/`CERT21`; they do not replay the
-  strict-sign proof in `CERT12`. The
-  remaining seams are identification of the six positive series jets with the
-  global iterated derivatives and replay of CERT12 positivity against those
-  canonical cleared propositions. The former
+  by `R189`--`R190` and `R192`--`R194`/`CERT21`. The formal closure now
+  identifies the global derivative jet through order six, including the
+  origin and reflected half-line, proves the global kernel positive, and
+  replays the compact and entire outer CERT12 regions against the canonical
+  cleared `q`, `F2`, and `C4` propositions (`R195`--`R200`, `R202`,
+  `CERT22`). It consequently proves the actual-kernel terminal quotient
+  derivative positive for every real translation and every ordered four
+  offsets (`R201`). The remaining Lean seam is the exact arbitrary-node
+  translation-minor and lower-order assembly required by the exported T1
+  statement; strict PF4 is not yet exported as `StrictPFUpTo`. The former
   escape/chart atlas is superseded (`R163`); `CERT6`--
   `CERT8` are archived, so routine certificate replay and progress commits skip
   them. Their manifests, supports, and explicit targeted replay remain available

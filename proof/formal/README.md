@@ -120,6 +120,14 @@ Implemented modules:
   tower from seven ordinary kernel jets, exact cleared `q`, `F₂`, and raw
   Hankel `C₄` identities, and the terminal quotient cascade from the three
   canonical cleared strict-sign propositions.
+- `PF4.GlobalKernelJetIdentification`: the global real Riemann kernel's
+  iterated derivatives through order six identified with the literal theta
+  series jet, global kernel positivity, and transport from normalized cleared
+  signs to the terminal quotient.
+- `PF4.CERT12OuterClosure`: corrected exact outer perturbation budgets, an
+  exact rational Bernstein certificate for the F2 half-strip, compact/outer
+  assembly of the canonical cleared q, F2, and C4 signs for every `t >= 0`,
+  and the resulting global terminal-quotient positivity theorem.
 - `PF4.QuotientAlgebra`: fixed-size determinant normalization, forward-
   difference orientation, and terminal discrete quotient factorization;
 - `PF4.QuotientIntegral`: exact fixed-order adjacent-box integral identities
@@ -153,10 +161,10 @@ this does not construct the Riemann kernel or discharge its global `C₄` sign.
 The translate quotient object layer and all three sign-conversion mechanisms
 are checked. The terminal sign is derived through the same coordinate `Psi`
 used by the determinant/transport assembly, with the `p₄<p₃` orientation
-consumed explicitly. This does not instantiate the actual Riemann-kernel
-`q > 0` or `C₄ > 0` certificate proofs. The cleared-jet bridge derives the
-required lower `Lambda` once the actual `q,F₂` signs are supplied. The
-coordinate inverse,
+consumed explicitly. The actual global Riemann-kernel jet and canonical
+cleared `q`, `F₂`, and `C₄` signs are now instantiated. The remaining T1
+work is the exact arbitrary-node minor assembly around the checked terminal
+quotient theorem. The coordinate inverse,
 range-local jet, deterministic gap, and local central identity are now
 constructed rather than assumed.
 

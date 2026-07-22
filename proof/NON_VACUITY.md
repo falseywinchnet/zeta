@@ -25,8 +25,9 @@ Gaussian/Poisson transformation, Jacobi-theta analytic realization, global
 smoothness, parity, and reflected series formula are now maintained. These
 theorems prove properties of the independently defined real kernel; no
 positivity subtype, `abs` definition, or stored derivative jet manufactures
-the object. Open: identify the positive series jets with the global iterated
-derivatives.
+the object. Closed for the PF4 path: the positive series jets through order six
+are identified with the global iterated derivatives, including at the origin,
+and parity transports them to the whole real line.
 
 ## NV-003 — logarithmic derivatives
 
@@ -34,7 +35,8 @@ derivatives.
 Every quotient involving `q`, `A`, `Λ`, `δ`, or `κ` has a separate nonzero or
 positive-denominator obligation.
 
-Open: PO-0008, PO-0010, PO-0015, PO-0022.
+PO-0008 is closed by direct positivity of the reflected positive series. Open:
+PO-0010, PO-0015, PO-0022.
 
 ## NV-004 — curvature coordinate
 
@@ -138,8 +140,9 @@ case.
 Conditional core closed: `PF4.Transport.coordinateTransportNumerator_pos_closed`
 derives the closed-gap sign and continuity and supplies an explicit midpoint
 witness for the positive weighted integrand. No positive integral is passed as
-a premise, but positivity of the supplied `Q`, `κ`, and `C₄` functions remains
-an upstream instance obligation.
+a premise. The actual kernel's cleared `q,F₂,C₄` signs are now closed;
+exporting the corresponding `Q,κ,C₄` coordinate instance remains an
+upstream obligation for this transport route.
 
 ## NV-011 — finite PF5 witness
 
@@ -179,10 +182,11 @@ Conditional core closed in both global and actual-range forms:
 `PF4.LocalFinalAssembly.actualCoordinatePartialXiPsi_neg`. No central identity,
 gap property, positive transport integral, positive numerator, or derivative
 sign is a hypothesis. The range-local theorem constructs the coordinate inverse
-and jet from the original variables. The actual Riemann-kernel derivative
-tower instance and CERT12 positivity proofs remain open. The exact
-raw-jet-to-curvature tower and cleared `q,F₂,C₄` proposition bridge are closed
-in `PF4.ClearedJetCertificateBridge`.
+and jet from the original variables. The actual Riemann-kernel derivative tower
+and canonical cleared signs are now closed. Exporting their full coordinate-
+transport instance remains open; the terminal quotient route closes its sign
+independently. The exact raw-jet-to-curvature tower and cleared `q,F₂,C₄`
+proposition bridge are maintained in `PF4.ClearedJetCertificateBridge`.
 
 ## NV-014 — terminal quotient sign
 
@@ -198,5 +202,7 @@ forms: `PF4.TranslationQuotientPsi.terminalQuotD_pos_of_determinantC4` and
 `PF4.ClearedJetCertificateBridge.terminalQuotD_pos_of_clearedJetSigns`. The
 second theorem derives curvature, lower `Lambda`, coordinate realization, and
 the terminal sign from a positive ordinary raw jet and the three cleared
-strict inequalities. The remaining boundary is the actual global kernel-jet
-identification and proof of those CERT12 inequalities.
+strict inequalities. `PF4.CERT12OuterClosure.terminalQuotD_global_kernel_pos`
+instantiates that theorem for the actual kernel at every real translation and
+every ordered `a<c<b<d`. The remaining boundary is its conversion into the
+exact arbitrary-node translation minor used by T1.

@@ -110,3 +110,10 @@ set_option linter.style.header false
 #print axioms PF4.ClearedJetCertificateBridge.curvatureDerivativeTower_of_rawJet
 #print axioms PF4.ClearedJetCertificateBridge.kernelSigns_of_clearedSigns
 #print axioms PF4.ClearedJetCertificateBridge.terminalQuotD_pos_of_clearedJetSigns
+#print axioms PF4.GlobalKernelJetIdentification.iteratedDeriv_globalRiemannKernel_eq_thetaSeriesJet
+#print axioms PF4.GlobalKernelJetIdentification.globalRiemannKernel_pos
+#print axioms PF4.CERT12OuterClosure.normalized_clearedQ_pos
+#print axioms PF4.CERT12OuterClosure.normalized_clearedF2_pos
+#print axioms PF4.CERT12OuterClosure.normalized_clearedC4_pos
+#print axioms PF4.CERT12OuterClosure.normalized_cleared_signs_pos
+#print axioms PF4.CERT12OuterClosure.terminalQuotD_global_kernel_pos
