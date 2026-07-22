@@ -644,8 +644,12 @@
     "P000161": {
       "blurb": "Backport the actual-range deterministic coordinate transport route into the PF4 manuscript",
       "created_at": "2026-07-22T08:19:28+00:00"
+    },
+    "P000162": {
+      "blurb": "Backport the direct rational PF5 witness as the exact-order obstruction",
+      "created_at": "2026-07-22T08:21:03+00:00"
     }
   },
-  "next_id": 162,
+  "next_id": 163,
   "version": 1
 }

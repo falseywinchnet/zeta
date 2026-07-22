@@ -7,7 +7,41 @@ Equation \eqref{eq:sign-bridge} and \eqref{eq:central-identity} imply
 Proposition~\ref{prop:equivalence} therefore proves part~(1) of
 Theorem~\ref{thm:main}.
 
-We now prove directly that the classification stops at order four. Put
+We now prove directly that the classification stops at order four. Let
+\(h=211/2000\). Exact rational theta enclosures give
+\begin{equation}\label{eq:finite-pf5-witness}
+ -1.08\mathbin{\cdot}10^{-7}
+ <\det[\Phi((i-j)h)]_{i,j=0}^4
+ <-1.05\mathbin{\cdot}10^{-7}.
+\end{equation}
+
+\begin{theorem}\label{thm:not-pf5}
+The Riemann kernel is not \(\PF_5\).
+\end{theorem}
+
+\begin{proof}
+The nodes \(0,h,2h,3h,4h\) are strictly increasing. Evenness identifies the
+translation matrix with the symmetric Toeplitz matrix determined by the five
+kernel values \(\Phi(0),\Phi(h),\ldots,\Phi(4h)\). Each value is enclosed by
+exact Taylor bounds for the retained theta modes and the maintained infinite
+tail theorem; a rational determinant parity factorization then gives
+\eqref{eq:finite-pf5-witness}. This is a negative translation minor at
+distinct nodes, with no limiting argument.
+
+\begin{sloppypar}
+In the formal development the node ordering, signed-index orientation,
+Toeplitz identification, value boxes, determinant sign, and primary-kernel
+identity are all premises of
+\path{PF4.globalRiemannKernel_orderFive_translationMinor_neg}. Thus the
+order-five obstruction used by Theorem~\ref{thm:main} does not depend on the
+confluent calculations below.
+\end{sloppypar}
+\end{proof}
+
+\subsection*{Optional confluent structure}
+
+The origin and threshold calculations give independent information about the
+first order-five failure, but are not used in the exact-order assembly. Put
 \[
  \mathsf H_k=\det[\Phi^{(i+j)}(0)]_{i,j=0}^{k-1},\qquad
  s_j=\Phi^{(j)}(0).
@@ -80,18 +114,11 @@ grid endpoints and the standard-library verifier are included in the
 reproducibility archive.
 \end{proof}
 
-\begin{theorem}\label{thm:not-pf5}
-The Riemann kernel is not \(\PF_5\).
-\end{theorem}
-
-\begin{proof}
-Apply Lemma~\ref{lem:confluent-limit} with \(k=5\), \(z=0\), and
-\(a_i=b_i=i\). The sign factor in \eqref{eq:two-sided-confluence} is one, both
-Vandermonde factors are positive, and Lemma~\ref{lem:origin-pf5-sign} makes
-the limit strictly negative. Hence
-\(\det[\Phi((i-j)h)]_{i,j=0}^4<0\) for every sufficiently small positive
-\(h\). These are translation minors at strictly increasing nodes.
-\end{proof}
+Applying Lemma~\ref{lem:confluent-limit} with \(k=5\), \(z=0\), and
+\(a_i=b_i=i\) shows independently that
+\(\det[\Phi((i-j)\varepsilon)]_{i,j=0}^4<0\) for every sufficiently small
+positive \(\varepsilon\). This implication is not needed for
+Theorem~\ref{thm:not-pf5}, whose witness is the fixed rational spacing above.
 
 For the equal-step family put
 \[
@@ -154,15 +181,8 @@ prove existence, uniqueness, and the stated classification. The domains and
 cell counts are listed in \appref{app:pf5-threshold}.
 \end{proof}
 
-The same rational evaluator gives a finite, nonconfluent witness:
-\begin{equation}\label{eq:finite-pf5-witness}
- -1.08\mathbin{\cdot}10^{-7}
- <\det[\Phi((i-j)211/2000)]_{i,j=0}^4
- <-1.05\mathbin{\cdot}10^{-7}.
-\end{equation}
-This is a direct translation minor at distinct equally spaced nodes. The
-outermost center over all finite spacings is a separate two-variable extremal
-problem; no such global extremality is used here.
+The outermost center over all finite spacings is a separate two-variable
+extremal problem; no such global extremality is used here.
 
 Equation~\eqref{eq:finite-pf5-witness} proves part~(2) of
 Theorem~\ref{thm:main}. Together with the strict minors through order four,
